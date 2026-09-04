@@ -11,6 +11,12 @@ os.chdir(ROOT)
 
 t = open(os.path.join('rassen', 'index.html'), encoding='utf-8').read()
 
+# --- online-bronbare feiten per ras (herkomst / schofthoogte / gewicht), indien beschikbaar ---
+FEITEN = {}
+feiten_path = os.path.join('tools', 'rasfeiten.json')
+if os.path.exists(feiten_path):
+    FEITEN = json.load(open(feiten_path, encoding='utf-8'))
+
 # --- groeptitels uit de sectiekoppen ---
 GROEP = {}
 for m in re.finditer(r'<section class="groep" data-groep="([^"]+)"[^>]*>\s*<div class="groep-kop"><h2[^>]*>(.*?)</h2>', t):
@@ -247,7 +253,9 @@ TEMPLATE = '''<!DOCTYPE html>
       <div class="feit"><b>Verzorging</b><span>@@FREQ@@</span></div>
       <div class="feit"><b>Trimprijs</b><span>@@PRIJS@@ <small>indicatie</small></span></div>
       <div class="feit"><b>Rasgroep</b><span>@@GROEPVOLLEDIG@@</span></div>
+      @@FEITEN@@
     </div>
+    @@FEITEN_BRON@@
 
     <section class="paneel" style="margin-top:24px">
       <h2>@@KOP@@</h2>
@@ -335,12 +343,28 @@ for r in rassen:
 
     pop_html = ' <span class="pop" style="vertical-align:middle">Populair</span>' if r['pop'] else ''
 
+    feiten = FEITEN.get(r['slug'])
+    feiten_html, feiten_bron = '', ''
+    if feiten:
+        if feiten.get('herkomst'):
+            feiten_html += '<div class="feit"><b>Herkomst</b><span>%s</span></div>' % esc(feiten['herkomst'])
+        if feiten.get('hoogte'):
+            feiten_html += '<div class="feit"><b>Schofthoogte</b><span>%s</span></div>' % esc(feiten['hoogte'])
+        if feiten.get('gewicht'):
+            feiten_html += '<div class="feit"><b>Gewicht</b><span>%s</span></div>' % esc(feiten['gewicht'])
+        if feiten.get('leeftijd'):
+            feiten_html += '<div class="feit"><b>Levensverwachting</b><span>%s</span></div>' % esc(feiten['leeftijd'])
+        if feiten_html:
+            feiten_bron = '<p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">Bron: FCI-standaard · Wikipedia (Engelstalig).</p>'
+
     html = (TEMPLATE
             .replace('@@NAAM@@', esc(r['naam']))
             .replace('@@SLUG@@', r['slug'])
             .replace('@@GROEP@@', esc(GROEP[r['groep']]))
             .replace('@@GROEPVOLLEDIG@@', esc(GROEP_LABEL[r['groep']]))
             .replace('@@INTRO@@', ('<p class="ras-intro">' + POPULAR.get(r['slug'], '') + '</p>') if r['slug'] in POPULAR else '')
+            .replace('@@FEITEN@@', feiten_html)
+            .replace('@@FEITEN_BRON@@', feiten_bron)
             .replace('@@ZORG@@', esc(r['zorglabel']))
             .replace('@@FREQ@@', esc(r['freq']))
             .replace('@@PRIJS@@', esc(r['prijs']))
