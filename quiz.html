@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vachtwijzer: welk vachttype heeft jouw hond? | Pupgids</title>
+<meta name="description" content="Doe de vachtwijzer (1 minuut) en ontdek welk vachttype jouw hond heeft, hoe je die verzorgt en wat een trimbeurt kost.">
+<meta name="theme-color" content="#2F6B4F">
+<link rel="canonical" href="https://pupgids.nl/vachtwijzer/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pupgids">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Vachtwijzer: welk vachttype heeft jouw hond? | Pupgids">
+<meta property="og:description" content="Beantwoord 3 vragen en krijg het verzorgingsadvies voor de vacht van jouw hond.">
+<meta property="og:url" content="https://pupgids.nl/vachtwijzer/">
+<meta property="og:image" content="https://pupgids.nl/images/pom-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vachtwijzer — Pupgids">
+<meta name="twitter:description" content="Beantwoord 3 vragen en krijg het verzorgingsadvies voor de vacht van jouw hond.">
+<meta name="twitter:image" content="https://pupgids.nl/images/pom-hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F6B4F'/%3E%3Cg fill='%23fff'%3E%3Cellipse cx='20' cy='22' rx='6' ry='7'/%3E%3Cellipse cx='32' cy='17' rx='6' ry='7'/%3E%3Cellipse cx='44' cy='22' rx='6' ry='7'/%3E%3Cpath d='M32 34c-7.5 0-12.5 5.5-12.5 11.5C19.5 52 25 57 32 57s12.5-5 12.5-11.5C44.5 39.5 39.5 34 32 34z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/pom-hero.jpg">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.quiz-wrap{max-width:680px;margin:0 auto}
+.progress{height:8px;background:var(--groen-l);border-radius:999px;overflow:hidden;margin:26px 0 30px}
+.progress .bar{height:100%;background:var(--groen);border-radius:999px;width:33%;transition:width .35s ease}
+.q-kop{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.q-titel{font-family:Fraunces,serif;font-size:clamp(24px,3.4vw,32px);margin-bottom:22px}
+.opties{display:grid;gap:10px}
+.optie{display:flex;align-items:center;gap:14px;text-align:left;width:100%;background:var(--wit);border:1px solid var(--lijn);border-radius:16px;padding:16px 18px;font:inherit;font-size:16px;font-weight:500;color:var(--ink);cursor:pointer;transition:.15s}
+.optie:hover{border-color:var(--groen);background:var(--groen-xl)}
+.optie .em{font-size:22px}
+.optie .pijl{margin-left:auto;color:var(--ink-3);font-weight:600}
+.resultaat{background:var(--wit);border:1px solid var(--lijn);border-radius:28px;padding:40px;text-align:center;box-shadow:var(--schaduw)}
+@media(max-width:560px){.resultaat{padding:28px 20px}}
+.resultaat .em{font-size:60px;margin-bottom:12px}
+.resultaat h2{font-size:clamp(26px,3.4vw,34px);margin-bottom:12px}
+.resultaat .type-badge{display:inline-block;background:var(--groen);color:#fff;font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:6px 16px;margin-bottom:16px}
+.resultaat .uitleg{color:var(--ink-2);font-size:16px;max-width:460px;margin:0 auto 24px}
+.resultaat .feiten{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px}
+@media(max-width:520px){.resultaat .feiten{grid-template-columns:1fr}}
+.resultaat .feit{background:var(--creme);border-radius:14px;padding:14px 10px}
+.resultaat .feit b{display:block;font-size:14.5px}
+.resultaat .feit span{font-size:12.5px;color:var(--ink-2)}
+.resultaat .acties{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.resultaat .deel-note{font-size:13px;color:var(--groen);font-weight:600;margin-top:14px;min-height:18px}
+.ras-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
+.ras-chips a{font-size:13px;font-weight:500;border:1px solid var(--lijn);border-radius:999px;padding:6px 12px;background:var(--wit);color:var(--ink-2);transition:.15s}
+.ras-chips a:hover{border-color:var(--groen);color:var(--groen)}
+</style>
+</head>
+<body>
+<a href="#inhoud" class="skip">Direct naar inhoud</a>
+
+<nav aria-label="Hoofdnavigatie">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Pupgids, naar de homepage">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
+      Pupgids
+    </a>
+    <div class="nav-links" id="menu">
+      <a href="trimsalon.html">Trimsalons</a>
+      <a href="binnenkort.html?cat=hondenschool">Hondenscholen</a>
+      <a href="binnenkort.html?cat=opvang">Opvang</a>
+      <a href="rassen.html">Rassen</a>
+      <a href="premium.html">Voor bedrijven</a>
+    </div>
+    <div class="nav-cta">
+      <a href="premium.html" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu openen of sluiten">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="inhoud" class="sec">
+  <div class="wrap quiz-wrap">
+    <div style="text-align:center;margin-bottom:8px">
+      <span class="eyebrow">Vachtwijzer · 1 minuut</span>
+      <h1 style="font-size:clamp(30px,4.4vw,44px);margin:12px 0 12px">Welk vachttype heeft jouw hond?</h1>
+      <p style="color:var(--ink-2);font-size:17px;max-width:520px;margin:0 auto">Beantwoord drie korte vragen en ontdek hoe je de vacht het best verzorgt, hoe vaak, en wat een trimbeurt kost.</p>
+    </div>
+
+    <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+
+    <div id="quiz"></div>
+  </div>
+</main>
+
+<section class="sec creme" style="padding-top:0">
+  <div class="wrap" style="max-width:760px;text-align:center">
+    <p style="color:var(--ink-2);font-size:15px;margin-bottom:18px">Twijfel je of je hond een dubbele vacht heeft? Die mag je nooit scheren — lees er alles over in de <a href="pomeriaan.html" style="color:var(--groen);font-weight:600">Pomeriaan-gids</a>. Of blader door <a href="rassen.html" style="color:var(--groen);font-weight:600">alle 377 rassen</a> met trimadvies.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:14px">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
+          Pupgids
+        </a>
+        <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
+      </div>
+      <div><h4>Zoeken</h4><a href="trimsalon.html">Trimsalons</a><a href="binnenkort.html?cat=hondenschool">Hondenscholen</a><a href="binnenkort.html?cat=opvang">Pension &amp; dagopvang</a><a href="rassen.html">Rassen</a><a href="quiz.html">Vachtwijzer</a><a href="binnenkort.html?cat=pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="premium.html">Premium vermelding</a><a href="premium.html#aanmelden">Vermelding claimen</a><a href="binnenkort.html?cat=dashboard">Inloggen</a></div>
+      <div><h4>Pupgids</h4><a href="over.html">Over ons</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="voorwaarden.html">Voorwaarden</a></div>
+    </div>
+    <div class="copy">
+      <span>© <span class="jaar">2025</span> Pupgids.nl · Ook bereikbaar via trimgids.nl</span>
+      <span>Gemaakt in Limburg · <a href="privacy.html">Privacy</a> · <a href="voorwaarden.html">Voorwaarden</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+<script>
+(function () {
+  "use strict";
+
+  var TYPES = {
+    krul:   { em: "🌀", naam: "Krulvacht",  uitleg: "Krulvachten zoals bij poedels en doodles groeien door en verharen nauwelijks. Zonder regelmatige trimbeurt vervilt de vacht.", wat: "Scheren of knippen", freq: "elke 6–8 weken", prijs: "€55–€115", ex: "Poedel, Labradoodle, Bichon Frisé", exSlug: "labradoodle", zorg: "scheren" },
+    zijde:  { em: "✨", naam: "Zijdevacht", uitleg: "Zijdezachte, dunne haren die blijven groeien en rond de oren en poten snel klitten.", wat: "Knippen & dagelijks kammen", freq: "elke 6–8 weken", prijs: "€45–€75", ex: "Maltezer, Yorkshire Terriër, Cavalier", exSlug: "maltezer", zorg: "knippen" },
+    ruw:    { em: "🌾", naam: "Ruwharige vacht", uitleg: "Stugge, draadachtige haren die je plukt (stript) in plaats van scheert — zo blijft de structuur mooi.", wat: "Plukken / strippen", freq: "elke 8–12 weken", prijs: "€65–€115", ex: "Schnauzer, Westie, Airedale Terriër", exSlug: "schnauzer", zorg: "plukken" },
+    dubbel:  { em: "☁️", naam: "Dubbele vacht", uitleg: "Een zachte ondervacht plus stuggere dekharen. Isoleert en verhaart twee keer per jaar flink. Belangrijk: nooit scheren.", wat: "Uitkammen, nooit scheren", freq: "elke 6–10 weken", prijs: "€55–€110", ex: "Pomeriaan, Husky, Golden Retriever", exSlug: "pomeriaan", zorg: "uitkammen" },
+    lang:   { em: "💇", naam: "Langhaar", uitleg: "Lang, zacht haar dat blijft groeien en wekelijks geborsteld wil worden om klitten te voorkomen.", wat: "Borstelen & kammen", freq: "wekelijks + trim 8–12 wkn", prijs: "€60–€95", ex: "Shih Tzu, Lhasa Apso, Collie", exSlug: "shih-tzu", zorg: "borstelen" },
+    kort:   { em: "🐕", naam: "Korthaar", uitleg: "Korte, gladde vacht die weinig onderhoud vraagt. Af en toe wassen en borstelen is genoeg.", wat: "Wassen & borstelen", freq: "naar behoefte", prijs: "€35–€65", ex: "Labrador, Boxer, Beagle", exSlug: "labrador", zorg: "wassen" },
+    naakt:  { em: "🛁", naam: "Naakthond", uitleg: "(Bijna) geen vacht — maar de huid vraagt juist meer zorg: wekelijks wassen en beschermen tegen zon en kou.", wat: "Huidverzorging", freq: "wekelijks bad", prijs: "€30–€60", ex: "Chinese Naakthond, Xoloitzcuintle", exSlug: "chinese-naakthond", zorg: "nvt" }
+  };
+  var VOLGORDE = ["krul", "zijde", "ruw", "dubbel", "lang", "kort", "naakt"];
+
+  var VRAGEN = [
+    {
+      k: "Vraag 1 van 3",
+      t: "Hoe voelt de vacht van je hond aan?",
+      opties: [
+        { t: "Krulletjes of strakke krullen", e: "🌀", punten: { krul: 3 } },
+        { t: "Stug, draadachtig en piekerig", e: "🌾", punten: { ruw: 3 } },
+        { t: "Pluizig, met een dikke wollige ondervacht", e: "☁️", punten: { dubbel: 3 } },
+        { t: "Lang, zacht en golvend", e: "💇", punten: { lang: 2, zijde: 2 } },
+        { t: "Kort en glad", e: "🐕", punten: { kort: 3 } },
+        { t: "(Bijna) geen vacht", e: "🛁", punten: { naakt: 3 } }
+      ]
+    },
+    {
+      k: "Vraag 2 van 3",
+      t: "Hoeveel verhaart je hond?",
+      opties: [
+        { t: "Nauwelijks", e: "✨", punten: { krul: 2, zijde: 2, naakt: 2 } },
+        { t: "Een beetje, het hele jaar door", e: "🐕", punten: { lang: 2, kort: 2 } },
+        { t: "Veel — twee keer per jaar extreem", e: "☁️", punten: { dubbel: 3 } },
+        { t: "Matig", e: "🌾", punten: { ruw: 1, kort: 1, lang: 1 } }
+      ]
+    },
+    {
+      k: "Vraag 3 van 3",
+      t: "Hoe snel klit de vacht?",
+      opties: [
+        { t: "Nooit last van", e: "🐕", punten: { kort: 2, naakt: 2, ruw: 1 } },
+        { t: "Soms, vooral achter de oren", e: "✨", punten: { zijde: 2, dubbel: 2 } },
+        { t: "Snel — wekelijks borstelen is nodig", e: "🌀", punten: { krul: 2, lang: 2 } },
+        { t: "We laten hem plukken bij de trimmer", e: "🌾", punten: { ruw: 3 } }
+      ]
+    }
+  ];
+
+  var scores = {};
+  var antwoorden = [];
+  var stap = 0;
+
+  var box = document.getElementById("quiz");
+  var bar = document.getElementById("bar");
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+  function toonVraag() {
+    var v = VRAGEN[stap];
+    bar.style.width = Math.round((stap / VRAGEN.length) * 100) + "%";
+    var html = '<p class="q-kop">' + v.k + '</p><h2 class="q-titel">' + esc(v.t) + '</h2><div class="opties">';
+    v.opties.forEach(function (o) {
+      html += '<button class="optie" type="button"><span class="em" aria-hidden="true">' + o.e + '</span><span>' + esc(o.t) + '</span><span class="pijl" aria-hidden="true">→</span></button>';
+    });
+    html += '</div>';
+    box.innerHTML = html;
+    Array.prototype.forEach.call(box.querySelectorAll(".optie"), function (btn, i) {
+      btn.addEventListener("click", function () {
+        var punten = v.opties[i].punten;
+        Object.keys(punten).forEach(function (k) { scores[k] = (scores[k] || 0) + punten[k]; });
+        antwoorden.push(i);
+        stap++;
+        if (stap < VRAGEN.length) toonVraag();
+        else toonResultaat();
+      });
+    });
+  }
+
+  function bepaalType() {
+    var best = VOLGORDE[0], bestS = -1;
+    VOLGORDE.forEach(function (k) { var s = scores[k] || 0; if (s > bestS) { bestS = s; best = k; } });
+    return best;
+  }
+
+  function toonResultaat() {
+    var type = bepaalType();
+    var d = TYPES[type];
+    bar.style.width = "100%";
+    var html = '<div class="resultaat">' +
+      '<div class="em" aria-hidden="true">' + d.em + '</div>' +
+      '<span class="type-badge">' + esc(d.naam) + '</span>' +
+      '<h2>Jouw hond heeft een ' + esc(d.naam.toLowerCase()) + '.</h2>' +
+      '<p class="uitleg">' + esc(d.uitleg) + '</p>' +
+      '<div class="feiten">' +
+        '<div class="feit"><b>' + esc(d.wat) + '</b><span>verzorging</span></div>' +
+        '<div class="feit"><b>' + esc(d.freq) + '</b><span>frequentie</span></div>' +
+        '<div class="feit"><b>' + esc(d.prijs) + '</b><span>prijsindicatie</span></div>' +
+      '</div>' +
+      '<div class="ras-chips"><span style="font-size:13px;color:var(--ink-3);align-self:center;margin-right:4px">Voorbeelden:</span>' +
+        d.ex.split(", ").map(function (r) { return '<a href="rassen.html?zorg=' + d.zorg + '">' + esc(r) + '</a>'; }).join("") +
+      '</div>' +
+      '<div class="acties">' +
+        '<a class="btn btn-p" href="trimsalon.html?ras=' + d.exSlug + '">Vind een trimmer →</a>' +
+        '<a class="btn btn-s" href="rassen.html?zorg=' + d.zorg + '">Bekijk bijpassende rassen</a>' +
+        '<button class="btn btn-ghost" id="deel" type="button">Deel je resultaat</button>' +
+      '</div>' +
+      '<p class="deel-note" id="deel-note" role="status"></p>' +
+      '<button class="btn btn-s" id="opnieuw" type="button" style="margin-top:14px">Opnieuw</button>' +
+      '</div>';
+    box.innerHTML = html;
+
+    document.getElementById("opnieuw").addEventListener("click", function () {
+      scores = {}; antwoorden = []; stap = 0;
+      history.replaceState(null, "", window.location.pathname);
+      toonVraag();
+    });
+    document.getElementById("deel").addEventListener("click", function () {
+      var url = window.location.origin + window.location.pathname + "?type=" + type;
+      var note = document.getElementById("deel-note");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          note.textContent = "Link gekopieerd! Deel hem met een mede-baasje. 🐾";
+        }, function () { note.textContent = url; });
+      } else {
+        note.textContent = url;
+      }
+    });
+  }
+
+  /* deep link: ?type=krul → resultaat direct tonen */
+  var p = new URLSearchParams(window.location.search);
+  var deepType = p.get("type");
+  if (deepType && TYPES[deepType]) {
+    VOLGORDE.forEach(function (k) { if (k !== deepType) scores[k] = 0; });
+    scores[deepType] = 99;
+    toonResultaat();
+  } else {
+    toonVraag();
+  }
+})();
+</script>
+</body>
+</html>

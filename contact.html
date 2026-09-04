@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Pupgids</title>
+<meta name="description" content="Neem contact op met Pupgids: vragen over de gids, je vermelding, of een fout die je zag. We reageren binnen één werkdag.">
+<meta name="theme-color" content="#2F6B4F">
+<link rel="canonical" href="https://pupgids.nl/contact/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F6B4F'/%3E%3Cg fill='%23fff'%3E%3Cellipse cx='20' cy='22' rx='6' ry='7'/%3E%3Cellipse cx='32' cy='17' rx='6' ry='7'/%3E%3Cellipse cx='44' cy='22' rx='6' ry='7'/%3E%3Cpath d='M32 34c-7.5 0-12.5 5.5-12.5 11.5C19.5 52 25 57 32 57s12.5-5 12.5-11.5C44.5 39.5 39.5 34 32 34z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.mail-rij{display:flex;align-items:center;gap:12px;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r-s);padding:16px 18px;margin-bottom:10px}
+.mail-rij .ico{width:38px;height:38px;border-radius:10px;background:var(--groen-l);color:var(--groen);display:grid;place-items:center;flex:0 0 auto}
+.mail-rij b{display:block;font-size:15px}
+.mail-rij span{font-size:13.5px;color:var(--ink-3)}
+.mail-rij a{font-size:14px;color:var(--groen);font-weight:600;margin-left:auto}
+</style>
+</head>
+<body>
+<a href="#inhoud" class="skip">Direct naar inhoud</a>
+
+<nav aria-label="Hoofdnavigatie">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Pupgids, naar de homepage">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
+      Pupgids
+    </a>
+    <div class="nav-links" id="menu">
+      <a href="trimsalon.html">Trimsalons</a>
+      <a href="binnenkort.html?cat=hondenschool">Hondenscholen</a>
+      <a href="binnenkort.html?cat=opvang">Opvang</a>
+      <a href="rassen.html">Rassen</a>
+      <a href="premium.html">Voor bedrijven</a>
+    </div>
+    <div class="nav-cta">
+      <a href="premium.html" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu openen of sluiten">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="inhoud" class="sec">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h1 style="font-size:clamp(32px,4.6vw,48px);margin:12px 0 16px">We horen graag van je.</h1>
+        <p style="color:var(--ink-2);font-size:17px;max-width:520px">Vragen over de gids, je vermelding, of een fout die je zag? Stuur een bericht — we reageren binnen één werkdag.</p>
+        <div style="margin-top:28px">
+          <div class="mail-rij">
+            <span class="ico" aria-hidden="true">💬</span>
+            <div><b>Algemene vragen</b><span>Over de gids of je zoektocht</span></div>
+            <a href="mailto:hallo@pupgids.nl">hallo@pupgids.nl</a>
+          </div>
+          <div class="mail-rij">
+            <span class="ico" aria-hidden="true">🏪</span>
+            <div><b>Voor bedrijven</b><span>Vermelding of premium</span></div>
+            <a href="mailto:bedrijven@pupgids.nl">bedrijven@pupgids.nl</a>
+          </div>
+          <div class="mail-rij">
+            <span class="ico" aria-hidden="true">🛡️</span>
+            <div><b>Privacy</b><span>Over jouw gegevens</span></div>
+            <a href="mailto:privacy@pupgids.nl">privacy@pupgids.nl</a>
+          </div>
+        </div>
+      </div>
+      <form class="aform" id="cform" novalidate style="border:1px solid var(--lijn);border-radius:28px;padding:32px">
+        <div class="veld-g"><label for="c-naam">Jouw naam *</label><input id="c-naam" autocomplete="name" required></div>
+        <div class="veld-g"><label for="c-email">E-mailadres *</label><input id="c-email" type="email" autocomplete="email" required></div>
+        <div class="veld-g"><label for="c-onderwerp">Onderwerp *</label><input id="c-onderwerp" required></div>
+        <div class="veld-g"><label for="c-bericht">Bericht *</label><textarea id="c-bericht" rows="5" required></textarea></div>
+        <button class="btn btn-p" type="submit" style="width:100%">Verstuur →</button>
+        <p class="uit" id="c-uit" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:14px">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
+          Pupgids
+        </a>
+        <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
+      </div>
+      <div><h4>Zoeken</h4><a href="trimsalon.html">Trimsalons</a><a href="binnenkort.html?cat=hondenschool">Hondenscholen</a><a href="binnenkort.html?cat=opvang">Pension &amp; dagopvang</a><a href="rassen.html">Rassen</a><a href="quiz.html">Vachtwijzer</a><a href="binnenkort.html?cat=pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="premium.html">Premium vermelding</a><a href="premium.html#aanmelden">Vermelding claimen</a><a href="binnenkort.html?cat=dashboard">Inloggen</a></div>
+      <div><h4>Pupgids</h4><a href="over.html">Over ons</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="voorwaarden.html">Voorwaarden</a></div>
+    </div>
+    <div class="copy">
+      <span>© <span class="jaar">2025</span> Pupgids.nl · Ook bereikbaar via trimgids.nl</span>
+      <span>Gemaakt in Limburg · <a href="privacy.html">Privacy</a> · <a href="voorwaarden.html">Voorwaarden</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("cform");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var uit = document.getElementById("c-uit");
+    var naam = document.getElementById("c-naam").value.trim();
+    var email = document.getElementById("c-email").value.trim();
+    var onderwerp = document.getElementById("c-onderwerp").value.trim();
+    var bericht = document.getElementById("c-bericht").value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { uit.textContent = "Vul een geldig e-mailadres in."; uit.className = "uit fout"; uit.hidden = false; return; }
+    if (!naam || !onderwerp || !bericht) { uit.textContent = "Vul alle verplichte velden in."; uit.className = "uit fout"; uit.hidden = false; return; }
+    var subject = encodeURIComponent(onderwerp);
+    var body = encodeURIComponent("Naam: " + naam + "\nE-mail: " + email + "\n\n" + bericht);
+    window.location.href = "mailto:hallo@pupgids.nl?subject=" + subject + "&body=" + body;
+    uit.className = "uit";
+    uit.textContent = "Je mail-app opent met je bericht. Verstuur het en we reageren binnen één werkdag.";
+    uit.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>

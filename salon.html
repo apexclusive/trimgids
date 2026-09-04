@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trimsalon profiel | Pupgids</title>
+<meta name="description" content="Bekijk dit trimsalonprofiel: specialisaties, rassen, prijzen en reviews.">
+<meta name="theme-color" content="#2F6B4F">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pupgids.nl/trimsalon/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F6B4F'/%3E%3Cg fill='%23fff'%3E%3Cellipse cx='20' cy='22' rx='6' ry='7'/%3E%3Cellipse cx='32' cy='17' rx='6' ry='7'/%3E%3Cellipse cx='44' cy='22' rx='6' ry='7'/%3E%3Cpath d='M32 34c-7.5 0-12.5 5.5-12.5 11.5C19.5 52 25 57 32 57s12.5-5 12.5-11.5C44.5 39.5 39.5 34 32 34z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/cat-trim.jpg">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.salon-head{display:grid;grid-template-columns:1fr 340px;gap:44px;align-items:start}
+@media(max-width:860px){.salon-head{grid-template-columns:1fr}}
+.gal{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.gal .hoofd{grid-row:span 2;border-radius:20px;overflow:hidden;min-height:300px}
+.gal .klein{border-radius:20px;overflow:hidden}
+.gal img{width:100%;height:100%;object-fit:cover}
+@media(max-width:560px){.gal{grid-template-columns:1fr}.gal .hoofd{grid-row:auto;min-height:220px}}
+.salon-side{position:sticky;top:88px;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:26px;box-shadow:var(--schaduw)}
+.salon-side .prijsgroot{font-family:Fraunces,serif;font-size:34px;margin:8px 0 2px}
+.salon-side .vanaf{font-size:13px;color:var(--ink-3)}
+.salon-side .acties{display:grid;gap:10px;margin-top:18px}
+.salon-side .klein-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;text-align:center}
+.spec-rij{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.titel-rij{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 6px}
+.titel-rij h1{font-size:clamp(28px,3.6vw,40px);margin:0}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+@media(max-width:760px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r-s);padding:18px}
+.review .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.review .naam{font-weight:600;font-size:14px}
+.review .ster{font-size:13px}
+.review p{font-size:14px;color:var(--ink-2)}
+.score{display:flex;align-items:center;gap:14px;background:var(--groen-xl);border:1px solid var(--groen-l);border-radius:var(--r-s);padding:14px 18px;margin-top:18px}
+.score b{font-family:Fraunces,serif;font-size:30px;color:var(--groen)}
+.score span{font-size:13.5px;color:var(--ink-2)}
+.dienst-rij{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--lijn);font-size:15px}
+.dienst-rij:last-child{border-bottom:0}
+.dienst-rij span{color:var(--ink-2)}
+.dienst-rij b{color:var(--ink)}
+.lets{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+@media(max-width:560px){.lets{grid-template-columns:1fr}}
+.let{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r-s);padding:16px 18px;font-size:14px;color:var(--ink-2)}
+.let b{display:block;color:var(--ink);margin-bottom:4px;font-size:15px}
+.voorbeeld-banner{display:flex;align-items:center;gap:10px;background:var(--amber-l);border:1px solid #F2D4B5;color:#8A5A12;border-radius:var(--r-s);padding:12px 16px;font-size:13.5px;font-weight:600;margin-bottom:20px}
+</style>
+</head>
+<body>
+<a href="#inhoud" class="skip">Direct naar inhoud</a>
+
+<nav aria-label="Hoofdnavigatie">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Pupgids, naar de homepage">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
+      Pupgids
+    </a>
+    <div class="nav-links" id="menu">
+      <a href="trimsalon.html" class="actief">Trimsalons</a>
+      <a href="binnenkort.html?cat=hondenschool">Hondenscholen</a>
+      <a href="binnenkort.html?cat=opvang">Opvang</a>
+      <a href="rassen.html">Rassen</a>
+      <a href="premium.html">Voor bedrijven</a>
+    </div>
+    <div class="nav-cta">
+      <a href="premium.html" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu openen of sluiten">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="inhoud" class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <div class="voorbeeld-banner" role="note">⚠ Voorbeeldprofiel — deze salon, reviews en prijzen zijn ter illustratie. Echte salons volgen zodra de gids live is.</div>
+
+    <p class="crumbs" id="crumbs" style="font-size:13px;color:var(--ink-3);margin-bottom:16px"><a href="/">Home</a> · <a href="trimsalon.html">Trimsalons</a> · <span id="crumbs-plaats"></span></p>
+
+    <div class="salon-head">
+      <div>
+        <div class="gal">
+          <div class="hoofd"><img id="gal-1" src="images/cat-trim.jpg" alt="" width="1376" height="768"></div>
+          <div class="klein"><img id="gal-2" src="images/puppy.jpg" alt="" width="1376" height="768"></div>
+          <div class="klein"><img id="gal-3" src="images/pom-borstel.jpg" alt="" width="1408" height="768"></div>
+        </div>
+
+        <div class="titel-rij">
+          <span id="badge"></span>
+          <h1 id="naam">Trimsalon</h1>
+        </div>
+        <div class="meta" id="meta" style="font-size:15px;gap:14px;flex-wrap:wrap"></div>
+        <div class="spec-rij" id="chips"></div>
+
+        <div class="score" id="score"></div>
+
+        <section aria-labelledby="over-h">
+          <h2 id="over-h" style="font-size:26px;margin:36px 0 12px">Over deze salon</h2>
+          <p id="over" style="color:var(--ink-2);font-size:16px;max-width:640px"></p>
+          <div class="lets">
+            <div class="let"><b>Specialisaties</b><span id="let-specs"></span></div>
+            <div class="let"><b>Rassen</b><span id="let-rassen"></span></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="prijzen-h">
+          <h2 id="prijzen-h" style="font-size:26px;margin:36px 0 12px">Prijzen (indicatie)</h2>
+          <div class="paneel" id="prijzen" style="padding:22px 26px"></div>
+        </section>
+
+        <section aria-labelledby="rev-h">
+          <h2 id="rev-h" style="font-size:26px;margin:36px 0 8px">Reviews</h2>
+          <p style="font-size:13px;color:var(--ink-3)">Voorbeeldreviews ter illustratie van de opmaak.</p>
+          <div class="reviews" id="reviews"></div>
+        </section>
+
+        <section aria-labelledby="letop-h" style="margin-top:40px">
+          <h2 id="letop-h" style="font-size:26px;margin-bottom:12px">Waar let je op bij een trimsalon?</h2>
+          <div class="grid2">
+            <div class="paneel"><ul>
+              <li>Vraag of ze jouw ras kennen — en hoe ze de vacht behandelen</li>
+              <li>Een dubbele vacht wordt ontwold, nooit geschoren</li>
+              <li>Kijk of er plek is voor nieuwe honden</li>
+            </ul></div>
+            <div class="paneel"><ul>
+              <li>Check reviews van baasjes met hetzelfde ras</li>
+              <li>Vraag naar een wenbezoek voor pups of angstige honden</li>
+              <li>Vergelijk de prijs per ras, niet per uur</li>
+            </ul></div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="salon-side" aria-label="Actiekaart">
+        <span class="eyebrow">Afspraak maken</span>
+        <div class="prijsgroot">vanaf €<span id="prijs">70</span></div>
+        <div class="vanaf">per trimbeurt · <span id="ras-ctx"></span></div>
+        <div class="acties">
+          <a class="btn btn-p" id="aanvraag" href="#">Stuur een aanvraag</a>
+          <a class="btn btn-s" href="trimsalon.html">Andere salons bekijken</a>
+        </div>
+        <p class="klein-note">Geen commissie, geen verplichting. Je betaalt direct aan de salon.</p>
+        <div id="plek-badge" style="margin-top:14px"></div>
+      </aside>
+    </div>
+
+    <section class="sec" style="padding-bottom:0">
+      <div class="sec-h">
+        <span class="eyebrow">Meer in de buurt</span>
+        <h2>Andere trimsalons bij jou in de buurt.</h2>
+      </div>
+      <div class="stack" id="related"></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:14px">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
+          Pupgids
+        </a>
+        <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
+      </div>
+      <div><h4>Zoeken</h4><a href="trimsalon.html">Trimsalons</a><a href="binnenkort.html?cat=hondenschool">Hondenscholen</a><a href="binnenkort.html?cat=opvang">Pension &amp; dagopvang</a><a href="rassen.html">Rassen</a><a href="quiz.html">Vachtwijzer</a><a href="binnenkort.html?cat=pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="premium.html">Premium vermelding</a><a href="premium.html#aanmelden">Vermelding claimen</a><a href="binnenkort.html?cat=dashboard">Inloggen</a></div>
+      <div><h4>Pupgids</h4><a href="over.html">Over ons</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="voorwaarden.html">Voorwaarden</a></div>
+    </div>
+    <div class="copy">
+      <span>© <span class="jaar">2025</span> Pupgids.nl · Ook bereikbaar via trimgids.nl</span>
+      <span>Gemaakt in Limburg · <a href="privacy.html">Privacy</a> · <a href="voorwaarden.html">Voorwaarden</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js" defer></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.PupData;
+  var p = new URLSearchParams(window.location.search);
+
+  var naam = p.get("naam") || "Trimsalon Pootlief · Wyck";
+  var plaatsSlug = p.get("plaats") || "maastricht";
+  var rasParam = p.get("ras") || "";
+  var prijs = parseInt(p.get("prijs") || "70", 10);
+  var rating = p.get("rating") || "4.8";
+  var reviews = parseInt(p.get("rev") || "40", 10);
+  var specs = (p.get("specs") || "angst,klitten").split(",").filter(Boolean);
+  var prem = p.get("prem") === "1";
+  var plek = p.get("plek") === "1";
+  var alle = p.get("alle") === "1";
+  var rassen = (p.get("rassen") || "").split(",").filter(Boolean);
+  var wijk = p.get("wijk") || "";
+  var thumb = p.get("thumb") ? "images/" + p.get("thumb") : "images/cat-trim.jpg";
+
+  var plaats = D.PLACES[plaatsSlug] ? D.PLACES[plaatsSlug].label : (wijk || "Limburg");
+  var rasLabel = D.RAS_LABELS[rasParam] || "";
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function kap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+  function labelVan(slug){ return D.RAS_LABELS[slug] || slug.split("-").map(kap).join(" "); }
+
+  /* ---- meta & titel ---- */
+  document.title = naam + " — trimsalon in " + plaats + " | Pupgids";
+  var d = document.querySelector('meta[name="description"]');
+  if (d) d.setAttribute("content", naam + " in " + plaats + ": specialisaties, rassen, prijzen (vanaf €" + prijs + ") en reviews.");
+
+  /* ---- header ---- */
+  document.getElementById("naam").textContent = naam;
+  document.getElementById("crumbs-plaats").textContent = plaats;
+  document.getElementById("badge").innerHTML = prem
+    ? '<span class="badge badge-a">★ Aanbevolen</span>'
+    : '<span class="badge badge-g">Geverifieerd</span>';
+  document.getElementById("meta").innerHTML =
+    '<span class="ster">' + rating + ' ★</span><span>' + reviews + ' reviews</span><span class="dot">·</span><span>' + esc(plaats) + (wijk ? " · " + esc(wijk) : "") + '</span><span class="dot">·</span><span>vanaf €' + prijs + '</span>';
+  document.getElementById("prijs").textContent = prijs;
+  document.getElementById("ras-ctx").textContent = rasLabel ? "speciaal voor " + rasLabel : "afhankelijk van ras";
+
+  /* ---- chips ---- */
+  var chips = "";
+  if (alle) chips += '<span class="chip">Alle rassen</span>';
+  rassen.slice(0, 6).forEach(function (r) { chips += '<span class="chip">' + esc(labelVan(r)) + '</span>'; });
+  specs.forEach(function (f) {
+    var hit = D.SPECS.filter(function (x) { return x[0] === f; })[0];
+    chips += '<span class="chip">' + esc(hit ? hit[1] : f) + '</span>';
+  });
+  if (plek) chips += '<span class="chip" style="background:var(--groen-l);color:var(--groen)">Plek voor nieuwe honden</span>';
+  document.getElementById("chips").innerHTML = chips;
+
+  /* ---- score ---- */
+  var score = '';
+  score += '<b>' + rating + '</b><span>op basis van ' + reviews + ' reviews · <strong>' + Math.round(reviews * 0.86) + '% beveelt aan</strong></span>';
+  document.getElementById("score").innerHTML = score;
+
+  /* ---- over ---- */
+  var specTxt = specs.length ? specs.map(function (f) { var h = D.SPECS.filter(function (x) { return x[0] === f; })[0]; return (h ? h[1] : f).toLowerCase(); }).join(", ") : "de juiste verzorging per vachttype";
+  var rasTxt = alle ? "alle rassen" : (rassen.slice(0, 4).map(labelVan).join(", ") || "verschillende rassen");
+  document.getElementById("over").textContent = naam + " richt zich op " + specTxt + " en werkt met " + rasTxt + ". In deze voorbeeldweergave zie je hoe een volledig profiel eruit komt te zien: specialisaties, rassen, prijzen en reviews op één plek, zodat je als baasje in één oogopslag ziet of deze salon bij jouw hond past.";
+  document.getElementById("let-specs").textContent = specTxt.charAt(0).toUpperCase() + specTxt.slice(1) + ".";
+  document.getElementById("let-rassen").textContent = (alle ? "Alle rassen" : rassen.map(labelVan).join(", ")) + ".";
+
+  /* ---- prijzen ---- */
+  var diensten = [
+    ["Wassen &amp; drogen", "€" + Math.max(prijs - 20, 30)],
+    ["Knippen / scheren (vanaf)", "€" + prijs],
+    ["Ontwollen dubbele vacht", "€" + (prijs + 5)],
+    ["Plukken (ruwharig)", "€" + (prijs + 15)],
+    ["Nagels knippen", "€8"],
+    ["Puppykennismaking", "Gratis"]
+  ];
+  document.getElementById("prijzen").innerHTML = diensten.map(function (x) {
+    return '<div class="dienst-rij"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>';
+  }).join("");
+
+  /* ---- plek badge ---- */
+  document.getElementById("plek-badge").innerHTML = plek
+    ? '<span class="badge badge-g">✓ Plek voor nieuwe honden</span>'
+    : '<span class="badge badge-a">Momenteel vol — vraag om de wachtlijst</span>';
+
+  /* ---- reviews (duidelijk als voorbeeld gelabeld) ---- */
+  var revNamen = ["M. uit " + plaats, "S. uit " + (wijk || plaats), "L. uit " + plaats];
+  var revSterren = ["5,0", "4,5", "5,0"];
+  var revTeksten = [
+    "Onze " + (rasLabel ? rasLabel.toLowerCase() : "hond") + " komt hier al een tijd en wordt altijd rustig behandeld. Voorbeeldtekst om de opmaak te tonen.",
+    "Duidelijke communicatie over wat er met de vacht gebeurt. Fijne, rustige aanpak. Voorbeeldreview ter illustratie.",
+    "Goede prijs-kwaliteitverhouding en precies de verzorging die ons ras nodig heeft. Voorbeeldreview ter illustratie."
+  ];
+  document.getElementById("reviews").innerHTML = revTeksten.map(function (t, i) {
+    return '<div class="review"><div class="top"><span class="naam">' + revNamen[i] + '</span><span class="ster">' + revSterren[i] + ' ★</span></div><p>' + t + '</p></div>';
+  }).join("");
+
+  /* ---- aanvraag (mailto met context) ---- */
+  var subject = encodeURIComponent("Afspraakverzoek: " + naam + (rasLabel ? " (" + rasLabel + ")" : ""));
+  var body = encodeURIComponent("Beste " + naam + ",\n\nIk wil graag een afspraak maken.\n\nRas: " + (rasLabel || "…") + "\nPlaats: " + plaats + "\n\nGroet,\n");
+  document.getElementById("aanvraag").href = "mailto:bedrijven@pupgids.nl?subject=" + subject + "&body=" + body;
+
+  /* ---- gerelateerde salons ---- */
+  var lijst = D.maakSalons(plaatsSlug).filter(function (s) { return s.naam !== naam; }).slice(0, 3);
+  if (!lijst.length) lijst = D.maakSalons("maastricht").filter(function (s) { return s.naam !== naam; }).slice(0, 3);
+  document.getElementById("related").innerHTML = lijst.map(function (s) {
+    var badge = s.premium ? '<span class="badge badge-a">★ Aanbevolen</span>' : '<span class="badge badge-g">Geverifieerd</span>';
+    return '<div class="listing">' +
+      '<div class="thumb"><img src="' + s.thumb + '" alt="' + esc(s.naam) + '" loading="lazy" decoding="async" width="1376" height="768"></div>' +
+      '<div>' + badge + '<h3>' + esc(s.naam) + '</h3>' +
+      '<div class="meta"><span class="ster">' + s.rating + ' ★</span><span>' + s.reviews + ' reviews</span><span class="dot">·</span><span>' + esc(s.plaats) + ' · ' + s.afstand + ' km</span><span class="dot">·</span><span>vanaf €' + s.prijs + '</span></div>' +
+      '</div>' +
+      '<a class="btn btn-s" href="' + D.salonUrl(s, plaatsSlug, rasParam) + '">Bekijk</a>' +
+      '</div>';
+  }).join("");
+})();
+</script>
+</body>
+</html>
