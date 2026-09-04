@@ -128,7 +128,13 @@
       <div class="ico" aria-hidden="true">🐾</div>
       <h3>Nog geen trimsalons gevonden.</h3>
       <p>We combineren deze filters nog niet met een salon in deze regio. Laat je e-mail achter en we waarschuwen je zodra er eentje bijkomt.</p>
-      <a class="btn btn-p" href="mailto:bedrijven@pupgids.nl?subject=Trimsalon%20aanmelden">Word de eerste trimsalon →</a>
+      <form class="nf leeg-nf" id="leeg-form" onsubmit="return leegAanmelden(event)" novalidate>
+        <input type="email" name="email" placeholder="jouw@email.nl" autocomplete="email" aria-label="E-mailadres" required>
+        <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" placeholder="Laat dit veld leeg">
+        <button class="btn btn-p" type="submit">Houd me op de hoogte</button>
+      </form>
+      <p class="nf-uit" id="leeg-uit" role="status" hidden></p>
+      <p class="leeg-salon">Ben je zelf trimsalon? <a href="mailto:bedrijven@pupgids.nl?subject=Trimsalon%20aanmelden">Claim hier je vermelding →</a></p>
     </div>
     <div id="binnenkort" class="binnenkort" hidden>
       <h3>Eindhoven komt binnenkort.</h3>
@@ -205,6 +211,37 @@
   var maakSalons = D.maakSalons, salonUrl = D.salonUrl;
 
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+
+  /* Aanmelding voor de wachtlijst (frontend-demo, geen data verzonden) */
+  window.leegAanmelden = function (e) {
+    if (e) e.preventDefault();
+    var form = document.getElementById("leeg-form");
+    if (!form) return false;
+    var input = form.querySelector("input[type=email]");
+    var uit = document.getElementById("leeg-uit");
+    var email = input.value.trim();
+    var honing = form.querySelector("input[name=website]").value;
+    if (honing) { uit.hidden = true; return false; }
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!ok) {
+      uit.textContent = "Vul een geldig e-mailadres in.";
+      uit.className = "nf-uit fout";
+      uit.hidden = false;
+      input.focus();
+      return false;
+    }
+    var btn = form.querySelector("button");
+    btn.disabled = true;
+    uit.className = "nf-uit";
+    uit.textContent = "Even wachten…";
+    uit.hidden = false;
+    setTimeout(function () {
+      uit.textContent = "Genoteerd! We sturen je een bericht zodra er een passende trimsalon bijkomt.";
+      form.reset();
+      btn.disabled = false;
+    }, 600);
+    return false;
+  };
 
   function salonCard(s) {
     var badge = s.premium ? '<span class="badge badge-a">★ Aanbevolen</span>' : '<span class="badge badge-g">Geverifieerd</span>';

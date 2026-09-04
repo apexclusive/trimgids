@@ -26,7 +26,9 @@ window.PupData = (function () {
     "cockapoo": "Cockapoo", "poedel": "Poedel", "maltezer": "Maltezer", "shih-tzu": "Shih Tzu",
     "schnauzer": "Schnauzer", "cocker-spaniel": "Cocker Spaniël", "golden-retriever": "Golden Retriever",
     "labrador": "Labrador", "berner-sennen": "Berner Sennenhond", "husky": "Husky",
-    "cavalier": "Cavalier King Charles", "westie": "Westie"
+    "cavalier": "Cavalier King Charles", "westie": "Westie",
+    "bichon-frise": "Bichon Frisé", "yorkshire-terrier": "Yorkshire Terriër",
+    "cavalier-king-charles": "Cavalier King Charles", "west-highland-white-terrier": "Westie"
   };
 
   var SPECS = [

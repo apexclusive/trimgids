@@ -441,3 +441,11 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 0;background:var(--creme)
 .nf-inline .nf-uit{grid-column:1/-1;color:#fff}
 .nf-inline .nf-uit.fout{color:#FDE68A}
 @media(max-width:760px){.nf-inline{grid-template-columns:1fr;padding:30px 24px}.nf-inline .nf{flex-direction:column}.nf-inline .nf .btn{width:100%}}
+
+/* Lege-staat: wachtlijst-aanmelding */
+.leeg-nf{max-width:420px;margin:6px auto 0}
+.leeg-nf .btn{flex:0 0 auto}
+.leeg-salon{margin-top:18px;font-size:13.5px;color:var(--ink-3)}
+.leeg-salon a{color:var(--groen)}
+.leeg .nf-uit{max-width:420px;margin:10px auto 0;text-align:left}
+@media(max-width:520px){.leeg-nf{flex-direction:column}.leeg-nf .btn{width:100%}}
