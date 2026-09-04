@@ -9,7 +9,7 @@ import re, os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
-t = open('rassen.html', encoding='utf-8').read()
+t = open(os.path.join('rassen', 'index.html'), encoding='utf-8').read()
 
 # --- groeptitels uit de sectiekoppen ---
 GROEP = {}
@@ -119,19 +119,19 @@ NAV = '''<a href="#inhoud" class="skip">Direct naar inhoud</a>
 
 <nav aria-label="Hoofdnavigatie">
   <div class="wrap nav-in">
-    <a href="../../" class="logo" aria-label="Pupgids, naar de homepage">
+    <a href="/" class="logo" aria-label="Pupgids, naar de homepage">
       <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
       Pupgids
     </a>
     <div class="nav-links" id="menu">
-      <a href="../../trimsalon.html">Trimsalons</a>
-      <a href="../../binnenkort.html?cat=hondenschool">Hondenscholen</a>
-      <a href="../../binnenkort.html?cat=opvang">Opvang</a>
-      <a href="../../rassen.html" class="actief">Rassen</a>
-      <a href="../../premium.html">Voor bedrijven</a>
+      <a href="/trimsalon/">Trimsalons</a>
+      <a href="/binnenkort/?cat=hondenschool">Hondenscholen</a>
+      <a href="/binnenkort/?cat=opvang">Opvang</a>
+      <a href="/rassen/" class="actief">Rassen</a>
+      <a href="/premium/">Voor bedrijven</a>
     </div>
     <div class="nav-cta">
-      <a href="../../premium.html" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+      <a href="/premium/" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu openen of sluiten">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
       </button>
@@ -144,19 +144,19 @@ FOOTER = '''<footer>
   <div class="wrap">
     <div class="foot">
       <div>
-        <a href="../../" class="logo" style="margin-bottom:14px">
+        <a href="/" class="logo" style="margin-bottom:14px">
           <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6.2" cy="8" rx="2" ry="2.4"/><ellipse cx="10" cy="6.3" rx="2" ry="2.4"/><ellipse cx="14" cy="6.3" rx="2" ry="2.4"/><ellipse cx="17.8" cy="8" rx="2" ry="2.4"/><path d="M12 12.6c-2.9 0-4.9 2.1-4.9 4.4 0 2.5 2.2 4.4 4.9 4.4s4.9-1.9 4.9-4.4c0-2.3-2-4.4-4.9-4.4z"/></svg></span>
           Pupgids
         </a>
         <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
       </div>
-      <div><h4>Zoeken</h4><a href="../../trimsalon.html">Trimsalons</a><a href="../../binnenkort.html?cat=hondenschool">Hondenscholen</a><a href="../../binnenkort.html?cat=opvang">Pension &amp; dagopvang</a><a href="../../rassen.html">Rassen</a><a href="../../quiz.html">Vachtwijzer</a><a href="../../binnenkort.html?cat=pup">Nieuwe pup</a></div>
-      <div><h4>Bedrijven</h4><a href="../../premium.html">Premium vermelding</a><a href="../../premium.html#aanmelden">Vermelding claimen</a><a href="../../binnenkort.html?cat=dashboard">Inloggen</a></div>
-      <div><h4>Pupgids</h4><a href="../../over.html">Over ons</a><a href="../../contact.html">Contact</a><a href="../../privacy.html">Privacy</a><a href="../../voorwaarden.html">Voorwaarden</a></div>
+      <div><h4>Zoeken</h4><a href="/trimsalon/">Trimsalons</a><a href="/binnenkort/?cat=hondenschool">Hondenscholen</a><a href="/binnenkort/?cat=opvang">Pension &amp; dagopvang</a><a href="/rassen/">Rassen</a><a href="/vachtwijzer/">Vachtwijzer</a><a href="/binnenkort/?cat=pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="/premium/">Premium vermelding</a><a href="/premium/#aanmelden">Vermelding claimen</a><a href="/binnenkort/?cat=dashboard">Inloggen</a></div>
+      <div><h4>Pupgids</h4><a href="/over/">Over ons</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/voorwaarden/">Voorwaarden</a></div>
     </div>
     <div class="copy">
       <span>© <span class="jaar">2025</span> Pupgids.nl · Ook bereikbaar via trimgids.nl</span>
-      <span>Gemaakt in Limburg · <a href="../../privacy.html">Privacy</a> · <a href="../../voorwaarden.html">Voorwaarden</a></span>
+      <span>Gemaakt in Limburg · <a href="/privacy/">Privacy</a> · <a href="/voorwaarden/">Voorwaarden</a></span>
     </div>
   </div>
 </footer>
@@ -187,7 +187,7 @@ TEMPLATE = '''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="/assets/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -207,7 +207,7 @@ TEMPLATE = '''<!DOCTYPE html>
 <header class="hero ras-hero">
   <div class="wrap">
     <nav class="kruimel" aria-label="Broodkruimel">
-      <a href="../../">Home</a><span aria-hidden="true">›</span><a href="../../rassen.html">Rassen</a><span aria-hidden="true">›</span><span>@@NAAM@@</span>
+      <a href="/">Home</a><span aria-hidden="true">›</span><a href="/rassen/">Rassen</a><span aria-hidden="true">›</span><span>@@NAAM@@</span>
     </nav>
     <span class="eyebrow">@@GROEP@@</span>
     <h1 style="font-size:clamp(34px,4.6vw,52px);margin:12px 0 16px">@@NAAM@@@@POP@@</h1>
@@ -239,10 +239,10 @@ TEMPLATE = '''<!DOCTYPE html>
     <section class="paneel" style="margin-top:16px">
       <h2>Wat kost een trimbeurt voor de @@NAAM@@?</h2>
       <p>Reken op gemiddeld <strong>@@PRIJS@@</strong> per volledige trimbeurt. Dat is een richtprijs op basis van openbare tarieflijsten van trimsalons; de werkelijke prijs hangt af van de salon, de plaats, de vachtconditie en het gedrag van je hond.</p>
-      <p style="color:var(--ink-2);font-size:15px">Lees <a href="../../over.html" style="font-weight:600">hoe onze prijsdata tot stand komt</a> en waarom we indicaties geven in plaats van vaste prijzen.</p>
+      <p style="color:var(--ink-2);font-size:15px">Lees <a href="/over/" style="font-weight:600">hoe onze prijsdata tot stand komt</a> en waarom we indicaties geven in plaats van vaste prijzen.</p>
       <div class="cta-band" style="margin-top:20px">
-        <a class="btn btn-p" href="../../trimsalon.html?ras=@@SLUG@@">Zoek een trimmer voor de @@NAAM@@ →</a>
-        <a class="btn btn-s" href="../../quiz.html">Doe de Vachtwijzer</a>
+        <a class="btn btn-p" href="/trimsalon/?ras=@@SLUG@@">Zoek een trimmer voor de @@NAAM@@ →</a>
+        <a class="btn btn-s" href="/vachtwijzer/">Doe de Vachtwijzer</a>
       </div>
     </section>
 
@@ -257,7 +257,7 @@ TEMPLATE = '''<!DOCTYPE html>
 
 </main>
 @@FOOTER@@
-<script src="../../assets/main.js" defer></script>
+<script src="/assets/main.js" defer></script>
 </body>
 </html>
 '''
@@ -279,12 +279,12 @@ for r in rassen:
         # redirect naar de rijke gids
         html = ('<!DOCTYPE html>\n<html lang="nl">\n<head>\n<meta charset="UTF-8">\n'
                 '<meta name="robots" content="noindex,follow">\n'
-                '<meta http-equiv="refresh" content="0; url=../../pomeriaan.html">\n'
+                '<meta http-equiv="refresh" content="0; url=/pomeriaan/">\n'
                 '<link rel="canonical" href="https://pupgids.nl/pomeriaan/">\n'
                 '<title>Pomeriaan | Pupgids</title>\n'
-                '<script>location.replace("../../pomeriaan.html");</script>\n'
+                '<script>location.replace("/pomeriaan/");</script>\n'
                 '</head>\n<body style="font-family:sans-serif;padding:40px">\n'
-                '<p>Naar de <a href="../../pomeriaan.html">Pomeriaan-gids</a>…</p>\n</body>\n</html>\n')
+                '<p>Naar de <a href="/pomeriaan/">Pomeriaan-gids</a>…</p>\n</body>\n</html>\n')
         os.makedirs(os.path.join(outdir, 'pomeriaan'), exist_ok=True)
         open(os.path.join(outdir, 'pomeriaan', 'index.html'), 'w', encoding='utf-8').write(html)
         geschreven += 1
@@ -299,12 +299,12 @@ for r in rassen:
         broers = []
     related_html = ''
     for b in broers:
-        href = '../%s/' % b['slug']
+        href = '/rassen/%s/' % b['slug']
         pop = ' <span class="pop">Populair</span>' if b['pop'] else ''
         related_html += ('<div class="raskaart"><span class="nm"><a href="%s">%s</a></span>%s'
                          '<span class="zorg ">%s</span><span class="meta">%s</span>'
                          '<span class="prijs">%s <small>indicatie</small></span>'
-                         '<a class="zoeklink" href="../../trimsalon.html?ras=%s">Zoek trimmer →</a></div>\n'
+                         '<a class="zoeklink" href="/trimsalon/?ras=%s">Zoek trimmer →</a></div>\n'
                          % (href, esc(b['naam']), pop, esc(b['zorglabel']), esc(b['freq']),
                             esc(b['prijs']), b['slug']))
 

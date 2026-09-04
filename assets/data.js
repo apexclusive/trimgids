@@ -35,8 +35,8 @@ window.PupData = (function () {
   ];
 
   var NAMEN = ["Pootlief", "Kwispel", "Vacht & Co", "Het Plukhuis", "Wolletje", "De Blower", "Trimtafel", "Zachte Pootjes"];
-  var THUMBS = ["images/cat-trim.jpg", "images/hero.jpg", "images/puppy.jpg", "images/cat-opvang.jpg"];
-  var GALLERY = ["images/hero.jpg", "images/cat-trim.jpg", "images/puppy.jpg", "images/pom-borstel.jpg"];
+  var THUMBS = ["/images/cat-trim.jpg", "/images/hero.jpg", "/images/puppy.jpg", "/images/cat-opvang.jpg"];
+  var GALLERY = ["/images/hero.jpg", "/images/cat-trim.jpg", "/images/puppy.jpg", "/images/pom-borstel.jpg"];
 
   function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) >>> 0; } return h || 1; }
   function rng(seed) { return function () { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }; }
@@ -96,8 +96,8 @@ window.PupData = (function () {
     q.set("alle", s.alle ? "1" : "0");
     q.set("rassen", s.rassen.join(","));
     q.set("wijk", s.wijk);
-    q.set("thumb", s.thumb.replace("images/", ""));
-    return "salon.html?" + q.toString();
+    q.set("thumb", s.thumb.replace("/images/", ""));
+    return "/salon/?" + q.toString();
   }
 
   return {

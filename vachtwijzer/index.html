@@ -24,8 +24,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/pom-hero.jpg">
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="preload" as="image" href="/images/pom-hero.jpg">
+<link rel="stylesheet" href="/assets/styles.css">
 <style>
 .quiz-wrap{max-width:680px;margin:0 auto}
 .progress{height:8px;background:var(--groen-l);border-radius:999px;overflow:hidden;margin:26px 0 30px}
@@ -65,14 +65,14 @@
       Pupgids
     </a>
     <div class="nav-links" id="menu">
-      <a href="trimsalon.html">Trimsalons</a>
-      <a href="binnenkort.html?cat=hondenschool">Hondenscholen</a>
-      <a href="binnenkort.html?cat=opvang">Opvang</a>
-      <a href="rassen.html">Rassen</a>
-      <a href="premium.html">Voor bedrijven</a>
+      <a href="/trimsalon/">Trimsalons</a>
+      <a href="/binnenkort/?cat=hondenschool">Hondenscholen</a>
+      <a href="/binnenkort/?cat=opvang">Opvang</a>
+      <a href="/rassen/">Rassen</a>
+      <a href="/premium/">Voor bedrijven</a>
     </div>
     <div class="nav-cta">
-      <a href="premium.html" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+      <a href="/premium/" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu openen of sluiten">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
       </button>
@@ -96,7 +96,7 @@
 
 <section class="sec creme" style="padding-top:0">
   <div class="wrap" style="max-width:760px;text-align:center">
-    <p style="color:var(--ink-2);font-size:15px;margin-bottom:18px">Twijfel je of je hond een dubbele vacht heeft? Die mag je nooit scheren — lees er alles over in de <a href="pomeriaan.html" style="color:var(--groen);font-weight:600">Pomeriaan-gids</a>. Of blader door <a href="rassen.html" style="color:var(--groen);font-weight:600">alle 377 rassen</a> met trimadvies.</p>
+    <p style="color:var(--ink-2);font-size:15px;margin-bottom:18px">Twijfel je of je hond een dubbele vacht heeft? Die mag je nooit scheren — lees er alles over in de <a href="/pomeriaan/" style="color:var(--groen);font-weight:600">Pomeriaan-gids</a>. Of blader door <a href="/rassen/" style="color:var(--groen);font-weight:600">alle 377 rassen</a> met trimadvies.</p>
   </div>
 </section>
 
@@ -110,18 +110,18 @@
         </a>
         <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
       </div>
-      <div><h4>Zoeken</h4><a href="trimsalon.html">Trimsalons</a><a href="binnenkort.html?cat=hondenschool">Hondenscholen</a><a href="binnenkort.html?cat=opvang">Pension &amp; dagopvang</a><a href="rassen.html">Rassen</a><a href="quiz.html">Vachtwijzer</a><a href="binnenkort.html?cat=pup">Nieuwe pup</a></div>
-      <div><h4>Bedrijven</h4><a href="premium.html">Premium vermelding</a><a href="premium.html#aanmelden">Vermelding claimen</a><a href="binnenkort.html?cat=dashboard">Inloggen</a></div>
-      <div><h4>Pupgids</h4><a href="over.html">Over ons</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="voorwaarden.html">Voorwaarden</a></div>
+      <div><h4>Zoeken</h4><a href="/trimsalon/">Trimsalons</a><a href="/binnenkort/?cat=hondenschool">Hondenscholen</a><a href="/binnenkort/?cat=opvang">Pension &amp; dagopvang</a><a href="/rassen/">Rassen</a><a href="/vachtwijzer/">Vachtwijzer</a><a href="/binnenkort/?cat=pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="/premium/">Premium vermelding</a><a href="/premium/#aanmelden">Vermelding claimen</a><a href="/binnenkort/?cat=dashboard">Inloggen</a></div>
+      <div><h4>Pupgids</h4><a href="/over/">Over ons</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/voorwaarden/">Voorwaarden</a></div>
     </div>
     <div class="copy">
       <span>© <span class="jaar">2025</span> Pupgids.nl · Ook bereikbaar via trimgids.nl</span>
-      <span>Gemaakt in Limburg · <a href="privacy.html">Privacy</a> · <a href="voorwaarden.html">Voorwaarden</a></span>
+      <span>Gemaakt in Limburg · <a href="/privacy/">Privacy</a> · <a href="/voorwaarden/">Voorwaarden</a></span>
     </div>
   </div>
 </footer>
 
-<script src="assets/main.js" defer></script>
+<script src="/assets/main.js" defer></script>
 <script>
 (function () {
   "use strict";
@@ -223,11 +223,11 @@
         '<div class="feit"><b>' + esc(d.prijs) + '</b><span>prijsindicatie</span></div>' +
       '</div>' +
       '<div class="ras-chips"><span style="font-size:13px;color:var(--ink-3);align-self:center;margin-right:4px">Voorbeelden:</span>' +
-        d.ex.split(", ").map(function (r) { return '<a href="rassen.html?zorg=' + d.zorg + '">' + esc(r) + '</a>'; }).join("") +
+        d.ex.split(", ").map(function (r) { return '<a href="/rassen/?zorg=' + d.zorg + '">' + esc(r) + '</a>'; }).join("") +
       '</div>' +
       '<div class="acties">' +
-        '<a class="btn btn-p" href="trimsalon.html?ras=' + d.exSlug + '">Vind een trimmer →</a>' +
-        '<a class="btn btn-s" href="rassen.html?zorg=' + d.zorg + '">Bekijk bijpassende rassen</a>' +
+        '<a class="btn btn-p" href="/trimsalon/?ras=' + d.exSlug + '">Vind een trimmer →</a>' +
+        '<a class="btn btn-s" href="/rassen/?zorg=' + d.zorg + '">Bekijk bijpassende rassen</a>' +
         '<button class="btn btn-ghost" id="deel" type="button">Deel je resultaat</button>' +
       '</div>' +
       '<p class="deel-note" id="deel-note" role="status"></p>' +

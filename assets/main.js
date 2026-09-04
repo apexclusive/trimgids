@@ -10,9 +10,9 @@
 
   /* Bebouwde pagina's (voor slimme link-afhandeling in de preview) */
   var GEBOUWD = [
-    "/", "/index.html", "/rassen.html", "/pomeriaan.html", "/trimsalon.html",
-    "/404.html", "/privacy.html", "/voorwaarden.html",
-    "/premium.html", "/quiz.html", "/salon.html", "/binnenkort.html"
+    "/", "/rassen/", "/pomeriaan/", "/trimsalon/",
+    "/404.html", "/privacy/", "/voorwaarden/",
+    "/premium/", "/vachtwijzer/", "/salon/", "/binnenkort/"
   ];
 
   /* Slug: hoofdletterongevoelig, accenten en leestekens eruit */
@@ -31,7 +31,9 @@
   function isGebouwd(href) {
     if (!isIntern(href)) return true;
     var path = href.split("?")[0].split("#")[0];
-    return GEBOUWD.indexOf(path) !== -1;
+    if (GEBOUWD.indexOf(path) !== -1) return true;
+    if (path.indexOf("/rassen/") === 0) return true; /* alle rasdetailpagina's */
+    return false;
   }
 
   /* Dynamisch jaartal */
@@ -108,10 +110,10 @@
     }
     form.classList.remove("fout");
     if (cat !== "trimsalon") {
-      window.location.href = "/binnenkort.html?cat=" + encodeURIComponent(cat);
+      window.location.href = "/binnenkort/?cat=" + encodeURIComponent(cat);
       return false;
     }
-    var url = "/trimsalon.html?plaats=" + encodeURIComponent(pl) + (ras ? "&ras=" + encodeURIComponent(ras) : "");
+    var url = "/trimsalon/?plaats=" + encodeURIComponent(pl) + (ras ? "&ras=" + encodeURIComponent(ras) : "");
     window.location.href = url;
     return false;
   };
@@ -121,7 +123,7 @@
     var form = $(".zoek");
     if (!form) return;
     /* Op de resultatenpagina doet het inline script de prefill; niet scrollen/focussen */
-    var opResultaten = /trimsalon\.html/.test(window.location.pathname);
+    var opResultaten = /\/trimsalon\//.test(window.location.pathname);
     var p = new URLSearchParams(window.location.search);
     var ras = p.get("ras");
     var cat = p.get("cat");
