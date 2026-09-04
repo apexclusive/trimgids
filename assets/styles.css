@@ -419,3 +419,25 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 0;background:var(--creme)
 .cta-band{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .ras-hero .kruimel{margin-bottom:26px}
 .ras-hero h1 .pop{display:inline-block;vertical-align:middle;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--amber-l);color:#8A5A12;padding:3px 10px;border-radius:999px;margin-left:10px}
+
+/* ===== Rasdetailpagina: TOC, intensiteit, FAQ & nieuwsbrief ===== */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 22px;padding-bottom:18px;border-bottom:1px solid var(--lijn)}
+.toc a{font-size:13px;font-weight:600;color:var(--ink-2);background:var(--wit);border:1px solid var(--lijn);border-radius:999px;padding:7px 14px;transition:color .15s,border-color .15s,background .15s}
+.toc a:hover{color:var(--groen);border-color:var(--groen);background:var(--groen-xl)}
+.meter{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:var(--wit);border:1px solid var(--lijn);border-radius:14px;padding:16px 18px;margin-top:12px}
+.meter b{display:block;font-size:13px;color:var(--ink-2);font-weight:600;margin-bottom:2px}
+.meter span{font-size:16px;font-weight:600;color:var(--ink)}
+.meter-bars{display:flex;gap:5px}
+.meter-bars i{width:36px;height:9px;border-radius:999px;background:var(--lijn);display:block}
+.meter-bars i.on{background:var(--groen)}
+.faq-breed{max-width:none;margin:0}
+.nf-inline{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:center;background:var(--groen);color:#fff;border-radius:var(--r);padding:36px 40px;margin-top:48px}
+.nf-inline h2{font-size:clamp(22px,2.6vw,30px);margin-bottom:8px}
+.nf-inline p{opacity:.92;font-size:15px;max-width:460px}
+.nf-inline .nf{display:flex;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:10px}
+.nf-inline .nf input[type=email]{flex:1;background:transparent;border:0;color:#fff;font:inherit;font-size:15px;outline:none;min-width:0}
+.nf-inline .nf input[type=email]::placeholder{color:rgba(255,255,255,.72)}
+.nf-inline .nf input:focus{border-color:transparent}
+.nf-inline .nf-uit{grid-column:1/-1;color:#fff}
+.nf-inline .nf-uit.fout{color:#FDE68A}
+@media(max-width:760px){.nf-inline{grid-template-columns:1fr;padding:30px 24px}.nf-inline .nf{flex-direction:column}.nf-inline .nf .btn{width:100%}}

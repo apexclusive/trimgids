@@ -125,6 +125,45 @@ UITLEG = {
               'Bescherm de huid tegen zon en kou']),
 }
 
+# --- verzorgingsintensiteit per vachttype (label, leesbare tekst, 1–3 van 3 balkjes) ---
+INTENS = {
+    'wassen':    ('Laag',   'Weinig onderhoud', 1),
+    'nvt':       ('Laag',   'Maatwerk', 1),
+    'uitkammen': ('Middel', 'Gemiddeld onderhoud', 2),
+    'plukken':   ('Middel', 'Gemiddeld onderhoud', 2),
+    'scheren':   ('Hoog',   'Intensieve verzorging', 3),
+    'knippen':   ('Hoog',   'Intensieve verzorging', 3),
+    'borstelen': ('Hoog',   'Intensieve verzorging', 3),
+}
+
+# --- leesbare frequentie-zin per freq-label uit de overzichtspagina ---
+FREQ_PHRASE = {
+    'elke naar behoefte': 'verzorging naar behoefte (wassen en ontwollen, vooral tijdens de rui)',
+    'elke 6–10 wkn': 'elke 6 tot 10 weken een trimbeurt',
+    'elke 8–12 wkn': 'elke 8 tot 12 weken een trimbeurt',
+    'elke 6–8 wkn': 'elke 6 tot 8 weken een trimbeurt',
+    'elke wekelijks': 'wekelijks borstelen',
+    'elke n.v.t.': 'geen standaard trim',
+}
+
+# --- antwoord op "mag je dit ras scheren?" per vachttype ---
+SCHEER = {
+    'wassen': ('Niet nodig. De {naam} heeft een kortharige vacht die je niet hoeft te scheren; '
+               'wassen en ontwollen is voldoende.'),
+    'uitkammen': ('Nee, liever niet. De {naam} heeft een dubbele vacht en scheren kan die blijvend '
+                  'beschadigen (scheer-alopecie). Uitkammen en ontwollen is de juiste aanpak.'),
+    'plukken': ('Nee. De {naam} heeft een ruwharige vacht die je plukt of stript in plaats van '
+                'scheert. Scheren maakt de vacht op den duur zacht en dof.'),
+    'scheren': ('Ja, dat is juist de bedoeling. De krulvacht groeit door en wordt elke 6 tot 8 weken '
+                'geknipt of geschoren om klitten te voorkomen.'),
+    'knippen': ('De zijdeachtige vacht wordt geknipt in een model dat bij het ras past; volledig '
+                'scheren is meestal niet nodig.'),
+    'borstelen': ('De lange vacht borstel je regelmatig en knip je bij waar nodig; volledig scheren '
+                  'is meestal niet nodig.'),
+    'nvt': ('Dit ras heeft geen standaard trim. Laat je adviseren door een trimmer met ervaring met '
+            'dit vachttype.'),
+}
+
 # --- korte, eerlijke intro voor de populairste rassen (algemene kennis, geen verzonnen cijfers) ---
 POPULAR = {
     'border-collie': 'Een van de slimste en meest energieke herdershonden. De middellange dubbele vacht verhaart flink en vraagt wekelijks borstelen.',
@@ -229,6 +268,7 @@ TEMPLATE = '''<!DOCTYPE html>
   ]
 }
 </script>
+@@FAQ_JSON@@
 </head>
 <body>
 @@NAV@@
@@ -248,6 +288,12 @@ TEMPLATE = '''<!DOCTYPE html>
 
 <div class="sec">
   <div class="wrap">
+    <nav class="toc" aria-label="Op deze pagina">
+      <a href="#verzorging">Verzorging</a>
+      <a href="#prijs">Trimprijs</a>
+      <a href="#faq">Veelgestelde vragen</a>
+      <a href="#meer">Meer rassen</a>
+    </nav>
     <div class="feitengrid" aria-label="Kerngegevens">
       <div class="feit"><b>Vachttype</b><span>@@ZORG@@</span></div>
       <div class="feit"><b>Verzorging</b><span>@@FREQ@@</span></div>
@@ -257,7 +303,17 @@ TEMPLATE = '''<!DOCTYPE html>
     </div>
     @@FEITEN_BRON@@
 
-    <section class="paneel" style="margin-top:24px">
+    <div class="meter">
+      <div>
+        <b>Verzorgingsintensiteit</b>
+        <span>@@INTENS_LABEL@@</span>
+      </div>
+      <div class="meter-bars" role="img" aria-label="Verzorgingsintensiteit: @@INTENS_LABEL@@">
+        <i class="@@METER1@@"></i><i class="@@METER2@@"></i><i class="@@METER3@@"></i>
+      </div>
+    </div>
+
+    <section class="paneel" style="margin-top:24px" id="verzorging">
       <h2>@@KOP@@</h2>
       <p>@@P1@@</p>
       <p>@@P2@@</p>
@@ -269,7 +325,7 @@ TEMPLATE = '''<!DOCTYPE html>
       </ul>
     </section>
 
-    <section class="paneel" style="margin-top:16px">
+    <section class="paneel" style="margin-top:16px" id="prijs">
       <h2>Wat kost een trimbeurt voor de @@NAAM@@?</h2>
       <p>Reken op gemiddeld <strong>@@PRIJS@@</strong> per volledige trimbeurt. Dat is een richtprijs op basis van openbare tarieflijsten van trimsalons; de werkelijke prijs hangt af van de salon, de plaats, de vachtconditie en het gedrag van je hond.</p>
       <p style="color:var(--ink-2);font-size:15px">Lees <a href="/over/" style="font-weight:600">hoe onze prijsdata tot stand komt</a> en waarom we indicaties geven in plaats van vaste prijzen.</p>
@@ -279,11 +335,31 @@ TEMPLATE = '''<!DOCTYPE html>
       </div>
     </section>
 
-    <section class="sec" style="padding-top:8px">
+    <section class="sec" style="padding-top:8px" id="faq">
+      <h2 style="font-size:24px;margin-bottom:16px">Veelgestelde vragen over de @@NAAM@@</h2>
+      <div class="faq faq-breed">
+@@FAQ@@
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top:8px" id="meer">
       <h2 style="font-size:22px">Meer rassen in deze groep</h2>
       <div class="rassengrid" style="margin-top:16px">
 @@RELATED@@
       </div>
+    </section>
+
+    <section class="nf-inline" aria-labelledby="nf-h">
+      <div>
+        <h2 id="nf-h">Mis geen verzorgingstips voor de @@NAAM@@.</h2>
+        <p>Een keer per maand praktische vacht- en verzorgingstips in je inbox. Gratis, en afmelden kan met één klik.</p>
+      </div>
+      <form class="nf" id="nieuwsbrief" onsubmit="return abonneer(event)" novalidate>
+        <input type="email" name="email" placeholder="jouw@email.nl" autocomplete="email" aria-label="E-mailadres" required>
+        <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" placeholder="Laat dit veld leeg">
+        <button class="btn btn-w" type="submit">Ontvang tips</button>
+      </form>
+      <p class="nf-uit" id="nieuwsbrief-uit" role="status" hidden></p>
     </section>
   </div>
 </div>
@@ -357,6 +433,36 @@ for r in rassen:
         if feiten_html:
             feiten_bron = '<p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">Bron: FCI-standaard · Wikipedia (Engelstalig).</p>'
 
+    # --- verzorgingsintensiteit + veelgestelde vragen (eerlijk, op basis van vachttype/prijs) ---
+    intens_lvl, intens_label, intens_n = INTENS[r['zorg']]
+    meter = ['on' if i < intens_n else 'off' for i in range(3)]
+    freq_phrase = FREQ_PHRASE.get(r['freq'], r['freq'])
+    scheer_tekst = SCHEER[r['zorg']].format(naam=r['naam'])
+
+    faq = [
+        ('Hoe vaak moet een %s naar de trimsalon?' % r['naam'],
+         'De %s vraagt %s. %s' % (r['naam'], freq_phrase, u['p1'])),
+        ('Wat kost een trimbeurt voor een %s?' % r['naam'],
+         'Reken op gemiddeld %s per volledige trimbeurt (indicatie). De werkelijke prijs hangt af '
+         'van de salon, de plaats, de vachtconditie en het gedrag van je hond.' % r['prijs']),
+        ('Mag je een %s scheren?' % r['naam'], scheer_tekst),
+    ]
+    if feiten and feiten.get('herkomst'):
+        faq.append(('Waar komt de %s vandaan?' % r['naam'],
+                    'De %s komt oorspronkelijk uit %s.' % (r['naam'], feiten['herkomst'])))
+
+    faq_html = ''
+    faq_entities = []
+    for q, a in faq:
+        faq_html += ('<details><summary>%s</summary><div class="a"><p>%s</p></div></details>\n'
+                     % (esc(q), esc(a)))
+        faq_entities.append({'@type': 'Question', 'name': q,
+                             'acceptedAnswer': {'@type': 'Answer', 'text': a}})
+    faq_ld = ('<script type="application/ld+json">\n' +
+              json.dumps({'@context': 'https://schema.org', '@type': 'FAQPage',
+                          'mainEntity': faq_entities}, ensure_ascii=False) +
+              '\n</script>')
+
     html = (TEMPLATE
             .replace('@@NAAM@@', esc(r['naam']))
             .replace('@@SLUG@@', r['slug'])
@@ -376,6 +482,12 @@ for r in rassen:
             .replace('@@TIP2@@', esc(u['tips'][1]))
             .replace('@@TIP3@@', esc(u['tips'][2]))
             .replace('@@RELATED@@', related_html)
+            .replace('@@FAQ@@', faq_html)
+            .replace('@@FAQ_JSON@@', faq_ld)
+            .replace('@@INTENS_LABEL@@', esc(intens_label))
+            .replace('@@METER1@@', meter[0])
+            .replace('@@METER2@@', meter[1])
+            .replace('@@METER3@@', meter[2])
             .replace('@@NAV@@', NAV)
             .replace('@@FOOTER@@', FOOTER))
 
