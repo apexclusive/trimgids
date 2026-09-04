@@ -322,9 +322,15 @@
   if (rasParam) {
     var rasSel = document.getElementById("ras");
     var heeftOptie = false;
-    /* enkel instellen als het ras in de (demo-)selectlijst bestaat */
     for (var oi = 0; oi < rasSel.options.length; oi++) if (rasSel.options[oi].value === rasParam) heeftOptie = true;
-    if (heeftOptie) rasSel.value = rasParam;
+    if (!heeftOptie) {
+      /* ras uit een raspagina dat (nog) niet in de snelselect staat: voeg het toe */
+      var opt = document.createElement("option");
+      opt.value = rasParam;
+      opt.textContent = rLabel;
+      rasSel.appendChild(opt);
+    }
+    rasSel.value = rasParam;
   }
 
   /* dynamische lege-staat-tekst */
