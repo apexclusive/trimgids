@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pupgids.nl — trimsalons, hondenscholen & opvang bij jou in de buurt</title>
+<meta name="description" content="Vind de juiste trimsalon voor jouw ras, een goede hondenschool of betrouwbare opvang. Vergelijk per plaats, filter op ras en specialisatie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --groen:#2F6B4F; --groen-d:#245640; --groen-l:#E6F0EB;
+  --creme:#F7F5F0; --wit:#FFFFFF; --ink:#1F2937; --ink-2:#4B5563; --ink-3:#9CA3AF;
+  --lijn:#E7E5E0; --amber:#C98A2B; --amber-l:#FBF1E1;
+  --r:20px; --r-s:12px; --max:1160px;
+  --schaduw:0 1px 2px rgba(31,41,55,.04),0 8px 24px -12px rgba(31,41,55,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--wit);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em;line-height:1.12}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;transition:.18s}
+.btn-p{background:var(--groen);color:#fff}.btn-p:hover{background:var(--groen-d)}
+.btn-s{background:var(--wit);color:var(--ink);border-color:var(--lijn)}.btn-s:hover{border-color:var(--ink-3)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--groen)}
+.sec{padding:88px 0}
+.sec-h{max-width:620px;margin-bottom:44px}
+.sec-h h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 14px}
+.sec-h p{color:var(--ink-2);font-size:17px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+.badge-a{background:var(--amber-l);color:#8A5A12}
+.badge-g{background:var(--groen-l);color:var(--groen)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--lijn)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:22px}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--groen);display:grid;place-items:center;color:#fff}
+.nav-links{display:flex;gap:28px;font-size:15px;font-weight:500;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* hero */
+.hero{background:var(--creme);padding:80px 0 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(47,107,79,.10),transparent)}
+.hero-in{position:relative;max-width:820px}
+.hero h1{font-size:clamp(38px,6vw,64px);margin:18px 0 20px}
+.hero h1 em{font-style:normal;color:var(--groen)}
+.hero p{font-size:19px;color:var(--ink-2);max-width:600px}
+.zoek{margin-top:34px;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:10px;display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:8px;box-shadow:var(--schaduw)}
+.zoek label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:2px}
+.veld{padding:10px 14px;border-radius:var(--r-s)}
+.veld:hover{background:var(--creme)}
+.veld select,.veld input{width:100%;border:0;background:transparent;font:inherit;font-size:15px;font-weight:500;color:var(--ink);outline:none;appearance:none}
+.zoek .btn{align-self:stretch;border-radius:14px}
+@media(max-width:820px){.zoek{grid-template-columns:1fr}}
+.hero-trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--ink-2)}
+.hero-trust span::before{content:"✓";color:var(--groen);font-weight:700;margin-right:7px}
+
+/* rassen */
+.rassen{display:flex;flex-wrap:wrap;gap:10px}
+.ras{padding:11px 16px;border:1px solid var(--lijn);border-radius:999px;font-size:14px;font-weight:500;background:var(--wit);transition:.15s}
+.ras:hover{border-color:var(--groen);color:var(--groen);background:var(--groen-l)}
+.ras small{color:var(--ink-3);font-weight:400;margin-left:6px}
+.ras-note{margin-top:18px;font-size:14px;color:var(--ink-2)}
+
+/* categorieën */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+.kaart{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:30px;transition:.18s;display:flex;flex-direction:column}
+.kaart:hover{box-shadow:var(--schaduw);transform:translateY(-2px)}
+.kaart .ico{width:48px;height:48px;border-radius:14px;background:var(--groen-l);color:var(--groen);display:grid;place-items:center;margin-bottom:20px}
+.kaart h3{font-size:22px;margin-bottom:10px}
+.kaart p{color:var(--ink-2);font-size:15px;flex:1}
+.kaart .link{margin-top:20px;font-weight:600;color:var(--groen);font-size:15px}
+.creme{background:var(--creme)}
+
+/* listing voorbeeld */
+.listing{display:grid;grid-template-columns:112px 1fr auto;gap:20px;align-items:center;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:18px}
+.listing.prem{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-l)}
+.thumb{width:112px;height:88px;border-radius:14px;background:linear-gradient(135deg,#DCE7E1,#C4D6CC)}
+.listing h3{font-size:18px;margin:4px 0 6px}
+.meta{font-size:14px;color:var(--ink-2);display:flex;gap:14px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{font-size:12px;padding:4px 9px;border-radius:999px;background:var(--creme);color:var(--ink-2)}
+.ster{color:var(--amber);font-weight:600}
+@media(max-width:700px){.listing{grid-template-columns:1fr}.thumb{width:100%}}
+.stack{display:grid;gap:14px}
+
+/* stappen */
+.stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+@media(max-width:900px){.stappen{grid-template-columns:1fr}}
+.stap .num{font-family:Fraunces,serif;font-size:48px;color:var(--groen);line-height:1;margin-bottom:12px}
+.stap h3{font-size:20px;margin-bottom:8px}
+.stap p{color:var(--ink-2);font-size:15px}
+
+/* pup blok */
+.pup{background:var(--groen);color:#fff;border-radius:28px;padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+@media(max-width:900px){.pup{grid-template-columns:1fr;padding:36px}}
+.pup h2{font-size:clamp(28px,3.4vw,40px);margin:10px 0 14px}
+.pup p{opacity:.9;font-size:17px}
+.pup .eyebrow{color:#BFE0CE}
+.tijdlijn{display:grid;gap:12px}
+.tl{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 16px}
+.tl b{display:block;font-size:15px}.tl span{font-size:13px;opacity:.85}
+.tl .wk{min-width:56px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.75;padding-top:3px}
+.pup .btn{background:#fff;color:var(--groen);margin-top:26px}
+
+/* plaatsen */
+.plaatsen{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:900px){.plaatsen{grid-template-columns:repeat(2,1fr)}}
+.plaats{padding:14px 18px;border:1px solid var(--lijn);border-radius:var(--r-s);font-weight:500;font-size:15px;display:flex;justify-content:space-between;background:var(--wit)}
+.plaats:hover{border-color:var(--groen)}
+.plaats span{color:var(--ink-3);font-weight:400;font-size:13px}
+
+/* bedrijven cta */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.split h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 16px}
+.split p{color:var(--ink-2);font-size:17px}
+.checks{margin:22px 0 28px;display:grid;gap:12px;font-size:15px}
+.checks li{list-style:none;display:flex;gap:10px}
+.checks li::before{content:"✓";color:var(--groen);font-weight:700}
+.prijs{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:34px;box-shadow:var(--schaduw)}
+.prijs .p{font-family:Fraunces,serif;font-size:48px;margin:10px 0 4px}
+.prijs .p small{font-family:Inter;font-size:15px;color:var(--ink-2);font-weight:400}
+.prijs .of{font-size:14px;color:var(--ink-3);margin-bottom:22px}
+.prijs ul{display:grid;gap:10px;font-size:14px;color:var(--ink-2);margin-bottom:26px}
+.prijs li{list-style:none;padding-left:22px;position:relative}
+.prijs li::before{content:"•";position:absolute;left:6px;color:var(--groen)}
+
+/* footer */
+footer{border-top:1px solid var(--lijn);padding:56px 0 36px;background:var(--creme)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:800px){.foot{grid-template-columns:1fr 1fr}}
+.foot h4{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+.foot a{display:block;font-size:14px;color:var(--ink-2);margin-bottom:9px}
+.foot p{font-size:14px;color:var(--ink-2);max-width:300px}
+.copy{font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="/" class="logo"><span class="logo-mark">🐾</span>Pupgids</a>
+    <div class="nav-links">
+      <a href="/trimsalon">Trimsalons</a>
+      <a href="/hondenschool">Hondenscholen</a>
+      <a href="/opvang">Opvang</a>
+      <a href="/rassen">Rassen</a>
+    </div>
+    <a href="/premium" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-in">
+    <span class="eyebrow">Trimsalons · Hondenscholen · Opvang</span>
+    <h1>De juiste trimmer of trainer <em>voor jouw hond</em>, bij jou in de buurt.</h1>
+    <p>Niet elke trimsalon kan elk ras en niet elke hondenschool past bij elke hond. Pupgids laat je filteren op ras, specialisatie en plaats, met echte reviews.</p>
+
+    <form class="zoek" onsubmit="return zoek(event)">
+      <div class="veld">
+        <label>Wat zoek je?</label>
+        <select id="cat">
+          <option value="trimsalon">Trimsalon</option>
+          <option value="hondenschool">Hondenschool & training</option>
+          <option value="opvang">Pension & dagopvang</option>
+        </select>
+      </div>
+      <div class="veld">
+        <label>Plaats</label>
+        <input id="plaats" list="plaatsen" placeholder="Bijv. Maastricht" required>
+        <datalist id="plaatsen">
+          <option>Maastricht</option><option>Heerlen</option><option>Sittard</option><option>Geleen</option>
+          <option>Venlo</option><option>Roermond</option><option>Weert</option><option>Kerkrade</option>
+          <option>Venray</option><option>Valkenburg</option><option>Meerssen</option><option>Eindhoven</option>
+        </datalist>
+      </div>
+      <div class="veld">
+        <label>Ras (optioneel)</label>
+        <select id="ras">
+          <option value="">Alle rassen</option>
+          <option value="pomeriaan">Pomeriaan</option><option value="labradoodle">Labradoodle</option>
+          <option value="goldendoodle">Goldendoodle</option><option value="cockapoo">Cockapoo</option>
+          <option value="poedel">Poedel</option><option value="maltezer">Maltezer</option>
+          <option value="shih-tzu">Shih Tzu</option><option value="schnauzer">Schnauzer</option>
+          <option value="cocker-spaniel">Cocker Spaniël</option><option value="golden-retriever">Golden Retriever</option>
+          <option value="berner-sennen">Berner Sennenhond</option><option value="husky">Husky</option>
+        </select>
+      </div>
+      <button class="btn btn-p" type="submit">Zoeken →</button>
+    </form>
+
+    <div class="hero-trust">
+      <span>Gratis voor baasjes</span>
+      <span>Filter op ras en specialisatie</span>
+      <span>Echte reviews, geen advertenties vermomd als tips</span>
+    </div>
+  </div>
+</header>
+
+<!-- RASSEN -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Zoek op ras</span>
+      <h2>Een pomeriaan mag je nooit scheren. Een schnauzer moet je plukken.</h2>
+      <p>Daarom kun je bij Pupgids filteren op ras. Zo vind je een trimmer die jouw hond écht kent, in plaats van eentje die alles "wel kan".</p>
+    </div>
+    <div class="rassen">
+      <a class="ras" href="/trimsalon/maastricht/pomeriaan">Pomeriaan <small>dubbele vacht</small></a>
+      <a class="ras" href="/trimsalon/maastricht/labradoodle">Labradoodle <small>krul</small></a>
+      <a class="ras" href="/trimsalon/maastricht/goldendoodle">Goldendoodle <small>krul</small></a>
+      <a class="ras" href="/trimsalon/maastricht/cockapoo">Cockapoo <small>golvend</small></a>
+      <a class="ras" href="/trimsalon/maastricht/poedel">Poedel <small>krul</small></a>
+      <a class="ras" href="/trimsalon/maastricht/maltezer">Maltezer <small>zijdehaar</small></a>
+      <a class="ras" href="/trimsalon/maastricht/bichon-frise">Bichon Frisé</a>
+      <a class="ras" href="/trimsalon/maastricht/shih-tzu">Shih Tzu</a>
+      <a class="ras" href="/trimsalon/maastricht/yorkshire-terrier">Yorkshire Terriër</a>
+      <a class="ras" href="/trimsalon/maastricht/cocker-spaniel">Cocker Spaniël</a>
+      <a class="ras" href="/trimsalon/maastricht/schnauzer">Schnauzer <small>plukken</small></a>
+      <a class="ras" href="/trimsalon/maastricht/west-highland-white-terrier">Westie <small>plukken</small></a>
+      <a class="ras" href="/trimsalon/maastricht/cavalier-king-charles">Cavalier King Charles</a>
+      <a class="ras" href="/trimsalon/maastricht/golden-retriever">Golden Retriever <small>uitkammen</small></a>
+      <a class="ras" href="/trimsalon/maastricht/berner-sennen">Berner Sennen</a>
+      <a class="ras" href="/trimsalon/maastricht/husky">Husky <small>deshedden</small></a>
+      <a class="ras" href="/rassen" style="border-style:dashed">Alle rassen →</a>
+    </div>
+    <p class="ras-note">Weet je niet wat jouw hond nodig heeft? Op elke <a href="/rassen" style="color:var(--groen);font-weight:600">raspagina</a> lees je hoe vaak en hoe je hond getrimd moet worden.</p>
+  </div>
+</section>
+
+<!-- CATEGORIEËN -->
+<section class="sec creme">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Wat zoek je?</span>
+      <h2>Alles wat je hond nodig heeft, per plaats.</h2>
+    </div>
+    <div class="grid3">
+      <a class="kaart" href="/trimsalon">
+        <div class="ico">✂️</div>
+        <h3>Trimsalon</h3>
+        <p>Vergelijk trimsalons op ras, prijs en reviews. Zie welke salons plek hebben voor nieuwe honden en wie ervaring heeft met angstige honden.</p>
+        <span class="link">Trimsalons bekijken →</span>
+      </a>
+      <a class="kaart" href="/hondenschool">
+        <div class="ico">🎓</div>
+        <h3>Hondenschool & training</h3>
+        <p>Van puppycursus tot gedragstherapie bij angst of reactiviteit. Filter op specialisatie, trainingsmethode en certificering.</p>
+        <span class="link">Hondenscholen bekijken →</span>
+      </a>
+      <a class="kaart" href="/opvang">
+        <div class="ico">🏡</div>
+        <h3>Pension & dagopvang</h3>
+        <p>Vakantie of lange werkdagen? Vind opvang die past: kleine groepen, senioren, medicatie of juist geen groep.</p>
+        <span class="link">Opvang bekijken →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VOORBEELD LISTINGS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Zo ziet het eruit</span>
+      <h2>Trimsalons in Maastricht voor een labradoodle</h2>
+      <p>Aanbevolen salons staan bovenaan. Daaronder alle salons in de buurt die dit ras doen, op afstand gesorteerd.</p>
+    </div>
+    <div class="stack">
+      <div class="listing prem">
+        <div class="thumb"></div>
+        <div>
+          <span class="badge badge-a">★ Aanbevolen</span>
+          <h3>Voorbeeldsalon Wyck</h3>
+          <div class="meta"><span class="ster">4,9 ★</span><span>87 reviews</span><span>Maastricht · 1,2 km</span><span>vanaf €75</span></div>
+          <div class="chips"><span class="chip">Labradoodle</span><span class="chip">Goldendoodle</span><span class="chip">Poedel</span><span class="chip">Angstige honden</span><span class="chip">Plek voor nieuwe honden</span></div>
+        </div>
+        <a class="btn btn-p" href="#">Bekijk</a>
+      </div>
+      <div class="listing">
+        <div class="thumb"></div>
+        <div>
+          <span class="badge badge-g">Geverifieerd</span>
+          <h3>Voorbeeldsalon Heer</h3>
+          <div class="meta"><span class="ster">4,7 ★</span><span>41 reviews</span><span>Maastricht · 3,4 km</span><span>vanaf €65</span></div>
+          <div class="chips"><span class="chip">Labradoodle</span><span class="chip">Cockapoo</span><span class="chip">Maltezer</span></div>
+        </div>
+        <a class="btn btn-s" href="#">Bekijk</a>
+      </div>
+      <div class="listing">
+        <div class="thumb"></div>
+        <div>
+          <h3>Voorbeeldsalon Meerssen</h3>
+          <div class="meta"><span class="ster">4,8 ★</span><span>23 reviews</span><span>Meerssen · 6,1 km</span></div>
+          <div class="chips"><span class="chip">Alle rassen</span></div>
+        </div>
+        <a class="btn btn-s" href="#">Bekijk</a>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-3)">Bovenstaande vermeldingen zijn voorbeelden van de opmaak.</p>
+  </div>
+</section>
+
+<!-- HOE HET WERKT -->
+<section class="sec creme">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Hoe het werkt</span>
+      <h2>In drie stappen naar de juiste match.</h2>
+    </div>
+    <div class="stappen">
+      <div class="stap"><div class="num">1</div><h3>Kies plaats en ras</h3><p>Vul in waar je woont en welk ras je hebt. Je ziet alleen aanbieders die bij jouw hond passen.</p></div>
+      <div class="stap"><div class="num">2</div><h3>Vergelijk op wat telt</h3><p>Reviews, prijzen, specialisaties, of er plek is voor nieuwe honden. Geen verkooppraat, wel feiten.</p></div>
+      <div class="stap"><div class="num">3</div><h3>Neem direct contact op</h3><p>Vraag beschikbaarheid aan via de site of bel. De aanbieder reageert meestal binnen een dag.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NIEUWE PUP -->
+<section class="sec">
+  <div class="wrap">
+    <div class="pup">
+      <div>
+        <span class="eyebrow">Nieuwe pup?</span>
+        <h2>Dit regel je in de eerste zes maanden.</h2>
+        <p>De eerste maanden bepalen hoe je hond zich de rest van zijn leven gedraagt, en hoe zijn vacht eruit komt te zien. Wij zetten op een rij wat wanneer moet, en wie het bij jou in de buurt goed doet.</p>
+        <a class="btn" href="/nieuwe-pup">Bekijk het puppyplan →</a>
+      </div>
+      <div class="tijdlijn">
+        <div class="tl"><span class="wk">Week 8</span><div><b>Dierenarts & verzekering</b><span>Eerste enting, chipcontrole, en de verzekering afsluiten vóór de eerste rekening.</span></div></div>
+        <div class="tl"><span class="wk">Week 9–10</span><div><b>Puppycursus starten</b><span>Socialisatie is nu het belangrijkst. Wacht niet tot de pup "groot genoeg" is.</span></div></div>
+        <div class="tl"><span class="wk">Week 12–16</span><div><b>Wenbezoek trimsalon</b><span>Even kennismaken met tafel, blower en handen. Voorkomt een leven lang stress.</span></div></div>
+        <div class="tl"><span class="wk">Maand 4–6</span><div><b>Eerste echte trimbeurt</b><span>Vooral bij doodles, poedels en pomeriaans: nu bepaal je hoe de vacht zich ontwikkelt.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAATSEN -->
+<section class="sec creme">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Populaire plaatsen</span>
+      <h2>We starten in Limburg. Brabant volgt.</h2>
+      <p>Staat jouw plaats er nog niet bij? Zoek gewoon; we tonen aanbieders binnen 20 kilometer.</p>
+    </div>
+    <div class="plaatsen">
+      <a class="plaats" href="/trimsalon/maastricht">Maastricht <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/heerlen">Heerlen <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/sittard">Sittard <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/geleen">Geleen <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/venlo">Venlo <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/roermond">Roermond <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/weert">Weert <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/kerkrade">Kerkrade <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/venray">Venray <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/valkenburg">Valkenburg <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/meerssen">Meerssen <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/eindhoven">Eindhoven <span>Binnenkort</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- VOOR BEDRIJVEN -->
+<section class="sec" id="bedrijven">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Voor trimsalons, trainers en opvang</span>
+      <h2>Word gevonden door baasjes die nu een keuze maken.</h2>
+      <p>Elke maand zoeken baasjes in jouw plaats naar een trimmer of trainer voor hun ras. Zorg dat jij bovenaan staat, met foto's, je specialisaties en een directe link naar je agenda.</p>
+      <ul class="checks">
+        <li>Gratis vermelding: claim je pagina en vul rassen, prijzen en foto's aan</li>
+        <li>Premium: bovenaan in jouw plaats én op alle raspagina's</li>
+        <li>Zie in je dashboard hoeveel mensen je pagina bekeken en wie contact zocht</li>
+        <li>Opzegbaar per maand, geen commissie op klanten</li>
+      </ul>
+      <a class="btn btn-p" href="/premium">Claim je vermelding →</a>
+    </div>
+    <div class="prijs">
+      <span class="badge badge-a">Lanceringstarief Limburg</span>
+      <div class="p">€99<small> / eerste jaar</small></div>
+      <div class="of">daarna €149 per jaar, of €14,95 per maand</div>
+      <ul>
+        <li>Aanbevolen-badge en positie bovenaan</li>
+        <li>Tot 10 foto's, website- en Instagramlink</li>
+        <li>Telefoonnummer direct klikbaar</li>
+        <li>Zichtbaar op alle raspagina's in jouw plaats</li>
+        <li>Maandelijks overzicht van weergaven en aanvragen</li>
+      </ul>
+      <a class="btn btn-p" href="/premium" style="width:100%;justify-content:center">Start met premium</a>
+      <p style="margin-top:14px;font-size:13px;color:var(--ink-3);text-align:center">Eerste 10 salons en scholen per plaats. Daarna regulier tarief.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:14px"><span class="logo-mark">🐾</span>Pupgids</a>
+        <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
+      </div>
+      <div><h4>Zoeken</h4><a href="/trimsalon">Trimsalons</a><a href="/hondenschool">Hondenscholen</a><a href="/opvang">Pension & dagopvang</a><a href="/rassen">Rassen</a><a href="/nieuwe-pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="/premium">Premium vermelding</a><a href="/claim">Vermelding claimen</a><a href="/dashboard">Inloggen</a></div>
+      <div><h4>Pupgids</h4><a href="/over">Over ons</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
+    </div>
+    <div class="copy"><span>© 2025 Pupgids.nl · Ook bereikbaar via trimgids.nl</span><span>Gemaakt in Limburg</span></div>
+  </div>
+</footer>
+
+<script>
+function slug(s){return s.toLowerCase().trim().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function zoek(e){
+  e.preventDefault();
+  const cat=document.getElementById('cat').value, pl=slug(document.getElementById('plaats').value), ras=document.getElementById('ras').value;
+  let url='/'+cat+'/'+pl; if(ras && cat==='trimsalon') url+='/'+ras;
+  window.location.href=url; return false;
+}
+</script>
+</body>
+</html>
