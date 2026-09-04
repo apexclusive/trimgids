@@ -16,6 +16,11 @@ GROEP = {}
 for m in re.finditer(r'<section class="groep" data-groep="([^"]+)"[^>]*>\s*<div class="groep-kop"><h2[^>]*>(.*?)</h2>', t):
     GROEP[m.group(1)] = re.sub(r'^Groep \d+ · ', '', m.group(2)).replace('&amp;', '&')
 
+# FCI-groepnummer per sectie (1–10), 'k' = kruisingen/niet-erkend
+GROEP_LABEL = {}
+for g in GROEP:
+    GROEP_LABEL[g] = ('FCI Groep ' + g + ' · ' + GROEP[g]) if g.isdigit() else ('Niet-FCI · ' + GROEP[g])
+
 # --- rassen parsen (sectie = echte FCI-groep) ---
 sections = re.split(r'<section class="groep" data-groep="([^"]+)"', t)
 rassen = []
@@ -112,6 +117,25 @@ UITLEG = {
         tips=['Laat je adviseren door een specialist in dit vachttype',
               'Gebruik een milde hondenshampoo',
               'Bescherm de huid tegen zon en kou']),
+}
+
+# --- korte, eerlijke intro voor de populairste rassen (algemene kennis, geen verzonnen cijfers) ---
+POPULAR = {
+    'border-collie': 'Een van de slimste en meest energieke herdershonden. De middellange dubbele vacht verhaart flink en vraagt wekelijks borstelen.',
+    'duitse-herdershond': 'Een veelzijdige, intelligente werkhond met een dikke dubbele vacht die twee keer per jaar flink verhaart.',
+    'rottweiler': 'Een zelfverzekerde, krachtige hond met een korte, glanzende vacht die weinig trimwerk vraagt.',
+    'golden-retriever': 'Een vriendelijke, actieve gezinshond met een middellange dubbele vacht die vooral in de rui veel haar loslaat.',
+    'labrador-retriever': 'Een energieke, mensgerichte hond met een korte, waterafstotende dubbele vacht die het hele jaar door verhaart.',
+    'franse-buldog': 'Een kleine, aanhankelijke gezelschapshond met een gladde vacht die weinig onderhoud vraagt.',
+    'maltezer': 'Een kleine, vrolijke gezelschapshond met een lange, zijdeachtige witte vacht die dagelijks gekamd wil worden.',
+    'poedel-toy': 'Een kleine, slimme gezelschapshond met een krullende vacht die niet verhaart maar doorgroeit en dus regelmatig getrimd wordt.',
+    'poedel-dwerg': 'Een kleine, alerte allrounder met een krullende vacht die niet verhaart maar doorgroeit; een trimbeurt hoort er standaard bij.',
+    'poedel-middenslag': 'Een vrolijke, leergierige allrounder met een krullende, niet-verharende vacht die regelmatig getrimd wordt.',
+    'poedel-groot': 'Een sportieve, intelligente hond met een krullende vacht die niet verhaart maar doorgroeit; een trimbeurt hoort er standaard bij.',
+    'shih-tzu': 'Een vriendelijk, klein gezelschapshondje met een lange, dikke vacht die dagelijks geborsteld wil worden om klitten te voorkomen.',
+    'cockapoo': 'Een kruising van Cocker Spaniël en Poedel met een zachte, krullende vacht die weinig verhaart en regelmatig getrimd wordt.',
+    'goldendoodle': 'Combineert het karakter van de Golden retriever met de niet-verharende vacht van de Poedel; de vacht vraagt wel regelmatig trimmen.',
+    'labradoodle': 'Combineert het karakter van de Labrador met de gekrulde vacht van de Poedel. De vacht verhaart minder, maar wil elke 6–8 weken getrimd worden.',
 }
 
 # --- header/nav (Rassen actief) ---
@@ -212,6 +236,7 @@ TEMPLATE = '''<!DOCTYPE html>
     <span class="eyebrow">@@GROEP@@</span>
     <h1 style="font-size:clamp(34px,4.6vw,52px);margin:12px 0 16px">@@NAAM@@@@POP@@</h1>
     <p class="lead">Vachttype <strong>@@ZORG@@</strong>, verzorging <strong>@@FREQ@@</strong>. Een trimbeurt kost gemiddeld <strong>@@PRIJS@@</strong> (indicatie). Hieronder lees je hoe je de vacht het beste verzorgt en waar je een trimmer voor dit ras vindt.</p>
+    @@INTRO@@
   </div>
 </header>
 
@@ -221,7 +246,7 @@ TEMPLATE = '''<!DOCTYPE html>
       <div class="feit"><b>Vachttype</b><span>@@ZORG@@</span></div>
       <div class="feit"><b>Verzorging</b><span>@@FREQ@@</span></div>
       <div class="feit"><b>Trimprijs</b><span>@@PRIJS@@ <small>indicatie</small></span></div>
-      <div class="feit"><b>Rasgroep</b><span>@@GROEP@@</span></div>
+      <div class="feit"><b>Rasgroep</b><span>@@GROEPVOLLEDIG@@</span></div>
     </div>
 
     <section class="paneel" style="margin-top:24px">
@@ -314,6 +339,8 @@ for r in rassen:
             .replace('@@NAAM@@', esc(r['naam']))
             .replace('@@SLUG@@', r['slug'])
             .replace('@@GROEP@@', esc(GROEP[r['groep']]))
+            .replace('@@GROEPVOLLEDIG@@', esc(GROEP_LABEL[r['groep']]))
+            .replace('@@INTRO@@', ('<p class="ras-intro">' + POPULAR.get(r['slug'], '') + '</p>') if r['slug'] in POPULAR else '')
             .replace('@@ZORG@@', esc(r['zorglabel']))
             .replace('@@FREQ@@', esc(r['freq']))
             .replace('@@PRIJS@@', esc(r['prijs']))
