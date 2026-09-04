@@ -405,3 +405,4 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 0;background:var(--creme)
 
 .cta-band{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .ras-hero .kruimel{margin-bottom:26px}
+.ras-hero h1 .pop{display:inline-block;vertical-align:middle;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--amber-l);color:#8A5A12;padding:3px 10px;border-radius:999px;margin-left:10px}

@@ -6,6 +6,8 @@
 <title>Vachtwijzer: welk vachttype heeft jouw hond? | Pupgids</title>
 <meta name="description" content="Doe de vachtwijzer (1 minuut) en ontdek welk vachttype jouw hond heeft, hoe je die verzorgt en wat een trimbeurt kost.">
 <meta name="theme-color" content="#2F6B4F">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="canonical" href="https://pupgids.nl/vachtwijzer/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pupgids">
@@ -241,6 +243,13 @@
     document.getElementById("deel").addEventListener("click", function () {
       var url = window.location.origin + window.location.pathname + "?type=" + type;
       var note = document.getElementById("deel-note");
+      var titel = "Mijn hond heeft een " + TYPES[type].naam.toLowerCase() + " — welke heeft die van jou?";
+      // native share-sheet op mobiel (bijv. WhatsApp) indien beschikbaar
+      if (navigator.share) {
+        navigator.share({ title: "Pupgids Vachtwijzer", text: titel, url: url }).catch(function () {});
+        note.textContent = "Bedankt voor het delen! 🐾";
+        return;
+      }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(function () {
           note.textContent = "Link gekopieerd! Deel hem met een mede-baasje. 🐾";
