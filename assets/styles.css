@@ -389,3 +389,19 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 0;background:var(--creme)
 .legal p,.legal li{color:var(--ink-2);font-size:15.5px}
 .legal ul{margin:12px 0 12px 20px;display:grid;gap:8px}
 .legal li{list-style:disc}
+
+/* ===== Rasdetailpagina ===== */
+.kruimel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--ink-2);margin-bottom:22px}
+.kruimel a{color:var(--ink-2);font-weight:500}
+.kruimel a:hover{color:var(--groen)}
+.kruimel span[aria-hidden]{color:var(--ink-3)}
+
+.feitengrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+@media(max-width:760px){.feitengrid{grid-template-columns:repeat(2,1fr)}}
+.feitengrid .feit{background:var(--wit);border:1px solid var(--lijn);border-radius:14px;padding:16px 14px}
+.feitengrid .feit b{display:block;font-size:13px;color:var(--ink-2);font-weight:600;margin-bottom:4px}
+.feitengrid .feit span{font-size:16px;font-weight:600;color:var(--ink)}
+.feitengrid .feit small{font-size:12px;color:var(--ink-3);font-weight:400}
+
+.cta-band{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ras-hero .kruimel{margin-bottom:26px}
