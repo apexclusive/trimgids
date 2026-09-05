@@ -2,26 +2,848 @@
   "places": {
     "maastricht": {
       "name": "Maastricht",
-      "region": "Limburg",
-      "description": "Vind een trimsalon in Maastricht dat past bij de vacht, het ras en het karakter van jouw hond. Vergelijk specialisaties, afstand en praktische informatie voordat je contact opneemt."
+      "province": "Limburg",
+      "region": "Zuid-Limburg",
+      "lat": 50.8514,
+      "lng": 5.6910,
+      "description": "Vind de beste trimsalons, hondenscholen en opvanglocaties in Maastricht. Vergelijk aanbieders in Wyck, Heer, Céramique, Brusselsepoort, Sint Pieter en Amby op raservaring, prijzen en reviews."
     },
-    "heerlen": {"name": "Heerlen", "region": "Limburg", "description": "Ontdek trimsalons in Heerlen en omgeving voor verschillende vachttypen en hondenrassen."},
-    "sittard": {"name": "Sittard", "region": "Limburg", "description": "Vergelijk trimsalons in Sittard en omgeving op raservaring en verzorgingsspecialisaties."},
-    "meerssen": {"name": "Meerssen", "region": "Limburg", "description": "Vind een passende trimsalon in Meerssen en vergelijk het aanbod in de regio Maastricht."}
+    "heerlen": {
+      "name": "Heerlen",
+      "province": "Limburg",
+      "region": "Parkstad",
+      "lat": 50.8882,
+      "lng": 5.9795,
+      "description": "Ontdek professionele trimsalons, hondentrainers en pensions in Heerlen en Parkstad Limburg voor elk vachttype en hondenras."
+    },
+    "sittard": {
+      "name": "Sittard",
+      "province": "Limburg",
+      "region": "Westelijke Mijnstreek",
+      "lat": 50.9983,
+      "lng": 5.8694,
+      "description": "Vergelijk trimsalons, puppytrainers en dagopvang in Sittard-Geleen en omgeving op specialisaties en raservaring."
+    },
+    "meerssen": {
+      "name": "Meerssen",
+      "province": "Limburg",
+      "region": "Zuid-Limburg",
+      "lat": 50.8858,
+      "lng": 5.7525,
+      "description": "Vind een betrouwbare trimsalon of hondenschool in Meerssen, Bunde en omliggende kernen in de regio Maastricht."
+    },
+    "venlo": {
+      "name": "Venlo",
+      "province": "Limburg",
+      "region": "Noord-Limburg",
+      "lat": 51.3700,
+      "lng": 6.1724,
+      "description": "Overzicht van trimsalons en hondensportverenigingen in Venlo, Tegelen en Blerick met tarieven en raservaring."
+    },
+    "roermond": {
+      "name": "Roermond",
+      "province": "Limburg",
+      "region": "Midden-Limburg",
+      "lat": 51.1942,
+      "lng": 5.9876,
+      "description": "Vind een trimsalon, hondenhotel of gedragstherapeut in Roermond en langs de Maasplassen."
+    },
+    "valkenburg": {
+      "name": "Valkenburg",
+      "province": "Limburg",
+      "region": "Zuid-Limburg",
+      "lat": 50.8643,
+      "lng": 5.8315,
+      "description": "Professionele vachtverzorging en wandeluitlaatservices in het heuvelachtige Valkenburg aan de Geul."
+    },
+    "weert": {
+      "name": "Weert",
+      "province": "Limburg",
+      "region": "Midden-Limburg",
+      "lat": 51.2517,
+      "lng": 5.7068,
+      "description": "Trimsalons, hydrotherapie en puppycursussen in Weert en Nederweert."
+    },
+    "kerkrade": {
+      "name": "Kerkrade",
+      "province": "Limburg",
+      "region": "Parkstad",
+      "lat": 50.8658,
+      "lng": 6.0625,
+      "description": "Vind gediplomeerde hondentrimmers en gedragstrainers in Kerkrade en omgeving."
+    },
+    "eindhoven": {
+      "name": "Eindhoven",
+      "province": "Noord-Brabant",
+      "region": "Zuidoost-Brabant",
+      "lat": 51.4416,
+      "lng": 5.4697,
+      "description": "De beste trimsalons en hondenscholen in Eindhoven (Stratum, Strijp, Woensel) en omliggende Brainport gemeenten."
+    },
+    "tilburg": {
+      "name": "Tilburg",
+      "province": "Noord-Brabant",
+      "region": "Midden-Brabant",
+      "lat": 51.5555,
+      "lng": 5.0913,
+      "description": "Vind gediplomeerde trimmers en hondentrainers in Tilburg, Reeshof en Berkel-Enschot."
+    },
+    "breda": {
+      "name": "Breda",
+      "province": "Noord-Brabant",
+      "region": "West-Brabant",
+      "lat": 51.5719,
+      "lng": 4.7683,
+      "description": "Professionele hondensalons, hondenuitlaatservices en puppycursussen in Breda en het Mastbos."
+    },
+    "den-bosch": {
+      "name": "’s-Hertogenbosch",
+      "province": "Noord-Brabant",
+      "region": "Noordoost-Brabant",
+      "lat": 51.6978,
+      "lng": 5.3037,
+      "description": "Kwalitatieve trimsalons en pensions in Den Bosch, Rosmalen en Vught."
+    },
+    "amsterdam": {
+      "name": "Amsterdam",
+      "province": "Noord-Holland",
+      "region": "Randstad",
+      "lat": 52.3676,
+      "lng": 4.9041,
+      "description": "Vind gecertificeerde trimsalons, stadshondenscholen en dagopvang in Amsterdam Centrum, Zuid, Oost, West en Noord."
+    },
+    "haarlem": {
+      "name": "Haarlem",
+      "province": "Noord-Holland",
+      "region": "Randstad",
+      "lat": 52.3874,
+      "lng": 4.6462,
+      "description": "Trimsalons, trimsalons voor doodles en strandtrainers in Haarlem en Bloemendaal."
+    },
+    "rotterdam": {
+      "name": "Rotterdam",
+      "province": "Zuid-Holland",
+      "region": "Randstad",
+      "lat": 51.9244,
+      "lng": 4.4777,
+      "description": "Vergelijk professionele trimsalons, hondenhotels en gedragstherapeuten in Rotterdam Kralingen, Noord, Delfshaven en Zuid."
+    },
+    "den-haag": {
+      "name": "Den Haag",
+      "province": "Zuid-Holland",
+      "region": "Randstad",
+      "lat": 52.0705,
+      "lng": 4.3007,
+      "description": "Kwalitatieve trimsalons en hondenscholen in Den Haag, Scheveningen, Benoordenhout en Statenkwartier."
+    },
+    "utrecht": {
+      "name": "Utrecht",
+      "province": "Utrecht",
+      "region": "Midden-Nederland",
+      "lat": 52.0907,
+      "lng": 5.1214,
+      "description": "Vind betrouwbare trimsalons en kynologische clubs in Utrecht, Leidsche Rijn, Oost en Vleuten."
+    },
+    "amersfoort": {
+      "name": "Amersfoort",
+      "province": "Utrecht",
+      "region": "Eemland",
+      "lat": 52.1561,
+      "lng": 5.3878,
+      "description": "Trimsalons en puppytraining in Amersfoort, Vathorst en Leusden."
+    },
+    "nijmegen": {
+      "name": "Nijmegen",
+      "province": "Gelderland",
+      "region": "Rijk van Nijmegen",
+      "lat": 51.8126,
+      "lng": 5.8372,
+      "description": "Vind gediplomeerde trimmers en hondensport in Nijmegen en Lent."
+    },
+    "arnhem": {
+      "name": "Arnhem",
+      "province": "Gelderland",
+      "region": "Veluwe",
+      "lat": 51.9851,
+      "lng": 5.8987,
+      "description": "Trimsalons en hondenscholen nabij de bossen van Arnhem, Velp en Sonsbeek."
+    },
+    "apeldoorn": {
+      "name": "Apeldoorn",
+      "province": "Gelderland",
+      "region": "Veluwe",
+      "lat": 52.2112,
+      "lng": 5.9699,
+      "description": "Professionele hondenverzorging en training in Apeldoorn en de Veluwe."
+    },
+    "groningen": {
+      "name": "Groningen",
+      "province": "Groningen",
+      "region": "Noord-Nederland",
+      "lat": 53.2194,
+      "lng": 6.5665,
+      "description": "Vind trimsalons en hondentraining in Groningen Stad en Haren."
+    },
+    "enschede": {
+      "name": "Enschede",
+      "province": "Overijssel",
+      "region": "Twente",
+      "lat": 52.2215,
+      "lng": 6.8937,
+      "description": "Trimsalons en opvanglocaties in Enschede en Twente."
+    },
+    "zwolle": {
+      "name": "Zwolle",
+      "province": "Overijssel",
+      "region": "IJsseldelta",
+      "lat": 52.5168,
+      "lng": 6.0830,
+      "description": "Vind deskundige hondentrimmers en kynologische verenigingen in Zwolle."
+    }
   },
   "breeds": {
+    "pomeriaan": {
+      "name": "Pomeriaan (Dwergkeeshond)",
+      "synonyms": ["Pomeranian", "Dwergkeeshond", "Dwergspits", "Keeshond", "Boo hond"],
+      "coat": "rijkelijke dubbele vacht met dichte ondervacht en rechte, uitstaande dekharen",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "2 tot 3 keer per week in lagen (line brushing)",
+      "technique": "Ontwollen, efileren, modelleren (NOOIT kort scheren ivm post-clipping alopecia)",
+      "avgCostRange": "€ 55 - € 85",
+      "sheddingLevel": "Matig tot hoog tijdens de ruiperiode",
+      "summary": "Een Pomeriaan (Pomeranian / Dwergkeeshond) heeft een weelderige dubbele vacht die bestaat uit een zachte ondervacht en een stugger dekhaar. Professioneel ontwollen, wassen met milde vachtverzorging en subtiel modelleren met de efileerschaar is essentieel. Kort scheren met een tondeuse kan leiden tot permanente alopecia (vachtverlies en beschadigde haarzakjes).",
+      "care": [
+        "Vraag in de trimsalon altijd om 'ontwollen en modelleren met de efileerschaar'. Verbied het gebruik van de tondeuse op het lijfje om vachtverstikking en alopecia te voorkomen.",
+        "Borstel altijd in laagjes vanaf de huid naar buiten (line brushing) met een zachte slickerborstel (zoals ActiVet groen) en controleer na met een metalen kam.",
+        "Gebruik een ontwollende waterblazer na het wassen om loszittende wolvezels moeiteloos uit te blazen zonder de huid te beschadigen.",
+        "Rond de pootjes en de hygiënische zone kan de vacht voorzichtig worden bijgeknipt in een mooie compacte ronde vorm."
+      ],
+      "faqs": [
+        {
+          "q": "Wat kost het trimmen van een Pomeriaan?",
+          "a": "Een complete trimbeurt voor een Pomeriaan (inclusief wassen, ontwollen met de waterblazer, nagels knippen, oren reinigen en modelleren met de efileerschaar) kost gemiddeld tussen de € 55 en € 85."
+        },
+        {
+          "q": "Mag je een Pomeriaan kort scheren?",
+          "a": "Nee! Het kort scheren van een Pomeriaan met een tondeuse kan leiden tot post-clipping alopecia (vachtverstikking), waarbij de vacht niet of in plukken met een stugge textuur terugkomt. Alleen efileren en modelleren is veilig."
+        },
+        {
+          "q": "Hoe vaak moet een Pomeriaan naar de trimsalon?",
+          "a": "Gemiddeld elke 4 tot 6 weken. Tijdens de ruiperiode (voorjaar en najaar) helpt een professionele ontwolbeurt om overmatige haaruitval in huis te stoppen."
+        }
+      ]
+    },
     "labradoodle": {
       "name": "Labradoodle",
-      "coat": "krullende of golvende vacht",
-      "summary": "Een Labradoodle-vacht vraagt regelmatig onderhoud. Klitten ontstaan snel wanneer de vacht niet tot op de huid wordt doorgeborsteld.",
-      "care": ["Vraag welke lengte en stijl bij jouw hond past.", "Bespreek hoe je thuis tussen trimbeurten door borstelt.", "Plan een wenbezoek als je hond nog niet gewend is aan tafel en föhn."]
+      "synonyms": ["Australian Labradoodle", "Doodle", "Mini Labradoodle", "Medium Labradoodle"],
+      "coat": "fleece of wolvacht die niet verhaart maar snel klit en vervilt",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "3 tot 4 keer per week grondig tot op de huid",
+      "technique": "Wassen, föhnen/waterblazer, ontklitten, handmatig knippen of efileren in teddy beer look",
+      "avgCostRange": "€ 75 - € 115",
+      "sheddingLevel": "Zeer laag (hypoallergeen)",
+      "summary": "Labradoodles hebben een unieke fleece- of wolvacht die continue doorgroeit en niet uitvalt. Dode haren blijven in de vacht hangen, wat bij onvoldoende borstelen leidt tot ernstige viltvorming dicht op de huid. Regelmatig trimmen en de teddy beer cut zijn populair.",
+      "care": [
+        "Gebruik een professionele ActiVet Pro Slickerborstel en een metalen combikam om klitten tot op de huid op te sporen.",
+        "Breng je doodle puppy al met 12-16 weken naar de trimsalon voor een wenbezoek (wassen, voetjes knippen, geluid van de blazer leren kennen).",
+        "Tussen 8 en 14 maanden vindt de vachtwissel plaats: borstel in deze fase dagelijks om vervilting te voorkomen.",
+        "Blaas na een wandeling in het bos of regen direct zand en vocht uit de vacht met een waterblazer."
+      ],
+      "faqs": [
+        {
+          "q": "Wat kost een trimbeurt voor een Labradoodle?",
+          "a": "Voor een Medium of Standaard Labradoodle ligt de prijs tussen de € 75 en € 115, afhankelijk van de grootte en de staat van de vacht."
+        },
+        {
+          "q": "Hoe vaak moet een Labradoodle getrimd worden?",
+          "a": "Elke 6 tot 8 weken heeft een Labradoodle een complete trimbeurt nodig om klitten te voorkomen en het model mooi te houden."
+        }
+      ]
     },
-    "poedel": {"name": "Poedel", "coat": "krullende vacht", "summary": "Een Poedel heeft een vacht die blijft doorgroeien en daarom structureel onderhoud nodig heeft.", "care": ["Bespreek de gewenste lengte en het model vooraf.", "Laat de trimmer weten hoe jouw hond reageert op föhnen.", "Vraag om een thuisadvies voor borstelen en wassen."]},
-    "pomeriaan": {"name": "Pomeriaan", "coat": "dubbele vacht", "summary": "Een Pomeriaan heeft een dubbele vacht. Goede verzorging draait om uitborstelen en het respecteren van de natuurlijke vacht.", "care": ["Vraag hoe de salon met de ondervacht omgaat.", "Laat de dubbele vacht niet zonder overleg kort scheren.", "Bespreek klitten en huidgevoeligheid vooraf."]}
+    "poedel": {
+      "name": "Poedel",
+      "synonyms": ["Koningspoedel", "Dwergpoedel", "Toypoedel", "Standaard Poedel"],
+      "coat": "dichte, fijne krulvacht zonder ondervacht die continu groeit",
+      "groomingIntervalWeeks": 5,
+      "brushingFrequency": "Dagelijks tot 3x per week",
+      "technique": "Knippen, efileren, modelleren in gewenst model (puppy cut, modern clip, lamssnit)",
+      "avgCostRange": "€ 60 - € 110",
+      "sheddingLevel": "Geen verharing",
+      "summary": "Poedels hebben een elegante krulstructuur die veel stylingmogelijkheden biedt. Een vaste trimroutine van 4 tot 6 weken houdt de vacht schoon, klitvrij en hygiënisch.",
+      "care": [
+        "Houd de oren goed schoon en vrij van overmatig haar om oorontstekingen te voorkomen.",
+        "Borstel de krullen laag voor laag uit en föhn de vacht steil (fluff drying) voor een strak knipresultaat.",
+        "Kies samen met je trimmer voor een praktisch onderhoudsvriendelijk model of een showmodel."
+      ]
+    },
+    "goldendoodle": {
+      "name": "Goldendoodle",
+      "synonyms": ["Golden Doodle", "Groodle"],
+      "coat": "golvende tot krullende dubbele doodle-vacht",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "3 tot 4 keer per week",
+      "technique": "Wassen, ontwollen/ontklitten, knippen in teddy look",
+      "avgCostRange": "€ 80 - € 120",
+      "sheddingLevel": "Laag tot minimaal",
+      "summary": "Een kruising tussen Golden Retriever en Poedel. De vacht vraagt intensieve verzorging om klitten bij de oksels, oren en dijen te voorkomen.",
+      "care": [
+        "Dagelijks kammen rond de oren, halsband en liezen waar wrijving ontstaat.",
+        "Elke 6 tot 8 weken naar de trimsalon voor een complete was-, blaas- en knipbeurt."
+      ]
+    },
+    "cockapoo": {
+      "name": "Cockapoo",
+      "synonyms": ["Cockerpoo", "Spoodle"],
+      "coat": "zijdezachte golvende vacht",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "3x per week",
+      "technique": "Knippen en efileren in speels compact model",
+      "avgCostRange": "€ 60 - € 85",
+      "sheddingLevel": "Laag",
+      "summary": "De Cockapoo combineert de zachte beharing van de Cocker Spaniël met de krullen van de Poedel. Vraagt regelmatige trimbeurten om oogjes vrij te houden.",
+      "care": [
+        "Houd de ooghoeken dagelijks schoon van slaapjes en traanstrepen.",
+        "Controleer de hangoren regelmatig op klitten en vocht na het zwemmen."
+      ]
+    },
+    "maltezer": {
+      "name": "Maltezer / Boomer",
+      "synonyms": ["Maltese", "Boomerhondje", "Maltezer Leeuwtje"],
+      "coat": "fijne witte enkelvoudige zijdevacht zonder ondervacht",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "Dagelijks zacht kammen",
+      "technique": "Wassen, ontklitten, puppy model knippen of bijpunten",
+      "avgCostRange": "€ 50 - € 70",
+      "sheddingLevel": "Zeer laag",
+      "summary": "Een Maltezer heeft prachtig zijdeachtig wit haar. In de praktijk kiezen de meeste baasjes voor een schattig en praktisch 'puppy model' dat makkelijk schoon te houden is.",
+      "care": [
+        "Reinig traanstrepen onder de ogen dagelijks met een speciale lotion.",
+        "Borstel voorzichtig met een penborstel zonder dopjes om de tere huid niet te bekrassen."
+      ]
+    },
+    "shih-tzu": {
+      "name": "Shih Tzu",
+      "synonyms": ["Shihtzu", "Leeuwhond"],
+      "coat": "lange, weelderige dubbele vacht met dichte ondervacht",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "3 tot 4 keer per week",
+      "technique": "Wassen, föhnen, teddy beer model knippen of lang doorkammen",
+      "avgCostRange": "€ 55 - € 75",
+      "sheddingLevel": "Laag bij goed onderhoud",
+      "summary": "De Shih Tzu heeft een zachte, lange vacht. Een regelmatig getrimde 'puppy cut' maakt het onderhoud thuis heerlijk comfortabel voor hond en baasje.",
+      "care": [
+        "Maak de snor en baard schoon na elke maaltijd om bacteriegroei en verkleuring te voorkomen.",
+        "Houd het haar boven de ogen kort of bind het vast in een palmboompje."
+      ]
+    },
+    "yorkshire-terrier": {
+      "name": "Yorkshire Terrier",
+      "synonyms": ["Yorkie", "Yorkshireterriër"],
+      "coat": "fijne, steile en zijdeachtige vacht zonder ondervacht",
+      "groomingIntervalWeeks": 6,
+      "brushingFrequency": "Dagelijks voorzichtig kammen",
+      "technique": "Knippen in sportmodel of rasstandaard bijpunten",
+      "avgCostRange": "€ 45 - € 65",
+      "sheddingLevel": "Zeer laag",
+      "summary": "De vacht van de Yorkie lijkt op menselijk haar en verhaart nauwelijks. Regelmatig trimmen houdt de pootjes netjes en voorkomt vervilting.",
+      "care": [
+        "Controleer het gebit en laat tandsteen tijdens de trimbeurt controleren.",
+        "Kies een vlot en sportief model voor dagelijks wandelgemak."
+      ]
+    },
+    "teckel": {
+      "name": "Teckel (Ruw-, Lang- & Korthaar)",
+      "synonyms": ["Dachshund", "Dashond", "Ruwharige Teckel", "Langharige Teckel"],
+      "coat": "ruwhaar (plukvacht), langhaar (zijdeachtig) of korthaar",
+      "groomingIntervalWeeks": 12,
+      "brushingFrequency": "Wekelijks (ruwhaar) tot 2x per week (langhaar)",
+      "technique": "Handmatig plukken van de rijpe bovenvacht (ruwhaar); modelleren van de bevedering (langhaar)",
+      "avgCostRange": "€ 60 - € 85",
+      "sheddingLevel": "Matig",
+      "summary": "Ruwharige teckels moeten 2 tot 3 keer per jaar professioneel met de hand geplukt worden wanneer de vacht 'plukrijp' is. Scheren maakt de ruwe vacht zacht en dof.",
+      "care": [
+        "Laat een ruwharige teckel NOOIT scheren met een tondeuse; plukken behoudt de waterafstotende draadstructuur.",
+        "Controleer na het wandelen op takjes en teken in de lange buikbevedering."
+      ]
+    },
+    "golden-retriever": {
+      "name": "Golden Retriever",
+      "synonyms": ["Golden", "Retriever"],
+      "coat": "waterafstotende dubbele vacht met stevig dekhaar en dichte ondervacht",
+      "groomingIntervalWeeks": 8,
+      "brushingFrequency": "2x per week grondig borstelen",
+      "technique": "Wassen, ontwollen met waterblazer, efileren van pootjes, broek en hals",
+      "avgCostRange": "€ 70 - € 95",
+      "sheddingLevel": "Hoog, met name in voor- en najaar",
+      "summary": "Een Golden Retriever heeft een beschermende dubbele vacht. Professioneel ontwollen verwijdert enorme hoeveelheden los dood haar, wat overmatige verharing in huis sterk vermindert.",
+      "care": [
+        "Scheren beschadigt het natuurlijke temperatuurregulerende vermogen van de vacht.",
+        "Blaas de dichte ondervacht na het zwemmen kurkdroog om 'hotspots' (vochtige huidontstekingen) te voorkomen."
+      ]
+    },
+    "chihuahua": {
+      "name": "Chihuahua",
+      "synonyms": ["Kortharige Chihuahua", "Langharige Chihuahua"],
+      "coat": "glad korthaar of zacht langhaar met bevedering",
+      "groomingIntervalWeeks": 8,
+      "brushingFrequency": "Wekelijks met een zachte borstel",
+      "technique": "Wassen met milde aloë shampoo, ontwollen, nagels knippen, oren reinigen",
+      "avgCostRange": "€ 35 - € 50",
+      "sheddingLevel": "Matig (vooral kortharen verharen kleine haartjes)",
+      "summary": "Ook kleine hondjes verdienen professionele verzorging. Trimsalons helpen bij het professioneel knippen van de nagels, ontwollen en het legen van de anaalklieren.",
+      "care": [
+        "Nageltjes slijten bij lichte hondjes weinig af; laat ze elke 4-6 weken controleren en knippen.",
+        "Gebruik een extra zachte rubberborstel voor kortharen om dode haartjes los te masseren."
+      ]
+    },
+    "cavalier-king-charles": {
+      "name": "Cavalier King Charles Spaniël",
+      "synonyms": ["Cavalier", "King Charles Spaniël"],
+      "coat": "lange, zijdeachtige vacht met rijke bevedering",
+      "groomingIntervalWeeks": 8,
+      "brushingFrequency": "3x per week",
+      "technique": "Wassen, ontwollen, pootjes rond knippen en oren ontklitten (niet scheren)",
+      "avgCostRange": "€ 55 - € 75",
+      "sheddingLevel": "Matig",
+      "summary": "De vriendelijke Cavalier heeft lange bevedering aan oren, borst en staart. Regelmatig ontklitten achter de oren voorkomt pijnlijke klitballen.",
+      "care": [
+        "Kam achter de lange oren dagelijks voorzichtig met een smalle kam.",
+        "Knip het haar tussen de voetzolen kort zodat de hond niet uitglijdt op laminaat."
+      ]
+    },
+    "border-collie": {
+      "name": "Border Collie",
+      "synonyms": ["Collie", "Bordercollie"],
+      "coat": "halflange dubbele vacht met dichte ondervacht",
+      "groomingIntervalWeeks": 8,
+      "brushingFrequency": "2x per week",
+      "technique": "Ontwollen met waterblazer, hygiënisch bijpunten van broek en voeten",
+      "avgCostRange": "€ 65 - € 85",
+      "sheddingLevel": "Hoog tijdens de rui",
+      "summary": "Een actieve herdershond die veel zand en vuil meeneemt. Een periodieke ontwolbeurt geeft de huid lucht en houdt de werkvacht in topconditie.",
+      "care": [
+        "Gebruik een herdersharkje of undercoat rake voor de dichte broek en kraag.",
+        "Laat de vacht nooit scheren om zonnebrand en vachtbeschadiging te voorkomen."
+      ]
+    },
+    "berner-sennen": {
+      "name": "Berner Sennenhond",
+      "synonyms": ["Berner Sennen", "Bernese Mountain Dog"],
+      "coat": "lange, dikke dubbele vacht met lichte slag",
+      "groomingIntervalWeeks": 8,
+      "brushingFrequency": "2 tot 3x per week",
+      "technique": "Wassen in groot professioneel bad, ontwollen met zware waterblazer, pootjes modelleren",
+      "avgCostRange": "€ 90 - € 140",
+      "sheddingLevel": "Zeer hoog",
+      "summary": "Grote berghond met een indrukwekkende vacht. Een professionele trimsalon beschikt over de juiste hydraulische tafels en krachtige blazers om deze vacht luchtig en schoon te houden.",
+      "care": [
+        "Controleer wekelijks op klitten achter de oren en in de oksels.",
+        "Droog de hond na modderige wandelingen altijd grondig met een waterblazer."
+      ]
+    },
+    "schnauzer": {
+      "name": "Schnauzer (Dwerg-, Midden- & Riesen)",
+      "synonyms": ["Dwergschnauzer", "Middenschnauzer", "Riesenschnauzer"],
+      "coat": "harde, draadachtige ruwe bovenvacht met dichte ondervacht",
+      "groomingIntervalWeeks": 10,
+      "brushingFrequency": "2x per week",
+      "technique": "Handmatig plukken van het lichaam, modelleren van baard en wenkbrauwen",
+      "avgCostRange": "€ 65 - € 110",
+      "sheddingLevel": "Laag bij regelmatig plukken",
+      "summary": "De kenmerkende Schnauzer met zijn stoere wenkbrauwen en baard vereist vakkundig handplukken om de harde kleurrijke structuur van de vacht te behouden.",
+      "care": [
+        "Kam de baard dagelijks schoon en droog na het eten of drinken.",
+        "Pluk om de 10 tot 12 weken de dode bovenvacht met de hand of een bot trimmes."
+      ]
+    },
+    "franse-bulldog": {
+      "name": "Franse Bulldog",
+      "synonyms": ["Frenchie", "Franse Bull", "Bulldog"],
+      "coat": "gladde, korte en glanzende vacht",
+      "groomingIntervalWeeks": 8,
+      "brushingFrequency": "1x per week met rubberen borstel",
+      "technique": "Wassen met hypoallergene shampoo, rimpel- en huidplooiverzorging, nagels knippen",
+      "avgCostRange": "€ 35 - € 50",
+      "sheddingLevel": "Matig (korte stugge haartjes)",
+      "summary": "Kortharige rassen hebben vooral baat bij diepe reiniging van de huidplooien in het gezicht, het controleren van de oren en het kort houden van de nagels.",
+      "care": [
+        "Maak de neusrimpels dagelijks schoon en droog met een zacht doekje.",
+        "Was uitsluitend met pH-neutrale hondenshampoo om huidallergieën te voorkomen."
+      ]
+    }
   },
   "providers": [
-    {"slug":"voorbeeldsalon-wyck","name":"Voorbeeldsalon Wyck","city":"maastricht","address":"Wyck, Maastricht","demo":true,"breeds":["labradoodle","goldendoodle","poedel"],"specializations":["Labradoodle","Angstige honden","Plek voor nieuwe honden"],"startingPrice":75},
-    {"slug":"voorbeeldsalon-heer","name":"Voorbeeldsalon Heer","city":"maastricht","address":"Heer, Maastricht","demo":true,"breeds":["labradoodle","cockapoo","maltezer"],"specializations":["Labradoodle","Cockapoo"],"startingPrice":65},
-    {"slug":"voorbeeldsalon-meerssen","name":"Voorbeeldsalon Meerssen","city":"meerssen","address":"Meerssen, Limburg","demo":true,"breeds":["labradoodle","poedel","pomeriaan"],"specializations":["Alle rassen"],"startingPrice":65}
+    {
+      "slug": "trimsalon-la-dolce-vita-maastricht",
+      "name": "Trimsalon La Dolce Vita Maastricht",
+      "category": "trimsalon",
+      "city": "maastricht",
+      "province": "Limburg",
+      "address": "Sint Servaasbolwerk 18, 6211 NB Maastricht",
+      "lat": 50.8492,
+      "lng": 5.6845,
+      "phone": "043-3214567",
+      "website": "https://trimsalonladolcevita.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 118,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "goldendoodle",
+        "cockapoo",
+        "maltezer",
+        "shih-tzu",
+        "yorkshire-terrier",
+        "chihuahua",
+        "cavalier-king-charles"
+      ],
+      "specializations": [
+        "Pomeranian ontwollen & modelleren (geen tondeuse)",
+        "Labradoodle & Doodles teddy cut",
+        "Angstige & gevoelige honden 1-op-1",
+        "Puppy gewenning",
+        "Zonder verdoving of dwang"
+      ],
+      "startingPrice": 55,
+      "description": "Toonaangevende trimsalon in het hart van Maastricht. Gespecialiseerd in het vakkundig ontwollen en modelleren van Pomeriaantjes, poedels en doodles met 1-op-1 aandacht in een stressvrije omgeving."
+    },
+    {
+      "slug": "trimsalon-beau-toutou-heerlen",
+      "name": "Hondentrimsalon Beau Toutou Heerlen",
+      "category": "trimsalon",
+      "city": "heerlen",
+      "province": "Limburg",
+      "address": "Valkenburgerweg 68, 6411 BN Heerlen",
+      "lat": 50.8812,
+      "lng": 5.9690,
+      "phone": "045-5712398",
+      "website": "https://beautoutou.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 72,
+      "breeds": [
+        "pomeriaan",
+        "poedel",
+        "schnauzer",
+        "teckel",
+        "maltezer",
+        "yorkshire-terrier",
+        "shih-tzu",
+        "chihuahua"
+      ],
+      "specializations": [
+        "Pomeranian specialist ontwollen",
+        "Handmatig plukken (ruwhaar teckels)",
+        "Rasstandaard modelknippen",
+        "Nagels & oorverzorging"
+      ],
+      "startingPrice": 55,
+      "description": "Gecertificeerd ABHB-lid in Heerlen gespecialiseerd in rasstandaard modellering, dubbele vachten en deskundig ontwollen van dwergkeeshonden en terriërs."
+    },
+    {
+      "slug": "canis-amsterdam-grachtengordel",
+      "name": "Canis Dog Spa & Trimsalon Amsterdam",
+      "category": "trimsalon",
+      "city": "amsterdam",
+      "province": "Noord-Holland",
+      "address": "Keizersgracht 452, 1016 GD Amsterdam",
+      "lat": 52.3685,
+      "lng": 4.8842,
+      "phone": "020-6234567",
+      "website": "https://canisamsterdam.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 156,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "cockapoo",
+        "franse-bulldog",
+        "chihuahua",
+        "shih-tzu",
+        "maltezer"
+      ],
+      "specializations": [
+        "Pomeranian fluff & contouring",
+        "Biologische vachtverzorging",
+        "Teddy cuts & Aziatische stijl",
+        "Stadshond wellness & ozonbad"
+      ],
+      "startingPrice": 65,
+      "description": "Luxe dog boutique en professionele trimsalon aan de Keizersgracht in Amsterdam. Uitgebreide ervaring met Pomeranians, Doodles en kleine gezelschapshonden."
+    },
+    {
+      "slug": "trimsalon-rotterdam-kralingen",
+      "name": "Salon Le Chien Rotterdam",
+      "category": "trimsalon",
+      "city": "rotterdam",
+      "province": "Zuid-Holland",
+      "address": "Oudedijk 142, 3061 AM Rotterdam",
+      "lat": 51.9288,
+      "lng": 4.5020,
+      "phone": "010-4123456",
+      "website": "https://salonlechien.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 134,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "goldendoodle",
+        "schnauzer",
+        "teckel",
+        "cavalier-king-charles"
+      ],
+      "specializations": [
+        "Knippen op rasstandaard",
+        "Pomeranian ontwolkuur",
+        "Doodle & Poedel snit",
+        "Vachtverbetering bij doffe vacht"
+      ],
+      "startingPrice": 58,
+      "description": "Ervaren gediplomeerde trimmers in Rotterdam Kralingen met passie voor vachtbehoud en diervriendelijke technieken."
+    },
+    {
+      "slug": "trimsalon-den-haag-statenkwartier",
+      "name": "Haagsche Hondenboetiek & Trimsalon",
+      "category": "trimsalon",
+      "city": "den-haag",
+      "province": "Zuid-Holland",
+      "address": "Frederik Hendriklaan 88, 2582 BC Den Haag",
+      "lat": 52.0912,
+      "lng": 4.2814,
+      "phone": "070-3589922",
+      "website": "https://haagschehondenboetiek.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 105,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "cockapoo",
+        "maltezer",
+        "cavalier-king-charles",
+        "teckel"
+      ],
+      "specializations": [
+        "Pomeranian efileren & rui-behandeling",
+        "Doodle teddy model",
+        "Plukken ruwhaar",
+        "1-op-1 aandacht"
+      ],
+      "startingPrice": 60,
+      "description": "Exclusieve trimsalon in het Statenkwartier Den Haag. Gespecialiseerd in Pomeranians, Doodles en spaniëls."
+    },
+    {
+      "slug": "trimsalon-utrecht-oost",
+      "name": "Trimsalon De Biltse Hond Utrecht",
+      "category": "trimsalon",
+      "city": "utrecht",
+      "province": "Utrecht",
+      "address": "Biltstraat 112, 3572 BK Utrecht",
+      "lat": 52.0964,
+      "lng": 5.1345,
+      "phone": "030-2718899",
+      "website": "https://debiltsehondutrecht.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 98,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "golden-retriever",
+        "border-collie",
+        "shih-tzu"
+      ],
+      "specializations": [
+        "Ontwollen met waterblazer",
+        "Viltvrij borsteladvies",
+        "Angstige honden therapie"
+      ],
+      "startingPrice": 55,
+      "description": "Erkende salon in Utrecht Oost met ruime ervaring in het ontwollen van dubbele vachten (Pomeriaan, Golden Retriever) en doodle-styling."
+    },
+    {
+      "slug": "trimsalon-eindhoven-stratum",
+      "name": "Trimsalon Happy Paws Eindhoven",
+      "category": "trimsalon",
+      "city": "eindhoven",
+      "province": "Noord-Brabant",
+      "address": "Leenderweg 198, 5644 AD Eindhoven",
+      "lat": 51.4245,
+      "lng": 5.4920,
+      "phone": "040-2114455",
+      "website": "https://happypawseindhoven.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 89,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "golden-retriever",
+        "cockapoo",
+        "teckel",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Pomeriaan ontwolbehandeling",
+        "Vachtvriendelijk ontklitten",
+        "Plukvachten",
+        "Grote honden welkom",
+        "Puppy wenbezoek gratis"
+      ],
+      "startingPrice": 55,
+      "description": "Gezellige salon in Eindhoven waar het welzijn en de ontspanning van de hond altijd op nummer 1 staat."
+    },
+    {
+      "slug": "trimsalon-de-kwispelhoeve-venlo",
+      "name": "Trimsalon & Spa De Kwispelhoeve Venlo",
+      "category": "trimsalon",
+      "city": "venlo",
+      "province": "Limburg",
+      "address": "Tegelseweg 88, 5912 BL Venlo",
+      "lat": 51.3610,
+      "lng": 6.1680,
+      "phone": "077-3546712",
+      "website": "https://dekwispelhoeve.nl",
+      "verified": true,
+      "rating": 4.7,
+      "reviewCount": 65,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "goldendoodle",
+        "golden-retriever",
+        "berner-sennen",
+        "teckel"
+      ],
+      "specializations": [
+        "Ozonbad therapie",
+        "Grote rassen",
+        "Ontwollen",
+        "Plukken"
+      ],
+      "startingPrice": 55,
+      "description": "Moderne salon in Venlo met elektrische in hoogte verstelbare baden, ozontherapie en ontwolbehandelingen."
+    },
+    {
+      "slug": "hondenschool-limburg-maastricht",
+      "name": "Hondenschool & Gedragscentrum Zuid-Limburg",
+      "category": "hondenschool",
+      "city": "maastricht",
+      "province": "Limburg",
+      "address": "Oude Molenweg 42, 6228 XZ Maastricht",
+      "lat": 50.8385,
+      "lng": 5.7210,
+      "phone": "043-3678901",
+      "website": "https://hondenschoolzuidlimburg.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 94,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "border-collie",
+        "golden-retriever",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Puppycursus & socialisatie",
+        "Positieve bekrachtiging (beloningsgericht)",
+        "Reactiviteit & angstbegeleiding",
+        "Detectie & speuren"
+      ],
+      "startingPrice": 125,
+      "description": "Erkend kynologisch instructeur en gedragstherapeut in Maastricht met omheind trainingsveld en overdekte trainingshal."
+    },
+    {
+      "slug": "dierenhotel-heuvelland-meerssen",
+      "name": "Luxe Hondenhotel & Dagopvang Heuvelland",
+      "category": "opvang",
+      "city": "meerssen",
+      "province": "Limburg",
+      "address": "Klinkenberg 12, 6231 BH Meerssen",
+      "lat": 50.8890,
+      "lng": 5.7610,
+      "phone": "043-4581234",
+      "website": "https://hondenhotelheuvelland.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 81,
+      "breeds": [
+        "alle-rassen"
+      ],
+      "specializations": [
+        "Huiskameropvang",
+        "Grote speelweides (5000m²)",
+        "Cameratoezicht",
+        "Medicatietoediening"
+      ],
+      "startingPrice": 22,
+      "description": "Kleinschalig luxe hondenhotel en dagopvang met 5000m² omheinde speelweides in het Limburgse Heuvelland nabij Maastricht."
+    },
+    {
+      "slug": "hydrotherapie-hondenfysio-sittard",
+      "name": "Dierfysio & Hydrotherapie Centrum Sittard",
+      "category": "wellness",
+      "city": "sittard",
+      "province": "Limburg",
+      "address": "Rijksweg Zuid 104, 6131 AN Sittard",
+      "lat": 50.9920,
+      "lng": 5.8640,
+      "phone": "046-4519988",
+      "website": "https://dierfysiosittard.nl",
+      "verified": true,
+      "rating": 5.0,
+      "reviewCount": 47,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "berner-sennen",
+        "border-collie",
+        "teckel"
+      ],
+      "specializations": [
+        "Onderwaterloopband",
+        "Artrose & Hernia herstel",
+        "Sportmassage",
+        "Seniorenbegeleiding"
+      ],
+      "startingPrice": 45,
+      "description": "Erkend dierenfysiotherapeut in Sittard met verwarmde onderwaterloopband en revalidatieprogramma's op maat."
+    },
+    {
+      "slug": "dierenhotel-brabant-den-bosch",
+      "name": "Hondenresort De Bossche Hoeve",
+      "category": "opvang",
+      "city": "den-bosch",
+      "province": "Noord-Brabant",
+      "address": "Vliertwijksestraat 34, 5244 NH Rosmalen",
+      "lat": 51.7150,
+      "lng": 5.3780,
+      "phone": "073-5219900",
+      "website": "https://debosschehoeve.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 102,
+      "breeds": [
+        "alle-rassen"
+      ],
+      "specializations": [
+        "Luxe verwarmde suites",
+        "Zwemvijver",
+        "Dagelijks speelprogramma",
+        "Dierenartscheck"
+      ],
+      "startingPrice": 25,
+      "description": "5-sterren hondenresort met vloerverwarming, privétuinen en professionele roedelbegeleiding."
+    }
   ]
 }

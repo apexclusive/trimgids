@@ -1,0 +1,13 @@
+[
+  {
+    "id": "84c495b9-2cc4-4473-94d1-088a1e63891a",
+    "title": "Waarschuwing Blauwalg Maasvallei",
+    "type": "waarschuwing",
+    "location": "Maasvallei Maastricht",
+    "description": "Dode vissen en drijflaag gezien nabij recreatieplas.",
+    "sourceUrl": "",
+    "reporterEmail": "marc@example.com",
+    "status": "pending",
+    "createdAt": "2026-09-05T15:01:25.439Z"
+  }
+]

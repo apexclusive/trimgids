@@ -1,0 +1,80 @@
+[
+  {
+    "id": "activet-borstel-groen-rood",
+    "title": "ActiVet Pro Slickerborstel (Dubbelzijdig Groen/Rood)",
+    "category": "vachtverzorging",
+    "breeds": ["labradoodle", "goldendoodle", "poedel", "cockapoo", "berner-sennen"],
+    "price": 64.95,
+    "rating": 4.9,
+    "reviewCount": 420,
+    "badge": "Nr. 1 Keuze van Trimsalons",
+    "description": "De ultieme ontklitborstel voor doodles en langharige honden. De flexibele kop volgt de lichaamscontouren en borstelt moeiteloos tot op de huid zonder de huid te beschadigen.",
+    "pros": ["Halveert de borsteltijd", "Geen pijnlijk trekken dankzij flexibele kop", "Onverwoestbare kwaliteit"],
+    "affiliateUrl": "https://www.bol.com/nl/nl/p/activet-borstel/?ref=trimgids"
+  },
+  {
+    "id": "tractive-gps-dog-4-lte",
+    "title": "Tractive GPS Tracker voor Honden (Live Tracking & Geofence)",
+    "category": "veiligheid",
+    "breeds": ["alle-rassen"],
+    "price": 49.99,
+    "rating": 4.8,
+    "reviewCount": 890,
+    "badge": "Beste Vermissingspreventie",
+    "description": "100% waterdichte GPS-halsbandtracker met onbeperkt bereik in heel Europa. Volg elke stap live op je smartphone en ontvang alarmen als je hond de virtuele tuinafscheiding verlaat.",
+    "pros": ["Realtime live tracking om de 2 seconden", "Werkt ook diep in bossen via LTE", "Inclusief gezondheids- en activiteitsmonitoring"],
+    "affiliateUrl": "https://tractive.com/nl/pd/gps-tracker-dog?ref=trimgids"
+  },
+  {
+    "id": "pawbby-waterblazer-hondenfohn",
+    "title": "Pawbby / Comair Professionele Waterblazer & Droger (2800W)",
+    "category": "vachtverzorging",
+    "breeds": ["labradoodle", "golden-retriever", "pomeriaan", "berner-sennen", "poedel"],
+    "price": 109.00,
+    "rating": 4.9,
+    "reviewCount": 310,
+    "badge": "Onmisbaar na Zwemmen & Bos",
+    "description": "Krachtige professionele waterblazer die zand, modder, losse ondervacht en water in enkele minuten uit de vacht blaast. Voorkomt vervilting en hotspots na natte wandelingen.",
+    "pros": ["Traploos instelbare blaaskracht en warmte", "Geen stinkende natte hond meer in huis", "Blaast losse haren eruit vóórdat ze in huis vallen"],
+    "affiliateUrl": "https://www.bol.com/nl/nl/p/professionele-waterblazer/?ref=trimgids"
+  },
+  {
+    "id": "ruffwear-web-master-tuig",
+    "title": "Ruffwear Web Master Anti-Ontsnappingstuig (3-Punts Veiligheid)",
+    "category": "veiligheid",
+    "breeds": ["alle-rassen", "border-collie", "angstige-honden"],
+    "price": 89.95,
+    "rating": 5.0,
+    "reviewCount": 260,
+    "badge": "100% Ontsnappingsvrij",
+    "description": "Het meest veilige tuig voor angstige honden, adoptiehonden en actieve avonturiers. Dankzij de extra buikband achter de ribbenkast kan de hond nooit achteruit uit het tuig glippen.",
+    "pros": ["Ideaal bij angst voor vuurwerk of verkeer", "Handgreep op de rug om de hond over obstakels te tillen", "Zacht gevoerd en schuurt niet"],
+    "affiliateUrl": "https://ruffwear.nl/products/web-master-harness?ref=trimgids"
+  },
+  {
+    "id": "chris-christensen-buttercomb",
+    "title": "Chris Christensen Buttercomb 000 (Metalen Controlekam)",
+    "category": "vachtverzorging",
+    "breeds": ["labradoodle", "poedel", "maltezer", "cockapoo", "pomeriaan"],
+    "price": 48.50,
+    "rating": 4.9,
+    "reviewCount": 180,
+    "badge": "Show & Trimmers Favoriet",
+    "description": "Glijdt als boter door de vacht om onzichtbare beginnende klitten bij de huid op te sporen. Gemaakt van massief koper met afgeronde tanden die de huid strelen.",
+    "pros": ["Onmisbaar als eindcontrole na het borstelen", "Voorkomt dat salons de vacht kaal moeten scheren", "Gaat een hondenleven lang mee"],
+    "affiliateUrl": "https://www.bol.com/nl/nl/p/chris-christensen-buttercomb/?ref=trimgids"
+  },
+  {
+    "id": "jean-peau-ontklitspray",
+    "title": "Jean Peau Ontklit- & Glansspray met Zijdeproteïnen (250ml)",
+    "category": "vachtverzorging",
+    "breeds": ["alle-rassen", "labradoodle", "maltezer", "pomeriaan"],
+    "price": 17.95,
+    "rating": 4.8,
+    "reviewCount": 140,
+    "badge": "Vachtbeschermer",
+    "description": "Professionele anti-statische ontklitspray die borstelen pijnloos maakt en de vacht vuil- en waterafstotend houdt.",
+    "pros": ["Maakt stugge klitten soepel los", "Heerlijke zachte geur zonder parfumirritatie", "Voedt de haarwortel"],
+    "affiliateUrl": "https://www.bol.com/nl/nl/p/jean-peau-ontklitspray/?ref=trimgids"
+  }
+]

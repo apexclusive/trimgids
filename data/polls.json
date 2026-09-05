@@ -1,20 +1,32 @@
 [
   {
-    "id": "pomeriaan-trimfrequentie",
-    "breed": "pomeriaan",
-    "question": "Hoe vaak gaat jouw Pomeriaan naar de trimsalon?",
-    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Alleen wanneer het nodig is", "Ik verzorg de vacht vooral thuis"]
-  },
-  {
     "id": "labradoodle-trimfrequentie",
     "breed": "labradoodle",
     "question": "Hoe vaak laat jij jouw Labradoodle trimmen?",
-    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Op afspraak wanneer de vacht het nodig heeft", "Ik twijfel nog wat goed is"]
+    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Alleen wanneer het echt nodig is", "Ik doe het zelf thuis"]
+  },
+  {
+    "id": "pomeriaan-trimfrequentie",
+    "breed": "pomeriaan",
+    "question": "Hoe vaak gaat jouw Pomeriaan naar de trimsalon voor ontwollen?",
+    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "2x per jaar tijdens de rui", "Ik verzorg de vacht vooral thuis"]
   },
   {
     "id": "poedel-trimfrequentie",
     "breed": "poedel",
     "question": "Welke trimfrequentie werkt voor jouw Poedel?",
     "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Wisselend per seizoen", "Ik doe veel onderhoud thuis"]
+  },
+  {
+    "id": "hondenbelasting-mening",
+    "breed": "alle-rassen",
+    "question": "Moet hondenbelasting landelijk verplicht worden afgeschaft?",
+    "options": ["Ja, direct afschaffen in heel Nederland", "Ja, mits poepzakjes & prullenbakken blijven", "Nee, de opbrengst is nodig", "Geen mening"]
+  },
+  {
+    "id": "wandelen-voorkeur",
+    "breed": "alle-rassen",
+    "question": "Wat is voor jou en je hond de favoriete uitlaatplek?",
+    "options": ["Omheind losloopbos (100% veilig)", "Heuvelachtige natuur- & boswandeling", "Hondenstrand & zwemplas", "Gewoon in de eigen wijk"]
   }
 ]

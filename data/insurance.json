@@ -1,0 +1,100 @@
+[
+  {
+    "id": "figo-pet-insurance",
+    "provider": "Figo Pet",
+    "name": "Figo Huisdierenverzekering",
+    "logo": "🛡️",
+    "rating": 4.9,
+    "reviewCount": 1420,
+    "maxPayoutPerYear": "Tot € 6.000,- of onbeperkt",
+    "reimbursementPercent": "Tot 90%",
+    "startingPrice": 18.50,
+    "dentalIncluded": true,
+    "physioIncluded": true,
+    "abroadCover": true,
+    "waitingPeriodDays": 14,
+    "highlights": [
+      "Tot 90% vergoeding van alle dierenartskosten",
+      "Vrije dierenartskeuze in heel Nederland & EU",
+      "Inclusief heup- en elleboogoperaties (uniek bij grote rassen)",
+      "Declaraties binnen 48 uur op je rekening"
+    ],
+    "pros": ["Geen eigen bijdrage per declaratie mogelijk", "Uitstekende dekking voor erfelijke aandoeningen", "Snelle digitale app"],
+    "cons": ["Kleine toeslag voor oudere honden (> 7 jaar)"],
+    "affiliateUrl": "https://figopet.nl/?ref=trimgids",
+    "badge": "Beste Prijs/Kwaliteit 2026"
+  },
+  {
+    "id": "ohra-huisdierenverzekering",
+    "provider": "OHRA",
+    "name": "OHRA Hondenverzekering",
+    "logo": "🐶",
+    "rating": 4.8,
+    "reviewCount": 2180,
+    "maxPayoutPerYear": "Tot € 5.000,- per jaar",
+    "reimbursementPercent": "Tot 80%",
+    "startingPrice": 19.95,
+    "dentalIncluded": true,
+    "physioIncluded": true,
+    "abroadCover": true,
+    "waitingPeriodDays": 30,
+    "highlights": [
+      "Zeer betrouwbare Nederlandse verzekeraar",
+      "Aanvullende modules voor gebit, fysiotherapie en crematie",
+      "Direct declareren via de OHRA App",
+      "Collectiviteitskorting mogelijk"
+    ],
+    "pros": ["Groot netwerk en uitstekende klantenservice", "Fysio en acupunctuur meeverzekerd", "Vaste maandpremie"],
+    "cons": ["Standaard eigen risico van 20%"],
+    "affiliateUrl": "https://www.ohra.nl/dierenverzekering?ref=trimgids",
+    "badge": "Meest Gekozen"
+  },
+  {
+    "id": "petplan-dierenverzekering",
+    "provider": "Petplan",
+    "name": "Petplan Plus & Totaal",
+    "logo": "🐾",
+    "rating": 4.7,
+    "reviewCount": 980,
+    "maxPayoutPerYear": "Tot € 4.000,- of € 6.000,-",
+    "reimbursementPercent": "Tot 80%",
+    "startingPrice": 21.00,
+    "dentalIncluded": true,
+    "physioIncluded": true,
+    "abroadCover": true,
+    "waitingPeriodDays": 30,
+    "highlights": [
+      "Wereldwijd de grootste gespecialiseerde huisdierenverzekeraar",
+      "Ontwikkeld in nauwe samenwerking met dierenartsen",
+      "Inclusief specialistische MRI/CT-scans en consulten"
+    ],
+    "pros": ["Deskundige dierenartsbeoordeling", "Ruime vergoeding voor preventieve zorg en vaccinaties"],
+    "cons": ["Premie stijgt naarmate de hond ouder wordt"],
+    "affiliateUrl": "https://www.petplan.nl/?ref=trimgids",
+    "badge": "Dierenarts Keuze"
+  },
+  {
+    "id": "unive-zorg-voor-dieren",
+    "provider": "Univé",
+    "name": "Univé Huisdierenverzekering",
+    "logo": "💚",
+    "rating": 4.6,
+    "reviewCount": 850,
+    "maxPayoutPerYear": "Tot € 5.000,-",
+    "reimbursementPercent": "Tot 80%",
+    "startingPrice": 17.80,
+    "dentalIncluded": false,
+    "physioIncluded": true,
+    "abroadCover": false,
+    "waitingPeriodDays": 30,
+    "highlights": [
+      "Coöperatieve verzekeraar zonder winstoogmerk",
+      "Pakketkorting in combinatie met andere Univé verzekeringen",
+      "Geen leeftijdsgrens bij aanmelding"
+    ],
+    "pros": ["Lage instappremie voor jonge honden", "Ledenkorting en winstuitkering"],
+    "cons": ["Gebitsverzorging niet standaard in basispakket"],
+    "affiliateUrl": "https://www.unive.nl/dierenverzekering?ref=trimgids",
+    "badge": "Lage Premie"
+  }
+]

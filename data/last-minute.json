@@ -1,0 +1,42 @@
+[
+  {
+    "id": "lm-wyck-maastricht-1",
+    "providerName": "Trimsalon La Dolce Vita Maastricht",
+    "providerSlug": "trimsalon-la-dolce-vita-maastricht",
+    "city": "Maastricht",
+    "province": "Limburg",
+    "date": "2026-09-08",
+    "time": "14:00 uur",
+    "service": "Volledige trimbeurt Labradoodle / Poedel / Boomer",
+    "discount": "10% Last-minute korting",
+    "claimed": true,
+    "createdAt": "2026-09-05T09:00:00.000Z",
+    "claimedAt": "2026-09-05T15:01:19.643Z"
+  },
+  {
+    "id": "lm-heerlen-beau-toutou-2",
+    "providerName": "Hondentrimsalon Beau Toutou Heerlen",
+    "providerSlug": "trimsalon-beau-toutou-heerlen",
+    "city": "Heerlen",
+    "province": "Limburg",
+    "date": "2026-09-09",
+    "time": "10:30 uur",
+    "service": "Ontwolbehandeling Pomeriaan / Golden Retriever",
+    "discount": "Gratis ozonbad bij boeking",
+    "claimed": false,
+    "createdAt": "2026-09-05T10:15:00.000Z"
+  },
+  {
+    "id": "lm-venlo-kwispelhoeve-3",
+    "providerName": "Trimsalon & Spa De Kwispelhoeve Venlo",
+    "providerSlug": "trimsalon-de-kwispelhoeve-venlo",
+    "city": "Venlo",
+    "province": "Limburg",
+    "date": "2026-09-10",
+    "time": "13:30 uur",
+    "service": "Trimbeurt of plukbeurt Teckel / Schnauzer",
+    "discount": "Last-minute beschikbaar",
+    "claimed": false,
+    "createdAt": "2026-09-05T11:00:00.000Z"
+  }
+]

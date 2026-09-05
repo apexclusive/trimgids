@@ -1,0 +1,15 @@
+[
+  {
+    "id": "20ce7b46-a4be-4153-b9f6-f92fda270d02",
+    "name": "Sophie de Vries",
+    "email": "sophie@example.com",
+    "phone": "06-12345678",
+    "city": "Maastricht",
+    "breed": "Labradoodle",
+    "service": "Volledige trimbeurt",
+    "timeframe": "Binnen 2 weken",
+    "notes": "",
+    "status": "pending",
+    "createdAt": "2026-09-05T15:01:19.635Z"
+  }
+]
