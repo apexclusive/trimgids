@@ -1,0 +1,69 @@
+{
+  "tests": [
+    {
+      "id": "embark-breed-health",
+      "provider": "Embark Vet",
+      "title": "Embark Breed & Health Dog DNA Kit",
+      "logo": "🧬",
+      "rating": 4.9,
+      "reviewCount": 3840,
+      "price": 149.00,
+      "salePrice": 129.00,
+      "breedCount": "350+ rassen (99% nauwkeurigheid)",
+      "healthScreening": "250+ genetische gezondheidsrisico's (MDR1, PRA, DCM, DM)",
+      "turnaroundWeeks": "2 tot 4 weken",
+      "badge": "Beste Keuze & Meest Nauwkeurig",
+      "highlights": [
+        "Inclusief stamboom en familiezoeker (vind broertjes/zusjes wereldwijd)",
+        "250+ gezondheidstesten op erfelijke afwijkingen",
+        "Officieel aanbevolen door kynologen en dierenartsen",
+        "Eenvoudig wangslijmvlies uitstrijkje (pijnloos)"
+      ],
+      "affiliateUrl": "https://embarkvet.com/?utm_source=trimgids&utm_medium=affiliate&utm_campaign=dna_comparison",
+      "description": "De gouden standaard in honden-DNA. Detecteert meer dan 350 rassen en screent op 250+ genetische aandoeningen om preventief ziektes te voorkomen."
+    },
+    {
+      "id": "wisdom-panel-premium",
+      "provider": "Wisdom Panel",
+      "title": "Wisdom Panel Premium DNA Test",
+      "logo": "🔬",
+      "rating": 4.8,
+      "reviewCount": 2950,
+      "price": 139.99,
+      "salePrice": 119.99,
+      "breedCount": "365+ rassen & variëteiten",
+      "healthScreening": "210+ gezondheids- & medicijngevoeligheidstesten",
+      "turnaroundWeeks": "2 tot 3 weken",
+      "badge": "Beste Prijs/Kwaliteit",
+      "highlights": [
+        "365+ rassen, inclusief wolf- en coyote-percentages",
+        "Medicijngevoeligheid (o.a. MDR1 gen) rapportage",
+        "Bloedgroepbepaling & vachtkleur genetica",
+        "Snelle uitslag via overzichtelijke app"
+      ],
+      "affiliateUrl": "https://www.wisdompanel.com/?utm_source=trimgids&utm_medium=affiliate",
+      "description": "Toonaangevende DNA-test met diepgaande rapportages over rassenherkomst, medicijnovergevoeligheid en uiterlijke raskenmerken."
+    },
+    {
+      "id": "orivet-dog-dna",
+      "provider": "Orivet",
+      "title": "Orivet GenoPet Breed & Health",
+      "logo": "🐾",
+      "rating": 4.7,
+      "reviewCount": 1120,
+      "price": 109.00,
+      "salePrice": 95.00,
+      "breedCount": "300+ rassen",
+      "healthScreening": "150+ erfelijke mutaties & risicoprofiel",
+      "turnaroundWeeks": "3 tot 4 weken",
+      "badge": "Voordeligste Gezondheidscheck",
+      "highlights": [
+        "Persoonlijk levenslang welzijns- en voedingsplan",
+        "Gewichts- en groeivoorspelling",
+        "Ideaal voor adoptiehonden en kruisingen"
+      ],
+      "affiliateUrl": "https://www.orivet.com/?utm_source=trimgids&utm_medium=affiliate",
+      "description": "Complete en betaalbare DNA-test met een gepersonaliseerd LifePlan™ voor voeding en beweging op basis van de genen van jouw viervoeter."
+    }
+  ]
+}

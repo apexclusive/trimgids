@@ -1,0 +1,22 @@
+{
+  "categories": {
+    "one_time_startup": [
+      { "item": "Aanschaf pup (stamboom/fokker of asiel)", "small": 1250, "medium": 1500, "large": 1850 },
+      { "item": "Bench, zacht hondenkussen & mand", "small": 65, "medium": 95, "large": 140 },
+      { "item": "Y-tuigje, verstelbare halsband & looplijn", "small": 45, "medium": 60, "large": 75 },
+      { "item": "Voer- en drinkbakken (RVS / keramiek)", "small": 25, "medium": 35, "large": 50 },
+      { "item": "Borstels & verzorging (ActiVet, kam, nageltang)", "small": 65, "medium": 75, "large": 85 },
+      { "item": "Puppycursus & socialisatietraining (10 lessen)", "small": 140, "medium": 150, "large": 160 },
+      { "item": "Microchip registratie & dierenpaspoort", "small": 45, "medium": 45, "large": 45 }
+    ],
+    "annual_recurring": [
+      { "item": "Kwaliteitsvoeding (droogvoer of vers vlees)", "small": 420, "medium": 780, "large": 1250 },
+      { "item": "Trimsalon (wassen, ontwollen, knippen / 6-8x)", "small": 360, "medium": 520, "large": 720 },
+      { "item": "Dierenarts (jaarlijkse cocktailenting, controle, ontworming)", "small": 160, "medium": 180, "large": 210 },
+      { "item": "Teken- en vlooienpreventie (tabletten / pipetten)", "small": 75, "medium": 95, "large": 120 },
+      { "item": "Hondenverzekering (basis + ongeval & operatie)", "small": 240, "medium": 320, "large": 420 },
+      { "item": "Speelgoed, kauwbotten & gezonde beloningen", "small": 120, "medium": 160, "large": 220 },
+      { "item": "Hondenbelasting (gemiddeld indien van toepassing)", "small": 75, "medium": 75, "large": 75 }
+    ]
+  }
+}

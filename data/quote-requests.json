@@ -1,5 +1,18 @@
 [
   {
+    "id": "1eb9e522-c028-4615-9af1-84e5b462679e",
+    "name": "Laura Jansen",
+    "email": "laura@example.com",
+    "phone": "0612345678",
+    "city": "Maastricht",
+    "breed": "Pomeriaan",
+    "service": "Volledige trimbeurt",
+    "timeframe": "Binnen 2 weken",
+    "notes": "",
+    "status": "pending",
+    "createdAt": "2026-09-05T18:57:04.279Z"
+  },
+  {
     "id": "20ce7b46-a4be-4153-b9f6-f92fda270d02",
     "name": "Sophie de Vries",
     "email": "sophie@example.com",
