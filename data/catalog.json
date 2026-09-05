@@ -5,7 +5,7 @@
       "province": "Limburg",
       "region": "Zuid-Limburg",
       "lat": 50.8514,
-      "lng": 5.6910,
+      "lng": 5.691,
       "description": "Vind de beste trimsalons, hondenscholen en opvanglocaties in Maastricht. Vergelijk aanbieders in Wyck, Heer, Céramique, Brusselsepoort, Sint Pieter en Amby op raservaring, prijzen en reviews."
     },
     "heerlen": {
@@ -36,7 +36,7 @@
       "name": "Venlo",
       "province": "Limburg",
       "region": "Noord-Limburg",
-      "lat": 51.3700,
+      "lat": 51.37,
       "lng": 6.1724,
       "description": "Overzicht van trimsalons en hondensportverenigingen in Venlo, Tegelen en Blerick met tarieven en raservaring."
     },
@@ -197,14 +197,175 @@
       "province": "Overijssel",
       "region": "IJsseldelta",
       "lat": 52.5168,
-      "lng": 6.0830,
+      "lng": 6.083,
       "description": "Vind deskundige hondentrimmers en kynologische verenigingen in Zwolle."
+    },
+    "helmond": {
+      "name": "Helmond",
+      "province": "Noord-Brabant",
+      "meta": "Vind trimsalons, hondenscholen en opvang in Helmond en de Peel."
+    },
+    "roosendaal": {
+      "name": "Roosendaal",
+      "province": "Noord-Brabant",
+      "meta": "Vind trimsalons en hondenscholen in Roosendaal."
+    },
+    "bergen-op-zoom": {
+      "name": "Bergen op Zoom",
+      "province": "Noord-Brabant",
+      "meta": "Vakmensen voor hondenverzorging en training in Bergen op Zoom."
+    },
+    "oss": {
+      "name": "Oss",
+      "province": "Noord-Brabant",
+      "meta": "Hondenzorg, trimsalons en scholen in Oss."
+    },
+    "middelburg": {
+      "name": "Middelburg",
+      "province": "Zeeland",
+      "meta": "Trimsalons, hondenscholen en wandelroutes in Middelburg en Walcheren."
+    },
+    "vlissingen": {
+      "name": "Vlissingen",
+      "province": "Zeeland",
+      "meta": "Hondenzorg en trimsalons aan de Zeeuwse kust in Vlissingen."
+    },
+    "goes": {
+      "name": "Goes",
+      "province": "Zeeland",
+      "meta": "Vind de beste trimsalon en hondenschool in Goes en Beveland."
+    },
+    "leiden": {
+      "name": "Leiden",
+      "province": "Zuid-Holland",
+      "meta": "Professionele trimsalons en cursussen in de Sleutelstad Leiden."
+    },
+    "dordrecht": {
+      "name": "Dordrecht",
+      "province": "Zuid-Holland",
+      "meta": "Hondentrimmers, scholen en pensions in Dordrecht en de Drechtsteden."
+    },
+    "delft": {
+      "name": "Delft",
+      "province": "Zuid-Holland",
+      "meta": "Vind geverifieerde trimsalons en training in Delft."
+    },
+    "zoetermeer": {
+      "name": "Zoetermeer",
+      "province": "Zuid-Holland",
+      "meta": "Hondenverzorging en hondenscholen in Zoetermeer."
+    },
+    "gouda": {
+      "name": "Gouda",
+      "province": "Zuid-Holland",
+      "meta": "Trimsalons en hondenopvang in het Groene Hart rond Gouda."
+    },
+    "alkmaar": {
+      "name": "Alkmaar",
+      "province": "Noord-Holland",
+      "meta": "Vind trimsalons en hondensport in Alkmaar en Noord-Kennemerland."
+    },
+    "hilversum": {
+      "name": "Hilversum",
+      "province": "Noord-Holland",
+      "meta": "Exclusieve trimsalons, opvang en gedragstherapie in het Gooi."
+    },
+    "amstelveen": {
+      "name": "Amstelveen",
+      "province": "Noord-Holland",
+      "meta": "Hondentrimmers en daycare in Amstelveen."
+    },
+    "zaanstad": {
+      "name": "Zaanstad",
+      "province": "Noord-Holland",
+      "meta": "Trimsalons en hondenscholen in Zaandam en de Zaanstreek."
+    },
+    "zeist": {
+      "name": "Zeist",
+      "province": "Utrecht",
+      "meta": "Vind trimsalons en scholen op de Utrechtse Heuvelrug in Zeist."
+    },
+    "nieuwegein": {
+      "name": "Nieuwegein",
+      "province": "Utrecht",
+      "meta": "Hondenverzorging en cursussen in Nieuwegein."
+    },
+    "veenendaal": {
+      "name": "Veenendaal",
+      "province": "Utrecht",
+      "meta": "Trimsalons en pensions in Veenendaal en de Gelderse Vallei."
+    },
+    "ede": {
+      "name": "Ede",
+      "province": "Gelderland",
+      "meta": "Vind trimsalons en scholen aan de rand van de Veluwe in Ede."
+    },
+    "zutphen": {
+      "name": "Zutphen",
+      "province": "Gelderland",
+      "meta": "Hondenzorg en trimsalons in de Hanzestad Zutphen."
+    },
+    "harderwijk": {
+      "name": "Harderwijk",
+      "province": "Gelderland",
+      "meta": "Trimsalons en hondenstranden rond het Veluwerandmeer."
+    },
+    "deventer": {
+      "name": "Deventer",
+      "province": "Overijssel",
+      "meta": "Vind trimsalons en scholen aan de IJssel in Deventer."
+    },
+    "hengelo": {
+      "name": "Hengelo",
+      "province": "Overijssel",
+      "meta": "Hondenverzorging en cursussen in Twente rond Hengelo."
+    },
+    "almelo": {
+      "name": "Almelo",
+      "province": "Overijssel",
+      "meta": "Trimsalons en hondenscholen in Almelo."
+    },
+    "almere": {
+      "name": "Almere",
+      "province": "Flevoland",
+      "meta": "Vind trimsalons, scholen en hondenstranden in Almere."
+    },
+    "lelystad": {
+      "name": "Lelystad",
+      "province": "Flevoland",
+      "meta": "Hondenscholen, trimsalons en pensions in Lelystad."
+    },
+    "assen": {
+      "name": "Assen",
+      "province": "Drenthe",
+      "meta": "Trimsalons en hondenscholen in Assen en Drenthe."
+    },
+    "emmen": {
+      "name": "Emmen",
+      "province": "Drenthe",
+      "meta": "Vind de beste trimsalon en hondenschool in Emmen."
+    },
+    "leeuwarden": {
+      "name": "Leeuwarden",
+      "province": "Friesland",
+      "meta": "Vakbekwame trimsalons en scholen in Leeuwarden en Friesland."
+    },
+    "sneek": {
+      "name": "Sneek",
+      "province": "Friesland",
+      "meta": "Hondenverzorging en training in het Friese Merengebied rond Sneek."
     }
   },
   "breeds": {
     "pomeriaan": {
       "name": "Pomeriaan (Dwergkeeshond)",
-      "synonyms": ["Pomeranian", "Dwergkeeshond", "Dwergspits", "Keeshond", "Boo hond"],
+      "synonyms": [
+        "Pomeranian",
+        "Dwergkeeshond",
+        "Dwergspits",
+        "Keeshond",
+        "Boo hond"
+      ],
       "coat": "rijkelijke dubbele vacht met dichte ondervacht en rechte, uitstaande dekharen",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "2 tot 3 keer per week in lagen (line brushing)",
@@ -235,7 +396,12 @@
     },
     "labradoodle": {
       "name": "Labradoodle",
-      "synonyms": ["Australian Labradoodle", "Doodle", "Mini Labradoodle", "Medium Labradoodle"],
+      "synonyms": [
+        "Australian Labradoodle",
+        "Doodle",
+        "Mini Labradoodle",
+        "Medium Labradoodle"
+      ],
       "coat": "fleece of wolvacht die niet verhaart maar snel klit en vervilt",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "3 tot 4 keer per week grondig tot op de huid",
@@ -262,7 +428,12 @@
     },
     "poedel": {
       "name": "Poedel",
-      "synonyms": ["Koningspoedel", "Dwergpoedel", "Toypoedel", "Standaard Poedel"],
+      "synonyms": [
+        "Koningspoedel",
+        "Dwergpoedel",
+        "Toypoedel",
+        "Standaard Poedel"
+      ],
       "coat": "dichte, fijne krulvacht zonder ondervacht die continu groeit",
       "groomingIntervalWeeks": 5,
       "brushingFrequency": "Dagelijks tot 3x per week",
@@ -278,7 +449,10 @@
     },
     "goldendoodle": {
       "name": "Goldendoodle",
-      "synonyms": ["Golden Doodle", "Groodle"],
+      "synonyms": [
+        "Golden Doodle",
+        "Groodle"
+      ],
       "coat": "golvende tot krullende dubbele doodle-vacht",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "3 tot 4 keer per week",
@@ -293,7 +467,10 @@
     },
     "cockapoo": {
       "name": "Cockapoo",
-      "synonyms": ["Cockerpoo", "Spoodle"],
+      "synonyms": [
+        "Cockerpoo",
+        "Spoodle"
+      ],
       "coat": "zijdezachte golvende vacht",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "3x per week",
@@ -308,7 +485,11 @@
     },
     "maltezer": {
       "name": "Maltezer / Boomer",
-      "synonyms": ["Maltese", "Boomerhondje", "Maltezer Leeuwtje"],
+      "synonyms": [
+        "Maltese",
+        "Boomerhondje",
+        "Maltezer Leeuwtje"
+      ],
       "coat": "fijne witte enkelvoudige zijdevacht zonder ondervacht",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "Dagelijks zacht kammen",
@@ -323,7 +504,10 @@
     },
     "shih-tzu": {
       "name": "Shih Tzu",
-      "synonyms": ["Shihtzu", "Leeuwhond"],
+      "synonyms": [
+        "Shihtzu",
+        "Leeuwhond"
+      ],
       "coat": "lange, weelderige dubbele vacht met dichte ondervacht",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "3 tot 4 keer per week",
@@ -338,7 +522,10 @@
     },
     "yorkshire-terrier": {
       "name": "Yorkshire Terrier",
-      "synonyms": ["Yorkie", "Yorkshireterriër"],
+      "synonyms": [
+        "Yorkie",
+        "Yorkshireterriër"
+      ],
       "coat": "fijne, steile en zijdeachtige vacht zonder ondervacht",
       "groomingIntervalWeeks": 6,
       "brushingFrequency": "Dagelijks voorzichtig kammen",
@@ -353,7 +540,12 @@
     },
     "teckel": {
       "name": "Teckel (Ruw-, Lang- & Korthaar)",
-      "synonyms": ["Dachshund", "Dashond", "Ruwharige Teckel", "Langharige Teckel"],
+      "synonyms": [
+        "Dachshund",
+        "Dashond",
+        "Ruwharige Teckel",
+        "Langharige Teckel"
+      ],
       "coat": "ruwhaar (plukvacht), langhaar (zijdeachtig) of korthaar",
       "groomingIntervalWeeks": 12,
       "brushingFrequency": "Wekelijks (ruwhaar) tot 2x per week (langhaar)",
@@ -368,7 +560,10 @@
     },
     "golden-retriever": {
       "name": "Golden Retriever",
-      "synonyms": ["Golden", "Retriever"],
+      "synonyms": [
+        "Golden",
+        "Retriever"
+      ],
       "coat": "waterafstotende dubbele vacht met stevig dekhaar en dichte ondervacht",
       "groomingIntervalWeeks": 8,
       "brushingFrequency": "2x per week grondig borstelen",
@@ -383,7 +578,10 @@
     },
     "chihuahua": {
       "name": "Chihuahua",
-      "synonyms": ["Kortharige Chihuahua", "Langharige Chihuahua"],
+      "synonyms": [
+        "Kortharige Chihuahua",
+        "Langharige Chihuahua"
+      ],
       "coat": "glad korthaar of zacht langhaar met bevedering",
       "groomingIntervalWeeks": 8,
       "brushingFrequency": "Wekelijks met een zachte borstel",
@@ -398,7 +596,10 @@
     },
     "cavalier-king-charles": {
       "name": "Cavalier King Charles Spaniël",
-      "synonyms": ["Cavalier", "King Charles Spaniël"],
+      "synonyms": [
+        "Cavalier",
+        "King Charles Spaniël"
+      ],
       "coat": "lange, zijdeachtige vacht met rijke bevedering",
       "groomingIntervalWeeks": 8,
       "brushingFrequency": "3x per week",
@@ -413,7 +614,10 @@
     },
     "border-collie": {
       "name": "Border Collie",
-      "synonyms": ["Collie", "Bordercollie"],
+      "synonyms": [
+        "Collie",
+        "Bordercollie"
+      ],
       "coat": "halflange dubbele vacht met dichte ondervacht",
       "groomingIntervalWeeks": 8,
       "brushingFrequency": "2x per week",
@@ -428,7 +632,10 @@
     },
     "berner-sennen": {
       "name": "Berner Sennenhond",
-      "synonyms": ["Berner Sennen", "Bernese Mountain Dog"],
+      "synonyms": [
+        "Berner Sennen",
+        "Bernese Mountain Dog"
+      ],
       "coat": "lange, dikke dubbele vacht met lichte slag",
       "groomingIntervalWeeks": 8,
       "brushingFrequency": "2 tot 3x per week",
@@ -443,7 +650,11 @@
     },
     "schnauzer": {
       "name": "Schnauzer (Dwerg-, Midden- & Riesen)",
-      "synonyms": ["Dwergschnauzer", "Middenschnauzer", "Riesenschnauzer"],
+      "synonyms": [
+        "Dwergschnauzer",
+        "Middenschnauzer",
+        "Riesenschnauzer"
+      ],
       "coat": "harde, draadachtige ruwe bovenvacht met dichte ondervacht",
       "groomingIntervalWeeks": 10,
       "brushingFrequency": "2x per week",
@@ -458,7 +669,11 @@
     },
     "franse-bulldog": {
       "name": "Franse Bulldog",
-      "synonyms": ["Frenchie", "Franse Bull", "Bulldog"],
+      "synonyms": [
+        "Frenchie",
+        "Franse Bull",
+        "Bulldog"
+      ],
       "coat": "gladde, korte en glanzende vacht",
       "groomingIntervalWeeks": 8,
       "brushingFrequency": "1x per week met rubberen borstel",
@@ -496,160 +711,1792 @@
         "maltezer",
         "shih-tzu",
         "yorkshire-terrier",
-        "chihuahua",
-        "cavalier-king-charles"
+        "chihuahua"
       ],
       "specializations": [
-        "Pomeranian ontwollen & modelleren (geen tondeuse)",
-        "Labradoodle & Doodles teddy cut",
+        "Pomeranian ontwollen & modelleren",
+        "Labradoodle teddy cut",
         "Angstige & gevoelige honden 1-op-1",
-        "Puppy gewenning",
-        "Zonder verdoving of dwang"
+        "Puppy gewenning"
       ],
       "startingPrice": 55,
       "description": "Toonaangevende trimsalon in het hart van Maastricht. Gespecialiseerd in het vakkundig ontwollen en modelleren van Pomeriaantjes, poedels en doodles met 1-op-1 aandacht in een stressvrije omgeving."
     },
     {
-      "slug": "trimsalon-beau-toutou-heerlen",
-      "name": "Hondentrimsalon Beau Toutou Heerlen",
+      "slug": "hondentrimsalon-chique-vacht-heerlen",
+      "name": "Hondentrimsalon Chique Vacht Heerlen",
       "category": "trimsalon",
       "city": "heerlen",
       "province": "Limburg",
-      "address": "Valkenburgerweg 68, 6411 BN Heerlen",
-      "lat": 50.8812,
-      "lng": 5.9690,
-      "phone": "045-5712398",
-      "website": "https://beautoutou.nl",
+      "address": "Akerstraat 42, 6411 HA Heerlen",
+      "lat": 50.8875,
+      "lng": 5.9782,
+      "phone": "045-5712390",
+      "website": "https://chiquevachtheerlen.nl",
       "verified": true,
       "rating": 4.8,
-      "reviewCount": 72,
+      "reviewCount": 84,
+      "breeds": [
+        "labradoodle",
+        "golden-retriever",
+        "teckel",
+        "berner-sennen",
+        "pomeriaan",
+        "schnauzer"
+      ],
+      "specializations": [
+        "Plukken van ruwharige teckels",
+        "Ontwollen van grote rassen",
+        "Ozon hydrotherapie baden"
+      ],
+      "startingPrice": 50,
+      "description": "Gecertificeerde ABHB-trimsalon in Parkstad Heerlen met moderne wasfaciliteiten en ruime ervaring in pluk- en efileertechnieken."
+    },
+    {
+      "slug": "trimsalon-limburg-wellness-sittard",
+      "name": "Trimsalon & Spa Puur Hond Sittard",
+      "category": "trimsalon",
+      "city": "sittard",
+      "province": "Limburg",
+      "address": "Rijksweg Zuid 104, 6131 AN Sittard",
+      "lat": 50.9984,
+      "lng": 5.8698,
+      "phone": "046-4521098",
+      "website": "https://puurhondsittard.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 96,
       "breeds": [
         "pomeriaan",
         "poedel",
-        "schnauzer",
-        "teckel",
+        "goldendoodle",
+        "cockapoo",
         "maltezer",
-        "yorkshire-terrier",
-        "shih-tzu",
-        "chihuahua"
+        "cavalier-king-charles"
       ],
       "specializations": [
-        "Pomeranian specialist ontwollen",
-        "Handmatig plukken (ruwhaar teckels)",
-        "Rasstandaard modelknippen",
-        "Nagels & oorverzorging"
+        "Vachtvriendelijk ontwollen",
+        "Klitvrije poedelmodellen",
+        "Dermatologische kruidenbaden"
       ],
       "startingPrice": 55,
-      "description": "Gecertificeerd ABHB-lid in Heerlen gespecialiseerd in rasstandaard modellering, dubbele vachten en deskundig ontwollen van dwergkeeshonden en terriërs."
+      "description": "Luxe trimsalon en wellnessconcept voor honden in Sittard-Geleen. Rustige sfeer zonder andere honden tegelijkertijd op tafel."
     },
     {
-      "slug": "canis-amsterdam-grachtengordel",
-      "name": "Canis Dog Spa & Trimsalon Amsterdam",
+      "slug": "trimsalon-de-maasvallei-venlo",
+      "name": "Trimsalon De Maasvallei Venlo",
       "category": "trimsalon",
-      "city": "amsterdam",
-      "province": "Noord-Holland",
-      "address": "Keizersgracht 452, 1016 GD Amsterdam",
-      "lat": 52.3685,
-      "lng": 4.8842,
-      "phone": "020-6234567",
-      "website": "https://canisamsterdam.nl",
+      "city": "venlo",
+      "province": "Limburg",
+      "address": "Tegelseweg 58, 5912 BJ Venlo",
+      "lat": 51.3654,
+      "lng": 6.1689,
+      "phone": "077-3548901",
+      "website": "https://trimsalondemaasvallei.nl",
+      "verified": true,
+      "rating": 4.7,
+      "reviewCount": 72,
+      "breeds": [
+        "labradoodle",
+        "golden-retriever",
+        "border-collie",
+        "teckel",
+        "franse-bulldog"
+      ],
+      "specializations": [
+        "Efileren & modelleren",
+        "Verharing verminderen",
+        "Nagels & orenverzorging"
+      ],
+      "startingPrice": 48,
+      "description": "Professionele trimsalon in Venlo met liefdevolle verzorging voor zowel grote familiehonden als compacte gezelschapshonden."
+    },
+    {
+      "slug": "trimsalon-het-roerdal-roermond",
+      "name": "Trimsalon & Hondenspa Het Roerdal Roermond",
+      "category": "trimsalon",
+      "city": "roermond",
+      "province": "Limburg",
+      "address": "Minderbroederssingel 26, 6041 KK Roermond",
+      "lat": 51.1942,
+      "lng": 5.9875,
+      "phone": "0475-334589",
+      "website": "https://trimsalonhetroerdal.nl",
       "verified": true,
       "rating": 4.9,
-      "reviewCount": 156,
+      "reviewCount": 91,
       "breeds": [
         "pomeriaan",
         "labradoodle",
         "poedel",
-        "cockapoo",
-        "franse-bulldog",
-        "chihuahua",
-        "shih-tzu",
-        "maltezer"
+        "maltezer",
+        "golden-retriever"
       ],
       "specializations": [
-        "Pomeranian fluff & contouring",
-        "Biologische vachtverzorging",
-        "Teddy cuts & Aziatische stijl",
-        "Stadshond wellness & ozonbad"
+        "Pomeranian Scissor Styling",
+        "Doodle combi-behandeling",
+        "Hypoallergene shampoo"
       ],
-      "startingPrice": 65,
-      "description": "Luxe dog boutique en professionele trimsalon aan de Keizersgracht in Amsterdam. Uitgebreide ervaring met Pomeranians, Doodles en kleine gezelschapshonden."
+      "startingPrice": 52,
+      "description": "Exclusieve trimsalon nabij de Roermondse binnenstad en de Maasplassen. Volledig afgestemd op vachtbehoud en diervriendelijkheid."
     },
     {
-      "slug": "trimsalon-rotterdam-kralingen",
-      "name": "Salon Le Chien Rotterdam",
+      "slug": "trimsalon-de-gracht-amsterdam",
+      "name": "Salon De Gracht Canine Care Amsterdam",
       "category": "trimsalon",
-      "city": "rotterdam",
-      "province": "Zuid-Holland",
-      "address": "Oudedijk 142, 3061 AM Rotterdam",
-      "lat": 51.9288,
-      "lng": 4.5020,
-      "phone": "010-4123456",
-      "website": "https://salonlechien.nl",
+      "city": "amsterdam",
+      "province": "Noord-Holland",
+      "address": "Keizersgracht 412, 1016 GC Amsterdam",
+      "lat": 52.3685,
+      "lng": 4.8841,
+      "phone": "020-6248901",
+      "website": "https://salondegrachtamsterdam.nl",
       "verified": true,
       "rating": 4.9,
-      "reviewCount": 134,
+      "reviewCount": 164,
       "breeds": [
         "pomeriaan",
         "labradoodle",
         "poedel",
         "goldendoodle",
-        "schnauzer",
-        "teckel",
-        "cavalier-king-charles"
+        "cockapoo",
+        "maltezer",
+        "shih-tzu"
       ],
       "specializations": [
-        "Knippen op rasstandaard",
-        "Pomeranian ontwolkuur",
-        "Doodle & Poedel snit",
-        "Vachtverbetering bij doffe vacht"
+        "Asian Fusion Styling",
+        "Pomeranian Boo & Fox cut",
+        "Klitpreventie Doodles",
+        "VIP Ophaalservice"
       ],
-      "startingPrice": 58,
-      "description": "Ervaren gediplomeerde trimmers in Rotterdam Kralingen met passie voor vachtbehoud en diervriendelijke technieken."
+      "startingPrice": 65,
+      "description": "High-end hondentrimsalon in het centrum van Amsterdam. Bekend om precisie knipwerk, Asian Fusion styling en zachte benadering van stadshonden."
     },
     {
-      "slug": "trimsalon-den-haag-statenkwartier",
-      "name": "Haagsche Hondenboetiek & Trimsalon",
+      "slug": "trimsalon-haarlemmermeer-haarlem",
+      "name": "Trimsalon Kennemer Hond Haarlem",
+      "category": "trimsalon",
+      "city": "haarlem",
+      "province": "Noord-Holland",
+      "address": "Grote Houtstraat 148, 2011 SX Haarlem",
+      "lat": 52.3789,
+      "lng": 4.6321,
+      "phone": "023-5318890",
+      "website": "https://kennemerhondhaarlem.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 95,
+      "breeds": [
+        "labradoodle",
+        "golden-retriever",
+        "teckel",
+        "poedel",
+        "border-collie"
+      ],
+      "specializations": [
+        "Plukken & strippen",
+        "Doodle vachtbeheer",
+        "Oudere honden comfort trim"
+      ],
+      "startingPrice": 55,
+      "description": "Sfeervolle salon in Haarlem met veel natuurlijk daglicht en hydraulische tafels voor optimaal comfort van je viervoeter."
+    },
+    {
+      "slug": "trimsalon-maasstad-rotterdam",
+      "name": "Trimsalon Maasstad Rotterdam",
+      "category": "trimsalon",
+      "city": "rotterdam",
+      "province": "Zuid-Holland",
+      "address": "Kralingse Plaslaan 45, 3062 DA Rotterdam",
+      "lat": 51.9312,
+      "lng": 4.5123,
+      "phone": "010-4127890",
+      "website": "https://trimsalonmaasstad.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 132,
+      "breeds": [
+        "labradoodle",
+        "pomeriaan",
+        "golden-retriever",
+        "franse-bulldog",
+        "teckel"
+      ],
+      "specializations": [
+        "Doodle onderhoud",
+        "Verharingskuren",
+        "Wassen & föhnen met high-velocity blazers"
+      ],
+      "startingPrice": 52,
+      "description": "Moderne trimsalon aan de rand van het Kralingse Bos. Ideaal te combineren met een ontspannen boswandeling."
+    },
+    {
+      "slug": "trimsalon-hofstad-den-haag",
+      "name": "Haagsche Hondentrimsalon Den Haag",
       "category": "trimsalon",
       "city": "den-haag",
       "province": "Zuid-Holland",
-      "address": "Frederik Hendriklaan 88, 2582 BC Den Haag",
-      "lat": 52.0912,
-      "lng": 4.2814,
-      "phone": "070-3589922",
-      "website": "https://haagschehondenboetiek.nl",
+      "address": "Javastraat 68, 2585 AS Den Haag",
+      "lat": 52.0889,
+      "lng": 4.3098,
+      "phone": "070-3621987",
+      "website": "https://haagschetrimsalon.nl",
       "verified": true,
       "rating": 4.9,
-      "reviewCount": 105,
+      "reviewCount": 140,
+      "breeds": [
+        "pomeriaan",
+        "poedel",
+        "labradoodle",
+        "cockapoo",
+        "maltezer",
+        "shih-tzu"
+      ],
+      "specializations": [
+        "Exclusief schaarwerk",
+        "Ontwollen zonder haarzakbeschadiging",
+        "Puppy wenconsulten"
+      ],
+      "startingPrice": 60,
+      "description": "Kwaliteitstrimsalon in het Willemspark in Den Haag. Vakkundige gediplomeerde trimmers met passie voor rasstandaarden."
+    },
+    {
+      "slug": "trimsalon-domstad-utrecht",
+      "name": "Trimsalon Domstad Utrecht",
+      "category": "trimsalon",
+      "city": "utrecht",
+      "province": "Utrecht",
+      "address": "Biltstraat 82, 3572 BK Utrecht",
+      "lat": 52.0965,
+      "lng": 5.1321,
+      "phone": "030-2713456",
+      "website": "https://trimsalondomstad.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 125,
+      "breeds": [
+        "labradoodle",
+        "goldendoodle",
+        "pomeriaan",
+        "poedel",
+        "golden-retriever",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Grote & middelgrote doodles",
+        "Viltvrij borsteladvies",
+        "Kruidenconditioners"
+      ],
+      "startingPrice": 55,
+      "description": "Centraal gelegen trimsalon in Utrecht Oost. Gespecialiseerd in krul- en fleecevachten met moderne was- en droogapparatuur."
+    },
+    {
+      "slug": "trimsalon-brabant-eindhoven",
+      "name": "Brabantse Vachtverzorging Eindhoven",
+      "category": "trimsalon",
+      "city": "eindhoven",
+      "province": "Noord-Brabant",
+      "address": "Stratumsedijk 62, 5611 ND Eindhoven",
+      "lat": 51.4321,
+      "lng": 5.4854,
+      "phone": "040-2114567",
+      "website": "https://brabantsevachtverzorging.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 110,
       "breeds": [
         "pomeriaan",
         "labradoodle",
         "poedel",
+        "golden-retriever",
+        "schnauzer"
+      ],
+      "specializations": [
+        "Ontwollen met waterblazer",
+        "Plukvachten",
+        "Gevoelige huidverzorging"
+      ],
+      "startingPrice": 50,
+      "description": "Erkende trimsalon in Eindhoven met focus op vachtwelzijn en diervriendelijke verzorging."
+    },
+    {
+      "slug": "trimsalon-de-baronie-breda",
+      "name": "Trimsalon De Baronie Breda",
+      "category": "trimsalon",
+      "city": "breda",
+      "province": "Noord-Brabant",
+      "address": "Ginnekenweg 112, 4818 JK Breda",
+      "lat": 51.5789,
+      "lng": 4.7812,
+      "phone": "076-5221980",
+      "website": "https://trimsalondebaronie.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 104,
+      "breeds": [
+        "labradoodle",
+        "pomeriaan",
+        "goldendoodle",
         "cockapoo",
-        "maltezer",
-        "cavalier-king-charles",
         "teckel"
       ],
       "specializations": [
-        "Pomeranian efileren & rui-behandeling",
-        "Doodle teddy model",
-        "Plukken ruwhaar",
-        "1-op-1 aandacht"
+        "Ginneken Teddy Snit",
+        "Teckel ruwhaar plukken",
+        "Oorspoeling & nagels"
       ],
-      "startingPrice": 60,
-      "description": "Exclusieve trimsalon in het Statenkwartier Den Haag. Gespecialiseerd in Pomeranians, Doodles en spaniëls."
+      "startingPrice": 54,
+      "description": "Gezellige salon in de wijk Ginneken in Breda. Veel ervaring met Doodles en Pomerianen."
     },
     {
-      "slug": "trimsalon-utrecht-oost",
-      "name": "Trimsalon De Biltse Hond Utrecht",
+      "slug": "trimsalon-martini-groningen",
+      "name": "Martini Hondentrimsalon Groningen",
       "category": "trimsalon",
+      "city": "groningen",
+      "province": "Groningen",
+      "address": "Verlengde Hereweg 74, 9722 AG Groningen",
+      "lat": 53.2012,
+      "lng": 6.5812,
+      "phone": "050-5251456",
+      "website": "https://martinitrimsalon.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 88,
+      "breeds": [
+        "labradoodle",
+        "pomeriaan",
+        "golden-retriever",
+        "berner-sennen",
+        "border-collie"
+      ],
+      "specializations": [
+        "Noordelijke rassen ontwollen",
+        "Klitpreventie",
+        "Handknippen"
+      ],
+      "startingPrice": 49,
+      "description": "Toonaangevende trimsalon in Groningen Zuid. Professioneel gediplomeerd met veel geduld voor jonge en oudere viervoeters."
+    },
+    {
+      "slug": "trimsalon-hertogstad-den-bosch",
+      "name": "Trimsalon De Hertogstad Den Bosch",
+      "category": "trimsalon",
+      "city": "den-bosch",
+      "province": "Noord-Brabant",
+      "address": "Vughterstraat 120, 5211 GL 's-Hertogenbosch",
+      "lat": 51.6845,
+      "lng": 5.2987,
+      "phone": "073-6124578",
+      "website": "https://trimsalonhertogstad.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 79,
+      "breeds": [
+        "poedel",
+        "labradoodle",
+        "pomeriaan",
+        "maltezer",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Poedelmodellen",
+        "Raszuiver modelleren",
+        "Zachte hydrobaden"
+      ],
+      "startingPrice": 52,
+      "description": "Erkende salon in het centrum van 's-Hertogenbosch met passie voor vachtverzorging op maat."
+    },
+    {
+      "slug": "trimsalon-de-veluwe-arnhem",
+      "name": "Veluwse Hondentrimsalon Arnhem",
+      "category": "trimsalon",
+      "city": "arnhem",
+      "province": "Gelderland",
+      "address": "Apeldoornseweg 85, 6814 BJ Arnhem",
+      "lat": 52.0012,
+      "lng": 5.9123,
+      "phone": "026-4431289",
+      "website": "https://veluwsetrimsalon.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 92,
+      "breeds": [
+        "golden-retriever",
+        "border-collie",
+        "labradoodle",
+        "berner-sennen",
+        "pomeriaan"
+      ],
+      "specializations": [
+        "Ontwollen na het bos",
+        "Verharingsbehandeling",
+        "Ruwhaar plukken"
+      ],
+      "startingPrice": 50,
+      "description": "Prachtig gelegen nabij Park Sonsbeek in Arnhem. Perfect om je hond heerlijk schoon en klitvrij mee naar huis te nemen."
+    },
+    {
+      "slug": "trimsalon-ijsselvallei-zwolle",
+      "name": "Trimsalon IJsselvallei Zwolle",
+      "category": "trimsalon",
+      "city": "zwolle",
+      "province": "Overijssel",
+      "address": "Wipstrikkerallee 48, 8023 DX Zwolle",
+      "lat": 52.5145,
+      "lng": 6.1045,
+      "phone": "038-4532109",
+      "website": "https://trimsalonijsselvallei.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 83,
+      "breeds": [
+        "labradoodle",
+        "pomeriaan",
+        "teckel",
+        "goldendoodle",
+        "shih-tzu"
+      ],
+      "specializations": [
+        "Doodle onderhoud",
+        "Teckels plukken",
+        "Vachtverzorging puppy's"
+      ],
+      "startingPrice": 48,
+      "description": "Vakkundige trimsalon in Zwolle met moderne tafels en professionele verzorgingsproducten."
+    },
+    {
+      "slug": "hondenschool-zuid-limburg-maastricht",
+      "name": "Hondenschool & Gedragscentrum Zuid-Limburg",
+      "category": "hondenschool",
+      "city": "maastricht",
+      "province": "Limburg",
+      "address": "Oosterweg 40, 6229 EN Maastricht",
+      "lat": 50.8245,
+      "lng": 5.7198,
+      "phone": "043-3671234",
+      "website": "https://hondenschoolzuidlimburg.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 142,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "border-collie",
+        "pomeriaan"
+      ],
+      "specializations": [
+        "Positieve puppycursus",
+        "Socialisatie in de stad & natuur",
+        "Gedragstherapie bij uitvallen & angst",
+        "Privélessen aan huis"
+      ],
+      "startingPrice": 135,
+      "description": "Toonaangevende hondenschool in Zuid-Limburg met gecertificeerde kynologische instructeurs (O&O / SPPD). Lessen op een ruim omheind terrein en in reële praktijksituaties."
+    },
+    {
+      "slug": "kynologenclub-limburg-geleen",
+      "name": "Kynologenclub Limburg & Omstreken",
+      "category": "hondenschool",
+      "city": "sittard",
+      "province": "Limburg",
+      "address": "Vouersweg 110, 6161 AG Geleen",
+      "lat": 50.9745,
+      "lng": 5.8291,
+      "phone": "046-4745890",
+      "website": "https://kclimburggileen.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 98,
+      "breeds": [
+        "alle-rassen",
+        "herdershond",
+        "retriever",
+        "teckel"
+      ],
+      "specializations": [
+        "Raad van Beheer G&G",
+        "Agility & Behendigheid",
+        "Ringtraining & Show",
+        "Gehoorzame Huishond"
+      ],
+      "startingPrice": 110,
+      "description": "Officiële Kynologenclub aangesloten bij de Raad van Beheer. Al decennialang het vertrouwde adres voor professionele hondentraining en hondensport in Limburg."
+    },
+    {
+      "slug": "hondenschool-parkstad-heerlen",
+      "name": "Hondenschool Parkstad & Hondentaal",
+      "category": "hondenschool",
+      "city": "heerlen",
+      "province": "Limburg",
+      "address": "Heerenweg 18, 6414 AG Heerlen",
+      "lat": 50.9012,
+      "lng": 5.9645,
+      "phone": "045-5612345",
+      "website": "https://hondenschoolparkstad.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 76,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "border-collie"
+      ],
+      "specializations": [
+        "Beloningsgericht trainen",
+        "Puppy coaching",
+        "Treedzekerheid & Balans",
+        "Kind & Hond workshops"
+      ],
+      "startingPrice": 125,
+      "description": "Moderne hondenschool met kleinschalige groepen (maximaal 5 cursisten) waardoor elk baasje en elke pup maximale individuele begeleiding krijgt."
+    },
+    {
+      "slug": "hondenschool-noord-limburg-venlo",
+      "name": "Hondenschool Noord-Limburg Venlo",
+      "category": "hondenschool",
+      "city": "venlo",
+      "province": "Limburg",
+      "address": "Kaldenkerkerweg 190, 5915 AC Venlo",
+      "lat": 51.3512,
+      "lng": 6.1891,
+      "phone": "077-3829012",
+      "website": "https://hondenschoolvenlo.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 88,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "duitse-herder",
+        "teckel"
+      ],
+      "specializations": [
+        "Puppy Fundament",
+        "Basis- & Voortgezette Gehoorzaamheid",
+        "Speurcursus & Mantrailing",
+        "Gedragsconsulten"
+      ],
+      "startingPrice": 130,
+      "description": "Deskundige hondenschool nabij de Duitse grens. Focus op een hechte band tussen hond en eigenaar zonder dwang of fysieke correcties."
+    },
+    {
+      "slug": "martin-gaus-hondenschool-amsterdam",
+      "name": "Martin Gaus Hondenschool Amsterdam",
+      "category": "hondenschool",
+      "city": "amsterdam",
+      "province": "Noord-Holland",
+      "address": "Ouderkerkerdijk 150, 1096 CR Amsterdam",
+      "lat": 52.3312,
+      "lng": 4.9212,
+      "phone": "020-4638900",
+      "website": "https://martingausamsterdam.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 215,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "franse-bulldog",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Gecertificeerde Martin Gaus methode",
+        "Stadssocialisatie Amsterdam",
+        "Puppy Starterskit",
+        "Gedragstherapie"
+      ],
+      "startingPrice": 155,
+      "description": "Gerenommeerde hondenschool volgens de wetenschappelijk onderbouwde Martin Gaus leertheorie. Professionele instructeurs en uitstekende faciliteiten aan de Amstel."
+    },
+    {
+      "slug": "hondenschool-rotterdam-kralingen",
+      "name": "Hondenschool Rijnmond & Kralingen",
+      "category": "hondenschool",
+      "city": "rotterdam",
+      "province": "Zuid-Holland",
+      "address": "Prinses Beatrixlaan 24, 3062 CM Rotterdam",
+      "lat": 51.9289,
+      "lng": 4.5212,
+      "phone": "010-4528901",
+      "website": "https://hondenschoolrijnmond.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 168,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "stafford",
+        "poedel",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Positieve bekrachtiging",
+        "Trek-vrij wandelen",
+        "Puppy Socialisatiepark",
+        "Hersenwerk & Puzzels"
+      ],
+      "startingPrice": 140,
+      "description": "De grootste hondenschool van Rotterdam met zowel overdekte hallen als verlichte buitenvelden. Cursussen voor pups, pubers en herplaatsers."
+    },
+    {
+      "slug": "kynologenclub-den-haag",
+      "name": "Kynologenclub 's-Gravenhage (KCG)",
+      "category": "hondenschool",
+      "city": "den-haag",
+      "province": "Zuid-Holland",
+      "address": "Laan van Poot 38, 2566 EC Den Haag",
+      "lat": 52.0789,
+      "lng": 4.2567,
+      "phone": "070-3258901",
+      "website": "https://kcdenhaag.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 135,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "pomeriaan",
+        "poedel",
+        "border-collie"
+      ],
+      "specializations": [
+        "Strand- & Duintraining",
+        "Gehoorzame Huishond",
+        "Hoopers & Agility",
+        "FCI Stamboom training"
+      ],
+      "startingPrice": 120,
+      "description": "Al meer dan 100 jaar dé kynologische vereniging van Den Haag. Prachtig gelegen nabij de duinen van Kijkduin met ervaren gediplomeerde trainers."
+    },
+    {
+      "slug": "kynologenclub-utrecht-de-hond",
+      "name": "Kynologenclub Utrecht & Omstreken (KCU)",
+      "category": "hondenschool",
       "city": "utrecht",
       "province": "Utrecht",
-      "address": "Biltstraat 112, 3572 BK Utrecht",
-      "lat": 52.0964,
-      "lng": 5.1345,
-      "phone": "030-2718899",
-      "website": "https://debiltsehondutrecht.nl",
+      "address": "Groenekanseweg 140, 3737 AG Groenekan",
+      "lat": 52.1245,
+      "lng": 5.1512,
+      "phone": "030-2201987",
+      "website": "https://kcutrecht.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 180,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "berner-sennen",
+        "teckel"
+      ],
+      "specializations": [
+        "Puppycursus tot Gevorderd",
+        "Flyball & Agility",
+        "Jacht & Apporteertraining",
+        "Gedragsbegeleiding"
+      ],
+      "startingPrice": 125,
+      "description": "Ruim opgezette hondenschool vlakbij Utrecht met meerdere verlichte trainingsvelden en een gezellig clubhuis."
+    },
+    {
+      "slug": "de-hondenacademie-eindhoven-tilburg",
+      "name": "De Hondenacademie Brabant (Eindhoven / Tilburg)",
+      "category": "hondenschool",
+      "city": "eindhoven",
+      "province": "Noord-Brabant",
+      "address": "Eindhovenseweg 92, 5683 PX Best",
+      "lat": 51.5089,
+      "lng": 5.3912,
+      "phone": "040-2801456",
+      "website": "https://hondenacademiebrabant.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 195,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "golden-retriever",
+        "border-collie"
+      ],
+      "specializations": [
+        "Hondenschool van het Jaar Award",
+        "Kleine groepen (max 4-5)",
+        "Binnen- en buitenaccommodatie",
+        "Pubercursus & Zelfbeheersing"
+      ],
+      "startingPrice": 145,
+      "description": "Bekroonde hondenschool in Midden-Brabant. State-of-the-art overdekte trainingshal met kunstgras en professionele gedragskundigen."
+    },
+    {
+      "slug": "hondenschool-de-baronie-breda",
+      "name": "Hondenschool Breda & De Baronie",
+      "category": "hondenschool",
+      "city": "breda",
+      "province": "Noord-Brabant",
+      "address": "Bavelselaan 210, 4835 TD Breda",
+      "lat": 51.5645,
+      "lng": 4.8123,
+      "phone": "076-5654321",
+      "website": "https://hondenschoolbreda.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 128,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "goldendoodle",
+        "pomeriaan",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Positief opvoeden",
+        "Mastbos wandeltrainingen",
+        "Sociale Huishond",
+        "Privecoaching"
+      ],
+      "startingPrice": 130,
+      "description": "Persoonlijke hondenschool aan de zuidkant van Breda. Focus op ontspannen wandelen en plezier voor baas en hond."
+    },
+    {
+      "slug": "hondenschool-stad-groningen",
+      "name": "Hondenschool Stad & Ommeland Groningen",
+      "category": "hondenschool",
+      "city": "groningen",
+      "province": "Groningen",
+      "address": "Peizerweg 270, 9744 BE Groningen",
+      "lat": 53.2089,
+      "lng": 6.5212,
+      "phone": "050-5771234",
+      "website": "https://hondenschoolgroningen.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 114,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "border-collie",
+        "pomeriaan",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "SPPD Erkend Gedragstherapeut",
+        "Stadstraining Grote Markt",
+        "Speuren & Neuswerk",
+        "Puppycursus"
+      ],
+      "startingPrice": 125,
+      "description": "Moderne hondenschool in Groningen met hoog aangeschreven gedragsbegeleiding en praktijkgerichte trainingen."
+    },
+    {
+      "slug": "hondenschool-veluwezoom-arnhem-nijmegen",
+      "name": "Hondenschool Gelderse Poort (Arnhem & Nijmegen)",
+      "category": "hondenschool",
+      "city": "arnhem",
+      "province": "Gelderland",
+      "address": "Westervoortsedijk 88, 6827 AV Arnhem",
+      "lat": 51.9745,
+      "lng": 5.9312,
+      "phone": "026-3891234",
+      "website": "https://hondenschoolgeldersepoort.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 146,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "duitse-herder",
+        "labradoodle",
+        "border-collie"
+      ],
+      "specializations": [
+        "Bos- & Praktijklessen",
+        "Apporteersport",
+        "Hondentaal begrijpen",
+        "Privégedragstherapie"
+      ],
+      "startingPrice": 135,
+      "description": "Actieve hondenschool in de regio Arnhem-Nijmegen met veel aandacht voor natuur- en praktijktraining."
+    },
+    {
+      "slug": "hondenschool-twente-enschede",
+      "name": "Kynologisch Centrum Twente Enschede",
+      "category": "hondenschool",
+      "city": "enschede",
+      "province": "Overijssel",
+      "address": "Kotkampweg 119, 7531 AS Enschede",
+      "lat": 52.2212,
+      "lng": 6.9123,
+      "phone": "053-4318901",
+      "website": "https://kctwente.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 102,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "golden-retriever",
+        "teckel"
+      ],
+      "specializations": [
+        "Gehoorzaamheid & Sport",
+        "Puppy Socialisatie",
+        "Agility & Hoopers",
+        "Kind-Hond cursus"
+      ],
+      "startingPrice": 120,
+      "description": "Het grootste kynologische centrum van Twente met ruim opgezette faciliteiten en ervaren trainers."
+    },
+    {
+      "slug": "hondenschool-zeeland-middelburg",
+      "name": "Hondenschool Walcheren & Zeeland",
+      "category": "hondenschool",
+      "city": "middelburg",
+      "province": "Zeeland",
+      "address": "Arnesteinweg 34, 4338 PD Middelburg",
+      "lat": 51.4989,
+      "lng": 3.6312,
+      "phone": "0118-624589",
+      "website": "https://hondenschoolwalcheren.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 84,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "teckel"
+      ],
+      "specializations": [
+        "Strandtraining & Loslopen",
+        "Puppycursus Zeeland",
+        "Jonge Honden opvoeding"
+      ],
+      "startingPrice": 125,
+      "description": "Kwaliteitshondenschool op Walcheren met unieke strand- en duintrainingen voor optimale gehoorzaamheid."
+    },
+    {
+      "slug": "hondenschool-friesland-leeuwarden",
+      "name": "Kynologenclub Friesland Leeuwarden",
+      "category": "hondenschool",
+      "city": "leeuwarden",
+      "province": "Friesland",
+      "address": "De Zuidlanden 12, 8939 BG Leeuwarden",
+      "lat": 53.1789,
+      "lng": 5.8012,
+      "phone": "058-2881234",
+      "website": "https://kcfriesland.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 94,
+      "breeds": [
+        "alle-rassen",
+        "stabijhoun",
+        "wetterhoun",
+        "golden-retriever",
+        "labradoodle"
+      ],
+      "specializations": [
+        "Friese Rassen training",
+        "Basis Gehoorzaamheid",
+        "Speurwerk & Reddingshond",
+        "Agility"
+      ],
+      "startingPrice": 115,
+      "description": "Gemoedelijke en deskundige hondenschool in Friesland met een warm hart voor alle rassen en kruisingen."
+    },
+    {
+      "slug": "hondenschool-almere-flevoland",
+      "name": "Hondenschool Flevoland & Almere",
+      "category": "hondenschool",
+      "city": "almere",
+      "province": "Flevoland",
+      "address": "Trekweg 45, 1338 GA Almere",
+      "lat": 52.3912,
+      "lng": 5.2512,
+      "phone": "036-5389012",
+      "website": "https://hondenschoolflevoland.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 116,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "golden-retriever",
+        "franse-bulldog"
+      ],
+      "specializations": [
+        "Groot omheind trainingsbos",
+        "Puppy Socialisatiepad",
+        "Gedragstherapie aan huis"
+      ],
+      "startingPrice": 135,
+      "description": "Prachtig gelegen hondenschool met een eigen omheind bosperceel waar honden in alle rust en veiligheid kunnen trainen."
+    },
+    {
+      "slug": "hondenhotel-de-geulvallei-valkenburg",
+      "name": "Luxe Hondenresort De Geulvallei",
+      "category": "opvang",
+      "city": "valkenburg",
+      "province": "Limburg",
+      "address": "Geulhemmerweg 32, 6301 AL Valkenburg aan de Geul",
+      "lat": 50.8654,
+      "lng": 5.7984,
+      "phone": "043-6041234",
+      "website": "https://hondenresortdegeulvallei.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 156,
+      "breeds": [
+        "alle-rassen",
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Vloerverwarmde privésuites met camera",
+        "Dagelijkse heuvelwandelingen",
+        "Kleine honden VIP-lounge",
+        "Dieetvoeding op maat"
+      ],
+      "startingPrice": 28,
+      "description": "5-sterren hondenhotel in het Zuid-Limburgse Heuvelland. Royale speelweides van 10.000m² omheind, 24/7 cameratoezicht en liefdevolle verzorgers."
+    },
+    {
+      "slug": "hondenresort-maasgouw-roermond",
+      "name": "Dierenresort Maasgouw & Limburg",
+      "category": "opvang",
+      "city": "roermond",
+      "province": "Limburg",
+      "address": "Rijksweg Noord 14, 6051 KS Maasbracht",
+      "lat": 51.1456,
+      "lng": 5.8912,
+      "phone": "0475-461289",
+      "website": "https://dierenresortmaasgouw.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 112,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Ruime uitrenvelden",
+        "Zwemvijver voor honden",
+        "Dagopvang (creche)",
+        "Vakantieopvang met toezicht"
+      ],
+      "startingPrice": 24,
+      "description": "Groot dierenhotel met natuurlijke speelvijver en verwarmde binnenverblijven. Geschikt voor zowel dagopvang als lange vakanties."
+    },
+    {
+      "slug": "doggy-daycare-amsterdam-forest",
+      "name": "Amsterdam Doggy Daycare & Country Club",
+      "category": "opvang",
+      "city": "amsterdam",
+      "province": "Noord-Holland",
+      "address": "Nieuwe Meer 18, 1076 EB Amsterdam",
+      "lat": 52.3412,
+      "lng": 4.8456,
+      "phone": "020-7712390",
+      "website": "https://amsterdamdogdaycare.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 189,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "pomeriaan",
+        "cockapoo",
+        "franse-bulldog"
+      ],
+      "specializations": [
+        "Haal- en brengservice met airco bus",
+        "Groepsindeling op formaat & energie",
+        "Agility speeltoestellen",
+        "Live camera stream"
+      ],
+      "startingPrice": 32,
+      "description": "De ultieme dagopvang voor stadshonden in Amsterdam. Dagelijks rennen, spelen en socialiseren in een veilig groen paradijs aan de rand van het Amsterdamse Bos."
+    },
+    {
+      "slug": "dierenhotel-t-gooi-hilversum",
+      "name": "Luxe Dierenhotel 't Gooi & Vechtstreek",
+      "category": "opvang",
+      "city": "hilversum",
+      "province": "Noord-Holland",
+      "address": "Utrechtseweg 180, 1213 TZ Hilversum",
+      "lat": 52.2112,
+      "lng": 5.1789,
+      "phone": "035-6851234",
+      "website": "https://dierenhotelhetgooi.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 145,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan",
+        "teckel"
+      ],
+      "specializations": [
+        "Luxe suites met eigen tuintje",
+        "Medische verzorging & medicatie",
+        "Dierenarts 24/7 bereikbaar",
+        "Trimsalon service voor vertrek"
+      ],
+      "startingPrice": 30,
+      "description": "Exclusief hondenpension midden in de Gooise bossen. Hoge kwaliteitsstandaard met individuele aandacht en professionele medische begeleiding."
+    },
+    {
+      "slug": "hondenpension-utrechtse-heuvelrug-zeist",
+      "name": "Hondenhotel Utrechtse Heuvelrug",
+      "category": "opvang",
+      "city": "zeist",
+      "province": "Utrecht",
+      "address": "Woudenbergseweg 48, 3707 HX Zeist",
+      "lat": 52.0845,
+      "lng": 5.2612,
+      "phone": "030-6921234",
+      "website": "https://hondenhotelheuvelrug.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 130,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "border-collie"
+      ],
+      "specializations": [
+        "Boswandelingen aan de lange lijn",
+        "Veilige roedelopvang",
+        "Verwarmde binnenhokken",
+        "Puppy & senioren arrangement"
+      ],
+      "startingPrice": 26,
+      "description": "Prachtig gelegen hondenhotel in het bosgebied van Zeist. Ruime speelweides en dagelijks begeleide boswandelingen."
+    },
+    {
+      "slug": "hondenhotel-het-heike-eindhoven",
+      "name": "Dierenhotel & Dagopvang Het Heike Brabant",
+      "category": "opvang",
+      "city": "eindhoven",
+      "province": "Noord-Brabant",
+      "address": "Heikantsebaan 12, 5505 NA Veldhoven",
+      "lat": 51.4012,
+      "lng": 5.3789,
+      "phone": "040-2541289",
+      "website": "https://dierenhotelhetheike.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 162,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Airconditioned suites",
+        "Grote zand- en grasweides",
+        "Dagopvang abonnementen",
+        "Dierenartscontrole"
+      ],
+      "startingPrice": 25,
+      "description": "Hoogwaardig dierenpension in de regio Eindhoven-Veldhoven. Aangesloten bij brancheorganisatie Dibevo en gecertificeerd volgens de hoogste welzijnsnormen."
+    },
+    {
+      "slug": "dierenhotel-de-bommel-rotterdam",
+      "name": "Dierenhotel & Resort De Bommel",
+      "category": "opvang",
+      "city": "rotterdam",
+      "province": "Zuid-Holland",
+      "address": "Oud-Heinenoordseweg 8, 3274 KE Heinenoord",
+      "lat": 51.8312,
+      "lng": 4.4987,
+      "phone": "0186-601234",
+      "website": "https://dierenhoteldebommel.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 178,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan",
+        "duitse-herder"
+      ],
+      "specializations": [
+        "All-inclusive hondenhotel",
+        "Grote waterpartij & speelweides",
+        "Revalidatieopvang",
+        "Shuttle service Rotterdam"
+      ],
+      "startingPrice": 27,
+      "description": "Het toonaangevende hondenresort van de regio Rotterdam en Drechtsteden. 20.000m² speeloppervlakte en professioneel getraind personeel."
+    },
+    {
+      "slug": "dierenpension-noord-nederland-groningen",
+      "name": "Hondenpension & Dagopvang Groningen Ommeland",
+      "category": "opvang",
+      "city": "groningen",
+      "province": "Groningen",
+      "address": "Rijksweg 42, 9791 AC Ten Boer",
+      "lat": 53.2789,
+      "lng": 6.6891,
+      "phone": "050-5412389",
+      "website": "https://hondenpensiongroningen.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 96,
+      "breeds": [
+        "alle-rassen",
+        "border-collie",
+        "golden-retriever",
+        "labradoodle"
+      ],
+      "specializations": [
+        "Grote omheinde speelvelden",
+        "Vaste dagopvang roedels",
+        "Persoonlijke dieetbegeleiding"
+      ],
+      "startingPrice": 22,
+      "description": "Gemoedelijk en rustgevend hondenpension in het Groningse buitengebied met alle ruimte om lekker hond te zijn."
+    },
+    {
+      "slug": "hydrotherapie-fysio-maastricht-mergelland",
+      "name": "Canine Hydrotherapie & Dierenfysiotherapie Maastricht",
+      "category": "wellness",
+      "city": "maastricht",
+      "province": "Limburg",
+      "address": "Molensingel 72, 6229 PC Maastricht",
+      "lat": 50.8312,
+      "lng": 5.7289,
+      "phone": "043-3829012",
+      "website": "https://caninefysiomaastricht.nl",
+      "verified": true,
+      "rating": 5,
+      "reviewCount": 78,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "teckel",
+        "berner-sennen",
+        "duitse-herder"
+      ],
+      "specializations": [
+        "Onderwaterloopband (Hydrotherapie)",
+        "Revalidatie na hernia & kruisband operatie",
+        "Lasertherapie (High Power)",
+        "Artrose- & Pijnbestrijding"
+      ],
+      "startingPrice": 65,
+      "description": "Gespecialiseerd diergeneeskundig revalidatiecentrum in Maastricht. Behandeling door erkende dierenfysiotherapeuten (NVFD) met geavanceerde waterloopband."
+    },
+    {
+      "slug": "hydrotherapie-limburg-sittard-spa",
+      "name": "Honden Hydrotherapie & Revalidatie Sittard",
+      "category": "wellness",
+      "city": "sittard",
+      "province": "Limburg",
+      "address": "Handelsstraat 24, 6135 KL Sittard",
+      "lat": 51.0089,
+      "lng": 5.8512,
+      "phone": "046-4109876",
+      "website": "https://hydrotherapielimburg.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 64,
+      "breeds": [
+        "alle-rassen",
+        "teckel",
+        "golden-retriever",
+        "labradoodle",
+        "pomeriaan"
+      ],
+      "specializations": [
+        "Verwarmd hondenzwembad (30°C)",
+        "Spieropbouw & Conditietraining",
+        "Begeleid afvallen bij overgewicht",
+        "Senior honden wellness"
+      ],
+      "startingPrice": 60,
+      "description": "Therapeutisch zwemcentrum voor honden in Sittard. Zeer effectief bij gewrichtsslijtage, heupdysplasie (HD) en herstel na operaties."
+    },
+    {
+      "slug": "hydrodier-fysiotherapie-utrecht",
+      "name": "HydroDier & Revalidatiecentrum Midden-Nederland",
+      "category": "wellness",
+      "city": "utrecht",
+      "province": "Utrecht",
+      "address": "Herculesplein 15, 3584 AA Utrecht",
+      "lat": 52.0789,
+      "lng": 5.1489,
+      "phone": "030-2538901",
+      "website": "https://hydrodierutrecht.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 110,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "duitse-herder",
+        "teckel"
+      ],
+      "specializations": [
+        "Nauwe samenwerking Universiteitskliniek Utrecht",
+        "Onderwaterloopband & Zwembad",
+        "Dry needling & Manuele therapie",
+        "Ganganalyse & Krachtmeting"
+      ],
+      "startingPrice": 70,
+      "description": "Hoog aangeschreven fysiotherapie- en hydrotherapiecentrum vlakbij het Utrecht Science Park. Optimale zorg bij complexe orthopedische en neurologische aandoeningen."
+    },
+    {
+      "slug": "canine-wellness-amsterdam-fysio",
+      "name": "Canine Fysio & Hydro Spa Amsterdam",
+      "category": "wellness",
+      "city": "amsterdam",
+      "province": "Noord-Holland",
+      "address": "Johan Huizingalaan 763, 1066 VH Amsterdam",
+      "lat": 52.3489,
+      "lng": 4.8212,
+      "phone": "020-6198901",
+      "website": "https://caninefysioamsterdam.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 92,
+      "breeds": [
+        "alle-rassen",
+        "pomeriaan",
+        "labradoodle",
+        "franse-bulldog",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Hernia revalidatie bij teckels & bullys",
+        "Hydrotherapie met ozonreiniging",
+        "Orthopedische massage & Balanstraining",
+        "Vergoed door hondenverzekeringen"
+      ],
+      "startingPrice": 68,
+      "description": "Modern dierfysiotherapie- en revalidatiecentrum in Amsterdam West. Vergoeding mogelijk via o.a. Figo en OHRA hondenverzekering."
+    },
+    {
+      "slug": "hydrotherapie-de-blauwe-hond-rotterdam",
+      "name": "Hydrotherapie & Fysio De Blauwe Hond Rotterdam",
+      "category": "wellness",
+      "city": "rotterdam",
+      "province": "Zuid-Holland",
+      "address": "Stadionweg 42, 3077 AP Rotterdam",
+      "lat": 51.8945,
+      "lng": 4.5245,
+      "phone": "010-4821234",
+      "website": "https://deblauwehondrotterdam.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 86,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "berner-sennen",
+        "duitse-herder"
+      ],
+      "specializations": [
+        "Beweegtherapie in warm water",
+        "Echogeleide spierbehandeling",
+        "Senioren honden fitheid",
+        "Fit dog workshops"
+      ],
+      "startingPrice": 62,
+      "description": "Klantvriendelijk revalidatiecentrum in Rotterdam Zuid. Helpt honden pijnvrij en soepel te bewegen met watertherapie op maat."
+    },
+    {
+      "slug": "revalidatiecentrum-honden-brabant-eindhoven",
+      "name": "Dierfysiotherapie & Hydrotherapie Brabant",
+      "category": "wellness",
+      "city": "eindhoven",
+      "province": "Noord-Brabant",
+      "address": "Limburglaan 30, 5616 HR Eindhoven",
+      "lat": 51.4389,
+      "lng": 5.4612,
+      "phone": "040-2521980",
+      "website": "https://dierfysiobrabant.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 98,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "border-collie",
+        "teckel"
+      ],
+      "specializations": [
+        "Onderwaterloopband met camera",
+        "Acupunctuur & Laser",
+        "Spondylose & Artrose therapie",
+        "Sporthonden begeleiding"
+      ],
+      "startingPrice": 65,
+      "description": "Erkende dierenfysiotherapeuten aangesloten bij de NVFD. Uitstekende resultaten bij postoperatief herstel en ouderdomsklachten."
+    },
+    {
+      "slug": "hondenschool-de-veluwe-apeldoorn",
+      "name": "Hondenschool & Gedragscentrum De Veluwe Apeldoorn",
+      "category": "hondenschool",
+      "city": "apeldoorn",
+      "province": "Gelderland",
+      "address": "Amersfoortseweg 188, 7346 AA Hoog Soeren",
+      "lat": 52.2212,
+      "lng": 5.8912,
+      "phone": "055-5198901",
+      "website": "https://hondenschooldeveluwe.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 112,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "berner-sennen",
+        "border-collie"
+      ],
+      "specializations": [
+        "Bostraining op de Veluwe",
+        "Puppycursus & Socialisatie",
+        "Mantrailing & Speuren"
+      ],
+      "startingPrice": 130,
+      "description": "Erkende hondenschool in de uitgestrekte bossen van Apeldoorn. Deskundige begeleiding in kleine groepen."
+    },
+    {
+      "slug": "dierenpension-de-hoge-veluwe-ede",
+      "name": "Hondenhotel & Pension De Hoge Veluwe Ede",
+      "category": "opvang",
+      "city": "ede",
+      "province": "Gelderland",
+      "address": "Otterloseweg 45, 6718 ZM Ede",
+      "lat": 52.0612,
+      "lng": 5.7123,
+      "phone": "0318-641234",
+      "website": "https://dierenpensiondehogeveluwe.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 124,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Boswandelingen aan de lange lijn",
+        "Grote zandrenbanen",
+        "Verwarmde suites"
+      ],
+      "startingPrice": 24,
+      "description": "Prachtig gelegen hondenhotel aan de rand van de Hoge Veluwe. Ruimte, rust en professionele verzorging."
+    },
+    {
+      "slug": "hydrotherapie-fysio-veluwe-arnhem",
+      "name": "Canine Fysio & Hydrotherapie Midden-Gelderland",
+      "category": "wellness",
+      "city": "arnhem",
+      "province": "Gelderland",
+      "address": "Groningensingel 102, 6835 EZ Arnhem",
+      "lat": 51.9545,
+      "lng": 5.8891,
+      "phone": "026-3271234",
+      "website": "https://caninefysiogelderland.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 82,
+      "breeds": [
+        "alle-rassen",
+        "teckel",
+        "golden-retriever",
+        "labradoodle",
+        "duitse-herder"
+      ],
+      "specializations": [
+        "Onderwaterloopband revalidatie",
+        "High Power Lasertherapie",
+        "Artrose verlichting"
+      ],
+      "startingPrice": 65,
+      "description": "Specialistisch revalidatiecentrum voor honden in Gelderland. Begeleiding door NVFD erkende dierenfysiotherapeuten."
+    },
+    {
+      "slug": "hondenschool-salland-zwolle",
+      "name": "Hondenschool Salland & Hanzestad Zwolle",
+      "category": "hondenschool",
+      "city": "zwolle",
+      "province": "Overijssel",
+      "address": "Haersterveerweg 14, 8034 PK Zwolle",
+      "lat": 52.5312,
+      "lng": 6.1212,
+      "phone": "038-4228901",
+      "website": "https://hondenschoolsalland.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 136,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan",
+        "border-collie"
+      ],
+      "specializations": [
+        "Positief belonen",
+        "Puppycursus Zwolle",
+        "Gehoorzaamheid & Behendigheid",
+        "Speuren"
+      ],
+      "startingPrice": 125,
+      "description": "Gemoedelijke hondenschool aan de noordrand van Zwolle met overdekte trainingsmogelijkheden en ervaren instructeurs."
+    },
+    {
+      "slug": "hondenhotel-twente-enschede-resort",
+      "name": "Dierenresort & Hondenhotel Twente",
+      "category": "opvang",
+      "city": "enschede",
+      "province": "Overijssel",
+      "address": "Lossersestraat 180, 7525 PA Enschede",
+      "lat": 52.2412,
+      "lng": 6.9456,
+      "phone": "053-4612345",
+      "website": "https://dierenresorttwente.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 140,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan"
+      ],
+      "specializations": [
+        "Ruime speelweides van 15.000m²",
+        "Zwembad voor honden",
+        "Dagopvang creche"
+      ],
+      "startingPrice": 23,
+      "description": "Het toonaangevende hondenhotel van Twente met royale speelweides en professionele verzorging 365 dagen per jaar."
+    },
+    {
+      "slug": "hydrotherapie-twente-enschede-fysio",
+      "name": "Dierfysiotherapie & Hydrotherapie Twente",
+      "category": "wellness",
+      "city": "enschede",
+      "province": "Overijssel",
+      "address": "Institutenweg 30, 7521 PK Enschede",
+      "lat": 52.2389,
+      "lng": 6.8612,
+      "phone": "053-4831234",
+      "website": "https://dierfysiotwente.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 71,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "teckel",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Onderwaterloopband met warm water",
+        "Hernia & HD revalidatie",
+        "Dry needling"
+      ],
+      "startingPrice": 60,
+      "description": "Gespecialiseerd centrum voor dierfysiotherapie en revalidatie in Enschede. Nauwe samenwerking met dierenartsen in de regio."
+    },
+    {
+      "slug": "hondenschool-drenthe-assen",
+      "name": "Kynologenclub Assen & Drenthe",
+      "category": "hondenschool",
+      "city": "assen",
+      "province": "Drenthe",
+      "address": "Grasdrogerijweg 12, 9407 TP Assen",
+      "lat": 53.0112,
+      "lng": 6.5789,
+      "phone": "0592-341289",
+      "website": "https://kcassendrenthe.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 89,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "duitse-herder",
+        "teckel"
+      ],
+      "specializations": [
+        "Raad van Beheer aangesloten",
+        "Puppycursus & Opvoeding",
+        "Agility & Speuren"
+      ],
+      "startingPrice": 115,
+      "description": "Deskundige hondenschool in Drenthe met grote trainingsvelden en enthousiaste gecertificeerde instructeurs."
+    },
+    {
+      "slug": "trimsalon-drentse-hond-assen",
+      "name": "Trimsalon De Drentsche Hond Assen",
+      "category": "trimsalon",
+      "city": "assen",
+      "province": "Drenthe",
+      "address": "Rolderstraat 44, 9401 AT Assen",
+      "lat": 52.9945,
+      "lng": 6.5645,
+      "phone": "0592-318901",
+      "website": "https://trimsalondrentschehond.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 76,
+      "breeds": [
+        "labradoodle",
+        "pomeriaan",
+        "golden-retriever",
+        "teckel",
+        "schnauzer"
+      ],
+      "specializations": [
+        "Ontwollen & borstelen",
+        "Ruwhaar plukken",
+        "Klitpreventie"
+      ],
+      "startingPrice": 48,
+      "description": "Professionele trimsalon in Assen voor alle rassen en kruisingen. Rustige sfeer en persoonlijke aandacht."
+    },
+    {
+      "slug": "dierenpension-drents-friese-wold-assen",
+      "name": "Hondenpension Het Drentse Wold",
+      "category": "opvang",
+      "city": "assen",
+      "province": "Drenthe",
+      "address": "Witteveen 14, 9439 TA Witteveen",
+      "lat": 52.8412,
+      "lng": 6.6612,
+      "phone": "0593-551234",
+      "website": "https://hetdrentsewoldpension.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 104,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "border-collie"
+      ],
+      "specializations": [
+        "Midden in de Drentse natuur",
+        "Grote speelweides",
+        "Dagopvang & vakantie"
+      ],
+      "startingPrice": 22,
+      "description": "Rustiek dierenpension omringd door heide en bossen. Honden genieten van veel buitenruimte en frisse lucht."
+    },
+    {
+      "slug": "trimsalon-friesland-leeuwarden-care",
+      "name": "Friese Hondentrimsalon Leeuwarden",
+      "category": "trimsalon",
+      "city": "leeuwarden",
+      "province": "Friesland",
+      "address": "Harlingerstraatweg 56, 8913 CE Leeuwarden",
+      "lat": 53.2045,
+      "lng": 5.7789,
+      "phone": "058-2134567",
+      "website": "https://friesetrimsalonleeuwarden.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 92,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "teckel",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Stabijhoun & Wetterhoun verzorging",
+        "Pomeranian efileren",
+        "Doodle knippen"
+      ],
+      "startingPrice": 50,
+      "description": "Gediplomeerde trimsalon in Leeuwarden met veel liefde voor Friese rassen en familiehonden."
+    },
+    {
+      "slug": "dierenhotel-friese-meren-sneek",
+      "name": "Dierenhotel & Dagopvang Friese Meren Sneek",
+      "category": "opvang",
+      "city": "sneek",
+      "province": "Friesland",
+      "address": "Oppenhuizerweg 78, 8606 AT Sneek",
+      "lat": 53.0245,
+      "lng": 5.6789,
+      "phone": "0515-412345",
+      "website": "https://dierenhotelfriesemeren.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 88,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "stabijhoun"
+      ],
+      "specializations": [
+        "Zwemweide aan het water",
+        "Verwarmde binnenverblijven",
+        "Dagopvang abonnementen"
+      ],
+      "startingPrice": 23,
+      "description": "Fijn dierenhotel in het Friese Merengebied met eigen omheind speelwater waar honden veilig kunnen poedelen."
+    },
+    {
+      "slug": "hydrotherapie-noord-friesland-leeuwarden",
+      "name": "Canine Hydrotherapie & Fysio Friesland",
+      "category": "wellness",
+      "city": "leeuwarden",
+      "province": "Friesland",
+      "address": "Apolloweg 18, 8938 AT Leeuwarden",
+      "lat": 53.1891,
+      "lng": 5.8212,
+      "phone": "058-2801234",
+      "website": "https://hydrotherapiefriesland.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 65,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "teckel",
+        "duitse-herder"
+      ],
+      "specializations": [
+        "Onderwaterloopband Friesland",
+        "Orthopedische revalidatie",
+        "Gewrichtsbehoud"
+      ],
+      "startingPrice": 60,
+      "description": "Het moderne adres voor hondenhydrotherapie en revalidatie in Noord-Nederland."
+    },
+    {
+      "slug": "trimsalon-zeeuwse-kust-middelburg",
+      "name": "Trimsalon Zeeuwse Kust Middelburg",
+      "category": "trimsalon",
+      "city": "middelburg",
+      "province": "Zeeland",
+      "address": "Seisstraat 42, 4331 JR Middelburg",
+      "lat": 51.5012,
+      "lng": 3.6123,
+      "phone": "0118-631245",
+      "website": "https://trimsalonzeeuwsekust.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 78,
+      "breeds": [
+        "pomeriaan",
+        "labradoodle",
+        "poedel",
+        "golden-retriever",
+        "teckel"
+      ],
+      "specializations": [
+        "Zout & zand verwijderingsbad",
+        "Pomeranian styling",
+        "Doodle teddy model"
+      ],
+      "startingPrice": 52,
+      "description": "Gezellige trimsalon in de historische binnenstad van Middelburg met speciale ontziltende vachtkuren."
+    },
+    {
+      "slug": "hondenhotel-zeeland-walcheren-goes",
+      "name": "Dierenresort Zeeland & Walcheren",
+      "category": "opvang",
+      "city": "goes",
+      "province": "Zeeland",
+      "address": "Overschengestraat 14, 4461 JS Goes",
+      "lat": 51.5089,
+      "lng": 3.8912,
+      "phone": "0113-221234",
+      "website": "https://dierenresortzeeland.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 95,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "teckel"
+      ],
+      "specializations": [
+        "Zeelucht speelweides",
+        "Ruime verwarmde suites",
+        "Dagopvang creche"
+      ],
+      "startingPrice": 24,
+      "description": "Hét hondenhotel van Zeeland centraal gelegen tussen Walcheren en Zuid-Beveland."
+    },
+    {
+      "slug": "hydrotherapie-zeeland-goes-wellness",
+      "name": "Canine Hydrotherapie & Revalidatie Zeeland",
+      "category": "wellness",
+      "city": "goes",
+      "province": "Zeeland",
+      "address": "Albert Plesmanweg 28, 4462 GC Goes",
+      "lat": 51.4989,
+      "lng": 3.9123,
+      "phone": "0113-289012",
+      "website": "https://caninehydrotherapiezeeland.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 58,
+      "breeds": [
+        "alle-rassen",
+        "teckel",
+        "golden-retriever",
+        "labradoodle",
+        "berner-sennen"
+      ],
+      "specializations": [
+        "Onderwaterloopband Zeeland",
+        "Lasertherapie",
+        "Artrosebegeleiding"
+      ],
+      "startingPrice": 62,
+      "description": "Professioneel hydrotherapiecentrum voor honden in Zeeland. Gecertificeerde dierenfysiotherapie."
+    },
+    {
+      "slug": "trimsalon-almere-haven-spa",
+      "name": "Trimsalon Almere Haven & Wellness",
+      "category": "trimsalon",
+      "city": "almere",
+      "province": "Flevoland",
+      "address": "Kruisstraat 34, 1357 ND Almere",
+      "lat": 52.3412,
+      "lng": 5.2212,
+      "phone": "036-5312890",
+      "website": "https://trimsalonalmerehaven.nl",
       "verified": true,
       "rating": 4.8,
       "reviewCount": 98,
@@ -658,192 +2505,275 @@
         "labradoodle",
         "poedel",
         "golden-retriever",
-        "border-collie",
-        "shih-tzu"
+        "franse-bulldog"
       ],
       "specializations": [
-        "Ontwollen met waterblazer",
-        "Viltvrij borsteladvies",
-        "Angstige honden therapie"
+        "Pomeranian Boo & Schaarstyling",
+        "Doodle teddy cut",
+        "Ozonbad"
       ],
-      "startingPrice": 55,
-      "description": "Erkende salon in Utrecht Oost met ruime ervaring in het ontwollen van dubbele vachten (Pomeriaan, Golden Retriever) en doodle-styling."
+      "startingPrice": 52,
+      "description": "Moderne trimsalon aan de havenkom van Almere Haven met de nieuwste hydromassagebaden."
     },
     {
-      "slug": "trimsalon-eindhoven-stratum",
-      "name": "Trimsalon Happy Paws Eindhoven",
-      "category": "trimsalon",
-      "city": "eindhoven",
-      "province": "Noord-Brabant",
-      "address": "Leenderweg 198, 5644 AD Eindhoven",
-      "lat": 51.4245,
-      "lng": 5.4920,
-      "phone": "040-2114455",
-      "website": "https://happypawseindhoven.nl",
+      "slug": "dierenhotel-flevoland-lelystad-resort",
+      "name": "Luxe Dierenhotel Flevoland & Lelystad",
+      "category": "opvang",
+      "city": "lelystad",
+      "province": "Flevoland",
+      "address": "Larserringweg 20, 8242 PN Lelystad",
+      "lat": 52.5112,
+      "lng": 5.5123,
+      "phone": "0320-241234",
+      "website": "https://dierenhotelflevoland.nl",
       "verified": true,
-      "rating": 4.8,
-      "reviewCount": 89,
+      "rating": 4.9,
+      "reviewCount": 118,
       "breeds": [
-        "pomeriaan",
+        "alle-rassen",
         "labradoodle",
         "golden-retriever",
-        "cockapoo",
-        "teckel",
+        "pomeriaan",
         "berner-sennen"
       ],
       "specializations": [
-        "Pomeriaan ontwolbehandeling",
-        "Vachtvriendelijk ontklitten",
-        "Plukvachten",
-        "Grote honden welkom",
-        "Puppy wenbezoek gratis"
+        "12 hectare speelbos",
+        "Binnen- en buitensuites met vloerverwarming",
+        "Dagopvang"
       ],
-      "startingPrice": 55,
-      "description": "Gezellige salon in Eindhoven waar het welzijn en de ontspanning van de hond altijd op nummer 1 staat."
+      "startingPrice": 25,
+      "description": "Grootschalig, modern dierenhotel in Flevoland met ongekende uitloopmogelijkheden in de polderbossen."
     },
     {
-      "slug": "trimsalon-de-kwispelhoeve-venlo",
-      "name": "Trimsalon & Spa De Kwispelhoeve Venlo",
-      "category": "trimsalon",
-      "city": "venlo",
-      "province": "Limburg",
-      "address": "Tegelseweg 88, 5912 BL Venlo",
-      "lat": 51.3610,
-      "lng": 6.1680,
-      "phone": "077-3546712",
-      "website": "https://dekwispelhoeve.nl",
+      "slug": "hydrotherapie-flevoland-almere-fysio",
+      "name": "Dierfysio & Hydrotherapie Almere",
+      "category": "wellness",
+      "city": "almere",
+      "province": "Flevoland",
+      "address": "Markerkant 14 22, 1314 AP Almere",
+      "lat": 52.3789,
+      "lng": 5.2289,
+      "phone": "036-5401234",
+      "website": "https://dierfysioalmere.nl",
       "verified": true,
-      "rating": 4.7,
-      "reviewCount": 65,
+      "rating": 4.9,
+      "reviewCount": 74,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "teckel",
+        "franse-bulldog"
+      ],
+      "specializations": [
+        "Onderwaterloopband Almere",
+        "Revalidatie na LPC / OCD elleboog",
+        "Balans & Coördinatie"
+      ],
+      "startingPrice": 65,
+      "description": "Hoogwaardige revalidatie en hydrotherapie voor honden in Flevoland."
+    },
+    {
+      "slug": "hondenschool-hart-van-brabant-tilburg",
+      "name": "Hondenschool Hart van Brabant Tilburg",
+      "category": "hondenschool",
+      "city": "tilburg",
+      "province": "Noord-Brabant",
+      "address": "Rielseweg 85, 5032 SB Tilburg",
+      "lat": 51.5312,
+      "lng": 5.0412,
+      "phone": "013-5421289",
+      "website": "https://hondenschoolhartvanbrabant.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 148,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan",
+        "border-collie"
+      ],
+      "specializations": [
+        "Puppy Speeltuin",
+        "Sociale Huishond Cursus",
+        "Agility & Flyball",
+        "Privebegeleiding"
+      ],
+      "startingPrice": 130,
+      "description": "Grote, sfeervolle hondenschool aan de zuidrand van Tilburg met professionele gedragsexperts."
+    },
+    {
+      "slug": "trimsalon-tilburg-reeshof-care",
+      "name": "Trimsalon De Reeshof Tilburg",
+      "category": "trimsalon",
+      "city": "tilburg",
+      "province": "Noord-Brabant",
+      "address": "Heyhoefpromenade 48, 5043 MB Tilburg",
+      "lat": 51.5712,
+      "lng": 4.9891,
+      "phone": "013-5712390",
+      "website": "https://trimsalondereeshof.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 102,
       "breeds": [
         "pomeriaan",
         "labradoodle",
-        "goldendoodle",
+        "poedel",
         "golden-retriever",
-        "berner-sennen",
         "teckel"
       ],
       "specializations": [
-        "Ozonbad therapie",
-        "Grote rassen",
-        "Ontwollen",
-        "Plukken"
+        "Pomeranian styling",
+        "Doodle teddy snit",
+        "Huidvriendelijk wassen"
       ],
-      "startingPrice": 55,
-      "description": "Moderne salon in Venlo met elektrische in hoogte verstelbare baden, ozontherapie en ontwolbehandelingen."
+      "startingPrice": 50,
+      "description": "Populaire salon in Tilburg Reeshof met rustige 1-op-1 behandelingen."
     },
     {
-      "slug": "hondenschool-limburg-maastricht",
-      "name": "Hondenschool & Gedragscentrum Zuid-Limburg",
+      "slug": "hondenschool-leiden-bollenstreek",
+      "name": "Hondenschool Sleutelstad Leiden",
       "category": "hondenschool",
-      "city": "maastricht",
-      "province": "Limburg",
-      "address": "Oude Molenweg 42, 6228 XZ Maastricht",
-      "lat": 50.8385,
-      "lng": 5.7210,
-      "phone": "043-3678901",
-      "website": "https://hondenschoolzuidlimburg.nl",
+      "city": "leiden",
+      "province": "Zuid-Holland",
+      "address": "Vlietweg 68, 2323 LB Leiden",
+      "lat": 52.1412,
+      "lng": 4.4789,
+      "phone": "071-5761234",
+      "website": "https://hondenschoolsleutelstad.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 132,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "pomeriaan"
+      ],
+      "specializations": [
+        "Puppycursus & Basiscoaching",
+        "Stadstraining Leiden",
+        "Speurhond cursussen"
+      ],
+      "startingPrice": 135,
+      "description": "Professionele hondenschool in Leiden met nadruk op communicatie tussen mens en dier."
+    },
+    {
+      "slug": "trimsalon-sleutelstad-leiden",
+      "name": "Trimsalon Sleutelstad Leiden",
+      "category": "trimsalon",
+      "city": "leiden",
+      "province": "Zuid-Holland",
+      "address": "Breestraat 92, 2311 CS Leiden",
+      "lat": 52.1589,
+      "lng": 4.4912,
+      "phone": "071-5124578",
+      "website": "https://trimsalonsleutelstad.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 86,
+      "breeds": [
+        "pomeriaan",
+        "poedel",
+        "labradoodle",
+        "maltezer",
+        "golden-retriever"
+      ],
+      "specializations": [
+        "Pomeranian ontwollen",
+        "Doodles knippen",
+        "Stressvrije aanpak"
+      ],
+      "startingPrice": 54,
+      "description": "Vakbekwame trimsalon in het historische centrum van Leiden."
+    },
+    {
+      "slug": "dierenpension-leiden-groene-hart",
+      "name": "Dierenhotel Het Groene Hart Leiden / Leiderdorp",
+      "category": "opvang",
+      "city": "leiden",
+      "province": "Zuid-Holland",
+      "address": "Provincialeweg 18, 2351 AC Leiderdorp",
+      "lat": 52.1612,
+      "lng": 4.5412,
+      "phone": "071-5891234",
+      "website": "https://dierenhotelhetgroenehart.nl",
+      "verified": true,
+      "rating": 4.9,
+      "reviewCount": 110,
+      "breeds": [
+        "alle-rassen",
+        "golden-retriever",
+        "labradoodle",
+        "pomeriaan"
+      ],
+      "specializations": [
+        "Polder speelweides",
+        "Verwarmde suites",
+        "Dagopvang"
+      ],
+      "startingPrice": 26,
+      "description": "Sfeervol dierenhotel in het Groene Hart met veel speelruimte voor je hond."
+    },
+    {
+      "slug": "hondenschool-alkmaar-noord-holland",
+      "name": "Kynologenclub Noord-Kennemerland Alkmaar",
+      "category": "hondenschool",
+      "city": "alkmaar",
+      "province": "Noord-Holland",
+      "address": "Olympiaweg 26, 1816 MJ Alkmaar",
+      "lat": 52.6289,
+      "lng": 4.7312,
+      "phone": "072-5118901",
+      "website": "https://kcnkalkmaar.nl",
+      "verified": true,
+      "rating": 4.8,
+      "reviewCount": 120,
+      "breeds": [
+        "alle-rassen",
+        "labradoodle",
+        "golden-retriever",
+        "teckel",
+        "border-collie"
+      ],
+      "specializations": [
+        "Raad van Beheer G&G",
+        "Puppycursus",
+        "Behendigheid & Hoopers"
+      ],
+      "startingPrice": 120,
+      "description": "Grote kynologenclub in Alkmaar met professionele velden en actieve hondensporttrainingen."
+    },
+    {
+      "slug": "trimsalon-kaasstad-alkmaar",
+      "name": "Trimsalon Kaasstad Alkmaar",
+      "category": "trimsalon",
+      "city": "alkmaar",
+      "province": "Noord-Holland",
+      "address": "Laat 142, 1811 EM Alkmaar",
+      "lat": 52.6312,
+      "lng": 4.7489,
+      "phone": "072-5154321",
+      "website": "https://trimsalonkaasstad.nl",
       "verified": true,
       "rating": 4.9,
       "reviewCount": 94,
       "breeds": [
-        "alle-rassen",
-        "labradoodle",
         "pomeriaan",
-        "border-collie",
+        "labradoodle",
+        "poedel",
         "golden-retriever",
-        "berner-sennen"
-      ],
-      "specializations": [
-        "Puppycursus & socialisatie",
-        "Positieve bekrachtiging (beloningsgericht)",
-        "Reactiviteit & angstbegeleiding",
-        "Detectie & speuren"
-      ],
-      "startingPrice": 125,
-      "description": "Erkend kynologisch instructeur en gedragstherapeut in Maastricht met omheind trainingsveld en overdekte trainingshal."
-    },
-    {
-      "slug": "dierenhotel-heuvelland-meerssen",
-      "name": "Luxe Hondenhotel & Dagopvang Heuvelland",
-      "category": "opvang",
-      "city": "meerssen",
-      "province": "Limburg",
-      "address": "Klinkenberg 12, 6231 BH Meerssen",
-      "lat": 50.8890,
-      "lng": 5.7610,
-      "phone": "043-4581234",
-      "website": "https://hondenhotelheuvelland.nl",
-      "verified": true,
-      "rating": 4.8,
-      "reviewCount": 81,
-      "breeds": [
-        "alle-rassen"
-      ],
-      "specializations": [
-        "Huiskameropvang",
-        "Grote speelweides (5000m²)",
-        "Cameratoezicht",
-        "Medicatietoediening"
-      ],
-      "startingPrice": 22,
-      "description": "Kleinschalig luxe hondenhotel en dagopvang met 5000m² omheinde speelweides in het Limburgse Heuvelland nabij Maastricht."
-    },
-    {
-      "slug": "hydrotherapie-hondenfysio-sittard",
-      "name": "Dierfysio & Hydrotherapie Centrum Sittard",
-      "category": "wellness",
-      "city": "sittard",
-      "province": "Limburg",
-      "address": "Rijksweg Zuid 104, 6131 AN Sittard",
-      "lat": 50.9920,
-      "lng": 5.8640,
-      "phone": "046-4519988",
-      "website": "https://dierfysiosittard.nl",
-      "verified": true,
-      "rating": 5.0,
-      "reviewCount": 47,
-      "breeds": [
-        "alle-rassen",
-        "golden-retriever",
-        "berner-sennen",
-        "border-collie",
         "teckel"
       ],
       "specializations": [
-        "Onderwaterloopband",
-        "Artrose & Hernia herstel",
-        "Sportmassage",
-        "Seniorenbegeleiding"
+        "Pomeranian efileren",
+        "Doodle teddy look",
+        "Klitpreventie"
       ],
-      "startingPrice": 45,
-      "description": "Erkend dierenfysiotherapeut in Sittard met verwarmde onderwaterloopband en revalidatieprogramma's op maat."
-    },
-    {
-      "slug": "dierenhotel-brabant-den-bosch",
-      "name": "Hondenresort De Bossche Hoeve",
-      "category": "opvang",
-      "city": "den-bosch",
-      "province": "Noord-Brabant",
-      "address": "Vliertwijksestraat 34, 5244 NH Rosmalen",
-      "lat": 51.7150,
-      "lng": 5.3780,
-      "phone": "073-5219900",
-      "website": "https://debosschehoeve.nl",
-      "verified": true,
-      "rating": 4.9,
-      "reviewCount": 102,
-      "breeds": [
-        "alle-rassen"
-      ],
-      "specializations": [
-        "Luxe verwarmde suites",
-        "Zwemvijver",
-        "Dagelijks speelprogramma",
-        "Dierenartscheck"
-      ],
-      "startingPrice": 25,
-      "description": "5-sterren hondenresort met vloerverwarming, privétuinen en professionele roedelbegeleiding."
+      "startingPrice": 52,
+      "description": "Gespecialiseerde trimsalon in Alkmaar met passie voor vachtverzorging op maat."
     }
   ]
 }

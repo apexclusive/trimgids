@@ -141,16 +141,25 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-
 
 /* Interactive Map Hub */
 .map-wrap-box{background:#fff;border:1px solid var(--lijn);border-radius:24px;padding:24px;box-shadow:var(--schaduw)}
-.map-header-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.map-header-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:16px}
 .map-filter-pills{display:flex;gap:8px;flex-wrap:wrap}
 .pill-btn{font:inherit;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--lijn);background:#fff;cursor:pointer;transition:.15s}
 .pill-btn:hover{border-color:var(--groen);color:var(--groen)}
 .pill-btn.active{background:var(--groen);color:#fff;border-color:var(--groen)}
-#home-map{height:540px;width:100%;border-radius:18px;border:1px solid var(--lijn);z-index:1}
+#home-map{height:560px;width:100%;border-radius:18px;border:1px solid var(--lijn);z-index:1;margin-top:14px}
+.custom-pin{width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.25);border:2px solid #fff;transition:transform .18s ease}
+.custom-pin:hover{transform:rotate(-45deg) scale(1.15)}
+.custom-pin>span{transform:rotate(45deg);font-size:15px;line-height:1}
+.pin-trimsalon{background:#1E523A}
+.pin-hondenschool{background:#3730A3}
+.pin-opvang{background:#D97706}
+.pin-wellness{background:#0D9488}
+.pin-routes{background:#059669}
 .popup-card h4{font-family:Fraunces,Georgia,serif;font-size:18px;margin:4px 0 6px}
-.popup-card p{color:var(--ink-2);margin:4px 0 10px;font-size:13px}
+.popup-card p{color:var(--ink-2);margin:4px 0 10px;font-size:13px;line-height:1.45}
 .popup-card .p-meta{display:flex;gap:8px;font-size:12px;margin-bottom:10px;flex-wrap:wrap}
-.popup-card .btn-nav-map{display:inline-block;background:var(--groen);color:#fff!important;padding:7px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none}
+.popup-card .btn-nav-map{display:inline-flex;align-items:center;gap:5px;background:var(--groen);color:#fff!important;padding:7px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none}
+.popup-card .btn-tel-map{display:inline-flex;align-items:center;gap:5px;background:#f3f4f6;color:var(--ink)!important;padding:7px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid var(--lijn)}
 
 /* Vachtplanner Rekenmodule */
 .planner-sec{background:linear-gradient(135deg,#edf5f1,#e1ede6);border-top:1px solid #d4e3da;border-bottom:1px solid #d4e3da}
@@ -396,22 +405,25 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 36px;background:var(--cre
     <div class="map-wrap-box">
       <div class="map-header-row">
         <div>
-          <span class="eyebrow">Navigatie & Locaties</span>
+          <span class="eyebrow">Landelijk Locatieoverzicht 2026</span>
           <h2>Vind salons, scholen en wandelgebieden op de kaart</h2>
-          <p style="color:var(--ink-2);font-size:15px;margin-top:4px">Klik op een speld om adres, tarieven en directe navigatie via Google Maps te bekijken.</p>
+          <p style="color:var(--ink-2);font-size:15px;margin-top:4px">Klik op een speld om adres, tarieven, direct telefoonnummer en Google Maps navigatie te bekijken.</p>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <button id="home-geoloc" class="btn btn-s" style="font-size:13px;padding:8px 14px" type="button">📍 Bij mij in de buurt</button>
           <a href="/kaart" class="btn btn-p" style="font-size:13px;padding:8px 16px">Volledig scherm →</a>
         </div>
       </div>
-      <div class="map-filter-pills" style="margin-bottom:14px">
-        <button class="pill-btn active" data-filter="all">Alles</button>
-        <button class="pill-btn" data-filter="trimsalon">✂️ Trimsalons</button>
-        <button class="pill-btn" data-filter="hondenschool">🎓 Hondenscholen</button>
-        <button class="pill-btn" data-filter="opvang">🏨 Opvang & Hotels</button>
-        <button class="pill-btn" data-filter="wellness">💆 Wellness & Fysio</button>
-        <button class="pill-btn" data-filter="routes">🌲 Wandelen & Stranden</button>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+        <input id="home-map-search" type="search" placeholder="🔍 Filter kaart op plaats of naam (bijv. Maastricht, Amsterdam, Utrecht, Breda, Groningen...)" style="flex:1;min-width:260px;padding:11px 16px;border:1px solid var(--lijn);border-radius:12px;font:inherit">
+      </div>
+      <div class="map-filter-pills" style="margin-bottom:6px">
+        <button class="pill-btn active" data-filter="all" id="h-pill-all">Alles tonen</button>
+        <button class="pill-btn" data-filter="trimsalon" id="h-pill-trim">✂️ Trimsalons</button>
+        <button class="pill-btn" data-filter="hondenschool" id="h-pill-school">🎓 Hondenscholen</button>
+        <button class="pill-btn" data-filter="opvang" id="h-pill-opvang">🏨 Opvang & Hotels</button>
+        <button class="pill-btn" data-filter="wellness" id="h-pill-well">💆 Wellness & Fysio</button>
+        <button class="pill-btn" data-filter="routes" id="h-pill-routes">🌲 Wandelen & Stranden</button>
       </div>
       <div id="home-map"></div>
     </div>
@@ -848,13 +860,40 @@ let homeMarkers=[];
 let activeHomeFilter='all';
 let allHomePlaces=[];
 
+const getHomePinIcon=(cat,isRoute)=>{
+  const c=isRoute?'routes':cat;
+  const emoji={trimsalon:'✂️',hondenschool:'🎓',opvang:'🏨',wellness:'💆',routes:'🌲'}[c]||'🐾';
+  return L.divIcon({
+    className:'',
+    html:'<div class="custom-pin pin-'+c+'"><span>'+emoji+'</span></div>',
+    iconSize:[34,34],
+    iconAnchor:[17,34],
+    popupAnchor:[0,-34]
+  });
+};
+
 const initHomeMap=()=>{
-  homeMap=L.map('home-map').setView([51.4,5.7],8);
+  homeMap=L.map('home-map').setView([52.1,5.3],7.5);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom:19
   }).addTo(homeMap);
   loadHomeMapData();
+};
+
+const updateHomeCounts=()=>{
+  const total=allHomePlaces.length;
+  const trims=allHomePlaces.filter(i=>i.category==='trimsalon'&&!i.isRoute).length;
+  const schools=allHomePlaces.filter(i=>i.category==='hondenschool'&&!i.isRoute).length;
+  const opvang=allHomePlaces.filter(i=>i.category==='opvang'&&!i.isRoute).length;
+  const wellness=allHomePlaces.filter(i=>i.category==='wellness'&&!i.isRoute).length;
+  const routes=allHomePlaces.filter(i=>i.isRoute).length;
+  const elAll=document.getElementById('h-pill-all');if(elAll)elAll.textContent='Alles tonen ('+total+')';
+  const elTrim=document.getElementById('h-pill-trim');if(elTrim)elTrim.textContent='✂️ Trimsalons ('+trims+')';
+  const elSchool=document.getElementById('h-pill-school');if(elSchool)elSchool.textContent='🎓 Hondenscholen ('+schools+')';
+  const elOpvang=document.getElementById('h-pill-opvang');if(elOpvang)elOpvang.textContent='🏨 Opvang & Hotels ('+opvang+')';
+  const elWell=document.getElementById('h-pill-well');if(elWell)elWell.textContent='💆 Wellness & Fysio ('+wellness+')';
+  const elRoutes=document.getElementById('h-pill-routes');if(elRoutes)elRoutes.textContent='🌲 Wandelen & Stranden ('+routes+')';
 };
 
 const loadHomeMapData=async()=>{
@@ -866,6 +905,7 @@ const loadHomeMapData=async()=>{
       ...(provData.providers||[]).map(p=>({...p,isRoute:false})),
       ...(routesData.routes||[]).map(r=>({...r,isRoute:true,name:r.title,category:'routes'}))
     ];
+    updateHomeCounts();
     renderHomeMarkers();
   }catch(e){console.error(e);}
 };
@@ -873,13 +913,19 @@ const loadHomeMapData=async()=>{
 const renderHomeMarkers=()=>{
   homeMarkers.forEach(m=>homeMap.removeLayer(m));
   homeMarkers=[];
-  const filtered=allHomePlaces.filter(p=>activeHomeFilter==='all'||p.category===activeHomeFilter||(activeHomeFilter==='routes'&&p.isRoute));
+  const searchInput=document.getElementById('home-map-search');
+  const query=(searchInput?.value||'').toLowerCase().trim();
+  const filtered=allHomePlaces.filter(item=>{
+    const matchCat=activeHomeFilter==='all'||(item.category===activeHomeFilter)||(activeHomeFilter==='routes'&&item.isRoute);
+    const matchQ=!query||(item.name&&item.name.toLowerCase().includes(query))||(item.city&&item.city.toLowerCase().includes(query))||(item.province&&item.province.toLowerCase().includes(query))||(item.address&&item.address.toLowerCase().includes(query));
+    return matchCat&&matchQ;
+  });
   const bounds=[];
   filtered.forEach(item=>{
     if(!item.lat||!item.lng)return;
     const mapsUri='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(item.lat+','+item.lng)+'&travelmode=driving';
-    const marker=L.marker([item.lat,item.lng]);
-    const popupHtml='<div class="popup-card"><h4>'+(item.isRoute?'🌲 ':'🐾 ')+(item.name||'Locatie')+'</h4><div class="p-meta"><span>📍 '+(item.city||'')+(item.province?' ('+item.province+')':'')+'</span>'+(item.rating?'<span>⭐ '+item.rating+'</span>':'')+(item.startingPrice?'<span>💶 Vanaf €'+item.startingPrice+'</span>':'')+'</div><p>'+(item.description||item.address||'')+'</p><a class="btn-nav-map" href="'+mapsUri+'" target="_blank" rel="noopener noreferrer">🧭 Navigeer met Google Maps ↗</a></div>';
+    const marker=L.marker([item.lat,item.lng],{icon:getHomePinIcon(item.category,item.isRoute)});
+    const popupHtml='<div class="popup-card"><h4>'+(item.isRoute?'🌲 ':'🐾 ')+(item.name||'Locatie')+'</h4><div class="p-meta"><span>📍 '+(item.city||'')+(item.province?' ('+item.province+')':'')+'</span>'+(item.rating?'<span>⭐ '+item.rating+' ('+item.reviewCount+' reviews)</span>':'')+(item.startingPrice?'<span>💶 Vanaf €'+item.startingPrice+'</span>':'')+'</div><p>'+(item.description||item.address||'')+'</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><a class="btn-nav-map" href="'+mapsUri+'" target="_blank" rel="noopener noreferrer">🧭 Navigeer (Maps) ↗</a>'+(item.phone?'<a class="btn-tel-map" href="tel:'+item.phone+'">📞 '+item.phone+'</a>':'')+'</div></div>';
     marker.bindPopup(popupHtml);
     marker.addTo(homeMap);
     homeMarkers.push(marker);
@@ -894,6 +940,9 @@ document.querySelectorAll('.pill-btn').forEach(b=>b.addEventListener('click',()=
   activeHomeFilter=b.dataset.filter;
   renderHomeMarkers();
 }));
+
+const homeMapSearchEl=document.getElementById('home-map-search');
+if(homeMapSearchEl) homeMapSearchEl.addEventListener('input',renderHomeMarkers);
 
 document.getElementById('home-geoloc').addEventListener('click',()=>{
   if(navigator.geolocation){
