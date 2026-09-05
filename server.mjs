@@ -1,11 +1,21 @@
 import { createServer } from 'node:http';
 import { readFile, writeFile } from 'node:fs/promises';
-import { extname, join, normalize } from 'node:path';
+import { extname, join, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
+import { existsSync } from 'node:fs';
 
 const __filename = fileURLToPath(import.meta.url);
-const root = normalize(__filename.slice(0, __filename.lastIndexOf('/')));
+const moduleDir = dirname(__filename);
+let rootPath = moduleDir;
+if (!existsSync(join(rootPath, 'data', 'catalog.json'))) {
+  if (existsSync(join(process.cwd(), 'data', 'catalog.json'))) {
+    rootPath = process.cwd();
+  } else if (existsSync(join(moduleDir, '..', 'data', 'catalog.json'))) {
+    rootPath = join(moduleDir, '..');
+  }
+}
+const root = normalize(rootPath);
 const catalogFile = join(root, 'data', 'catalog.json');
 const reviewsFile = join(root, 'data', 'reviews.json');
 const claimsFile = join(root, 'data', 'claims.json');
