@@ -1,0 +1,27 @@
+{
+  "places": {
+    "maastricht": {
+      "name": "Maastricht",
+      "region": "Limburg",
+      "description": "Vind een trimsalon in Maastricht dat past bij de vacht, het ras en het karakter van jouw hond. Vergelijk specialisaties, afstand en praktische informatie voordat je contact opneemt."
+    },
+    "heerlen": {"name": "Heerlen", "region": "Limburg", "description": "Ontdek trimsalons in Heerlen en omgeving voor verschillende vachttypen en hondenrassen."},
+    "sittard": {"name": "Sittard", "region": "Limburg", "description": "Vergelijk trimsalons in Sittard en omgeving op raservaring en verzorgingsspecialisaties."},
+    "meerssen": {"name": "Meerssen", "region": "Limburg", "description": "Vind een passende trimsalon in Meerssen en vergelijk het aanbod in de regio Maastricht."}
+  },
+  "breeds": {
+    "labradoodle": {
+      "name": "Labradoodle",
+      "coat": "krullende of golvende vacht",
+      "summary": "Een Labradoodle-vacht vraagt regelmatig onderhoud. Klitten ontstaan snel wanneer de vacht niet tot op de huid wordt doorgeborsteld.",
+      "care": ["Vraag welke lengte en stijl bij jouw hond past.", "Bespreek hoe je thuis tussen trimbeurten door borstelt.", "Plan een wenbezoek als je hond nog niet gewend is aan tafel en föhn."]
+    },
+    "poedel": {"name": "Poedel", "coat": "krullende vacht", "summary": "Een Poedel heeft een vacht die blijft doorgroeien en daarom structureel onderhoud nodig heeft.", "care": ["Bespreek de gewenste lengte en het model vooraf.", "Laat de trimmer weten hoe jouw hond reageert op föhnen.", "Vraag om een thuisadvies voor borstelen en wassen."]},
+    "pomeriaan": {"name": "Pomeriaan", "coat": "dubbele vacht", "summary": "Een Pomeriaan heeft een dubbele vacht. Goede verzorging draait om uitborstelen en het respecteren van de natuurlijke vacht.", "care": ["Vraag hoe de salon met de ondervacht omgaat.", "Laat de dubbele vacht niet zonder overleg kort scheren.", "Bespreek klitten en huidgevoeligheid vooraf."]}
+  },
+  "providers": [
+    {"slug":"voorbeeldsalon-wyck","name":"Voorbeeldsalon Wyck","city":"maastricht","address":"Wyck, Maastricht","demo":true,"breeds":["labradoodle","goldendoodle","poedel"],"specializations":["Labradoodle","Angstige honden","Plek voor nieuwe honden"],"startingPrice":75},
+    {"slug":"voorbeeldsalon-heer","name":"Voorbeeldsalon Heer","city":"maastricht","address":"Heer, Maastricht","demo":true,"breeds":["labradoodle","cockapoo","maltezer"],"specializations":["Labradoodle","Cockapoo"],"startingPrice":65},
+    {"slug":"voorbeeldsalon-meerssen","name":"Voorbeeldsalon Meerssen","city":"meerssen","address":"Meerssen, Limburg","demo":true,"breeds":["labradoodle","poedel","pomeriaan"],"specializations":["Alle rassen"],"startingPrice":65}
+  ]
+}

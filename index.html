@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrimGids — vind alles voor een gelukkig hondenleven</title>
+<meta name="description" content="Vind trimsalons, hondenscholen, opvang en wandelroutes die passen bij jouw hond. Zoek per plaats en ras, vergelijk informatie en ontdek Limburg.">
+<link rel="canonical" href="https://trimgids.nl/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TrimGids — alles voor een gelukkig hondenleven">
+<meta property="og:description" content="Vergelijk verzorging, training, opvang en wandelroutes voor honden per plaats en ras.">
+<meta property="og:url" content="https://trimgids.nl/">
+<meta name="theme-color" content="#2F6B4F">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"TrimGids",
+  "url":"https://trimgids.nl/",
+  "description":"Vind trimsalons, hondenscholen, opvang en wandelroutes per plaats en ras.",
+  "potentialAction":{"@type":"SearchAction","target":"https://trimgids.nl/trimsalon/{search_term_string}","query-input":"required name=search_term_string"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Hoe kies ik een goede trimsalon?","acceptedAnswer":{"@type":"Answer","text":"Let op ervaring met het ras, de gewenste behandeling, duidelijke prijzen en recente reviews. Vraag bij twijfel hoe de salon omgaat met stress of klitten."}},
+    {"@type":"Question","name":"Zijn aanbieders betaald om hoger te staan?","acceptedAnswer":{"@type":"Answer","text":"Een betaalde vermelding kan extra zichtbaarheid krijgen, maar wordt duidelijk als aanbevolen of betaald gemarkeerd. Reviews en feitelijke informatie horen controleerbaar te blijven."}},
+    {"@type":"Question","name":"Wat als mijn plaats nog niet beschikbaar is?","acceptedAnswer":{"@type":"Answer","text":"Zoek op een nabijgelegen plaats. In de live versie tonen we aanbieders binnen de ingestelde straal en laten we zien hoe ver ze rijden."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --groen:#2F6B4F; --groen-d:#245640; --groen-l:#E6F0EB;
+  --creme:#F7F5F0; --wit:#FFFFFF; --ink:#1F2937; --ink-2:#4B5563; --ink-3:#9CA3AF;
+  --lijn:#E7E5E0; --amber:#C98A2B; --amber-l:#FBF1E1;
+  --r:20px; --r-s:12px; --max:1160px;
+  --schaduw:0 1px 2px rgba(31,41,55,.04),0 8px 24px -12px rgba(31,41,55,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--wit);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em;line-height:1.12}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;transition:.18s}
+.btn-p{background:var(--groen);color:#fff}.btn-p:hover{background:var(--groen-d)}
+.btn-s{background:var(--wit);color:var(--ink);border-color:var(--lijn)}.btn-s:hover{border-color:var(--ink-3)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--groen)}
+.sec{padding:88px 0}
+.sec-h{max-width:620px;margin-bottom:44px}
+.sec-h h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 14px}
+.sec-h p{color:var(--ink-2);font-size:17px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+.badge-a{background:var(--amber-l);color:#8A5A12}
+.badge-g{background:var(--groen-l);color:var(--groen)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--lijn)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-weight:700;font-size:22px}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--groen);display:grid;place-items:center;color:#fff}
+.nav-links{display:flex;gap:28px;font-size:15px;font-weight:500;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:820px){.nav-links{display:none}.nav-links.open{display:grid;position:absolute;top:68px;left:20px;right:20px;padding:14px;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r-s);box-shadow:var(--schaduw);gap:4px}.nav-links.open a{padding:10px}.menu-btn{display:inline-flex!important}}
+.menu-btn{display:none;background:var(--wit);border:1px solid var(--lijn);border-radius:10px;padding:9px 11px;font:inherit;font-weight:600;cursor:pointer}
+
+/* hero */
+.hero{background:var(--creme);padding:80px 0 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(47,107,79,.10),transparent)}
+.hero-in{position:relative;max-width:820px}
+.hero h1{font-size:clamp(38px,6vw,64px);margin:18px 0 20px;max-width:780px}
+.hero h1 em{font-style:normal;color:var(--groen)}
+.hero p{font-size:19px;color:var(--ink-2);max-width:600px}
+.zoek{margin-top:34px;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:10px;display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:8px;box-shadow:var(--schaduw)}
+.zoek label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:2px}
+.veld{padding:10px 14px;border-radius:var(--r-s)}
+.veld:hover{background:var(--creme)}
+.veld select,.veld input{width:100%;border:0;background:transparent;font:inherit;font-size:15px;font-weight:500;color:var(--ink);outline:none;appearance:none}
+.zoek .btn{align-self:stretch;border-radius:14px}
+@media(max-width:820px){.zoek{grid-template-columns:1fr}}
+.hero-trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--ink-2)}
+.hero-trust span::before{content:"✓";color:var(--groen);font-weight:700;margin-right:7px}
+.zoekmelding{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--groen-l);color:var(--groen-d);font-size:14px;font-weight:500}
+.zoekmelding.visible{display:block}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+/* hondprofiel */
+.profiel{background:var(--ink);color:#fff}.profiel-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}.profiel .eyebrow{color:#BFE0CE}.profiel h2{font-size:clamp(30px,4vw,46px);margin:10px 0 14px}.profiel-intro{color:rgba(255,255,255,.78);font-size:17px;max-width:580px}.profiel-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}.profiel-field{display:grid;gap:6px}.profiel-field.full{grid-column:1/-1}.profiel-field label{font-size:12px;font-weight:600;color:rgba(255,255,255,.75)}.profiel-field input,.profiel-field select{width:100%;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(255,255,255,.1);color:#fff;padding:12px;font:inherit}.profiel-field select option{color:var(--ink)}.profiel-field input::placeholder{color:rgba(255,255,255,.5)}.profiel-check{grid-column:1/-1;display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.8);font-size:14px}.profiel-check input{accent-color:var(--amber);width:17px;height:17px}.profiel-form .btn{grid-column:1/-1;justify-self:start;background:#fff;color:var(--groen)}.profiel-result{background:#fff;color:var(--ink);border-radius:var(--r);padding:28px;min-height:260px}.profiel-result[hidden]{display:none}.profiel-result h3{font-size:25px;margin:8px 0 18px}.profiel-result p{color:var(--ink-2);font-size:15px}.match-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.match-stat{background:var(--groen-l);border-radius:12px;padding:13px}.match-stat strong{display:block;font:700 30px Fraunces,Georgia,serif;color:var(--groen)}.match-stat span{font-size:12px;color:var(--ink-2);line-height:1.25;display:block}.profile-note{font-size:12px!important;color:var(--ink-3)!important}
+@media(max-width:820px){.profiel-layout{grid-template-columns:1fr;gap:28px}.profiel-form{grid-template-columns:1fr}.profiel-field.full,.profiel-check,.profiel-form .btn{grid-column:auto}}
+
+/* rassen */
+.rassen{display:flex;flex-wrap:wrap;gap:10px}
+.ras{padding:11px 16px;border:1px solid var(--lijn);border-radius:999px;font-size:14px;font-weight:500;background:var(--wit);transition:.15s}
+.ras:hover{border-color:var(--groen);color:var(--groen);background:var(--groen-l)}
+.ras small{color:var(--ink-3);font-weight:400;margin-left:6px}
+.ras-note{margin-top:18px;font-size:14px;color:var(--ink-2)}
+
+/* categorieën */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+.kaart{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:30px;transition:.18s;display:flex;flex-direction:column}
+.kaart:hover{box-shadow:var(--schaduw);transform:translateY(-2px)}
+.kaart .ico{width:48px;height:48px;border-radius:14px;background:var(--groen-l);color:var(--groen);display:grid;place-items:center;margin-bottom:20px}
+.kaart h3{font-size:22px;margin-bottom:10px}
+.kaart p{color:var(--ink-2);font-size:15px;flex:1}
+.kaart .link{margin-top:20px;font-weight:600;color:var(--groen);font-size:15px}
+.creme{background:var(--creme)}
+.wandel-section{background:var(--groen);color:#fff}.wandel-section .eyebrow{color:#BFE0CE}.wandel-section .sec-h p{color:rgba(255,255,255,.84)}.wandel-section .kaart h3{color:var(--ink)}.wandel-section .ras-note{color:rgba(255,255,255,.8)}.wandel-section .ras-note a{color:#fff!important}
+
+/* listing voorbeeld */
+.listing{display:grid;grid-template-columns:112px 1fr auto;gap:20px;align-items:center;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:18px}
+.listing[hidden]{display:none}
+.listing.prem{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-l)}
+.thumb{width:112px;height:88px;border-radius:14px;background:linear-gradient(135deg,#DCE7E1,#C4D6CC);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.listing h3{font-size:18px;margin:4px 0 6px}
+.meta{font-size:14px;color:var(--ink-2);display:flex;gap:14px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{font-size:12px;padding:4px 9px;border-radius:999px;background:var(--creme);color:var(--ink-2)}
+.ster{color:var(--amber);font-weight:600}
+@media(max-width:700px){.listing{grid-template-columns:1fr}.thumb{width:100%}}
+.stack{display:grid;gap:14px}
+.resultaatbalk{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-20px 0 18px;padding:12px 0;border-bottom:1px solid var(--lijn);font-size:14px;color:var(--ink-2)}
+.google-attribution{font-size:12px;color:var(--ink-3);margin:-6px 0 18px}.google-attribution:not([hidden]){display:block}
+.resultaatbalk strong{color:var(--ink)}
+.shortlist{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--lijn);background:var(--wit);border-radius:999px;padding:9px 14px;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.shortlist:hover{border-color:var(--groen);color:var(--groen)}
+.save-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--lijn);border-radius:50%;background:var(--wit);font-size:20px;line-height:1;cursor:pointer;color:var(--ink-2);transition:.18s}
+.save-btn:hover,.save-btn.saved{border-color:var(--amber);color:var(--amber);background:var(--amber-l)}
+.listing-actions{display:flex;align-items:center;gap:10px}
+.maps-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.maps-links a{font-size:13px;font-weight:600;color:var(--groen);text-decoration:underline;text-underline-offset:3px}
+.maps-links a:hover{color:var(--groen-d)}
+.empty-state{display:none;border:1px dashed var(--lijn);border-radius:var(--r);padding:28px;background:var(--creme);color:var(--ink-2)}
+.empty-state.visible{display:block}
+.empty-state h3{font-size:22px;color:var(--ink);margin-bottom:6px}
+@media(max-width:560px){.resultaatbalk{align-items:flex-start;flex-direction:column}.resultaatbalk .shortlist{width:100%;justify-content:center}}
+
+/* community */
+.community{background:var(--creme)}
+.forum-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+.forum-topics{display:grid;gap:10px}
+.topic{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r-s);padding:18px 20px}
+.topic h3{font-size:20px;margin-bottom:5px}.topic p{color:var(--ink-2);font-size:14px}
+.forum-form{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:24px}
+.forum-form h3{font-size:24px;margin-bottom:7px}.forum-form>p{color:var(--ink-2);font-size:14px;margin-bottom:18px}
+.form-row{display:grid;gap:6px;margin-bottom:12px}.form-row label{font-size:13px;font-weight:600}.form-row input,.form-row textarea,.form-row select{font:inherit;border:1px solid var(--lijn);border-radius:10px;padding:11px 12px;color:var(--ink);background:var(--wit)}
+.form-row textarea{min-height:110px;resize:vertical}.forum-notice{font-size:13px;color:var(--ink-3);margin-top:12px}.forum-posts{display:grid;gap:12px;margin-top:18px}.forum-post{border-top:1px solid var(--lijn);padding-top:14px}.forum-post h3{font-size:19px}.forum-post p{font-size:14px;color:var(--ink-2);white-space:pre-wrap}.forum-post small{color:var(--ink-3)}
+@media(max-width:820px){.forum-grid{grid-template-columns:1fr}}
+.place-dialog{width:min(720px,calc(100% - 32px));max-height:min(760px,calc(100vh - 32px));border:0;border-radius:var(--r);padding:0;color:var(--ink);box-shadow:0 24px 80px rgba(31,41,55,.28)}
+.place-dialog::backdrop{background:rgba(31,41,55,.45);backdrop-filter:blur(3px)}
+.place-dialog-inner{padding:30px}.dialog-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.dialog-top h2{font-size:32px;margin:8px 0}.dialog-close{border:1px solid var(--lijn);background:var(--wit);border-radius:50%;width:38px;height:38px;font-size:24px;cursor:pointer}.dialog-meta{color:var(--ink-2);font-size:15px}.dialog-links{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.dialog-section{border-top:1px solid var(--lijn);padding-top:18px;margin-top:18px}.dialog-section h3{font-size:20px;margin-bottom:10px}.dialog-hours{display:grid;gap:5px;color:var(--ink-2);font-size:14px}.google-review{padding:14px 0;border-top:1px solid var(--lijn)}.google-review p{color:var(--ink-2);font-size:14px;margin-top:5px}.dialog-loading{color:var(--ink-2);padding-top:14px}
+
+/* stappen */
+.stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+@media(max-width:900px){.stappen{grid-template-columns:1fr}}
+.stap .num{font-family:Fraunces,serif;font-size:48px;color:var(--groen);line-height:1;margin-bottom:12px}
+.stap h3{font-size:20px;margin-bottom:8px}
+.stap p{color:var(--ink-2);font-size:15px}
+
+/* pup blok */
+.pup{background:var(--groen);color:#fff;border-radius:28px;padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+@media(max-width:900px){.pup{grid-template-columns:1fr;padding:36px}}
+.pup h2{font-size:clamp(28px,3.4vw,40px);margin:10px 0 14px}
+.pup p{opacity:.9;font-size:17px}
+.pup .eyebrow{color:#BFE0CE}
+.tijdlijn{display:grid;gap:12px}
+.tl{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 16px}
+.tl b{display:block;font-size:15px}.tl span{font-size:13px;opacity:.85}
+.tl .wk{min-width:56px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.75;padding-top:3px}
+.pup .btn{background:#fff;color:var(--groen);margin-top:26px}
+
+/* plaatsen */
+.plaatsen{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:900px){.plaatsen{grid-template-columns:repeat(2,1fr)}}
+.plaats{padding:14px 18px;border:1px solid var(--lijn);border-radius:var(--r-s);font-weight:500;font-size:15px;display:flex;justify-content:space-between;background:var(--wit)}
+.plaats:hover{border-color:var(--groen)}
+.plaats span{color:var(--ink-3);font-weight:400;font-size:13px}
+
+/* bedrijven cta */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.split h2{font-size:clamp(28px,3.6vw,40px);margin:10px 0 16px}
+.split p{color:var(--ink-2);font-size:17px}
+.checks{margin:22px 0 28px;display:grid;gap:12px;font-size:15px}
+.checks li{list-style:none;display:flex;gap:10px}
+.checks li::before{content:"✓";color:var(--groen);font-weight:700}
+.prijs{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:34px;box-shadow:var(--schaduw)}
+.prijs .p{font-family:Fraunces,serif;font-size:48px;margin:10px 0 4px}
+.prijs .p small{font-family:Inter;font-size:15px;color:var(--ink-2);font-weight:400}
+.prijs .of{font-size:14px;color:var(--ink-3);margin-bottom:22px}
+.prijs ul{display:grid;gap:10px;font-size:14px;color:var(--ink-2);margin-bottom:26px}
+.prijs li{list-style:none;padding-left:22px;position:relative}
+.prijs li::before{content:"•";position:absolute;left:6px;color:var(--groen)}
+
+/* footer */
+footer{border-top:1px solid var(--lijn);padding:56px 0 36px;background:var(--creme)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+@media(max-width:800px){.foot{grid-template-columns:1fr 1fr}}
+.foot h4{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+.foot a{display:block;font-size:14px;color:var(--ink-2);margin-bottom:9px}
+.foot p{font-size:14px;color:var(--ink-2);max-width:300px}
+.copy{font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.faq{max-width:780px;display:grid;gap:10px}
+.faq details{border-top:1px solid var(--lijn);padding:20px 0}
+.faq details:last-child{border-bottom:1px solid var(--lijn)}
+.faq summary{cursor:pointer;font-family:Fraunces,Georgia,serif;font-size:21px;font-weight:600;list-style:none;padding-right:28px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:2px;top:-2px;font-family:Inter,sans-serif;font-size:24px;font-weight:400;color:var(--groen)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--ink-2);font-size:15px;max-width:680px;margin-top:10px}
+.forum-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.forum-controls input,.forum-controls select{font:inherit;border:1px solid var(--lijn);border-radius:10px;padding:10px;background:var(--wit)}.forum-controls input{flex:1;min-width:180px}.topic-meta{font-size:12px;color:var(--ink-3);margin-top:9px}.topic-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.topic-actions button{font:inherit;font-size:13px;border:1px solid var(--lijn);background:var(--wit);border-radius:999px;padding:7px 11px;cursor:pointer}.topic-actions button:hover{border-color:var(--groen);color:var(--groen)}.topic-replies{display:none;margin-top:14px;border-top:1px solid var(--lijn);padding-top:12px}.topic.open .topic-replies{display:block}.topic-replies p{font-size:14px;color:var(--ink-2)}.reply-form{display:grid;gap:8px;margin-top:12px}.reply-form input,.reply-form textarea{font:inherit;border:1px solid var(--lijn);border-radius:9px;padding:9px}.reply-form textarea{min-height:80px}.reply-form button{justify-self:start;font:inherit;border:0;border-radius:999px;background:var(--groen);color:#fff;padding:8px 13px;cursor:pointer}.forum-empty{padding:18px;border:1px dashed var(--lijn);border-radius:12px;color:var(--ink-2)}
+.claim-panel{max-width:760px;margin:42px auto 0;border-top:1px solid var(--lijn);padding-top:24px}.claim-panel summary{cursor:pointer;font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600}.claim-panel form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.claim-panel label{display:grid;gap:6px;font-size:13px;font-weight:600}.claim-panel input{font:inherit;border:1px solid var(--lijn);border-radius:10px;padding:11px}.claim-panel button{grid-column:1/-1;justify-self:start}.claim-status{grid-column:1/-1;color:var(--groen-d);font-size:14px}
+.hulpvraag{background:var(--creme)}.hulpvraag-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}.hulpvraag-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:26px}.hulpvraag-form label{display:grid;gap:6px;font-size:13px;font-weight:600}.hulpvraag-form .full,.hulpvraag-form button,.hulpvraag-form .consent{grid-column:1/-1}.hulpvraag-form input,.hulpvraag-form select,.hulpvraag-form textarea{font:inherit;border:1px solid var(--lijn);border-radius:10px;padding:11px}.hulpvraag-form textarea{min-height:120px;resize:vertical}.hulpvraag-form .consent{display:flex;gap:8px;align-items:flex-start;font-weight:400;color:var(--ink-2)}.hulpvraag-form .consent input{margin-top:4px}.hulpvraag-status{color:var(--groen-d);font-size:14px}.hulpvraag-note{color:var(--ink-2);font-size:14px}.hulpvraag-points{display:grid;gap:12px;margin-top:24px}.hulpvraag-points span::before{content:'✓';color:var(--groen);font-weight:700;margin-right:8px}
+.diensten-section{background:#eef3f0}.diensten-section .kaart h3{color:var(--ink)}.diensten-section .kaart p{color:var(--ink-2)}.poll-section{background:var(--amber-l)}.poll-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}.poll-box{background:var(--wit);border:1px solid #ead8bd;border-radius:var(--r);padding:26px}.poll-box h3{font-size:24px;margin-bottom:18px}.poll-options{display:grid;gap:9px}.poll-option{display:flex;gap:10px;align-items:center;border:1px solid var(--lijn);border-radius:10px;padding:11px;cursor:pointer}.poll-option input{accent-color:var(--groen)}.poll-submit{margin-top:14px}.poll-result{margin-top:20px;display:grid;gap:10px}.poll-bar{display:grid;gap:4px}.poll-bar-top{display:flex;justify-content:space-between;font-size:13px}.poll-track{height:8px;border-radius:99px;background:var(--creme);overflow:hidden}.poll-fill{height:100%;background:var(--groen);border-radius:99px}.poll-status{font-size:14px;color:var(--groen-d)}
+@media(max-width:820px){.poll-layout{grid-template-columns:1fr}}
+@media(max-width:820px){.hulpvraag-layout{grid-template-columns:1fr}.hulpvraag-form{grid-template-columns:1fr}.hulpvraag-form .full,.hulpvraag-form button,.hulpvraag-form .consent{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.kaart,.btn{transition:none}}
+</style>
+</head>
+<body id="top">
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="/" class="logo"><span class="logo-mark" aria-hidden="true">🐾</span>TrimGids</a>
+    <div class="nav-links" id="main-nav">
+      <a href="/trimsalon">Trimsalons</a>
+      <a href="/hondenschool">Hondenscholen</a>
+      <a href="/opvang">Opvang</a>
+      <a href="/rassen">Rassen</a>
+      <a href="#wandelen">Wandelen</a>
+      <a href="#forum">Forum</a>
+    </div>
+    <a href="#bedrijven" class="btn btn-s" style="padding:10px 18px;font-size:14px">Voor bedrijven</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-in">
+    <span class="eyebrow">Trimsalons · Hondenscholen · Opvang</span>
+    <h1>De juiste plek <em>voor jouw hond</em>, bij jou in de buurt.</h1>
+    <p>Vergelijk trimsalons, hondenscholen en opvang op plaats, ras en specialisatie. Zo maak je sneller een keuze die past bij jouw hond.</p>
+
+    <form class="zoek" onsubmit="return zoek(event)">
+      <div class="veld">
+        <label>Wat zoek je?</label>
+        <select id="cat">
+          <option value="trimsalon">Trimsalon</option>
+          <option value="hondenschool">Hondenschool & training</option>
+          <option value="opvang">Pension & dagopvang</option>
+          <option value="hondenmassage">Hondenmassage</option>
+          <option value="hondenwellness">Hondenwellness & spa</option>
+          <option value="hondenfotografie">Hondenfotografie</option>
+          <option value="hondenhotel">Luxe hondenhotel</option>
+          <option value="hondenfysio">Hydrotherapie & hondenfysio</option>
+        </select>
+      </div>
+      <div class="veld">
+        <label>Plaats</label>
+        <input id="plaats" list="plaatsen" placeholder="Bijv. Maastricht" required>
+        <datalist id="plaatsen">
+          <option>Maastricht</option><option>Heerlen</option><option>Sittard</option><option>Geleen</option>
+          <option>Venlo</option><option>Roermond</option><option>Weert</option><option>Kerkrade</option>
+          <option>Venray</option><option>Valkenburg</option><option>Meerssen</option><option>Eindhoven</option>
+        </datalist>
+      </div>
+      <div class="veld">
+        <label>Ras (optioneel)</label>
+        <select id="ras">
+          <option value="">Alle rassen</option>
+          <option value="pomeriaan">Pomeriaan</option><option value="labradoodle">Labradoodle</option>
+          <option value="goldendoodle">Goldendoodle</option><option value="cockapoo">Cockapoo</option>
+          <option value="poedel">Poedel</option><option value="maltezer">Maltezer</option>
+          <option value="shih-tzu">Shih Tzu</option><option value="schnauzer">Schnauzer</option>
+          <option value="cocker-spaniel">Cocker Spaniël</option><option value="golden-retriever">Golden Retriever</option>
+          <option value="berner-sennen">Berner Sennenhond</option><option value="husky">Husky</option>
+        </select>
+      </div>
+      <button class="btn btn-p" type="submit">Vind mijn match →</button>
+    </form>
+    <div class="zoekmelding" id="zoekmelding" role="status" aria-live="polite"></div>
+
+    <div class="hero-trust">
+      <span>Gratis voor baasjes</span>
+      <span>Filter op ras en specialisatie</span>
+      <span>Betaalde vermeldingen herkenbaar gelabeld</span>
+    </div>
+  </div>
+</header>
+
+<!-- WIE IS JE HOND -->
+<section class="sec profiel" id="mijn-hond">
+  <div class="wrap profiel-layout">
+    <div>
+      <span class="eyebrow">Maak je match persoonlijk</span>
+      <h2>Wie is je hond?</h2>
+      <p class="profiel-intro">Vertel kort wie je zoekt. TrimGids onthoudt je voorkeuren op dit apparaat en gebruikt ze om relevante aanbieders en specialisaties te laten zien.</p>
+      <form class="profiel-form" id="hondprofiel-form">
+        <div class="profiel-field"><label for="hond-naam">Naam</label><input id="hond-naam" name="name" maxlength="40" placeholder="Bijv. Luna"></div>
+        <div class="profiel-field"><label for="hond-leeftijd">Leeftijd</label><input id="hond-leeftijd" name="age" type="number" min="0" max="30" placeholder="3"></div>
+        <div class="profiel-field"><label for="hond-ras">Ras</label><select id="hond-ras" name="breed"><option value="labradoodle">Labradoodle</option><option value="poedel">Poedel</option><option value="pomeriaan">Pomeriaan</option><option value="goldendoodle">Goldendoodle</option><option value="cockapoo">Cockapoo</option><option value="maltezer">Maltezer</option><option value="schnauzer">Schnauzer</option></select></div>
+        <div class="profiel-field"><label for="hond-plaats">Plaats</label><input id="hond-plaats" name="city" list="plaatsen" placeholder="Maastricht" required></div>
+        <label class="profiel-check"><input id="hond-gevoelig" name="sensitive" type="checkbox"> Mijn hond is gevoelig, angstig of snel overprikkeld</label>
+        <button class="btn" type="submit">Maak mijn match →</button>
+      </form>
+    </div>
+    <div class="profiel-result" id="profiel-result" hidden></div>
+  </div>
+</section>
+
+<!-- HULPVRAAG -->
+<section class="sec hulpvraag" id="hulpvraag">
+  <div class="wrap hulpvraag-layout">
+    <div>
+      <span class="eyebrow">Kom je er niet uit?</span>
+      <h2>Leg je hulpvraag voor aan de community.</h2>
+      <p class="sec-h p">Beschrijf wat er speelt. Een passende trainer of trimsalon kan reageren met een eerste richting of een uitnodiging om verder te praten.</p>
+      <div class="hulpvraag-points"><span>Je contactgegevens worden niet openbaar getoond</span><span>Reacties worden eerst gemodereerd</span><span>Geen diagnose, wel praktische ervaring en doorverwijzing</span></div>
+    </div>
+    <form class="hulpvraag-form" id="hulpvraag-form">
+      <label class="full">Titel van je hulpvraag<input name="title" required maxlength="90" placeholder="Bijv. Mijn hond raakt in paniek van de föhn"></label>
+      <label>Probleem<select name="issue"><option>Angst of overprikkeling</option><option>Gedrag of reactiviteit</option><option>Klitten of vachtverzorging</option><option>Puppy gewenning</option><option>Huid of vacht</option><option>Anders</option></select></label>
+      <label>Ras<select name="breed"><option value="labradoodle">Labradoodle</option><option value="poedel">Poedel</option><option value="pomeriaan">Pomeriaan</option><option value="goldendoodle">Goldendoodle</option><option value="cockapoo">Cockapoo</option><option value="maltezer">Maltezer</option><option value="schnauzer">Schnauzer</option></select></label>
+      <label>Plaats<input name="city" list="plaatsen" required placeholder="Maastricht"></label>
+      <label>E-mailadres<input name="contactEmail" type="email" required autocomplete="email" placeholder="alleen voor reacties"></label>
+      <label class="full">Wat gebeurt er precies?<textarea name="description" required maxlength="1500" placeholder="Wanneer gebeurt het, wat heb je al geprobeerd en wat zou je graag willen weten?"></textarea></label>
+      <label class="consent"><input name="consent" type="checkbox" required> Ik begrijp dat mijn hulpvraag openbaar wordt gedeeld zonder mijn e-mailadres.</label>
+      <button class="btn btn-p" type="submit">Hulpvraag plaatsen →</button>
+      <p class="hulpvraag-status" id="hulpvraag-status" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- PREMIUM DIENSTEN -->
+<section class="sec diensten-section" id="luxe-diensten">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Meer dan trimmen</span><h2>Je hond mag ook in de watten.</h2><p>Ontdek bijzondere diensten voor comfort, plezier en bijzondere momenten. Aanbieders kunnen zich later per plaats en specialisatie aanmelden.</p></div>
+    <div class="grid3">
+      <a class="kaart" href="#hulpvraag"><div class="ico">💆</div><h3>Hondenmassage</h3><p>Ontspanning, herstel en lichaamsbewustzijn voor honden die baat hebben bij rustige aanraking.</p><span class="link">Aanbieders bekijken →</span></a>
+      <a class="kaart" href="#hulpvraag"><div class="ico">🫧</div><h3>Wellness & spa</h3><p>Een zachte verwenbeurt met wassen, föhnen, nagelverzorging en extra aandacht voor comfort.</p><span class="link">Wellness vinden →</span></a>
+      <a class="kaart" href="#hulpvraag"><div class="ico">📸</div><h3>Hondenfotografie</h3><p>Leg een puppy, senior of bijzondere band vast met een fotograaf die met honden kan werken.</p><span class="link">Fotoshoots ontdekken →</span></a>
+      <a class="kaart" href="#hulpvraag"><div class="ico">🏨</div><h3>Luxe hondenhotel</h3><p>Vakantieopvang met persoonlijke aandacht, rustige verblijven en extra services voor jouw hond.</p><span class="link">Hondenhotels bekijken →</span></a>
+      <a class="kaart" href="#hulpvraag"><div class="ico">🏊</div><h3>Hydrotherapie & fysio</h3><p>Begeleide beweging en herstel door professionals. Vraag altijd naar opleiding en geschiktheid voor jouw hond.</p><span class="link">Specialisten vinden →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- RASPOLL -->
+<section class="sec poll-section" id="ras-polls">
+  <div class="wrap poll-layout">
+    <div><span class="eyebrow">De community kiest</span><h2>Hoe doe jij het met jouw ras?</h2><p class="sec-h p">Vergelijk je routine met andere hondenbaasjes. Pollresultaten zijn anoniem en worden per ras bijgehouden.</p></div>
+    <div class="poll-box"><label for="poll-breed">Kies een ras</label><select id="poll-breed" class="veld" style="width:100%;border:1px solid var(--lijn);font:inherit;margin:8px 0 14px"><option value="pomeriaan">Pomeriaan</option><option value="labradoodle">Labradoodle</option><option value="poedel">Poedel</option></select><h3 id="poll-question">Poll laden...</h3><form id="poll-form"><div class="poll-options" id="poll-options"></div><button class="btn btn-p poll-submit" type="submit">Stem anoniem →</button></form><div class="poll-status" id="poll-status" role="status"></div><div class="poll-result" id="poll-result"></div></div>
+  </div>
+</section>
+
+<!-- RASSEN -->
+<section class="sec" id="zoekresultaten">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Zoek op ras</span>
+      <h2>De vacht van elke hond vraagt iets anders.</h2>
+      <p>Filter daarom op ras en behandeling. Je ontdekt sneller welke specialisaties een aanbieder heeft en welke vragen je vooraf kunt stellen.</p>
+    </div>
+    <div class="rassen">
+      <a class="ras" href="/rassen/pomeriaan">Pomeriaan <small>dubbele vacht</small></a>
+      <a class="ras" href="/rassen/labradoodle">Labradoodle <small>krul</small></a>
+      <a class="ras" href="/rassen/goldendoodle">Goldendoodle <small>krul</small></a>
+      <a class="ras" href="/rassen/cockapoo">Cockapoo <small>golvend</small></a>
+      <a class="ras" href="/rassen/poedel">Poedel <small>krul</small></a>
+      <a class="ras" href="/rassen/maltezer">Maltezer <small>zijdehaar</small></a>
+      <a class="ras" href="/rassen/bichon-frise">Bichon Frisé</a>
+      <a class="ras" href="/rassen/shih-tzu">Shih Tzu</a>
+      <a class="ras" href="/rassen/yorkshire-terrier">Yorkshire Terriër</a>
+      <a class="ras" href="/rassen/cocker-spaniel">Cocker Spaniël</a>
+      <a class="ras" href="/rassen/schnauzer">Schnauzer <small>plukken</small></a>
+      <a class="ras" href="/rassen/west-highland-white-terrier">Westie <small>plukken</small></a>
+      <a class="ras" href="/rassen/cavalier-king-charles">Cavalier King Charles</a>
+      <a class="ras" href="/rassen/golden-retriever">Golden Retriever <small>uitkammen</small></a>
+      <a class="ras" href="/rassen/berner-sennen">Berner Sennen</a>
+      <a class="ras" href="/rassen/husky">Husky <small>deshedden</small></a>
+      <a class="ras" href="/rassen" style="border-style:dashed">Alle rassen →</a>
+    </div>
+    <p class="ras-note">Weet je niet wat jouw hond nodig heeft? Op elke <a href="/rassen" style="color:var(--groen);font-weight:600">raspagina</a> lees je hoe vaak en hoe je hond getrimd moet worden.</p>
+  </div>
+</section>
+
+<!-- CATEGORIEËN -->
+<section class="sec creme" id="categorieen">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Wat zoek je?</span>
+      <h2>Alles wat je hond nodig heeft, per plaats.</h2>
+    </div>
+    <div class="grid3">
+      <a class="kaart" href="/trimsalon">
+        <div class="ico">✂️</div>
+        <h3>Trimsalon</h3>
+        <p>Vergelijk trimsalons op ras, prijs en reviews. Zie welke salons plek hebben voor nieuwe honden en wie ervaring heeft met angstige honden.</p>
+        <span class="link">Trimsalons bekijken →</span>
+      </a>
+      <a class="kaart" href="/hondenschool">
+        <div class="ico">🎓</div>
+        <h3>Hondenschool & training</h3>
+        <p>Van puppycursus tot gedragstherapie bij angst of reactiviteit. Filter op specialisatie, trainingsmethode en certificering.</p>
+        <span class="link">Hondenscholen bekijken →</span>
+      </a>
+      <a class="kaart" href="/opvang">
+        <div class="ico">🏡</div>
+        <h3>Pension & dagopvang</h3>
+        <p>Vakantie of lange werkdagen? Vind opvang die past: kleine groepen, senioren, medicatie of juist geen groep.</p>
+        <span class="link">Opvang bekijken →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WANDELEN -->
+<section class="sec wandel-section" id="wandelen">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Nieuw op TrimGids</span>
+      <h2>Na de verzorging naar buiten.</h2>
+      <p>Ontdek wandelroutes, losloopgebieden en hondenstranden via ons routesysteem. Zo vind je niet alleen de juiste salon, maar ook de fijnste plekken om samen te bewegen.</p>
+    </div>
+    <div class="grid3">
+      <a class="kaart" href="https://routes.apexclusive.nl/wandelen/limburg" target="_blank" rel="noopener noreferrer">
+        <div class="ico">🥾</div>
+        <h3>Wandelen in Limburg</h3>
+        <p>Vind hondvriendelijke wandelingen per plaats, afstand en omgeving. Begin in Limburg en ontdek later meer regio’s.</p>
+        <span class="link">Bekijk wandelroutes →</span>
+      </a>
+      <a class="kaart" href="https://routes.apexclusive.nl/losloopgebieden/limburg" target="_blank" rel="noopener noreferrer">
+        <div class="ico">🌲</div>
+        <h3>Losloopgebieden</h3>
+        <p>Een plek waar je hond vrij kan bewegen? Bekijk gebieden en controleer vooraf de lokale regels en seizoensbeperkingen.</p>
+        <span class="link">Losloopgebieden vinden →</span>
+      </a>
+      <a class="kaart" href="https://routes.apexclusive.nl/hondenstranden/limburg" target="_blank" rel="noopener noreferrer">
+        <div class="ico">🌊</div>
+        <h3>Hondenstranden</h3>
+        <p>Plan een dag aan het water en ontdek welke stranden honden toelaten. Controleer altijd de actuele toegangsinformatie.</p>
+        <span class="link">Hondenstranden bekijken →</span>
+      </a>
+    </div>
+    <p class="ras-note">Routes worden beheerd via <a href="https://routes.apexclusive.nl" target="_blank" rel="noopener noreferrer" style="color:var(--groen);font-weight:600">routes.apexclusive.nl</a>. De bestemmingspagina’s worden daar verder uitgebouwd.</p>
+  </div>
+</section>
+
+<!-- VOORBEELD LISTINGS -->
+<section class="sec" id="voorbeeld-resultaten">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Zo ziet het eruit</span>
+      <h2 id="resultaat-titel">Trimsalons in Maastricht voor een labradoodle</h2>
+      <p>Aanbevolen salons staan bovenaan. Daaronder alle salons in de buurt die dit ras doen, op afstand gesorteerd.</p>
+    </div>
+    <div class="resultaatbalk"><span><strong id="resultaat-aantal">3</strong> voorbeeldvermeldingen · gecontroleerde demo</span><button class="shortlist" id="shortlist-button" type="button">♡ <span>Mijn shortlist</span></button></div>
+    <p class="google-attribution" id="google-attribution" hidden>Locatiegegevens en beoordelingen: Google. Controleer details altijd op de officiële Google Maps-pagina.</p>
+    <div class="stack">
+      <div class="listing prem" data-city="maastricht" data-breeds="labradoodle goldendoodle poedel">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=240&h=180&q=75" alt="Hond met verzorgde vacht" width="112" height="88" loading="lazy" decoding="async"></div>
+        <div>
+          <span class="badge badge-a">★ Aanbevolen</span>
+          <h3>Voorbeeldsalon Wyck</h3>
+          <div class="meta"><span class="ster">4,9 ★</span><span>87 reviews</span><span>Maastricht · 1,2 km</span><span>vanaf €75</span></div>
+          <div class="chips"><span class="chip">Labradoodle</span><span class="chip">Goldendoodle</span><span class="chip">Poedel</span><span class="chip">Angstige honden</span><span class="chip">Plek voor nieuwe honden</span></div>
+          <div class="maps-links" data-place="Voorbeeldsalon Wyck, Maastricht"></div>
+        </div>
+        <div class="listing-actions"><button class="save-btn" type="button" aria-label="Bewaar Voorbeeldsalon Wyck" title="Bewaar shortlist">♡</button><a class="btn btn-p" href="#voorbeeld-resultaten">Bekijk</a></div>
+      </div>
+      <div class="listing" data-city="maastricht" data-breeds="labradoodle cockapoo maltezer">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=240&h=180&q=75" alt="Hond kijkt naar de camera" width="112" height="88" loading="lazy" decoding="async"></div>
+        <div>
+          <span class="badge badge-g">Geverifieerd</span>
+          <h3>Voorbeeldsalon Heer</h3>
+          <div class="meta"><span class="ster">4,7 ★</span><span>41 reviews</span><span>Maastricht · 3,4 km</span><span>vanaf €65</span></div>
+          <div class="chips"><span class="chip">Labradoodle</span><span class="chip">Cockapoo</span><span class="chip">Maltezer</span></div>
+          <div class="maps-links" data-place="Voorbeeldsalon Heer, Maastricht"></div>
+        </div>
+        <div class="listing-actions"><button class="save-btn" type="button" aria-label="Bewaar Voorbeeldsalon Heer" title="Bewaar shortlist">♡</button><a class="btn btn-s" href="#voorbeeld-resultaten">Bekijk</a></div>
+      </div>
+      <div class="listing" data-city="meerssen" data-breeds="alle-rassen">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=240&h=180&q=75" alt="Golden retriever" width="112" height="88" loading="lazy" decoding="async"></div>
+        <div>
+          <h3>Voorbeeldsalon Meerssen</h3>
+          <div class="meta"><span class="ster">4,8 ★</span><span>23 reviews</span><span>Meerssen · 6,1 km</span></div>
+          <div class="chips"><span class="chip">Alle rassen</span></div>
+          <div class="maps-links" data-place="Voorbeeldsalon Meerssen, Meerssen"></div>
+        </div>
+        <div class="listing-actions"><button class="save-btn" type="button" aria-label="Bewaar Voorbeeldsalon Meerssen" title="Bewaar shortlist">♡</button><a class="btn btn-s" href="#voorbeeld-resultaten">Bekijk</a></div>
+      </div>
+    </div>
+    <div class="empty-state" id="empty-state"><h3>Geen voorbeeldresultaten voor deze combinatie.</h3><p>Probeer een nabijgelegen plaats of zoek zonder rasfilter. In de live versie tonen we hier passende aanbieders binnen de gekozen straal.</p></div>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-3)">Voorbeeldweergave. In een live zoekresultaat worden gegevens, beschikbaarheid en reviews van aanbieders gecontroleerd weergegeven.</p>
+  </div>
+</section>
+
+<!-- FORUM -->
+<section class="sec community" id="forum">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Samen weten we meer</span>
+      <h2>Deel ervaringen over vacht, verzorging en salons.</h2>
+      <p>Stel een praktische vraag, deel wat bij jouw hond werkte en help een andere eigenaar beter voorbereid naar een salon te gaan.</p>
+    </div>
+    <div class="forum-grid">
+      <div>
+        <div class="forum-controls"><input id="forum-search" type="search" placeholder="Zoek in onderwerpen..." aria-label="Zoek in forumonderwerpen"><select id="forum-category-filter" aria-label="Filter op forumcategorie"><option value="">Alle categorieën</option><option>Vachtverzorging</option><option>Gedrag & gewenning</option><option>Raservaring</option><option>Puppy & gewenning</option><option>Ervaring met salon</option><option>Hondenleven</option><option>Vraag aan de community</option></select></div>
+        <div class="forum-topics" id="forum-topics"></div>
+        <div class="forum-posts" id="forum-posts" aria-live="polite"></div>
+      </div>
+      <form class="forum-form" id="forum-form">
+        <h3>Start een gesprek</h3>
+        <p>Je bericht wordt eerst lokaal in deze demo opgeslagen. Voor een publiek forum zijn accounts, moderatie en een database nodig.</p>
+        <div class="form-row"><label for="forum-name">Naam of bijnaam (optioneel)</label><input id="forum-name" name="name" autocomplete="nickname" maxlength="40" placeholder="Bijv. Sam of Anoniem"></div>
+        <div class="form-row"><label for="forum-title">Onderwerp</label><input id="forum-title" name="title" required maxlength="90" placeholder="Waar wil je ervaringen over uitwisselen?"></div>
+        <div class="form-row"><label for="forum-category">Categorie</label><select id="forum-category" name="category"><option>Vachtverzorging</option><option>Ervaring met salon</option><option>Puppy & gewenning</option><option>Vraag aan de community</option></select></div>
+        <div class="form-row"><label for="forum-body">Je bericht</label><textarea id="forum-body" name="body" required maxlength="1000" placeholder="Beschrijf je vraag of ervaring..."></textarea></div>
+        <button class="btn btn-p" type="submit">Plaats onderwerp →</button>
+        <p class="forum-notice">Je bericht wordt gemodereerd. Deel geen telefoonnummers, adressen of andere privégegevens. Ervaringen zijn persoonlijk; presenteer ze niet als gecontroleerde feiten.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<dialog class="place-dialog" id="place-dialog" aria-labelledby="place-dialog-title">
+  <div class="place-dialog-inner">
+    <div class="dialog-top"><div><span class="eyebrow">Google Places-profiel</span><h2 id="place-dialog-title">Aanbieder</h2><p class="dialog-meta" id="place-dialog-meta"></p></div><button class="dialog-close" type="button" aria-label="Sluit profiel">×</button></div>
+    <div class="dialog-loading" id="place-dialog-body">Profiel laden...</div>
+  </div>
+</dialog>
+
+<!-- FAQ -->
+<section class="sec" id="veelgestelde-vragen">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Veelgestelde vragen</span>
+      <h2>Een betere keuze begint met de juiste vraag.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Hoe kies ik een goede trimsalon?</summary><p>Let op ervaring met het ras, de gewenste behandeling, duidelijke prijzen en recente reviews. Vraag bij twijfel hoe de salon omgaat met stress of klitten.</p></details>
+      <details><summary>Zijn aanbieders betaald om hoger te staan?</summary><p>Een betaalde vermelding kan extra zichtbaarheid krijgen, maar wordt duidelijk als aanbevolen of betaald gemarkeerd. Reviews en feitelijke informatie horen controleerbaar te blijven.</p></details>
+      <details><summary>Wat als mijn plaats nog niet beschikbaar is?</summary><p>Zoek op een nabijgelegen plaats. In de live versie tonen we aanbieders binnen de ingestelde straal en laten we zien hoe ver ze rijden.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- HOE HET WERKT -->
+<section class="sec creme">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Hoe het werkt</span>
+      <h2>In drie stappen naar de juiste match.</h2>
+    </div>
+    <div class="stappen">
+      <div class="stap"><div class="num">1</div><h3>Kies plaats en ras</h3><p>Vul in waar je woont en welk ras je hebt. Je ziet alleen aanbieders die bij jouw hond passen.</p></div>
+      <div class="stap"><div class="num">2</div><h3>Vergelijk op wat telt</h3><p>Reviews, prijzen, specialisaties, of er plek is voor nieuwe honden. Geen verkooppraat, wel feiten.</p></div>
+      <div class="stap"><div class="num">3</div><h3>Neem direct contact op</h3><p>Vraag beschikbaarheid aan via de site of bel. De aanbieder reageert meestal binnen een dag.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NIEUWE PUP -->
+<section class="sec" id="puppyplan">
+  <div class="wrap">
+    <div class="pup">
+      <div>
+        <span class="eyebrow">Nieuwe pup?</span>
+        <h2>Dit regel je in de eerste zes maanden.</h2>
+        <p>De eerste maanden bepalen hoe je hond zich de rest van zijn leven gedraagt, en hoe zijn vacht eruit komt te zien. Wij zetten op een rij wat wanneer moet, en wie het bij jou in de buurt goed doet.</p>
+        <a class="btn" href="/nieuwe-pup">Bekijk het puppyplan →</a>
+      </div>
+      <div class="tijdlijn">
+        <div class="tl"><span class="wk">Week 8</span><div><b>Dierenarts & verzekering</b><span>Eerste enting, chipcontrole, en de verzekering afsluiten vóór de eerste rekening.</span></div></div>
+        <div class="tl"><span class="wk">Week 9–10</span><div><b>Puppycursus starten</b><span>Socialisatie is nu het belangrijkst. Wacht niet tot de pup "groot genoeg" is.</span></div></div>
+        <div class="tl"><span class="wk">Week 12–16</span><div><b>Wenbezoek trimsalon</b><span>Even kennismaken met tafel, blower en handen. Voorkomt een leven lang stress.</span></div></div>
+        <div class="tl"><span class="wk">Maand 4–6</span><div><b>Eerste echte trimbeurt</b><span>Vooral bij doodles, poedels en pomeriaans: nu bepaal je hoe de vacht zich ontwikkelt.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAATSEN -->
+<section class="sec creme">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow">Populaire plaatsen</span>
+      <h2>We starten in Limburg. Brabant volgt.</h2>
+      <p>Staat jouw plaats er nog niet bij? Zoek gewoon; we tonen aanbieders binnen 20 kilometer.</p>
+    </div>
+    <div class="plaatsen">
+      <a class="plaats" href="/trimsalon/maastricht">Maastricht <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/heerlen">Heerlen <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/sittard">Sittard <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/geleen">Geleen <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/venlo">Venlo <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/roermond">Roermond <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/weert">Weert <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/kerkrade">Kerkrade <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/venray">Venray <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/valkenburg">Valkenburg <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/meerssen">Meerssen <span>Limburg</span></a>
+      <a class="plaats" href="/trimsalon/eindhoven">Eindhoven <span>Binnenkort</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- VOOR BEDRIJVEN -->
+<section class="sec" id="bedrijven">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Voor trimsalons, trainers en opvang</span>
+      <h2>Word gevonden door baasjes die nu een keuze maken.</h2>
+      <p>Elke maand zoeken baasjes in jouw plaats naar een trimmer of trainer voor hun ras. Zorg dat jij bovenaan staat, met foto's, je specialisaties en een directe link naar je agenda.</p>
+      <ul class="checks">
+        <li>Gratis vermelding: claim je pagina en vul rassen, prijzen en foto's aan</li>
+        <li>Premium: bovenaan in jouw plaats én op alle raspagina's</li>
+        <li>Zie in je dashboard hoeveel mensen je pagina bekeken en wie contact zocht</li>
+        <li>Opzegbaar per maand, geen commissie op klanten</li>
+      </ul>
+      <a class="btn btn-p" href="/premium">Claim je vermelding →</a>
+    </div>
+    <div class="prijs">
+      <span class="badge badge-a">Lanceringstarief Limburg</span>
+      <div class="p">€99<small> / eerste jaar</small></div>
+      <div class="of">daarna €149 per jaar, of €14,95 per maand</div>
+      <ul>
+        <li>Aanbevolen-badge en positie bovenaan</li>
+        <li>Tot 10 foto's, website- en Instagramlink</li>
+        <li>Telefoonnummer direct klikbaar</li>
+        <li>Zichtbaar op alle raspagina's in jouw plaats</li>
+        <li>Maandelijks overzicht van weergaven en aanvragen</li>
+      </ul>
+      <a class="btn btn-p" href="/premium" style="width:100%;justify-content:center">Start met premium</a>
+      <p style="margin-top:14px;font-size:13px;color:var(--ink-3);text-align:center">Eerste 10 salons en scholen per plaats. Daarna regulier tarief.</p>
+    </div>
+  </div>
+  <details class="claim-panel"><summary>Vermelding claimen</summary><form id="claim-form"><label>Naam<input name="name" required maxlength="80" autocomplete="name"></label><label>E-mailadres<input name="email" type="email" required maxlength="120" autocomplete="email"></label><label>Telefoon (optioneel)<input name="phone" maxlength="40" autocomplete="tel"></label><label>Naam van je bedrijf<input name="provider" required maxlength="100"></label><button class="btn btn-p" type="submit">Claimaanvraag versturen →</button><p class="claim-status" id="claim-status" role="status"></p></form></details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:14px"><span class="logo-mark" aria-hidden="true">🐾</span>TrimGids</a>
+        <p>De onafhankelijke gids voor trimsalons, hondenscholen en opvang. Gefilterd op ras, per plaats, met echte reviews.</p>
+      </div>
+      <div><h4>Zoeken</h4><a href="/trimsalon">Trimsalons</a><a href="/hondenschool">Hondenscholen</a><a href="/opvang">Pension & dagopvang</a><a href="/rassen">Rassen</a><a href="/nieuwe-pup">Nieuwe pup</a></div>
+      <div><h4>Bedrijven</h4><a href="/premium">Premium vermelding</a><a href="/claim">Vermelding claimen</a><a href="/dashboard">Inloggen</a></div>
+      <div><h4>TrimGids</h4><a href="/over">Over ons</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
+    </div>
+    <div class="copy"><span>© 2026 TrimGids.nl · Onafhankelijke gids voor hondenbaasjes</span><span>Gemaakt in Limburg</span></div>
+  </div>
+</footer>
+
+<script>
+const menuButton=document.querySelector('.menu-btn');
+const mainNav=document.getElementById('main-nav');
+menuButton.addEventListener('click',()=>{
+  const isOpen=mainNav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded',String(isOpen));
+});
+mainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+  mainNav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded','false');
+}));
+
+function slug(s){return s.toLowerCase().trim().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function zoek(e){
+  e.preventDefault();
+  const cat=document.getElementById('cat').value, pl=slug(document.getElementById('plaats').value), ras=document.getElementById('ras').value;
+  if(!pl) return false;
+  let url='/'+cat+'/'+pl; if(ras && cat==='trimsalon') url+='/'+ras;
+  if(window.location.protocol==='file:'){
+    const listings=[...document.querySelectorAll('.listing[data-city]')];
+    const matches=cat==='trimsalon'?listings.filter(listing=>listing.dataset.city===pl && (!ras || listing.dataset.breeds.includes(ras) || listing.dataset.breeds.includes('alle-rassen'))):[];
+    listings.forEach(listing=>{listing.hidden=!matches.includes(listing)});
+    document.getElementById('resultaat-aantal').textContent=matches.length;
+    document.getElementById('empty-state').classList.toggle('visible',matches.length===0);
+    const message=document.getElementById('zoekmelding');
+    const plaatsNaam=document.getElementById('plaats').value;
+    const rasNaam=ras?' voor '+document.getElementById('ras').selectedOptions[0].text:'';
+    document.getElementById('resultaat-titel').textContent=cat==='trimsalon'?'Resultaten in '+plaatsNaam+rasNaam:'Bekijk hoe resultaten voor '+cat+' worden opgebouwd';
+    message.textContent=matches.length+' voorbeeld'+(matches.length===1?'resultaat':'resultaten')+' gevonden voor '+cat+' in '+plaatsNaam+rasNaam+'.';
+    message.classList.add('visible');
+    document.getElementById('voorbeeld-resultaten').scrollIntoView({behavior:'smooth'});
+    return false;
+  }
+  window.location.href=url; return false;
+}
+
+document.querySelectorAll('.maps-links[data-place]').forEach(container=>{
+  const place=container.dataset.place;
+  const query=encodeURIComponent(place);
+  const mapsLink=(label,href,campaign)=>{
+    const link=document.createElement('a');
+    link.href=href+'&utm_source=TrimGids&utm_campaign='+campaign;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    link.textContent=label;
+    container.appendChild(link);
+  };
+  mapsLink('Kaart in Google Maps','https://www.google.com/maps/search/?api=1&query='+query,'place_details_search');
+  mapsLink('Route navigeren','https://www.google.com/maps/dir/?api=1&destination='+query+'&travelmode=driving&dir_action=navigate','directions_request');
+  mapsLink('Bekijk of plaats Google-review','https://www.google.com/maps/search/?api=1&query='+query,'reviews_view');
+});
+
+const forumForm=document.getElementById('forum-form');
+const forumPosts=document.getElementById('forum-posts');
+const forumTopicsContainer=document.getElementById('forum-topics');
+const forumSearch=document.getElementById('forum-search');
+const forumCategoryFilter=document.getElementById('forum-category-filter');
+const forumKey='trimgids-forum-posts';
+let forumItems=[];
+let forumTopicItems=[];
+const starterTopics=[{id:'starter-labradoodle-trimmen',category:'Vachtverzorging',title:'Hoe vaak laat jij een Labradoodle trimmen?',description:'Vergelijk routines, borstelen tussen afspraken en wat je vooraf met een trimmer bespreekt.',author:'TrimGids redactie',editorial:true},{id:'starter-angstige-hond',category:'Gedrag & gewenning',title:'Wat helpt bij een angstige hond voor de eerste trimbeurt?',description:'Deel rustige wenstappen en vragen die je aan een salon kunt stellen.',author:'TrimGids redactie',editorial:true},{id:'starter-pomeriaan-vacht',category:'Raservaring',title:'Hoe houd jij de vacht van je Pomeriaan bij?',description:'Bespreek borstelen, ondervacht en de voorbereiding op een trimafspraak.',author:'TrimGids redactie',editorial:true}];
+try{forumItems=JSON.parse(localStorage.getItem(forumKey)||'[]');}catch(error){forumItems=[];}
+const renderForum=()=>{
+  forumPosts.replaceChildren();
+  forumItems.slice().reverse().forEach(item=>{
+    const article=document.createElement('article'); article.className='forum-post';
+    const title=document.createElement('h3'); title.textContent=item.title;
+    const meta=document.createElement('small'); meta.textContent=item.category+' · '+item.name+' · '+item.date;
+    const body=document.createElement('p'); body.textContent=item.body;
+    article.append(title,meta,body); forumPosts.appendChild(article);
+  });
+};
+const renderForumTopics=()=>{
+  const query=forumSearch.value.toLowerCase().trim();const category=forumCategoryFilter.value;
+  forumTopicsContainer.replaceChildren();
+  const items=forumTopicItems.filter(item=>(!category||item.category===category)&&(!query||`${item.title} ${item.description} ${item.category}`.toLowerCase().includes(query)));
+  if(!items.length){forumTopicsContainer.append(Object.assign(document.createElement('div'),{className:'forum-empty',textContent:'Geen onderwerpen gevonden. Start zelf een gesprek met je vraag.'}));return;}
+  items.forEach(item=>{const article=document.createElement('article');article.className='topic';article.appendChild(Object.assign(document.createElement('h3'),{textContent:item.title}));article.appendChild(Object.assign(document.createElement('p'),{textContent:item.description}));const meta=document.createElement('div');meta.className='topic-meta';meta.textContent=`${item.category} · ${item.editorial?'Redactie-startpunt':'Community'}`;article.appendChild(meta);const actions=document.createElement('div');actions.className='topic-actions';const replyButton=document.createElement('button');replyButton.type='button';replyButton.textContent='Bekijk / reageer';const helpfulButton=document.createElement('button');helpfulButton.type='button';helpfulButton.textContent='♡ Handig';const replyArea=document.createElement('div');replyArea.className='topic-replies';replyButton.addEventListener('click',async()=>{article.classList.toggle('open');if(replyArea.childElementCount)return;const response=await fetch('/api/forum/'+encodeURIComponent(item.id)+'/replies');const data=await response.json();if(!data.replies?.length)replyArea.appendChild(Object.assign(document.createElement('p'),{textContent:'Nog geen reacties. Wees de eerste die zijn ervaring deelt.'}));(data.replies||[]).forEach(reply=>{const p=document.createElement('p');p.textContent=reply.author+': '+reply.body;replyArea.appendChild(p);});const form=document.createElement('form');form.className='reply-form';const name=document.createElement('input');name.placeholder='Naam of bijnaam (optioneel)';const body=document.createElement('textarea');body.placeholder='Jouw ervaring of antwoord...';body.required=true;const submit=document.createElement('button');submit.type='submit';submit.textContent='Reactie plaatsen';form.append(name,body,submit);form.addEventListener('submit',async event=>{event.preventDefault();const result=await fetch('/api/forum/'+encodeURIComponent(item.id)+'/replies',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({author:name.value,body:body.value})});if(result.ok){form.reset();form.replaceWith(Object.assign(document.createElement('p'),{textContent:'Bedankt. Je reactie staat klaar voor moderatie.'}));}});replyArea.appendChild(form);});helpfulButton.addEventListener('click',async()=>{const id=localStorage.getItem('trimgids-forum-voter')||crypto.randomUUID();localStorage.setItem('trimgids-forum-voter',id);const result=await fetch('/api/forum/'+encodeURIComponent(item.id)+'/helpful',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({voterId:id})});helpfulButton.textContent=result.ok?'♥ Handig':'Al gemarkeerd';});actions.append(replyButton,helpfulButton);article.append(actions,replyArea);forumTopicsContainer.appendChild(article);});
+};
+forumSearch.addEventListener('input',renderForumTopics);forumCategoryFilter.addEventListener('change',renderForumTopics);
+forumForm.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const data=new FormData(forumForm);
+  const item={name:data.get('name').trim()||'Anoniem',title:data.get('title').trim(),category:data.get('category'),body:data.get('body').trim(),date:new Intl.DateTimeFormat('nl-NL',{dateStyle:'medium'}).format(new Date())};
+  if(window.location.protocol!=='file:'){
+    try{
+      const response=await fetch('/api/forum',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(item)});
+      if(!response.ok)throw new Error('forum_failed');
+      const result=await response.json();forumItems.push({...result.post,date:new Intl.DateTimeFormat('nl-NL',{dateStyle:'medium'}).format(new Date(result.post.createdAt))});
+    }catch(error){const forumStatus=document.getElementById('zoekmelding');forumStatus.classList.add('visible');forumStatus.textContent='Het forumbericht kon niet worden opgeslagen. Probeer het later opnieuw.';return;}
+  }else{
+    forumItems.push(item);localStorage.setItem(forumKey,JSON.stringify(forumItems));
+  }
+  forumForm.reset();renderForum();
+});
+forumTopicItems=starterTopics;renderForumTopics();renderForum();
+if(window.location.protocol!=='file:'){
+  fetch('/api/forum').then(response=>response.ok?response.json():Promise.reject()).then(data=>{forumTopicItems=data.topics||starterTopics;forumItems=(data.posts||[]).map(post=>({...post,date:new Intl.DateTimeFormat('nl-NL',{dateStyle:'medium'}).format(new Date(post.createdAt))}));renderForumTopics();renderForum();}).catch(()=>{});
+}
+
+  const savedKey='trimgids-shortlist';
+  const saved=JSON.parse(localStorage.getItem(savedKey)||'[]');
+  const saveButtons=[...document.querySelectorAll('.save-btn')];
+  const updateShortlist=()=>{
+    saveButtons.forEach(button=>{
+      const name=button.getAttribute('aria-label').replace('Bewaar ','');
+      const isSaved=saved.includes(name);
+      button.classList.toggle('saved',isSaved);
+      button.textContent=isSaved?'♥':'♡';
+      button.setAttribute('aria-label',(isSaved?'Verwijder ':'Bewaar ')+name);
+    });
+    document.querySelector('#shortlist-button span').textContent=saved.length?'Mijn shortlist ('+saved.length+')':'Mijn shortlist';
+  };
+  saveButtons.forEach(button=>button.addEventListener('click',()=>{
+    const name=button.getAttribute('aria-label').replace(/^(Bewaar |Verwijder )/,'');
+    const index=saved.indexOf(name);
+    if(index===-1) saved.push(name); else saved.splice(index,1);
+    localStorage.setItem(savedKey,JSON.stringify(saved));
+    updateShortlist();
+  }));
+  document.querySelector('#shortlist-button').addEventListener('click',()=>{
+    const savedListings=document.querySelectorAll('.listing');
+    savedListings.forEach(listing=>{
+      const button=listing.querySelector('.save-btn');
+      const name=button.getAttribute('aria-label').replace(/^(Bewaar |Verwijder )/,'');
+      listing.hidden=!saved.includes(name);
+    });
+    document.getElementById('empty-state').classList.toggle('visible',saved.length===0);
+    document.getElementById('resultaat-aantal').textContent=saved.length;
+    document.getElementById('resultaat-titel').textContent=saved.length?'Mijn shortlist':'Je shortlist is nog leeg';
+    document.getElementById('voorbeeld-resultaten').scrollIntoView({behavior:'smooth'});
+  });
+  updateShortlist();
+
+  if(window.location.protocol==='file:'){
+  const localSections={
+    '/':'#top', '/trimsalon':'#voorbeeld-resultaten', '/hondenschool':'#categorieen', '/opvang':'#categorieen',
+    '/rassen':'#zoekresultaten', '/nieuwe-pup':'#puppyplan', '/premium':'#bedrijven', '/claim':'#bedrijven',
+    '/dashboard':'#bedrijven', '/over':'#veelgestelde-vragen', '/contact':'#veelgestelde-vragen',
+    '/privacy':'#veelgestelde-vragen', '/voorwaarden':'#veelgestelde-vragen'
+  };
+  document.querySelectorAll('a[href^="/"]').forEach(link=>link.addEventListener('click',event=>{
+    const href=link.getAttribute('href');
+    const target=localSections[href] || (href.startsWith('/trimsalon/')?'#voorbeeld-resultaten':href.startsWith('/rassen')?'#zoekresultaten':null);
+    if(target){event.preventDefault();document.querySelector(target)?.scrollIntoView({behavior:'smooth'});}
+  }));
+}
+</script>
+<script>
+if(window.location.protocol!=='file:'){
+  const liveStack=document.querySelector('#voorbeeld-resultaten .stack');
+  const liveStatus=document.getElementById('zoekmelding');
+  const liveTitle=document.getElementById('resultaat-titel');
+  const liveCount=document.getElementById('resultaat-aantal');
+  const liveEmpty=document.getElementById('empty-state');
+  const googleAttribution=document.getElementById('google-attribution');
+  const placeDialog=document.getElementById('place-dialog');
+  const placeDialogTitle=document.getElementById('place-dialog-title');
+  const placeDialogMeta=document.getElementById('place-dialog-meta');
+  const placeDialogBody=document.getElementById('place-dialog-body');
+  const liveSavedKey='trimgids-shortlist';
+  const readLiveSaved=()=>{try{return JSON.parse(localStorage.getItem(liveSavedKey)||'[]');}catch(error){return[];}};
+  const writeLiveSaved=items=>localStorage.setItem(liveSavedKey,JSON.stringify(items));
+  const text=(tag,value,className)=>{const node=document.createElement(tag);node.textContent=value;if(className)node.className=className;return node;};
+  const googleSearch=place=>place.googleMapsUri||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(place.name+', '+place.address);
+  const mapsLink=(label,href,campaign)=>{const link=document.createElement('a');link.href=href+(href.includes('?')?'&':'?')+'utm_source=TrimGids&utm_campaign='+campaign;link.target='_blank';link.rel='noopener noreferrer';link.textContent=label;return link;};
+  const renderPlaceDetails=place=>{
+    placeDialogTitle.textContent=place.name;placeDialogMeta.textContent=place.address;
+    placeDialogBody.replaceChildren();
+    const links=document.createElement('div');links.className='dialog-links';const destination=encodeURIComponent(place.address||place.name);links.append(mapsLink('Kaart openen',googleSearch(place),'place_details_search'),mapsLink('Navigeren','https://www.google.com/maps/dir/?api=1&destination='+destination+'&travelmode=driving&dir_action=navigate','directions_request'),place.website?mapsLink('Website',place.website,'website_visit'):document.createTextNode(''));placeDialogBody.appendChild(links);
+    const summary=text('p',place.rating?`${place.rating.toLocaleString('nl-NL')} ★ · ${place.reviewCount||0} Google-reviews`:'Nog geen Google-rating','dialog-meta');placeDialogBody.appendChild(summary);
+    if(place.phone)placeDialogBody.appendChild(text('p','Telefoon: '+place.phone,'dialog-meta'));
+    if(place.weekdayHours?.length){const section=document.createElement('section');section.className='dialog-section';section.appendChild(text('h3','Openingstijden'));const hours=document.createElement('div');hours.className='dialog-hours';place.weekdayHours.forEach(day=>hours.appendChild(text('span',day)));section.appendChild(hours);placeDialogBody.appendChild(section);}
+    const reviewSection=document.createElement('section');reviewSection.className='dialog-section';reviewSection.appendChild(text('h3','Google-reviews'));if(place.reviews?.length){place.reviews.forEach(review=>{const item=document.createElement('article');item.className='google-review';item.appendChild(text('strong',(review.rating?review.rating+' ★ · ':'')+review.author));item.appendChild(text('p',review.text||review.relativeTime));reviewSection.appendChild(item);});}else reviewSection.appendChild(text('p','Bekijk de volledige recente reviews op Google Maps.','dialog-meta'));placeDialogBody.appendChild(reviewSection);
+    const ownSection=document.createElement('section');ownSection.className='dialog-section';ownSection.appendChild(text('h3','Deel jouw ervaring'));const ownForm=document.createElement('form');ownForm.className='form-row';const author=document.createElement('input');author.placeholder='Je naam';author.required=true;author.maxLength=40;const rating=document.createElement('select');rating.innerHTML='<option value="5">5 sterren</option><option value="4">4 sterren</option><option value="3">3 sterren</option><option value="2">2 sterren</option><option value="1">1 ster</option>';const body=document.createElement('textarea');body.placeholder='Wat moet een ander hondenbaasje weten?';body.required=true;body.maxLength=1000;const submit=document.createElement('button');submit.className='btn btn-p';submit.type='submit';submit.textContent='Ervaring insturen';const status=text('p','','profile-note');ownForm.append(author,rating,body,submit,status);ownForm.addEventListener('submit',async event=>{event.preventDefault();try{const response=await fetch('/api/providers/'+encodeURIComponent(place.id)+'/reviews',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({author:author.value,rating:rating.value,body:body.value})});if(!response.ok)throw new Error('review_failed');status.textContent='Bedankt. Je ervaring staat klaar voor moderatie.';ownForm.reset();}catch(error){status.textContent='Je ervaring kon niet worden verstuurd.';}});ownSection.appendChild(ownForm);placeDialogBody.appendChild(ownSection);
+  };
+  const openPlaceProfile=async id=>{placeDialogTitle.textContent='Profiel laden';placeDialogMeta.textContent='';placeDialogBody.textContent='Google Places-profiel laden...';placeDialog.showModal();try{const response=await fetch('/api/places/'+encodeURIComponent(id));const data=await response.json();if(!response.ok||!data.place)throw new Error('details_failed');renderPlaceDetails(data.place);}catch(error){placeDialogBody.textContent='Dit profiel kon tijdelijk niet worden geladen. Open de aanbieder via Google Maps.';}};
+  document.querySelector('.dialog-close').addEventListener('click',()=>placeDialog.close());
+  placeDialog.addEventListener('click',event=>{if(event.target===placeDialog)placeDialog.close();});
+  const renderLivePlaces=places=>{
+    liveStack.replaceChildren();
+    const saved=readLiveSaved();
+    places.forEach(place=>{
+      const card=document.createElement('article');card.className='listing';card.dataset.liveId=place.id;card.dataset.liveName=place.name;
+      const thumb=document.createElement('div');thumb.className='thumb';
+      if(place.photoUrl){const image=document.createElement('img');image.src=place.photoUrl;image.alt=place.name;image.width=112;image.height=88;image.loading='lazy';image.decoding='async';thumb.appendChild(image);}
+      const body=document.createElement('div');
+      if(place.rating) body.appendChild(text('span',`${place.rating.toLocaleString('nl-NL')} ★ · ${place.reviewCount||0} Google-reviews`,'ster'));
+      body.appendChild(text('h3',place.name));
+      body.appendChild(text('div',place.address,'meta'));
+      if(place.openNow!==null) body.appendChild(text('div',place.openNow?'Nu geopend':'Nu gesloten','chip'));
+      const links=document.createElement('div');links.className='maps-links';
+      const map=googleSearch(place); const destination=encodeURIComponent(place.address||place.name);
+      links.append(mapsLink('Kaart in Google Maps',map,'place_details_search'),mapsLink('Route navigeren','https://www.google.com/maps/dir/?api=1&destination='+destination+'&travelmode=driving&dir_action=navigate','directions_request'),mapsLink('Bekijk of plaats Google-review',map,'reviews_view'));
+      body.appendChild(links);
+      const actions=document.createElement('div');actions.className='listing-actions';
+      const save=document.createElement('button');save.className='save-btn'+(saved.includes(place.id)?' saved':'');save.type='button';save.textContent=saved.includes(place.id)?'♥':'♡';save.title='Bewaar shortlist';save.setAttribute('aria-label',(saved.includes(place.id)?'Verwijder ':'Bewaar ')+place.name);
+      save.addEventListener('click',()=>{const next=readLiveSaved();const index=next.indexOf(place.id);if(index===-1)next.push(place.id);else next.splice(index,1);writeLiveSaved(next);const active=next.includes(place.id);save.classList.toggle('saved',active);save.textContent=active?'♥':'♡';save.setAttribute('aria-label',(active?'Verwijder ':'Bewaar ')+place.name);});
+      actions.appendChild(save);const profile=document.createElement('button');profile.className='btn btn-s';profile.type='button';profile.textContent='Bekijk profiel';profile.addEventListener('click',()=>openPlaceProfile(place.id));actions.appendChild(profile);body.appendChild(actions);
+      card.append(thumb,body);liveStack.appendChild(card);
+    });
+    liveCount.textContent=places.length;liveEmpty.classList.toggle('visible',places.length===0);googleAttribution.hidden=places.length===0;
+  };
+  window.zoek=async event=>{
+    event.preventDefault();
+    const category=document.getElementById('cat').value;const city=document.getElementById('plaats').value.trim();const breed=document.getElementById('ras').selectedOptions[0]?.text||'';
+    if(!city)return false;
+    const categoryLabel=document.getElementById('cat').selectedOptions[0].text;const query=[categoryLabel,breed==='Alle rassen'?'':breed,city].filter(Boolean).join(' ');
+    liveStatus.textContent='Zoeken naar actuele Google Places-resultaten...';liveStatus.classList.add('visible');
+    try{
+      const response=await fetch('/api/places/search?text='+encodeURIComponent(query));const data=await response.json();
+      if(!response.ok)throw new Error(data.error||'search_failed');
+      if(!data.configured){liveStatus.textContent='Google Places is nog niet geconfigureerd. De demo blijft beschikbaar totdat de server-key is ingesteld.';return false;}
+      renderLivePlaces(data.places||[]);liveTitle.textContent=`${categoryLabel} in ${city}${breed&&breed!=='Alle rassen'?' voor '+breed:''}`;liveStatus.textContent=`${(data.places||[]).length} actuele Google Places-resultaten gevonden voor ${query}.`;document.getElementById('voorbeeld-resultaten').scrollIntoView({behavior:'smooth'});
+    }catch(error){liveStatus.textContent='De live zoekdienst is tijdelijk niet bereikbaar. Probeer het later opnieuw.';}
+    return false;
+  };
+}
+</script>
+<script>
+const hondprofielForm=document.getElementById('hondprofiel-form');
+const hondprofielResult=document.getElementById('profiel-result');
+const hondprofielKey='trimgids-profile';
+const profileFields={name:document.getElementById('hond-naam'),age:document.getElementById('hond-leeftijd'),breed:document.getElementById('hond-ras'),city:document.getElementById('hond-plaats'),sensitive:document.getElementById('hond-gevoelig')};
+const readProfile=()=>{try{return JSON.parse(localStorage.getItem(hondprofielKey)||'null');}catch(error){return null;}};
+const renderProfile=(profile,stats)=>{
+  const displayName=profile.name||'jouw hond';
+  const breedName=profile.breedName||profile.breed.charAt(0).toUpperCase()+profile.breed.slice(1);
+  const ageLabel=profile.age?` · ${profile.age} jaar`:'';
+  hondprofielResult.hidden=false;
+  hondprofielResult.replaceChildren();
+  const eyebrow=document.createElement('span');eyebrow.className='eyebrow';eyebrow.textContent='Jouw eerste match';
+  const heading=document.createElement('h3');heading.textContent=`Voor ${displayName}${ageLabel} in ${profile.city}`;
+  const intro=document.createElement('p');intro.textContent=profile.sensitive?`We zoeken extra naar salons met ervaring met ${breedName} en gevoelige honden.`:`We zoeken naar salons met ervaring met ${breedName} in jouw omgeving.`;
+  const statWrap=document.createElement('div');statWrap.className='match-stats';
+  [[stats.total,'passende aanbieders'],[stats.breedExperience,`met ${breedName}-ervaring`],[profile.sensitive?stats.sensitiveExperience:'—','met gevoelige honden']].forEach(([value,label])=>{const stat=document.createElement('div');stat.className='match-stat';const number=document.createElement('strong');number.textContent=value;const textNode=document.createElement('span');textNode.textContent=label;stat.append(number,textNode);statWrap.appendChild(stat);});
+  const note=document.createElement('p');note.className='profile-note';note.textContent=stats.demo?'Dit is een voorbeeldmatch uit de lokale catalogus. Zodra gecontroleerde bedrijfsdata beschikbaar is, worden deze aantallen live opgebouwd.':'De match is opgebouwd uit de centrale TrimGids-catalogus.';
+  const searchLink=document.createElement('a');searchLink.className='link';searchLink.href='#voorbeeld-resultaten';searchLink.textContent='Bekijk de resultaten →';
+  hondprofielResult.append(eyebrow,heading,intro,statWrap,note,searchLink);
+};
+const loadProfile=async profile=>{
+  let stats={total:0,breedExperience:0,sensitiveExperience:0,demo:true};
+  if(window.location.protocol!=='file:'){
+    try{const response=await fetch('/api/matches?city='+encodeURIComponent(profile.city)+'&breed='+encodeURIComponent(profile.breed)+'&sensitive='+profile.sensitive);if(response.ok)stats=await response.json();}catch(error){}
+  }else{
+    const citySlug=profile.city.toLowerCase().trim().replace(/[^a-z0-9]+/g,'-');const listings=[...document.querySelectorAll('.listing[data-city]')].filter(listing=>listing.dataset.city===citySlug&&listing.dataset.breeds.includes(profile.breed));stats.total=listings.length;stats.breedExperience=listings.length;stats.sensitiveExperience=profile.sensitive?listings.filter(listing=>listing.textContent.toLowerCase().includes('angstige')).length:0;
+  }
+  renderProfile(profile,stats);
+};
+const savedProfile=readProfile();
+if(savedProfile){Object.entries(savedProfile).forEach(([key,value])=>{if(profileFields[key]){if(profileFields[key].type==='checkbox')profileFields[key].checked=value;else profileFields[key].value=value;}});loadProfile(savedProfile);}
+hondprofielForm.addEventListener('submit',async event=>{event.preventDefault();const profile={id:localStorage.getItem('trimgids-profile-id')||crypto.randomUUID(),name:profileFields.name.value.trim(),age:profileFields.age.value,breed:profileFields.breed.value,breedName:profileFields.breed.selectedOptions[0].text,city:profileFields.city.value.trim(),sensitive:profileFields.sensitive.checked};localStorage.setItem('trimgids-profile-id',profile.id);localStorage.setItem(hondprofielKey,JSON.stringify(profile));if(window.location.protocol!=='file:'){try{await fetch('/api/profiles',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(profile)});}catch(error){}}loadProfile(profile);});
+const claimForm=document.getElementById('claim-form');
+const claimStatus=document.getElementById('claim-status');
+const claimProvider=new URLSearchParams(window.location.search).get('claim');
+if(claimProvider)claimForm.elements.provider.value=claimProvider.replace(/-/g,' ');
+claimForm.addEventListener('submit',async event=>{event.preventDefault();const data=new FormData(claimForm);const slug=String(data.get('provider')).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-');if(window.location.protocol==='file:'){claimStatus.textContent='Claimaanvraag klaar voor verzending in de live versie.';claimForm.reset();return;}try{const response=await fetch('/api/providers/'+encodeURIComponent(slug)+'/claim',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:data.get('name'),email:data.get('email'),phone:data.get('phone')})});if(!response.ok)throw new Error('claim_failed');claimStatus.textContent='Bedankt. Je claimaanvraag staat klaar voor controle.';claimForm.reset();}catch(error){claimStatus.textContent='De claimaanvraag kon niet worden verstuurd. Controleer je gegevens.';}});
+const hulpvraagForm=document.getElementById('hulpvraag-form');
+const hulpvraagStatus=document.getElementById('hulpvraag-status');
+hulpvraagForm.addEventListener('submit',async event=>{event.preventDefault();const data=new FormData(hulpvraagForm);const payload={title:data.get('title'),issue:data.get('issue'),breed:data.get('breed'),city:data.get('city'),contactEmail:data.get('contactEmail'),description:data.get('description'),consent:data.get('consent')==='on'};if(window.location.protocol==='file:'){hulpvraagStatus.textContent='Je hulpvraag is klaar voor de live communityversie.';hulpvraagForm.reset();return;}try{const response=await fetch('/api/requests',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!response.ok)throw new Error('request_failed');hulpvraagStatus.textContent='Je hulpvraag staat klaar voor moderatie. Aanbieders kunnen daarna reageren.';hulpvraagForm.reset();}catch(error){hulpvraagStatus.textContent='De hulpvraag kon niet worden geplaatst. Controleer je gegevens.';}});
+const pollBreed=document.getElementById('poll-breed');
+const pollQuestion=document.getElementById('poll-question');
+const pollOptions=document.getElementById('poll-options');
+const pollForm=document.getElementById('poll-form');
+const pollResult=document.getElementById('poll-result');
+const pollStatus=document.getElementById('poll-status');
+let activePoll=null;
+const voterKey='trimgids-poll-voter';
+const voterId=localStorage.getItem(voterKey)||crypto.randomUUID();
+localStorage.setItem(voterKey,voterId);
+const renderPoll=poll=>{activePoll=poll;pollQuestion.textContent=poll.question;pollOptions.replaceChildren();pollResult.replaceChildren();poll.options.forEach((option,index)=>{const label=document.createElement('label');label.className='poll-option';const input=document.createElement('input');input.type='radio';input.name='option';input.value=option;input.required=index===0;label.append(input,document.createTextNode(option));pollOptions.append(label);});poll.results.forEach(result=>{const row=document.createElement('div');row.className='poll-bar';const top=document.createElement('div');top.className='poll-bar-top';const total=poll.total||0;top.append(document.createTextNode(result.option),document.createTextNode(`${total?Math.round(result.votes/total*100):0}% (${result.votes})`));const track=document.createElement('div');track.className='poll-track';const fill=document.createElement('div');fill.className='poll-fill';fill.style.width=`${total?result.votes/total*100:0}%`;track.appendChild(fill);row.append(top,track);pollResult.appendChild(row);});};
+const loadPoll=async()=>{if(window.location.protocol==='file:'){pollQuestion.textContent='Polls werken in de live versie.';return;}try{const response=await fetch('/api/polls?breed='+encodeURIComponent(pollBreed.value));if(!response.ok)throw new Error('poll_failed');renderPoll(await response.json());}catch(error){pollStatus.textContent='De poll kon niet worden geladen.';}};
+pollBreed.addEventListener('change',loadPoll);pollForm.addEventListener('submit',async event=>{event.preventDefault();const option=new FormData(pollForm).get('option');if(window.location.protocol==='file:'){pollStatus.textContent='Je stem is klaar om in de live versie te worden opgeslagen.';return;}try{const response=await fetch('/api/polls/'+encodeURIComponent(activePoll.id)+'/votes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({option,voterId})});const data=await response.json();if(!response.ok)throw new Error(data.error);renderPoll(data.poll);pollStatus.textContent='Bedankt. Je stem is anoniem opgeslagen.';}catch(error){pollStatus.textContent=error.message==='poll_already_voted'?'Je hebt al op deze poll gestemd.':'Je stem kon niet worden opgeslagen.';}});loadPoll();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+# TrimGids
+
+## Lokaal starten
+
+1. Installeer Node.js 18 of nieuwer.
+2. Kopieer `.env.example` naar `.env`.
+3. Vul `GOOGLE_PLACES_API_KEY` in met een server-key uit Google Cloud.
+4. Schakel **Places API (New)** in en beperk de key op server/IP-niveau.
+5. Start met `npm start`.
+6. Open `http://localhost:3000`.
+
+Zonder Google-key blijft de demo beschikbaar en geeft `/api/health` aan dat Google Places niet is geconfigureerd.
+
+## Google Places-catalogus vullen
+
+Na het instellen van `GOOGLE_PLACES_API_KEY` kun je een gecontroleerde import starten met `npm run sync:places`. De tool haalt alleen basisgegevens van trimsalons per catalogusplaats op. Google-reviews en foto’s worden niet gekopieerd. Nieuwe imports krijgen `verified: false` en blijven daardoor buiten de index totdat ze handmatig zijn gecontroleerd.
+
+## API
+
+- `GET /api/places/search?text=trimsalon+Maastricht`
+- `GET /api/places/:placeId`
+- `GET /api/photo?name=places/.../photos/...`
+- `GET /api/forum`
+- `POST /api/forum` met `name`, `title`, `category` en `body`
+- `GET|POST /api/forum/:id/replies` voor gemodereerde topicreacties
+- `POST /api/forum/:id/helpful` voor anonieme helpful-reacties
+- `POST /api/profiles` voor een persoonlijk hondenprofiel
+- `GET /api/profiles/:id` voor het opgeslagen profiel
+- `POST /api/providers/:slug/claim` voor een claimaanvraag
+- `GET|POST /api/providers/:slug/reviews` voor gemodereerde eigen reviews
+- `GET|POST /api/requests` voor privacybewuste hulpvragen
+- `POST /api/requests/:id/responses` voor reacties van aanbieders
+- `GET /api/polls?breed=labradoodle` voor rasresultaten
+- `POST /api/polls/:id/votes` voor anonieme pollstemmen
+- `/admin` voor moderatie van pending reviews en claims; configureer `ADMIN_TOKEN` in `.env`
+
+Profielen worden op dit moment gekoppeld aan een browser-ID en lokaal opgeslagen in de serverdata. Voor productie moeten authenticatie, rate limiting, CSRF-bescherming, moderatie en PostgreSQL/Supabase worden toegevoegd.
+
+De server heeft al basisbescherming tegen overmatig API-gebruik, veilige responseheaders en korte in-memory caching voor identieke Google-requests. De rate limiter is bewust eenvoudig gehouden; achter een reverse proxy hoort in productie een gedeelde limiter zoals Redis te komen.
+
+## Data-gedreven SEO-pagina's
+
+De centrale catalogus staat in `data/catalog.json` en bevat plaatsen, rassen en aanbieders. De server genereert daaruit:
+
+- `/trimsalon/maastricht`
+- `/trimsalon/maastricht/labradoodle`
+- `/rassen/labradoodle`
+
+Een combinatiepagina krijgt standaard `noindex,follow` zolang er minder dan acht gecontroleerde vermeldingen zijn of de catalogus nog demo-data bevat. Zo ontstaan geen dunne indexpagina's. Zodra echte, gecontroleerde gegevens zijn ingevoerd, kan de indexeerbaarheid automatisch ontstaan zonder handmatig HTML-pagina's te onderhouden.
+
+Google Maps-links openen de officiële Maps-interface voor kaart, navigatie en reviews. Google-reviewdata en foto’s worden niet gescrapet. De eigen forumdata staat lokaal in `data/forum.json`; voor productie zijn een database, accounts, rate limiting, moderatie en backups nodig.

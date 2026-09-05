@@ -1,0 +1,20 @@
+[
+  {
+    "id": "pomeriaan-trimfrequentie",
+    "breed": "pomeriaan",
+    "question": "Hoe vaak gaat jouw Pomeriaan naar de trimsalon?",
+    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Alleen wanneer het nodig is", "Ik verzorg de vacht vooral thuis"]
+  },
+  {
+    "id": "labradoodle-trimfrequentie",
+    "breed": "labradoodle",
+    "question": "Hoe vaak laat jij jouw Labradoodle trimmen?",
+    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Op afspraak wanneer de vacht het nodig heeft", "Ik twijfel nog wat goed is"]
+  },
+  {
+    "id": "poedel-trimfrequentie",
+    "breed": "poedel",
+    "question": "Welke trimfrequentie werkt voor jouw Poedel?",
+    "options": ["Elke 4 tot 6 weken", "Elke 6 tot 8 weken", "Wisselend per seizoen", "Ik doe veel onderhoud thuis"]
+  }
+]
