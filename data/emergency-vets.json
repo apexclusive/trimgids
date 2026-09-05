@@ -1,0 +1,69 @@
+{
+  "clinics": [
+    {
+      "id": "spoedpost-dierenartsen-maastricht",
+      "name": "Spoeddienst Dierenartsen Maastricht & Mergelland",
+      "city": "Maastricht",
+      "province": "Limburg",
+      "region": "Zuid-Limburg",
+      "phone": "043-3475757",
+      "address": "Aan de Maas / Regionale Roterende Spoedpost, Maastricht",
+      "available": "24 uur per dag, 7 dagen per week",
+      "consultFeeDay": "€ 48,-",
+      "consultFeeWeekendNight": "€ 145,- tot € 210,-",
+      "advice": "Bel altijd eerst voordat je vertrekt, zodat de dienstdoende spoedarts en operatiekamer kunnen worden klaargezet."
+    },
+    {
+      "id": "dierenziekenhuis-eindhoven-ani-cura",
+      "name": "AniCura Dierenziekenhuis Eindhoven 24/7 Spoed",
+      "city": "Eindhoven",
+      "province": "Noord-Brabant",
+      "region": "Brabant & Limburg Noord",
+      "phone": "040-3045000",
+      "address": "Geldropseweg 68, 5611 SL Eindhoven",
+      "available": "24/7 Volledig uitgerust dierenziekenhuis met IC en bloedbank",
+      "consultFeeDay": "€ 55,-",
+      "consultFeeWeekendNight": "€ 165,- tot € 240,-",
+      "advice": "Met spoed CT-scans, echo's, beademing en spoedoperaties (maagtorsie, keizersnede, botbreuken)."
+    },
+    {
+      "id": "universitaire-spoedkliniek-utrecht",
+      "name": "Universitaire Spoedkliniek voor Gezelschapsdieren Utrecht",
+      "city": "Utrecht",
+      "province": "Utrecht",
+      "region": "Midden-Nederland / Landelijk",
+      "phone": "030-2539411",
+      "address": "Yalelaan 108, 3584 CM Utrecht (Utrecht Science Park)",
+      "available": "24/7 Academisch Spoed- & Trauma Centrum",
+      "consultFeeDay": "€ 75,-",
+      "consultFeeWeekendNight": "€ 185,- tot € 275,-",
+      "advice": "Hoogste niveau van specialistische spoedzorg en intensive care in Nederland."
+    },
+    {
+      "id": "spoedkliniek-voor-dieren-amsterdam",
+      "name": "Spoedkliniek voor Dieren Amsterdam",
+      "city": "Amsterdam",
+      "province": "Noord-Holland",
+      "region": "Groot-Amsterdam & Randstad",
+      "phone": "020-6944425",
+      "address": "Isolatorweg 42, 1014 AS Amsterdam",
+      "available": "24/7 Spoedopvang voor honden & katten",
+      "consultFeeDay": "€ 60,-",
+      "consultFeeWeekendNight": "€ 175,- tot € 250,-",
+      "advice": "Gespecialiseerd in acute vergiftigingen (chocolade, druiven, rattengif), trauma's en acute benauwdheid."
+    },
+    {
+      "id": "evidensia-dierenziekenhuis-rotterdam",
+      "name": "Evidensia Dierenziekenhuis Barendrecht / Rotterdam",
+      "city": "Rotterdam",
+      "province": "Zuid-Holland",
+      "region": "Rijnmond & Drechtsteden",
+      "phone": "085-4831300",
+      "address": "Bijdorp-West 12, 2992 LC Barendrecht",
+      "available": "24/7 365 dagen per jaar geopend",
+      "consultFeeDay": "€ 58,-",
+      "consultFeeWeekendNight": "€ 170,- tot € 245,-",
+      "advice": "Directe toegang tot intensive care, zuurstoftenten en trauma-chirurgen."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "cafe-boshuis-drie",
+    "name": "Boshuis Drie (Ermelo / Veluwe)",
+    "category": "boscafé",
+    "region": "Veluwe",
+    "province": "Gelderland",
+    "city": "Ermelo",
+    "address": "Sprielderweg 205, 3852 MK Ermelo",
+    "dogPerks": ["Hondenkoekjes aan de bar", "Grote waterbakken", "Direct aan het Speulder- en Sprielderbos losloopgebied"],
+    "rating": 4.9,
+    "reviewCount": 380,
+    "description": "Historisch en sfeervol boscafé midden in het 'bos der dansende bomen'. Honden zijn zowel op het royale bosterras als binnen van harte welkom."
+  },
+  {
+    "id": "strandpaviljoen-zuid-scheveningen",
+    "name": "Strandpaviljoen Zuid (Scheveningen Zuiderstrand)",
+    "category": "strandpaviljoen",
+    "region": "Haaglanden",
+    "province": "Zuid-Holland",
+    "address": "Strandslag 11, 2583 ZZ Den Haag",
+    "dogPerks": ["Hondendouche aanwezig", "Verse waterbakken", "Direct aan het officiële hondenstrand"],
+    "rating": 4.8,
+    "reviewCount": 510,
+    "description": "Relaxte beachclub op het rustige Zuiderstrand. Honden mogen hier het hele jaar loslopen en na het zwemmen op het verwarmde terras liggen."
+  },
+  {
+    "id": "herberg-de-smidse-epeno",
+    "name": "Herberg & Terras De Smidse (Epen / Geuldal)",
+    "category": "terrascafé",
+    "region": "Zuid-Limburg",
+    "province": "Limburg",
+    "address": "Molenweg 9, 6285 NA Epen",
+    "dogPerks": ["Vers Limburgs bronwater voor honden", "Overdekt tuinterras", "Knooppunt van vele Geuldal wandelroutes"],
+    "rating": 4.9,
+    "reviewCount": 440,
+    "description": "Idyllische herberg aan de kronkelende Geul in het Zuid-Limburgse heuvelland. Beroemd om authentieke Limburgse vlaai en hondvriendelijke gastvrijheid."
+  },
+  {
+    "id": "paviljoen-puur-diemen",
+    "name": "Paviljoen Puur (Fort Diemerdam / Amsterdam)",
+    "category": "terrascafé",
+    "region": "Groot-Amsterdam",
+    "province": "Noord-Holland",
+    "address": "Overdiemerweg 37, 1111 PP Diemen",
+    "dogPerks": ["Groot omheind grasveld", "Waterstations", "Vlakbij het Diemerbos"],
+    "rating": 4.8,
+    "reviewCount": 290,
+    "description": "Groene oase op een historisch fortterrein net buiten Amsterdam. Prachtig grasveld waar honden aangelijnd heerlijk mee kunnen genieten van biologische gerechten."
+  },
+  {
+    "id": "strandtent-de-zeemeeuw-noordwijk",
+    "name": "Strandrestaurant De Zeemeeuw (Noordwijk aan Zee)",
+    "category": "strandpaviljoen",
+    "region": "Bollenstreek",
+    "province": "Zuid-Holland",
+    "address": "Koningin Astrid Boulevard 108, 2202 BD Noordwijk",
+    "dogPerks": ["Hondenmenu met hondenbiertje & snack", "Schone drinkbakken", "Direct naast de afrit van het grote hondenstrand"],
+    "rating": 4.9,
+    "reviewCount": 620,
+    "description": "Noordwijk is dé hondenbadplaats van Nederland. De Zeemeeuw heeft zelfs een speciaal hondenmenu en een warm welkom voor viervoeters in alle seizoenen."
+  },
+  {
+    "id": "boscafé-t-hert-venray",
+    "name": "Boscafé 't Hert (Overloonse Duinen / Limburg)",
+    "category": "boscafé",
+    "region": "Noord-Limburg",
+    "province": "Limburg",
+    "address": "Kleindorp 34, 5824 AC Holthees",
+    "dogPerks": ["Waterbakken & kluiven", "Terras met uitzicht op stuifzandduinen", "Startpunt loslooproute"],
+    "rating": 4.8,
+    "reviewCount": 230,
+    "description": "Knus boscafé op de grens van Limburg en Brabant met een groot bosterras aan de rand van de Overloonse Duinen."
+  }
+]

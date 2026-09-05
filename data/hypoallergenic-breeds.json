@@ -1,0 +1,68 @@
+[
+  {
+    "breed": "Poedel (Toy, Dwerg, Middenslag, Groot)",
+    "slug": "poedel",
+    "coatType": "Enkele krulvacht (geen ondervacht)",
+    "sheddingLevel": "Vrijwel 0% verharing",
+    "allergyScore": "9.8 / 10 (Uitzonderlijk geschikt)",
+    "groomingNeeds": "Elke 6-8 weken knippen/scheren in trimsalon; wekelijks doorkammen",
+    "character": "Extreem intelligent, aanhankelijk, speels en gehoorzaam",
+    "description": "De gouden standaard voor mensen met een milde tot matige hondenallergie. Houdt huidschilfers vast in de krulstructuur tot de was- en trimbeurt.",
+    "badge": "Meest Hypoallergeen"
+  },
+  {
+    "breed": "Australische Labradoodle",
+    "slug": "australische-labradoodle",
+    "coatType": "Fleece of Wolvacht (geen rui)",
+    "sheddingLevel": "Zeer minimaal",
+    "allergyScore": "9.5 / 10 (Zeer geschikt)",
+    "groomingNeeds": "Elke 6-8 weken ontklitten en modelleren; wekelijks borstelen met slickerborstel",
+    "character": "Vrolijk, sociaal, empathisch en zachtaardig voor gezinnen",
+    "description": "Speciaal gefokt voor mensen met allergieën en hulphondentaken. Let op: alleen originele Australian Labradoodles bieden de hoogste allergiegarantie.",
+    "badge": "Gezinsfavoriet"
+  },
+  {
+    "breed": "Spaanse Waterhond (Perro de Agua Español)",
+    "slug": "spaanse-waterhond",
+    "coatType": "Natuurlijke koord- of krulvacht",
+    "sheddingLevel": "Niet-verharend",
+    "allergyScore": "9.4 / 10 (Zeer geschikt)",
+    "groomingNeeds": "1 tot 2 keer per jaar kort scheren; nooit borstelen (krullen vormen natuurlijke strengen)",
+    "character": "Actief, waaks, trouw en leergierig werkhondje",
+    "description": "Robuuste werkhond met een natuurlijke waterafstotende krulvacht die vrijwel geen losse haren verliest.",
+    "badge": "Sportief & Natuurlijk"
+  },
+  {
+    "breed": "Maltezer",
+    "slug": "maltezer",
+    "coatType": "Enkelvoudig zijdehaar (geen ondervacht)",
+    "sheddingLevel": "Vrijwel niet-verharend",
+    "allergyScore": "9.2 / 10 (Geschikt voor klein wonen)",
+    "groomingNeeds": "Dagelijks kammen tegen klitten of een praktisch kort 'puppy-cut' model in de trimsalon",
+    "character": "Liefdevol, zachtaardig, speels en aanhankelijk gezelschapshondje",
+    "description": "Ideaal voor appartementen en mensen die een klein, hypoallergeen knuffelmaatje zoeken.",
+    "badge": "Ideaal Klein Ras"
+  },
+  {
+    "breed": "Dwergschnauzer",
+    "slug": "dwergschnauzer",
+    "coatType": "Draadhaar (plukvacht)",
+    "sheddingLevel": "Minimaal bij correcte plukbeurt",
+    "allergyScore": "9.0 / 10 (Goed geschikt)",
+    "groomingNeeds": "Elke 3-4 maanden met de hand laten plukken in een gecertificeerde trimsalon",
+    "character": "Moedig, alert, levendig en trouw",
+    "description": "Een karaktervolle hond met een harde bovenvacht die bij regelmatig trimmen nauwelijks huidschilfers verspreidt.",
+    "badge": "Stoer & Alert"
+  },
+  {
+    "breed": "Barbet (Franse Waterhond)",
+    "slug": "barbet",
+    "coatType": "Dichte waterafstotende krulvacht",
+    "sheddingLevel": "Niet-verharend",
+    "allergyScore": "9.3 / 10 (Zeer geschikt)",
+    "groomingNeeds": "Regelmatig doorkammen en 3-4 keer per jaar in model knippen",
+    "character": "Rustig, sociaal, dol op water en zeer vriendelijk met kinderen",
+    "description": "Een rustige, vriendelijke oerhond met een zachte wollen vacht die uitermate zacht is voor gevoelige luchtwegen.",
+    "badge": "Rustige Familiehond"
+  }
+]

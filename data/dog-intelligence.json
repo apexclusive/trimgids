@@ -1,0 +1,90 @@
+[
+  {
+    "rank": 1,
+    "breed": "Border Collie",
+    "slug": "border-collie",
+    "tier": "Uitzonderlijk Werkintelligent (Top 1)",
+    "commandsLearned": "Minder dan 5 herhalingen",
+    "obedienceRate": "95% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Extreem hoog (2+ uur per dag aan puzzels, behendigheid, hersenwerk)",
+    "description": "De onbetwiste kampioen in intelligentie, focus en probleemoplossend vermogen. Heeft dagelijkse mentale uitdaging nodig om verveling en frustratie te voorkomen.",
+    "recommendedGear": "Level 3 denkspellen, Agility slalomset, Herdersfluitje"
+  },
+  {
+    "rank": 2,
+    "breed": "Poedel (Groot, Middenslag, Dwerg)",
+    "slug": "poedel",
+    "tier": "Uitzonderlijk Werkintelligent (Top 2)",
+    "commandsLearned": "Minder dan 5 herhalingen",
+    "obedienceRate": "95% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Zeer hoog (1.5 uur per dag)",
+    "description": "Buitengewoon scherpzinnig, leergierig en gevoelig voor lichaamstaal. Blinkt uit in gehoorzaamheid, apporteerspellen en speuren.",
+    "recommendedGear": "Interactieve voermatten, snuffelkleden, clickertraining"
+  },
+  {
+    "rank": 3,
+    "breed": "Duitse Herdershond",
+    "slug": "duitse-herder",
+    "tier": "Uitzonderlijk Werkintelligent (Top 3)",
+    "commandsLearned": "Minder dan 5 herhalingen",
+    "obedienceRate": "95% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Zeer hoog (1.5 tot 2 uur per dag)",
+    "description": "De ultieme werkhond: moedig, loyaal en in staat tot complexe taken bij politie, reddingswerk en bewaking.",
+    "recommendedGear": "Bite tugs, zoek- en speurlijnen, K9 tuigen"
+  },
+  {
+    "rank": 4,
+    "breed": "Golden Retriever",
+    "slug": "golden-retriever",
+    "tier": "Uitzonderlijk Werkintelligent (Top 4)",
+    "commandsLearned": "Minder dan 5 herhalingen",
+    "obedienceRate": "95% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Gemiddeld tot hoog (1 uur per dag)",
+    "description": "Zeer meegaand, vrolijk en gericht op de baas (will to please). Uitstekend als hulphond, blindengeleidehond en gezinshond.",
+    "recommendedGear": "Dummies voor jachttraining, waterapporteerspeelgoed"
+  },
+  {
+    "rank": 5,
+    "breed": "Dobermann",
+    "slug": "dobermann",
+    "tier": "Uitzonderlijk Werkintelligent (Top 5)",
+    "commandsLearned": "Minder dan 5 herhalingen",
+    "obedienceRate": "95% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Hoog (1.5 uur per dag)",
+    "description": "Extreem alert, snel lerend en beschermend. Heeft een consequente en rustige geleider nodig.",
+    "recommendedGear": "Focus training snacks, duurzame trekspellen"
+  },
+  {
+    "rank": 6,
+    "breed": "Labrador Retriever",
+    "slug": "labrador-retriever",
+    "tier": "Uitstekend Werkintelligent (Top 6-10)",
+    "commandsLearned": "5 tot 15 herhalingen",
+    "obedienceRate": "85% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Gemiddeld (45 - 60 min per dag)",
+    "description": "Gedreven door voedselbeloning en interactie. Zeer sociaal, stabiel en snel trainbaar voor apporteer- en reddingstaken.",
+    "recommendedGear": "Anti-schrok voerbakken, Chuckit ballenwerper, zwemvesten"
+  },
+  {
+    "rank": 7,
+    "breed": "Australische Herder (Aussie)",
+    "slug": "australische-herder",
+    "tier": "Uitstekend Werkintelligent (Top 6-10)",
+    "commandsLearned": "5 tot 15 herhalingen",
+    "obedienceRate": "85% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Zeer hoog (2 uur per dag)",
+    "description": "Ontzettend snel, lenig en vol energie. Denkt zelfstandig na en blinkt uit in frisbee, flyball en schapendrijven.",
+    "recommendedGear": "Wedstrijd frisbees, behendigheidstunnels"
+  },
+  {
+    "rank": 8,
+    "breed": "Labradoodle",
+    "slug": "labradoodle",
+    "tier": "Uitstekend Werkintelligent (Top 6-10)",
+    "commandsLearned": "5 tot 15 herhalingen",
+    "obedienceRate": "85% of hoger bij eerste commando",
+    "mentalExerciseNeeds": "Gemiddeld tot hoog (1 uur per dag)",
+    "description": "Combineert de intelligentie van de poedel met het zachte karakter van de retriever. Gevoelig voor stemming en leert spelenderwijs ontzettend snel.",
+    "recommendedGear": "Snuffelmatten, zachte latex kauwspeeltjes, slickerborstels"
+  }
+]

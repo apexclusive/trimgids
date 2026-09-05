@@ -1,0 +1,83 @@
+[
+  {
+    "category": "Algemeen & Preventie",
+    "procedure": "Standaard Dierenartsconsult (15 min)",
+    "avgPrice": 48.50,
+    "priceRange": "€ 42,- tot € 65,-",
+    "coveredByInsurance": "90% - 100% vergoed",
+    "description": "Lichamelijk onderzoek van ogen, oren, gebit, hart, longen en gewrichten.",
+    "urgentTip": "Bij weekend- of avondspoed geldt een toeslag van 100% tot 200%."
+  },
+  {
+    "category": "Algemeen & Preventie",
+    "procedure": "Grote Cocktailenting (DHP + Weil)",
+    "avgPrice": 68.00,
+    "priceRange": "€ 55,- tot € 85,-",
+    "coveredByInsurance": "Aanvullend preventief pakket",
+    "description": "Beschermt tegen Parvo, Hondenziekte (Distemper), Leverontsteking en Ziekte van Weil.",
+    "urgentTip": "DHP is 3 jaar geldig; Ziekte van Weil moet jaarlijks herhaald worden."
+  },
+  {
+    "category": "Algemeen & Preventie",
+    "procedure": "Kennelhoest Neusenting (Bordetella)",
+    "avgPrice": 42.00,
+    "priceRange": "€ 35,- tot € 55,-",
+    "coveredByInsurance": "Aanvullend preventief",
+    "description": "Verplicht voor verblijf in vrijwel alle hondenpensions en dagopvangen in Nederland.",
+    "urgentTip": "Laat minstens 3 weken voor pensionverblijf toedienen."
+  },
+  {
+    "category": "Operaties & Narcose",
+    "procedure": "Castratie Reu (afhankelijk van gewicht)",
+    "avgPrice": 245.00,
+    "priceRange": "€ 175,- tot € 340,-",
+    "coveredByInsurance": "Aanvullende dekking / Medische indicatie",
+    "description": "Chirurgische verwijdering van de testikels inclusief narcose en pijnstilling.",
+    "urgentTip": "Vraag vooraf of nazorg en controlehechtingen inbegrepen zijn."
+  },
+  {
+    "category": "Operaties & Narcose",
+    "procedure": "Laparoscopische Sterilisatie Teef (Kijkoperatie)",
+    "avgPrice": 495.00,
+    "priceRange": "€ 420,- tot € 680,-",
+    "coveredByInsurance": "Aanvullende dekking / Medisch",
+    "description": "Minimaal invasieve kijkoperatie met 2 kleine gaatjes; 80% sneller herstel voor de hond.",
+    "urgentTip": "Aanbevolen tussen de eerste en tweede loopsheid."
+  },
+  {
+    "category": "Operaties & Narcose",
+    "procedure": "Professionele Gebitsreiniging onder Narcose (Tandsteen)",
+    "avgPrice": 360.00,
+    "priceRange": "€ 260,- tot € 580,-",
+    "coveredByInsurance": "Basispakket (Figo / OHRA)",
+    "description": "Ultrasoon verwijderen van tandsteen onder het tandvlees, polijsten en eventueel kiezen trekken.",
+    "urgentTip": "Preventief poetsen of ultrasoon in trimsalon bespaart honderden euro's."
+  },
+  {
+    "category": "Diagnostiek & Beeldvorming",
+    "procedure": "Digitale Röntgenfoto (2 opnames)",
+    "avgPrice": 185.00,
+    "priceRange": "€ 140,- tot € 260,-",
+    "coveredByInsurance": "100% in basispakket verzekering",
+    "description": "Voor diagnose van botbreuken, heupdysplasie (HD), artrose of ingeslikte vreemde voorwerpen.",
+    "urgentTip": "Vaak is lichte sedatie nodig voor scherpe opnames."
+  },
+  {
+    "category": "Diagnostiek & Beeldvorming",
+    "procedure": "MRI-Scan of CT-Scan (Specialistenkliniek)",
+    "avgPrice": 1150.00,
+    "priceRange": "€ 850,- tot € 1.550,-",
+    "coveredByInsurance": "100% in basispakket verzekering",
+    "description": "Gedetailleerde 3D-beeldvorming bij hernia, neurologische uitval of peesblessures.",
+    "urgentTip": "Zonder verzekering een enorme onverwachte kostenpost."
+  },
+  {
+    "category": "Spoed & Acute Nood",
+    "procedure": "Acute Maagkanteling (Maagtorsie) Spoedoperatie",
+    "avgPrice": 2400.00,
+    "priceRange": "€ 1.800,- tot € 3.800,-",
+    "coveredByInsurance": "100% in basispakket verzekering",
+    "description": "Levensreddende spoedoperatie inclusief intensieve 24/7 IC-opname en maagvastzetting.",
+    "urgentTip": "Telt als acute levensbedreigende spoed: direct bellen en rijden!"
+  }
+]

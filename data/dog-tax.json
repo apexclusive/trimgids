@@ -1,0 +1,2730 @@
+[
+  {
+    "gemeente": "Aa en Hunze (Gieten/Rolde)",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Assen",
+    "provincie": "Drenthe",
+    "status": "actief",
+    "tarief1eHond": 89.4,
+    "tarief2eHond": 134.1,
+    "toelichting": "Jaarlijkse heffing van € 89.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Borger-Odoorn",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Coevorden",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "De Wolden (Zuidwolde)",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Emmen",
+    "provincie": "Drenthe",
+    "status": "actief",
+    "tarief1eHond": 78.5,
+    "tarief2eHond": 118,
+    "toelichting": "Jaarlijkse heffing van € 78.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Hoogeveen",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Meppel",
+    "provincie": "Drenthe",
+    "status": "actief",
+    "tarief1eHond": 82.2,
+    "tarief2eHond": 124.5,
+    "toelichting": "Jaarlijkse heffing van € 82.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Midden-Drenthe (Beilen)",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Noordenveld (Roden)",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Tynaarlo (Zuidlaren/Eelde)",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Westerveld (Diever/Havelte)",
+    "provincie": "Drenthe",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Almere",
+    "provincie": "Flevoland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Dronten",
+    "provincie": "Flevoland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Lelystad",
+    "provincie": "Flevoland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Noordoostpolder (Emmeloord)",
+    "provincie": "Flevoland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Urk",
+    "provincie": "Flevoland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zeewolde",
+    "provincie": "Flevoland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Achtkarspelen (Buitenpost/Surhuisterveen)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ameland",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Dantumadiel (Damwâld)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "De Fryske Marren (Joure/Lemmer)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Harlingen",
+    "provincie": "Friesland",
+    "status": "actief",
+    "tarief1eHond": 74,
+    "tarief2eHond": 110,
+    "toelichting": "Jaarlijkse heffing van € 74.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Heerenveen",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Leeuwarden",
+    "provincie": "Friesland",
+    "status": "actief",
+    "tarief1eHond": 84.6,
+    "tarief2eHond": 126.8,
+    "toelichting": "Jaarlijkse heffing van € 84.60 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Noardeast-Fryslân (Dokkum)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ooststellingwerf (Oosterwolde)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Opsterland (Beetsterzwaag)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Schiermonnikoog",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Smallingerland (Drachten)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Súdwest-Fryslân (Sneek/Bolsward)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Terschelling",
+    "provincie": "Friesland",
+    "status": "actief",
+    "tarief1eHond": 65,
+    "tarief2eHond": 98,
+    "toelichting": "Jaarlijkse heffing van € 65.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Tytsjerksteradiel (Burgum)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Vlieland",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Waadhoeke (Franeker)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Weststellingwerf (Wolvega)",
+    "provincie": "Friesland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Aalten",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Apeldoorn",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 96.24,
+    "tarief2eHond": 154.08,
+    "toelichting": "Jaarlijkse heffing van € 96.24 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Arnhem",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 104.5,
+    "tarief2eHond": 168.2,
+    "toelichting": "Jaarlijkse heffing van € 104.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Barneveld",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Berg en Dal (Groesbeek)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Berkelland (Borculo/Neede)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Beuningen",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bronckhorst (Hengelo Gld)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Brummen (Eerbeek)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Buren (Maurik)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Culemborg",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Doesburg",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 86,
+    "tarief2eHond": 129,
+    "toelichting": "Jaarlijkse heffing van € 86.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Doetinchem",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 92.4,
+    "tarief2eHond": 138.6,
+    "toelichting": "Jaarlijkse heffing van € 92.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Druten",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Duiven",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ede",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 88.2,
+    "tarief2eHond": 142,
+    "toelichting": "Jaarlijkse heffing van € 88.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Elburg",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Epe (Vaassen)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ermelo",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Harderwijk",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 84,
+    "tarief2eHond": 135,
+    "toelichting": "Jaarlijkse heffing van € 84.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Hattem",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heerde",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heumen (Malden)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Lingewaard (Bemmel/Huissen)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Lochem",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Maasdriel (Kerkdriel)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Montferland ('s-Heerenberg/Didam)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Neder-Betuwe (Opheusden)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nijkerk",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nijmegen",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 112.5,
+    "tarief2eHond": 178,
+    "toelichting": "Jaarlijkse heffing van € 112.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Nunspeet",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oldebroek",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oost Gelre (Groenlo/Lichtenvoorde)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oude IJsselstreek (Varsseveld)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Overbetuwe (Elst)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Putten",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Renkum (Oosterbeek)",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 90,
+    "tarief2eHond": 135,
+    "toelichting": "Jaarlijkse heffing van € 90.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Rheden (Dieren/Velp)",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 94.8,
+    "tarief2eHond": 151.2,
+    "toelichting": "Jaarlijkse heffing van € 94.80 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Rozendaal",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Scherpenzeel",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Tiel",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 82,
+    "tarief2eHond": 130,
+    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Voorst (Twello)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wageningen",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 86.4,
+    "tarief2eHond": 138,
+    "toelichting": "Jaarlijkse heffing van € 86.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "West Betuwe (Geldermalsen)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "West Maas en Waal (Beneden-Leeuwen)",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Westervoort",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wijchen",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 76.5,
+    "tarief2eHond": 122,
+    "toelichting": "Jaarlijkse heffing van € 76.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Winterswijk",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zaltbommel",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 84,
+    "tarief2eHond": 132,
+    "toelichting": "Jaarlijkse heffing van € 84.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Zevenaar",
+    "provincie": "Gelderland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zutphen",
+    "provincie": "Gelderland",
+    "status": "actief",
+    "tarief1eHond": 98.4,
+    "tarief2eHond": 156,
+    "toelichting": "Jaarlijkse heffing van € 98.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Eemsdelta (Delfzijl/Appingedam)",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Groningen",
+    "provincie": "Groningen",
+    "status": "actief",
+    "tarief1eHond": 128.4,
+    "tarief2eHond": 198.6,
+    "toelichting": "Jaarlijkse heffing van € 128.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Het Hogeland (Winsum/Bedum)",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Midden-Groningen (Hoogezand)",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oldambt (Winschoten)",
+    "provincie": "Groningen",
+    "status": "actief",
+    "tarief1eHond": 72,
+    "tarief2eHond": 110,
+    "toelichting": "Jaarlijkse heffing van € 72.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Pekela (Oude Pekela)",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Stadskanaal",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Veendam",
+    "provincie": "Groningen",
+    "status": "actief",
+    "tarief1eHond": 74.5,
+    "tarief2eHond": 115,
+    "toelichting": "Jaarlijkse heffing van € 74.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Westerkwartier (Leek/Zuidhorn)",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Westerwolde (Sellingen/Vlagtwedde)",
+    "provincie": "Groningen",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Beek",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Beekdaelen (Schinnen/Nuth/Oirsbeek)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Beesel (Reuver)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bergen (Limburg/Nieuw Bergen)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Brunssum",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Echt-Susteren",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Eijsden-Margraten",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Gennep",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Gulpen-Wittem",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heerlen",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Horst aan de Maas",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Kerkrade",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Landgraaf",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Leudal (Heythuysen)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Maasgouw (Maasbracht/Heel)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Maastricht",
+    "provincie": "Limburg",
+    "status": "actief",
+    "tarief1eHond": 94.2,
+    "tarief2eHond": 152.4,
+    "toelichting": "Jaarlijkse heffing van € 94.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Meerssen",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Mook en Middelaar",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nederweert",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Peel en Maas (Panningen)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Roerdalen (Sint Odiliënberg)",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Roermond",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Simpelveld",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Sittard-Geleen",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Stein",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Vaals",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Valkenburg aan de Geul",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Venlo",
+    "provincie": "Limburg",
+    "status": "actief",
+    "tarief1eHond": 104.5,
+    "tarief2eHond": 168,
+    "toelichting": "Jaarlijkse heffing van € 104.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Venray",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Voerendaal",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Weert",
+    "provincie": "Limburg",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Alphen-Chaam",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Altena (Woudrichem/Werkendam)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Asten",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Baarle-Nassau",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bergeijk",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bergen op Zoom",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 82.5,
+    "tarief2eHond": 128,
+    "toelichting": "Jaarlijkse heffing van € 82.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Bernheze (Heesch)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Best",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bladel",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Boekel",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Boxtel (Liempde)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Breda",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 96,
+    "tarief2eHond": 154,
+    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Cranendonck (Budel/Maarheeze)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Deurne",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Dongen",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Drimmelen (Made)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Eersel",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Eindhoven",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Etten-Leur",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Geertruidenberg (Raamsdonksveer)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Geldrop-Mierlo",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Gemert-Bakel",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Gilze en Rijen",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Goirle (Riel)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Halderberge (Oudenbosch)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heeze-Leende",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Helmond",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 85.2,
+    "tarief2eHond": 132,
+    "toelichting": "Jaarlijkse heffing van € 85.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "'s-Hertogenbosch (Den Bosch)",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 102,
+    "tarief2eHond": 165,
+    "toelichting": "Jaarlijkse heffing van € 102.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Heusden (Drunen/Vlijmen)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hilvarenbeek",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Laarbeek (Beek en Donk)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Land van Cuijk (Boxmeer/Cuijk)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Loon op Zand (Kaatsheuvel)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Maashorst (Uden/Volkel)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Meierijstad (Veghel/Schijndel)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Moerdijk (Zevenbergen)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nuenen, Gerwen en Nederwetten",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oirschot",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oisterwijk",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oosterhout",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 86.4,
+    "tarief2eHond": 135,
+    "toelichting": "Jaarlijkse heffing van € 86.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Oss",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 94,
+    "tarief2eHond": 148,
+    "toelichting": "Jaarlijkse heffing van € 94.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Reusel-De Mierden",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Roosendaal",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 89,
+    "tarief2eHond": 138,
+    "toelichting": "Jaarlijkse heffing van € 89.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Rucphen (Sprundel/Sint Willebrord)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Sint-Michielsgestel",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Someren",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Son en Breugel",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Steenbergen",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Tilburg (Berkel-Enschot/Udenhout)",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 118,
+    "tarief2eHond": 185,
+    "toelichting": "Jaarlijkse heffing van € 118.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Valkenswaard",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Veldhoven",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Vught",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Waalre",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Waalwijk (Waspik/Sprang-Capelle)",
+    "provincie": "Noord-Brabant",
+    "status": "actief",
+    "tarief1eHond": 82,
+    "tarief2eHond": 128,
+    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Woensdrecht (Hoogerheide)",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zundert",
+    "provincie": "Noord-Brabant",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Aalsmeer",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Alkmaar",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 94.5,
+    "tarief2eHond": 148,
+    "toelichting": "Jaarlijkse heffing van € 94.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Amstelveen",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Amsterdam",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bergen (Noord-Holland/Schoorl)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Beverwijk",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Blaricum",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bloemendaal (Overveen)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Castricum (Akersloot/Limmen)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Den Helder (Julianadorp)",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 76.8,
+    "tarief2eHond": 118,
+    "toelichting": "Jaarlijkse heffing van € 76.80 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Diemen",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Dijk en Waard (Heerhugowaard/Langedijk)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Drechterland (Hoogkarspel)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Edam-Volendam",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Enkhuizen",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Gooise Meren (Bussum/Naarden/Muiden)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Haarlem",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 108,
+    "tarief2eHond": 172,
+    "toelichting": "Jaarlijkse heffing van € 108.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Haarlemmermeer (Hoofddorp/Nieuw-Vennep)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heemskerk",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heemstede",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Heiloo",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hilversum",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 98,
+    "tarief2eHond": 154,
+    "toelichting": "Jaarlijkse heffing van € 98.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Hollands Kroon (Anna Paulowna/Wieringen)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hoorn",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 88,
+    "tarief2eHond": 136,
+    "toelichting": "Jaarlijkse heffing van € 88.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Huizen",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Koggenland (De Goorn)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Landsmeer",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Laren (Noord-Holland)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Medemblik",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oostzaan",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Opmeer",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ouder-Amstel (Ouderkerk aan de Amstel)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Purmerend (Beemster)",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 86,
+    "tarief2eHond": 132,
+    "toelichting": "Jaarlijkse heffing van € 86.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Schagen",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Stede Broec (Bovenkarspel)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Texel (Den Burg/De Koog)",
+    "provincie": "Noord-Holland",
+    "status": "actief",
+    "tarief1eHond": 68,
+    "tarief2eHond": 104,
+    "toelichting": "Jaarlijkse heffing van € 68.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Uitgeest",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Uithoorn",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Velsen (IJmuiden/Santpoort)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Waterland (Monnickendam)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wijdemeren (Loosdrecht/'s-Graveland)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wormerland (Wormer)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zaanstad (Zaandam/Krommenie)",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Almelo",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Borne",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Dalfsen (Nieuwleusen)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Deventer",
+    "provincie": "Overijssel",
+    "status": "actief",
+    "tarief1eHond": 92.4,
+    "tarief2eHond": 148,
+    "toelichting": "Jaarlijkse heffing van € 92.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Dinkelland (Denekamp/Ootmarsum)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Enschede",
+    "provincie": "Overijssel",
+    "status": "actief",
+    "tarief1eHond": 106,
+    "tarief2eHond": 168,
+    "toelichting": "Jaarlijkse heffing van € 106.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Haaksbergen",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hardenberg (Dedemsvaart)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hellendoorn (Nijverdal)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hengelo",
+    "provincie": "Overijssel",
+    "status": "actief",
+    "tarief1eHond": 94,
+    "tarief2eHond": 152,
+    "toelichting": "Jaarlijkse heffing van € 94.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Hof van Twente (Goor/Delden)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Kampen (IJsselmuiden)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Losser",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oldenzaal",
+    "provincie": "Overijssel",
+    "status": "actief",
+    "tarief1eHond": 82,
+    "tarief2eHond": 128,
+    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Olst-Wijhe",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ommen",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Raalte",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Rijssen-Holten",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Staphorst",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Steenwijkerland (Steenwijk/Giethoorn)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Tubbergen",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Twenterand (Vriezenveen)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wierden",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zwartewaterland (Genemuiden/Hasselt)",
+    "provincie": "Overijssel",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zwolle",
+    "provincie": "Overijssel",
+    "status": "actief",
+    "tarief1eHond": 102.5,
+    "tarief2eHond": 164,
+    "toelichting": "Jaarlijkse heffing van € 102.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Amersfoort",
+    "provincie": "Utrecht",
+    "status": "actief",
+    "tarief1eHond": 104,
+    "tarief2eHond": 168,
+    "toelichting": "Jaarlijkse heffing van € 104.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Baarn",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "De Bilt (Bilthoven)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bunnik (Odijk)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bunschoten-Spakenburg",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Eemnes",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Houten",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "IJsselstein",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Leusden",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Lopik",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Montfoort",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nieuwegein",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oudewater",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Renswoude",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Rhenen",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "De Ronde Venen (Mijdrecht/Vinkeveen)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Soest (Soesterberg)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Stichtse Vecht (Maarssen/Breukelen)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Utrecht",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Utrechtse Heuvelrug (Doorn/Driebergen)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Veenendaal",
+    "provincie": "Utrecht",
+    "status": "actief",
+    "tarief1eHond": 89,
+    "tarief2eHond": 138,
+    "toelichting": "Jaarlijkse heffing van € 89.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Vijfheerenlanden (Vianen/Leerdam)",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wijk bij Duurstede",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Woerden",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Woudenberg",
+    "provincie": "Utrecht",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zeist",
+    "provincie": "Utrecht",
+    "status": "actief",
+    "tarief1eHond": 96,
+    "tarief2eHond": 152,
+    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Borsele (Heinkenszand)",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Goes",
+    "provincie": "Zeeland",
+    "status": "actief",
+    "tarief1eHond": 82,
+    "tarief2eHond": 128,
+    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Hulst",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Kapelle",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Middelburg",
+    "provincie": "Zeeland",
+    "status": "actief",
+    "tarief1eHond": 88,
+    "tarief2eHond": 136,
+    "toelichting": "Jaarlijkse heffing van € 88.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Noord-Beveland (Kamperland/Kortgene)",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Reimerswaal (Kruiningen/Yerseke)",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Schouwen-Duiveland (Zierikzee)",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Sluis (Oostburg/Breskens)",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Terneuzen",
+    "provincie": "Zeeland",
+    "status": "actief",
+    "tarief1eHond": 78,
+    "tarief2eHond": 120,
+    "toelichting": "Jaarlijkse heffing van € 78.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Tholen",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Veere (Domburg/Oostkapelle)",
+    "provincie": "Zeeland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Vlissingen",
+    "provincie": "Zeeland",
+    "status": "actief",
+    "tarief1eHond": 92,
+    "tarief2eHond": 144,
+    "toelichting": "Jaarlijkse heffing van € 92.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Alblasserdam",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Albrandswaard (Rhoon/Poortugaal)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Alphen aan den Rijn (Boskoop)",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 92,
+    "tarief2eHond": 146,
+    "toelichting": "Jaarlijkse heffing van € 92.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Barendrecht",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Bodegraven-Reeuwijk",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Capelle aan den IJssel",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Delft",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 106.5,
+    "tarief2eHond": 168,
+    "toelichting": "Jaarlijkse heffing van € 106.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Den Haag ('s-Gravenhage)",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 132,
+    "tarief2eHond": 215,
+    "toelichting": "Jaarlijkse heffing van € 132.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Dordrecht",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 104,
+    "tarief2eHond": 162,
+    "toelichting": "Jaarlijkse heffing van € 104.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Goeree-Overflakkee (Middelharnis/Ouddorp)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Gorinchem",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 88,
+    "tarief2eHond": 136,
+    "toelichting": "Jaarlijkse heffing van € 88.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Gouda",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 96,
+    "tarief2eHond": 148,
+    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Hardinxveld-Giessendam",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hendrik-Ido-Ambacht",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hillegom",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Hoeksche Waard (Oud-Beijerland)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Kaag en Braassem (Roelofarendsveen)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Katwijk (Katwijk aan Zee/Rijnsburg)",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 82,
+    "tarief2eHond": 130,
+    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Krimpen aan den IJssel",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Krimpenerwaard (Schoonhoven/Bergambacht)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Lansingerland (Berkel en Rodenrijs)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Leiden",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 108,
+    "tarief2eHond": 172,
+    "toelichting": "Jaarlijkse heffing van € 108.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Leiderdorp",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Leidschendam-Voorburg",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 94,
+    "tarief2eHond": 150,
+    "toelichting": "Jaarlijkse heffing van € 94.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Lisse",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Maassluis",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 84,
+    "tarief2eHond": 132,
+    "toelichting": "Jaarlijkse heffing van € 84.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Midden-Delfland (Schipluiden/Maasland)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Molenlanden (Groot-Ammers/Nieuw-Lekkerland)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nieuwkoop",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Nissewaard (Spijkenisse)",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 92,
+    "tarief2eHond": 144,
+    "toelichting": "Jaarlijkse heffing van € 92.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Noordwijk (Noordwijkerhout)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Oegstgeest",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Papendrecht",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Pijnacker-Nootdorp",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Ridderkerk",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Rijswijk",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 98,
+    "tarief2eHond": 156,
+    "toelichting": "Jaarlijkse heffing van € 98.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Rotterdam (Hoek van Holland/Kralingen)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Schiedam",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 96,
+    "tarief2eHond": 152,
+    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Sliedrecht",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Teylingen (Sassenheim/Voorhout)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Vlaardingen",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 90,
+    "tarief2eHond": 142,
+    "toelichting": "Jaarlijkse heffing van € 90.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Voorschoten",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Voorne aan Zee (Hellevoetsluis/Brielle/Oostvoorne)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Waddinxveen",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Wassenaar",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Westland (Naaldwijk/'s-Gravenzande/Monster)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zoetermeer",
+    "provincie": "Zuid-Holland",
+    "status": "actief",
+    "tarief1eHond": 102,
+    "tarief2eHond": 160,
+    "toelichting": "Jaarlijkse heffing van € 102.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+  },
+  {
+    "gemeente": "Zoeterwoude",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zuidplas (Nieuwerkerk aan den IJssel)",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zwijndrecht",
+    "provincie": "Zuid-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  }
+]

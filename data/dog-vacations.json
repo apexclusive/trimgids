@@ -1,0 +1,102 @@
+[
+  {
+    "id": "vac-1",
+    "title": "Luxe Bosvilla met 1.80m Omheinde Tuin",
+    "region": "Veluwe (Gelderland)",
+    "location": "Nunspeet / Veluwezoom",
+    "fenceHeight": "1.80 meter (100% ontsnappingsproof)",
+    "maxDogs": "Tot 4 honden gratis welkom",
+    "dogPerks": [
+      "Warm water hondendouche in de bijkeuken",
+      "Direct aan het losloopgebied van de Veluwe",
+      "Grote hondenmanden & voerbakken aanwezig",
+      "Geen toeslag per hond"
+    ],
+    "highlights": "Privé sauna, houtkachel, direct toegang tot stuifzand en heide.",
+    "pricePerNight": 145,
+    "rating": 4.96,
+    "reviews": 128,
+    "bookingUrl": "https://www.natuurhuisje.nl?aff=trimgids",
+    "badge": "Topkeuze Veluwe"
+  },
+  {
+    "id": "vac-2",
+    "title": "Strandchalet op 200m van Hondenstrand",
+    "region": "Zeeland (Walcheren)",
+    "location": "Oostkapelle / Domburg",
+    "fenceHeight": "1.50 meter houten omheining",
+    "maxDogs": "Tot 3 honden welkom",
+    "dogPerks": [
+      "2 minuten lopen naar het jaarrond hondenstrand",
+      "Hondenzwembadje in de tuin in de zomer",
+      "Gratis poepzakjes en verse welkomstkluif",
+      "Afgesloten privéterras"
+    ],
+    "highlights": "Uitzicht op de duinen, luxe loungebanken en buitenhaard.",
+    "pricePerNight": 165,
+    "rating": 4.92,
+    "reviews": 94,
+    "bookingUrl": "https://www.roompot.nl?aff=trimgids",
+    "badge": "Strand & Zee"
+  },
+  {
+    "id": "vac-3",
+    "title": "Vrijstaande Boerderijlodge met Zwemvijver",
+    "region": "Drenthe (Nationaal Park)",
+    "location": "Dwingeloo / Drents-Friese Wold",
+    "fenceHeight": "1.60 meter gaashekwerk rondom 1.200m² privétuin",
+    "maxDogs": "Ongelimiteerd aantal honden welkom",
+    "dogPerks": [
+      "Omheinde natuurlijke zwemvijver voor honden",
+      "Agility hindernissen in de tuin",
+      "Professionele hondenfohn aanwezig",
+      "Geen extra schoonmaakkosten voor honden"
+    ],
+    "highlights": "1.200m² privéterrein, volledige privacy, midden in de stilte.",
+    "pricePerNight": 180,
+    "rating": 4.98,
+    "reviews": 156,
+    "bookingUrl": "https://www.landal.nl?aff=trimgids",
+    "badge": "Meest Hondvriendelijk"
+  },
+  {
+    "id": "vac-4",
+    "title": "Duinvilla Texel met Omheinde Duintuin",
+    "region": "Texel (Waddeneilanden)",
+    "location": "De Koog / Nationaal Park Duinen van Texel",
+    "fenceHeight": "1.40 meter natuurlijke afrastering",
+    "maxDogs": "Tot 2 honden welkom",
+    "dogPerks": [
+      "Op loopafstand van de Texelse hondenstranden",
+      "Hondvriendelijke strandpaviljoens om de hoek",
+      "Buitenkraan met warm water om zand af te spoelen",
+      "Welkomstpakket met Texelse hondenkoekjes"
+    ],
+    "highlights": "Vlakbij Ecomare, luxe regendouche, zonnig zuidterras.",
+    "pricePerNight": 155,
+    "rating": 4.89,
+    "reviews": 82,
+    "bookingUrl": "https://www.natuurhuisje.nl?aff=trimgids",
+    "badge": "Waddeneiland Favoriet"
+  },
+  {
+    "id": "vac-5",
+    "title": "Chalet in de Ardennen met Omheind Bosterrein",
+    "region": "Ardennen (België / Nabij grens)",
+    "location": "Durbuy / La Roche-en-Ardenne",
+    "fenceHeight": "1.80 meter zwaar hekwerk rondom 2.000m² bos",
+    "maxDogs": "Tot 4 grote honden welkom",
+    "dogPerks": [
+      "2.000m² privé speelbos met omheining",
+      "Directe start van uitdagende berg- en beekwandelroutes",
+      "Houtkachel voor opwarmen na boswandeling",
+      "Veilige bench aanwezig op aanvraag"
+    ],
+    "highlights": "Schitterend panoramisch heuveluitzicht, jacuzzi op het dek.",
+    "pricePerNight": 139,
+    "rating": 4.94,
+    "reviews": 110,
+    "bookingUrl": "https://www.belvilla.nl?aff=trimgids",
+    "badge": "Avontuur & Natuur"
+  }
+]

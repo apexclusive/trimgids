@@ -1,0 +1,84 @@
+{
+  "foods": [
+    {
+      "id": "butternut-box",
+      "brand": "Butternut Box",
+      "title": "Vers Bereide Verse Maaltijden op Maat (Gestoomd)",
+      "logo": "🥘",
+      "rating": 4.9,
+      "reviewCount": 4200,
+      "startingPricePerDay": 1.95,
+      "discountOffer": "50% korting op je eerste box + 30% op de tweede",
+      "foodType": "Vers gestoomd vlees & groenten (Human-grade kwaliteit)",
+      "badge": "Beste Verse Maaltijden",
+      "benefits": [
+        "60% echt vlees, langzaam gestoomd om voedingsstoffen te behouden",
+        "Geen conserveringsmiddelen, kunstmatige geur-, kleur- of smaakstoffen",
+        "Gepersonaliseerde portiezakjes op basis van leeftijd, ras & activiteit",
+        "Minder jeuk, glanzende vacht en stevigere ontlasting"
+      ],
+      "affiliateUrl": "https://butternutbox.com/nl?utm_source=trimgids&utm_campaign=voeding_50korting",
+      "description": "De nummer 1 in vers hondenvoer in Nederland. Maaltijden bereid met ingrediënten van menselijke consumptiekwaliteit, diepvries thuisbezorgd in handige dagporties."
+    },
+    {
+      "id": "farm-food-he",
+      "brand": "Farm Food HE",
+      "title": "100% Zuiver Koudgeperste Hondenbrok",
+      "logo": "🌾",
+      "rating": 4.8,
+      "reviewCount": 3150,
+      "startingPricePerDay": 1.10,
+      "discountOffer": "Gratis starterspakket & hondenkluif bij 1e bestelling",
+      "foodType": "Koudgeperst (lost geleidelijk op in de maag)",
+      "badge": "Beste Droogvoer / Koudgeperst",
+      "benefits": [
+        "Koud geperst onder 75°C: natuurlijke vitaminen en vetzuren blijven intact",
+        "Geen maagbelasting (brok valt uiteen i.p.v. opzwellen)",
+        "Ideaal voor actieve honden, sporthonden en honden met gevoelige darmen",
+        "Geschikt voor alle leeftijden van pup tot senior (All Life Stages)"
+      ],
+      "affiliateUrl": "https://www.farmfood.nl/?utm_source=trimgids",
+      "description": "Nederlands topmerk koudgeperste natuurvoeding zonder chemische antioxidanten of bindmiddelen. Zeer populair bij trainers en trimsalons."
+    },
+    {
+      "id": "edgard-cooper",
+      "brand": "Edgard & Cooper",
+      "title": "Natuurlijke Brokken & Natvoer met Vers Vlees & Superfoods",
+      "logo": "🥕",
+      "rating": 4.8,
+      "reviewCount": 2600,
+      "startingPricePerDay": 1.40,
+      "discountOffer": "20% welkomstkorting met code TRIMGIDS20",
+      "foodType": "Graanvrij / Vers vlees & plantaardige superfoods",
+      "badge": "Duurzaam & Hypoallergeen",
+      "benefits": [
+        "Gemaakt met veel vers vlees of vis, nooit gedroogd vleesmeel",
+        "Verrijkt met bessen, kruiden en prebiotica voor een gezonde darmflora",
+        "100% biologisch afbreekbare verpakkingen",
+        "Hypoallergene opties (bijv. Noorse Zalm of Vrije-uitloop Eend)"
+      ],
+      "affiliateUrl": "https://www.edgardcooper.com/nl/?utm_source=trimgids",
+      "description": "Eerlijk en voedzaam hondenvoer gemaakt met vers vlees, gezonde groenten en bessen. Goed voor je hond én goed voor de planeet."
+    },
+    {
+      "id": "tails-com",
+      "brand": "Tails.com",
+      "title": "Op Maat Gemaakte Brokkenformule met Maandelijks Voedingsplan",
+      "logo": "🥣",
+      "rating": 4.7,
+      "reviewCount": 1890,
+      "startingPricePerDay": 1.25,
+      "discountOffer": "1 maand gratis brokjes (alleen verzendkosten)",
+      "foodType": "Aangepast recept per hond",
+      "badge": "Exacte Gewichtscontrole",
+      "benefits": [
+        "Uniek recept afgestemd op de gezondheidsdoelen van jouw hond",
+        "Inclusief gepersonaliseerde maatschep (nooit meer overvoeden)",
+        "Flexibel abonnement: pauzeren of wijzigen wanneer je wilt",
+        "Ondersteunt gewichtsverlies of spieropbouw"
+      ],
+      "affiliateUrl": "https://tails.com/nl/?utm_source=trimgids",
+      "description": "Gepersonaliseerde voeding berekend op gram nauwkeurig voor de ideale conditie en energieniveau van jouw hond."
+    }
+  ]
+}
