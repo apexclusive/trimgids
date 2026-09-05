@@ -13,19 +13,6 @@
     "affiliateUrl": "https://www.bol.com/nl/nl/p/activet-borstel/?ref=trimgids"
   },
   {
-    "id": "tractive-gps-dog-4-lte",
-    "title": "Tractive GPS Tracker voor Honden (Live Tracking & Geofence)",
-    "category": "veiligheid",
-    "breeds": ["alle-rassen"],
-    "price": 49.99,
-    "rating": 4.8,
-    "reviewCount": 890,
-    "badge": "Beste Vermissingspreventie",
-    "description": "100% waterdichte GPS-halsbandtracker met onbeperkt bereik in heel Europa. Volg elke stap live op je smartphone en ontvang alarmen als je hond de virtuele tuinafscheiding verlaat.",
-    "pros": ["Realtime live tracking om de 2 seconden", "Werkt ook diep in bossen via LTE", "Inclusief gezondheids- en activiteitsmonitoring"],
-    "affiliateUrl": "https://tractive.com/nl/pd/gps-tracker-dog?ref=trimgids"
-  },
-  {
     "id": "pawbby-waterblazer-hondenfohn",
     "title": "Pawbby / Comair Professionele Waterblazer & Droger (2800W)",
     "category": "vachtverzorging",
@@ -37,6 +24,19 @@
     "description": "Krachtige professionele waterblazer die zand, modder, losse ondervacht en water in enkele minuten uit de vacht blaast. Voorkomt vervilting en hotspots na natte wandelingen.",
     "pros": ["Traploos instelbare blaaskracht en warmte", "Geen stinkende natte hond meer in huis", "Blaast losse haren eruit vóórdat ze in huis vallen"],
     "affiliateUrl": "https://www.bol.com/nl/nl/p/professionele-waterblazer/?ref=trimgids"
+  },
+  {
+    "id": "tractive-gps-dog-4-lte",
+    "title": "Tractive GPS Tracker voor Honden (Live Tracking & Geofence)",
+    "category": "veiligheid",
+    "breeds": ["alle-rassen"],
+    "price": 49.99,
+    "rating": 4.8,
+    "reviewCount": 890,
+    "badge": "Beste Vermissingspreventie",
+    "description": "100% waterdichte GPS-halsbandtracker met onbeperkt bereik in heel Europa. Volg elke stap live op je smartphone en ontvang alarmen als je hond de virtuele tuinafscheiding verlaat.",
+    "pros": ["Realtime live tracking om de 2 seconden", "Werkt ook diep in bossen via LTE", "Inclusief gezondheids- en activiteitsmonitoring"],
+    "affiliateUrl": "https://tractive.com/nl/pd/gps-tracker-dog?ref=trimgids"
   },
   {
     "id": "ruffwear-web-master-tuig",
@@ -67,7 +67,7 @@
   {
     "id": "jean-peau-ontklitspray",
     "title": "Jean Peau Ontklit- & Glansspray met Zijdeproteïnen (250ml)",
-    "category": "vachtverzorging",
+    "category": "verzorging",
     "breeds": ["alle-rassen", "labradoodle", "maltezer", "pomeriaan"],
     "price": 17.95,
     "rating": 4.8,
@@ -76,5 +76,31 @@
     "description": "Professionele anti-statische ontklitspray die borstelen pijnloos maakt en de vacht vuil- en waterafstotend houdt.",
     "pros": ["Maakt stugge klitten soepel los", "Heerlijke zachte geur zonder parfumirritatie", "Voedt de haarwortel"],
     "affiliateUrl": "https://www.bol.com/nl/nl/p/jean-peau-ontklitspray/?ref=trimgids"
+  },
+  {
+    "id": "knuffelwuff-orthopedisch-hondenbed",
+    "title": "Knuffelwuff Orthopedisch Hondenbed Madison (Memory Foam)",
+    "category": "comfort",
+    "breeds": ["alle-rassen", "golden-retriever", "berner-sennen", "labrador", "franse-bulldog"],
+    "price": 89.90,
+    "rating": 4.9,
+    "reviewCount": 540,
+    "badge": "Beste voor Gewrichten & Rug",
+    "description": "Drukontlastend orthopedisch ligbed met medisch traagschuim (Memory Foam). Ondersteunt de wervelkolom, heupen en gewrichten van jonge en senior honden.",
+    "pros": ["Aanbevolen door dierfysiotherapeuten", "Afritsbare, wasbare en vuilafstotende hoes", "Optimale drukverdeling"],
+    "affiliateUrl": "https://www.bol.com/nl/nl/p/knuffelwuff-orthopedisch-bed/?ref=trimgids"
+  },
+  {
+    "id": "dremel-7020-pet-nagelslijper",
+    "title": "Dremel 7020 PGK Elektrische Honden Nagelslijper (Draadloos)",
+    "category": "verzorging",
+    "breeds": ["alle-rassen"],
+    "price": 38.99,
+    "rating": 4.7,
+    "reviewCount": 380,
+    "badge": "Veilig Nagels Korten",
+    "description": "Veilig nagels vijlen zonder risico op het raken van het levende bloedvat (het 'leven'). Fluisterstil met transparante beschermkap tegen nagelstof.",
+    "pros": ["Geen pijnlijke scheurtjes of bloedingen", "Draadloos met oplaadbare accu", "Twee snelheden voor zacht en snel slijpen"],
+    "affiliateUrl": "https://www.bol.com/nl/nl/p/dremel-nagelslijper-hond/?ref=trimgids"
   }
 ]
