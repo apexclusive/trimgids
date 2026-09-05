@@ -283,6 +283,13 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 36px;background:var(--cre
 /* Mobile Sticky Action Bar */
 .sticky-mobile-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--lijn);padding:10px 16px;display:none;justify-content:space-between;align-items:center;z-index:99;box-shadow:0 -4px 12px rgba(0,0,0,.06)}
 @media(max-width:768px){.sticky-mobile-bar{display:flex}}
+
+.mobile-bottom-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.98);border-top:1px solid var(--lijn);padding:8px 12px;z-index:99;backdrop-filter:blur(10px);box-shadow:0 -4px 16px rgba(0,0,0,.08);justify-content:space-around;align-items:center}
+.mobile-bottom-bar a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:700;color:var(--ink-2);text-decoration:none}
+.mobile-bottom-bar a:hover{color:var(--groen)}
+.mobile-bottom-bar .m-ico{font-size:18px;line-height:1}
+@media(max-width:840px){.mobile-bottom-bar{display:flex}body{padding-bottom:65px}}
+
 </style>
 </head>
 <body id="top">
@@ -840,6 +847,14 @@ footer{border-top:1px solid var(--lijn);padding:56px 0 36px;background:var(--cre
     <div class="copy"><span>© 2026 TrimGids.nl · Alle rechten voorbehouden</span><span>Gemaakt in Limburg · Data powered by routes.apexclusive.nl</span></div>
   </div>
 </footer>
+<div class="mobile-bottom-bar" aria-label="Mobiele navigatie">
+  <a href="/kaart"><span class="m-ico">🗺️</span><span>Kaart</span></a>
+  <a href="/trimsalon"><span class="m-ico">✂️</span><span>Salons</span></a>
+  <a href="/last-minute"><span class="m-ico">⚡</span><span>Deals</span></a>
+  <a href="/offerte"><span class="m-ico">💼</span><span>Offertes</span></a>
+  <a href="/giftigheid-calculator"><span class="m-ico">🚨</span><span>Gif-Check</span></a>
+</div>
+
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
