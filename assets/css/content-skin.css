@@ -970,3 +970,43 @@ button.btn:hover, .btn-submit:hover, .btn-ins:hover, .btn-aff:hover, .btn-food:h
   .dir-tab { justify-content: center; padding: 8px 10px; }
   .dir-map-wrap { min-height: 340px; border-radius: 18px; }
 }
+
+/* ============ Ronde 14 — luxe content-laag ============ */
+/* Sectie-koppen met gradient-accent */
+main .sec h2, .section-title, .tip-box-head h2 {
+  position: relative;
+}
+main .sec h2::before {
+  content: ''; display: inline-block; width: 26px; height: 4px; border-radius: 999px;
+  margin-right: 10px; vertical-align: .16em;
+  background: linear-gradient(90deg, #10b981, #fbbf24);
+}
+/* Tabel- & kaart-koppen: zachtere scheidingen */
+.compare-table th, .ra-table th {
+  background: linear-gradient(180deg, rgba(16,185,129,.09), rgba(16,185,129,.04));
+}
+/* Chips: film-grain-vrije zachte identiteit */
+.f-btn, .pet-chip, .map-f-btn, .cat-pill, .bl-tab {
+  backdrop-filter: saturate(1.15);
+}
+/* Quote/tip-boxen: luxe rand + gloed */
+.tip-box, .guide-box, .quote-lead-box {
+  position: relative; overflow: hidden;
+}
+.tip-box::before, .guide-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #10b981, #34d399, #fbbf24);
+  opacity: .9;
+}
+/* Stats: tel-animatie-friendly (wordt via JS aangesproken) */
+.stat-card strong { font-variant-numeric: tabular-nums; }
+
+/* Directory hero: gradient-verhelderde titel */
+.dir-hero-content h1 {
+  background: linear-gradient(180deg, #062719 20%, #0f3e28 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+[data-theme="dark"] .dir-hero-content h1 {
+  background: linear-gradient(180deg, #ffffff 30%, #a7f3d0 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}

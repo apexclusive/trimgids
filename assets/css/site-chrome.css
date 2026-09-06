@@ -431,3 +431,67 @@ html { scroll-padding-top: 96px; }
 main > .wrap > h1:first-child, main > .wrap > .eyebrow:first-child + h1 {
   text-wrap: balance;
 }
+
+/* ============ Ronde 14 — luxe micro-interacties ============ */
+/* Navbar: zachte gradient-hover i.p.v. platte vlakken */
+.nav-pill { position: relative; overflow: hidden; }
+.nav-pill::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform .55s var(--ease);
+  pointer-events: none;
+}
+.nav-pill:hover::after { transform: translateX(120%); }
+.nav-pill.is-current { box-shadow: inset 0 0 0 1px rgba(16,185,129,.28), 0 2px 8px rgba(16,185,129,.12); }
+
+/* Knoppen: sheen-glans over primaire CTA's */
+.btn-primary, .btn-airbnb-search, .btn-submit, .bt-primary, .nav-actions .btn:not(.btn-outline), .pc-cta, .btn-ins, .btn-aff, .btn-food {
+  position: relative; overflow: hidden;
+}
+.btn-primary::after, .btn-airbnb-search::after, .btn-submit::after, .nav-actions .btn:not(.btn-outline)::after, .pc-cta::after, .btn-ins::after {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -80%; width: 40%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: skewX(-20deg); transition: left .6s var(--ease); pointer-events: none;
+}
+.btn-primary:hover::after, .btn-airbnb-search:hover::after, .btn-submit:hover::after,
+.nav-actions .btn:not(.btn-outline):hover::after, .pc-cta:hover::after, .btn-ins:hover::after { left: 120%; }
+
+/* Kaarten: zachte emerald-gloed + licht schuin bordereffect */
+main .card, .provider, .ins-card, .dna-card, .food-card, .k-card, .stat-card, .p-card, .deal-card, .home-news-card, .pc-card {
+  position: relative;
+}
+main .card::before, .k-card::before, .home-news-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(340px 140px at 50% -10%, rgba(16,185,129,.09), transparent 70%);
+  opacity: 0; transition: opacity .3s ease;
+}
+main .card:hover::before, .k-card:hover::before, .home-news-card:hover::before { opacity: 1; }
+
+/* Hero: zachte intro-animatie (eerste paint, FCP-veilig: geen layout shift) */
+.hero-badge-wrap, .hero-title, .hero-subtitle, .hero-category-pills, .airbnb-search-bar, .hero-trust-row {
+  animation: tgLuxIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-title { animation-delay: .04s; }
+.hero-subtitle { animation-delay: .09s; }
+.hero-category-pills { animation-delay: .13s; }
+.airbnb-search-bar { animation-delay: .18s; }
+.hero-trust-row { animation-delay: .23s; }
+@keyframes tgLuxIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* Back-to-top & thema: zachte bounce */
+.back-to-top-btn:hover { transform: translateY(-3px); }
+.theme-toggle-btn { transition: transform .25s var(--ease), border-color .2s, color .2s, box-shadow .2s; }
+
+/* Masthead-belichting: subtiele onderrand-verloop */
+nav.site-navbar { border-bottom: 1px solid transparent; }
+nav.site-navbar::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16,185,129,.35) 30%, rgba(251,191,36,.28) 70%, transparent);
+  opacity: 0; transition: opacity .3s ease;
+}
+nav.site-navbar.scrolled::after { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge-wrap, .hero-title, .hero-subtitle, .hero-category-pills, .airbnb-search-bar, .hero-trust-row { animation: none !important; }
+  .nav-pill::after, .btn-primary::after, .btn-airbnb-search::after, .btn-submit::after { display: none !important; }
+}

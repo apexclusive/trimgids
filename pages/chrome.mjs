@@ -2,7 +2,7 @@
    en footer als de homepage — op álle pagina's. Geen eigen header/footer meer
    in de afzonderlijke modules; dit is de enige bron. */
 
-export const chromeCssLink = '<link rel="stylesheet" href="/assets/css/site-chrome.css" id="tg-site-chrome">';
+export const chromeCssLink = '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/assets/css/site-chrome.css?v=14" id="tg-site-chrome">';
 
 export function siteHeader() {
   return `<!-- TRIMGIDS UNIVERSELE HEADER (Ronde 10) -->

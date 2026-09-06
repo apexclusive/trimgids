@@ -477,6 +477,44 @@
     });
   }
 
+  function initStatCounters() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('.stat-card strong, .stat-box strong, .dir-stats b');
+    var targets = [];
+    els.forEach(function (el) {
+      var txt = (el.textContent || '').trim();
+      if (!/^[0-9]+([.,][0-9]+)?[%\u20AC\s\-]*$/.test(txt)) return;
+      var num = parseFloat(txt.replace(/[^0-9.,]/g, '').replace(',', '.'));
+      if (!isFinite(num)) return;
+      var suffix = (txt.replace(/[0-9.,]/g, '').trim() || '');
+      targets.push({ el: el, to: num, suffix: suffix, done: false });
+    });
+    if (!targets.length) return;
+    if (typeof IntersectionObserver !== 'function') return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var t = e.target;
+        var item = null;
+        for (var i = 0; i < targets.length; i++) if (targets[i].el === t) { item = targets[i]; break; }
+        if (!item || item.done) return;
+        item.done = true;
+        io.unobserve(t);
+        var start = null;
+        var step = function (ts) {
+          if (!start) start = ts;
+          var p = Math.min(1, (ts - start) / 650);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var val = item.to * ease;
+          t.textContent = val.toLocaleString('nl-NL', { maximumFractionDigits: 2 }) + (item.suffix ? ' ' + item.suffix : '');
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    targets.forEach(function (t) { io.observe(t.el); });
+  }
+
   function initHubHighlight() {
     var pills = document.querySelectorAll('.hub-pill');
     var sections = document.querySelectorAll('main section[id]');
@@ -702,6 +740,7 @@
     initDelegatedTheme();
     initSaveButtons();
     initScrollUI();
+    initStatCounters();
     initHubHighlight();
     initCurrentNav();
     initMobileMenu();

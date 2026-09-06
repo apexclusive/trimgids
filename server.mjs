@@ -1721,10 +1721,10 @@ function providerPage(pathname) {
    foto/kop, rating-sterren, reviews, prijs-chips, 2-regelige beschrijving,
    één hoofd-CTA + secundaire acties. Alle interactie blijft SSR-safe. */
 const PROVIDER_IMG = {
-  trimsalon: { src: '/assets/img/cat-trimsalon-480.webp', srcset: '/assets/img/cat-trimsalon-480.webp 480w, /assets/img/cat-trimsalon-960.webp 960w', alt: 'Trimsalon waar een hond wordt getrimd' },
-  hondenschool: { src: '/assets/img/cat-school-480.webp', srcset: '/assets/img/cat-school-480.webp 480w, /assets/img/cat-school-960.webp 960w', alt: 'Hondentraining op een grasveld' },
-  opvang: { src: '/assets/img/cat-opvang-480.webp', srcset: '/assets/img/cat-opvang-480.webp 480w, /assets/img/cat-opvang-960.webp 960w', alt: 'Honden spelen in een dagopvang' },
-  wellness: { src: '/assets/img/cat-wellness-480.webp', srcset: '/assets/img/cat-wellness-480.webp 480w, /assets/img/cat-wellness-960.webp 960w', alt: 'Hondenwellness en fysiotherapie' }
+  trimsalon: { src: '/assets/img/cat-trimsalon-480.avif', srcset: '/assets/img/cat-trimsalon-480.avif 480w, /assets/img/cat-trimsalon-960.avif 960w', alt: 'Trimsalon waar een hond wordt getrimd' },
+  hondenschool: { src: '/assets/img/cat-school-480.avif', srcset: '/assets/img/cat-school-480.avif 480w, /assets/img/cat-school-960.avif 960w', alt: 'Hondentraining op een grasveld' },
+  opvang: { src: '/assets/img/cat-opvang-480.avif', srcset: '/assets/img/cat-opvang-480.avif 480w, /assets/img/cat-opvang-960.avif 960w', alt: 'Honden spelen in een dagopvang' },
+  wellness: { src: '/assets/img/cat-wellness-480.avif', srcset: '/assets/img/cat-wellness-480.avif 480w, /assets/img/cat-wellness-960.avif 960w', alt: 'Hondenwellness en fysiotherapie' }
 };
 function ratingStars(rating) {
   const r = Math.max(0, Math.min(5, Number(rating) || 0));
@@ -4541,7 +4541,15 @@ function modernizeGeneratedHtmlUncached(html) {
 
   /* Uniforme app-runtime op elke server-gegenereerde pagina:
      thema-bootstrap vóór de eerste paint + account/favorieten/thema-ui. */
-  if (!html.includes('tg-theme-boot')) {
+    /* Ronde 14 — platform-gevoel: thema-kleur + kleurenschema voor scrollbars */
+  if (!html.includes('theme-color')) {
+    html = html.replace('<meta charset="UTF-8">', '<meta charset="UTF-8"><meta name="theme-color" content="#0F3E28">');
+  }
+  if (!html.includes('color-scheme')) {
+    html = html.replace('</head>', '<style id="tg-color-scheme">:root{color-scheme:light dark}</style></head>');
+  }
+
+if (!html.includes('tg-theme-boot')) {
     html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||"light";document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
   }
   if (!html.includes('tg-app-js')) {
@@ -4583,8 +4591,8 @@ function modernizeGeneratedHtmlUncached(html) {
      cascade van álle pagina-CSS (directoryStyles/customModuleStyles enz.). */
   {
     const tailSkin =
-      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css" id="tg-site-chrome">') +
-      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css" id="tg-content-skin">');
+      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=14" id="tg-site-chrome">') +
+      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=14" id="tg-content-skin">');
     if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
   }
 
