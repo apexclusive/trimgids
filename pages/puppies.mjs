@@ -109,6 +109,16 @@ export function puppiesPage(list = []) {
   </form>
 </section>
 
+<section class="sec">
+  <div class="section-head"><div><span class="eyebrow">Eerlijk adverteren</span><h2>Gratis nu — en zo blijft het eerlijk</h2><p class="sub">De marktplaats is bewust zo opgebouwd dat iedereen kan starten, en pas kan betalen als het er toe doet:</p></div></div>
+  <div class="pm-plans">
+    <div class="pm-plan pm-plan-free"><span class="pm-plan-tag">Nu · gratis</span><h3>Basisadvertentie</h3><p>Onbeperkt in de uitvoering: nest, foto's, checks, contact. Geen kosten, geen verborgen voorwaarden. Zolang we groeien, blijft dit zo.</p><strong>€ 0,00</strong></div>
+    <div class="pm-plan pm-plan-star"><span class="pm-plan-tag">Straks · gepland 2027</span><h3>Uitgelicht</h3><p>Jouw nest bovenaan bij de rassenfilters + badge. Alleen beschikbaar voor geverifieerde fokkers. We starten hiermee pas als er voldoende bezoekers zijn — anders verkoop je lucht.</p><strong>€ 15/mnd (gepland)</strong></div>
+    <div class="pm-plan"><span class="pm-plan-tag">Later</span><h3>Fokkera-pagina</h3><p>Eigen pagina met stamboom, historie en alle nesten — ideaal voor serieuze fokkers die bezoekers willen overtuigen.</p><strong>€ 25/mnd (gepland)</strong></div>
+  </div>
+  <p class="pm-plans-note">Waarom zo? Omdat een marktplaats alleen werkt als er én genoeg kopers zijn én genoeg goede aanbieders. Eerst gratis opbouwen, dan pas eerlijk verdienen — dat is de beste tactiek voor vertrouwen.</p>
+</section>
+
 <div class="pm-dialog" id="pm-dialog" role="dialog" aria-modal="true" aria-labelledby="pm-dialog-title" hidden>
   <div class="pm-dialog-backdrop" data-pm-close></div>
   <div class="pm-dialog-card">

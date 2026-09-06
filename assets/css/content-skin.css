@@ -274,6 +274,17 @@ main a { text-decoration: none; }
 .pc-stars i.on { color: #f59e0b; }
 .pc-rating-num { font: 800 14px 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--foreground, #09090b); }
 .pc-reviews { font: 600 12px 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--muted-foreground, #64748b); white-space: nowrap; }
+/* Ronde 15 — Baasjescijfer (gevalideerde 0-10 beoordelingen van baasjes) */
+.pc-baasjes-row { display: flex; margin-top: -2px; }
+.pc-baasjes {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 700 11.5px 'Plus Jakarta Sans', system-ui, sans-serif; color: #065f46;
+  background: linear-gradient(135deg, rgba(16,185,129,.12), rgba(16,185,129,.05));
+  border: 1px solid rgba(16,185,129,.32); border-radius: 999px; padding: 4px 11px;
+}
+.pc-baasjes strong { font-size: 13px; }
+.pc-baasjes-new { color: #6b5b1f; background: rgba(251,191,36,.12); border-color: rgba(251,191,36,.4); }
+.pc-baasjes-empty { display: none; }
 .pc-price {
   display: inline-flex; align-items: baseline; gap: 2px; flex: none;
   font: 800 15px 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--primary, #0f3e28);

@@ -70,3 +70,14 @@
 .safety-item h4 { font-size: 15px; margin-bottom: 6px; }
 .safety-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
 @media (max-width: 860px) { .safety { grid-template-columns: 1fr; } }
+/* Ronde 15 — eerlijke advertentie-plannen */
+.pm-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 8px; }
+.pm-plan { display: grid; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+.pm-plan h3 { font-size: 16.5px; margin: 0; }
+.pm-plan p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+.pm-plan strong { font: 800 18px 'Plus Jakarta Sans', sans-serif; color: var(--g); }
+.pm-plan-free { border-color: rgba(16,185,129,.4); background: linear-gradient(160deg, rgba(16,185,129,.07), var(--card) 60%); }
+.pm-plan-star { border-color: rgba(251,191,36,.5); }
+.pm-plan-tag { justify-self: start; font: 800 10.5px 'Plus Jakarta Sans', sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: rgba(100,116,139,.1); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+.pm-plan-free .pm-plan-tag { color: #065f46; background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.35); }
+.pm-plans-note { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
