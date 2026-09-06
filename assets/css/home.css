@@ -242,7 +242,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* Sections & Hub Layout */
-.section { padding: 72px 0; border-bottom: 1px solid var(--border); position: relative; }
+.section { padding: 60px 0; border-bottom: 1px solid var(--border); position: relative; }
 .section-alt { background: var(--card-subtle); }
 /* Ronde 7 — kleurcodering per sectietype: urgentie=rood, kennis=blauw, zorg=groen,
    service/geld=amber, kaart=teal, community=paars, helpen=oranje */
@@ -261,7 +261,7 @@ img { max-width: 100%; display: block; }
 [data-theme="dark"] .section.t-teal { background: linear-gradient(180deg, rgba(13,148,136,.15), rgba(13,148,136,.04) 72%); border-bottom-color: rgba(13,148,136,.3); }
 [data-theme="dark"] .section.t-purple { background: linear-gradient(180deg, rgba(139,92,246,.15), rgba(139,92,246,.04) 72%); border-bottom-color: rgba(139,92,246,.3); }
 [data-theme="dark"] .section.t-orange { background: linear-gradient(180deg, rgba(249,115,22,.15), rgba(249,115,22,.04) 72%); border-bottom-color: rgba(249,115,22,.3); }
-.section-header { max-width: 760px; margin: 0 auto 40px; text-align: center; }
+.section-header { max-width: 760px; margin: 0 auto 32px; text-align: center; }
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -309,12 +309,12 @@ img { max-width: 100%; display: block; }
 
 /* Kennis-sectie kaarten */
 .kennis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.k-card { position: relative; display: flex; flex-direction: column; gap: 12px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 26px; box-shadow: var(--shadow-card); overflow: hidden; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.k-card { position: relative; display: flex; flex-direction: column; gap: 11px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); overflow: hidden; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
 .k-card:hover { transform: translateY(-4px); border-color: var(--brand-emerald); box-shadow: var(--shadow-hover); }
 .k-card .k-emoji { font-size: 40px; line-height: 1; }
 /* Ronde 11 — foto-kaarten i.p.v. emoji-tegels */
 .k-photo {
-  order: -1; margin: -26px -26px 6px; border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  order: -1; margin: -24px -24px 6px; border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   overflow: hidden; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #0f3e28, #165b3c);
 }
 .k-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .65s cubic-bezier(.16,1,.3,1); }
@@ -322,7 +322,7 @@ img { max-width: 100%; display: block; }
 .k-art.k-photo { order: 0; margin: 0; width: 240px; height: 190px; aspect-ratio: auto; border-radius: var(--radius-lg); flex: none; }
 .k-art.k-photo img { border-radius: var(--radius-lg); }
 @media (max-width: 980px) { .k-art.k-photo { width: 100%; height: 200px; } }
-.k-card h3 { font-size: 21px; margin: 0; }
+.k-card h3 { font-size: 20px; margin: 0; }
 .k-card p { color: var(--muted-foreground); font-size: 14.5px; line-height: 1.6; margin: 0; }
 .k-card .k-mini { display: grid; gap: 8px; }
 .k-card .k-mini span { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; font-weight: 700; color: var(--foreground); background: var(--card-subtle); border: 1px solid var(--border); border-radius: 12px; padding: 9px 12px; }
@@ -521,7 +521,7 @@ nav.site-navbar {
 /* Hero Section */
 .hero {
   position: relative;
-  padding: 44px 0 48px;
+  padding: 32px 0 40px;
   background: radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
               linear-gradient(180deg, var(--card-subtle) 0%, var(--background) 100%);
   overflow: hidden;
@@ -545,7 +545,7 @@ nav.site-navbar {
 [data-theme="dark"] .hero-title, [data-theme="dark"] .hero-trust-row, [data-theme="dark"] .hero-badge-wrap { text-shadow: 0 1px 3px rgba(0,0,0,.65), 0 8px 28px rgba(0,0,0,.55); }
 [data-theme="dark"] .hero-category-pills .cat-pill, [data-theme="dark"] .hero-trust-row span { text-shadow: 0 1px 2px rgba(0,0,0,.5); }
 .hero-in { position: relative; max-width: 1040px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-.hero-badge-wrap { margin-bottom: 18px; display: inline-flex; }
+.hero-badge-wrap { margin-bottom: 13px; display: inline-flex; }
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -573,10 +573,10 @@ nav.site-navbar {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.hero-subtitle { font-size: clamp(14.5px, 1.6vw, 16.5px); font-weight: 400; color: var(--muted-foreground); max-width: 720px; line-height: 1.62; margin: 0 auto 22px; }
+.hero-subtitle { font-size: clamp(14.5px, 1.6vw, 16.5px); font-weight: 400; color: var(--muted-foreground); max-width: 720px; line-height: 1.62; margin: 0 auto 18px; }
 
 /* Category Filter Tabs */
-.hero-category-pills { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.hero-category-pills { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 .cat-pill {
   display: inline-flex;
   align-items: center;

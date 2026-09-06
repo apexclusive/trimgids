@@ -3,73 +3,7 @@
    een veilig formulier waar fokkers hun nest kunnen aanbieden. */
 import { pageShell, esc } from './base.mjs';
 
-const CSS = `
-/* ---------- Marktplaats-kaarten (premium foto-tiles) ---------- */
-.pm-hero {
-  position: relative; border-radius: 28px; overflow: hidden;
-  margin: 8px 0 26px; min-height: 260px; display: flex; align-items: flex-end;
-  box-shadow: var(--shadow-lg); border: 1px solid var(--line);
-}
-.pm-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.pm-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(200deg, rgba(6,25,15,.02) 30%, rgba(6,25,15,.86) 100%); }
-.pm-hero-content { position: relative; z-index: 1; padding: 28px 30px 24px; width: 100%; color: #fff; }
-.pm-hero-content h1 { color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
-.pm-hero-content p { color: rgba(255,255,255,.86); max-width: 640px; }
-.pm-hero-content .eyebrow { color: #a7f3d0; }
-.pm-hero-stats { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-.pm-hero-stats span { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); backdrop-filter: blur(8px); padding: 6px 13px; border-radius: 999px; font: 700 12.5px 'Plus Jakarta Sans', sans-serif; }
-
-/* Filterbalk */
-.pm-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 4px 0 22px; }
-.pm-search { flex: 1 1 260px; display: flex; align-items: center; gap: 9px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; box-shadow: var(--shadow); }
-.pm-search input { flex: 1; border: 0; background: transparent; font: 600 14px 'Plus Jakarta Sans', sans-serif; color: var(--ink); outline: none; }
-.pm-select { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; font: 700 13.5px 'Plus Jakarta Sans', sans-serif; color: var(--ink); cursor: pointer; box-shadow: var(--shadow); }
-.pm-result { font: 700 13px 'Plus Jakarta Sans', sans-serif; color: var(--muted); margin-left: auto; }
-
-.pm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 22px; }
-.pm-card { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease, border-color .25s ease; animation: pcIn .5s cubic-bezier(.16,1,.3,1) both; }
-.pm-card:nth-child(2) { animation-delay: .05s; } .pm-card:nth-child(3) { animation-delay: .1s; } .pm-card:nth-child(4) { animation-delay: .15s; }
-.pm-card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -16px rgba(2,32,19,.28); border-color: rgba(16,185,129,.45); }
-.pm-media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: linear-gradient(135deg, #0f3e28, #165b3c); }
-.pm-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.16,1,.3,1); }
-.pm-card:hover .pm-media img { transform: scale(1.06); }
-.pm-price { position: absolute; right: 12px; top: 12px; background: rgba(255,255,255,.95); color: var(--g); font: 800 15px 'Plus Jakarta Sans', sans-serif; padding: 6px 12px; border-radius: 999px; box-shadow: 0 6px 18px rgba(2,32,19,.25); }
-.pm-badge { position: absolute; left: 12px; top: 12px; background: rgba(6,25,15,.88); color: #6ee7b7; font: 800 10.5px 'Plus Jakarta Sans', sans-serif; letter-spacing: .07em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(6px); }
-.pm-fav { position: absolute; right: 12px; bottom: 10px; width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(255,255,255,.9); color: var(--g); font-size: 16px; cursor: pointer; display: grid; place-items: center; box-shadow: 0 4px 14px rgba(2,32,19,.2); transition: transform .2s cubic-bezier(.16,1,.3,1); }
-.pm-fav:hover { transform: scale(1.15); }
-.pm-fav.on { background: #10b981; color: #fff; }
-.pm-body { padding: 16px 18px 18px; display: grid; gap: 8px; }
-.pm-body h3 { font-size: 16.5px; line-height: 1.3; }
-.pm-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font: 600 12.5px 'Plus Jakarta Sans', sans-serif; color: var(--muted); }
-.pm-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--line); }
-.pm-checks { display: flex; flex-wrap: wrap; gap: 6px; }
-.pm-check { font: 700 11px 'Plus Jakarta Sans', sans-serif; color: var(--g); background: rgba(16,185,129,.09); border: 1px solid rgba(16,185,129,.22); padding: 4px 9px; border-radius: 999px; }
-.pm-breeder { display: flex; align-items: center; gap: 8px; margin-top: 2px; font: 700 13px 'Plus Jakarta Sans', sans-serif; }
-.pm-breeder .avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, #0f3e28, #10b981); color: #fff; display: grid; place-items: center; font: 800 11px 'Plus Jakarta Sans', sans-serif; }
-
-/* Detail-dialoog */
-.pm-dialog { position: fixed; inset: 0; z-index: 1200; display: none; }
-.pm-dialog.open { display: grid; place-items: center; padding: 20px; }
-.pm-dialog-backdrop { position: absolute; inset: 0; background: rgba(4,16,10,.55); backdrop-filter: blur(6px); }
-.pm-dialog-card { position: relative; width: min(880px, 100%); max-height: 90vh; overflow-y: auto; background: var(--card); border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 40px 90px -20px rgba(0,0,0,.5); animation: pmUp .35s cubic-bezier(.16,1,.3,1) both; }
-@keyframes pmUp { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
-.pm-dialog-close { position: absolute; top: 14px; right: 14px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: var(--g); font-size: 17px; cursor: pointer; box-shadow: 0 6px 18px rgba(2,32,19,.25); }
-.pm-dialog-media { position: relative; aspect-ratio: 16 / 8; }
-.pm-dialog-media img { width: 100%; height: 100%; object-fit: cover; }
-.pm-dialog-body { padding: 24px 26px 26px; display: grid; gap: 14px; }
-.pm-dialog-body h2 { font-size: 24px; }
-.pm-dialog-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-.pm-dialog-checks span { background: rgba(16,185,129,.07); border: 1px solid rgba(16,185,129,.2); border-radius: 13px; padding: 10px 13px; font: 700 13px 'Plus Jakarta Sans', sans-serif; color: var(--ink); }
-.pm-dialog-cta { display: flex; gap: 10px; flex-wrap: wrap; }
-@media (max-width: 700px) { .pm-dialog-checks { grid-template-columns: 1fr; } .pm-dialog-media { aspect-ratio: 16 / 10; } .pm-hero-content { padding: 22px 20px 20px; } }
-
-/* Veiligheidskader */
-.safety { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 8px 0 6px; }
-.safety-item { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
-.safety-item h4 { font-size: 15px; margin-bottom: 6px; }
-.safety-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
-@media (max-width: 860px) { .safety { grid-template-columns: 1fr; } }
-`;
+const CSS_LINK = '<link rel="stylesheet" href="/assets/css/puppies.css?v=15">';
 
 const PROVINCES = ['Alle provincies', 'Drenthe', 'Friesland', 'Gelderland', 'Noord-Brabant', 'Utrecht', 'Zuid-Holland']; // moet overeenkomen met data/puppies.json
 const BREED_ORDER = ['labrador-retriever', 'bordercollie', 'pomeriaan', 'cockapoo'];
@@ -93,7 +27,7 @@ export function puppiesPage(list = []) {
         <img src="/assets/img/gen/${esc(p.photo)}-450.webp" srcset="/assets/img/gen/${esc(p.photo)}-450.webp 450w, /assets/img/gen/${esc(p.photo)}-900.webp 900w" sizes="(max-width:640px) 100vw, 380px" width="450" height="302" loading="lazy" decoding="async" alt="${esc(p.title)}">
       </picture>
       <span class="pm-price">€ ${Number(p.price).toLocaleString('nl-NL')}</span>
-      <span class="pm-badge">Geverifieerde fokker</span>
+      <span class="pm-badge">${p.verified ? 'Geverifieerde fokker' : 'Fokker te bezoeken'}</span>
       <button class="pm-fav" type="button" aria-label="Bewaar deze pup">♥</button>
     </div>
     <div class="pm-body">
@@ -111,6 +45,7 @@ export function puppiesPage(list = []) {
     title: 'PuppyMarktplaats: pups te koop bij geverifieerde fokkers (2026) | TrimGids',
     description: 'Vind pups van betrouwbare, geverifieerde fokkers in Nederland: Labrador, Border Collie, Pomeriaan en Cockapoo. Met HD/ED-röntgen, DNA-tests, stamboom en chippen zichtbaar op elke advertentie. Geen broodfok.',
     canonical: '/puppies',
+    extraHead: CSS_LINK,
     body: `
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Pups van geverifieerde fokkers","itemListElement":${JSON.stringify(items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title + ' — ' + p.breeder + ' (' + p.city + ')', url: 'https://trimgids.nl/puppies#' + p.id })))}}</script>
 
@@ -141,7 +76,7 @@ export function puppiesPage(list = []) {
 <div class="pm-grid" id="pm-grid">${itemsHtml}</div>
 
 <section class="sec">
-  <div class="section-head"><div><span class="eyebrow">Waarom dit geen doorsnee marktplaats is</span><h2>Vijf garanties vóór je een pup koopt</h2></div></div>
+  <div class="section-head"><div><span class="eyebrow">Waarom dit geen doorsnee marktplaats is</span><h2>Zes garanties vóór je een pup koopt</h2></div></div>
   <div class="safety">
     <div class="safety-item"><h4>1 · Gezondheidsuitslagen zichtbaar</h4><p>HD/ED-röntgen, DNA-tests en oogonderzoek staan op elke advertentie — niet achteraf pas op te vragen.</p></div>
     <div class="safety-item"><h4>2 · Fokker altijd te bezoeken</h4><p>Nest en ouderdieren zijn bij de fokker thuis te zien. Geen parkeerplaats-transacties of bezorging uit het buitenland.</p></div>
@@ -153,11 +88,11 @@ export function puppiesPage(list = []) {
 </section>
 
 <section class="sec">
-  <span class="eyebrow">Voor Dierenartsen & Fokkers</span>
+  <span class="eyebrow">Voor fokkers</span>
   <h2>Fokker met een nest? Plaats het gratis</h2>
-  <p class="sub">Vul onderstaand formulier in en jouw nest verschijnt direct op de marktplaats — mét jouw gezondheidschecks, voor baasjes die bewust kiezen.</p>
-  <form class="form-grid" id="pm-form">
-    <label>Nesttitel<input name="title" required maxlength="90" placeholder="Bijv. Golden Retriever pups · Litter 'Sunny'" required></label>
+  <p class="sub">Vul onderstaand formulier in. Je nest wordt ter controle ingediend en verschijnt na goedkeuring op de marktplaats — mét jouw gezondheidschecks, voor baasjes die bewust kiezen.</p>
+  <form class="form-grid" id="pm-form" style="scroll-margin-top: 120px">
+    <label>Nesttitel<input name="title" required maxlength="90" placeholder="Bijv. Golden Retriever pups · Litter 'Sunny'"></label>
     <label>Ras<input name="breed" required maxlength="60" placeholder="Bijv. Golden Retriever"></label>
     <label>Prijs per pup (€)<input name="price" type="number" required min="0" step="10" placeholder="1150"></label>
     <label>Leeftijd (weken)<input name="weeks" type="number" required min="7" max="14" placeholder="8"></label>
@@ -247,10 +182,19 @@ export function puppiesPage(list = []) {
   dialog.querySelectorAll('[data-pm-close]').forEach(function (el) { el.addEventListener('click', closePup); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !dialog.hidden) closePup(); });
 
+  var favs = [];
+  try { favs = JSON.parse(localStorage.getItem('pm-favs') || '[]'); } catch (_) { favs = []; }
   document.querySelectorAll('.pm-fav').forEach(function (b) {
+    var cardId = b.closest('.pm-card') && b.closest('.pm-card').getAttribute('data-id');
+    if (cardId && favs.indexOf(cardId) !== -1) b.classList.add('on');
     b.addEventListener('click', function (e) {
       e.stopPropagation();
       b.classList.toggle('on');
+      if (!cardId) return;
+      var idx = favs.indexOf(cardId);
+      if (b.classList.contains('on')) { if (idx === -1) favs.push(cardId); }
+      else if (idx !== -1) favs.splice(idx, 1);
+      try { localStorage.setItem('pm-favs', JSON.stringify(favs)); } catch (_) {}
     });
   });
 

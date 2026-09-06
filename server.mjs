@@ -4628,8 +4628,8 @@ if (!html.includes('tg-theme-boot')) {
      cascade van álle pagina-CSS (directoryStyles/customModuleStyles enz.). */
   {
     const tailSkin =
-      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=14" id="tg-site-chrome">') +
-      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=14" id="tg-content-skin">');
+      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=15" id="tg-site-chrome">') +
+      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=15" id="tg-content-skin">');
     if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
   }
 
