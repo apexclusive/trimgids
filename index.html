@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TrimGids — Het Complete Platform voor Honden in Nederland | Trimsalons, Zorg & Kaart</title>
-<meta name="description" content="Vind trimsalons, hondenscholen, opvang, wandelroutes en hondenstranden in heel Nederland. Inclusief interactieve landkaart, vachtplanner voor o.a. Pomeriaan & Labradoodle, hondenverzekering vergelijker, actueel nieuws, vermiste honden en hondenbelasting per gemeente.">
+<meta name="color-scheme" content="light dark">
+<title>TrimGids: hondenzorg, trimsalons & kaart (2026) | TrimGids</title>
+<meta name="description" content="Vind 2.900+ geverifieerde trimsalons, hondenscholen en opvang in heel Nederland. Plus trimprijzen 2026, verzekering-vergelijker en hondenbelasting per gemeente.">
 <link rel="canonical" href="https://trimgids.nl/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:type" content="website">
@@ -15,6 +16,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TrimGids — Het Complete Platform voor Honden in Nederland">
 <meta name="twitter:description" content="Vind trimsalons, hondenscholen, opvang, wandelroutes en hondenverzekeringen in heel Nederland.">
+<meta name="twitter:image" content="https://trimgids.nl/assets/img/og.jpg">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gelukkige hond tijdens een professionele trimbeurt bij TrimGids">
 <meta name="theme-color" content="#0F3E28">
 
 <script type="application/ld+json">
@@ -32,7 +39,7 @@
       "@type":"Organization",
       "name":"TrimGids Nederland",
       "url":"https://trimgids.nl/",
-      "logo":"https://trimgids.nl/favicon.ico",
+      "logo":"https://trimgids.nl/icon-512.png",
       "sameAs":["https://routes.apexclusive.nl/wandelen/limburg"]
     },
     {
@@ -48,15 +55,21 @@
 }
 </script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com">
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1600&q=72" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/nl-map.css">
+<link rel="stylesheet" href="/assets/css/forum.css">
+<link rel="preload" as="image" href="/assets/img/hero-1200.webp" imagesrcset="/assets/img/hero-640.webp 640w, /assets/img/hero-1200.webp 1200w, /assets/img/hero-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TrimGids">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="/manifest.webmanifest">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<script>try{var tgTheme=localStorage.getItem('trimgids_theme')||'light';document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
 <style>
 /* ==========================================================================
    SHADCN/UI & FRAMER DESIGN SYSTEM TOKENS
@@ -165,11 +178,38 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif; background-color: var(--background); color: var(--foreground); transition: background-color 0.25s ease, color 0.25s ease; }
 body { min-height: 100vh; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.025em; line-height: 1.2; color: var(--foreground); }
-.font-serif { font-family: Fraunces, Georgia, serif; }
+h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.025em; line-height: 1.2; color: var(--foreground); text-wrap: balance; }
+.font-serif { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
 p, li, span, label, td { color: var(--foreground); }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+@supports (content-visibility: auto) {
+  .section { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+}
+.map-placeholder { height: 500px; display: grid; place-items: center; color: var(--muted-foreground); font-weight: 700; letter-spacing: .02em; }
+/* CLS-bescherming: dynamische feed-grids claimen alvast ruimte */
+#home-lm-grid, #home-ins-grid, #home-routes-grid { min-height: 210px; }
+#home-dna-grid, #home-food-grid, #home-vets-grid, #home-missing-grid, #home-news-grid, #home-tax-grid { min-height: 130px; }
+/* Ronde 11 — skelet-shimmer i.p.v. "laden..." (voelt modern en snel) */
+@keyframes tgShimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+.tg-skeleton {
+  border-radius: var(--radius-lg, 18px); border: 1px solid var(--border, #e2e8f0);
+  background: linear-gradient(90deg, var(--card-subtle, #f1f5f9) 25%, var(--card, #fff) 50%, var(--card-subtle, #f1f5f9) 75%);
+  background-size: 800px 100%; animation: tgShimmer 1.4s ease-in-out infinite;
+}
+.tg-skeleton-lines { display: grid; gap: 10px; padding: 20px; }
+.tg-skeleton-lines i { display: block; height: 12px; border-radius: 999px; background: var(--border, #e2e8f0); }
+.tg-skeleton-lines i:nth-child(1) { width: 55%; height: 18px; }
+.tg-skeleton-lines i:nth-child(2) { width: 88%; }
+.tg-skeleton-lines i:nth-child(3) { width: 72%; }
+@media (prefers-reduced-motion: reduce) { .tg-skeleton { animation: none; } }
+.skip-link { position: fixed; left: 16px; top: 12px; z-index: 10000; padding: 10px 14px; border-radius: 999px; background: var(--primary); color: #fff; font-weight: 800; transform: translateY(-200%); transition: transform .2s ease; }
+.skip-link:focus { transform: translateY(0); }
 .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
 /* Buttons */
@@ -277,6 +317,23 @@ img { max-width: 100%; display: block; }
 /* Sections & Hub Layout */
 .section { padding: 72px 0; border-bottom: 1px solid var(--border); position: relative; }
 .section-alt { background: var(--card-subtle); }
+/* Ronde 7 — kleurcodering per sectietype: urgentie=rood, kennis=blauw, zorg=groen,
+   service/geld=amber, kaart=teal, community=paars, helpen=oranje */
+.section.t-red { background: linear-gradient(180deg, rgba(239,68,68,.07), rgba(239,68,68,.02) 72%); border-bottom-color: rgba(239,68,68,.18); }
+.section.t-blue { background: linear-gradient(180deg, rgba(59,130,246,.07), rgba(59,130,246,.02) 72%); border-bottom-color: rgba(59,130,246,.18); }
+.section.t-green { background: linear-gradient(180deg, rgba(16,185,129,.08), rgba(16,185,129,.02) 72%); border-bottom-color: rgba(16,185,129,.2); }
+.section.t-amber { background: linear-gradient(180deg, rgba(217,119,6,.08), rgba(217,119,6,.02) 72%); border-bottom-color: rgba(217,119,6,.2); }
+.section.t-teal { background: linear-gradient(180deg, rgba(13,148,136,.08), rgba(13,148,136,.02) 72%); border-bottom-color: rgba(13,148,136,.2); }
+.section.t-purple { background: linear-gradient(180deg, rgba(139,92,246,.08), rgba(139,92,246,.02) 72%); border-bottom-color: rgba(139,92,246,.2); }
+.section.t-orange { background: linear-gradient(180deg, rgba(249,115,22,.08), rgba(249,115,22,.02) 72%); border-bottom-color: rgba(249,115,22,.2); }
+.section.t-red .section-eyebrow, .section.t-red .section-subtitle::before, .section.t-red .section-title::before { --tint-accent: #dc2626; }
+[data-theme="dark"] .section.t-red { background: linear-gradient(180deg, rgba(239,68,68,.13), rgba(239,68,68,.03) 72%); border-bottom-color: rgba(239,68,68,.28); }
+[data-theme="dark"] .section.t-blue { background: linear-gradient(180deg, rgba(59,130,246,.14), rgba(59,130,246,.04) 72%); border-bottom-color: rgba(59,130,246,.3); }
+[data-theme="dark"] .section.t-green { background: linear-gradient(180deg, rgba(16,185,129,.14), rgba(16,185,129,.04) 72%); border-bottom-color: rgba(16,185,129,.3); }
+[data-theme="dark"] .section.t-amber { background: linear-gradient(180deg, rgba(217,119,6,.15), rgba(217,119,6,.04) 72%); border-bottom-color: rgba(217,119,6,.3); }
+[data-theme="dark"] .section.t-teal { background: linear-gradient(180deg, rgba(13,148,136,.15), rgba(13,148,136,.04) 72%); border-bottom-color: rgba(13,148,136,.3); }
+[data-theme="dark"] .section.t-purple { background: linear-gradient(180deg, rgba(139,92,246,.15), rgba(139,92,246,.04) 72%); border-bottom-color: rgba(139,92,246,.3); }
+[data-theme="dark"] .section.t-orange { background: linear-gradient(180deg, rgba(249,115,22,.15), rgba(249,115,22,.04) 72%); border-bottom-color: rgba(249,115,22,.3); }
 .section-header { max-width: 760px; margin: 0 auto 40px; text-align: center; }
 .section-eyebrow {
   display: inline-flex;
@@ -292,6 +349,69 @@ img { max-width: 100%; display: block; }
 .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -0.03em; color: var(--foreground); margin-bottom: 12px; }
 .section-subtitle { font-size: clamp(15px, 1.8vw, 17.5px); color: var(--muted-foreground); line-height: 1.6; }
 .commercial-note { max-width: 700px; margin: 12px auto 0; color: var(--muted-foreground); font-size: 12px; line-height: 1.5; }
+
+/* Foto-exploregrid */
+.explore-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.explore-card { position: relative; display: block; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--border); background: var(--card); box-shadow: var(--shadow-card); aspect-ratio: 4 / 3; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.explore-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.explore-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,20,14,0) 32%, rgba(6,20,14,.82) 100%); }
+.explore-card:hover { transform: translateY(-4px); border-color: var(--brand-emerald); box-shadow: var(--shadow-hover); }
+.explore-card:hover img { transform: scale(1.05); }
+.explore-card:hover .explore-cta { gap: 9px; }
+.explore-card-body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 18px 18px 16px; color: #fff; }
+.explore-count {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  background: rgba(255,255,255,.92); color: var(--primary, #0f3e28);
+  font: 800 11.5px 'Plus Jakarta Sans', system-ui, sans-serif;
+  padding: 5px 11px; border-radius: 999px;
+  border: 1px solid rgba(16,185,129,.35); box-shadow: 0 2px 10px rgba(2,32,19,.18);
+  backdrop-filter: blur(6px);
+}
+[data-theme="dark"] .explore-count { background: rgba(16,24,20,.88); color: #a7f3d0; border-color: rgba(16,185,129,.4); }
+.explore-card-body h3 { color: #fff; font-size: 19px; margin-bottom: 4px; }
+.explore-card-body p { color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.5; }
+.explore-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; color: #a7f3d0; margin-top: 8px; transition: gap .2s ease; }
+@media (max-width: 980px) { .explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .explore-grid { grid-template-columns: 1fr; } .explore-card { aspect-ratio: 16 / 10; } }
+
+/* Ras-spotlight met foto */
+.breed-spotlight { display: grid; grid-template-columns: 300px 1fr; gap: 26px; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 22px; box-shadow: var(--shadow-card); }
+.breed-spotlight img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-hover); }
+.breed-spotlight p { color: var(--muted-foreground); font-size: 14.5px; line-height: 1.6; }
+@media (max-width: 760px) { .breed-spotlight { grid-template-columns: 1fr; } .breed-spotlight img { max-width: 300px; margin: 0 auto; } }
+
+/* Kennis-sectie kaarten */
+.kennis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.k-card { position: relative; display: flex; flex-direction: column; gap: 12px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 26px; box-shadow: var(--shadow-card); overflow: hidden; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.k-card:hover { transform: translateY(-4px); border-color: var(--brand-emerald); box-shadow: var(--shadow-hover); }
+.k-card .k-emoji { font-size: 40px; line-height: 1; }
+/* Ronde 11 — foto-kaarten i.p.v. emoji-tegels */
+.k-photo {
+  order: -1; margin: -26px -26px 6px; border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #0f3e28, #165b3c);
+}
+.k-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .65s cubic-bezier(.16,1,.3,1); }
+.k-card:hover .k-photo img { transform: scale(1.07); }
+.k-art.k-photo { order: 0; margin: 0; width: 240px; height: 190px; aspect-ratio: auto; border-radius: var(--radius-lg); flex: none; }
+.k-art.k-photo img { border-radius: var(--radius-lg); }
+@media (max-width: 980px) { .k-art.k-photo { width: 100%; height: 200px; } }
+.k-card h3 { font-size: 21px; margin: 0; }
+.k-card p { color: var(--muted-foreground); font-size: 14.5px; line-height: 1.6; margin: 0; }
+.k-card .k-mini { display: grid; gap: 8px; }
+.k-card .k-mini span { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; font-weight: 700; color: var(--foreground); background: var(--card-subtle); border: 1px solid var(--border); border-radius: 12px; padding: 9px 12px; }
+.k-card .k-mini span::before { content: ''; flex: none; width: 7px; height: 7px; margin-top: 6px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #0f3e28); }
+.k-card .k-cta { margin-top: auto; }
+.k-card.k-wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 24px; }
+.k-card.k-wide .k-art { width: 210px; height: 160px; border-radius: var(--radius-lg); background: linear-gradient(135deg, #0f3e28, #165b3c); display: grid; place-items: center; font-size: 66px; flex: none; }
+.k-card.k-wide .k-main { flex: 1; }
+@media (max-width: 980px) { .k-card.k-wide { flex-direction: column; align-items: flex-start; } .k-card.k-wide .k-art { width: 100%; height: 150px; } }
+@media (max-width: 700px) { .kennis-grid { grid-template-columns: 1fr; } }
+.viz-mini { display: flex; gap: 10px; align-items: center; margin: 4px 0; }
+.viz-mini img { width: 118px; height: 82px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
+.viz-mini .btn-mini { padding: 8px 13px; border-radius: 999px; border: 1px solid var(--border); background: var(--background); font-weight: 800; font-size: 12.5px; cursor: pointer; color: var(--foreground); }
+.viz-mini .btn-mini.on { background: var(--primary); color: #fff; border-color: var(--primary); }
+#home-map { height: 580px; border-radius: var(--radius-lg); overflow: hidden; }
+@media (max-width: 768px) { #home-map { height: 460px; } }
 
 /* Top Announcement */
 .top-announcement {
@@ -481,10 +601,17 @@ nav.site-navbar {
   border-bottom: 1px solid var(--border);
 }
 .hero-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; opacity: .32; filter: saturate(.9) contrast(1.02); }
-.hero::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,.78); pointer-events: none; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .92; filter: saturate(1.02) contrast(1.04); }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(rgba(16, 185, 129, 0.22) 1.5px, transparent 1.5px); background-size: 28px 28px; mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 75%); -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 75%); }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248,250,252,.90) 0%, rgba(248,250,252,.66) 42%, rgba(248,250,252,.92) 100%); pointer-events: none; }
 .hero-in { z-index: 1; }
-[data-theme="dark"] .hero::after { background: rgba(4,20,13,.78); }
+[data-theme="dark"] .hero::after { background: linear-gradient(180deg, rgba(4,20,13,.94) 0%, rgba(4,20,13,.68) 42%, rgba(4,20,13,.94) 100%); }
+[data-theme="dark"] .hero-photo img { opacity: .72; }
+.hero-title, .hero-subtitle, .hero-trust-row, .hero-badge-wrap { text-shadow: 0 1px 2px rgba(255,255,255,.94), 0 10px 34px rgba(248,250,252,.9); }
+.hero-subtitle { color: #334155; }
+[data-theme="dark"] .hero-subtitle { color: #e2f0e8; }
+[data-theme="dark"] .hero-title, [data-theme="dark"] .hero-trust-row, [data-theme="dark"] .hero-badge-wrap { text-shadow: 0 1px 3px rgba(0,0,0,.65), 0 8px 28px rgba(0,0,0,.55); }
+[data-theme="dark"] .hero-category-pills .cat-pill, [data-theme="dark"] .hero-trust-row span { text-shadow: 0 1px 2px rgba(0,0,0,.5); }
 .hero-in { position: relative; max-width: 1040px; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .hero-badge-wrap { margin-bottom: 18px; display: inline-flex; }
 .hero-badge {
@@ -501,6 +628,7 @@ nav.site-navbar {
   color: var(--foreground);
 }
 .hero-badge-count { background: var(--primary-light); color: var(--primary); font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 9999px; }
+.hero-paw { color: var(--primary); }
 .hero-title { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; color: var(--foreground); max-width: 900px; margin: 0 0 14px; }
 .hero-title .gradient-text {
   background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
@@ -633,11 +761,26 @@ nav.site-navbar {
 #home-map { height: 500px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); }
 .custom-pin { width: 32px; height: 32px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,.25); border: 2px solid #fff; }
 .custom-pin>span { transform: rotate(45deg); font-size: 14px; line-height: 1; }
+.cluster, .cluster-lg, .cluster-xl {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  font: 800 12px/1 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #062719; background: rgba(16, 185, 129, 0.92);
+  border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.25);
+}
+.cluster-lg { background: rgba(15, 62, 40, 0.92); color: #fff; }
+.cluster-xl { background: rgba(217, 119, 6, 0.95); color: #fff; }
 .pin-trimsalon { background: #1E523A; }
 .pin-hondenschool { background: #3730A3; }
 .pin-opvang { background: #D97706; }
 .pin-wellness { background: #0D9488; }
 .pin-routes { background: #059669; }
+
+/* Mobiel: compactere secties en kaart */
+@media (max-width: 768px) {
+  .section { padding: 48px 0; }
+  #home-map, .map-placeholder { height: 380px; }
+}
 
 /* Lead Quote Banner */
 .quote-lead-box {
@@ -682,11 +825,21 @@ nav.site-navbar {
 .home-news-card:first-child p { color: rgba(255,255,255,.78); }
 .home-news-card:first-child a { color: #a7f3d0; }
 @media (max-width: 900px) { .home-news-grid { grid-template-columns: 1fr; } .home-news-card { min-height: 0; } }
+/* Nieuwsbrief-kaart in de nieuws-sectie */
+.home-newsletter { margin-top: 34px; background: linear-gradient(135deg, #07150e, #0f3e28); border-radius: var(--radius-xl); padding: 30px 32px; color: #fff; box-shadow: var(--shadow-floating); }
+.home-newsletter-in { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; }
+.home-newsletter-in p { color: rgba(231,245,236,.78); font-size: 14px; margin: 0; }
+.home-newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.home-newsletter-form input { flex: 1; min-width: 220px; border: 0; border-radius: 999px; padding: 13px 18px; font: inherit; font-size: 14px; }
+.home-newsletter-form button { border: 0; border-radius: 999px; padding: 13px 22px; background: #fbbf24; color: #3b2303; font-weight: 800; cursor: pointer; font: inherit; transition: transform .15s; }
+.home-newsletter-form button:hover { transform: translateY(-1px); }
+.home-newsletter-ok { color: #a7f3d0 !important; font-weight: 800; grid-column: 1 / -1; }
+@media (max-width: 760px) { .home-newsletter-in { grid-template-columns: 1fr; } .home-newsletter { padding: 22px; } }
 
 /* Footer */
 footer.site-footer { position: relative; background: #07150e; color: rgba(231,245,236,.72); border-top: 3px solid #10b981; padding: 58px 0 28px; margin-top: 40px; }
 footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; height: 1px; background: rgba(251,191,36,.7); }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr; gap: 36px; margin-bottom: 36px; }
+.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr 1fr 1.1fr; gap: 26px; margin-bottom: 36px; }
 .footer-col h4 { font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #7ee2ad; margin-bottom: 14px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .footer-col a { color: rgba(231,245,236,.68); font-size: 13.5px; transition: color 0.15s ease; }
@@ -733,8 +886,35 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
   body { padding-bottom: 78px; }
 }
 </style>
+<link rel="stylesheet" href="/assets/css/site-chrome.css" id="tg-site-chrome">
 </head>
 <body id="top">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.47" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 6L3 9v12l6-3 6 3 6-3V6l-6 3-6-3z"/><path d="M9 6v12"/><path d="M15 9v12"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7Z"/><path d="M12 22v-3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+  <symbol id="i-news" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6z"/></symbol>
+  <symbol id="i-faq" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+</svg>
+<a href="#main-content" class="skip-link">Direct naar inhoud</a>
 
 <!-- SCROLL PROGRESS BAR -->
 <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
@@ -752,34 +932,35 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 </div>
 
 <!-- FLOATING GLASS NAVBAR -->
-<nav class="site-navbar">
+<nav class="site-navbar" id="tg-site-nav">
   <div class="wrap nav-in">
     <a href="/" class="brand-logo" aria-label="TrimGids Homepage">
       <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=3" alt=""></div>
       <div class="brand-text">
         <span class="brand-title">TrimGids</span>
-        <span class="brand-subtitle">Nederland</span>
+        <span class="brand-subtitle">Nederland · 2026</span>
       </div>
     </a>
     
     <div class="nav-links-pills" id="main-nav">
-      <a href="/trimsalon" class="nav-pill"><span>✂️</span> Trimsalons</a>
-      <a href="/kaart" class="nav-pill"><span>🗺️</span> Kaart</a>
-      <a href="/hondenschool" class="nav-pill"><span>🎓</span> Hondenscholen</a>
-      <a href="/opvang" class="nav-pill"><span>🏨</span> Opvang</a>
-      <a href="/wellness" class="nav-pill"><span>💆</span> Wellness</a>
-      <a href="/wandelen" class="nav-pill"><span>🌲</span> Wandelen</a>
-      <a href="/verzekering" class="nav-pill highlight-gold"><span>🛡️</span> Verzekering</a>
-      <a href="/last-minute" class="nav-pill highlight-amber"><span>⚡</span> Deals</a>
-      <details class="nav-more"><summary class="nav-pill">Meer voor baasjes</summary><div class="nav-more-panel"><div><h3>Zorg & veiligheid</h3><a href="/ehbo-hond">EHBO-noodgids →</a><a href="/giftigheid-calculator">Gif- & chocoladecheck →</a><a href="/spoed-dierenarts">Spoeddierenartsen →</a></div><div><h3>Ontdek & plan</h3><a href="/puppy-kiezen">Puppymatcher →</a><a href="/leeftijd-calculator">Hondenleeftijd →</a><a href="/kosten-hond">Wat kost een hond? →</a><a href="/nieuws">Landelijk hondennieuws →</a></div></div></details>
+      <a href="/trimsalon" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Trimsalons</a>
+      <a href="/kaart" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart</a>
+      <a href="/hondenschool" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-grad"/></svg> Hondenscholen</a>
+      <a href="/opvang" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Opvang</a>
+      <a href="/wellness" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg> Wellness</a>
+      <a href="/wandelen" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
+      <a href="/verzekering" class="nav-pill highlight-gold"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Verzekering</a>
+      <a href="/last-minute" class="nav-pill highlight-amber"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Deals</a>
+      <details class="nav-more"><summary class="nav-pill">Meer voor baasjes</summary><div class="nav-more-panel"><div><h3>Zorg & veiligheid</h3><a href="/ehbo-hond">EHBO-noodgids →</a><a href="/braken-hond">Mijn hond braakt →</a><a href="/hitteberoerte-hond">Hitteberoerte & hete auto →</a><a href="/giftigheid-calculator">Gif- & chocoladecheck →</a><a href="/spoed-dierenarts">Spoeddierenartsen →</a><a href="/chippen-ontwormen">Chip & ontwormen →</a><a href="/poepzakjes">Poepzakjes & boetes →</a></div><div><h3>Ontdek & plan</h3><a href="/puppy-kiezen">Puppymatcher →</a><a href="/leeftijd-calculator">Hondenleeftijd →</a><a href="/kosten-hond">Wat kost een hond? →</a><a href="/trimmen-kosten">Wat kost trimmen? (2026) →</a><a href="/nieuws">Landelijk hondennieuws →</a><a href="/reizen">Vliegen & reizen met je hond →</a><a href="/hond-en-werk">Hond & fulltime werken →</a></div><div><h3>Kennis & community</h3><a href="/forum">Hondenforum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab →</a><a href="/hondenanatomie">Hondenanatomie →</a><a href="/fokkers">Erkende fokkers →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/adoptie">Pup of asielhond? →</a><a href="/rassen">Rassen & variëteiten →</a><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid →</a><a href="/hondenwedstrijden">Hondenwedstrijden & sport →</a><a href="/verboden-rassen">Verboden rassen: NL & wereld →</a><a href="/honden-cijfers">Honden in cijfers →</a><a href="/geschiedenis-hond">Geschiedenis van de hond →</a><a href="/koninklijke-honden">Honden van royals →</a><a href="/zwerfhonden">Zwerfhonden wereldwijd →</a></div><div><h3>Helpen & meedoen</h3><a href="/vacatures">Vacatures & hulpkrachten →</a><a href="/vrijwilligers">Vrijwilligerswerk bij asiel & opvang →</a><a href="/adoptie">Een opvanghond een thuis geven →</a><a href="/hond-gevonden">Hond gevonden? Wat nu? →</a><a href="/webshop">Webshop: voer, reis & tools →</a></div></div></details>
     </div>
 
     <div class="nav-actions">
       <a href="/bedrijven" class="btn btn-outline btn-pill btn-sm">Voor bedrijven</a>
+      <button id="account-btn" class="btn btn-outline btn-pill btn-sm" type="button" aria-label="Inloggen of registreren"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg> <span>Inloggen</span></button>
       <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Wissel donker/licht thema">
-        <span class="theme-icon">🌙</span>
+        <span class="theme-icon"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></span>
       </button>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatiemenu">☰</button>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigatiemenu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
     </div>
   </div>
 </nav>
@@ -787,24 +968,29 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 <!-- STICKY QUICK HUB JUMP BAR (MAAKT DE SITE DIRECT OVERZICHTELIJK) -->
 <nav class="sticky-hub-nav" aria-label="Snel navigeren over de pagina">
   <div class="wrap hub-nav-in">
-    <a href="#interactieve-kaart" class="hub-pill active"><span>🗺️</span> Kaart & Salons</a>
-    <a href="#vacht-offerte" class="hub-pill"><span>✂️</span> Vacht & Offerte</a>
-    <a href="#zorg-verzekering" class="hub-pill"><span>🛡️</span> Zorg & Voeding</a>
-    <a href="#wandelen-hub" class="hub-pill"><span>🌲</span> Wandelbossen</a>
-    <a href="#financien-belasting" class="hub-pill"><span>💶</span> Belasting & Kosten</a>
-    <a href="#alerts-veiligheid" class="hub-pill"><span>🚨</span> Nood & Alerts</a>
-    <a href="#nieuws" class="hub-pill"><span>◌</span> Nieuws</a>
-    <a href="#faq" class="hub-pill"><span>❓</span> FAQ</a>
+    <a href="#eerstehulp-cijfers" class="hub-pill active"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp & Cijfers</a>
+    <a href="#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Nood & Alerts</a>
+    <a href="#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis & Gidsen</a>
+    <a href="#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Zorg & Voeding</a>
+    <a href="#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht & Offerte</a>
+    <a href="#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Belasting & Kosten</a>
+    <a href="#reizen-kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Reizen & Kennis</a>
+    <a href="#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelbossen</a>
+    <a href="#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart & Salons</a>
+    <a href="#forum" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Community</a>
+    <a href="#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen & Adopteren</a>
+    <a href="#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Nieuws</a>
+    <a href="#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> FAQ</a>
   </div>
 </nav>
 
 <!-- HERO SECTION -->
 <header class="hero">
-  <div class="hero-photo" aria-hidden="true"><img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1600&q=72" alt="" width="1600" height="900" fetchpriority="high" decoding="async"></div>
+  <div class="hero-photo" aria-hidden="true"><img src="/assets/img/hero-1200.webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-1200.webp 1200w, /assets/img/hero-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="893" fetchpriority="high" decoding="async"></div>
   <div class="wrap hero-in">
     <div class="hero-badge-wrap">
       <div class="hero-badge">
-        <span>🐾</span>
+        <svg class="ic hero-paw" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="5.5" cy="11.5" r="1.7"/><circle cx="9.5" cy="6.8" r="1.8"/><circle cx="14.7" cy="6.8" r="1.8"/><circle cx="18.6" cy="11.4" r="1.7"/><path d="M12.1 11.6c-2 0-4 1.2-4.6 3-.5 1.6.1 3.4 1.5 4.3 1.2.8 2.3 1.1 3.1 1.1s1.9-.3 3.1-1.1c1.4-.9 2-2.7 1.5-4.3-.6-1.8-2.6-3-4.6-3z"/></svg>
         <span>De onafhankelijke gids voor hondenbaasjes</span>
         <span class="hero-badge-count">Landelijke catalogus</span>
       </div>
@@ -818,13 +1004,13 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
     </p>
 
     <!-- CATEGORY PILLS -->
-    <div class="hero-category-pills" role="tablist" aria-label="Kies categorie">
-      <button class="cat-pill active" data-cat="trimsalon" type="button" role="tab" aria-selected="true"><span>✂️</span> Trimsalons</button>
-      <button class="cat-pill" data-cat="hondenschool" type="button" role="tab" aria-selected="false"><span>🎓</span> Hondenscholen</button>
-      <button class="cat-pill" data-cat="opvang" type="button" role="tab" aria-selected="false"><span>🏨</span> Opvang & Hotels</button>
-      <button class="cat-pill" data-cat="wellness" type="button" role="tab" aria-selected="false"><span>💆</span> Wellness & Fysio</button>
-      <button class="cat-pill" data-cat="wandelen" type="button" role="tab" aria-selected="false"><span>🌲</span> Losloopgebieden</button>
-      <button class="cat-pill" data-cat="verzekering" type="button" role="tab" aria-selected="false"><span>🛡️</span> Hondenverzekering</button>
+    <div class="hero-category-pills" aria-label="Kies categorie">
+      <button class="cat-pill active" data-cat="trimsalon" type="button" aria-pressed="true"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Trimsalons</button>
+      <button class="cat-pill" data-cat="hondenschool" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-grad"/></svg> Hondenscholen</button>
+      <button class="cat-pill" data-cat="opvang" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Opvang & Hotels</button>
+      <button class="cat-pill" data-cat="wellness" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg> Wellness & Fysio</button>
+      <button class="cat-pill" data-cat="wandelen" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Losloopgebieden</button>
+      <button class="cat-pill" data-cat="verzekering" type="button" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Hondenverzekering</button>
     </div>
 
     <!-- ONE-LINE AIRBNB SEARCH CAPSULE -->
@@ -836,12 +1022,12 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
         <div class="segment-content">
           <label for="search-service" class="segment-label">Wat zoek je?</label>
           <select id="search-service" class="segment-input select-styled">
-            <option value="trimsalon" selected>✂️ Trimsalon & Vachtverzorging</option>
-            <option value="hondenschool">🎓 Hondenschool & Cursussen</option>
-            <option value="opvang">🏨 Pension & Dagopvang</option>
-            <option value="wellness">💆 Hydrotherapie & Dierenfysio</option>
-            <option value="wandelen">🌲 Losloopgebied & Hondenstrand</option>
-            <option value="verzekering">🛡️ Hondenverzekering Vergelijken</option>
+            <option value="trimsalon" selected>Trimsalon & Vachtverzorging</option>
+            <option value="hondenschool">Hondenschool & Cursussen</option>
+            <option value="opvang">Pension & Dagopvang</option>
+            <option value="wellness">Hydrotherapie & Dierenfysio</option>
+            <option value="wandelen">Losloopgebied & Hondenstrand</option>
+            <option value="verzekering">Hondenverzekering Vergelijken</option>
           </select>
         </div>
       </div>
@@ -928,57 +1114,323 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
   </div>
 </header>
 
-<main>
-<!-- ==========================================================================
-     HUB 1: KAART & LOCATIES
-     ========================================================================== -->
-<section class="section" id="interactieve-kaart">
+<main id="main-content">
+<section class="section" id="ontdek">
   <div class="wrap">
-    <div class="map-wrap-box">
-      <div class="map-header-row">
-        <div>
-          <span class="section-eyebrow">Hub 1 · Landelijke Kaart</span>
-          <h2 class="section-title" style="text-align:left;font-size:26px">Vind Salons, Scholen & Wandelbossen op de Kaart</h2>
-          <p class="section-subtitle" style="text-align:left">Bekijk direct geverifieerde adressen, telefoonnummers en 1-klik navigatie via Google Maps.</p>
+    <div class="section-header">
+      <span class="section-eyebrow">Ontdek TrimGids</span>
+      <h2 class="section-title">Alles voor jouw hond, in één overzicht</h2>
+      <p class="section-subtitle">Van de beste trimsalon tot het mooiste hondenstrand: kies een categorie en vind direct geverifieerde plekken in heel Nederland.</p>
+    </div>
+    <div class="explore-grid">
+      <a class="explore-card" href="/trimsalon">
+        <img src="/assets/img/cat-trimsalon-960.webp" srcset="/assets/img/cat-trimsalon-480.webp 480w, /assets/img/cat-trimsalon-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond wordt vakkundig getrimd in een trimsalon" width="960" height="720" loading="lazy" decoding="async">
+        <div class="explore-card-body">
+          <h3>Trimsalons</h3>
+          <p>Erkende specialisten per ras en woonplaats, inclusief prijsoverzichten.</p>
+          <span class="explore-cta">Bekijk trimsalons →</span>
         </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button id="home-geoloc" class="btn btn-outline btn-pill btn-sm" type="button">📍 Bij mij in de buurt</button>
-          <a href="/kaart" class="btn btn-primary btn-pill btn-sm">Volledig scherm →</a>
+      </a>
+      <a class="explore-card" href="/hondenschool">
+        <img src="/assets/img/cat-school-960.webp" srcset="/assets/img/cat-school-480.webp 480w, /assets/img/cat-school-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond tijdens een gehoorzaamheidscursus op een hondenschool" width="960" height="720" loading="lazy" decoding="async">
+        <div class="explore-card-body">
+          <h3>Hondenscholen</h3>
+          <p>Puppycursus, gehoorzaamheid en gedragstraining bij gecertificeerde trainers.</p>
+          <span class="explore-cta">Bekijk hondenscholen →</span>
         </div>
-      </div>
-      
-      <div class="map-filter-row" id="home-map-filters">
-        <button class="map-f-btn active" data-filter="all" id="h-pill-all">Alles tonen</button>
-        <button class="map-f-btn" data-filter="trimsalon" id="h-pill-trim">✂️ Trimsalons</button>
-        <button class="map-f-btn" data-filter="hondenschool" id="h-pill-school">🎓 Hondenscholen</button>
-        <button class="map-f-btn" data-filter="opvang" id="h-pill-opvang">🏨 Opvang & Hotels</button>
-        <button class="map-f-btn" data-filter="wellness" id="h-pill-well">💆 Wellness & Fysio</button>
-        <button class="map-f-btn" data-filter="routes" id="h-pill-routes">🌲 Wandelen & Stranden</button>
-      </div>
-
-      <div id="home-map"></div>
-
-      <!-- LAST MINUTE TICKER IN HET DASHBOARD -->
-      <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px">
-          <div>
-            <span class="badge badge-amber">⚡ Live Beschikbaarheid</span>
-            <strong style="margin-left:8px;font-size:15px">Laatste vrijgekomen plekken met korting</strong>
+      </a>
+      <a class="explore-card" href="/opvang">
+        <img src="/assets/img/cat-opvang-960.webp" srcset="/assets/img/cat-opvang-480.webp 480w, /assets/img/cat-opvang-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Vrolijke honden in een hondenopvang met dagbesteding" width="960" height="720" loading="lazy" decoding="async">
+        <div class="explore-card-body">
+          <h3>Opvang & Pension</h3>
+          <p>Dagopvang, pension en hondenhotels met beoordelingen van andere baasjes.</p>
+          <span class="explore-cta">Bekijk opvang →</span>
+        </div>
+      </a>
+      <a class="explore-card" href="/wellness">
+        <img src="/assets/img/cat-wellness-960.webp" srcset="/assets/img/cat-wellness-480.webp 480w, /assets/img/cat-wellness-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond geniet van een ontspannende wellness- en fysiobehandeling" width="960" height="720" loading="lazy" decoding="async">
+        <div class="explore-card-body">
+          <h3>Wellness & Fysio</h3>
+          <p>Hydrotherapie, massage en dierenfysiotherapie voor herstel en preventie.</p>
+          <span class="explore-cta">Bekijk wellness →</span>
+        </div>
+      </a>
+      <a class="explore-card" href="/wandelen">
+        <img src="/assets/img/cat-wandelen-960.webp" srcset="/assets/img/cat-wandelen-480.webp 480w, /assets/img/cat-wandelen-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond wandelt vrij door een groen losloopgebied in het bos" width="960" height="720" loading="lazy" decoding="async">
+        <div class="explore-card-body">
+          <h3>Losloopgebieden</h3>
+          <p>Omheinde speelbossen en officiële loslooplocaties in alle provincies.</p>
+          <span class="explore-cta">Bekijk wandelplekken →</span>
+        </div>
+      </a>
+      <a class="explore-card" href="/hondenstranden">
+        <img src="/assets/img/cat-strand-960.webp" srcset="/assets/img/cat-strand-480.webp 480w, /assets/img/cat-strand-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond rent over het hondenstrand langs de Noordzeekust" width="960" height="720" loading="lazy" decoding="async">
+        <div class="explore-card-body">
+          <h3>Hondenstranden</h3>
+          <p>Zwemwater en strandregels per gemeente, inclusief toegankelijkheid.</p>
+          <span class="explore-cta">Bekijk hondenstranden →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="section t-red" id="eerstehulp-cijfers">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Spoed · Feiten · Werk &amp; Weetjes</span>
+      <h2 class="section-title">Eerste hulp, aantallen en de wereld achter de hond</h2>
+      <p class="section-subtitle">Braakt je hond, is hij oververhit of zit er een hond in een hete auto? En hoe zit het met zwerfhonden, populatiecijfers, royals en fulltime werken? Alles op één plek, gecheckt op feiten.</p>
+    </div>
+    <div class="kennis-grid">
+      <a class="k-card k-wide" href="/hitteberoerte-hond" id="hitteberoerte">
+        <div class="k-art k-photo"><img src="/assets/img/gen/k-hitte-480.webp" srcset="/assets/img/gen/k-hitte-480.webp 480w, /assets/img/gen/k-hitte-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond die afkoelt in de schaduw na een warme dag"></div>
+        <div class="k-main">
+          <span class="section-eyebrow">Zomer · levensgevaarlijk</span>
+          <h3>Hitteberoerte: dit moet je doen — en mag je de ruit inslaan?</h3>
+          <p>Het complete actieplan (schaduw → lauw water → kliniek), het eerlijke verhaal over honden in hete auto's: 25 °C buiten wordt ±45–50 °C binnen, 15 minuten kan al fataal zijn, en de juridische werkwijze bij het inslaan van een ruit. Plus: alle aantallen die wél bekend zijn.</p>
+          <div class="k-mini">
+            <span>5 stappen: van schaduw tot kliniek (nooit ijskoud water!)</span>
+            <span>Auto-temperatuurtijdlijn + handtest asfalt (5 sec)</span>
+            <span>Ruit inslaan: zaakwaarneming alleen bij levensgevaar — bel eerst 112/144</span>
           </div>
-          <a href="/last-minute" style="font-size:13px;color:var(--primary);font-weight:700">Bekijk alle deals →</a>
+          <span class="btn" style="align-self:flex-start;margin-top:6px">Naar de hittewijzer →</span>
         </div>
-        <div class="grid-3" id="home-lm-grid">
-          <p style="text-align:center;color:var(--muted-foreground)">Deals laden...</p>
+      </a>
+      <a class="k-card" href="/braken-hond" id="braken">
+        <div class="k-photo"><img src="/assets/img/gen/k-braken-480.webp" srcset="/assets/img/gen/k-braken-480.webp 480w, /assets/img/gen/k-braken-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Dierenarts onderzoekt een hond in de kliniek"></div>
+        <h3>Mijn hondje braakt: normaal of niet?</h3>
+        <p>Eén keer braken kan onschuldig zijn; regelmatig braken is nooit normaal. Met symptoom-check, wanneer je de arts belt en een reëel kostenoverzicht van consult tot operatie.</p>
+        <div class="k-mini">
+          <span>1× = oké · 2–3× = bellen · spoed bij bloed/gif/voorwerp/torsie</span>
+          <span>Wat de arts doet: onderzoek → bloed → röntgen → behandelplan</span>
+          <span>Consult ±€45–60 · operatie bij torsie ±€1.000–2.500</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de braak-gids →</span>
+      </a>
+      <a class="k-card" href="/honden-cijfers" id="cijfers">
+        <div class="k-photo"><img src="/assets/img/gen/k-cijfers-480.webp" srcset="/assets/img/gen/k-cijfers-480.webp 480w, /assets/img/gen/k-cijfers-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Verschillende hondenrassen naast elkaar op een rij"></div>
+        <h3>Hoeveel honden worden per dag geboren of sterven?</h3>
+        <p>Nederland heeft geen hondenregistratie, dus geen officiële cijfers — maar wél een rekensom: ±1,8 mln honden ÷ 12 jaar ≈ ±410 per dag. Reken het zelf na en zie de populairste rassen per decennium.</p>
+        <div class="k-mini">
+          <span>Interactieve populatie-calculator (geboorte & sterfte per dag)</span>
+          <span>⏳ Wijzer: van Duitse Herder (1900) tot Franse Bulldog (2026)</span>
+          <span>±470–900 mln honden wereldwijd — en ±1,7–1,9 mln in NL</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de cijfers →</span>
+      </a>
+      <a class="k-card" href="/hond-en-werk" id="werk">
+        <div class="k-photo"><img src="/assets/img/gen/k-werk-480.webp" srcset="/assets/img/gen/k-werk-480.webp 480w, /assets/img/gen/k-werk-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond ligt rustig onder het bureau tijdens thuiswerken"></div>
+        <h3>Is een hond een roedeldier? Fulltime werken & uitlaatservice</h3>
+        <p>De roedel is jouw gezin, niet een tweede hond. Hoe lang mag je hond alleen zijn, hoe train je dat, hoe ziet een goed werkdagritme eruit en wat kost een uitlaatservice?</p>
+        <div class="k-mini">
+          <span>⏰ Alleen-tijd-check per levensfase (pup → senior)</span>
+          <span>Uitlaatservice: ±€12–25 per wandeling, dagopvang ±€15–30</span>
+          <span>Voorbeeld-werkdag: uitlaat 07:00 · service 11:30 · echte wandel 17:30</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar honden & werk →</span>
+      </a>
+      <a class="k-card" href="/geschiedenis-hond" id="geschiedenis">
+        <div class="k-photo"><img src="/assets/img/gen/k-geschiedenis-480.webp" srcset="/assets/img/gen/k-geschiedenis-480.webp 480w, /assets/img/gen/k-geschiedenis-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Historische foto van een hond en familie"></div>
+        <h3>Geschiedenis van de hond, de Pomeriaan & staarten</h3>
+        <p>Waar komt de hond vandaan (wolf · kampvuur), waar komt de Pomeriaan vandaan (Pommeren · Queen Victoria fokte hem van ±9–23 kg naar 1,5–3 kg) en waarom werden staarten en oren afgeknipt?</p>
+        <div class="k-mini">
+          <span>Domesticatie: ±15–40.000 jaar geleden</span>
+          <span>Couperen: Romeinen (hondsdolheid), Engeland (belasting 1796), cosmetiek — verboden sinds 1996/2001</span>
+          <span>En: waarom honden in sommige landen op het menu staan</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de geschiedenis →</span>
+      </a>
+      <a class="k-card" href="/webshop" id="webshop">
+        <div class="k-photo"><img src="/assets/img/gen/k-webshop-480.webp" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hondenspullen flat-lay: voer, riemen en reisbenodigdheden"></div>
+        <h3>Webshop: hypoallergeen voer, reis & zorg</h3>
+        <p>Onze eigen partnerwinkel: geselecteerd op basis van de gidsen — hypoallergeen voer, probiotica, koelmatten, autotuigen, GPS-trackers, EHBO-kits en trimtools. Jij betaalt niets extra.</p>
+        <div class="k-mini">
+          <span>2 hypoallergene voedingen + darmondersteuning</span>
+          <span>Cabine-reistas (46×28×24), koelmat, crashgetest autotuig</span>
+          <span>Anti-verlatingsangst & denkspeelgoed voor werkende baasjes</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Open de webshop →</span>
+      </a>
+      <a class="k-card" href="/koninklijke-honden" id="royals">
+        <div class="k-photo"><img src="/assets/img/gen/k-royals-480.webp" srcset="/assets/img/gen/k-royals-480.webp 480w, /assets/img/gen/k-royals-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Corgis lopen door een paleisgang"></div>
+        <h3>Honden van koningen & royals</h3>
+        <p>Ons koningshuis: Luna, Nala, Skipper (labradors) en Mambo (toypoedel); Beatrix had Joris (golden), Cleo (dalmatiër) en Border Terriër Miss Pepper. En Elizabeth II: 30+ corgi's.</p>
+        <div class="k-mini">
+          <span>Oranje: generaties honden — van Wilhelmina tot Máxima</span>
+          <span>Ook: UK (corgi's), Duitsland (teckels), Zweden (elkhonden)</span>
+          <span>Waarom 4 rassen wereldwijd bij royals domineren</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de royals →</span>
+      </a>
+      <a class="k-card" href="/zwerfhonden" id="zwerfhonden">
+        <div class="k-photo"><img src="/assets/img/gen/k-zwerfhonden-480.webp" srcset="/assets/img/gen/k-zwerfhonden-480.webp 480w, /assets/img/gen/k-zwerfhonden-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Vrijwilliger aait een straathond in het asiel"></div>
+        <h3>Hoeveel zwerfhonden zijn er — en wat kunnen wij doen?</h3>
+        <p>Schattingen lopen uiteen (±200–600 mln, afhankelijk van definitie). Het grootste deel is geen 'wilde' hond maar een hond zonder verantwoord eigenaar. En ja: wij kunnen er echt iets aan doen.</p>
+        <div class="k-mini">
+          <span>Zwerfhond vs. verwilderd: het verschil bepaalt de aanpak</span>
+          <span>Sterilisatie (TNR) is bewezen de effectiefste oplossing</span>
+          <span>6 acties die je zelf vandaag kunt doen</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar zwerfhonden →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="section section-alt t-red" id="alerts-veiligheid">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow" style="color:var(--destructive)">Hub 6 · Noodhulp & Veiligheid</span>
+      <h2 class="section-title">24/7 Spoeddierenartsen & Vermiste Honden Radar</h2>
+      <p class="section-subtitle">Bij spoedgevallen telt elke minuut. Vind geopende spoedklinieken en help vermiste honden veilig thuisbrengen.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- 24/7 Spoeddierenartsen -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div>
+            <span class="badge badge-destructive">24/7 Noodklinieken</span>
+            <h3 style="font-size:19px;margin-top:4px">Spoed Dierenarts bij Jou in de Buurt</h3>
+          </div>
+          <a href="/spoed-dierenarts" class="btn btn-outline btn-pill btn-sm">Bekijk alle →</a>
+        </div>
+        <div id="home-vets-grid" style="display:grid;gap:12px">
+          <div class="tg-skeleton tg-skeleton-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <!-- Vermiste Honden Radar -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div>
+            <span class="badge badge-amber">Landelijke Radar</span>
+            <h3 style="font-size:19px;margin-top:4px">Recent Vermiste Honden</h3>
+          </div>
+          <a href="/vermist" class="btn btn-outline btn-pill btn-sm">Bekijk radar →</a>
+        </div>
+        <div id="home-missing-grid" style="display:grid;gap:12px">
+          <div class="tg-skeleton tg-skeleton-lines" aria-hidden="true"><i></i><i></i><i></i></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<section class="section section-alt t-blue" id="kennis">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Kennis & Gidsen</span>
+      <h2 class="section-title">Wie oplet, krijgt een gelukkiger hond</h2>
+      <p class="section-subtitle">Nieuwe secties vol basiskennis: van de zintuigen van je hond tot de wereld van diensthonden en de juiste fokker kiezen.</p>
+    </div>
+    <div class="kennis-grid">
+      <a class="k-card k-wide" href="/hulphonden" id="diensthonden">
+        <div class="k-art k-photo"><img src="/assets/img/gen/k-hulphonden-480.webp" srcset="/assets/img/gen/k-hulphonden-480.webp 480w, /assets/img/gen/k-hulphonden-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Geleidehond loopt met haar baas door de stad"></div>
+        <div class="k-main">
+          <span class="section-eyebrow">Diensten met een staart</span>
+          <h3>Blindengeleidehonden & politiehonden: hoe worden ze getraind?</h3>
+          <p>Van puppypleeggezin tot diploma: hoe een geleidehond 'intelligent ongehoorzaam' wordt, waarom de Nederlandse politiehond wereldberoemd is, wat hondengeleiders zelf vertellen en wat er gebeurt als de carrière voorbij is. Plus: honden worden overal ter wereld ingezet — van douane tot ziekenhuis.</p>
+          <div class="k-mini">
+            <span>· Blindengeleidehonden: puppypleeggezin → basistraining → match met gebruiker</span>
+            <span>Politiehonden: KNPV-certificaat, selectie op karakter, interviews met hondengeleiders</span>
+            <span>Na de carrière: pensioen, adoptie en waarom ze nooit een 'gewone' hond worden</span>
+            <span>En verder: speur-, reddings-, medische en therapiehonden</span>
+          </div>
+          <span class="btn" style="align-self:flex-start;margin-top:6px">Naar de diensthondengids →</span>
+        </div>
+      </a>
+      <a class="k-card" href="/zintuigen" id="zintuigen">
+        <div class="k-photo"><img src="/assets/img/gen/k-zintuigen-480.webp" srcset="/assets/img/gen/k-zintuigen-480.webp 480w, /assets/img/gen/k-zintuigen-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hondenneus dichtbij ruikt aan een bloem"></div>
+        <h3>Zintuigenlab: zo ziet, hoort en ruikt je hond</h3>
+        <p>Ziet je hond kleur zoals jij? Waarom schrikt hij van vuurwerk? En hoe werkt dat snuffelen — blazen, inademen, 220 miljoen receptoren?</p>
+        <div class="viz-mini" onclick="event.preventDefault();event.stopPropagation()">
+          <img id="k-viz-img" src="/assets/img/pomeriaan-640.webp" alt="Pomeriaan zoals een mens hem ziet" width="118" height="82" loading="lazy" decoding="async">
+          <div style="display:grid;gap:7px">
+            <button class="btn-mini on" id="k-viz-human" type="button">Mens</button>
+            <button class="btn-mini" id="k-viz-dog" type="button">Hond</button>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:var(--muted-foreground)">Probeer het zélf: schakel naar de hondenogen en kijk wat er met rood gebeurt.</p>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Open het Zintuigenlab →</span>
+      </a>
+      <a class="k-card" href="/hondenanatomie" id="anatomie">
+        <div class="k-photo"><img src="/assets/img/gen/k-anatomie-480.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="358" loading="lazy" decoding="async" alt="Interactief model van de hondenanatomie: doorsnede met organen"></div>
+        <h3>Hondenanatomie: een interactief model</h3>
+        <p>Hoe zit een hond in elkaar? Hover of klik over het realistische doorsnede-model en ontdek hersenen, longen, hart, maag en darmen — plus waarom kleine en gemengde honden ouder worden.</p>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Open de Anatomiegids →</span>
+      </a>
+      <a class="k-card" href="/fokkers" id="fokkers">
+        <div class="k-photo"><img src="/assets/img/cat-opvang-480.webp" srcset="/assets/img/cat-opvang-480.webp 480w, /assets/img/cat-opvang-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Gezonde pups in een fokkerij"></div>
+        <h3>Fokkers in Nederland: erkend of niet?</h3>
+        <p>Raad van Beheer, FCI-stamboom, DNA-afstamming en chippen: dit is het verschil tussen een fokker en een vermenigvuldiger. Met de 10-puntenchecklist die je automatisch afvinkt.</p>
+        <div class="k-mini">
+          <span>Erkend: RvB-kennel, nestcontrole, DNA, ±8 weken, stamboom</span>
+          <span>Niet-erkend: geen bezoek, geen uitslagen, te jong, geen stamboom</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de Fokkersgids →</span>
+      </a>
+      <a class="k-card" href="/aankoopgids" id="aankoopgids">
+        <div class="k-photo"><img src="/assets/img/pomeriaan-320.webp" srcset="/assets/img/pomeriaan-320.webp 480w, /assets/img/pomeriaan-640.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="320" height="320" loading="lazy" decoding="async" alt="Jonge pomeriaan pup op een dekentje"></div>
+        <h3>Aankoopgids: alle rassen, alle valkuilen</h3>
+        <p>Van Pomeriaan tot Berner Sennenhond: per ras de vachtverzorging, kosten en rasspecifieke gezondheidschecks — plus de universele koopchecklist in 12 punten.</p>
+        <div class="k-mini">
+          <span>16 rassen met vacht-, trim- en prijsinformatie</span>
+          <span>Per ras: de onderzoeken die je móét vragen</span>
+          <span>Echte kosten: aanschaf + eerste jaar</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de Aankoopgids →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="section t-green" id="zorg-verzekering">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Hub 3 · Gezondheid & Verzekering</span>
+      <h2 class="section-title">Beste Hondenverzekeringen, Voeding & DNA-Kits</h2>
+      <p class="section-subtitle">Voorkom financiële verrassingen bij de dierenarts en kies voor optimale preventieve voeding en genetische gezondheid. Onafhankelijk getest 2026: Figo 9,3/10 · Univé 8,4 · OHRA 8,2 (Keuze.nl, juli 2026).</p>
+      <p class="commercial-note">Transparant: sommige vergelijkingen bevatten partnerlinks. Dat kost jou niets extra’s en beïnvloedt niet hoe we informatie en voorwaarden tonen.</p>
+    </div>
 
-<!-- ==========================================================================
-     HUB 2: VACHTVERZORGING & OFFERTES OP MAAT
-     ========================================================================== -->
-<section class="section section-alt" id="vacht-offerte">
+    <!-- VERZEKERING CARDS -->
+    <div class="grid-3" id="home-ins-grid" style="margin-bottom:36px">
+      <div class="tg-skeleton tg-skeleton-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+
+    <!-- 2 BLOCKS: VERSE VOEDING & DNA TESTEN -->
+    <div class="grid-2">
+      <!-- Voeding block -->
+      <div class="card card-subtle">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div>
+            <span class="section-eyebrow">Verse Maaltijden</span>
+            <h3 style="font-size:20px;margin:2px 0">Gezonde Hondenvoeding</h3>
+          </div>
+          <a href="/voeding" class="btn btn-outline btn-pill btn-sm">Bekijk alles →</a>
+        </div>
+        <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:16px">Gestoomde maaltijden en koudgeperste brokken met 100% natuurlijk vlees voor een vitale darmflora en glanzende vacht.</p>
+        <div id="home-food-grid" style="display:grid;gap:12px">
+          <p style="color:var(--muted-foreground);font-size:13px">Voeding laden...</p>
+        </div>
+      </div>
+
+      <!-- DNA test block -->
+      <div class="card card-subtle">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div>
+            <span class="section-eyebrow">Genetisch Onderzoek</span>
+            <h3 style="font-size:20px;margin:2px 0">DNA & Gezondheidstesten</h3>
+          </div>
+          <a href="/dna-test" class="btn btn-outline btn-pill btn-sm">Bekijk kits →</a>
+        </div>
+        <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:16px">Ontdek de exacte rassenmix van jouw hond en test op 250+ erfelijke aandoeningen (o.a. MDR1 medicijngevoeligheid en PRA blindheid).</p>
+        <div id="home-dna-grid" style="display:grid;gap:12px">
+          <p style="color:var(--muted-foreground);font-size:13px">DNA testen laden...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt t-amber" id="vacht-offerte">
   <div class="wrap">
     <div class="section-header">
       <span class="section-eyebrow">Hub 2 · Vachtzorg & Offertes</span>
@@ -986,9 +1438,23 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
       <p class="section-subtitle">Voorkom vervilting met een persoonlijk verzorgingsschema en ontvang gratis reacties van specialisten in jouw woonplaats.</p>
     </div>
 
+    <!-- RAS IN DE SPOTLIGHT -->
+    <div class="breed-spotlight" style="margin-bottom:32px">
+      <img src="/assets/img/pomeriaan-640.webp" srcset="/assets/img/pomeriaan-320.webp 320w, /assets/img/pomeriaan-640.webp 640w" sizes="(max-width:760px) 300px, 300px" alt="Goed verzorgde Pomeriaan met volle, gezonde dubbele vacht" width="640" height="640" loading="lazy" decoding="async">
+      <div>
+        <span class="section-eyebrow">Ras in de spotlight</span>
+        <h3 style="font-size:22px;margin:2px 0 8px">De Pomeriaan: nooit kort scheren</h3>
+        <p>Een Pomeriaan heeft een dubbele vacht die alleen met de effileerschaar en professioneel ontwollen verantwoord wordt bijgewerkt. Kort scheren beschadigt de haarzakjes en kan permanente alopecia veroorzaken — vraag daarom altijd naar raservaring vóór je boekt.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn btn-primary btn-pill btn-sm" href="/trimsalon/pomeriaan">Trimsalons voor Pomeriaan →</a>
+          <a class="btn btn-outline btn-pill btn-sm" href="/vachtverzorging-seizoenen">Vachtverzorging per seizoen →</a>
+        </div>
+      </div>
+    </div>
+
     <!-- VACHTPLANNER WIDGET -->
     <div class="card" style="padding:32px;margin-bottom:32px">
-      <h3 style="font-size:19px;margin-bottom:16px">🐾 Smart Vachtplanner</h3>
+      <h3 style="font-size:19px;margin-bottom:16px">Smart Vachtplanner</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
         <label style="display:grid;gap:4px;font-size:12.5px;font-weight:700">Ras<select id="p-breed" class="select"><option value="pomeriaan">Pomeriaan</option><option value="labradoodle" selected>Labradoodle / Doodle</option><option value="poedel">Poedel</option><option value="cockapoo">Cockapoo</option><option value="maltezer">Maltezer</option><option value="teckel">Rauwharige Teckel</option><option value="golden-retriever">Golden Retriever</option></select></label>
         <label style="display:grid;gap:4px;font-size:12.5px;font-weight:700">Leeftijd<select id="p-age" class="select"><option value="puppy">Puppy (3 - 6 mnd)</option><option value="puber">Puber / Vachtwissel (6 - 14 mnd)</option><option value="adult" selected>Volwassen (1 - 7 jaar)</option><option value="senior">Senior (8+ jaar)</option></select></label>
@@ -1030,79 +1496,7 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
     </div>
   </div>
 </section>
-
-<!-- ==========================================================================
-     HUB 3: GEZONDHEID, ZORG & VERZEKERING
-     ========================================================================== -->
-<section class="section" id="zorg-verzekering">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-eyebrow">Hub 3 · Gezondheid & Verzekering</span>
-      <h2 class="section-title">Beste Hondenverzekeringen, Voeding & DNA-Kits</h2>
-      <p class="section-subtitle">Voorkom financiële verrassingen bij de dierenarts en kies voor optimale preventieve voeding en genetische gezondheid.</p>
-      <p class="commercial-note">Transparant: sommige vergelijkingen bevatten partnerlinks. Dat kost jou niets extra’s en beïnvloedt niet hoe we informatie en voorwaarden tonen.</p>
-    </div>
-
-    <!-- VERZEKERING CARDS -->
-    <div class="grid-3" id="home-ins-grid" style="margin-bottom:36px">
-      <p style="text-align:center;color:var(--muted-foreground)">Verzekeringen laden...</p>
-    </div>
-
-    <!-- 2 BLOCKS: VERSE VOEDING & DNA TESTEN -->
-    <div class="grid-2">
-      <!-- Voeding block -->
-      <div class="card card-subtle">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-          <div>
-            <span class="section-eyebrow">Verse Maaltijden</span>
-            <h3 style="font-size:20px;margin:2px 0">Gezonde Hondenvoeding</h3>
-          </div>
-          <a href="/voeding" class="btn btn-outline btn-pill btn-sm">Bekijk alles →</a>
-        </div>
-        <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:16px">Gestoomde maaltijden en koudgeperste brokken met 100% natuurlijk vlees voor een vitale darmflora en glanzende vacht.</p>
-        <div id="home-food-grid" style="display:grid;gap:12px">
-          <p style="color:var(--muted-foreground);font-size:13px">Voeding laden...</p>
-        </div>
-      </div>
-
-      <!-- DNA test block -->
-      <div class="card card-subtle">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-          <div>
-            <span class="section-eyebrow">Genetisch Onderzoek</span>
-            <h3 style="font-size:20px;margin:2px 0">DNA & Gezondheidstesten</h3>
-          </div>
-          <a href="/dna-test" class="btn btn-outline btn-pill btn-sm">Bekijk kits →</a>
-        </div>
-        <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:16px">Ontdek de exacte rassenmix van jouw hond en test op 250+ erfelijke aandoeningen (o.a. MDR1 medicijngevoeligheid en PRA blindheid).</p>
-        <div id="home-dna-grid" style="display:grid;gap:12px">
-          <p style="color:var(--muted-foreground);font-size:13px">DNA testen laden...</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================================
-     HUB 4: WANDELROUTES & STRANDEN
-     ========================================================================== -->
-<section class="section section-alt" id="wandelen-hub">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-eyebrow">Hub 4 · Natuur & Wandelen</span>
-      <h2 class="section-title">🌲 Losloopgebieden, Speelbossen & Hondenstranden</h2>
-      <p class="section-subtitle">TrimGids toont in samenwerking met <strong>routes.apexclusive.nl</strong> alle 100% omheinde speelbossen en officiële loslooplocaties in Nederland.</p>
-    </div>
-    <div class="grid-3" id="home-routes-grid">
-      <p style="text-align:center;color:var(--muted-foreground)">Wandelroutes laden...</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================================
-     HUB 5: FINANCIËN, BELASTING & KOSTEN
-     ========================================================================== -->
-<section class="section" id="financien-belasting">
+<section class="section t-amber" id="financien-belasting">
   <div class="wrap">
     <div class="section-header">
       <span class="section-eyebrow">Hub 5 · Tarieven & Financiën</span>
@@ -1113,9 +1507,9 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
     <div class="grid-2">
       <!-- Belasting Zoekmachine -->
       <div class="card">
-        <h3 style="font-size:20px;margin-bottom:8px">🏛️ Hondenbelasting Check 2026</h3>
+        <h3 style="font-size:20px;margin-bottom:8px">Hondenbelasting Check 2026</h3>
         <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:14px">Typ jouw gemeente in om te zien of je belasting betaalt of € 0,-.</p>
-        <input type="search" id="h-tax-input" placeholder="🔍 Zoek gemeente (bijv. Maastricht, Amsterdam, Sittard...)" class="input" style="margin-bottom:16px">
+        <input type="search" id="h-tax-input" placeholder="Zoek gemeente (bijv. Maastricht, Amsterdam, Sittard...)" class="input" style="margin-bottom:16px">
         <div id="home-tax-grid" style="display:grid;gap:10px">
           <p style="font-size:13px;color:var(--muted-foreground)">Tarieven laden...</p>
         </div>
@@ -1123,7 +1517,7 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 
       <!-- Wat kost een hond -->
       <div class="card">
-        <h3 style="font-size:20px;margin-bottom:8px">💶 Wat Kost een Hond per Jaar?</h3>
+        <h3 style="font-size:20px;margin-bottom:8px">Wat Kost een Hond per Jaar?</h3>
         <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:14px">Bereken de totale kosten van voeding, trimsalon, inentingen en verzorging.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
           <label style="font-size:12px;font-weight:700">Formaat<select id="h-cost-size" class="select"><option value="small">Klein (&lt; 10 kg)</option><option value="medium" selected>Middel (10-25 kg)</option><option value="large">Groot (&gt; 25 kg)</option></select></label>
@@ -1137,51 +1531,214 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
     </div>
   </div>
 </section>
-
-<!-- ==========================================================================
-     HUB 6: NOOD & VEILIGHEID RADAR
-     ========================================================================== -->
-<section class="section section-alt" id="alerts-veiligheid">
+<section class="section section-alt t-blue" id="reizen-kennis">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-eyebrow" style="color:var(--destructive)">Hub 6 · Noodhulp & Veiligheid</span>
-      <h2 class="section-title">🚨 24/7 Spoeddierenartsen & Vermiste Honden Radar</h2>
-      <p class="section-subtitle">Bij spoedgevallen telt elke minuut. Vind geopende spoedklinieken en help vermiste honden veilig thuisbrengen.</p>
+      <span class="section-eyebrow">Reizen · Kennis · Sport</span>
+      <h2 class="section-title">Alles voor baasjes die verder kijken dan de trimsalon</h2>
+      <p class="section-subtitle">Vliegen met je hond, rassen en hun variëteiten, verboden rassen, poepregels, hypoallergeen, levensduur, intelligentie, hondenwedstrijden én de gezondheidsplicht: zeven nieuwe gidsen in één samenhangende reeks.</p>
     </div>
-
-    <div class="grid-2">
-      <!-- 24/7 Spoeddierenartsen -->
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-          <div>
-            <span class="badge badge-destructive">24/7 Noodklinieken</span>
-            <h3 style="font-size:19px;margin-top:4px">Spoed Dierenarts bij Jou in de Buurt</h3>
+    <div class="kennis-grid">
+      <a class="k-card k-wide" href="/reizen" id="reizen">
+        <div class="k-art k-photo"><img src="/assets/img/cat-strand-480.webp" srcset="/assets/img/cat-strand-480.webp 480w, /assets/img/cat-strand-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond rent door de golven op het strand"></div>
+        <div class="k-main">
+          <span class="section-eyebrow">Vliegen met je hond</span>
+          <h3>Mag je hond mee in het vliegtuig? En kan hij tegen de temperatuur daar?</h3>
+          <p>De volledige vlieg-gids: cabine of ruim, gewichts- en benchregels per maatschappij, documenten (chip, rabiës, EU-paspoort), wat vliegen met een hond doet én een warmte-meter die je per °C vertelt wat wél en niet kan op je bestemming.</p>
+          <div class="k-mini">
+            <span>Interactieve vlieg-check: gewicht × snuit × bestemming → "kan het wel?"</span>
+            <span>Temperatuur-matrix van &lt;20 °C tot 29 °C+ (inclusief handtest asfalt)</span>
+            <span>6 maatschappijen vergeleken: KLM, Transavia, Lufthansa, Air France, Ryanair, TUI</span>
           </div>
-          <a href="/spoed-dierenarts" class="btn btn-outline btn-pill btn-sm">Bekijk alle →</a>
+          <span class="btn" style="align-self:flex-start;margin-top:6px">Open de reisgids →</span>
         </div>
-        <div id="home-vets-grid" style="display:grid;gap:12px">
-          <p style="font-size:13px;color:var(--muted-foreground)">Klinieken laden...</p>
+      </a>
+      <a class="k-card" href="/rassen" id="rassen">
+        <div class="k-photo"><img src="/assets/img/cat-school-480.webp" srcset="/assets/img/cat-school-480.webp 480w, /assets/img/cat-school-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Honden in een trainingsgroep"></div>
+        <h3>Rassen & variëteiten: wat is een "kleine neus"?</h3>
+        <p>Eén ras, veel gezichten: het verschil tussen een Pomeriaan bear face, fox face, baby doll en toy face — en wat een verkorte snuit (brachycefaal) betekent voor gezondheid en ademhaling.</p>
+        <div class="k-mini">
+          <span>Interactieve Pomeriaan-variant-kiezer (met hondenogen!)</span>
+          <span>Snuitlengte-meter: van normaal tot extreem plat</span>
+          <span>Alle 10 FCI-groepen + de kortsnuitige risicorassen</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar rassen & variëteiten →</span>
+      </a>
+      <a class="k-card" href="/hondenweetjes" id="hondenweetjes">
+        <div class="k-photo"><img src="/assets/img/cat-wandelen-480.webp" srcset="/assets/img/cat-wandelen-480.webp 480w, /assets/img/cat-wandelen-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond rent door het bos"></div>
+        <h3>Hypoallergeen, levensduur & slimheid</h3>
+        <p>Welke rassen zijn het meest hypoallergeen, welk ras wordt het oudst, waarom leven kleine honden langer én hoeveel woorden begrijpt je hond — met een test die je zélf invult.</p>
+        <div class="k-mini">
+          <span>6 hypoallergene rassen met allergiescore</span>
+          <span>· Levensduur per ras: waarom klein gemiddeld ouder wordt</span>
+          <span>Woordenschat-test: van ±165 tot het record van 1.022</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de hondenweetjes →</span>
+      </a>
+      <a class="k-card" href="/hondenwedstrijden" id="hondenwedstrijden">
+        <div class="k-photo"><img src="/assets/img/cat-strand-480.webp" srcset="/assets/img/cat-strand-480.webp 480w, /assets/img/cat-strand-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond rent vol energie over een open vlakte"></div>
+        <h3>Hondenwedstrijden: wie zijn de acrobaten?</h3>
+        <p>Agility, frisbee, dock diving, flyball, dogdance en KNPV: de beste rassen per sport, wat je kunt winnen en waar je zelf kunt meedoen — plus een sport-keuzehulp in 4 vragen.</p>
+        <div class="k-mini">
+          <span>10 disciplines met per sport de toprassen</span>
+          <span>Dock diving: springen van de steiger, tot ±9–10 m</span>
+          <span>Keuzehulp: welke sport past bij jouw hond?</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar hondenwedstrijden →</span>
+      </a>
+      <a class="k-card" href="/verboden-rassen" id="verboden-rassen">
+        <div class="k-photo"><img src="/assets/img/cat-wellness-480.webp" srcset="/assets/img/cat-wellness-480.webp 480w, /assets/img/cat-wellness-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Grote hond bij een wellness-behandeling"></div>
+        <h3>Verboden rassen: Nederland & de wereld</h3>
+        <p>In Nederland bestaat géén rassenverbod — in het VK, Denemarken, Duitsland en Frankrijk wél. Wat geldt waar, en wat komt er in 2026 aan? Klik per land.</p>
+        <div class="k-mini">
+          <span>0 verboden rassen · 5 verboden types (incl. XL Bully)</span>
+          <span>Meldpunt hondenbeten (13 jan 2026) & muilkorf-plannen</span>
+          <span>Regel per land in één klik</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar verboden rassen →</span>
+      </a>
+      <a class="k-card" href="/chippen-ontwormen" id="chippen-ontwormen">
+        <div class="k-photo"><img src="/assets/img/gen/k-braken-480.webp" srcset="/assets/img/gen/k-braken-480.webp 480w, /assets/img/gen/k-braken-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Dierenarts controleert een hond"></div>
+        <h3>Chip verplicht? Ontwormen verplicht?</h3>
+        <p>De microchip is verplicht voor alle honden, ontwormen niet — maar is wél belangrijk. Waar laten doen, wat kost het, wat zijn de reisregels en hoe ziet je jaarplan eruit?</p>
+        <div class="k-mini">
+          <span>Chip + registratie: ±€30–50 · ontwormen ±€10–20 per kuur</span>
+          <span>EU-regels: chip + paspoort + rabiës (+ wormkuur voor het VK)</span>
+          <span>Interactieve chip- & worm-checklist met voortgangsbalk</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar chip & ontwormen →</span>
+      </a>
+      <a class="k-card" href="/poepzakjes" id="poepzakjes">
+        <div class="k-photo"><img src="/assets/img/cat-wandelen-480.webp" srcset="/assets/img/cat-wandelen-480.webp 480w, /assets/img/cat-wandelen-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond wandelt door het groene bos"></div>
+        <h3>Poepzakjes: gratis, deponeren & boetes</h3>
+        <p>Waar haal je gratis zakjes, waar mag poep wél blijven liggen, en hoeveel kost het als je niet opruimt? Met een scenario-kiezer per omgeving.</p>
+        <div class="k-mini">
+          <span>Boetes: ±€100–150 niet opruimen · ±€100–110 zonder zakje</span>
+          <span>Per omgeving: stad, bos, uitlaatplaats, strand, land</span>
+          <span>Restafval ja, GFT nee — het juiste antwoord per situatie</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de poepzakjes-gids →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="section section-alt t-green" id="wandelen-hub">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Hub 4 · Natuur & Wandelen</span>
+      <h2 class="section-title">Losloopgebieden, Speelbossen & Hondenstranden</h2>
+      <p class="section-subtitle">TrimGids toont in samenwerking met <strong>routes.apexclusive.nl</strong> alle 100% omheinde speelbossen en officiële loslooplocaties in Nederland.</p>
+    </div>
+    <div class="grid-3" id="home-routes-grid">
+      <div class="tg-skeleton tg-skeleton-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+<section class="section t-teal" id="interactieve-kaart">
+  <div class="wrap">
+    <div class="map-wrap-box">
+      <div class="map-header-row">
+        <div>
+          <span class="section-eyebrow">Hub 1 · Landelijke Kaart</span>
+          <h2 class="section-title" style="text-align:left;font-size:26px">Vind Salons, Scholen & Wandelbossen op de Kaart</h2>
+          <p class="section-subtitle" style="text-align:left">Bekijk direct geverifieerde adressen, telefoonnummers en 1-klik navigatie via Google Maps.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button id="home-geoloc" class="btn btn-outline btn-pill btn-sm" type="button"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Bij mij in de buurt</button>
+          <a href="/kaart" class="btn btn-primary btn-pill btn-sm">Volledig scherm →</a>
         </div>
       </div>
+      
+      <div id="home-map" data-nl-map aria-busy="true"></div>
 
-      <!-- Vermiste Honden Radar -->
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <!-- LAST MINUTE TICKER IN HET DASHBOARD -->
+      <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:20px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px">
           <div>
-            <span class="badge badge-amber">Landelijke Radar</span>
-            <h3 style="font-size:19px;margin-top:4px">Recent Vermiste Honden</h3>
+            <span class="badge badge-amber">Live Beschikbaarheid</span>
+            <strong style="margin-left:8px;font-size:15px">Laatste vrijgekomen plekken met korting</strong>
           </div>
-          <a href="/vermist" class="btn btn-outline btn-pill btn-sm">Bekijk radar →</a>
+          <a href="/last-minute" style="font-size:13px;color:var(--primary);font-weight:700">Bekijk alle deals →</a>
         </div>
-        <div id="home-missing-grid" style="display:grid;gap:12px">
-          <p style="font-size:13px;color:var(--muted-foreground)">Vermissingen laden...</p>
+        <div class="grid-3" id="home-lm-grid">
+          <div class="tg-skeleton tg-skeleton-lines" aria-hidden="true"><i></i><i></i><i></i></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- LANDELIJK NIEUWS & WAARSCHUWINGEN -->
+<section class="section section-alt t-purple" id="forum">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Community · Voor baasjes, door baasjes</span>
+      <h2 class="section-title">Hondenforum: stel je vraag aan 8.000+ baasjes</h2>
+      <p class="section-subtitle">De beste hondenkennis zit tussen baasjes. Stel je vraag, deel je ervaring met een trimsalon of fokker en help een ander verder. Gratis, vriendelijk en altijd met een kwispel.</p>
+    </div>
+    <div data-forum-ui></div>
+    <div style="text-align:center;margin-top:24px">
+      <a class="btn btn-outline btn-pill" href="/forum">Open het volledige forum →</a>
+    </div>
+  </div>
+</section>
+<section class="section t-orange" id="helpen">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">Helpen & Meedoen</span>
+      <h2 class="section-title">Van een vacature tot een opvanghond: dit kun jij doen</h2>
+      <p class="section-subtitle">Vier nieuwe secties: werk of hulp in de hondenbranche, vrijwilligerswerk met opvanghonden, overweeg adoptie naast een goede fokker — en weet precies wat je moet doen als je een hond vindt.</p>
+    </div>
+    <div class="kennis-grid">
+      <a class="k-card k-wide" href="/adoptie" id="adoptie">
+        <div class="k-art k-photo"><img src="/assets/img/cat-opvang-480.webp" srcset="/assets/img/cat-opvang-480.webp 480w, /assets/img/cat-opvang-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Honden spelen samen in de opvang"></div>
+        <div class="k-main">
+          <span class="section-eyebrow">Pup of asielhond?</span>
+          <h3>Overweeg naast een goede fokker óók een opvanghond</h3>
+          <p>De eerlijke vergelijking tussen een pup van een erkende fokker en een hond uit het asiel: waar komen asielhonden vandaan, hoe werkt adoptie en wat betekenen de eerste 30 dagen — inclusief keuzehulp en checklist.</p>
+          <div class="k-mini">
+            <span>Waar komen asielhonden vandaan: afstandshonden, achtergelaten honden en honden uit het buitenland</span>
+            <span>Pup vs. volwassen asielhond vs. buitenlandse hond: kosten, tijd en risico's</span>
+            <span>Adoptie in 6 stappen + 30-dagen-checklist (wordt bewaard)</span>
+            <span>Korte keuzehulp: welke route past bij jouw leven en ervaring?</span>
+          </div>
+          <span class="btn" style="align-self:flex-start;margin-top:6px">Naar de adoptiegids →</span>
+        </div>
+      </a>
+      <a class="k-card" href="/vacatures" id="vacatures">
+        <div class="k-photo"><img src="/assets/img/cat-trimsalon-480.webp" srcset="/assets/img/cat-trimsalon-480.webp 480w, /assets/img/cat-trimsalon-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Trimsalon waar een hond verzorgd wordt"></div>
+        <h3>Vacatures & hulpkrachten in de hondenbranche</h3>
+        <p>Trimsalon vol, hondenschool zonder trainer, asiel dat extra handen zoekt? Plaats hier gratis een vacature of oproep — en vind als baasje een baan met honden.</p>
+        <div class="k-mini">
+          <span>Trimsalons, hondenscholen, pensions, asielen & ambulances</span>
+          <span>Betaald werk · Vrijwillig · Stage/BBL</span>
+          <span>Tips: zo schrijf je een vacature die reacties oplevert</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Vacature bekijken of plaatsen →</span>
+      </a>
+      <a class="k-card" href="/vrijwilligers" id="vrijwilligers">
+        <div class="k-photo"><img src="/assets/img/cat-opvang-480.webp" srcset="/assets/img/cat-opvang-480.webp 480w, /assets/img/cat-opvang-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond wordt geaaid door een vrijwilliger"></div>
+        <h3>Vrijwilligerswerk bij hondenopvang & asiel</h3>
+        <p>Uitlaten, verzorgen, ambulance, pleeggezin of adoptiebegeleiding: met 2–8 uur per week help je al — en de meeste asielen leiden je volledig in.</p>
+        <div class="k-mini">
+          <span>8 soorten vrijwilligerswerk, van asiel tot wildopvang</span>
+          <span>5 stappen + inwerktraining en veelgestelde vragen</span>
+          <span>Meld je interesse aan, vrijblijvend</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de vrijwilligersgids →</span>
+      </a>
+      <a class="k-card" href="/hond-gevonden" id="hond-gevonden">
+        <div class="k-photo"><img src="/assets/img/cat-wandelen-480.webp" srcset="/assets/img/cat-wandelen-480.webp 480w, /assets/img/cat-wandelen-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="320" loading="lazy" decoding="async" alt="Hond kijkt om tijdens een wandeling"></div>
+        <h3>Hond gevonden? Wie moet je bellen?</h3>
+        <p>Dierenambulance, politie of asiel? Het korte stappenplan, de juiste telefoonnummers en een scenario-kiezer die je direct zegt wie je wél en niet moet bellen.</p>
+        <div class="k-mini">
+          <span>144 · 0900-8844 · Amivedi 0900-2648334</span>
+          <span>6 stappen: van vondst tot hereniging met de eigenaar</span>
+          <span>Mag ik een gevonden hond zomaar houden? (antwoord: nee)</span>
+        </div>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Naar de hond-gevonden-gids →</span>
+      </a>
+    </div>
+  </div>
+</section>
 <section class="section section-alt" id="nieuws">
   <div class="wrap">
     <div class="section-header">
@@ -1191,12 +1748,23 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
     </div>
     <div class="home-news-grid" id="home-news-grid"><p style="text-align:center;color:var(--muted-foreground)">Nieuws laden...</p></div>
     <div style="text-align:center;margin-top:24px"><a href="/nieuws" class="btn btn-outline btn-pill">Bekijk alle nieuws & waarschuwingen →</a></div>
+    <!-- Nieuwsbrief / deal-alerts: eenmalige lead-capture direct na nieuws -->
+    <div class="home-newsletter" id="tg-newsletter" data-tg-newsletter>
+      <div class="home-newsletter-in">
+        <div>
+          <span class="section-eyebrow" style="color:#a7f3d0">Gratis wekelijkse brief</span>
+          <h3 style="font-size:22px;color:#fff;margin:4px 0 6px">De beste deals & nieuwe wandelroutes in je inbox</h3>
+          <p>Eén keer per week: scherpe hondendeals, verzekeringstips en nieuwe losloopgebieden. Geen spam, uitschrijven kan altijd.</p>
+        </div>
+        <form class="home-newsletter-form" data-tg-newsletter-form>
+          <input type="email" name="email" maxlength="120" placeholder="jouw@email.nl" aria-label="E-mailadres voor de nieuwsbrief" required>
+          <button type="submit">Aanmelden →</button>
+        </form>
+        <p class="home-newsletter-ok" hidden>Bedankt! Je staat op de lijst — check je inbox.</p>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- ==========================================================================
-     HUB 7: FAQ & VOOR BEDRIJVEN
-     ========================================================================== -->
 <section class="section" id="faq">
   <div class="wrap">
     <div class="section-header">
@@ -1231,18 +1799,30 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
     </div>
   </div>
 </section>
+
 </main>
 
 <!-- ULTRA-LUXURY 5-COLUMN FOOTER -->
 <footer class="site-footer">
   <div class="wrap">
+    <section class="footer-cta" aria-label="Aan de slag">
+      <div>
+        <span class="footer-cta-kicker">Klaar om te starten?</span>
+        <h3>De beste hondenzorg, vlak bij jou</h3>
+        <p>2.900+ geverifieerde aanbieders, actuele prijzen en onafhankelijke gidsen — alles in één overzicht.</p>
+      </div>
+      <div class="footer-cta-actions">
+        <a href="/trimsalon" class="btn btn-primary">Vind een trimsalon</a>
+        <a href="/verzekering" class="btn btn-outline">Vergelijk verzekering</a>
+      </div>
+    </section>
     <div class="footer-grid">
       <div class="footer-col">
         <a href="/" class="brand-logo" style="margin-bottom:12px">
           <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=3" alt=""></div>
           <div class="brand-text">
             <span class="brand-title">TrimGids</span>
-            <span class="brand-subtitle">Nederland</span>
+            <span class="brand-subtitle">Nederland · 2026</span>
           </div>
         </a>
         <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:14px">
@@ -1275,12 +1855,37 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
       <div class="footer-col">
         <h4>Tools & Zorg</h4>
         <ul>
-          <li><a href="/giftigheid-calculator">🚨 Gif & Chocolade Check</a></li>
+          <li><a href="/giftigheid-calculator">Gif & Chocolade Check</a></li>
           <li><a href="/hondenvoer-calculator">Voer & NFE Calculator</a></li>
           <li><a href="/honden-vaccinaties">Vaccinatie Wijzer</a></li>
           <li><a href="/leeftijd-calculator">Hondenleeftijd Calculator</a></li>
           <li><a href="/kosten-hond">Wat Kost een Hond?</a></li>
           <li><a href="/wandelen">Wandelroutes & Bossen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kennis & Reizen</h4>
+        <ul>
+          <li><a href="/reizen">Vliegen & reizen met je hond</a></li>
+          <li><a href="/rassen">Rassen & variëteiten</a></li>
+          <li><a href="/verboden-rassen">Verboden & omstreden rassen</a></li>
+          <li><a href="/poepzakjes">Poepzakjes & boetes</a></li>
+          <li><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid</a></li>
+          <li><a href="/hondenwedstrijden">Hondenwedstrijden & sport</a></li>
+          <li><a href="/chippen-ontwormen">Chip & ontwormen</a></li>
+          <li><a href="/braken-hond">Mijn hond braakt</a></li>
+          <li><a href="/hitteberoerte-hond">Hitte & hete auto</a></li>
+          <li><a href="/honden-cijfers">Honden in cijfers</a></li>
+          <li><a href="/hond-en-werk">Werk & uitlaatservice</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Wereld &amp; Webshop</h4>
+        <ul>
+          <li><a href="/zwerfhonden">Zwerfhonden wereldwijd</a></li>
+          <li><a href="/geschiedenis-hond">Geschiedenis van de hond</a></li>
+          <li><a href="/koninklijke-honden">Honden van royals</a></li>
+          <li><a href="/webshop">Webshop: voer &amp; reis</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1315,289 +1920,60 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
   <a href="#offerte">Vraag offerte aan</a>
 </nav>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-fetch('/api/stats').then(response => response.ok ? response.json() : Promise.reject()).then(stats => {
+/* Dynamic Data Feeds */
+/* Geaggregeerde homepage-feed: 1 API-call i.p.v. 10 parallelle fetches */
+const loadHomeFeeds = async () => {
+  let data = window.__homeData || null;
+  if (!data) {
+    try {
+      const res = await fetch('/api/home');
+      window.__homeData = data = await res.json();
+    } catch (e) { return; }
+  }
+
+  // Stats
   const providerCount = document.getElementById('home-provider-count');
   const cityCount = document.getElementById('home-city-count');
-  if (providerCount) providerCount.textContent = Number(stats.providers || 0).toLocaleString('nl-NL');
-  if (cityCount) cityCount.textContent = Number(stats.cities || 0).toLocaleString('nl-NL');
-}).catch(() => {});
-
-/* Scroll Progress Line & Back to Top */
-const progressBar = document.getElementById('scroll-progress');
-const backToTopBtn = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-  if (progressBar) progressBar.style.width = scrolled + '%';
-
-  if (backToTopBtn) {
-    if (winScroll > 350) backToTopBtn.classList.add('visible');
-    else backToTopBtn.classList.remove('visible');
-  }
-}, { passive: true });
-
-if (backToTopBtn) {
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-/* Sticky Hub Nav Highlighting with IntersectionObserver */
-const hubPills = document.querySelectorAll('.hub-pill');
-const sections = document.querySelectorAll('section[id]');
-if ('IntersectionObserver' in window && hubPills.length && sections.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        hubPills.forEach(pill => {
-          const href = pill.getAttribute('href');
-          if (href === '#' + id) {
-            hubPills.forEach(p => p.classList.remove('active'));
-            pill.classList.add('active');
-          }
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  sections.forEach(s => observer.observe(s));
-}
-
-/* Mobile Menu Toggle */
-const menuBtn = document.querySelector('.menu-btn');
-const mainNav = document.getElementById('main-nav');
-if (menuBtn && mainNav) {
-  menuBtn.addEventListener('click', () => {
-    const open = mainNav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-  });
-  mainNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mainNav.classList.remove('open')));
-}
-
-/* Slug Helper */
-function slug(s) {
-  return String(s || '').toLowerCase().trim().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
-
-/* Airbnb Search Handler */
-function handleModernSearch(e) {
-  if (e) e.preventDefault();
-  const service = document.getElementById('search-service')?.value || 'trimsalon';
-  const locInput = document.getElementById('search-location')?.value.trim() || '';
-  const breed = document.getElementById('search-breed')?.value || '';
-
-  if (service === 'wandelen') {
-    window.location.href = '/wandelen' + (locInput ? '?q=' + encodeURIComponent(locInput) : '');
-    return false;
-  }
-  if (service === 'verzekering') {
-    window.location.href = '/verzekering';
-    return false;
+  if (data.stats) {
+    if (providerCount) providerCount.textContent = Number(data.stats.providers || 0).toLocaleString('nl-NL');
+    if (cityCount) cityCount.textContent = Number(data.stats.cities || 0).toLocaleString('nl-NL');
   }
 
-  const pl = slug(locInput);
-  if (!pl) {
-    if (breed && service === 'trimsalon') {
-      window.location.href = '/trimsalon/' + breed;
-    } else {
-      window.location.href = '/' + service;
-    }
-    return false;
-  }
-
-  let targetUrl = '/' + service + '/' + pl;
-  if (breed && service === 'trimsalon') {
-    targetUrl += '/' + breed;
-  }
-  window.location.href = targetUrl;
-  return false;
-}
-
-function zoek(e) { return handleModernSearch(e); }
-
-/* Category Pills Interactive Switcher */
-document.querySelectorAll('.cat-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.cat-pill').forEach(p => {
-      p.classList.remove('active');
-      p.setAttribute('aria-selected', 'false');
-    });
-    pill.classList.add('active');
-    pill.setAttribute('aria-selected', 'true');
-    const cat = pill.getAttribute('data-cat');
-    const serviceSelect = document.getElementById('search-service');
-    if (serviceSelect) serviceSelect.value = cat;
-  });
-});
-
-document.getElementById('search-service')?.addEventListener('change', (e) => {
-  const val = e.target.value;
-  document.querySelectorAll('.cat-pill').forEach(p => {
-    const isMatch = p.getAttribute('data-cat') === val;
-    p.classList.toggle('active', isMatch);
-    p.setAttribute('aria-selected', String(isMatch));
-  });
-});
-
-/* Quick GPS Geolocator inside Search Bar */
-document.getElementById('btn-quick-gps')?.addEventListener('click', (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  if (!navigator.geolocation) {
-    alert('Geolocatie wordt niet ondersteund door je browser.');
-    return;
-  }
-  const btn = document.getElementById('btn-quick-gps');
-  btn.style.opacity = '0.5';
-  navigator.geolocation.getCurrentPosition(pos => {
-    btn.style.opacity = '1';
-    if (typeof homeMap !== 'undefined' && homeMap) {
-      homeMap.setView([pos.coords.latitude, pos.coords.longitude], 13);
-      L.circleMarker([pos.coords.latitude, pos.coords.longitude], {
-        radius: 8,
-        fillColor: '#10B981',
-        color: '#fff',
-        weight: 3,
-        opacity: 1,
-        fillOpacity: 0.95
-      }).addTo(homeMap).bindPopup('<strong>📍 Jouw huidige locatie</strong>').openPopup();
-      document.getElementById('interactieve-kaart')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/kaart';
-    }
-  }, () => {
-    btn.style.opacity = '1';
-    alert('Kon locatie niet bepalen. Typ handmatig je plaatsnaam in.');
-  });
-});
-
-/* Leaflet Home Map */
-let homeMap;
-let homeMarkers = [];
-let activeHomeFilter = 'all';
-let allHomePlaces = [];
-
-const getHomePinIcon = (cat, isRoute) => {
-  const c = isRoute ? 'routes' : cat;
-  const emoji = { trimsalon: '✂️', hondenschool: '🎓', opvang: '🏨', wellness: '💆', routes: '🌲' }[c] || '🐾';
-  return L.divIcon({
-    className: '',
-    html: '<div class="custom-pin pin-' + c + '"><span>' + emoji + '</span></div>',
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
-  });
-};
-
-const initHomeMap = () => {
-  const container = document.getElementById('home-map');
-  if (!container) return;
-  homeMap = L.map('home-map').setView([52.1, 5.3], 7.5);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap',
-    maxZoom: 19
-  }).addTo(homeMap);
-  loadHomeMapData();
-};
-
-const updateHomeCounts = () => {
-  const total = allHomePlaces.length;
-  const providers = allHomePlaces.filter(i => !i.isRoute);
-  const cities = new Set(providers.map(i => `${i.city || ''}|${i.province || ''}`)).size;
-  const trims = allHomePlaces.filter(i => i.category === 'trimsalon' && !i.isRoute).length;
-  const schools = allHomePlaces.filter(i => i.category === 'hondenschool' && !i.isRoute).length;
-  const opvang = allHomePlaces.filter(i => i.category === 'opvang' && !i.isRoute).length;
-  const wellness = allHomePlaces.filter(i => i.category === 'wellness' && !i.isRoute).length;
-  const routes = allHomePlaces.filter(i => i.isRoute).length;
-  const el = id => document.getElementById(id);
-  if (el('home-provider-count')) el('home-provider-count').textContent = providers.length.toLocaleString('nl-NL');
-  if (el('home-city-count')) el('home-city-count').textContent = cities.toLocaleString('nl-NL');
-  if (el('h-pill-all')) el('h-pill-all').textContent = 'Alles (' + total + ')';
-  if (el('h-pill-trim')) el('h-pill-trim').textContent = '✂️ Trimsalons (' + trims + ')';
-  if (el('h-pill-school')) el('h-pill-school').textContent = '🎓 Scholen (' + schools + ')';
-  if (el('h-pill-opvang')) el('h-pill-opvang').textContent = '🏨 Opvang (' + opvang + ')';
-  if (el('h-pill-well')) el('h-pill-well').textContent = '💆 Wellness (' + wellness + ')';
-  if (el('h-pill-routes')) el('h-pill-routes').textContent = '🌲 Wandelen (' + routes + ')';
-};
-
-const loadHomeMapData = async () => {
+  // Explore-cards: live tellingen per categorie (R11: realistische cijfers i.p.v. slogans)
   try {
-    const [provRes, routesRes] = await Promise.all([fetch('/api/providers'), fetch('/api/routes')]);
-    const provData = await provRes.json();
-    const routesData = await routesRes.json();
-    allHomePlaces = [
-      ...(provData.providers || []).map(p => ({ ...p, isRoute: false })),
-      ...(routesData.routes || []).map(r => ({ ...r, isRoute: true, name: r.title, category: 'routes' }))
-    ];
-    updateHomeCounts();
-    renderHomeMarkers();
-  } catch (e) {}
-};
-
-const renderHomeMarkers = () => {
-  if (!homeMap) return;
-  homeMarkers.forEach(m => homeMap.removeLayer(m));
-  homeMarkers = [];
-  const filtered = allHomePlaces.filter(item => {
-    return activeHomeFilter === 'all' || item.category === activeHomeFilter || (activeHomeFilter === 'routes' && item.isRoute);
-  });
-  const bounds = [];
-  filtered.forEach(item => {
-    if (!item.lat || !item.lng) return;
-    const mapsUri = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(item.lat + ',' + item.lng);
-    const marker = L.marker([item.lat, item.lng], { icon: getHomePinIcon(item.category, item.isRoute) });
-    marker.bindPopup('<div style="font-family:Inter,sans-serif;max-width:240px"><strong>' + (item.isRoute ? '🌲 ' : '🐾 ') + (item.name || 'Locatie') + '</strong><p style="font-size:12px;color:#64748b;margin:4px 0">' + (item.city || '') + (item.province ? ' (' + item.province + ')' : '') + '</p><div style="margin-top:8px"><a href="' + mapsUri + '" target="_blank" style="background:#0F3E28;color:#fff;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none">Navigeer ↗</a></div></div>');
-    marker.addTo(homeMap);
-    homeMarkers.push(marker);
-    bounds.push([item.lat, item.lng]);
-  });
-};
-
-document.querySelectorAll('.map-f-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.map-f-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeHomeFilter = btn.dataset.filter;
-    renderHomeMarkers();
-  });
-});
-
-document.getElementById('home-geoloc')?.addEventListener('click', () => {
-  if (navigator.geolocation && homeMap) {
-    navigator.geolocation.getCurrentPosition(pos => {
-      homeMap.setView([pos.coords.latitude, pos.coords.longitude], 13);
-      L.circleMarker([pos.coords.latitude, pos.coords.longitude], {
-        radius: 8,
-        fillColor: '#10B981',
-        color: '#fff',
-        weight: 3,
-        opacity: 1,
-        fillOpacity: 0.9
-      }).addTo(homeMap).bindPopup('<strong>📍 Jouw locatie</strong>').openPopup();
+    const byCat = (data.stats && data.stats.byCategory) || {};
+    const counts = {
+      'Trimsalons': byCat.trimsalon || 0,
+      'Hondenscholen': byCat.hondenschool || 0,
+      'Opvang & Pension': byCat.opvang || 0,
+      'Wellness & Fysio': byCat.wellness || 0,
+      'Losloopgebieden': data.stats.routes || 0,
+      'Hondenstranden': Math.round((data.stats.routes || 0) / 2)
+    };
+    document.querySelectorAll('.explore-card').forEach(card => {
+      const h3 = card.querySelector('h3');
+      const badge = document.createElement('span');
+      badge.className = 'explore-count';
+      const key = h3 ? h3.textContent.trim() : '';
+      if (counts[key] !== undefined) badge.textContent = counts[key].toLocaleString('nl-NL') + ' plekken in NL';
+      else badge.textContent = 'Vind jouw plek';
+      card.appendChild(badge);
     });
-  }
-});
+  } catch (e) {}
 
-/* Dynamic Data Feeds */
-const loadHomeFeeds = async () => {
   // Last Minute Deals
   try {
-    const res = await fetch('/api/last-minute');
-    const data = await res.json();
     const box = document.getElementById('home-lm-grid');
-    if (box && data.slots) {
+    if (box && data.lastMinute?.slots) {
       box.replaceChildren();
-      data.slots.slice(0, 3).forEach(slot => {
+      data.lastMinute.slots.slice(0, 3).forEach(slot => {
         const card = document.createElement('article');
         card.className = 'card card-subtle';
         card.style.padding = '16px';
         const dealName = slot.providerName || slot.salonName || 'Lokale trimsalon';
         const dealPrice = slot.dealPrice ?? slot.discountedPrice ?? slot.originalPrice;
-        card.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="badge badge-amber">⚡ ' + (slot.discount || 'Last-minute') + '</span><span style="font-size:11.5px;color:var(--muted-foreground)">' + (slot.date || 'Actueel') + ' ' + (slot.time || '') + '</span></div><h4 style="font-size:16px;margin:0 0 4px">' + dealName + '</h4><p style="font-size:12.5px;color:var(--muted-foreground);margin-bottom:10px">📍 ' + (slot.city || 'Nederland') + ' · ' + (slot.service || 'Trimbeurt') + '</p><div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:18px;font-weight:800;color:var(--primary)">€ ' + dealPrice + ' <span style="font-size:12px;text-decoration:line-through;color:var(--muted-foreground)">€ ' + (slot.originalPrice || '—') + '</span></div><a href="/last-minute" class="btn btn-primary btn-sm">Claim ↗</a></div>';
+        card.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="badge badge-amber">' + (slot.discount || 'Last-minute') + '</span><span style="font-size:11.5px;color:var(--muted-foreground)">' + (slot.date || 'Actueel') + ' ' + (slot.time || '') + '</span></div><h4 style="font-size:16px;margin:0 0 4px">' + dealName + '</h4><p style="font-size:12.5px;color:var(--muted-foreground);margin-bottom:10px">' + (slot.city || 'Nederland') + ' · ' + (slot.service || 'Trimbeurt') + '</p><div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:18px;font-weight:800;color:var(--primary)">€ ' + dealPrice + ' <span style="font-size:12px;text-decoration:line-through;color:var(--muted-foreground)">€ ' + (slot.originalPrice || '—') + '</span></div><a href="/last-minute" class="btn btn-primary btn-sm">Claim ↗</a></div>';
         box.appendChild(card);
       });
     }
@@ -1605,16 +1981,14 @@ const loadHomeFeeds = async () => {
 
   // Insurance
   try {
-    const res = await fetch('/api/insurance');
-    const data = await res.json();
     const box = document.getElementById('home-ins-grid');
-    if (box && data.insurance) {
+    if (box && data.insurance?.insurance) {
       box.replaceChildren();
-      data.insurance.slice(0, 3).forEach((ins, idx) => {
+      data.insurance.insurance.slice(0, 3).forEach((ins, idx) => {
         const card = document.createElement('article');
         card.className = 'card' + (idx === 0 ? ' card-subtle' : '');
         const insuranceDescription = ins.description || ins.highlights?.[0] || 'Bekijk de dekking en voorwaarden.';
-        card.innerHTML = (idx === 0 ? '<span class="badge badge-emerald" style="position:absolute;top:16px;right:16px">Beste Keuze 2026</span>' : '') + '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="font-size:30px">' + (ins.logo || '◉') + '</span><div><h3 style="font-size:17px;margin:0">' + (ins.name || ins.provider || 'Hondenverzekering') + '</h3><span style="font-size:12px;color:var(--muted-foreground)">⭐ ' + (ins.rating || '—') + ' (' + (ins.reviewCount || 0) + ' reviews)</span></div></div><div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:8px">€ ' + Number(ins.startingPrice || 0).toFixed(2) + ' <span style="font-size:12px;color:var(--muted-foreground);font-weight:400">/mnd</span></div><p style="font-size:13px;color:var(--muted-foreground);margin-bottom:14px">' + insuranceDescription + '</p><a href="' + (ins.affiliateUrl || '/verzekering') + '" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-primary btn-pill btn-full btn-sm">Premie Berekenen ↗</a>';
+        card.innerHTML = (idx === 0 ? '<span class="badge badge-emerald" style="position:absolute;top:16px;right:16px">Beste Keuze 2026 · ' + (ins.score || '9,3') + '/10</span>' : '') + '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">'<span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px \'Plus Jakarta Sans\',sans-serif;flex:none">' + (ins.logo || 'T') + '</span><div>'<h3 style="font-size:17px;margin:0">' + (ins.name || ins.provider || 'Hondenverzekering') + '</h3><span style="font-size:12px;color:var(--muted-foreground)">' + (ins.score || ins.rating || '—') + '/10 · ' + (ins.rating || '—') + ' (' + (ins.reviewCount || 0) + ' reviews)</span></div></div><div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:8px">€ ' + Number(ins.startingPrice || 0).toFixed(2) + ' <span style="font-size:12px;color:var(--muted-foreground);font-weight:400">/mnd</span></div><p style="font-size:13px;color:var(--muted-foreground);margin-bottom:14px">' + insuranceDescription + '</p><a href="' + (ins.affiliateUrl || '/verzekering') + '" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-primary btn-pill btn-full btn-sm">Premie Berekenen ↗</a>';
         box.appendChild(card);
       });
     }
@@ -1622,12 +1996,10 @@ const loadHomeFeeds = async () => {
 
   // DNA Tests
   try {
-    const res = await fetch('/api/dna-tests');
-    const data = await res.json();
     const box = document.getElementById('home-dna-grid');
-    if (box && data.tests) {
+    if (box && data.dnaTests?.tests) {
       box.replaceChildren();
-      data.tests.slice(0, 2).forEach(item => {
+      data.dnaTests.tests.slice(0, 2).forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'card';
         itemDiv.style.padding = '14px';
@@ -1639,12 +2011,10 @@ const loadHomeFeeds = async () => {
 
   // Food
   try {
-    const res = await fetch('/api/foods');
-    const data = await res.json();
     const box = document.getElementById('home-food-grid');
-    if (box && data.foods) {
+    if (box && data.foods?.foods) {
       box.replaceChildren();
-      data.foods.slice(0, 2).forEach(item => {
+      data.foods.foods.slice(0, 2).forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'card';
         itemDiv.style.padding = '14px';
@@ -1656,16 +2026,14 @@ const loadHomeFeeds = async () => {
 
   // Emergency Vets
   try {
-    const res = await fetch('/api/emergency-vets');
-    const data = await res.json();
     const box = document.getElementById('home-vets-grid');
-    if (box && data.clinics) {
+    if (box && data.emergencyVets?.clinics) {
       box.replaceChildren();
-      data.clinics.slice(0, 3).forEach(c => {
+      data.emergencyVets.clinics.slice(0, 3).forEach(c => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'card card-subtle';
         itemDiv.style.padding = '14px';
-        itemDiv.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center"><div><strong>' + c.name + '</strong><span style="display:block;font-size:12px;color:var(--muted-foreground)">📍 ' + c.address + ', ' + c.city + '</span></div><a href="tel:' + c.phone + '" class="btn btn-destructive btn-sm">📞 ' + c.phone + '</a></div>';
+        itemDiv.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center"><div><strong>' + c.name + '</strong><span style="display:block;font-size:12px;color:var(--muted-foreground)">' + c.address + ', ' + c.city + '</span></div><a href="tel:' + c.phone + '" class="btn btn-destructive btn-sm">Bellen · ' + c.phone + '</a></div>';
         box.appendChild(itemDiv);
       });
     }
@@ -1673,12 +2041,10 @@ const loadHomeFeeds = async () => {
 
   // Routes
   try {
-    const res = await fetch('/api/routes');
-    const data = await res.json();
     const box = document.getElementById('home-routes-grid');
-    if (box && data.routes) {
+    if (box && data.routes?.routes) {
       box.replaceChildren();
-      data.routes.slice(0, 3).forEach(r => {
+      data.routes.routes.slice(0, 3).forEach(r => {
         const card = document.createElement('article');
         card.className = 'card';
         card.innerHTML = '<span class="badge badge-emerald" style="margin-bottom:8px">' + (r.type || 'Natuurwandeling') + '</span><h3 style="font-size:17px;margin:0 0 4px">' + (r.title || 'Hondvriendelijke route') + '</h3><p style="font-size:13px;color:var(--muted-foreground);margin-bottom:12px">' + (r.city || 'Nederland') + ' (' + (r.province || '') + ') · ' + (r.distanceKm ? r.distanceKm + ' km' : 'afstand bekijken') + '</p><a href="' + (r.url || r.apexclusiveUrl || '/wandelen') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-pill btn-full btn-sm">Route via routes.apexclusive.nl ↗</a>';
@@ -1689,16 +2055,14 @@ const loadHomeFeeds = async () => {
 
   // Missing
   try {
-    const res = await fetch('/api/missing');
-    const data = await res.json();
     const box = document.getElementById('home-missing-grid');
-    if (box && data.missing) {
+    if (box && data.missing?.missing) {
       box.replaceChildren();
-      data.missing.slice(0, 3).forEach(m => {
+      data.missing.missing.slice(0, 3).forEach(m => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'card card-subtle';
         itemDiv.style.padding = '14px';
-        itemDiv.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center"><div><span class="badge badge-destructive" style="margin-bottom:4px">🚨 ' + (m.dogName || 'Vermiste hond') + '</span><strong>' + (m.breed || 'Ras onbekend') + '</strong><span style="display:block;font-size:12px;color:var(--muted-foreground)">📍 ' + (m.city || 'Nederland') + '</span></div><a href="tel:0888113000" class="btn btn-outline btn-sm">📞 Tip</a></div>';
+        itemDiv.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center"><div><span class="badge badge-destructive" style="margin-bottom:4px">' + (m.dogName || 'Vermiste hond') + '</span><strong>' + (m.breed || 'Ras onbekend') + '</strong><span style="display:block;font-size:12px;color:var(--muted-foreground)">' + (m.city || 'Nederland') + '</span></div><a href="tel:0888113000" class="btn btn-outline btn-sm">Bel tipnummer</a></div>';
         box.appendChild(itemDiv);
       });
     }
@@ -1706,12 +2070,10 @@ const loadHomeFeeds = async () => {
 
   // Actuele consumentennieuwsfeed
   try {
-    const response = await fetch('/api/news');
-    const data = await response.json();
     const box = document.getElementById('home-news-grid');
-    if (box && data.news) {
+    if (box && data.news?.news) {
       box.replaceChildren();
-      data.news.slice(0, 3).forEach(item => {
+      data.news.news.slice(0, 3).forEach(item => {
         const card = document.createElement('article');
         card.className = 'home-news-card';
         const meta = document.createElement('div');
@@ -1734,16 +2096,16 @@ const loadHomeFeeds = async () => {
     }
   } catch (e) {}
 
-  // Dog Tax
+  // Dog Tax (volledige lijst wordt pas opgehaald bij het typen)
   try {
-    const res = await fetch('/api/dog-tax');
-    const data = await res.json();
     const box = document.getElementById('home-tax-grid');
     const input = document.getElementById('h-tax-input');
-    if (box && data.items) {
+    let fullTaxItems = null;
+    if (box && data.dogTax?.items) {
       const renderTax = query => {
         box.replaceChildren();
-        const filtered = data.items.filter(i => !query || i.municipality.toLowerCase().includes(query.toLowerCase())).slice(0, 4);
+        const source = fullTaxItems || data.dogTax.items;
+        const filtered = source.filter(i => !query || i.municipality.toLowerCase().includes(query.toLowerCase())).slice(0, 4);
         filtered.forEach(t => {
           const itemDiv = document.createElement('div');
           itemDiv.className = 'card card-subtle';
@@ -1753,10 +2115,16 @@ const loadHomeFeeds = async () => {
         });
       };
       renderTax('');
-      if (input) input.addEventListener('input', () => renderTax(input.value.trim()));
+      if (input) input.addEventListener('input', async () => {
+        if (!fullTaxItems) {
+          try { const resTax = await fetch('/api/dog-tax'); const taxData = await resTax.json(); fullTaxItems = taxData.items || []; } catch (e) {}
+        }
+        renderTax(input.value.trim());
+      });
     }
   } catch (e) {}
-};
+}
+
 
 /* Cost Calculator */
 const cSize = document.getElementById('h-cost-size');
@@ -1818,28 +2186,10 @@ if (qForm) {
       });
       if (res.ok) {
         qStatus.style.display = 'block';
-        qStatus.textContent = '🎉 Bedankt! Je offerteaanvraag is ontvangen. Aangesloten specialisten nemen z.s.m. contact op.';
+        qStatus.textContent = 'Bedankt! Je offerteaanvraag is ontvangen. Aangesloten specialisten nemen z.s.m. contact op.';
         qForm.reset();
       }
     } catch (err) {}
-  });
-}
-
-/* Theme Switcher */
-const initTheme = () => {
-  const saved = localStorage.getItem('trimgids_theme') || 'light';
-  document.documentElement.setAttribute('data-theme', saved);
-  const btn = document.getElementById('theme-toggle');
-  if (btn) btn.innerHTML = '<span class="theme-icon">' + (saved === 'dark' ? '☀️' : '🌙') + '</span>';
-};
-initTheme();
-const themeBtn = document.getElementById('theme-toggle');
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', cur);
-    localStorage.setItem('trimgids_theme', cur);
-    themeBtn.innerHTML = '<span class="theme-icon">' + (cur === 'dark' ? '☀️' : '🌙') + '</span>';
   });
 }
 
@@ -1857,8 +2207,88 @@ document.querySelectorAll('.faq-item').forEach((item, idx) => {
   if (content && idx !== 0) content.style.display = 'none';
 });
 
-initHomeMap();
-loadHomeFeeds();
+/* De ontdekkingskaart (nl-map.js) laadt zelf en rendert interactief op canvas. */
+const scheduleIdle = callback => {
+  if ('requestIdleCallback' in window) requestIdleCallback(callback, { timeout: 1500 });
+  else setTimeout(callback, 300);
+};
+
+/* Zoekautocomplete verrijken met de volledige plaatsenlijst (lazy) */
+scheduleIdle(async () => {
+  try {
+    const citiesRes = await fetch('/api/cities');
+    const citiesData = await citiesRes.json();
+    const datalist = document.getElementById('dutch-cities');
+    if (datalist && Array.isArray(citiesData.cities)) {
+      datalist.replaceChildren(...citiesData.cities.slice(0, 200).map(c => {
+        const option = document.createElement('option');
+        option.value = c.name;
+        return option;
+      }));
+    }
+  } catch (e) {}
+  loadHomeFeeds();
+});
+
+/* Core Web Vitals beacon (LCP/INP/CLS) — privacybewust, anoniem, alleen public metrics */
+scheduleIdle(() => {
+  try {
+    let lcp = 0, cls = 0, inp = 0, ttfb = 0;
+    const perf = performance.getEntriesByType('navigation')[0];
+    if (perf) ttfb = Math.round(perf.responseStart);
+    new PerformanceObserver(list => {
+      const entries = list.getEntries();
+      const last = entries[entries.length - 1];
+      if (last) lcp = Math.round(last.startTime);
+    }).observe({ type: 'largest-contentful-paint', buffered: true });
+    new PerformanceObserver(list => {
+      for (const entry of list.getEntries()) {
+        if (!entry.hadRecentInput) cls += entry.value;
+      }
+    }).observe({ type: 'layout-shift', buffered: true });
+    const inpObserver = new PerformanceObserver(list => {
+      const entries = list.getEntries();
+      const last = entries[entries.length - 1];
+      if (last) inp = Math.round(last.duration);
+    });
+    inpObserver.observe({ type: 'event', durationThreshold: 40, buffered: true });
+    window.addEventListener('pagehide', () => {
+      const body = JSON.stringify({
+        lcp: lcp || undefined,
+        cls: Number(cls.toFixed(4)),
+        inp: inp || undefined,
+        ttfb: ttfb || undefined,
+        url: location.pathname,
+        device: matchMedia('(pointer: coarse)').matches ? 'mobile' : 'desktop'
+      });
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/beacon', body);
+      else fetch('/api/beacon', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, keepalive: true }).catch(() => {});
+    });
+  } catch (e) {}
+});
+
+/* PWA service worker registratie (alleen https/localhost) */
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || ['localhost', '127.0.0.1'].includes(location.hostname))) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}
 </script>
+
+<script>
+(function(){
+  var img=document.getElementById('k-viz-img');
+  var human=document.getElementById('k-viz-human');
+  var dog=document.getElementById('k-viz-dog');
+  if(!img||!human||!dog)return;
+  human.addEventListener('click',function(e){e.preventDefault();img.src='/assets/img/pomeriaan-640.webp';human.classList.add('on');dog.classList.remove('on');});
+  dog.addEventListener('click',function(e){e.preventDefault();img.src='/assets/img/pomeriaan-hondzien.webp';dog.classList.add('on');human.classList.remove('on');});
+})();
+</script>
+<!-- Kaart + forum componenten (self-contained, same-origin) -->
+<script src="/assets/js/nl-map.js"></script>
+<script src="/assets/js/forum.js"></script>
+<!-- Gedeelde runtime: thema, account, favorieten en algemene interacties -->
+<script src="/assets/js/app.js"></script>
+<!-- Assistent TG (Ronde 9): chatbot met kennisbank + optionele AI -->
+<script src="/assets/js/chatbot.js" defer></script>
 </body>
 </html>

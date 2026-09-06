@@ -1,3 +1,13 @@
 .DS_Store
 .env
 .vercel
+data/web-vitals.json
+data/quote-requests.json
+data/requests.json
+data/responses.json
+data/reviews.json
+data/claims.json
+data/poll-votes.json
+data/profiles.json
+data/vrijwilligers.json
+node_modules

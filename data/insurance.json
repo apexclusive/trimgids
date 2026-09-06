@@ -3,98 +3,277 @@
     "id": "figo-pet-insurance",
     "provider": "Figo Pet",
     "name": "Figo Huisdierenverzekering",
-    "logo": "🛡️",
+    "logo": "F",
+    "score": 9.3,
     "rating": 4.9,
-    "reviewCount": 1420,
-    "maxPayoutPerYear": "Tot € 6.000,- of onbeperkt",
-    "reimbursementPercent": "Tot 90%",
-    "startingPrice": 18.50,
-    "dentalIncluded": true,
-    "physioIncluded": true,
-    "abroadCover": true,
-    "waitingPeriodDays": 14,
+    "reviewCount": 2140,
+    "startingPrice": 14.95,
+    "avgYearPremium": 231,
+    "maxPayoutPerYear": "€ 3.000 / € 6.000 / onbeperkt",
+    "reimbursementPercent": "50–90% (vrij te kiezen)",
+    "maxAge": "Geen leeftijdsgrens",
+    "waitingPeriodDays": 30,
+    "ownRisk": "€ 0 / € 100 / € 250 / € 500",
+    "ownContribution": "10–50%",
+    "covers": {
+      "hereditary": true,
+      "hipElbow": true,
+      "cancer": true,
+      "dental": true,
+      "chip": true,
+      "vaccinations": true,
+      "abroad": true
+    },
+    "updated": "2026-09-06",
+    "source": "Keuze.nl (juli 2026, 9,3/10) & overstappen.nl (aug 2026)",
+    "description": "Figo is de best scorende hondenverzekering van 2026 (9,3/10): de enige zonder leeftijdsgrens die erfelijke aandoeningen, heup- en elleboogproblemen én kankerbehandeling al in de basis dekt.",
     "highlights": [
-      "Tot 90% vergoeding van alle dierenartskosten",
-      "Vrije dierenartskeuze in heel Nederland & EU",
-      "Inclusief heup- en elleboogoperaties (uniek bij grote rassen)",
-      "Declaraties binnen 48 uur op je rekening"
+      "Breedste dekking: erfelijke aandoeningen, HD/ED en chemo in de basis",
+      "Geen leeftijdsgrens — ook oudere honden verzekerbaar",
+      "Vrije dierenartskeuze in NL, België en Duitsland",
+      "Declaraties binnen 48 uur terugbetaald via de app"
     ],
-    "pros": ["Geen eigen bijdrage per declaratie mogelijk", "Uitstekende dekking voor erfelijke aandoeningen", "Snelle digitale app"],
-    "cons": ["Kleine toeslag voor oudere honden (> 7 jaar)"],
-    "affiliateUrl": "https://figopet.nl/?ref=trimgids",
-    "badge": "Beste Prijs/Kwaliteit 2026"
+    "pros": [
+      "Best getest van 2026 (9,3/10)",
+      "Tevredenste klanten",
+      "Onbeperkte jaarvergoeding optioneel"
+    ],
+    "cons": [
+      "30 dagen wachttijd",
+      "Duurder dan de goedkoopste basispolissen"
+    ],
+    "affiliateUrl": "https://figopet.nl/?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "badge": "Beste Keuze 2026 (9,3/10)"
+  },
+  {
+    "id": "unive-zorg-voor-dieren",
+    "provider": "Univé",
+    "name": "Univé Hondenverzekering",
+    "logo": "U",
+    "score": 8.4,
+    "rating": 4.7,
+    "reviewCount": 1680,
+    "startingPrice": 15.45,
+    "avgYearPremium": 315,
+    "maxPayoutPerYear": "€ 2.500 of € 5.000",
+    "reimbursementPercent": "80%",
+    "maxAge": "Tot 8 jaar",
+    "waitingPeriodDays": 30,
+    "ownRisk": "€ 0",
+    "ownContribution": "20%",
+    "covers": {
+      "hereditary": true,
+      "hipElbow": true,
+      "cancer": true,
+      "dental": false,
+      "chip": false,
+      "vaccinations": false,
+      "abroad": true
+    },
+    "updated": "2026-09-06",
+    "source": "Keuze.nl (juli 2026, 8,4/10) & overstappen.nl (aug 2026)",
+    "description": "Univé is het beste alternatief als de rekening groot wordt (8,4/10): geen eigen risico, werelddekking standaard en sterke vergoeding voor erfelijke aandoeningen en kanker.",
+    "highlights": [
+      "Geen eigen risico — 80% vergoeding vanaf de eerste euro",
+      "Wereldwijde dekking standaard inbegrepen",
+      "Heup-, elleboog- en erfelijke aandoeningen gedekt",
+      "Lage totaalkosten bij grote declaraties"
+    ],
+    "pros": [
+      "Best betaalbaar bij een grote rekening",
+      "Wereldwijde dekking",
+      "Geen eigen risico"
+    ],
+    "cons": [
+      "Maximale afsluitleeftijd 8 jaar",
+      "Gebitsdekkig is een extra module"
+    ],
+    "affiliateUrl": "https://www.unive.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "badge": "Beste alternatief (8,4/10)"
   },
   {
     "id": "ohra-huisdierenverzekering",
     "provider": "OHRA",
     "name": "OHRA Hondenverzekering",
-    "logo": "🐶",
+    "logo": "O",
+    "score": 8.2,
     "rating": 4.8,
-    "reviewCount": 2180,
-    "maxPayoutPerYear": "Tot € 5.000,- per jaar",
-    "reimbursementPercent": "Tot 80%",
-    "startingPrice": 19.95,
-    "dentalIncluded": true,
-    "physioIncluded": true,
-    "abroadCover": true,
+    "reviewCount": 3180,
+    "startingPrice": 14.95,
+    "avgYearPremium": 204,
+    "maxPayoutPerYear": "€ 2.000 / € 5.000 / € 10.000",
+    "reimbursementPercent": "80% (na eigen risico)",
+    "maxAge": "Tot 7 jaar",
     "waitingPeriodDays": 30,
+    "ownRisk": "€ 50 / € 75 / € 100",
+    "ownContribution": "20%",
+    "covers": {
+      "hereditary": true,
+      "hipElbow": true,
+      "cancer": false,
+      "dental": false,
+      "chip": true,
+      "vaccinations": false,
+      "abroad": true
+    },
+    "updated": "2026-09-06",
+    "source": "Keuze.nl (juli 2026, 8,2/10) & overstappen.nl (aug 2026)",
+    "description": "De meest gekozen hondenverzekering van Nederland (8,2/10): brede dekking tot € 10.000 per jaar, met identifitatiechip in de basis — let wel op de combinatie eigen risico én eigen bijdrage.",
     "highlights": [
-      "Zeer betrouwbare Nederlandse verzekeraar",
-      "Aanvullende modules voor gebit, fysiotherapie en crematie",
-      "Direct declareren via de OHRA App",
-      "Collectiviteitskorting mogelijk"
+      "Meest gekozen verzekeraar onder Nederlandse baasjes",
+      "Hoge jaarvergoeding tot € 10.000 mogelijk",
+      "Identificatiechip en consulten in de basis",
+      "100% digitaal declareren"
     ],
-    "pros": ["Groot netwerk en uitstekende klantenservice", "Fysio en acupunctuur meeverzekerd", "Vaste maandpremie"],
-    "cons": ["Standaard eigen risico van 20%"],
-    "affiliateUrl": "https://www.ohra.nl/dierenverzekering?ref=trimgids",
-    "badge": "Meest Gekozen"
+    "pros": [
+      "Breed pakket",
+      "Hoge maximale vergoeding",
+      "Sterke app en service"
+    ],
+    "cons": [
+      "Eigen risico + 20% eigen bijdrage stapelen",
+      "Kankerbehandeling alleen aanvullend"
+    ],
+    "affiliateUrl": "https://www.ohra.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "badge": "Meest gekozen (8,2/10)"
   },
   {
-    "id": "petplan-dierenverzekering",
-    "provider": "Petplan",
-    "name": "Petplan Plus & Totaal",
-    "logo": "🐾",
-    "rating": 4.7,
-    "reviewCount": 980,
-    "maxPayoutPerYear": "Tot € 4.000,- of € 6.000,-",
-    "reimbursementPercent": "Tot 80%",
-    "startingPrice": 21.00,
-    "dentalIncluded": true,
-    "physioIncluded": true,
-    "abroadCover": true,
-    "waitingPeriodDays": 30,
-    "highlights": [
-      "Wereldwijd de grootste gespecialiseerde huisdierenverzekeraar",
-      "Ontwikkeld in nauwe samenwerking met dierenartsen",
-      "Inclusief specialistische MRI/CT-scans en consulten"
-    ],
-    "pros": ["Deskundige dierenartsbeoordeling", "Ruime vergoeding voor preventieve zorg en vaccinaties"],
-    "cons": ["Premie stijgt naarmate de hond ouder wordt"],
-    "affiliateUrl": "https://www.petplan.nl/?ref=trimgids",
-    "badge": "Dierenarts Keuze"
-  },
-  {
-    "id": "unive-zorg-voor-dieren",
-    "provider": "Univé",
-    "name": "Univé Huisdierenverzekering",
-    "logo": "💚",
+    "id": "petsecur-dierenverzekering",
+    "provider": "PetSecur",
+    "name": "PetSecur Hondenverzekering",
+    "logo": "P",
+    "score": 7.9,
     "rating": 4.6,
-    "reviewCount": 850,
-    "maxPayoutPerYear": "Tot € 5.000,-",
-    "reimbursementPercent": "Tot 80%",
-    "startingPrice": 17.80,
-    "dentalIncluded": false,
-    "physioIncluded": true,
-    "abroadCover": false,
-    "waitingPeriodDays": 30,
+    "reviewCount": 940,
+    "startingPrice": 13.95,
+    "avgYearPremium": 218,
+    "maxPayoutPerYear": "€ 3.250 / € 5.000 / € 12.500",
+    "reimbursementPercent": "50–90%",
+    "maxAge": "Tot 7 jaar",
+    "waitingPeriodDays": 0,
+    "ownRisk": "€ 0 / € 50 / € 100 / € 150",
+    "ownContribution": "10–50%",
+    "covers": {
+      "hereditary": false,
+      "hipElbow": true,
+      "cancer": false,
+      "dental": false,
+      "chip": false,
+      "vaccinations": false,
+      "abroad": true
+    },
+    "updated": "2026-09-06",
+    "source": "Keuze.nl (juli 2026, 7,9/10) & overstappen.nl (aug 2026)",
+    "description": "PetSecur (7,9/10) is direct actief (géén wachttijd) met een hoog jaarmaximum tot € 12.500 — maar erfelijke aandoeningen zijn niet gedekt. Ideaal als snelle, ruime basisbescherming met een scherpe premie.",
     "highlights": [
-      "Coöperatieve verzekeraar zonder winstoogmerk",
-      "Pakketkorting in combinatie met andere Univé verzekeringen",
-      "Geen leeftijdsgrens bij aanmelding"
+      "Geen wachttijd — dekking start direct",
+      "Hoogste jaarmaximum in de markt: tot € 12.500",
+      "Wereldwijde dekking tot € 1.250 per jaar",
+      "Kies zelf je eigen risico en vergoeding"
     ],
-    "pros": ["Lage instappremie voor jonge honden", "Ledenkorting en winstuitkering"],
-    "cons": ["Gebitsverzorging niet standaard in basispakket"],
-    "affiliateUrl": "https://www.unive.nl/dierenverzekering?ref=trimgids",
-    "badge": "Lage Premie"
+    "pros": [
+      "Direct actief",
+      "Zeer hoog jaarmaximum",
+      "Scherpe premie"
+    ],
+    "cons": [
+      "Erfelijke aandoeningen niet gedekt",
+      "HD/ED alleen in de duurdere pakketten"
+    ],
+    "affiliateUrl": "https://www.petsecur.nl/?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "badge": "Geen wachttijd (7,9/10)"
+  },
+  {
+    "id": "inshared-dierenverzekering",
+    "provider": "InShared",
+    "name": "InShared Hondenverzekering",
+    "logo": "I",
+    "score": 6.8,
+    "rating": 4.4,
+    "reviewCount": 720,
+    "startingPrice": 11.95,
+    "avgYearPremium": 190,
+    "maxPayoutPerYear": "€ 3.000 / € 4.000 / € 6.000",
+    "reimbursementPercent": "80%",
+    "maxAge": "Tot 6 jaar",
+    "waitingPeriodDays": 30,
+    "ownRisk": "Niet van toepassing",
+    "ownContribution": "20%",
+    "covers": {
+      "hereditary": false,
+      "hipElbow": false,
+      "cancer": false,
+      "dental": false,
+      "chip": false,
+      "vaccinations": false,
+      "abroad": true
+    },
+    "updated": "2026-09-06",
+    "source": "Keuze.nl (juli 2026, 6,8/10) & overstappen.nl (aug 2026)",
+    "description": "Flexibel ledeninitiatief met een van de laagste premies (±€ 190 per jaar). Veelzijdig instelbaar, maar de dekking is smaller: erfelijke aandoeningen en heup- en elleboogproblemen vallen erbuiten.",
+    "highlights": [
+      "Laagste premies uit de top-vergelijking",
+      "Flexibel aan te passen pakket",
+      "Geen winstoogmerk — ledeninitiatief",
+      "Gratis castratie/sterilisatie bij medische noodzaak"
+    ],
+    "pros": [
+      "Scherpe prijs",
+      "Flexibiliteit",
+      "Transparant als ledenbedrijf"
+    ],
+    "cons": [
+      "Geen erfelijke aandoeningen gedekt",
+      "Alleen verzekerbaar tot 6 jaar"
+    ],
+    "affiliateUrl": "https://www.inshared.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "badge": "Laagste premie (6,8/10)"
+  },
+  {
+    "id": "asr-huisdierenverzekering",
+    "provider": "a.s.r.",
+    "name": "a.s.r. Hondenverzekering (Ik kies zelf)",
+    "logo": "A",
+    "score": 6.0,
+    "rating": 4.2,
+    "reviewCount": 510,
+    "startingPrice": 12.63,
+    "avgYearPremium": 176,
+    "maxPayoutPerYear": "€ 2.500",
+    "reimbursementPercent": "75%",
+    "maxAge": "Tot 6 jaar",
+    "waitingPeriodDays": 30,
+    "ownRisk": "€ 0",
+    "ownContribution": "25%",
+    "covers": {
+      "hereditary": false,
+      "hipElbow": false,
+      "cancer": false,
+      "dental": false,
+      "chip": false,
+      "vaccinations": false,
+      "abroad": false
+    },
+    "updated": "2026-09-06",
+    "source": "Keuze.nl (juli 2026, 6,0/10) & overstappen.nl (aug 2026)",
+    "description": "a.s.r. scoort 6,0/10: de laagste premie en direct € 0 eigen risico, maar ook de smalste dekking en het laagste jaarmaximum (±€ 2.500). Alleen interessant als goedkope basis voor een jonge, gezonde hond.",
+    "highlights": [
+      "Laagste premie uit de vergelijking",
+      "Geen eigen risico",
+      "Gebruikmakend van het bestaande a.s.r.-netwerk",
+      "Eenvoudig digitaal af te sluiten"
+    ],
+    "pros": [
+      "Alles-in-een lage premie",
+      "Geen eigen risico",
+      "Eenvoudig"
+    ],
+    "cons": [
+      "Smalste dekking",
+      "Laagste jaarmaximum",
+      "Geen erfelijke aandoeningen"
+    ],
+    "affiliateUrl": "https://www.asr.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "badge": "Goedkoopste basis (6,0/10)"
   }
 ]

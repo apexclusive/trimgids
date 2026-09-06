@@ -7,7 +7,8 @@
     "start": "node server.mjs",
     "smoke": "node smoke.mjs",
     "loadtest": "node loadtest.mjs",
-    "sync:places": "node sync-places.mjs"
+    "sync:places": "node sync-places.mjs",
+    "sync:db": "node sync-supabase.mjs"
   },
   "engines": {
     "node": ">=18"

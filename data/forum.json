@@ -1,1 +1,123 @@
-[]
+[
+  {
+    "id": "seed-01",
+    "title": "Welkom bij het TrimGids forum — stel hier alles wat je wilt! ",
+    "author": "TrimGids Redactie",
+    "body": "Hallo baasjes! Dit is dé plek om vragen te stellen, ervaringen te delen en andere hondenliefhebbers te ontmoeten. Geen account nodig, gewoon posten. Wat is het leukste dat je hond ooit heeft gedaan?",
+    "breed": "",
+    "topic": "ervaringen",
+    "createdAt": "2026-08-31T12:00:00Z",
+    "helpfulCount": 12,
+    "status": "approved",
+    "kind": "pinned",
+    "replies": [
+      {
+        "id": "r-1",
+        "author": "Sam uit Maastricht",
+        "body": "Mijn Labradoodle Milo heeft een keer een hele zak snoepjes uit een dichte kast gehaald. Vernuftiger dan ik dacht!",
+        "createdAt": "2026-09-01T12:00:00Z"
+      },
+      {
+        "id": "r-2",
+        "author": "Femke",
+        "body": "Welkom! En tip aan iedereen: post ook je regio bij vragen, dan helpen mensen uit je buurt sneller.",
+        "createdAt": "2026-09-02T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "seed-02",
+    "title": "Erkende fokker of niet? Hoe herken je het verschil?",
+    "author": "Nieuwe baasje",
+    "body": "Ik ben op zoek naar een eerste hond en zie veel fokkers online. Vandaag stond er een advertentie met 'raszuivere pups, 6 weken, direct mee'. Mijn onderbuik zegt nee, maar ik wil weten waar ik precies op moet letten. Tips?",
+    "breed": "labradoodle",
+    "topic": "vragen",
+    "createdAt": "2026-09-01T12:00:00Z",
+    "helpfulCount": 8,
+    "status": "approved",
+    "replies": [
+      {
+        "id": "r-3",
+        "author": "TrimGids Redactie",
+        "body": "Goede reflex! Minimaal 8 weken, Raad van Beheer/FCI-stamboom, bezoek aan huis, moeder zien en DNA-uitslagen van de ouders. Lees de Fokkersgids op deze site voor de volledige checklist.",
+        "createdAt": "2026-09-02T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "seed-03",
+    "title": "Onze politiehond ging met pensioen — hij blijft bij ons",
+    "author": "Geleider Kevin",
+    "body": "Na 8 jaar dienst is Rex (Mechelse herder, 9 jaar) met pensioen. Hij blijft bij ons thuis, zoals de meeste gepensioneerde politiehonden. Wat veel mensen niet weten: hij blijft reageren op bepaalde geluiden, dus bezoek krijgt duidelijke regels. Is hier iemand met een ex-diensthond in huis? Hoe ging het wennen?",
+    "breed": "mechelse-herder",
+    "topic": "ervaringen",
+    "createdAt": "2026-09-02T12:00:00Z",
+    "helpfulCount": 15,
+    "status": "approved",
+    "replies": [
+      {
+        "id": "r-4",
+        "author": "Anouk",
+        "body": "Wat bijzonder en mooi dat hij bij jullie blijft! Onze oude speurhond was in het begin erg alert bij harde geluiden, maar na een jaar werd hij de rustigste hond van de straat. Geduld loont.",
+        "createdAt": "2026-09-03T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "seed-04",
+    "title": "Pup kopen tegen 8 weken of wachten tot 10?",
+    "author": "Toekomstig baasje",
+    "body": "Twee fokkers: één geeft pups mee op 8 weken, één pas op 10 weken. Is 10 weken echt beter, of is het onzin?",
+    "breed": "golden-retriever",
+    "topic": "vragen",
+    "createdAt": "2026-09-03T12:00:00Z",
+    "helpfulCount": 6,
+    "status": "approved",
+    "replies": [
+      {
+        "id": "r-5",
+        "author": "TrimGids Redactie",
+        "body": "Wettelijk minimum is 8 weken, maar 10 weken geeft pups extra tijd voor socialisatie bij het nest (moeder, broertjes/zusjes, prikkels). Veel rashondenfokkers houden 9-10 weken aan. Het antwoord hangt ook af van het socialisatieplan van de fokker.",
+        "createdAt": "2026-09-04T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "seed-05",
+    "title": "Vuurwerkprotocol: zo kwam onze angstige hond de jaarwisseling door",
+    "author": "Hanne",
+    "body": "Vorige jaar was het verschrikkelijk, dit jaar hebben we een bench-cocon gemaakt met deken, witte ruis en een afgesloten kamer. Pip kwam er veel rustiger doorheen. Wat werkt bij jullie?",
+    "breed": "",
+    "topic": "tips",
+    "createdAt": "2026-09-04T12:00:00Z",
+    "helpfulCount": 10,
+    "status": "approved",
+    "replies": [
+      {
+        "id": "r-6",
+        "author": "Ruben",
+        "body": "Witte ruis + krabben aan de bench! En vooral: zelf rustig blijven. Honden lezen onze stress.",
+        "createdAt": "2026-09-05T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "seed-06",
+    "title": "Zintuigenproef: wat vindt jouw hond van een blauwe vs. rode bal?",
+    "author": "TrimGids Redactie",
+    "body": "Honden zien blauw en geel goed, rood en groen slecht. Test het zelf: gooi een blauwe en een rode bal op gras en kijk welke je hond als eerste vindt. Deel je resultaat!",
+    "breed": "poedel",
+    "topic": "uitjes",
+    "createdAt": "2026-09-05T12:00:00Z",
+    "helpfulCount": 3,
+    "status": "approved",
+    "replies": [
+      {
+        "id": "r-7",
+        "author": "Lisa",
+        "body": "Blauwe bal wint hier met afstand op gras. Op asfalt maakt het minder uit.",
+        "createdAt": "2026-09-06T10:00:00Z"
+      }
+    ]
+  }
+]

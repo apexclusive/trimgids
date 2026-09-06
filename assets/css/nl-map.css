@@ -1,0 +1,41 @@
+/* TrimGids Ontdekkingskaart — componentstyles */
+.nlmap{position:relative;display:flex;flex-direction:column;background:var(--card,#fff);border:1px solid var(--border,rgba(15,62,40,.14));border-radius:var(--radius-xl,24px);box-shadow:var(--shadow-card,0 8px 28px -8px rgba(2,32,19,.14));overflow:hidden}
+.nlmap-top{display:flex;gap:12px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border,rgba(15,62,40,.12));flex-wrap:wrap;background:var(--card-subtle,rgba(15,62,40,.03))}
+.nlmap-search{position:relative;flex:1;min-width:220px}
+.nlmap-search input{width:100%;padding:11px 38px 11px 38px;border:1px solid var(--border,rgba(15,62,40,.16));border-radius:999px;background:var(--background,#fff);color:var(--foreground,#0b1220);font:inherit;font-size:14px}
+.nlmap-search>span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px}
+.nlmap-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--muted-foreground,#64748b);cursor:pointer;font-weight:800;padding:6px}
+.nlmap-chips{display:flex;gap:6px;flex-wrap:wrap}
+.nlmap-chips button{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;border:1px solid var(--border,rgba(15,62,40,.16));background:var(--background,#fff);color:var(--foreground,#0b1220);font-size:13px;font-weight:800;cursor:pointer;transition:all .18s ease}
+.nlmap-chips button i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.nlmap-chips button:hover{border-color:var(--primary,#0f3e28)}
+.nlmap-chips button.active{background:var(--primary,#0f3e28);border-color:var(--primary,#0f3e28);color:#fff}
+.nlmap-actions{display:flex;gap:6px}
+.nlmap-actions button{width:38px;height:38px;border-radius:12px;border:1px solid var(--border,rgba(15,62,40,.16));background:var(--background,#fff);color:var(--foreground,#0b1220);font-weight:800;cursor:pointer;font-size:15px}
+.nlmap-actions .nlmap-geo{width:auto;padding:0 13px;font-size:13px}
+.nlmap-actions button:hover{border-color:var(--primary,#0f3e28);color:var(--primary,#0f3e28)}
+.nlmap-stage{position:relative;flex:1;min-height:440px}
+.nlmap-stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+.nlmap-stage canvas:active{cursor:grabbing}
+.nlmap-stat{position:absolute;left:14px;bottom:12px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(15,62,40,.12);font-size:12.5px;font-weight:800;color:#0f3e28;backdrop-filter:blur(8px);pointer-events:none}
+[data-theme=dark] .nlmap-stat{background:rgba(10,20,16,.85);color:#a7f3d0;border-color:rgba(255,255,255,.12)}
+.nlmap-card{position:absolute;right:14px;top:14px;width:min(330px,calc(100% - 28px));background:var(--card,#fff);border:1px solid var(--border,rgba(15,62,40,.14));border-radius:20px;padding:18px;box-shadow:var(--shadow-hover,0 18px 44px -12px rgba(2,32,19,.3));z-index:5}
+[data-theme=dark] .nlmap-card{background:#101d16;color:#eef5f0}
+.nlmap-card-close{position:absolute;right:10px;top:10px;border:0;background:rgba(15,62,40,.06);width:28px;height:28px;border-radius:9px;cursor:pointer;font-weight:800}
+.nlmap-card-tag{display:inline-block;font-size:11px;font-weight:800;color:#fff;padding:4px 10px;border-radius:999px;margin-bottom:8px}
+.nlmap-card h3{font-size:18px;margin:0 0 4px}
+.nlmap-card-meta{font-size:12.5px;font-weight:700;color:var(--muted-foreground,#64748b)}
+.nlmap-card p{font-size:13.5px;color:var(--muted-foreground,#64748b);margin:8px 0}
+.nlmap-card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.nlmap-card-actions a{display:inline-block;padding:8px 13px;border-radius:999px;background:#0f3e28;color:#fff;font-size:12.5px;font-weight:800;text-decoration:none}
+.nlmap-card-actions a:nth-child(2){background:rgba(16,185,129,.14);color:#0f3e28}
+.nlmap-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:4px;color:var(--muted-foreground,#64748b);font-size:14px}
+.nlmap-empty strong{font-size:17px;color:var(--foreground,#0b1220)}
+.nlmap-list{border-top:1px solid var(--border,rgba(15,62,40,.12));max-height:280px;overflow:auto;padding:12px}
+.nlmap-list-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted-foreground,#64748b);padding:0 4px 8px}
+.nlmap-list button{display:flex;gap:11px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:9px 10px;border-radius:13px;cursor:pointer}
+.nlmap-list button:hover,.nlmap-list button.active{background:rgba(16,185,129,.08)}
+.nlmap-list button i{width:12px;height:12px;border-radius:50%;flex:none}
+.nlmap-list button b{display:block;font-size:14px;color:var(--foreground,#0b1220)}
+.nlmap-list button small{color:var(--muted-foreground,#64748b);font-size:12px}
+@media(max-width:700px){.nlmap-stage{min-height:340px}.nlmap-card{position:static;width:100%;margin:12px;border-radius:16px}}

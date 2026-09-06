@@ -1,7 +1,24 @@
 const baseUrl = process.env.BASE_URL || 'http://localhost:3025';
 const concurrency = Number(process.env.CONCURRENCY || 25);
 const requestsPerWorker = Number(process.env.REQUESTS || 8);
-const paths = ['/', '/api/stats', '/api/news', '/api/routes', '/api/insurance'];
+const paths = [
+  '/',
+  '/api/stats',
+  '/api/home',
+  '/api/cities',
+  '/api/news',
+  '/api/routes',
+  '/api/providers?lite=1',
+  '/api/insurance',
+  '/trimsalon/maastricht',
+  '/kaart',
+  '/reizen',
+  '/hondenweetjes',
+  '/rassen',
+  '/hitteberoerte-hond',
+  '/webshop',
+  '/hond-en-werk'
+];
 
 const runWorker = async workerId => {
   const results = [];
@@ -22,7 +39,7 @@ const runWorker = async workerId => {
 const started = performance.now();
 const batches = await Promise.all(Array.from({ length: concurrency }, (_, workerId) => runWorker(workerId)));
 const results = batches.flat();
-const failed = results.filter(result => result.status !== 200);
+const failed = results.filter(result => result.status !== 200 && result.status !== 304);
 const durations = results.map(result => result.duration).sort((a, b) => a - b);
 const percentile = value => durations[Math.min(durations.length - 1, Math.floor(durations.length * value))] || 0;
 

@@ -17,7 +17,34 @@ const routes = [
   '/leeftijd-calculator',
   '/trimsalon-inkomsten-calculator',
   '/bedrijven',
-  '/ehbo-hond'
+  '/ehbo-hond',
+  '/forum',
+  '/hulphonden',
+  '/zintuigen',
+  '/fokkers',
+  '/aankoopgids',
+  '/vacatures',
+  '/vrijwilligers',
+  '/adoptie',
+  '/hond-gevonden',
+  '/reizen',
+  '/vliegen-hond',
+  '/rassen',
+  '/verboden-rassen',
+  '/poepzakjes',
+  '/hondenweetjes',
+  '/hondenwedstrijden',
+  '/chippen-ontwormen',
+  '/braken-hond',
+  '/hitteberoerte-hond',
+  '/zwerfhonden',
+  '/honden-cijfers',
+  '/geschiedenis-hond',
+  '/koninklijke-honden',
+  '/hond-en-werk',
+  '/webshop',
+  '/trimmen-kosten',
+  '/zoek'
 ];
 const apiRoutes = [
   '/api/insurance',
@@ -25,7 +52,13 @@ const apiRoutes = [
   '/api/dna-tests',
   '/api/routes',
   '/api/news',
-  '/api/dog-tax'
+  '/api/dog-tax',
+  '/api/home',
+  '/api/cities',
+  '/api/forum',
+  '/api/vacatures',
+  '/api/sitesearch?q=verzekering',
+  '/api/chat/health'
 ];
 
 const failures = [];

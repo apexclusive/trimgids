@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "TrimGids Nederland",
   "short_name": "TrimGids",
   "description": "De onafhankelijke gids voor hondenbaasjes: aanbieders, zorg, nieuws en hondvriendelijke plekken.",
@@ -9,6 +10,8 @@
   "theme_color": "#0f3e28",
   "lang": "nl-NL",
   "icons": [
-    { "src": "/favicon.svg?v=3", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/favicon.svg?v=3", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }

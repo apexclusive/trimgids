@@ -10,10 +10,10 @@
   {
     "gemeente": "Assen",
     "provincie": "Drenthe",
-    "status": "actief",
-    "tarief1eHond": 89.4,
-    "tarief2eHond": 134.1,
-    "toelichting": "Jaarlijkse heffing van € 89.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Borger-Odoorn",
@@ -42,10 +42,10 @@
   {
     "gemeente": "Emmen",
     "provincie": "Drenthe",
-    "status": "actief",
-    "tarief1eHond": 78.5,
-    "tarief2eHond": 118,
-    "toelichting": "Jaarlijkse heffing van € 78.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Hoogeveen",
@@ -58,10 +58,10 @@
   {
     "gemeente": "Meppel",
     "provincie": "Drenthe",
-    "status": "actief",
-    "tarief1eHond": 82.2,
-    "tarief2eHond": 124.5,
-    "toelichting": "Jaarlijkse heffing van € 82.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Midden-Drenthe (Beilen)",
@@ -114,10 +114,10 @@
   {
     "gemeente": "Lelystad",
     "provincie": "Flevoland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 85.2,
+    "tarief2eHond": 85.2,
+    "toelichting": "Hoog tarief 2026: € 85,20 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Noordoostpolder (Emmeloord)",
@@ -130,10 +130,10 @@
   {
     "gemeente": "Urk",
     "provincie": "Flevoland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 94,
+    "tarief2eHond": 138,
+    "toelichting": "Hoogste tarief van Flevoland 2026: € 94,00 voor de eerste hond."
   },
   {
     "gemeente": "Zeewolde",
@@ -178,10 +178,10 @@
   {
     "gemeente": "Harlingen",
     "provincie": "Friesland",
-    "status": "actief",
-    "tarief1eHond": 74,
-    "tarief2eHond": 110,
-    "toelichting": "Jaarlijkse heffing van € 74.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Heerenveen",
@@ -195,9 +195,9 @@
     "gemeente": "Leeuwarden",
     "provincie": "Friesland",
     "status": "actief",
-    "tarief1eHond": 84.6,
-    "tarief2eHond": 126.8,
-    "toelichting": "Jaarlijkse heffing van € 84.60 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 86.76,
+    "tarief2eHond": 130.08,
+    "toelichting": "Hoog tarief 2026: € 86,76 voor de eerste hond."
   },
   {
     "gemeente": "Noardeast-Fryslân (Dokkum)",
@@ -234,10 +234,10 @@
   {
     "gemeente": "Smallingerland (Drachten)",
     "provincie": "Friesland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 80,
+    "tarief2eHond": 116,
+    "toelichting": "Hoog tarief 2026: € 80,00 voor de eerste hond (verordening Smallingerland)."
   },
   {
     "gemeente": "Súdwest-Fryslân (Sneek/Bolsward)",
@@ -250,10 +250,10 @@
   {
     "gemeente": "Terschelling",
     "provincie": "Friesland",
-    "status": "actief",
-    "tarief1eHond": 65,
-    "tarief2eHond": 98,
-    "toelichting": "Jaarlijkse heffing van € 65.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Tytsjerksteradiel (Burgum)",
@@ -266,10 +266,10 @@
   {
     "gemeente": "Vlieland",
     "provincie": "Friesland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 96.64,
+    "tarief2eHond": 149.98,
+    "toelichting": "Hoogste tarief van Friesland 2026: € 96,64 voor de eerste hond."
   },
   {
     "gemeente": "Waadhoeke (Franeker)",
@@ -299,25 +299,25 @@
     "gemeente": "Apeldoorn",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 96.24,
-    "tarief2eHond": 154.08,
-    "toelichting": "Jaarlijkse heffing van € 96.24 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 39.62,
+    "tarief2eHond": 55.46,
+    "toelichting": "Hondenbelasting 2026: € 39,62 voor de eerste hond (verordening 2026)."
   },
   {
     "gemeente": "Arnhem",
     "provincie": "Gelderland",
-    "status": "actief",
-    "tarief1eHond": 104.5,
-    "tarief2eHond": 168.2,
-    "toelichting": "Jaarlijkse heffing van € 104.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Barneveld",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 60.7,
+    "tarief2eHond": 84,
+    "toelichting": "Hoog tarief 2026: € 60,70 voor de eerste hond."
   },
   {
     "gemeente": "Berg en Dal (Groesbeek)",
@@ -362,42 +362,42 @@
   {
     "gemeente": "Buren (Maurik)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 29,
+    "tarief2eHond": 29,
+    "toelichting": "Op één na laagste actieve tarief: € 29,00 per hond; afschaffing gepland per 2030."
   },
   {
     "gemeente": "Culemborg",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 74.05,
+    "tarief2eHond": 113.5,
+    "toelichting": "Hoog tarief 2026: € 74,05 voor de eerste hond."
   },
   {
     "gemeente": "Doesburg",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 86,
-    "tarief2eHond": 129,
-    "toelichting": "Jaarlijkse heffing van € 86.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 58.8,
+    "tarief2eHond": 87.7,
+    "toelichting": "Hoog tarief 2026: € 58,80 voor de eerste hond."
   },
   {
     "gemeente": "Doetinchem",
     "provincie": "Gelderland",
-    "status": "actief",
-    "tarief1eHond": 92.4,
-    "tarief2eHond": 138.6,
-    "toelichting": "Jaarlijkse heffing van € 92.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Druten",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 97.68,
+    "tarief2eHond": 135.12,
+    "toelichting": "Hoog tarief 2026: € 97,68 voor de eerste hond."
   },
   {
     "gemeente": "Duiven",
@@ -411,9 +411,9 @@
     "gemeente": "Ede",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 88.2,
-    "tarief2eHond": 142,
-    "toelichting": "Jaarlijkse heffing van € 88.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 45.48,
+    "tarief2eHond": 67.2,
+    "toelichting": "Hondenbelasting 2026: € 45,48 voor de eerste hond."
   },
   {
     "gemeente": "Elburg",
@@ -443,9 +443,9 @@
     "gemeente": "Harderwijk",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 84,
-    "tarief2eHond": 135,
-    "toelichting": "Jaarlijkse heffing van € 84.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 69.31,
+    "tarief2eHond": 69.31,
+    "toelichting": "Hoog tarief 2026: € 69,31 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Hattem",
@@ -466,10 +466,10 @@
   {
     "gemeente": "Heumen (Malden)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 102.3,
+    "tarief2eHond": 102.3,
+    "toelichting": "Hoog tarief 2026: € 102,30 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Lingewaard (Bemmel/Huissen)",
@@ -490,10 +490,10 @@
   {
     "gemeente": "Maasdriel (Kerkdriel)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 45,
+    "tarief2eHond": 45,
+    "toelichting": "Hondenbelasting 2026: € 45,00 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Montferland ('s-Heerenberg/Didam)",
@@ -506,26 +506,26 @@
   {
     "gemeente": "Neder-Betuwe (Opheusden)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 82.95,
+    "tarief2eHond": 111.44,
+    "toelichting": "Hoog tarief 2026: € 82,95 voor de eerste hond."
   },
   {
     "gemeente": "Nijkerk",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 50.4,
+    "tarief2eHond": 88.8,
+    "toelichting": "Hoog tarief 2026: € 50,40 voor de eerste hond."
   },
   {
     "gemeente": "Nijmegen",
     "provincie": "Gelderland",
-    "status": "actief",
-    "tarief1eHond": 112.5,
-    "tarief2eHond": 178,
-    "toelichting": "Jaarlijkse heffing van € 112.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Nunspeet",
@@ -546,10 +546,10 @@
   {
     "gemeente": "Oost Gelre (Groenlo/Lichtenvoorde)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 60.66,
+    "tarief2eHond": 94.12,
+    "toelichting": "Hoog tarief 2026: € 60,66 voor de eerste hond."
   },
   {
     "gemeente": "Oude IJsselstreek (Varsseveld)",
@@ -562,10 +562,10 @@
   {
     "gemeente": "Overbetuwe (Elst)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 84.54,
+    "tarief2eHond": 126.82,
+    "toelichting": "Hoog tarief 2026: € 84,54 voor de eerste hond."
   },
   {
     "gemeente": "Putten",
@@ -578,18 +578,18 @@
   {
     "gemeente": "Renkum (Oosterbeek)",
     "provincie": "Gelderland",
-    "status": "actief",
-    "tarief1eHond": 90,
-    "tarief2eHond": 135,
-    "toelichting": "Jaarlijkse heffing van € 90.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Rheden (Dieren/Velp)",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 94.8,
-    "tarief2eHond": 151.2,
-    "toelichting": "Jaarlijkse heffing van € 94.80 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 41.29,
+    "tarief2eHond": 47.53,
+    "toelichting": "Hondenbelasting 2026: € 41,29 voor de eerste hond."
   },
   {
     "gemeente": "Rozendaal",
@@ -602,18 +602,18 @@
   {
     "gemeente": "Scherpenzeel",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 82.74,
+    "tarief2eHond": 138.78,
+    "toelichting": "Hoog tarief 2026: € 82,74 voor de eerste hond."
   },
   {
     "gemeente": "Tiel",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 82,
-    "tarief2eHond": 130,
-    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 91.15,
+    "tarief2eHond": 96.35,
+    "toelichting": "Hoog tarief 2026: € 91,15 voor de eerste hond."
   },
   {
     "gemeente": "Voorst (Twello)",
@@ -627,9 +627,9 @@
     "gemeente": "Wageningen",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 86.4,
-    "tarief2eHond": 138,
-    "toelichting": "Jaarlijkse heffing van € 86.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 91.6,
+    "tarief2eHond": 153.68,
+    "toelichting": "Hoog tarief 2026: € 91,60 voor de eerste hond."
   },
   {
     "gemeente": "West Betuwe (Geldermalsen)",
@@ -642,26 +642,26 @@
   {
     "gemeente": "West Maas en Waal (Beneden-Leeuwen)",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 44.21,
+    "tarief2eHond": 88.43,
+    "toelichting": "Grote stijging 2026 (+10%): € 44,21 voor de eerste hond."
   },
   {
     "gemeente": "Westervoort",
     "provincie": "Gelderland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 109.43,
+    "tarief2eHond": 145.49,
+    "toelichting": "Hoogste tarief van Gelderland 2026: € 109,43 voor de eerste hond."
   },
   {
     "gemeente": "Wijchen",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 76.5,
-    "tarief2eHond": 122,
-    "toelichting": "Jaarlijkse heffing van € 76.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 93.5,
+    "tarief2eHond": 93.5,
+    "toelichting": "Hoog tarief 2026: € 93,50 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Winterswijk",
@@ -675,9 +675,9 @@
     "gemeente": "Zaltbommel",
     "provincie": "Gelderland",
     "status": "actief",
-    "tarief1eHond": 84,
-    "tarief2eHond": 132,
-    "toelichting": "Jaarlijkse heffing van € 84.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 60.04,
+    "tarief2eHond": 79.71,
+    "toelichting": "Hoog tarief 2026: € 60,04 voor de eerste hond."
   },
   {
     "gemeente": "Zevenaar",
@@ -690,10 +690,10 @@
   {
     "gemeente": "Zutphen",
     "provincie": "Gelderland",
-    "status": "actief",
-    "tarief1eHond": 98.4,
-    "tarief2eHond": 156,
-    "toelichting": "Jaarlijkse heffing van € 98.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Eemsdelta (Delfzijl/Appingedam)",
@@ -706,10 +706,10 @@
   {
     "gemeente": "Groningen",
     "provincie": "Groningen",
-    "status": "actief",
-    "tarief1eHond": 128.4,
-    "tarief2eHond": 198.6,
-    "toelichting": "Jaarlijkse heffing van € 128.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Het Hogeland (Winsum/Bedum)",
@@ -730,10 +730,10 @@
   {
     "gemeente": "Oldambt (Winschoten)",
     "provincie": "Groningen",
-    "status": "actief",
-    "tarief1eHond": 72,
-    "tarief2eHond": 110,
-    "toelichting": "Jaarlijkse heffing van € 72.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Pekela (Oude Pekela)",
@@ -754,10 +754,10 @@
   {
     "gemeente": "Veendam",
     "provincie": "Groningen",
-    "status": "actief",
-    "tarief1eHond": 74.5,
-    "tarief2eHond": 115,
-    "toelichting": "Jaarlijkse heffing van € 74.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Westerkwartier (Leek/Zuidhorn)",
@@ -794,10 +794,10 @@
   {
     "gemeente": "Beesel (Reuver)",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 40,
+    "tarief2eHond": 55,
+    "toelichting": "Hondenbelasting 2026: € 40,00 voor de eerste hond."
   },
   {
     "gemeente": "Bergen (Limburg/Nieuw Bergen)",
@@ -810,34 +810,34 @@
   {
     "gemeente": "Brunssum",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 39.6,
+    "tarief2eHond": 159.6,
+    "toelichting": "Groot verschil: eerste hond € 39,60, tweede hond € 159,60 (2026)."
   },
   {
     "gemeente": "Echt-Susteren",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 50.52,
+    "tarief2eHond": 75,
+    "toelichting": "Hoog tarief 2026: € 50,52 voor de eerste hond."
   },
   {
     "gemeente": "Eijsden-Margraten",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 84,
+    "tarief2eHond": 89,
+    "toelichting": "Hoog tarief 2026: € 84,00 voor de eerste hond."
   },
   {
     "gemeente": "Gennep",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 66.48,
+    "tarief2eHond": 93.6,
+    "toelichting": "Hoog tarief 2026: € 66,48 voor de eerste hond."
   },
   {
     "gemeente": "Gulpen-Wittem",
@@ -850,10 +850,10 @@
   {
     "gemeente": "Heerlen",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 70.92,
+    "tarief2eHond": 229.08,
+    "toelichting": "Extreem groot verschil: eerste hond € 70,92, tweede hond € 229,08 (2026)."
   },
   {
     "gemeente": "Horst aan de Maas",
@@ -866,18 +866,18 @@
   {
     "gemeente": "Kerkrade",
     "provincie": "Limburg",
-    "status": "afgeschaft",
+    "status": "actief",
     "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "tarief2eHond": 115,
+    "toelichting": "Eerste hond gratis (€ 0,00); tweede hond € 115,00 in 2026."
   },
   {
     "gemeente": "Landgraaf",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 86.5,
+    "tarief2eHond": 181.5,
+    "toelichting": "Hoogste tarief van Limburg 2026: € 86,50 voor de eerste hond."
   },
   {
     "gemeente": "Leudal (Heythuysen)",
@@ -890,18 +890,18 @@
   {
     "gemeente": "Maasgouw (Maasbracht/Heel)",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 54,
+    "tarief2eHond": 81,
+    "toelichting": "Hoog tarief 2026: € 54,00 voor de eerste hond."
   },
   {
     "gemeente": "Maastricht",
     "provincie": "Limburg",
     "status": "actief",
-    "tarief1eHond": 94.2,
-    "tarief2eHond": 152.4,
-    "toelichting": "Jaarlijkse heffing van € 94.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 77.52,
+    "tarief2eHond": 111.72,
+    "toelichting": "Hoog tarief 2026: € 77,52 voor de eerste hond."
   },
   {
     "gemeente": "Meerssen",
@@ -914,10 +914,10 @@
   {
     "gemeente": "Mook en Middelaar",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 67.32,
+    "tarief2eHond": 100.92,
+    "toelichting": "Hoog tarief 2026: € 67,32 voor de eerste hond."
   },
   {
     "gemeente": "Nederweert",
@@ -954,18 +954,18 @@
   {
     "gemeente": "Simpelveld",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 21.96,
+    "tarief2eHond": 25.68,
+    "toelichting": "Goedkoopste actieve gemeente van Nederland 2026: € 21,96 voor de eerste hond."
   },
   {
     "gemeente": "Sittard-Geleen",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 47.76,
+    "tarief2eHond": 64.32,
+    "toelichting": "Hondenbelasting 2026: € 47,76 voor de eerste hond."
   },
   {
     "gemeente": "Stein",
@@ -978,26 +978,26 @@
   {
     "gemeente": "Vaals",
     "provincie": "Limburg",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 45.54,
+    "tarief2eHond": 45.54,
+    "toelichting": "Hondenbelasting 2026: € 45,54 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Valkenburg aan de Geul",
     "provincie": "Limburg",
-    "status": "afgeschaft",
+    "status": "actief",
     "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "tarief2eHond": 96.84,
+    "toelichting": "Eerste hond gratis (€ 0,00); tweede hond € 96,84 in 2026."
   },
   {
     "gemeente": "Venlo",
     "provincie": "Limburg",
     "status": "actief",
-    "tarief1eHond": 104.5,
-    "tarief2eHond": 168,
-    "toelichting": "Jaarlijkse heffing van € 104.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 31.32,
+    "tarief2eHond": 46.92,
+    "toelichting": "Sterke verlaging 2026 (-28,5%). Wordt afgeschaft per 2027."
   },
   {
     "gemeente": "Venray",
@@ -1042,10 +1042,10 @@
   {
     "gemeente": "Asten",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 72.01,
+    "tarief2eHond": 92.95,
+    "toelichting": "Hoog tarief 2026: € 72,01 voor de eerste hond."
   },
   {
     "gemeente": "Baarle-Nassau",
@@ -1066,10 +1066,10 @@
   {
     "gemeente": "Bergen op Zoom",
     "provincie": "Noord-Brabant",
-    "status": "actief",
-    "tarief1eHond": 82.5,
-    "tarief2eHond": 128,
-    "toelichting": "Jaarlijkse heffing van € 82.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Bernheze (Heesch)",
@@ -1114,10 +1114,10 @@
   {
     "gemeente": "Breda",
     "provincie": "Noord-Brabant",
-    "status": "actief",
-    "tarief1eHond": 96,
-    "tarief2eHond": 154,
-    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Cranendonck (Budel/Maarheeze)",
@@ -1130,10 +1130,10 @@
   {
     "gemeente": "Deurne",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 63.73,
+    "tarief2eHond": 63.73,
+    "toelichting": "Hoog tarief 2026: € 63,73 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Dongen",
@@ -1162,18 +1162,18 @@
   {
     "gemeente": "Eindhoven",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 94,
+    "tarief2eHond": 188,
+    "toelichting": "Hoog tarief 2026: € 94,00 voor de eerste hond (tweede hond het dubbele)."
   },
   {
     "gemeente": "Etten-Leur",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 42.36,
+    "tarief2eHond": 68.16,
+    "toelichting": "Hondenbelasting 2026: € 42,36 voor de eerste hond."
   },
   {
     "gemeente": "Geertruidenberg (Raamsdonksveer)",
@@ -1186,26 +1186,26 @@
   {
     "gemeente": "Geldrop-Mierlo",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 57.6,
+    "tarief2eHond": 57.6,
+    "toelichting": "Hoog tarief 2026: € 57,60 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Gemert-Bakel",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 66.84,
+    "tarief2eHond": 66.84,
+    "toelichting": "Hoog tarief 2026: € 66,84 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Gilze en Rijen",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 60.82,
+    "tarief2eHond": 121.64,
+    "toelichting": "Hoog tarief 2026: € 60,82 voor de eerste hond (tweede hond het dubbele)."
   },
   {
     "gemeente": "Goirle (Riel)",
@@ -1235,25 +1235,25 @@
     "gemeente": "Helmond",
     "provincie": "Noord-Brabant",
     "status": "actief",
-    "tarief1eHond": 85.2,
-    "tarief2eHond": 132,
-    "toelichting": "Jaarlijkse heffing van € 85.20 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 75.48,
+    "tarief2eHond": 150.96,
+    "toelichting": "Hoog tarief 2026: € 75,48 voor de eerste hond (tweede hond het dubbele)."
   },
   {
     "gemeente": "'s-Hertogenbosch (Den Bosch)",
     "provincie": "Noord-Brabant",
     "status": "actief",
-    "tarief1eHond": 102,
-    "tarief2eHond": 165,
-    "toelichting": "Jaarlijkse heffing van € 102.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 108,
+    "tarief2eHond": 162.36,
+    "toelichting": "Hoog tarief 2026: € 108,00 voor de eerste hond."
   },
   {
     "gemeente": "Heusden (Drunen/Vlijmen)",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 59.4,
+    "tarief2eHond": 87.12,
+    "toelichting": "Hoog tarief 2026: € 59,40 voor de eerste hond."
   },
   {
     "gemeente": "Hilvarenbeek",
@@ -1282,10 +1282,10 @@
   {
     "gemeente": "Loon op Zand (Kaatsheuvel)",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 47.53,
+    "tarief2eHond": 68.56,
+    "toelichting": "Grote stijging 2026 (+11,2%): € 47,53 voor de eerste hond."
   },
   {
     "gemeente": "Maashorst (Uden/Volkel)",
@@ -1339,17 +1339,17 @@
     "gemeente": "Oosterhout",
     "provincie": "Noord-Brabant",
     "status": "actief",
-    "tarief1eHond": 86.4,
-    "tarief2eHond": 135,
-    "toelichting": "Jaarlijkse heffing van € 86.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 36,
+    "tarief2eHond": 72,
+    "toelichting": "Hondenbelasting 2026: € 36,00 voor de eerste hond (tweede hond het dubbele)."
   },
   {
     "gemeente": "Oss",
     "provincie": "Noord-Brabant",
-    "status": "actief",
-    "tarief1eHond": 94,
-    "tarief2eHond": 148,
-    "toelichting": "Jaarlijkse heffing van € 94.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "onbekend",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Tarief hondenbelasting 2026 nog niet bekend — wordt later dit jaar gepubliceerd."
   },
   {
     "gemeente": "Reusel-De Mierden",
@@ -1362,10 +1362,10 @@
   {
     "gemeente": "Roosendaal",
     "provincie": "Noord-Brabant",
-    "status": "actief",
-    "tarief1eHond": 89,
-    "tarief2eHond": 138,
-    "toelichting": "Jaarlijkse heffing van € 89.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Rucphen (Sprundel/Sint Willebrord)",
@@ -1386,10 +1386,10 @@
   {
     "gemeente": "Someren",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 72,
+    "tarief2eHond": 72,
+    "toelichting": "Hoog tarief 2026: € 72,00 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Son en Breugel",
@@ -1411,9 +1411,9 @@
     "gemeente": "Tilburg (Berkel-Enschot/Udenhout)",
     "provincie": "Noord-Brabant",
     "status": "actief",
-    "tarief1eHond": 118,
-    "tarief2eHond": 185,
-    "toelichting": "Jaarlijkse heffing van € 118.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 132.28,
+    "tarief2eHond": 187.6,
+    "toelichting": "Op één na hoogste tarief van Nederland: € 132,28 voor de eerste hond (2026)."
   },
   {
     "gemeente": "Valkenswaard",
@@ -1426,10 +1426,10 @@
   {
     "gemeente": "Veldhoven",
     "provincie": "Noord-Brabant",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 51.5,
+    "tarief2eHond": 51.5,
+    "toelichting": "Hoog tarief 2026: € 51,50 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Vught",
@@ -1451,9 +1451,9 @@
     "gemeente": "Waalwijk (Waspik/Sprang-Capelle)",
     "provincie": "Noord-Brabant",
     "status": "actief",
-    "tarief1eHond": 82,
-    "tarief2eHond": 128,
-    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 60.75,
+    "tarief2eHond": 88.05,
+    "toelichting": "Hoog tarief 2026: € 60,75 voor de eerste hond."
   },
   {
     "gemeente": "Woensdrecht (Hoogerheide)",
@@ -1482,10 +1482,10 @@
   {
     "gemeente": "Alkmaar",
     "provincie": "Noord-Holland",
-    "status": "actief",
-    "tarief1eHond": 94.5,
-    "tarief2eHond": 148,
-    "toelichting": "Jaarlijkse heffing van € 94.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Amstelveen",
@@ -1546,10 +1546,10 @@
   {
     "gemeente": "Den Helder (Julianadorp)",
     "provincie": "Noord-Holland",
-    "status": "actief",
-    "tarief1eHond": 76.8,
-    "tarief2eHond": 118,
-    "toelichting": "Jaarlijkse heffing van € 76.80 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Diemen",
@@ -1603,9 +1603,9 @@
     "gemeente": "Haarlem",
     "provincie": "Noord-Holland",
     "status": "actief",
-    "tarief1eHond": 108,
-    "tarief2eHond": 172,
-    "toelichting": "Jaarlijkse heffing van € 108.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 110.16,
+    "tarief2eHond": 186.48,
+    "toelichting": "Hoog tarief 2026: € 110,16 voor de eerste hond (verordening 2026)."
   },
   {
     "gemeente": "Haarlemmermeer (Hoofddorp/Nieuw-Vennep)",
@@ -1642,10 +1642,10 @@
   {
     "gemeente": "Hilversum",
     "provincie": "Noord-Holland",
-    "status": "actief",
-    "tarief1eHond": 98,
-    "tarief2eHond": 154,
-    "toelichting": "Jaarlijkse heffing van € 98.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Hollands Kroon (Anna Paulowna/Wieringen)",
@@ -1658,10 +1658,10 @@
   {
     "gemeente": "Hoorn",
     "provincie": "Noord-Holland",
-    "status": "actief",
-    "tarief1eHond": 88,
-    "tarief2eHond": 136,
-    "toelichting": "Jaarlijkse heffing van € 88.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Huizen",
@@ -1690,10 +1690,10 @@
   {
     "gemeente": "Laren (Noord-Holland)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 101.62,
+    "tarief2eHond": 101.62,
+    "toelichting": "Hoog tarief 2026: € 101,62 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Medemblik",
@@ -1706,10 +1706,10 @@
   {
     "gemeente": "Oostzaan",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 51.7,
+    "tarief2eHond": 51.7,
+    "toelichting": "Hoog tarief 2026: € 51,70 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Opmeer",
@@ -1722,18 +1722,18 @@
   {
     "gemeente": "Ouder-Amstel (Ouderkerk aan de Amstel)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 85.71,
+    "tarief2eHond": 85.71,
+    "toelichting": "Hoog tarief 2026: € 85,71 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Purmerend (Beemster)",
     "provincie": "Noord-Holland",
     "status": "actief",
-    "tarief1eHond": 86,
-    "tarief2eHond": 132,
-    "toelichting": "Jaarlijkse heffing van € 86.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 96.48,
+    "tarief2eHond": 96.48,
+    "toelichting": "Hoog tarief 2026: € 96,48 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Schagen",
@@ -1746,18 +1746,18 @@
   {
     "gemeente": "Stede Broec (Bovenkarspel)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 72.31,
+    "tarief2eHond": 139.05,
+    "toelichting": "Hoog tarief 2026: € 72,31 voor de eerste hond."
   },
   {
     "gemeente": "Texel (Den Burg/De Koog)",
     "provincie": "Noord-Holland",
-    "status": "actief",
-    "tarief1eHond": 68,
-    "tarief2eHond": 104,
-    "toelichting": "Jaarlijkse heffing van € 68.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Uitgeest",
@@ -1778,34 +1778,34 @@
   {
     "gemeente": "Velsen (IJmuiden/Santpoort)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 110.4,
+    "tarief2eHond": 139.8,
+    "toelichting": "Hoogste tarief van Noord-Holland 2026: € 110,40 voor de eerste hond."
   },
   {
     "gemeente": "Waterland (Monnickendam)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 66.12,
+    "tarief2eHond": 90.6,
+    "toelichting": "Hoog tarief 2026: € 66,12 voor de eerste hond."
   },
   {
     "gemeente": "Wijdemeren (Loosdrecht/'s-Graveland)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 103.44,
+    "tarief2eHond": 130.08,
+    "toelichting": "Hoog tarief 2026: € 103,44 voor de eerste hond."
   },
   {
     "gemeente": "Wormerland (Wormer)",
     "provincie": "Noord-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 102.45,
+    "tarief2eHond": 135.85,
+    "toelichting": "Hoog tarief 2026: € 102,45 voor de eerste hond."
   },
   {
     "gemeente": "Zaanstad (Zaandam/Krommenie)",
@@ -1842,10 +1842,10 @@
   {
     "gemeente": "Deventer",
     "provincie": "Overijssel",
-    "status": "actief",
-    "tarief1eHond": 92.4,
-    "tarief2eHond": 148,
-    "toelichting": "Jaarlijkse heffing van € 92.40 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Dinkelland (Denekamp/Ootmarsum)",
@@ -1859,9 +1859,9 @@
     "gemeente": "Enschede",
     "provincie": "Overijssel",
     "status": "actief",
-    "tarief1eHond": 106,
-    "tarief2eHond": 168,
-    "toelichting": "Jaarlijkse heffing van € 106.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 99.48,
+    "tarief2eHond": 99.48,
+    "toelichting": "Hoogste tarief van Overijssel 2026: € 99,48 voor de eerste hond."
   },
   {
     "gemeente": "Haaksbergen",
@@ -1890,10 +1890,10 @@
   {
     "gemeente": "Hengelo",
     "provincie": "Overijssel",
-    "status": "actief",
-    "tarief1eHond": 94,
-    "tarief2eHond": 152,
-    "toelichting": "Jaarlijkse heffing van € 94.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Hof van Twente (Goor/Delden)",
@@ -1906,10 +1906,10 @@
   {
     "gemeente": "Kampen (IJsselmuiden)",
     "provincie": "Overijssel",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 60,
+    "tarief2eHond": 60,
+    "toelichting": "Grote verlaging 2026 (-20%): € 60,00 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Losser",
@@ -1922,10 +1922,10 @@
   {
     "gemeente": "Oldenzaal",
     "provincie": "Overijssel",
-    "status": "actief",
-    "tarief1eHond": 82,
-    "tarief2eHond": 128,
-    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Olst-Wijhe",
@@ -1954,18 +1954,18 @@
   {
     "gemeente": "Rijssen-Holten",
     "provincie": "Overijssel",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 31,
+    "tarief2eHond": 47,
+    "toelichting": "Hondenbelasting 2026: € 31,00 voor de eerste hond."
   },
   {
     "gemeente": "Staphorst",
     "provincie": "Overijssel",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 50.85,
+    "tarief2eHond": 101.25,
+    "toelichting": "Hoog tarief 2026: € 50,85 voor de eerste hond (tweede hond het dubbele)."
   },
   {
     "gemeente": "Steenwijkerland (Steenwijk/Giethoorn)",
@@ -2002,34 +2002,34 @@
   {
     "gemeente": "Zwartewaterland (Genemuiden/Hasselt)",
     "provincie": "Overijssel",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 76,
+    "tarief2eHond": 120,
+    "toelichting": "Hoog tarief 2026: € 76,00 voor de eerste hond."
   },
   {
     "gemeente": "Zwolle",
     "provincie": "Overijssel",
-    "status": "actief",
-    "tarief1eHond": 102.5,
-    "tarief2eHond": 164,
-    "toelichting": "Jaarlijkse heffing van € 102.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Amersfoort",
     "provincie": "Utrecht",
     "status": "actief",
-    "tarief1eHond": 104,
-    "tarief2eHond": 168,
-    "toelichting": "Jaarlijkse heffing van € 104.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 106.5,
+    "tarief2eHond": 106.5,
+    "toelichting": "Hoog tarief 2026: € 106,50 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Baarn",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 81.25,
+    "tarief2eHond": 162.65,
+    "toelichting": "Grote stijging 2026 (+15,9%): € 81,25 voor de eerste hond."
   },
   {
     "gemeente": "De Bilt (Bilthoven)",
@@ -2090,10 +2090,10 @@
   {
     "gemeente": "Lopik",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 67,
+    "tarief2eHond": 83.75,
+    "toelichting": "Hoog tarief 2026: € 67,00 voor de eerste hond."
   },
   {
     "gemeente": "Montfoort",
@@ -2130,10 +2130,10 @@
   {
     "gemeente": "Rhenen",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 72,
+    "tarief2eHond": 180,
+    "toelichting": "Hoog tarief 2026: € 72,00 voor de eerste hond (tweede hond € 180,00)."
   },
   {
     "gemeente": "De Ronde Venen (Mijdrecht/Vinkeveen)",
@@ -2146,10 +2146,10 @@
   {
     "gemeente": "Soest (Soesterberg)",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 56.5,
+    "tarief2eHond": 77,
+    "toelichting": "Hoog tarief 2026: € 56,50 voor de eerste hond."
   },
   {
     "gemeente": "Stichtse Vecht (Maarssen/Breukelen)",
@@ -2162,10 +2162,10 @@
   {
     "gemeente": "Utrecht",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 101.2,
+    "tarief2eHond": 101.2,
+    "toelichting": "Hoog tarief 2026: € 101,20 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Utrechtse Heuvelrug (Doorn/Driebergen)",
@@ -2179,9 +2179,9 @@
     "gemeente": "Veenendaal",
     "provincie": "Utrecht",
     "status": "actief",
-    "tarief1eHond": 89,
-    "tarief2eHond": 138,
-    "toelichting": "Jaarlijkse heffing van € 89.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 113.4,
+    "tarief2eHond": 165.8,
+    "toelichting": "Hoogste tarief van Utrecht 2026: € 113,40 voor de eerste hond."
   },
   {
     "gemeente": "Vijfheerenlanden (Vianen/Leerdam)",
@@ -2194,10 +2194,10 @@
   {
     "gemeente": "Wijk bij Duurstede",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 79.15,
+    "tarief2eHond": 130.3,
+    "toelichting": "Hondenbelasting per 1-1-2026 opnieuw ingevoerd; € 79,15 voor de eerste hond."
   },
   {
     "gemeente": "Woerden",
@@ -2210,18 +2210,18 @@
   {
     "gemeente": "Woudenberg",
     "provincie": "Utrecht",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 84.4,
+    "tarief2eHond": 84.4,
+    "toelichting": "Hoog tarief 2026: € 84,40 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Zeist",
     "provincie": "Utrecht",
-    "status": "actief",
-    "tarief1eHond": 96,
-    "tarief2eHond": 152,
-    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Borsele (Heinkenszand)",
@@ -2234,18 +2234,18 @@
   {
     "gemeente": "Goes",
     "provincie": "Zeeland",
-    "status": "actief",
-    "tarief1eHond": 82,
-    "tarief2eHond": 128,
-    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Hulst",
     "provincie": "Zeeland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 78.8,
+    "tarief2eHond": 78.8,
+    "toelichting": "Hoog tarief 2026: € 78,80 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Kapelle",
@@ -2258,10 +2258,10 @@
   {
     "gemeente": "Middelburg",
     "provincie": "Zeeland",
-    "status": "actief",
-    "tarief1eHond": 88,
-    "tarief2eHond": 136,
-    "toelichting": "Jaarlijkse heffing van € 88.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Noord-Beveland (Kamperland/Kortgene)",
@@ -2290,18 +2290,18 @@
   {
     "gemeente": "Sluis (Oostburg/Breskens)",
     "provincie": "Zeeland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 71.1,
+    "tarief2eHond": 131.95,
+    "toelichting": "Hoog tarief 2026: € 71,10 voor de eerste hond."
   },
   {
     "gemeente": "Terneuzen",
     "provincie": "Zeeland",
     "status": "actief",
-    "tarief1eHond": 78,
-    "tarief2eHond": 120,
-    "toelichting": "Jaarlijkse heffing van € 78.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 86,
+    "tarief2eHond": 193,
+    "toelichting": "Hoog tarief 2026: € 86,00 voor de eerste hond (tweede hond € 193,00)."
   },
   {
     "gemeente": "Tholen",
@@ -2323,17 +2323,17 @@
     "gemeente": "Vlissingen",
     "provincie": "Zeeland",
     "status": "actief",
-    "tarief1eHond": 92,
-    "tarief2eHond": 144,
-    "toelichting": "Jaarlijkse heffing van € 92.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 110.91,
+    "tarief2eHond": 221.83,
+    "toelichting": "Hoogste tarief van Zeeland 2026: € 110,91 voor de eerste hond."
   },
   {
     "gemeente": "Alblasserdam",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 95.3,
+    "tarief2eHond": 95.3,
+    "toelichting": "Hoog tarief 2026: € 95,30 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Albrandswaard (Rhoon/Poortugaal)",
@@ -2347,17 +2347,17 @@
     "gemeente": "Alphen aan den Rijn (Boskoop)",
     "provincie": "Zuid-Holland",
     "status": "actief",
-    "tarief1eHond": 92,
-    "tarief2eHond": 146,
-    "toelichting": "Jaarlijkse heffing van € 92.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 67.8,
+    "tarief2eHond": 102.48,
+    "toelichting": "Laagste tarief van Zuid-Holland 2026: € 67,80 voor de eerste hond."
   },
   {
     "gemeente": "Barendrecht",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 120.48,
+    "tarief2eHond": 165.6,
+    "toelichting": "Hoog tarief 2026: € 120,48 voor de eerste hond (-2,4% t.o.v. 2025)."
   },
   {
     "gemeente": "Bodegraven-Reeuwijk",
@@ -2378,26 +2378,26 @@
   {
     "gemeente": "Delft",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 106.5,
-    "tarief2eHond": 168,
-    "toelichting": "Jaarlijkse heffing van € 106.50 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Den Haag ('s-Gravenhage)",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 132,
-    "tarief2eHond": 215,
-    "toelichting": "Jaarlijkse heffing van € 132.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Dordrecht",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 104,
-    "tarief2eHond": 162,
-    "toelichting": "Jaarlijkse heffing van € 104.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Goeree-Overflakkee (Middelharnis/Ouddorp)",
@@ -2410,34 +2410,34 @@
   {
     "gemeente": "Gorinchem",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 88,
-    "tarief2eHond": 136,
-    "toelichting": "Jaarlijkse heffing van € 88.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Gouda",
     "provincie": "Zuid-Holland",
     "status": "actief",
-    "tarief1eHond": 96,
-    "tarief2eHond": 148,
-    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 93.84,
+    "tarief2eHond": 115.2,
+    "toelichting": "Hoog tarief 2026: € 93,84 voor de eerste hond."
   },
   {
     "gemeente": "Hardinxveld-Giessendam",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 90.4,
+    "tarief2eHond": 129.86,
+    "toelichting": "Hoog tarief 2026: € 90,40 voor de eerste hond."
   },
   {
     "gemeente": "Hendrik-Ido-Ambacht",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 83.25,
+    "tarief2eHond": 83.25,
+    "toelichting": "Enige gemeente die de opbrengst 100% aan hondenvoorzieningen besteedt; -28% t.o.v. 2025."
   },
   {
     "gemeente": "Hillegom",
@@ -2450,10 +2450,10 @@
   {
     "gemeente": "Hoeksche Waard (Oud-Beijerland)",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 100.85,
+    "tarief2eHond": 177.45,
+    "toelichting": "Hoog tarief 2026: € 100,85 voor de eerste hond."
   },
   {
     "gemeente": "Kaag en Braassem (Roelofarendsveen)",
@@ -2467,9 +2467,9 @@
     "gemeente": "Katwijk (Katwijk aan Zee/Rijnsburg)",
     "provincie": "Zuid-Holland",
     "status": "actief",
-    "tarief1eHond": 82,
-    "tarief2eHond": 130,
-    "toelichting": "Jaarlijkse heffing van € 82.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 142.18,
+    "tarief2eHond": 142.18,
+    "toelichting": "Duurste gemeente van Nederland 2026: € 142,18 voor de eerste én tweede hond."
   },
   {
     "gemeente": "Krimpen aan den IJssel",
@@ -2490,18 +2490,18 @@
   {
     "gemeente": "Lansingerland (Berkel en Rodenrijs)",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 95.31,
+    "tarief2eHond": 133.53,
+    "toelichting": "Hoog tarief 2026: € 95,31 voor de eerste hond."
   },
   {
     "gemeente": "Leiden",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 108,
-    "tarief2eHond": 172,
-    "toelichting": "Jaarlijkse heffing van € 108.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Leiderdorp",
@@ -2514,26 +2514,26 @@
   {
     "gemeente": "Leidschendam-Voorburg",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 94,
-    "tarief2eHond": 150,
-    "toelichting": "Jaarlijkse heffing van € 94.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Lisse",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 126,
+    "tarief2eHond": 198,
+    "toelichting": "Hoog tarief (bollenstreek): € 126,00 eerste hond; +24% t.o.v. 2025."
   },
   {
     "gemeente": "Maassluis",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 84,
-    "tarief2eHond": 132,
-    "toelichting": "Jaarlijkse heffing van € 84.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Midden-Delfland (Schipluiden/Maasland)",
@@ -2563,9 +2563,9 @@
     "gemeente": "Nissewaard (Spijkenisse)",
     "provincie": "Zuid-Holland",
     "status": "actief",
-    "tarief1eHond": 92,
-    "tarief2eHond": 144,
-    "toelichting": "Jaarlijkse heffing van € 92.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "tarief1eHond": 99.22,
+    "tarief2eHond": 261.03,
+    "toelichting": "Grootste verschil 1e/2e hond van Nederland: tweede hond € 261,03."
   },
   {
     "gemeente": "Noordwijk (Noordwijkerhout)",
@@ -2578,10 +2578,10 @@
   {
     "gemeente": "Oegstgeest",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 113.16,
+    "tarief2eHond": 142.68,
+    "toelichting": "Hoog tarief 2026: € 113,16 voor de eerste hond."
   },
   {
     "gemeente": "Papendrecht",
@@ -2610,10 +2610,10 @@
   {
     "gemeente": "Rijswijk",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 98,
-    "tarief2eHond": 156,
-    "toelichting": "Jaarlijkse heffing van € 98.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Rotterdam (Hoek van Holland/Kralingen)",
@@ -2626,18 +2626,18 @@
   {
     "gemeente": "Schiedam",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 96,
-    "tarief2eHond": 152,
-    "toelichting": "Jaarlijkse heffing van € 96.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Sliedrecht",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 82.32,
+    "tarief2eHond": 138.48,
+    "toelichting": "Hoog tarief 2026: € 82,32 voor de eerste hond."
   },
   {
     "gemeente": "Teylingen (Sassenheim/Voorhout)",
@@ -2650,10 +2650,10 @@
   {
     "gemeente": "Vlaardingen",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 90,
-    "tarief2eHond": 142,
-    "toelichting": "Jaarlijkse heffing van € 90.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Voorschoten",
@@ -2682,10 +2682,10 @@
   {
     "gemeente": "Wassenaar",
     "provincie": "Zuid-Holland",
-    "status": "afgeschaft",
-    "tarief1eHond": 0,
-    "tarief2eHond": 0,
-    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+    "status": "actief",
+    "tarief1eHond": 104.64,
+    "tarief2eHond": 157.2,
+    "toelichting": "Hoog tarief 2026: € 104,64 voor de eerste hond."
   },
   {
     "gemeente": "Westland (Naaldwijk/'s-Gravenzande/Monster)",
@@ -2698,10 +2698,10 @@
   {
     "gemeente": "Zoetermeer",
     "provincie": "Zuid-Holland",
-    "status": "actief",
-    "tarief1eHond": 102,
-    "tarief2eHond": 160,
-    "toelichting": "Jaarlijkse heffing van € 102.00 voor de 1e hond. Vrijstelling voor assistentiehonden."
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   },
   {
     "gemeente": "Zoeterwoude",
@@ -2726,5 +2726,13 @@
     "tarief1eHond": 0,
     "tarief2eHond": 0,
     "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-)."
+  },
+  {
+    "gemeente": "Zandvoort",
+    "provincie": "Noord-Holland",
+    "status": "afgeschaft",
+    "tarief1eHond": 0,
+    "tarief2eHond": 0,
+    "toelichting": "Hondenbelasting volledig afgeschaft (€ 0,-) — in 2026 wordt hier geen hondenbelasting geheven."
   }
 ]
