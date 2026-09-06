@@ -1,0 +1,14 @@
+{
+  "name": "TrimGids Nederland",
+  "short_name": "TrimGids",
+  "description": "De onafhankelijke gids voor hondenbaasjes: aanbieders, zorg, nieuws en hondvriendelijke plekken.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f3e28",
+  "lang": "nl-NL",
+  "icons": [
+    { "src": "/favicon.svg?v=3", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

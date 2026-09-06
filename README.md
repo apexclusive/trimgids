@@ -38,6 +38,32 @@ Profielen worden op dit moment gekoppeld aan een browser-ID en lokaal opgeslagen
 
 De server heeft al basisbescherming tegen overmatig API-gebruik, veilige responseheaders en korte in-memory caching voor identieke Google-requests. De rate limiter is bewust eenvoudig gehouden; achter een reverse proxy hoort in productie een gedeelde limiter zoals Redis te komen.
 
+Publieke GET-data gebruikt korte CDN-cacheheaders met `stale-while-revalidate`. Statische assets krijgen langdurige immutable caching via `vercel.json`. De homepage en alle gegenereerde routes gebruiken een gedeelde merklaag met dezelfde TG-branding, Plus Jakarta Sans, route-CTA's, skip-link en responsive header/footer.
+
+Een eerste PostgreSQL/Supabase-schema staat in `supabase/schema.sql`. Dit bevat tabellen en indexen voor offerte-leads, claims, reviews en forumtopics/reacties. De browser mag nooit met een service-role key werken; writes horen via de server/API te verlopen.
+
+Voor volledige productie-integratie moet `.env` worden aangevuld met `SUPABASE_URL` en `SUPABASE_SERVICE_ROLE_KEY`. Zet de service-role key uitsluitend als Vercel Environment Variable en nooit in frontendcode. Voor notificaties zijn optioneel `RESEND_API_KEY`, `NOTIFICATION_FROM_EMAIL` en `NOTIFICATION_TO_EMAIL` beschikbaar.
+
+Bij iedere push naar `main` en bij pull requests draait GitHub Actions automatisch `smoke.mjs` via `.github/workflows/smoke.yml`.
+
+## Regressietest
+
+Start de server en voer uit:
+
+```bash
+BASE_URL=http://localhost:3000 npm run smoke
+```
+
+De smoke-test controleert 18 belangrijke pagina's, waaronder homepage, nieuws, kaart, wandelen, verzekering, voeding, offerte, B2B, EHBO, gifcheck, calculators en directorypagina's. Daarnaast worden 6 publieke API's gecontroleerd op HTTP-status, JSON-validiteit, ontbrekende titels en zichtbare `undefined`/`null`-tekst.
+
+Voor een lokale concurrency-smoketest:
+
+```bash
+BASE_URL=http://localhost:3000 CONCURRENCY=25 REQUESTS=8 npm run loadtest
+```
+
+Dit meet de homepage en publieke API’s op statuscodes, p50/p95-latency en failures. Het is geen vervanging voor een productie-loadtest achter Vercel en een echte database.
+
 ## Data-gedreven SEO-pagina's
 
 De centrale catalogus staat in `data/catalog.json` en bevat plaatsen, rassen en aanbieders. De server genereert daaruit:

@@ -52,6 +52,7 @@ const mimeTypes = {
   '.mjs': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -89,9 +90,13 @@ async function loadDotEnv() {
 
 const rateLimits = { search: new Map(), write: new Map() };
 
-function json(res, status, body) {
-  res.writeHead(status, secureHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }));
+function json(res, status, body, cacheControl = 'no-store') {
+  res.writeHead(status, secureHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': cacheControl }));
   res.end(JSON.stringify(body));
+}
+
+function publicJson(res, status, body, maxAge = 60) {
+  return json(res, status, body, `public, max-age=${maxAge}, s-maxage=${maxAge * 5}, stale-while-revalidate=86400`);
 }
 
 function secureHeaders(headers = {}) {
@@ -100,6 +105,7 @@ function secureHeaders(headers = {}) {
     'X-Frame-Options': 'SAMEORIGIN',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self)',
+    'Content-Security-Policy': "default-src 'self'; base-uri 'self'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://*.tile.openstreetmap.org https://places.googleapis.com; connect-src 'self' https://places.googleapis.com",
     ...headers
   };
 }
@@ -114,6 +120,9 @@ function rateLimit(req, bucket, limit, windowMs) {
   }
   entry.count += 1;
   bucket.set(ip, entry);
+  if (bucket.size > 5000) {
+    for (const [key, value] of bucket) if (now - value.start > windowMs) bucket.delete(key);
+  }
   return entry.count <= limit;
 }
 
@@ -145,8 +154,21 @@ function validEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(value, 120));
 }
 
+const collectionCache = new Map();
+const collectionCacheTtlMs = 15_000;
+
 async function collectionList(file) {
-  try { return JSON.parse(await readFile(file, 'utf8')); } catch { return []; }
+  const now = Date.now();
+  const cached = collectionCache.get(file);
+  if (cached?.value && cached.expiresAt > now) return cached.value;
+  if (cached?.promise) return cached.promise;
+  const promise = readFile(file, 'utf8').then(raw => {
+    const value = JSON.parse(raw);
+    collectionCache.set(file, { value, expiresAt: Date.now() + collectionCacheTtlMs });
+    return value;
+  }).catch(() => { collectionCache.delete(file); return []; });
+  collectionCache.set(file, { promise });
+  return promise;
 }
 
 async function collectionAdd(file, item, limit = 1000) {
@@ -154,6 +176,7 @@ async function collectionAdd(file, item, limit = 1000) {
   items.unshift(item);
   if (items.length > limit) items.length = limit;
   await writeFile(file, JSON.stringify(items, null, 2) + '\n');
+  collectionCache.set(file, { value: items, expiresAt: Date.now() + collectionCacheTtlMs });
   return item;
 }
 
@@ -363,10 +386,13 @@ async function quoteCreate(input) {
   const service = clean(input.service, 80) || 'Volledige trimbeurt';
   const timeframe = clean(input.timeframe, 60) || 'Binnen 2 weken';
   const notes = clean(input.notes, 1000);
+  const source = clean(input.source, 120);
+  const campaign = clean(input.campaign, 120);
+  const landingPage = clean(input.landingPage, 200);
   if (!name || !validEmail(email) || !city || !breed) throw new Error('quote_invalid_fields');
   const quote = {
     id: randomUUID(),
-    name, email, phone, city, breed, service, timeframe, notes,
+    name, email, phone, city, breed, service, timeframe, notes, source, campaign, landingPage,
     status: 'pending',
     createdAt: new Date().toISOString()
   };
@@ -3159,10 +3185,19 @@ nav {
 }
 .logo {
   color: var(--text-heading);
-  font: 800 22px Fraunces, Georgia, serif;
+  font: 800 20px 'Plus Jakarta Sans', system-ui, sans-serif;
   display: flex;
   align-items: center;
   gap: 8px;
+  letter-spacing: -0.055em;
+}
+.logo::before {
+  content: '';
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  background: url('/logo.svg?v=3') center / contain no-repeat;
+  filter: drop-shadow(0 5px 10px rgba(16, 185, 129, .2));
 }
 
 .crumb { color: var(--text-muted); font-size: 13.5px; margin-bottom: 24px; }
@@ -3275,7 +3310,7 @@ footer {
   font-size: 13.5px;
   color: var(--text-muted);
 }
-footer a { font-weight: 800; font-family: Fraunces, Georgia, serif; font-size: 18px; color: var(--text-heading); }
+footer a { font-weight: 700; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 14px; color: var(--text-heading); }
 `;
 }
 
@@ -3391,9 +3426,67 @@ async function serveStatic(req, res, pathname) {
   if (!file.startsWith(root)) return json(res, 403, { error: 'forbidden' });
   try {
     const content = await readFile(file);
-    res.writeHead(200, secureHeaders({ 'Content-Type': mimeTypes[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache' }));
+    const extension = extname(file).toLowerCase();
+    res.writeHead(200, secureHeaders({ 'Content-Type': mimeTypes[extension] || 'application/octet-stream', 'Cache-Control': extension === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable', 'Vary': 'Accept-Encoding' }));
     res.end(content);
   } catch { json(res, 404, { error: 'not_found' }); }
+}
+
+function modernizeGeneratedHtml(html) {
+  const routeSkin = `<style>
+    :root { --route-green: #0f3e28; --route-emerald: #10b981; --route-ink: #0b1220; --route-line: #e2e8f0; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important; color: var(--route-ink) !important; background: #f8fafc !important; }
+    body > header { position: sticky !important; top: 0 !important; z-index: 100 !important; background: rgba(255,255,255,.9) !important; backdrop-filter: blur(18px) !important; border-bottom: 1px solid var(--route-line) !important; box-shadow: 0 8px 28px rgba(15,62,40,.07) !important; }
+    body > header nav { max-width: 1220px !important; min-height: 68px !important; margin: 0 auto !important; padding: 12px 20px !important; }
+    body > header .logo, body > footer .logo { display: inline-flex !important; align-items: center !important; gap: 9px !important; font: 800 20px 'Plus Jakarta Sans', system-ui, sans-serif !important; letter-spacing: -.055em !important; color: var(--route-ink) !important; }
+    body > header .logo::before, body > footer .logo::before { content: '' !important; width: 36px !important; height: 36px !important; flex: 0 0 36px !important; background: url('/logo.svg?v=3') center/contain no-repeat !important; }
+    body > header .nav-links a, body > header .nav-links > a { border-radius: 999px !important; padding: 8px 12px !important; font: 700 13px 'Plus Jakarta Sans', system-ui, sans-serif !important; color: #64748b !important; }
+    body > header .nav-links a:hover { color: var(--route-green) !important; background: #eaf4ee !important; }
+    body > main { max-width: 1220px !important; margin: 0 auto !important; }
+    body > main h1, body > main h2, body > main h3, body > main h4 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important; letter-spacing: -.025em !important; }
+    body > footer { max-width: none !important; margin: 40px 0 0 !important; padding: 48px max(20px, calc((100vw - 1180px) / 2)) 28px !important; background: #07150e !important; color: rgba(231,245,236,.72) !important; border-top: 3px solid #10b981 !important; }
+    body > footer a { font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important; color: rgba(231,245,236,.84) !important; }
+    body > footer a:hover { color: #fff !important; }
+    .route-quick-actions { max-width: 1220px; margin: 0 auto 28px; padding: 0 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .route-quick-actions a { display: inline-flex; align-items: center; padding: 9px 14px; border: 1px solid #dbe3ea; border-radius: 999px; background: #fff; color: #475569; font: 700 13px 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .route-quick-actions a:hover { border-color: #10b981; background: #eaf4ee; color: #0f3e28; }
+    .route-disclosure { max-width: 1220px; margin: 0 auto 24px; padding: 0 20px; color: #64748b; font: 500 12px/1.5 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .route-skip { position: fixed; left: 16px; top: 12px; z-index: 999; padding: 10px 14px; border-radius: 999px; background: #0f3e28; color: #fff; font-weight: 800; transform: translateY(-160%); transition: transform .2s ease; }
+    .route-skip:focus { transform: translateY(0); }
+    body .news-ticker-wrap { max-width: 1180px; margin: 24px auto; border: 1px solid #e2e8f0 !important; border-radius: 18px !important; background: #fff !important; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
+    body .tax-controls { max-width: 1180px; margin: 0 auto 24px; }
+    body .tax-controls input#news-search { min-height: 48px !important; border: 1px solid #dbe3ea !important; border-radius: 14px !important; background: #fff !important; box-shadow: 0 6px 18px rgba(15,23,42,.05); }
+    body .f-btn, body .news-filter button { border: 1px solid #dbe3ea !important; border-radius: 999px !important; padding: 8px 13px !important; background: #fff !important; color: #475569 !important; font: 700 12px 'Plus Jakarta Sans', system-ui, sans-serif !important; cursor: pointer; }
+    body .f-btn:hover, body .f-btn.active { background: #eaf4ee !important; border-color: #10b981 !important; color: #0f3e28 !important; }
+    body #news-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    body #news-grid .news-card { margin: 0 !important; padding: 22px !important; border: 1px solid #e2e8f0 !important; border-radius: 20px !important; background: #fff !important; box-shadow: 0 4px 20px rgba(15,23,42,.05) !important; }
+    body #news-grid .news-card:hover { border-color: #10b981 !important; transform: translateY(-2px); }
+    body #news-grid .news-card:first-child { background: linear-gradient(135deg,#0f3e28,#165b3c) !important; border-color: #0f3e28 !important; color: #fff !important; }
+    body #news-grid .news-card:first-child h3, body #news-grid .news-card:first-child p, body #news-grid .news-card:first-child .news-foot { color: rgba(255,255,255,.86) !important; }
+    body #news-grid .news-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    body #news-grid .news-body { color: #64748b !important; font-size: 14px !important; line-height: 1.6 !important; }
+    @media (max-width: 760px) { body #news-grid { grid-template-columns: 1fr; } body .news-ticker-wrap { margin-left: 16px; margin-right: 16px; } }
+    @media (max-width: 760px) { body > header nav { display: grid !important; grid-template-columns: minmax(0,1fr) auto !important; align-items: center !important; padding: 10px 16px !important; gap: 8px !important; } body > header .logo { width: auto !important; min-width: 0 !important; } body > header .nav-links { grid-column: 1 / -1 !important; display: flex !important; width: 100% !important; min-width: 0 !important; max-height: none !important; overflow-x: auto !important; overflow-y: hidden !important; flex-wrap: nowrap !important; scrollbar-width: none !important; padding-bottom: 2px !important; } body > header .nav-links::-webkit-scrollbar { display: none !important; } body > header .nav-links a { flex: 0 0 auto !important; white-space: nowrap !important; padding: 7px 10px !important; font-size: 12px !important; } body > header #theme-toggle, body > header #ssr-theme-btn { grid-column: 2 !important; grid-row: 1 !important; width: 38px !important; height: 38px !important; min-width: 38px !important; padding: 0 !important; margin: 0 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; } body > main { padding-left: 16px !important; padding-right: 16px !important; } .route-quick-actions { margin-bottom: 16px !important; padding: 0 16px !important; gap: 7px !important; } .route-quick-actions a { padding: 7px 10px !important; font-size: 12px !important; } .route-disclosure { margin-bottom: 12px !important; padding: 0 16px !important; font-size: 11px !important; } }
+  </style>`;
+  const quickActions = '<div class="route-quick-actions"><a href="/">⌂ Home</a><a href="/kaart">Kaart</a><a href="/nieuws">Nieuws</a><a href="/offerte">Offerte aanvragen</a><a href="/bedrijven">Voor bedrijven</a></div>';
+  const disclosure = '<p class="route-disclosure">TrimGids toont bronnen, voorwaarden en partnerrelaties zo transparant mogelijk. Controleer actuele prijzen, beschikbaarheid en medische adviezen altijd bij de officiële aanbieder of dierenarts.</p>';
+  return html
+    .replace('</head>', '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="manifest" href="/manifest.webmanifest">' + routeSkin + '</head>')
+    .replace('<body>', '<body><a class="route-skip" href="#route-main">Ga naar hoofdinhoud</a>')
+    .replace('<main>', quickActions + disclosure + '<main id="route-main" tabindex="-1">')
+    .replaceAll('🐾 TrimGids Pro', 'TrimGids Pro')
+    .replaceAll('🐾 TrimGids', 'TrimGids')
+    .replaceAll('}}loadIns();', '}};loadIns();')
+    .replaceAll('}}loadDna();', '}};loadDna();')
+    .replaceAll('}}loadFood();', '}};loadFood();')
+    .replaceAll('Fraunces, Georgia, serif', "'Plus Jakarta Sans', system-ui, sans-serif")
+    .replaceAll('Fraunces,Georgia,serif', "'Plus Jakarta Sans',system-ui,sans-serif")
+    .replaceAll('family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700', 'family=Plus+Jakarta+Sans:wght@400;500;600;700;800')
+    .replaceAll('✅ Minimaal Risico (Onder de 20 mg/kg)', 'Indicatieve lage dosis — geen vrijwaring')
+    .replaceAll('De berekende dosis is laag. Meestal treden er geen ernstige klachten op. Zorg voor voldoende drinkwater.', 'Deze berekening is slechts een indicatie. Klachten, het soort product en het tijdstip van inname zijn belangrijker dan deze grenswaarde. Bel bij twijfel direct een dierenarts.')
+    .replace(/(<a[^>]+href="https?:\/\/[^">]*(?:ref=trimgids|utm_source=trimgids)[^">]*"[^>]*)(>)/g, (match, opening, end) => opening.includes('rel=') ? opening.replace('rel="noopener noreferrer"', 'rel="sponsored noopener noreferrer"') + end : opening + ' rel="sponsored noopener noreferrer"' + end)
+    .replaceAll("localStorage.getItem('trimgids_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')", "localStorage.getItem('trimgids_theme') || 'light'")
+    .replaceAll('(data.insurance||[]).forEach((item,idx)=>{', "(data.insurance||[]).forEach((item,idx)=>{item.description=item.description||item.highlights?.[0]||'Bekijk de dekking en voorwaarden.';");
 }
 
 await loadDotEnv();
@@ -3411,6 +3504,11 @@ try { puppyCostsData = JSON.parse(await readFile(puppyCostsFile, 'utf8')); } cat
 
 export async function handleRequest(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
+  const endResponse = res.end.bind(res);
+  res.end = (chunk, ...args) => {
+    if (typeof chunk === 'string' && chunk.includes('<html')) chunk = modernizeGeneratedHtml(chunk);
+    return endResponse(chunk, ...args);
+  };
 
   try {
     /* Search Engines: Sitemap.xml & Robots.txt */
@@ -3437,6 +3535,17 @@ export async function handleRequest(req, res) {
       return json(res, 200, { providers: list });
     }
 
+    if (url.pathname === '/api/stats' && req.method === 'GET') {
+      const providers = catalog.providers || [];
+      const cities = new Set(providers.map(provider => `${provider.city || ''}|${provider.province || ''}`)).size;
+      return publicJson(res, 200, {
+        providers: providers.length,
+        cities,
+        breeds: Object.keys(catalog.breeds || {}).length,
+        routes: routesData.routes?.length || 0
+      });
+    }
+
     /* Google Places Search (Live proxy) */
     if (url.pathname === '/api/search' && req.method === 'GET') {
       if (!rateLimit(req, rateLimits.search, 30, 60000)) return json(res, 429, { error: 'rate_limited' });
@@ -3454,7 +3563,7 @@ export async function handleRequest(req, res) {
     /* Insurance API */
     if (url.pathname === '/api/insurance' && req.method === 'GET') {
       const ins = await collectionList(insuranceFile);
-      return json(res, 200, { insurance: ins.length ? ins : insuranceData.insurance });
+      return publicJson(res, 200, { insurance: ins.length ? ins : insuranceData.insurance });
     }
 
     /* DNA Tests API */
@@ -3579,7 +3688,7 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/api/routes' && req.method === 'GET') {
       const province = clean(url.searchParams.get('province'), 40);
       const type = clean(url.searchParams.get('type'), 40);
-      return json(res, 200, { routes: await routesList(province, type) });
+      return publicJson(res, 200, { routes: await routesList(province, type) });
     }
 
     /* Vet Tariffs API */
@@ -3721,7 +3830,7 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/api/news' && req.method === 'GET') {
       const category = clean(url.searchParams.get('category'), 40);
       const region = clean(url.searchParams.get('region'), 60);
-      return json(res, 200, { news: await newsList(category, region) });
+      return publicJson(res, 200, { news: await newsList(category, region) });
     }
     if (url.pathname === '/api/news/tips' && req.method === 'POST') {
       return json(res, 201, { tip: await newsTipCreate(await readJson(req)) });
@@ -3731,7 +3840,7 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/api/missing' && req.method === 'GET') {
       const city = clean(url.searchParams.get('city'), 60);
       const status = clean(url.searchParams.get('status'), 30);
-      return json(res, 200, { missing: await missingList(city, status) });
+      return publicJson(res, 200, { missing: await missingList(city, status) });
     }
     if (url.pathname === '/api/missing' && req.method === 'POST') {
       return json(res, 201, { missing: await missingCreate(await readJson(req)) });
