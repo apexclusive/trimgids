@@ -67,7 +67,7 @@
 <meta name="apple-mobile-web-app-title" content="TrimGids">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="/manifest.webmanifest">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
 <script>try{var tgTheme=localStorage.getItem('trimgids_theme')||'light';document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
 <style>
@@ -178,7 +178,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif; background-color: var(--background); color: var(--foreground); transition: background-color 0.25s ease, color 0.25s ease; }
 body { min-height: 100vh; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4, .font-heading { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.025em; line-height: 1.2; color: var(--foreground); text-wrap: balance; }
+h1, h2, h3, h4, .font-heading { font-family: var(--font-display, 'Sora'), 'Plus Jakarta Sans', system-ui, sans-serif; letter-spacing: -0.022em; line-height: 1.18; color: var(--foreground); text-wrap: balance; }
 .font-serif { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
 p, li, span, label, td { color: var(--foreground); }
 a { color: inherit; text-decoration: none; }
@@ -552,7 +552,7 @@ nav.site-navbar {
 /* Sticky Hub Quick Jump Bar (For effortless scannability) */
 .sticky-hub-nav {
   position: sticky;
-  top: 68px;
+  top: 62px;
   z-index: 800;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
@@ -575,10 +575,10 @@ nav.site-navbar {
 .hub-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
+  gap: 5px;
+  padding: 5.5px 13px;
   border-radius: var(--radius-full);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--muted-foreground);
   background: var(--card);
@@ -594,7 +594,7 @@ nav.site-navbar {
 /* Hero Section */
 .hero {
   position: relative;
-  padding: 50px 0 56px;
+  padding: 44px 0 48px;
   background: radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
               linear-gradient(180deg, var(--card-subtle) 0%, var(--background) 100%);
   overflow: hidden;
@@ -602,8 +602,13 @@ nav.site-navbar {
 }
 .hero-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .92; filter: saturate(1.02) contrast(1.04); }
-.hero::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(rgba(16, 185, 129, 0.22) 1.5px, transparent 1.5px); background-size: 28px 28px; mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 75%); -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 75%); }
-.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248,250,252,.90) 0%, rgba(248,250,252,.66) 42%, rgba(248,250,252,.92) 100%); pointer-events: none; }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(46rem 22rem at 82% 8%, rgba(16,185,129,.16), transparent 62%),
+    radial-gradient(30rem 18rem at 12% 28%, rgba(251,191,36,.10), transparent 58%);
+  filter: blur(6px);
+}
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248,250,252,.88) 0%, rgba(248,250,252,.55) 45%, rgba(248,250,252,.9) 100%); pointer-events: none; }
 .hero-in { z-index: 1; }
 [data-theme="dark"] .hero::after { background: linear-gradient(180deg, rgba(4,20,13,.94) 0%, rgba(4,20,13,.68) 42%, rgba(4,20,13,.94) 100%); }
 [data-theme="dark"] .hero-photo img { opacity: .72; }
@@ -629,7 +634,7 @@ nav.site-navbar {
 }
 .hero-badge-count { background: var(--primary-light); color: var(--primary); font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 9999px; }
 .hero-paw { color: var(--primary); }
-.hero-title { font-size: clamp(32px, 5vw, 54px); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; color: var(--foreground); max-width: 900px; margin: 0 0 14px; }
+.hero-title { font-family: var(--font-display, 'Sora'), 'Plus Jakarta Sans', sans-serif; font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; line-height: 1.12; letter-spacing: -0.032em; color: var(--foreground); max-width: 860px; margin: 0 0 12px; }
 .hero-title .gradient-text {
   background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
   -webkit-background-clip: text;
@@ -641,17 +646,17 @@ nav.site-navbar {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.hero-subtitle { font-size: clamp(15px, 1.8vw, 18px); font-weight: 400; color: var(--muted-foreground); max-width: 780px; line-height: 1.6; margin: 0 auto 24px; }
+.hero-subtitle { font-size: clamp(14.5px, 1.6vw, 16.5px); font-weight: 400; color: var(--muted-foreground); max-width: 720px; line-height: 1.62; margin: 0 auto 22px; }
 
 /* Category Filter Tabs */
 .hero-category-pills { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
 .cat-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
+  gap: 6px;
+  padding: 7px 14px;
   border-radius: var(--radius-full);
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 700;
   background: var(--card);
   border: 1px solid var(--border);
@@ -667,11 +672,11 @@ nav.site-navbar {
 /* Airbnb-style Floating Search Bar */
 .airbnb-search-bar {
   width: 100%;
-  max-width: 920px;
+  max-width: 860px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
-  padding: 6px 8px 6px 20px;
+  padding: 5px 6px 5px 18px;
   box-shadow: var(--shadow-floating);
   display: flex;
   align-items: center;
@@ -716,13 +721,13 @@ nav.site-navbar {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: var(--radius-full);
   background: var(--primary);
   color: #ffffff;
   border: none;
   cursor: pointer;
-  font-size: 14.5px;
+  font-size: 13.5px;
   font-weight: 800;
   box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
   transition: all 0.2s ease;
@@ -745,8 +750,8 @@ nav.site-navbar {
 
 /* Stats Counter Grid */
 .stats-banner-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0 0; }
-.stat-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 20px 16px; text-align: center; box-shadow: var(--shadow-card); }
-.stat-box strong { font-size: 30px; font-weight: 800; letter-spacing: -0.06em; color: var(--primary); display: block; font-family: 'Plus Jakarta Sans', sans-serif; }
+.stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 16px 12px; text-align: center; box-shadow: var(--shadow-card); transition: transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s ease; }
+.stat-box strong { font-size: 26px; font-weight: 800; letter-spacing: -0.06em; color: var(--primary); display: block; font-family: 'Plus Jakarta Sans', sans-serif; }
 .stat-box span { font-size: 13px; color: var(--muted-foreground); font-weight: 600; margin-top: 2px; display: block; }
 @media (max-width: 900px) { .stats-banner-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 500px) { .stats-banner-grid { grid-template-columns: 1fr; } }
@@ -951,7 +956,7 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
       <a href="/wandelen" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
       <a href="/verzekering" class="nav-pill highlight-gold"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Verzekering</a>
       <a href="/last-minute" class="nav-pill highlight-amber"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Deals</a>
-      <details class="nav-more"><summary class="nav-pill">Meer voor baasjes</summary><div class="nav-more-panel"><div><h3>Zorg & veiligheid</h3><a href="/ehbo-hond">EHBO-noodgids →</a><a href="/braken-hond">Mijn hond braakt →</a><a href="/hitteberoerte-hond">Hitteberoerte & hete auto →</a><a href="/giftigheid-calculator">Gif- & chocoladecheck →</a><a href="/spoed-dierenarts">Spoeddierenartsen →</a><a href="/chippen-ontwormen">Chip & ontwormen →</a><a href="/poepzakjes">Poepzakjes & boetes →</a></div><div><h3>Ontdek & plan</h3><a href="/puppy-kiezen">Puppymatcher →</a><a href="/leeftijd-calculator">Hondenleeftijd →</a><a href="/kosten-hond">Wat kost een hond? →</a><a href="/trimmen-kosten">Wat kost trimmen? (2026) →</a><a href="/nieuws">Landelijk hondennieuws →</a><a href="/reizen">Vliegen & reizen met je hond →</a><a href="/hond-en-werk">Hond & fulltime werken →</a></div><div><h3>Kennis & community</h3><a href="/forum">Hondenforum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab →</a><a href="/hondenanatomie">Hondenanatomie →</a><a href="/fokkers">Erkende fokkers →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/adoptie">Pup of asielhond? →</a><a href="/rassen">Rassen & variëteiten →</a><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid →</a><a href="/hondenwedstrijden">Hondenwedstrijden & sport →</a><a href="/verboden-rassen">Verboden rassen: NL & wereld →</a><a href="/honden-cijfers">Honden in cijfers →</a><a href="/geschiedenis-hond">Geschiedenis van de hond →</a><a href="/koninklijke-honden">Honden van royals →</a><a href="/zwerfhonden">Zwerfhonden wereldwijd →</a></div><div><h3>Helpen & meedoen</h3><a href="/vacatures">Vacatures & hulpkrachten →</a><a href="/vrijwilligers">Vrijwilligerswerk bij asiel & opvang →</a><a href="/adoptie">Een opvanghond een thuis geven →</a><a href="/hond-gevonden">Hond gevonden? Wat nu? →</a><a href="/webshop">Webshop: voer, reis & tools →</a></div></div></details>
+      <details class="nav-more"><summary class="nav-pill">Meer voor baasjes</summary><div class="nav-more-panel"><div><h3>Zorg & veiligheid</h3><a href="/ehbo-hond">EHBO-noodgids →</a><a href="/braken-hond">Mijn hond braakt →</a><a href="/hitteberoerte-hond">Hitteberoerte & hete auto →</a><a href="/giftigheid-calculator">Gif- & chocoladecheck →</a><a href="/spoed-dierenarts">Spoeddierenartsen →</a><a href="/chippen-ontwormen">Chip & ontwormen →</a><a href="/poepzakjes">Poepzakjes & boetes →</a></div><div><h3>Ontdek & plan</h3><a href="/puppy-kiezen">Puppymatcher →</a><a href="/leeftijd-calculator">Hondenleeftijd →</a><a href="/kosten-hond">Wat kost een hond? →</a><a href="/trimmen-kosten">Wat kost trimmen? (2026) →</a><a href="/nieuws">Landelijk hondennieuws →</a><a href="/reizen">Vliegen & reizen met je hond →</a><a href="/hond-en-werk">Hond & fulltime werken →</a></div><div><h3>Kennis & community</h3><a href="/forum">Hondenforum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab →</a><a href="/hondenanatomie">Hondenanatomie →</a><a href="/hondengedrag">Hondengedrag →</a><a href="/fokkers">Erkende fokkers →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/adoptie">Pup of asielhond? →</a><a href="/rassen">Rassen & variëteiten →</a><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid →</a><a href="/hondenwedstrijden">Hondenwedstrijden & sport →</a><a href="/verboden-rassen">Verboden rassen: NL & wereld →</a><a href="/honden-cijfers">Honden in cijfers →</a><a href="/geschiedenis-hond">Geschiedenis van de hond →</a><a href="/koninklijke-honden">Honden van royals →</a><a href="/zwerfhonden">Zwerfhonden wereldwijd →</a></div><div><h3>Helpen & meedoen</h3><a href="/vacatures">Vacatures & hulpkrachten →</a><a href="/vrijwilligers">Vrijwilligerswerk bij asiel & opvang →</a><a href="/adoptie">Een opvanghond een thuis geven →</a><a href="/hond-gevonden">Hond gevonden? Wat nu? →</a><a href="/webshop">Webshop: voer, reis & tools →</a></div></div></details>
     </div>
 
     <div class="nav-actions">
@@ -1351,6 +1356,12 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
         </div>
         <p style="font-size:12.5px;color:var(--muted-foreground)">Probeer het zélf: schakel naar de hondenogen en kijk wat er met rood gebeurt.</p>
         <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Open het Zintuigenlab →</span>
+      </a>
+      <a class="k-card" href="/hondengedrag" id="hondengedrag">
+        <div class="k-photo"><img src="/assets/img/gen/k-wolf-hond-480.webp" srcset="/assets/img/gen/k-wolf-hond-480.webp 480w, /assets/img/gen/k-wolf-hond-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="322" loading="lazy" decoding="async" alt="Wolf en golden retriever naast elkaar: hoe dicht staat je hond nog bij de wolf?"></div>
+        <h3>Hondengedrag: van kopje aaien tot wolf in je huis</h3>
+        <p>Waarom aaien we het kopje en niet het buikje? Hoe leest een hond jou — en hoe praten honden met elkaar? En zijn alle honden eigenlijk een beetje ziek?</p>
+        <span class="k-cta btn btn-outline btn-pill btn-sm" style="align-self:flex-start">Open de Gedragsgids →</span>
       </a>
       <a class="k-card" href="/hondenanatomie" id="anatomie">
         <div class="k-photo"><img src="/assets/img/gen/k-anatomie-480.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:640px) 100vw, 480px" width="480" height="358" loading="lazy" decoding="async" alt="Interactief model van de hondenanatomie: doorsnede met organen"></div>

@@ -863,3 +863,110 @@ tbody td { border-bottom: 1px solid var(--border, #e2e8f0); }
   .name-card, .cafe-card, .hypo-card, .buddy-card, .vet-card, .tariff-card, .deal-card,
   .food-card, .ins-card, .dna-card, .product-card, .vacature-card, .news-card { transition: none !important; }
 }
+
+
+/* ============ Ronde 13 — 2026 premium restyle ============ */
+h1, h2, h3, h4, .brand-title, .font-heading {
+  font-family: var(--font-display, 'Sora'), 'Plus Jakarta Sans', system-ui, sans-serif !important;
+}
+h1 { letter-spacing: -0.03em; }
+main h2 { letter-spacing: -0.02em; }
+main h3 { letter-spacing: -0.015em; }
+
+/* Subtiele body-radial voor premium diepte */
+body {
+  background:
+    radial-gradient(1100px 420px at 85% -5%, rgba(16,185,129,.07), transparent 60%),
+    radial-gradient(800px 340px at -10% 12%, rgba(251,191,36,.05), transparent 55%),
+    var(--bg, #f8fafc) !important;
+}
+[data-theme="dark"] body {
+  background:
+    radial-gradient(1100px 420px at 85% -5%, rgba(16,185,129,.09), transparent 60%),
+    radial-gradient(800px 340px at -10% 12%, rgba(251,191,36,.04), transparent 55%),
+    #0a1410 !important;
+}
+
+/* Kaarten: zachtere schaduw + hover-lift zonder "zweven" */
+main .card, .provider, .ins-card, .dna-card, .food-card, .k-card, .stat-card, .p-card, .qa, .step-card, .pc-card {
+  transition: transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s ease, border-color .22s ease;
+}
+main .card:hover, .stat-card:hover, .qa:hover, .step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -16px rgba(2,32,19,.18);
+  border-color: rgba(16,185,129,.4);
+}
+
+/* Eyebrow: strakker, meer luxe */
+.eyebrow { letter-spacing: .14em; }
+
+/* Buttons: uniforme premium-pill */
+.btn, .btn-ins, .btn-aff, .btn-food, .btn-call, .btn-submit, .outline {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+button.btn, .btn-submit, .btn-ins, .btn-aff, .btn-food, .btn-call {
+  box-shadow: 0 4px 14px rgba(16,185,129,.22) !important;
+}
+button.btn:hover, .btn-submit:hover, .btn-ins:hover, .btn-aff:hover, .btn-food:hover, .btn-call:hover {
+  box-shadow: 0 10px 26px rgba(16,185,129,.32) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ============ Ronde 13 — directory: kaart-first ontdekken ============ */
+.dir-explore-sec { margin-top: 34px; }
+.dir-sub { color: var(--muted-foreground, #64748b); font-size: 14px; margin-top: 4px; }
+.dir-tabs {
+  display: inline-flex; gap: 4px; padding: 4px; margin: 18px 0 20px;
+  background: var(--card-subtle, #f1f5f9); border: 1px solid var(--border, #e2e8f0);
+  border-radius: 999px; box-shadow: inset 0 1px 2px rgba(15,23,42,.04);
+}
+.dir-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 18px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--muted-foreground, #64748b);
+  font: 700 13px 'Plus Jakarta Sans', system-ui, sans-serif;
+  cursor: pointer; transition: all .2s cubic-bezier(.16,1,.3,1);
+}
+.dir-tab:hover { color: var(--primary, #0f3e28); }
+.dir-tab.is-on { background: var(--primary, #0f3e28); color: #fff; box-shadow: 0 6px 16px rgba(15,62,40,.28); }
+.dir-tab-count {
+  font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px;
+  background: rgba(255,255,255,.16); color: inherit;
+}
+.dir-explore {
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items: stretch;
+}
+.dir-map-wrap { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--border, #e2e8f0); box-shadow: var(--shadow-card, 0 4px 20px rgba(15,23,42,.05)); min-height: 520px; }
+.dir-map-wrap .dir-map-box { position: absolute; inset: 0; }
+.dir-map-wrap .dir-map-box[aria-busy="true"] { display: grid; place-items: center; background: var(--card-subtle, #f1f5f9); }
+.dir-map-wrap .dir-map-box[aria-busy="true"]::after { content: 'Kaart laadt…'; color: var(--muted-foreground); font-weight: 700; font-size: 13px; }
+.dir-map-hint {
+  position: absolute; left: 14px; bottom: 14px; z-index: 5;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+  border: 1px solid var(--border, #e2e8f0); border-radius: 999px;
+  padding: 7px 14px; font: 600 12px 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: var(--muted-foreground, #64748b); box-shadow: 0 6px 18px rgba(2,32,19,.12);
+  pointer-events: none;
+}
+.dir-mini-list { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.dir-mini-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.dir-mini-head strong { font: 800 15px 'Sora', 'Plus Jakarta Sans', sans-serif; color: var(--foreground, #09090b); }
+.dir-mini-head span { font: 600 12px 'Plus Jakarta Sans', sans-serif; color: var(--muted-foreground, #64748b); }
+.dir-mini-grid { display: grid; gap: 14px; max-height: 600px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin; }
+.dir-mini-grid .pc-card { animation: none; }
+.dir-mini-grid .pc-desc { -webkit-line-clamp: 1; }
+.dir-mini-grid .pc-actions .pc-call, .dir-mini-grid .pc-actions .pc-map { display: none !important; }
+.dir-show-all { justify-self: start; }
+.dir-list-pane[hidden] { display: none; }
+.dir-list-pane { animation: pcIn .4s cubic-bezier(.16,1,.3,1) both; }
+@media (max-width: 980px) {
+  .dir-explore { grid-template-columns: 1fr; }
+  .dir-map-wrap { min-height: 420px; }
+  .dir-mini-grid { max-height: none; overflow: visible; }
+}
+@media (max-width: 640px) {
+  .dir-tabs { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .dir-tab { justify-content: center; padding: 8px 10px; }
+  .dir-map-wrap { min-height: 340px; border-radius: 18px; }
+}

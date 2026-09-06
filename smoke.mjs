@@ -21,6 +21,8 @@ const routes = [
   '/forum',
   '/hulphonden',
   '/zintuigen',
+  '/hondenanatomie',
+  '/hondengedrag',
   '/fokkers',
   '/aankoopgids',
   '/vacatures',

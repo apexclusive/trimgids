@@ -5,32 +5,32 @@
 import { siteHeader, siteFooter, chromeCssLink } from './chrome.mjs';
 
 const BASE_CSS = `
-:root{--g:#0f3e28;--g2:#165b3c;--em:#10b981;--em-l:#a7f3d0;--amber:#d97706;--ink:#0b1220;--muted:#64748b;--line:#e5e9ef;--bg:#f8fafc;--card:#ffffff;--r:18px;--r-lg:26px;--shadow:0 8px 28px -8px rgba(2,32,19,.14);--shadow-lg:0 24px 60px -20px rgba(2,32,19,.25)}
+:root{--font-display:'Sora','Plus Jakarta Sans',system-ui,sans-serif;--g:#0f3e28;--g2:#165b3c;--em:#10b981;--em-l:#a7f3d0;--amber:#d97706;--ink:#0b1220;--muted:#64748b;--line:#e5e9ef;--bg:#f8fafc;--card:#ffffff;--r:18px;--r-lg:26px;--shadow:0 8px 28px -8px rgba(2,32,19,.14);--shadow-lg:0 24px 60px -20px rgba(2,32,19,.25)}
 [data-theme=dark],.dark{--ink:#eef5f0;--muted:#9fb3a8;--line:rgba(255,255,255,.12);--bg:#0a1410;--card:#101d16;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans','Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
-h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.18;text-wrap:balance}
+h1,h2,h3,h4{font-family:var(--font-display,'Sora'),'Plus Jakarta Sans',system-ui,sans-serif;letter-spacing:-.022em;line-height:1.18;text-wrap:balance}
 .wrap{max-width:1220px;margin:0 auto;padding:0 20px}
 main{padding:44px 0 70px}
 .crumb{color:var(--muted);font-size:13px;font-weight:700;margin-bottom:14px}
 .crumb a{color:var(--g)}
 .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin-bottom:8px}
-h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;max-width:820px}
-.intro{color:var(--muted);font-size:17px;max-width:760px;margin:12px 0 26px}
-.hero{background:radial-gradient(120% 130% at 20% 0%,rgba(16,185,129,.14),transparent 55%),var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(26px,4vw,44px);box-shadow:var(--shadow)}
+h1{font-size:clamp(30px,4.2vw,44px);font-weight:800;max-width:840px;letter-spacing:-0.03em}
+.intro{color:var(--muted);font-size:16.5px;line-height:1.62;max-width:740px;margin:12px 0 26px}
+.hero{background:radial-gradient(120% 130% at 20% 0%,rgba(16,185,129,.14),transparent 55%),var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,3.4vw,38px);box-shadow:var(--shadow)}
 .grid{display:grid;gap:18px}
 .g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
-.card h2,.card h3{font-size:19px;margin-bottom:8px}
+.card h2,.card h3{font-size:18.5px;margin-bottom:8px;font-family:var(--font-display,'Sora'),'Plus Jakarta Sans',sans-serif}
 .card p{color:var(--muted);font-size:14.5px}
 .card ul{list-style:none;display:grid;gap:8px;margin-top:10px}
 .card li{font-size:14px;display:flex;gap:9px;align-items:flex-start;color:var(--ink)}
 .card li::before{content:"✓";color:var(--em);font-weight:800;flex:none}
 section.sec{margin:56px 0 0}
-.sec h2{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:6px}
+.sec h2{font-size:clamp(23px,2.9vw,31px);font-weight:800;margin-bottom:6px;letter-spacing:-0.025em}
 .sec .sub{color:var(--muted);max-width:720px;margin-bottom:22px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--g);color:#fff;font-weight:800;font-size:14.5px;padding:12px 20px;border-radius:999px;border:0;transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(15,62,40,.45)}
@@ -95,7 +95,7 @@ export function pageShell({ title, description, canonical, body, extraCss = '', 
 <meta property="og:title" content="${title}"><meta property="og:description" content="${description}">
 <meta property="og:url" content="https://trimgids.nl${canonical}"><meta property="og:locale" content="nl_NL">
 <meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 ${chromeCssLink}
 ${extraHead}
 <style>${BASE_CSS}${extraCss}</style></head>

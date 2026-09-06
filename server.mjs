@@ -8,6 +8,7 @@ import { brotliCompress, gzip, constants as zlibConstants } from 'node:zlib';
 import { hulphondenPage } from './pages/hulphonden.mjs';
 import { zintuigenPage } from './pages/zintuigen.mjs';
 import { anatomiePage } from './pages/anatomie.mjs';
+import { hondengedragPage } from './pages/hondengedrag.mjs';
 import { fokkersPage } from './pages/fokkers.mjs';
 import { aankoopgidsPage } from './pages/aankoopgids.mjs';
 import { communityPage } from './pages/community.mjs';
@@ -1038,6 +1039,7 @@ function generateSitemapUncached(now) {
   add('/forum', '0.9', 'daily');
   add('/hulphonden', '0.85', 'weekly');
   add('/hondenanatomie', '0.9', 'monthly');
+  add('/hondengedrag', '0.9', 'monthly');
   add('/zintuigen', '0.85', 'weekly');
   add('/fokkers', '0.85', 'weekly');
   add('/aankoopgids', '0.9', 'weekly');
@@ -1578,7 +1580,7 @@ function walkingPage() {
 
 /* Standalone Interactive Map Page */
 function mapPage() {
-  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ontdekkingskaart Honden Nederland: Salons, Scholen, Opvang & Wandelplekken | TrimGids</title><meta name="description" content="De TrimGids-ontdekkingskaart: 2.900+ geverifieerde trimsalons, hondenscholen, hondenhotels, wellness en officiële losloopgebieden & hondenstranden in heel Nederland — zonder externe kaartblokkades."><link rel="canonical" href="https://trimgids.nl/kaart"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta property="og:type" content="website"><meta property="og:title" content="Ontdekkingskaart Honden Nederland | TrimGids"><meta property="og:description" content="2.900+ geverifieerde aanbieders en wandelplekken op één zelf-gehoste kaart."><meta property="og:url" content="https://trimgids.nl/kaart"><meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/nl-map.css"><style>${directoryStyles()}${customModuleStyles()}.map-shell{max-width:1180px;margin:24px auto 0}#nl-map{height:740px}@media(max-width:760px){#nl-map{height:560px}.map-shell{margin-top:14px}}</style></head><body><header><nav><a class="logo" href="/">🐾 TrimGids</a><div class="nav-links"><a href="/trimsalon">Trimsalons</a><a href="/kaart" style="color:var(--green);font-weight:700">Ontdekkingskaart</a><a href="/forum">Community</a><a href="/hulphonden">Diensthonden</a><a href="/fokkers">Fokkers</a><a href="/aankoopgids">Aankoopgids</a><a href="/zintuigen">Zintuigen</a><a href="/">Home</a></div></nav></header><main><p class="crumb"><a href="/">TrimGids</a> / Ontdekkingskaart Nederland</p><span class="eyebrow">Gebaseerd op de TrimGids-catalogus — geen externe kaartbron</span><h1>Ontdekkingskaart voor Honden in Nederland</h1><p class="intro">Elke stip is een echte aanbieder of wandelplek uit onze geverifieerde catalogus. In- en uitzoomen, slepen, filteren op categorie, zoeken op plaats en klikken voor direct bellen of navigeren. Werkt overal — ook zonder kaart-CDN.</p><div class="map-shell"><div id="nl-map" data-nl-map data-show-list="true"></div></div><section class="next"><span class="eyebrow">Bekijk ook</span><h2>Verder ontdekken</h2><div class="next-links"><a href="/forum">Community & Forum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab: horen & ruiken →</a><a href="/fokkers">Erkende fokkers in Nederland →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/trimsalon/pomeriaan">Trimsalon Pomeriaan →</a></div></section></main><footer>
+  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ontdekkingskaart Honden Nederland: Salons, Scholen, Opvang & Wandelplekken | TrimGids</title><meta name="description" content="De TrimGids-ontdekkingskaart: 2.900+ geverifieerde trimsalons, hondenscholen, hondenhotels, wellness en officiële losloopgebieden & hondenstranden in heel Nederland — zonder externe kaartblokkades."><link rel="canonical" href="https://trimgids.nl/kaart"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta property="og:type" content="website"><meta property="og:title" content="Ontdekkingskaart Honden Nederland | TrimGids"><meta property="og:description" content="2.900+ geverifieerde aanbieders en wandelplekken op één zelf-gehoste kaart."><meta property="og:url" content="https://trimgids.nl/kaart"><meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/nl-map.css"><style>${directoryStyles()}${customModuleStyles()}.map-shell{max-width:1180px;margin:24px auto 0}#nl-map{height:740px}@media(max-width:760px){#nl-map{height:560px}.map-shell{margin-top:14px}}</style></head><body><header><nav><a class="logo" href="/">🐾 TrimGids</a><div class="nav-links"><a href="/trimsalon">Trimsalons</a><a href="/kaart" style="color:var(--green);font-weight:700">Ontdekkingskaart</a><a href="/forum">Community</a><a href="/hulphonden">Diensthonden</a><a href="/fokkers">Fokkers</a><a href="/aankoopgids">Aankoopgids</a><a href="/zintuigen">Zintuigen</a><a href="/">Home</a></div></nav></header><main><p class="crumb"><a href="/">TrimGids</a> / Ontdekkingskaart Nederland</p><span class="eyebrow">Gebaseerd op de TrimGids-catalogus — geen externe kaartbron</span><h1>Ontdekkingskaart voor Honden in Nederland</h1><p class="intro">Elke stip is een echte aanbieder of wandelplek uit onze geverifieerde catalogus. In- en uitzoomen, slepen, filteren op categorie, zoeken op plaats en klikken voor direct bellen of navigeren. Werkt overal — ook zonder kaart-CDN.</p><div class="map-shell"><div id="nl-map" data-nl-map data-show-list="true"></div></div><section class="next"><span class="eyebrow">Bekijk ook</span><h2>Verder ontdekken</h2><div class="next-links"><a href="/forum">Community & Forum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab: horen & ruiken →</a><a href="/fokkers">Erkende fokkers in Nederland →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/trimsalon/pomeriaan">Trimsalon Pomeriaan →</a></div></section></main><footer>
   <div style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:18px">
     <a class="logo" href="/" style="font-size:20px">🐾 TrimGids</a>
     <div style="display:flex;gap:12px;font-size:13px;font-weight:600;flex-wrap:wrap">
@@ -1962,7 +1964,7 @@ function directoryPage(pathname, pageParam = 1) {
   const schemaJson = JSON.stringify({ "@context": "https://schema.org", "@graph": schemaGraph });
 
   // Provider cards rendering — gepagineerd (R10: snelheid & overzicht)
-  const PAGE_SIZE = providers.length > 120 ? 60 : (providers.length > 40 ? 40 : 999);
+  const PAGE_SIZE = providers.length > 120 ? 36 : (providers.length > 40 ? 40 : 999);
   const totalPages = Math.max(1, Math.ceil(providers.length / PAGE_SIZE));
   const page = Math.min(Math.max(1, pageParam || 1), totalPages);
   const pageProviders = providers.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -2123,7 +2125,7 @@ ${page < totalPages ? `<link rel="next" href="https://trimgids.nl${canonical}?pa
 <meta name="twitter:title" content="${escapeHtml(title)}">
 <meta name="twitter:description" content="${escapeHtml(metaDesc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">${schemaJson}</script>
 <style>${directoryStyles()}${customModuleStyles()}</style>
 </head>
@@ -2211,34 +2213,40 @@ ${page < totalPages ? `<link rel="next" href="https://trimgids.nl${canonical}?pa
       <a class="outline" href="/kaart">Bekijk op kaart →</a>
     </div>
   </section>` : `
-  <section>
+<section class="dir-explore-sec" aria-label="${isFallback ? 'Aanbieders in jouw regio' : 'Aanbieders vinden en ontdekken'}">
     <div class="section-head">
       <div>
         <span class="eyebrow">Aanbod & Beschikbaarheid</span>
-        <h2>${isFallback ? `Beste ${category === 'opvang' ? 'opvang' : category === 'wellness' ? 'wellness' : category === 'hondenschool' ? 'hondenscholen' : 'salons'} bij ${place ? place.name : 'jouw regio'}` : `Aanbieders ${breed ? `voor ${breed.name}` : ''} in ${place ? place.name : 'Nederland'}`}</h2>
-      </div>
-      <a class="outline" href="/kaart">Bekijk op kaart →</a>
-    </div>
-    <div class="providers" id="dir-grid">
-      ${cardsHtml}
-    </div>
-    ${paginationHtml}
-  </section>
-  ${(() => {
-    const catKey = category;
-    const regionProvince = place ? (place.province || place.region) : '';
-    return `
-  <section class="dir-map-section" aria-label="Aanbieders op de kaart">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Visueel Ontdekken</span>
-        <h2>Bekijk ${place ? `aanbieders in ${escapeHtml(place.name)}` : `deze ${catLabel.toLowerCase()}`} op de kaart</h2>
-        <p>In- en uitzoomen, slepen en klikken voor adres, telefoonnummer en navigatie — zonder externe kaart-blokkades.</p>
+        <h2>${isFallback ? `Beste ${category === 'opvang' ? 'opvang' : category === 'wellness' ? 'wellness' : category === 'hondenschool' ? 'hondenscholen' : 'salons'} bij ${place ? place.name : 'jouw regio'}` : `Aanbieders ${breed ? `voor ${breed.name}` : ''} ${place ? `in ${place.name}` : 'in Nederland'}`}</h2>
+        <p class="dir-sub">${providers.length.toLocaleString('nl-NL')} ${catLabel.toLowerCase()} gevonden — bekijk ze op de kaart of als volledige lijst.</p>
       </div>
       <a class="outline" href="/kaart">Volledige ontdekkingskaart →</a>
     </div>
-    <div class="dir-map-box" data-nl-map data-category="${catKey}"${regionProvince ? ` data-province="${escapeHtml(regionProvince)}"` : ''} aria-busy="true"></div>
-  </section>`; })()}`}
+
+    <div class="dir-tabs" role="tablist" aria-label="Weergave kiezen">
+      <button class="dir-tab is-on" id="tab-explore" type="button" role="tab" aria-selected="true" aria-controls="pane-explore">Kaart & Overzicht</button>
+      <button class="dir-tab" id="tab-list" type="button" role="tab" aria-selected="false" aria-controls="pane-list">Volledige lijst <span class="dir-tab-count">${providers.length.toLocaleString('nl-NL')}</span></button>
+    </div>
+
+    <div class="dir-explore is-on" id="pane-explore" role="tabpanel" aria-labelledby="tab-explore">
+      <div class="dir-map-wrap">
+        <div class="dir-map-box" data-nl-map data-category="${category}"${place ? ` data-province="${escapeHtml(place.province || place.region || '')}"` : ''} aria-busy="true"></div>
+        <span class="dir-map-hint">Klik een stip voor adres & navigatie — of bekijk ze onder elkaar in de lijst.</span>
+      </div>
+      <div class="dir-mini-list" aria-label="Eerste aanbieders">
+        <div class="dir-mini-head"><strong>Uitgelicht vandaag</strong><span>Top 6 van ${providers.length.toLocaleString('nl-NL')}</span></div>
+        <div class="dir-mini-grid">${pageProviders.slice(0, 6).map(p => providerCardHtml(p, breedSlug, category)).join('')}</div>
+        <button class="btn dir-show-all" id="dir-show-all" type="button">Bekijk alle ${providers.length.toLocaleString('nl-NL')} aanbieders →</button>
+      </div>
+    </div>
+
+    <div class="dir-list-pane" id="pane-list" role="tabpanel" aria-labelledby="tab-list">
+      <div class="providers" id="dir-grid">
+        ${cardsHtml}
+      </div>
+      ${paginationHtml}
+    </div>
+  </section>`}
 
   ${quoteFormHtml}
   ${cityPillsHtml}
@@ -2334,12 +2342,14 @@ if (quoteForm) {
 
 <script>
 const initTheme=()=>{
-  const saved=localStorage.getItem('trimgids_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-  document.documentElement.setAttribute('data-theme',saved);
-  const btn=document.getElementById('theme-toggle');
-  if(btn)btn.innerHTML='<span class="theme-icon"><svg class="ic" aria-hidden="true"><use href="#i-'+(saved==='dark'?'sun':'moon')+'"/></svg></span>';
+  try{
+    const saved=localStorage.getItem('trimgids_theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');
+    document.documentElement.setAttribute('data-theme',saved);
+    const btn=document.getElementById('theme-toggle');
+    if(btn)btn.innerHTML='<span class="theme-icon"><svg class="ic" aria-hidden="true"><use href="#i-'+(saved==='dark'?'sun':'moon')+'"/></svg></span>';
+  }catch(e){}
 };
-initTheme();
+try{initTheme();}catch(e){}
 document.querySelectorAll('#theme-toggle').forEach(b=>b.addEventListener('click',()=>{
   const cur=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
   document.documentElement.setAttribute('data-theme',cur);
@@ -2383,6 +2393,27 @@ document.querySelectorAll('#theme-toggle').forEach(b=>b.addEventListener('click'
     if(empty) empty.hidden=visible.length>0;
     if(grid) grid.style.display=visible.length?'':'none';
   };
+  /* Ronde 13 — directory: kaart/lijst tab-switch */
+  (function(){
+    var tabs=document.querySelectorAll('.dir-tab');
+    var panes={explore:document.getElementById('pane-explore'),list:document.getElementById('pane-list')};
+    var showAll=document.getElementById('dir-show-all');
+    var set=function(which){
+      tabs.forEach(function(t){
+        var on=t.id==='tab-'+which;
+        t.classList.toggle('is-on',on);
+        t.setAttribute('aria-selected',on?'true':'false');
+      });
+      if(panes.explore) panes.explore.classList.toggle('is-on',which==='explore');
+      if(panes.list){ if(which==='explore'){panes.list.setAttribute('hidden','');} else {panes.list.removeAttribute('hidden');} }
+      if(showAll) showAll.hidden=(which==='list');
+      if(which==='explore' && panes.explore && typeof panes.explore.scrollIntoView==='function'){try{panes.explore.scrollIntoView({block:'nearest'});}catch(e){}}
+    };
+    tabs.forEach(function(t){ t.addEventListener('click',function(){ set(t.id==='tab-list'?'list':'explore'); }); });
+    set('explore');
+    if(showAll) showAll.addEventListener('click',function(){ set('list'); var g=document.getElementById('dir-grid'); if(g&&typeof g.scrollIntoView==='function'){try{g.scrollIntoView({block:'start'});}catch(e){}} });
+  })();
+
   [q,prov,sort].forEach(function(el){ if(el) el.addEventListener('input',apply); });
   if(reset) reset.addEventListener('click',function(){
     if(q) q.value=''; if(prov) prov.value=''; if(sort) sort.value='default';
@@ -4499,9 +4530,9 @@ function modernizeGeneratedHtmlUncached(html) {
     .replaceAll('Fraunces, Georgia, serif', 'Plus Jakarta Sans, system-ui, sans-serif')
     .replaceAll('Fraunces,Georgia,serif', 'Plus Jakarta Sans,system-ui,sans-serif')
     .replaceAll('Fraunces,serif', 'Plus Jakarta Sans, system-ui, sans-serif')
-    .replaceAll('family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700', 'family=Plus+Jakarta+Sans:wght@400;500;600;700;800')
-    .replaceAll('family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600', 'family=Plus+Jakarta+Sans:wght@400;500;600;700;800')
-    .replace(/<link[^>]*href="https:\/\/fonts\.googleapis\.com\/css2\?family=Fraunces[^"]*"[^>]*>/g, '<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">')
+    .replaceAll('family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700', 'family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800')
+    .replaceAll('family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600', 'family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800')
+    .replace(/<link[^>]*href="https:\/\/fonts\.googleapis\.com\/css2\?family=Fraunces[^"]*"[^>]*>/g, '<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">')
     .replaceAll('✅ Minimaal Risico (Onder de 20 mg/kg)', 'Indicatieve lage dosis — geen vrijwaring')
     .replaceAll('De berekende dosis is laag. Meestal treden er geen ernstige klachten op. Zorg voor voldoende drinkwater.', 'Deze berekening is slechts een indicatie. Klachten, het soort product en het tijdstip van inname zijn belangrijker dan deze grenswaarde. Bel bij twijfel direct een dierenarts.')
     .replace(/(<a[^>]+href="https?:\/\/[^">]*(?:ref=trimgids|utm_source=trimgids)[^">]*"[^>]*)(>)/g, (match, opening, end) => opening.includes('rel=') ? opening.replace('rel="noopener noreferrer"', 'rel="sponsored noopener noreferrer"') + end : opening + ' rel="sponsored noopener noreferrer"' + end)
@@ -4675,7 +4706,7 @@ function searchSiteIndex(q, limit = 8) {
 function searchPage(q = '') {
   const query = clean(q, 80);
   const initial = searchSiteIndex(query, 8);
-  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zoeken: ${escapeHtml(query || 'alles')} | TrimGids</title><meta name="description" content="Zoek direct in de complete TrimGids: trimsalons, rassen, verzekeringen, kosten, regels en meer."><link rel="canonical" href="https://trimgids.nl/zoek"><meta name="robots" content="noindex, follow"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zoeken: ${escapeHtml(query || 'alles')} | TrimGids</title><meta name="description" content="Zoek direct in de complete TrimGids: trimsalons, rassen, verzekeringen, kosten, regels en meer."><link rel="canonical" href="https://trimgids.nl/zoek"><meta name="robots" content="noindex, follow"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><style>
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f8fafc;color:#0b1220;margin:0;line-height:1.6}
 header{background:#07150e;color:#fff;padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 header a{color:#fff;text-decoration:none;font-weight:800;font-size:17px}
@@ -5418,6 +5449,10 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/hulphonden' || url.pathname === '/diensthonden' || url.pathname === '/assistentiehonden') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(hulphondenPage());
+    }
+    if (url.pathname === '/hondengedrag' || url.pathname === '/gedrag-hond' || url.pathname === '/hondencommunicatie') {
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
+      return res.end(hondengedragPage());
     }
     if (url.pathname === '/hondenanatomie' || url.pathname === '/anatomie-hond' || url.pathname === '/hond-anatomie') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
