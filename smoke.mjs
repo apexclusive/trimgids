@@ -23,6 +23,7 @@ const routes = [
   '/zintuigen',
   '/hondenanatomie',
   '/hondengedrag',
+  '/puppies',
   '/fokkers',
   '/aankoopgids',
   '/vacatures',

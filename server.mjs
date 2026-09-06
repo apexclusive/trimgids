@@ -9,6 +9,7 @@ import { hulphondenPage } from './pages/hulphonden.mjs';
 import { zintuigenPage } from './pages/zintuigen.mjs';
 import { anatomiePage } from './pages/anatomie.mjs';
 import { hondengedragPage } from './pages/hondengedrag.mjs';
+import { puppiesPage } from './pages/puppies.mjs';
 import { fokkersPage } from './pages/fokkers.mjs';
 import { aankoopgidsPage } from './pages/aankoopgids.mjs';
 import { communityPage } from './pages/community.mjs';
@@ -73,6 +74,7 @@ const dnaTestsFile = join(root, 'data', 'dna-tests.json');
 const foodFile = join(root, 'data', 'food-subscriptions.json');
 const emergencyVetsFile = join(root, 'data', 'emergency-vets.json');
 const puppyCostsFile = join(root, 'data', 'puppy-costs.json');
+const puppiesFile = join(root, 'data', 'puppies.json');
 const dogNamesFile = join(root, 'data', 'dog-names.json');
 const dogCafesFile = join(root, 'data', 'dog-cafes.json');
 const communityBuddiesFile = join(root, 'data', 'community-buddies.json');
@@ -728,6 +730,40 @@ async function vacatureList() {
   return collectionList(vacaturesFile);
 }
 
+async function puppiesCreate(input) {
+  const title = clean(input.title, 90);
+  const breed = clean(input.breed, 60);
+  const breeder = clean(input.breeder, 80);
+  const city = clean(input.city, 60);
+  const province = clean(input.province, 40);
+  const sex = clean(input.sex, 40);
+  const text = clean(input.text, 800);
+  const email = clean(input.email, 120);
+  const price = Number(input.price);
+  const weeks = Number(input.weeks);
+  if (!title || !breed || !breeder || !city || !province || !text || !validEmail(email) || !isFinite(price) || price <= 0 || !isFinite(weeks) || weeks < 7) {
+    throw new Error('missing_fields');
+  }
+  const record = {
+    id: 'nest-' + randomUUID().slice(0, 8),
+    title, breed,
+    breedSlug: slugify(breed),
+    photo: 'p-' + slugify(breed).replace(/-/g, ''),
+    price: Math.round(price),
+    weeks: Math.min(16, Math.round(weeks)),
+    sex, city, province,
+    availableAt: new Date(Date.now() + 14 * 86400000).toISOString().slice(0, 10),
+    breeder,
+    email,
+    verified: false,
+    checks: Array.isArray(input.checks) ? input.checks.slice(0, 4).map(c => clean(c, 60)) : [],
+    text,
+    status: 'pending',
+    createdAt: new Date().toISOString()
+  };
+  return collectionAdd(puppiesFile, record, 300);
+}
+
 async function vacatureCreate(input) {
   const org = clean(input.org, 90);
   const title = clean(input.title, 120);
@@ -1040,6 +1076,7 @@ function generateSitemapUncached(now) {
   add('/hulphonden', '0.85', 'weekly');
   add('/hondenanatomie', '0.9', 'monthly');
   add('/hondengedrag', '0.9', 'monthly');
+  add('/puppies', '0.95', 'daily');
   add('/zintuigen', '0.85', 'weekly');
   add('/fokkers', '0.85', 'weekly');
   add('/aankoopgids', '0.9', 'weekly');
@@ -5190,6 +5227,16 @@ export async function handleRequest(req, res) {
       return json(res, 201, { claim: await claimCreate(slug, await readJson(req)) });
     }
 
+    /* PuppyMarktplaats API */
+    if (url.pathname === '/api/puppies' && req.method === 'GET') {
+      const list = (await collectionList(puppiesFile)).filter(p => p.status !== 'rejected' && p.status !== 'pending');
+      return json(res, 200, { puppies: list });
+    }
+    if (url.pathname === '/api/puppies' && req.method === 'POST') {
+      if (!rateLimit(req, rateLimits.write, 5, 60000)) return json(res, 429, { error: 'rate_limited' });
+      return json(res, 201, { puppy: await puppiesCreate(await readJson(req)) });
+    }
+
     /* Reviews API */
     if (url.pathname.startsWith('/api/providers/') && url.pathname.endsWith('/reviews') && req.method === 'POST') {
       if (!rateLimit(req, rateLimits.write, 10, 60000)) return json(res, 429, { error: 'rate_limited' });
@@ -5457,6 +5504,11 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/hulphonden' || url.pathname === '/diensthonden' || url.pathname === '/assistentiehonden') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(hulphondenPage());
+    }
+    if (url.pathname === '/puppies' || url.pathname === '/puppy-marktplaats' || url.pathname === '/puppies-te-koop') {
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
+      const pups = await collectionList(puppiesFile);
+      return res.end(puppiesPage(pups));
     }
     if (url.pathname === '/hondengedrag' || url.pathname === '/gedrag-hond' || url.pathname === '/hondencommunicatie') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
