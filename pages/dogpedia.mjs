@@ -79,9 +79,8 @@ function recordHtml(r, i) {
   </li>`;
 }
 
-const CATEGORY_PILLS = `<button type="button" class="gr-pill" data-gr="alle">Alles</button>` +
-  CAT_ORDER.map(c => `<button type="button" class="gr-pill" data-gr="${esc(c)}">${esc(c)}</button>`).join('') +
-  '<button type="button" class="gr-pill" data-gr="alle" style="margin-left:auto">100 records ↓</button>';
+const CATEGORY_PILLS = '<button type="button" class="gr-pill" data-gr="alle">Alles</button>' +
+  CAT_ORDER.map(c => `<button type="button" class="gr-pill" data-gr="${esc(c)}">${esc(c)}</button>`).join('');
 
 export function dogpediaPage() {
   const itemsHtml = records.map(recordHtml).join('');
@@ -135,6 +134,25 @@ ${GUIDE_GROUPS.map(g => `
     <details><summary>Zijn hondenrecords eerlijk meetbaar?</summary><p>Guinness werkt met strenge regels, maar records die afhangen van claimgegevens (zoals leeftijd) kunnen nooit 100% zeker zijn. Daarom vermeldt TrimGids altijd de bron en de twijfel.</p></details>
   </div>
 </section>
+
+<script>
+(function () {
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.gr-pill'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.gr-row'));
+  var list = document.getElementById('gr-list');
+  function apply(cat) {
+    rows.forEach(function (r) { r.hidden = !(cat === 'alle' || r.getAttribute('data-cat') === cat); });
+  }
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      pills.forEach(function (x) { x.classList.remove('on'); });
+      p.classList.add('on');
+      apply(p.getAttribute('data-gr'));
+    });
+  });
+  if (pills.length) pills[0].classList.add('on');
+})();
+</script>
 `;
   return pageShell({
     title: 'Dogpedia: hondenkennis, records & de Guinness Top 100 | TrimGids',
@@ -178,23 +196,6 @@ const CSS = `
 @media (max-width: 700px) { .gr-row { grid-template-columns: 44px 1fr; } .gr-value { grid-column: 2; justify-self: start; } }
 @media (prefers-reduced-motion: no-preference) { .gr-row { animation: grIn .45s cubic-bezier(.16,1,.3,1) both; } }
 @keyframes grIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-<script>
-(function () {
-  var pills = Array.prototype.slice.call(document.querySelectorAll('.gr-pill'));
-  var rows = Array.prototype.slice.call(document.querySelectorAll('.gr-row'));
-  var list = document.getElementById('gr-list');
-  function apply(cat) {
-    rows.forEach(function (r) { r.hidden = !(cat === 'alle' || r.getAttribute('data-cat') === cat); });
-  }
-  pills.forEach(function (p) {
-    p.addEventListener('click', function () {
-      pills.forEach(function (x) { x.classList.remove('on'); });
-      p.classList.add('on');
-      apply(p.getAttribute('data-gr'));
-    });
-  });
-  if (pills.length) pills[0].classList.add('on');
-})();
-</script>`;
+`;
 
 export default dogpediaPage;

@@ -831,3 +831,101 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 .p1:hover { border-color: #10b981; } .p2:hover { border-color: #6366f1; } .p3:hover { border-color: #f59e0b; } .p4:hover { border-color: #ec4899; } .p5:hover { border-color: #0ea5e9; } .p6:hover { border-color: #ef4444; }
 @media (max-width: 980px) { .pillar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px) { .pillar-grid { grid-template-columns: 1fr; } .pillar-card { padding: 20px; } }
+
+/* ============================================================
+   RONDE 16 — VISUEEL HERONTWERP: werelden, records & steun
+   ============================================================ */
+
+/* ---- Premium kaart-sfeer: glas, zachte schaduwen, 1 accent ---- */
+:root {
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --ring-glow: 0 0 0 4px rgba(16, 185, 129, .12);
+  --hairline: rgba(15, 62, 40, .08);
+  --ink-soft: #334155;
+}
+[data-theme="dark"], .dark { --hairline: rgba(255, 255, 255, .08); --ink-soft: #cbd5e1; }
+
+.section { padding: 72px 0; }
+.section-header { margin-bottom: 40px; }
+.section-header.split { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; max-width: none; text-align: left; flex-wrap: wrap; }
+.section-header.split > div { max-width: 740px; }
+.section-title { font-family: var(--font-display); letter-spacing: -0.035em; line-height: 1.08; }
+.section-eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: 11.5px; font-weight: 800; color: var(--primary); background: var(--primary-light); padding: 5px 12px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+
+/* ---- De zes werelden (foto-kaarten met hiërarchie) ---- */
+.worlds-sec { background: radial-gradient(120% 90% at 50% 0%, rgba(16, 185, 129, .07), transparent 60%) !important; border-bottom: 0 !important; }
+.worlds-sec .wrap { max-width: 1240px; }
+.worlds-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.world-card { position: relative; display: grid; grid-template-rows: auto 1fr; background: var(--card); border: 1px solid var(--hairline); border-radius: 26px; overflow: hidden; text-decoration: none; box-shadow: var(--shadow-card); transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .25s; }
+.world-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-floating); border-color: rgba(16, 185, 129, .45); }
+.world-card picture { display: block; aspect-ratio: 5 / 2.9; overflow: hidden; background: linear-gradient(135deg, #0f3e28, #17694a); }
+.world-card picture img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease-out); }
+.world-card:hover picture img { transform: scale(1.06); }
+.world-body { display: grid; gap: 9px; padding: 20px 20px 22px; align-content: start; }
+.world-kicker { font: 800 10.5px var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: #059669; }
+.world-card h3 { margin: 0; font: 800 20px var(--font-display); letter-spacing: -.02em; color: var(--foreground); }
+.world-card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--muted-foreground); }
+.world-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.world-chips span { font: 600 11px var(--font-body); color: var(--ink-soft); background: var(--secondary); border: 1px solid var(--border-subtle); padding: 4px 9px; border-radius: 999px; }
+.world-chips b { font-weight: 800; color: var(--primary); }
+.world-cta { margin-top: 10px; font: 700 13.5px var(--font-body); color: var(--primary); display: inline-flex; align-items: center; gap: 6px; }
+.world-cta b { color: var(--foreground); font-weight: 800; }
+.world-card:hover .world-cta { gap: 10px; }
+.world-cta::after { content: '→'; transition: transform .25s var(--ease-out); }
+.world-card:hover .world-cta::after { transform: translateX(3px); }
+
+/* ---- Records-ticker ---- */
+.records-sec { border-bottom: 0 !important; padding-top: 40px !important; }
+.records-ticker { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.record-chip { display: grid; gap: 8px; background: var(--card); border: 1px solid var(--hairline); border-radius: 20px; padding: 18px 16px; text-decoration: none; box-shadow: var(--shadow-subtle); transition: transform .3s var(--ease-out), border-color .25s, box-shadow .3s; }
+.record-chip:hover { transform: translateY(-4px); border-color: rgba(16, 185, 129, .5); box-shadow: var(--shadow-card); }
+.record-ico { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: linear-gradient(135deg, #0f3e28, #17694a); }
+.record-ico .ic { width: 18px; height: 18px; }
+.record-txt { display: grid; gap: 3px; }
+.record-txt strong { font: 800 13.5px var(--font-body); color: var(--foreground); }
+.record-txt em { font-style: normal; font-size: 12px; color: var(--muted-foreground); line-height: 1.4; }
+
+/* ---- Steun-band ---- */
+.steer-sec { padding: 40px 0 72px !important; border-bottom: 0 !important; }
+.steer-band { display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: center; background: linear-gradient(120deg, #052012 0%, #0d3a25 55%, #0f4a30 100%); border-radius: 30px; padding: 38px 42px; color: #fff; box-shadow: var(--shadow-floating); position: relative; overflow: hidden; }
+.steer-band::after { content: ''; position: absolute; inset: 0; background: radial-gradient(600px 200px at 92% 10%, rgba(52, 211, 153, .25), transparent 60%); pointer-events: none; }
+.steer-visual { width: 92px; height: 92px; border-radius: 26px; display: grid; place-items: center; color: #6ee7b7; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); }
+.steer-visual svg { width: 44px; height: 44px; }
+.steer-copy { position: relative; display: grid; gap: 12px; align-content: start; }
+.steer-copy h2 { margin: 0; font: 800 clamp(22px, 3vw, 30px) var(--font-display); letter-spacing: -.025em; }
+.steer-copy p { margin: 0; max-width: 640px; font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, .82); }
+.steer-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.btn-light { background: #fff !important; color: #0f3e28 !important; border: 0 !important; }
+.steer-sec .btn-outline { color: #fff; border-color: rgba(255, 255, 255, .35) !important; background: transparent !important; }
+.steer-sec .btn-outline:hover { border-color: #fff !important; background: rgba(255, 255, 255, .08) !important; }
+
+/* ---- Algemene verfijning ---- */
+.card { border-radius: 22px; border: 1px solid var(--hairline); }
+.card:hover { border-color: rgba(16, 185, 129, .3); }
+.k-card { border-radius: 24px; border: 1px solid var(--hairline); }
+.k-card .k-photo, .k-card .k-art { border-radius: 16px; overflow: hidden; }
+.k-mini span { position: relative; padding-left: 14px; }
+.k-mini span::before { content: ''; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 99px; background: var(--brand-emerald); }
+.btn { border-radius: 999px; transition: transform .2s var(--ease-out), box-shadow .25s, background .2s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { box-shadow: 0 8px 20px -8px rgba(16, 185, 129, .55); }
+
+@media (max-width: 1020px) { .worlds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .records-ticker { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) {
+  .worlds-grid { grid-template-columns: 1fr; }
+  .world-card picture { aspect-ratio: 16 / 8; }
+  .records-ticker { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .steer-band { grid-template-columns: 1fr; padding: 30px 26px; }
+  .steer-visual { width: 64px; height: 64px; }
+  .section { padding: 52px 0; }
+}
+
+/* ---- Hero verfijning (Ronde 16) ---- */
+.hero { min-height: 660px; }
+.hero-title { font-size: clamp(34px, 5vw, 56px); }
+.hero-badge { border-radius: 999px; backdrop-filter: blur(8px); }
+.stats-banner-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 880px; margin-left: auto; margin-right: auto; }
+.stat-box { border: 1px solid var(--hairline); background: color-mix(in srgb, var(--card) 88%, transparent); backdrop-filter: blur(10px); }
+.stat-box strong { font: 800 26px var(--font-display); letter-spacing: -0.02em; }
+.airbnb-search-bar { box-shadow: 0 18px 44px -16px rgba(15, 62, 40, .22), 0 0 0 1px rgba(255,255,255,.6); }
+.hero-category-pills { margin-bottom: 16px; }

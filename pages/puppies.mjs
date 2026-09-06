@@ -3,7 +3,7 @@
    een veilig formulier waar fokkers hun nest kunnen aanbieden. */
 import { pageShell, esc } from './base.mjs';
 
-const CSS_LINK = '<link rel="stylesheet" href="/assets/css/puppies.css?v=15">';
+const CSS_LINK = '<link rel="stylesheet" href="/assets/css/puppies.css?v=16">';
 
 const PROVINCES = ['Alle provincies', 'Drenthe', 'Friesland', 'Gelderland', 'Noord-Brabant', 'Utrecht', 'Zuid-Holland']; // moet overeenkomen met data/puppies.json
 const BREED_ORDER = ['labrador-retriever', 'bordercollie', 'pomeriaan', 'cockapoo'];
@@ -176,7 +176,7 @@ export function puppiesPage(list = []) {
     dMeta.innerHTML = '<span>' + p.breed + '</span><span class="dot"></span><span>' + p.weeks + ' weken</span><span class="dot"></span><span>' + p.sex + '</span><span class="dot"></span><span>' + p.city + ' (' + p.province + ')</span><span class="dot"></span><span>€ ' + Number(p.price).toLocaleString('nl-NL') + ' per pup</span>';
     dText.textContent = p.text;
     dChecks.innerHTML = (p.checks || []).map(function (c) { return '<span>✓ ' + c + '</span>'; }).join('');
-    dContact.href = 'mailto:fokker@trimgids.nl?subject=' + encodeURIComponent('Interesse in ' + p.title + ' (' + p.id + ')') + '&body=' + encodeURIComponent('Beste ' + p.breeder + ',\\n\\nIk ben geïnteresseerd in dit nest. Kunnen we een kennismaking plannen?\\n\\nMet vriendelijke groet,');
+    dContact.href = 'mailto:fokker@trimgids.nl?subject=' + encodeURIComponent('Interesse in ' + p.title + ' (' + p.id + ')') + '&body=' + encodeURIComponent('Beste ' + p.breeder + '. Ik ben geïnteresseerd in dit nest en wil graag een kennismaking plannen. Met vriendelijke groet,');
     dialog.hidden = false;
     requestAnimationFrame(function () { dialog.classList.add('open'); document.body.style.overflow = 'hidden'; });
   }

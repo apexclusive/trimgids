@@ -495,3 +495,24 @@ nav.site-navbar.scrolled::after { opacity: 1; }
   .hero-badge-wrap, .hero-title, .hero-subtitle, .hero-category-pills, .airbnb-search-bar, .hero-trust-row { animation: none !important; }
   .nav-pill::after, .btn-primary::after, .btn-airbnb-search::after, .btn-submit::after { display: none !important; }
 }
+
+/* ============================================================
+   RONDE 16 — nieuwe sterren-chips (Baasjescijfer 5-sterren-ui)
+   + verfijnd glas-navigatie / knoppen
+   ============================================================ */
+.stars { position: relative; display: inline-block; width: 96px; height: 18px; line-height: 1; vertical-align: -0.22em; }
+.stars-bg, .stars-fg { position: absolute; inset: 0; font-size: 17px; letter-spacing: 1px; line-height: 1.1; white-space: nowrap; }
+.stars-bg { color: #d8dee4; }
+.stars-fg { color: #f59e0b; overflow: hidden; width: 0; }
+[data-theme="dark"] .stars-bg { color: #33413a; }
+
+/* Navigatie: zachter glas + subtielere rand */
+nav.site-navbar { backdrop-filter: blur(18px) saturate(1.35); -webkit-backdrop-filter: blur(18px) saturate(1.35); }
+.nav-pill { transition: background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease); }
+.nav-pill:hover { transform: translateY(-1px); }
+.hub-pill { border-radius: 999px; border: 1px solid transparent; transition: all .2s var(--ease); }
+.hub-pill:hover { border-color: var(--border); background: var(--card); transform: translateY(-1px); }
+
+/* Knoppen: consistent vloeiend */
+.btn { border-radius: 999px; }
+.btn-primary, .btn-ins, .btn-aff, .btn-food { box-shadow: 0 10px 24px -10px rgba(16, 185, 129, .5); }

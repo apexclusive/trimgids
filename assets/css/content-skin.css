@@ -277,11 +277,13 @@ main a { text-decoration: none; }
 /* Ronde 15 — Baasjescijfer (gevalideerde 0-10 beoordelingen van baasjes) */
 .pc-baasjes-row { display: flex; margin-top: -2px; }
 .pc-baasjes {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 8px;
   font: 700 11.5px 'Plus Jakarta Sans', system-ui, sans-serif; color: #065f46;
   background: linear-gradient(135deg, rgba(16,185,129,.12), rgba(16,185,129,.05));
-  border: 1px solid rgba(16,185,129,.32); border-radius: 999px; padding: 4px 11px;
+  border: 1px solid rgba(16,185,129,.32); border-radius: 999px; padding: 5px 12px; white-space: nowrap;
 }
+.pc-baasjes .stars { width: 68px; height: 13px; }
+.pc-baasjes .stars-bg, .pc-baasjes .stars-fg { font-size: 13px; letter-spacing: .5px; }
 .pc-baasjes strong { font-size: 13px; }
 .pc-baasjes-new { color: #6b5b1f; background: rgba(251,191,36,.12); border-color: rgba(251,191,36,.4); }
 .pc-baasjes-empty { display: none; }

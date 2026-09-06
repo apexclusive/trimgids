@@ -57,8 +57,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="/assets/css/nl-map.css?v=15">
-<link rel="stylesheet" href="/assets/css/forum.css?v=15">
+<link rel="stylesheet" href="/assets/css/nl-map.css?v=16">
+<link rel="stylesheet" href="/assets/css/forum.css?v=16">
 <link rel="preload" as="image" href="/assets/img/hero-1200.avif" imagesrcset="/assets/img/hero-640.avif 640w, /assets/img/hero-1200.avif 1200w, /assets/img/hero-1600.avif 1600w" imagesizes="100vw" fetchpriority="high" type="image/avif">
 <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/icon-180.png">
@@ -70,8 +70,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
 <script>try{var tgTheme=localStorage.getItem('trimgids_theme')||'light';document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
-<link rel="stylesheet" href="/assets/css/home.css?v=15" id="tg-home-css">
-<link rel="stylesheet" href="/assets/css/site-chrome.css?v=15" id="tg-site-chrome">
+<link rel="stylesheet" href="/assets/css/home.css?v=16" id="tg-home-css">
+<link rel="stylesheet" href="/assets/css/site-chrome.css?v=16" id="tg-site-chrome">
 </head>
 <body id="top">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -152,22 +152,18 @@
   </div>
 </nav>
 
-<!-- STICKY QUICK HUB JUMP BAR (MAAKT DE SITE DIRECT OVERZICHTELIJK) -->
-<nav class="sticky-hub-nav" aria-label="Snel navigeren over de pagina">
+<!-- BASIS-NAVIGATIE: de zes werelden + favoriete diepgang (Ronde 16) -->
+<nav class="sticky-hub-nav" aria-label="De basis van TrimGids">
   <div class="wrap hub-nav-in">
-    <a href="#eerstehulp-cijfers" class="hub-pill active"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp & Cijfers</a>
-    <a href="#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Nood & Alerts</a>
-    <a href="#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis & Gidsen</a>
-    <a href="#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Zorg & Voeding</a>
-    <a href="#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht & Offerte</a>
-    <a href="#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Belasting & Kosten</a>
-    <a href="#reizen-kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Reizen & Kennis</a>
-    <a href="#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelbossen</a>
-    <a href="#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart & Salons</a>
+    <a href="#werelden" class="hub-pill active"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> De 6 werelden</a>
+    <a href="#records" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Top 100 records</a>
+    <a href="#eerstehulp-cijfers" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp &amp; cijfers</a>
+    <a href="#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis &amp; gidsen</a>
+    <a href="#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Zorg &amp; shop</a>
+    <a href="#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Nood &amp; vermist</a>
     <a href="#forum" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Community</a>
-    <a href="#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen & Adopteren</a>
-    <a href="#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Nieuws</a>
-    <a href="#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> FAQ</a>
+    <a href="#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Actueel</a>
+    <a href="#steun-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Steun TrimGids</a>
   </div>
 </nav>
 
@@ -302,83 +298,122 @@
 </header>
 
 <main id="main-content">
-<section class="section t-green" id="pijlers">
+<!-- ============================================================
+     WERELDEN — de zes basisdelen van TrimGids (Ronde 16 · redesign)
+     ============================================================ -->
+<section class="section worlds-sec" id="werelden">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-eyebrow">De zes pijlers van TrimGids</span>
-      <h2 class="section-title">Kies je startpunt</h2>
-      <p class="section-subtitle">TrimGids is opgebouwd uit zes duidelijke werelddelen. Alles wat je zoekt staat hieronder — geen losse pagina's, maar één geordende kennis- en servicehub voor baasjes in Nederland.</p>
+      <span class="section-eyebrow">De basis · zes delen, één site</span>
+      <h2 class="section-title">Waar wil je vandaag naartoe?</h2>
+      <p class="section-subtitle">Elk deel van TrimGids is één duidelijke wereld. Kies je startpunt — alles wat erbij hoort staat daar geordend, met cijfers en data uit de hele site.</p>
     </div>
-    <div class="pillar-grid">
-      <a class="pillar-card p1" href="/kaart"><span class="pillar-num">1</span><span class="pillar-tag">Lokale diensten</span><h3>Interactieve kaart</h3><p>De beste trimsalons, hondenopvang, scholen en wandelplekken bij jou in de buurt — met Baasjescijfers van échte baasjes.</p><span class="pillar-cta">Naar de kaart →</span></a>
-      <a class="pillar-card p2" href="/forum"><span class="pillar-num">2</span><span class="pillar-tag">Community</span><h3>Hondenforum</h3><p>Spreek enthousiaste baasjes, stel je vraag over opvoeding, gedrag en gezondheid en deel wat jij weet.</p><span class="pillar-cta">Naar het forum →</span></a>
-      <a class="pillar-card p3" href="/dogpedia"><span class="pillar-num">3</span><span class="pillar-tag">Kennis</span><h3>Dogpedia & Top 100</h3><p>Interactieve gidsen, de gekste feitjes, veelgestelde vragen én de Guinness Honden Top 100.</p><span class="pillar-cta">Open de Dogpedia →</span></a>
-      <a class="pillar-card p4" href="/puppies"><span class="pillar-num">4</span><span class="pillar-tag">Verantwoord kopen</span><h3>PuppyMarktplaats</h3><p>Pups van erkende fokkers met zichtbare gezondheidschecks, stamboom en chippen — geen broodfok.</p><span class="pillar-cta">Bekijk de nesten →</span></a>
-      <a class="pillar-card p5" href="/verzekering"><span class="pillar-num">5</span><span class="pillar-tag">Zorg & shopping</span><h3>Zorg, voeding & shop</h3><p>Verzekeringen, voeding, DNA-tests, buggy's en lijnen via onze partnerwinkel — jij betaalt niets extra.</p><span class="pillar-cta">Naar zorg & shop →</span></a>
-      <a class="pillar-card p6" href="/nieuws"><span class="pillar-num">6</span><span class="pillar-tag">Actueel</span><h3>Nieuws & vermiste honden</h3><p>Landelijk hondennieuws, gevaarswaarschuwingen en het meldpunt voor vermiste honden in je regio.</p><span class="pillar-cta">Naar nieuws & vermist →</span></a>
+    <div class="worlds-grid">
+      <a class="world-card world-map" href="/kaart">
+        <picture><source type="image/avif" srcset="/assets/img/cat-trimsalon-480.avif 480w, /assets/img/cat-trimsalon-960.avif 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/cat-trimsalon-960.webp" srcset="/assets/img/cat-trimsalon-480.webp 480w, /assets/img/cat-trimsalon-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Hond wordt vakkundig getrimd in een trimsalon"></picture>
+        <div class="world-body">
+          <span class="world-kicker">1 · Bij jou in de buurt</span>
+          <h3>Interactieve kaart</h3>
+          <p>De beste trimsalons, hondenopvang, scholen en losloopgebieden — met het Baasjescijfer van echte baasjes.</p>
+          <div class="world-chips">
+            <span>Trimsalons</span><span>Hondenscholen</span><span>Opvang &amp; pension</span><span>Wellness</span><span>Losloopgebieden</span><span>Hondenstranden</span>
+          </div>
+          <span class="world-cta">Naar de kaart <b data-live="kaart" data-count="providers">—</b> aanbieders →</span>
+        </div>
+      </a>
+      <a class="world-card world-forum" href="/forum">
+        <picture><source type="image/avif" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-honden-onderling-960.webp" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee honden ontmoeten elkaar vrolijk tijdens een wandeling"></picture>
+        <div class="world-body">
+          <span class="world-kicker">2 · Community</span>
+          <h3>Hondenforum</h3>
+          <p>Spreek enthousiaste baasjes, stel je vragen over opvoeding en gedrag en deel wat jij al weet.</p>
+          <div class="world-chips"><span>Opvoeding</span><span>Gedrag</span><span>Gezondheid</span><span>Delen &amp; helpen</span></div>
+          <span class="world-cta">Naar het forum <b data-live="forum" data-count="forum">…</b> gesprekken →</span>
+        </div>
+      </a>
+      <a class="world-card world-pedia" href="/dogpedia">
+        <picture><source type="image/avif" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-anatomie-960.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Interactief anatomiemodel van een hond"></picture>
+        <div class="world-body">
+          <span class="world-kicker">3 · Kennis</span>
+          <h3>Dogpedia &amp; Top 100</h3>
+          <p>Interactieve gidsen, de leukste feitjes, veelgestelde vragen én de Guinness Honden Top 100.</p>
+          <div class="world-chips"><span>Hondenanatomie</span><span>Zintuigenlab</span><span>EHBO-gidsen</span><span><b data-live="pedia" data-count="records">100</b> records</span></div>
+          <span class="world-cta">Open de Dogpedia →</span>
+        </div>
+      </a>
+      <a class="world-card world-market" href="/puppies">
+        <picture><source type="image/avif" srcset="/assets/img/gen/p-pomeriaan-450.avif 450w, /assets/img/gen/p-pomeriaan-900.avif 900w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/p-pomeriaan-900.webp" srcset="/assets/img/gen/p-pomeriaan-450.webp 450w, /assets/img/gen/p-pomeriaan-900.webp 900w" sizes="(max-width:700px) 100vw, 33vw" width="900" height="600" loading="lazy" decoding="async" alt="Gezonde Pomeriaan puppy bij een erkende fokker"></picture>
+        <div class="world-body">
+          <span class="world-kicker">4 · Verantwoord kopen</span>
+          <h3>PuppyMarktplaats</h3>
+          <p>Pups van erkende fokkers met zichtbare gezondheidschecks, stamboom en chip — nooit broodfok.</p>
+          <div class="world-chips"><span>HD/ED-röntgen</span><span>DNA vrij</span><span>Fokker te bezoeken</span><span><b data-live="markt" data-count="puppies">…</b> nesten nu</span></div>
+          <span class="world-cta">Bekijk de nesten →</span>
+        </div>
+      </a>
+      <a class="world-card world-shop" href="/verzekering">
+        <picture><source type="image/avif" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-webshop-960.webp" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Hondenspullen: voer, riemen en reisbenodigdheden"></picture>
+        <div class="world-body">
+          <span class="world-kicker">5 · Zorg &amp; shopping</span>
+          <h3>Verzekering, voeding &amp; webshop</h3>
+          <p>Verzekeringen, verse voeding, DNA-tests, buggy's en lijnen via onze partnerwinkel — jij betaalt niets extra.</p>
+          <div class="world-chips"><span>Hondenverzekering</span><span>Verse voeding</span><span>DNA-tests</span><span>Reis &amp; outdoor</span></div>
+          <span class="world-cta">Naar zorg &amp; shop →</span>
+        </div>
+      </a>
+      <a class="world-card world-news" href="/nieuws">
+        <picture><source type="image/avif" srcset="/assets/img/gen/k-hulphonden-480.webp 480w, /assets/img/gen/k-hulphonden-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-hulphonden-960.webp" srcset="/assets/img/gen/k-hulphonden-480.webp 480w, /assets/img/gen/k-hulphonden-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Geleidehond loopt met haar baas door de stad"></picture>
+        <div class="world-body">
+          <span class="world-kicker">6 · Actueel</span>
+          <h3>Nieuws &amp; vermiste honden</h3>
+          <p>Landelijk hondennieuws, gevaarswaarschuwingen en de landelijke radar voor vermiste honden.</p>
+          <div class="world-chips"><span>Inspectie &amp; misstand</span><span>Wet &amp; recht</span><span><b data-live="nieuws" data-count="news">…</b> berichten</span><span>Vermist-meldpunt</span></div>
+          <span class="world-cta">Naar nieuws &amp; vermist →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section" id="ontdek">
+<section class="section records-sec" id="records">
   <div class="wrap">
-    <div class="section-header">
-      <span class="section-eyebrow">Ontdek TrimGids</span>
-      <h2 class="section-title">Alles voor jouw hond, in één overzicht</h2>
-      <p class="section-subtitle">Van de beste trimsalon tot het mooiste hondenstrand: kies een categorie en vind direct geverifieerde plekken in heel Nederland.</p>
+    <div class="section-header split">
+      <div>
+        <span class="section-eyebrow">Guinness Honden Top 100 · uit de Dogpedia</span>
+        <h2 class="section-title">De snelste, oudste, zwaarste &amp; luidste hond ooit</h2>
+        <p class="section-subtitle">Honderd records, geverifieerde feiten en eerlijke twijfel — van 74,6 km/u tot een blaf van ±113 dB. Kies een categorie en ontdek ze allemaal.</p>
+      </div>
+      <a class="btn btn-primary btn-pill" href="/hondenrecords">Alle 100 records →</a>
     </div>
-    <div class="explore-grid">
-      <a class="explore-card" href="/trimsalon">
-        <img src="/assets/img/cat-trimsalon-960.webp" srcset="/assets/img/cat-trimsalon-480.webp 480w, /assets/img/cat-trimsalon-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond wordt vakkundig getrimd in een trimsalon" width="960" height="720" loading="lazy" decoding="async">
-        <div class="explore-card-body">
-          <h3>Trimsalons</h3>
-          <p>Erkende specialisten per ras en woonplaats, inclusief prijsoverzichten.</p>
-          <span class="explore-cta">Bekijk trimsalons →</span>
-        </div>
+    <div class="records-ticker" id="home-records" role="list" aria-label="Record-highlights">
+      <a class="record-chip" href="/hondenrecords" role="listitem">
+        <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+        <span class="record-txt"><strong>Snelste hond</strong><em>74,6 km/u · Greyhound</em></span>
       </a>
-      <a class="explore-card" href="/hondenschool">
-        <img src="/assets/img/cat-school-960.webp" srcset="/assets/img/cat-school-480.webp 480w, /assets/img/cat-school-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond tijdens een gehoorzaamheidscursus op een hondenschool" width="960" height="720" loading="lazy" decoding="async">
-        <div class="explore-card-body">
-          <h3>Hondenscholen</h3>
-          <p>Puppycursus, gehoorzaamheid en gedragstraining bij gecertificeerde trainers.</p>
-          <span class="explore-cta">Bekijk hondenscholen →</span>
-        </div>
+      <a class="record-chip" href="/hondenrecords" role="listitem">
+        <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></span>
+        <span class="record-txt"><strong>Luidste blaf</strong><em>±113 dB — vliegtuig-niveau</em></span>
       </a>
-      <a class="explore-card" href="/opvang">
-        <img src="/assets/img/cat-opvang-960.webp" srcset="/assets/img/cat-opvang-480.webp 480w, /assets/img/cat-opvang-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Vrolijke honden in een hondenopvang met dagbesteding" width="960" height="720" loading="lazy" decoding="async">
-        <div class="explore-card-body">
-          <h3>Opvang & Pension</h3>
-          <p>Dagopvang, pension en hondenhotels met beoordelingen van andere baasjes.</p>
-          <span class="explore-cta">Bekijk opvang →</span>
-        </div>
+      <a class="record-chip" href="/hondenrecords" role="listitem">
+        <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></span>
+        <span class="record-txt"><strong>Oudste ooit</strong><em>Bluey · 29 jaar &amp; 5 mnd</em></span>
       </a>
-      <a class="explore-card" href="/wellness">
-        <img src="/assets/img/cat-wellness-960.webp" srcset="/assets/img/cat-wellness-480.webp 480w, /assets/img/cat-wellness-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond geniet van een ontspannende wellness- en fysiobehandeling" width="960" height="720" loading="lazy" decoding="async">
-        <div class="explore-card-body">
-          <h3>Wellness & Fysio</h3>
-          <p>Hydrotherapie, massage en dierenfysiotherapie voor herstel en preventie.</p>
-          <span class="explore-cta">Bekijk wellness →</span>
-        </div>
+      <a class="record-chip" href="/hondenrecords" role="listitem">
+        <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg></span>
+        <span class="record-txt"><strong>Grootste ooit</strong><em>Zeus · 111,8 cm schoft</em></span>
       </a>
-      <a class="explore-card" href="/wandelen">
-        <img src="/assets/img/cat-wandelen-960.webp" srcset="/assets/img/cat-wandelen-480.webp 480w, /assets/img/cat-wandelen-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond wandelt vrij door een groen losloopgebied in het bos" width="960" height="720" loading="lazy" decoding="async">
-        <div class="explore-card-body">
-          <h3>Losloopgebieden</h3>
-          <p>Omheinde speelbossen en officiële loslooplocaties in alle provincies.</p>
-          <span class="explore-cta">Bekijk wandelplekken →</span>
-        </div>
+      <a class="record-chip" href="/hondenrecords" role="listitem">
+        <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg></span>
+        <span class="record-txt"><strong>Zwaarste ooit</strong><em>Zorba · 155,6 kg</em></span>
       </a>
-      <a class="explore-card" href="/hondenstranden">
-        <img src="/assets/img/cat-strand-960.webp" srcset="/assets/img/cat-strand-480.webp 480w, /assets/img/cat-strand-960.webp 960w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 33vw" alt="Hond rent over het hondenstrand langs de Noordzeekust" width="960" height="720" loading="lazy" decoding="async">
-        <div class="explore-card-body">
-          <h3>Hondenstranden</h3>
-          <p>Zwemwater en strandregels per gemeente, inclusief toegankelijkheid.</p>
-          <span class="explore-cta">Bekijk hondenstranden →</span>
-        </div>
+      <a class="record-chip" href="/hondenrecords" role="listitem">
+        <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span>
+        <span class="record-txt"><strong>Slimste woordenschat</strong><em>Chaser · ±1.022 woorden</em></span>
       </a>
     </div>
   </div>
 </section>
+
 <section class="section t-red" id="eerstehulp-cijfers">
   <div class="wrap">
     <div class="section-header">
@@ -990,6 +1025,25 @@
     </div>
   </div>
 </section>
+<section class="section steer-sec" id="steun-hub">
+  <div class="wrap">
+    <div class="steer-band">
+      <div class="steer-visual" aria-hidden="true">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="steer-copy">
+        <span class="section-eyebrow" style="color:#a7f3d0">Steun TrimGids · blijft gratis</span>
+        <h2>Houd de gidsen gratis &amp; onafhankelijk</h2>
+        <p>Geen abonnementen, geen betaalmuren — wel servers, fotografie en factchecks. Koop via onze partnerlinks (jij betaalt niets extra), word Vriend van TrimGids of deel een gids die je hielp.</p>
+        <div class="steer-actions">
+          <a class="btn btn-light" href="/steun">Steun via gift of koffie →</a>
+          <a class="btn btn-outline" href="/webshop">Shop via partners (gratis voor jou) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="faq">
   <div class="wrap">
     <div class="section-header">
@@ -1165,26 +1219,21 @@ const loadHomeFeeds = async () => {
     if (cityCount) cityCount.textContent = Number(data.stats.cities || 0).toLocaleString('nl-NL');
   }
 
-  // Explore-cards: live tellingen per categorie (R11: realistische cijfers i.p.v. slogans)
+  // WERELDEN-kaarten: live tellingen uit de hele site (Ronde 16)
   try {
-    const byCat = (data.stats && data.stats.byCategory) || {};
-    const counts = {
-      'Trimsalons': byCat.trimsalon || 0,
-      'Hondenscholen': byCat.hondenschool || 0,
-      'Opvang & Pension': byCat.opvang || 0,
-      'Wellness & Fysio': byCat.wellness || 0,
-      'Losloopgebieden': data.stats.routes || 0,
-      'Hondenstranden': Math.round((data.stats.routes || 0) / 2)
-    };
-    document.querySelectorAll('.explore-card').forEach(card => {
-      const h3 = card.querySelector('h3');
-      const badge = document.createElement('span');
-      badge.className = 'explore-count';
-      const key = h3 ? h3.textContent.trim() : '';
-      if (counts[key] !== undefined) badge.textContent = counts[key].toLocaleString('nl-NL') + ' plekken in NL';
-      else badge.textContent = 'Vind jouw plek';
-      card.appendChild(badge);
+    document.querySelectorAll('[data-live]').forEach(el => {
+      const kind = el.getAttribute('data-count');
+      if (kind === 'providers') el.textContent = Number(data.stats?.providers || 0).toLocaleString('nl-NL') + '+';
+      if (kind === 'news') el.textContent = Number(data.news?.news?.length || 0);
     });
+  } catch (e) {}
+  try {
+    fetch('/api/forum').then(r => r.json()).then(d => {
+      document.querySelectorAll('[data-count="forum"]').forEach(el => el.textContent = Number(d.topics?.length || 0));
+    }).catch(() => {});
+    fetch('/api/puppies').then(r => r.json()).then(d => {
+      document.querySelectorAll('[data-count="puppies"]').forEach(el => el.textContent = Number(d.puppies?.length || 0));
+    }).catch(() => {});
   } catch (e) {}
 
   // Last Minute Deals
@@ -1213,7 +1262,7 @@ const loadHomeFeeds = async () => {
         const card = document.createElement('article');
         card.className = 'card' + (idx === 0 ? ' card-subtle' : '');
         const insuranceDescription = ins.description || ins.highlights?.[0] || 'Bekijk de dekking en voorwaarden.';
-        card.innerHTML = (idx === 0 ? '<span class="badge badge-emerald" style="position:absolute;top:16px;right:16px">Beste Keuze 2026 · ' + (ins.score || '9,3') + '/10</span>' : '') + '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">'<span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px \'Plus Jakarta Sans\',sans-serif;flex:none">' + (ins.logo || 'T') + '</span><div>'<h3 style="font-size:17px;margin:0">' + (ins.name || ins.provider || 'Hondenverzekering') + '</h3><span style="font-size:12px;color:var(--muted-foreground)">' + (ins.score || ins.rating || '—') + '/10 · ' + (ins.rating || '—') + ' (' + (ins.reviewCount || 0) + ' reviews)</span></div></div><div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:8px">€ ' + Number(ins.startingPrice || 0).toFixed(2) + ' <span style="font-size:12px;color:var(--muted-foreground);font-weight:400">/mnd</span></div><p style="font-size:13px;color:var(--muted-foreground);margin-bottom:14px">' + insuranceDescription + '</p><a href="' + (ins.affiliateUrl || '/verzekering') + '" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-primary btn-pill btn-full btn-sm">Premie Berekenen ↗</a>';
+        card.innerHTML = (idx === 0 ? '<span class="badge badge-emerald" style="position:absolute;top:16px;right:16px">Beste Keuze 2026 · ' + (ins.score || '9,3') + '/10</span>' : '') + '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">' + '<span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px \'Plus Jakarta Sans\',sans-serif;flex:none">' + (ins.logo || 'T') + '</span><div>' + '<h3 style="font-size:17px;margin:0">' + (ins.name || ins.provider || 'Hondenverzekering') + '</h3><span style="font-size:12px;color:var(--muted-foreground)">' + (ins.score || ins.rating || '—') + '/10 · ' + (ins.rating || '—') + ' (' + (ins.reviewCount || 0) + ' reviews)</span></div></div><div style="font-size:22px;font-weight:800;color:var(--primary);margin-bottom:8px">€ ' + Number(ins.startingPrice || 0).toFixed(2) + ' <span style="font-size:12px;color:var(--muted-foreground);font-weight:400">/mnd</span></div><p style="font-size:13px;color:var(--muted-foreground);margin-bottom:14px">' + insuranceDescription + '</p><a href="' + (ins.affiliateUrl || '/verzekering') + '" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-primary btn-pill btn-full btn-sm">Premie Berekenen ↗</a>';
         box.appendChild(card);
       });
     }
@@ -1512,7 +1561,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || ['localho
 <script src="/assets/js/nl-map.js"></script>
 <script src="/assets/js/forum.js"></script>
 <!-- Gedeelde runtime: thema, account, favorieten en algemene interacties -->
-<script src="/assets/js/app.js?v=15"></script>
+<script src="/assets/js/app.js?v=16"></script>
 <!-- Assistent TG (Ronde 9): chatbot met kennisbank + optionele AI -->
 <script src="/assets/js/chatbot.js" defer></script>
 </body>
