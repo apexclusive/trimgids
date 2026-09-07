@@ -82,19 +82,23 @@ export function siteHeader() {
 <!-- STICKY QUICK HUB JUMP BAR (MAAKT DE SITE DIRECT OVERZICHTELIJK) -->
 <nav class="sticky-hub-nav" aria-label="Snel navigeren over de pagina">
   <div class="wrap hub-nav-in">
-    <a href="/#eerstehulp-cijfers" class="hub-pill active"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp & Cijfers</a>
-    <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Nood & Alerts</a>
-    <a href="/#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis & Gidsen</a>
-    <a href="/#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Zorg & Voeding</a>
+    <a href="/#werelden" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Ontdek TrimGids</a>
+    <a href="/#records" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Top 100 records</a>
+    <a href="/#eerstehulp-cijfers" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp &amp; feiten</a>
+    <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Noodhulp &amp; vermist</a>
+    <a href="/#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis &amp; gidsen</a>
+    <a href="/#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Gezondheid &amp; verzekering</a>
     <a href="/#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht & Offerte</a>
-    <a href="/#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Belasting & Kosten</a>
-    <a href="/#reizen-kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Reizen & Kennis</a>
-    <a href="/#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelbossen</a>
+    <a href="/#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Kosten &amp; belasting</a>
+    <a href="/#reizen-kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Reizen &amp; sport</a>
+    <a href="/#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
     <a href="/#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart & Salons</a>
     <a href="/#forum" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Community</a>
-    <a href="/#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen & Adopteren</a>
+    <a href="/#hondenslee-poll" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Jouw stem</a>
+    <a href="/#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen &amp; meedoen</a>
     <a href="/#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Nieuws</a>
-    <a href="/#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> FAQ</a>
+    <a href="/#steun-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Steun TrimGids</a>
+    <a href="/#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> Veelgestelde vragen</a>
   </div>
 </nav>`;
 }

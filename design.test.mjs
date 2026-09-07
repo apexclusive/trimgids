@@ -19,7 +19,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   ok(d.querySelectorAll('.world-card picture img').length === 6, 'Home: elke wereld heeft een foto (geen emoji-lijst)');
   ok(d.querySelectorAll('.record-chip').length === 6, 'Home: records-ticker met 6 highlights');
   ok(d.querySelectorAll('.steer-band').length === 1, 'Home: steun-band aanwezig');
-  ok(d.querySelectorAll('.sticky-hub-nav .hub-pill').length === 9, 'Home: basis-navigatie met 9 duidelijke knoppen');
+  ok(d.querySelectorAll('.sticky-hub-nav .hub-pill').length === 17, 'Home: complete hub-navigatie in leesvolgorde');
   ok(!!d.getElementById('hero-search-form'), 'Home: hero-zoekblok aanwezig');
   ok(!!d.getElementById('home-provider-count'), 'Home: live-statistieken aanwezig');
   ok(d.querySelectorAll('.explore-card').length === 0, 'Home: oude dubbele ontdek-grid verwijderd');
