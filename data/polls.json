@@ -1,5 +1,16 @@
 [
   {
+    "id": "hondenslee-noorwegen",
+    "breed": "hondenslee-noorwegen",
+    "question": "Zou jij een hondensleetocht in Noorwegen boeken?",
+    "options": [
+      { "id": "ja-verantwoord", "label": "Ja, als dierenwelzijn aantoonbaar vooropstaat", "votes": 0 },
+      { "id": "misschien", "label": "Misschien, ik wil eerst de kennel en werkwijze zien", "votes": 0 },
+      { "id": "nee", "label": "Nee, ik kies liever een activiteit zonder sledehonden", "votes": 0 }
+    ],
+    "voters": []
+  },
+  {
     "id": "pomeriaan-trimfrequentie",
     "breed": "pomeriaan",
     "question": "Hoe vaak gaat jouw Pomeriaan naar de trimsalon?",

@@ -18,7 +18,9 @@ const CSS = `
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  max-width: none;
+  object-fit: contain;
+  aspect-ratio: auto;
 }
 .anat-hotspot {
   position: absolute;
@@ -53,6 +55,7 @@ const CSS = `
   color: #062719;
   z-index: 3;
 }
+.anat-hotspot:focus-visible { outline: 3px solid #fbbf24; outline-offset: 4px; }
 .anat-hotspot.active::after { animation: none; border-color: rgba(16, 185, 129, 0.6); }
 
 /* Info-paneel naast/onder het model */
@@ -425,6 +428,7 @@ export function anatomiePage() {
     }
   });
 })();
-</script>`
+</script>`,
+    extraCss: CSS
   });
 }

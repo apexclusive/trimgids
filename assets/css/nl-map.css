@@ -6,6 +6,8 @@
 .nlmap-search>span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px}
 .nlmap-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--muted-foreground,#64748b);cursor:pointer;font-weight:800;padding:6px}
 .nlmap-chips{display:flex;gap:6px;flex-wrap:wrap}
+.nlmap-province{display:inline-flex;align-items:center;gap:7px;flex:none;font-size:11px;font-weight:800;color:var(--muted-foreground,#64748b)}
+.nlmap-province select{min-width:145px;padding:8px 28px 8px 11px;border:1px solid var(--border,rgba(15,62,40,.16));border-radius:999px;background:var(--background,#fff);color:var(--foreground,#0b1220);font:700 12px 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer}
 .nlmap-chips button{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;border:1px solid var(--border,rgba(15,62,40,.16));background:var(--background,#fff);color:var(--foreground,#0b1220);font-size:13px;font-weight:800;cursor:pointer;transition:all .18s ease}
 .nlmap-chips button i{width:9px;height:9px;border-radius:50%;display:inline-block}
 .nlmap-chips button:hover{border-color:var(--primary,#0f3e28)}
@@ -38,4 +40,4 @@
 .nlmap-list button i{width:12px;height:12px;border-radius:50%;flex:none}
 .nlmap-list button b{display:block;font-size:14px;color:var(--foreground,#0b1220)}
 .nlmap-list button small{color:var(--muted-foreground,#64748b);font-size:12px}
-@media(max-width:700px){.nlmap-stage{min-height:340px}.nlmap-card{position:static;width:100%;margin:12px;border-radius:16px}}
+@media(max-width:700px){.nlmap-stage{min-height:340px}.nlmap-card{position:static;width:100%;margin:12px;border-radius:16px}.nlmap-province{width:100%;justify-content:space-between}.nlmap-province select{flex:1}}

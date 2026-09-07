@@ -467,6 +467,22 @@
     if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
 
+  function initHomepageReturn() {
+    if (location.pathname !== '/') return;
+    var key = 'trimgids_home_scroll';
+    try {
+      var saved = Number(sessionStorage.getItem(key));
+      if (saved > 0) requestAnimationFrame(function () { window.scrollTo(0, saved); });
+      var remember = function () { sessionStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop || 0)); };
+      window.addEventListener('pagehide', remember);
+      window.addEventListener('beforeunload', remember);
+      window.addEventListener('pageshow', function () {
+        var current = Number(sessionStorage.getItem(key));
+        if (current > 0) requestAnimationFrame(function () { window.scrollTo(0, current); });
+      });
+    } catch (e) {}
+  }
+
   /* Ronde 11 — actieve nav-pill markeren (is-current) op álle pagina's */
   function initCurrentNav() {
     var path = (location.pathname || '/').replace(/\/+$/, '') || '/';
@@ -740,6 +756,7 @@
     initDelegatedTheme();
     initSaveButtons();
     initScrollUI();
+    initHomepageReturn();
     initStatCounters();
     initHubHighlight();
     initCurrentNav();

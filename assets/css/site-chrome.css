@@ -6,6 +6,8 @@
    stylesheet, zodat dit de enige bron is).
    ============================================================ */
 
+html, body { overflow-x: clip; }
+
 /* ---------- Ronde 11 — moderne SVG-iconen ---------- */
 .ic {
   width: 1em; height: 1em; display: inline-block; flex: none;
@@ -300,6 +302,7 @@ nav.site-navbar.scrolled {
   transform: translateY(-1px);
 }
 .nav-actions .btn-sm { padding: 6px 14px; font-size: 13px; border-radius: var(--radius-full); }
+.nav-actions .btn, .k-card .btn { flex-shrink: 0; }
 
 /* ---------- Homepage-nieuwsbrief (2026: glow-gradient kaart) ---------- */
 .home-newsletter {
@@ -414,7 +417,7 @@ footer.site-footer::before {
 
 .scroll-progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #10b981, #34d399, #fbbf24); z-index: 9999; transition: width 0.05s ease-out; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
 
-.sticky-hub-nav { position: sticky; top: 68px; z-index: 800; background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 8px 0; transition: all 0.2s ease; }
+.sticky-hub-nav { position: sticky; top: 68px; z-index: 800; width: 100%; overflow: hidden; background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 8px 0; transition: all 0.2s ease; }
 [data-theme="dark"] .sticky-hub-nav { background: rgba(9, 13, 11, 0.88); }
 .hub-nav-in { display: flex; align-items: center; gap: 8px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding: 2px 20px; }
 .hub-nav-in::-webkit-scrollbar { display: none; }

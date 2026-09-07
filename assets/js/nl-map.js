@@ -60,7 +60,7 @@
     this.showList = el.getAttribute('data-show-list') === 'true';
     this.scale = 1; this.minScale = 0.75; this.maxScale = 8;
     this.px = 0; this.py = 0; this.drag = null;
-    this.filter = 'all'; this.query = ''; this.selected = null; this.hover = null;
+    this.filter = 'all'; this.province = 'all'; this.query = ''; this.selected = null; this.hover = null;
     this.items = []; this.boundsCache = null;
     this._build();
   }
@@ -79,6 +79,7 @@
       '    <button data-f="wellness" type="button"><i style="background:#0D9488"></i>Wellness</button>' +
       '    <button data-f="routes" type="button"><i style="background:#059669"></i>Wandelen</button>' +
       '  </div>' +
+      '  <label class="nlmap-province"><span>Provincie</span><select aria-label="Filter op provincie"><option value="all">Heel Nederland</option></select></label>' +
       '  <div class="nlmap-actions">' +
       '    <button class="nlmap-geo" type="button" title="Toon aanbieders bij mij in de buurt"><svg class="ic" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Bij mij</button>' +
       '    <button class="nlmap-zoom" type="button" title="Inzoomen">＋</button>' +
@@ -100,6 +101,7 @@
     this.empty = this.el.querySelector('.nlmap-empty');
     this.list = this.el.querySelector('.nlmap-list');
     this.input = this.el.querySelector('.nlmap-search input');
+    this.provinceSelect = this.el.querySelector('.nlmap-province select');
 
     var widthPx = this.el.clientWidth || 900;
     this.canvas.width = widthPx * (window.devicePixelRatio || 1);
@@ -114,6 +116,9 @@
     });
     this.el.querySelector('.nlmap-clear').addEventListener('click', function () {
       self.query = ''; self.input.value = ''; self.render(); self.input.focus();
+    });
+    this.provinceSelect.addEventListener('change', function () {
+      self.province = this.value; self.render(); self.renderList();
     });
     this.el.querySelectorAll('.nlmap-chips button').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -175,19 +180,31 @@
     if (self.el.getAttribute('data-category')) qs.push('category=' + encodeURIComponent(self.el.getAttribute('data-category')));
     if (self.el.getAttribute('data-province')) qs.push('province=' + encodeURIComponent(self.el.getAttribute('data-province')));
     var providerUrl = '/api/providers?lite=1' + (qs.length ? '&' + qs.join('&') : '');
-    Promise.all([fetch(providerUrl).then(function (r) { return r.json(); }), fetch('/api/routes').then(function (r) { return r.json(); })])
+    function getJson(url) {
+      return fetch(url, { headers: { Accept: 'application/json' } }).then(function (response) {
+        if (!response.ok) throw new Error('kaart_api_' + response.status);
+        return response.json();
+      });
+    }
+    Promise.all([getJson(providerUrl), getJson('/api/routes')])
       .then(function (results) {
-        var providers = (results[0].providers || []).map(function (p) {
+        var providers = (results[0] && Array.isArray(results[0].providers) ? results[0].providers : []).map(function (p) {
           return { id: p.id || p.slug || Math.random().toString(36).slice(2), name: p.name, city: p.city, province: p.province, cat: p.category, lat: +p.lat, lng: +p.lng, rating: p.rating, reviewCount: p.reviewCount, phone: p.phone, startingPrice: p.startingPrice, slug: p.slug, isRoute: false };
         });
-        var routes = ((results[1] || {}).routes || []).map(function (r) {
+        var routes = (results[1] && Array.isArray(results[1].routes) ? results[1].routes : []).map(function (r) {
           return { id: 'route-' + r.slug, name: r.title || r.name, city: r.city || '', province: r.province || '', cat: 'routes', lat: +r.lat, lng: +r.lng, description: r.description || '', isRoute: true };
         });
-        self.items = providers.concat(routes);
+        self.items = providers.concat(routes).filter(function (item) { return Number.isFinite(item.lat) && Number.isFinite(item.lng); });
+        var provinces = Array.from(new Set(self.items.map(function (item) { return item.province; }).filter(Boolean))).sort(function (a, b) { return a.localeCompare(b, 'nl'); });
+        self.provinceSelect.innerHTML = '<option value="all">Heel Nederland</option>' + provinces.map(function (province) { return '<option value="' + esc(province) + '">' + esc(province) + '</option>'; }).join('');
+        self.stat.textContent = self.items.length + ' plekken in Nederland';
         self.render();
       })
       .catch(function () {
-        self.stat.textContent = '⚠️ Kaartdata kon niet worden geladen.';
+        self.items = [];
+        self.empty.hidden = false;
+        self.stat.textContent = 'Kaartdata tijdelijk niet beschikbaar';
+        self.empty.querySelector('span').textContent = 'Probeer opnieuw of gebruik de lijst met plaatsen.';
       });
   };
 
@@ -226,6 +243,7 @@
     var self = this;
     return this.items.filter(function (i) {
       if (self.filter !== 'all' && i.cat !== self.filter) return false;
+      if (self.province !== 'all' && i.province !== self.province) return false;
       if (!self.query) return true;
       var hay = (i.name + ' ' + (i.city || '') + ' ' + (i.province || '')).toLowerCase();
       return hay.indexOf(self.query) !== -1;
@@ -233,7 +251,7 @@
   };
 
   NLMap.prototype.render = function () {
-    var ctx = this.ctx, items = this.filtered();
+    var self = this, ctx = this.ctx, items = this.filtered();
     this.empty.hidden = items.length > 0;
     if (!this.empty.hidden) this.stat.textContent = '0 locaties';
     else this.stat.textContent = items.length + ' locaties · ' + this.items.length + ' totaal';
@@ -300,21 +318,21 @@
       ctx.globalAlpha = i.isRoute ? 0.92 : 0.88;
       ctx.fill();
       ctx.globalAlpha = 1;
-      ctx.lineWidth = 1.6 / this.scale;
+      ctx.lineWidth = 1.6 / self.scale;
       ctx.strokeStyle = dark ? 'rgba(4,20,13,.9)' : 'rgba(255,255,255,.95)';
       ctx.stroke();
       if (i.isRoute) {
         ctx.beginPath();
-        ctx.arc(x, y, r + 3.4 / this.scale, 0, Math.PI * 2);
+        ctx.arc(x, y, r + 3.4 / self.scale, 0, Math.PI * 2);
         ctx.strokeStyle = 'rgba(5,150,105,.5)';
-        ctx.lineWidth = 1.4 / this.scale;
+        ctx.lineWidth = 1.4 / self.scale;
         ctx.stroke();
       }
-      if (this.hover === i || this.selected === i) {
+      if (self.hover === i || self.selected === i) {
         ctx.beginPath();
-        ctx.arc(x, y, r + 7 / this.scale, 0, Math.PI * 2);
+        ctx.arc(x, y, r + 7 / self.scale, 0, Math.PI * 2);
         ctx.strokeStyle = '#10b981';
-        ctx.lineWidth = 2.4 / this.scale;
+        ctx.lineWidth = 2.4 / self.scale;
         ctx.stroke();
       }
     });

@@ -969,7 +969,7 @@ async function pollVote(pollId, input) {
   polls[index].voters = polls[index].voters || [];
   if (polls[index].voters.includes(voterToken)) throw new Error('poll_already_voted');
   polls[index].voters.push(voterToken);
-  const opt = polls[index].options?.find(item => item.id === optionId);
+  const opt = polls[index].options?.find(item => (typeof item === 'string' ? item === optionId : item.id === optionId));
   if (opt) opt.votes = (opt.votes || 0) + 1;
   await writeFile(pollsFile, JSON.stringify(polls, null, 2) + '\n');
   return polls[index];
@@ -1677,7 +1677,7 @@ function mapPage() {
     <span>100% zelf-gehost — geen externe kaartdiensten</span>
   </div>
 </footer>
-<script src="/assets/js/nl-map.js" defer></script>
+<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=3" defer></script>
 <script>
   (function () {
     var inject = document.createElement('style');
@@ -4640,7 +4640,7 @@ if (!html.includes('tg-theme-boot')) {
     html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||"light";document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
   }
   if (!html.includes('tg-app-js')) {
-    html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js"></script></body>');
+    html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=17"></script></body>');
   }
   /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element. */
   if (html.includes('data-nl-map') && !html.includes('tg-nlmap-js')) {
@@ -4679,7 +4679,8 @@ if (!html.includes('tg-theme-boot')) {
   {
     const tailSkin =
       (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=16" id="tg-site-chrome">') +
-      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">');
+      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">') +
+      (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=4" id="tg-premium-refresh">');
     if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
   }
 
