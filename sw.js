@@ -1,5 +1,5 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v3';
+const VERSION = 'trimgids-v4';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [
@@ -12,7 +12,9 @@ const PRECACHE = [
   '/assets/img/cat-wandelen-480.webp', '/assets/img/cat-wandelen-960.webp',
   '/assets/img/cat-strand-480.webp', '/assets/img/cat-strand-960.webp',
   '/assets/img/pomeriaan-320.webp', '/assets/img/pomeriaan-640.webp', '/assets/img/pomeriaan-hondzien.webp',
-  '/assets/js/nl-map.js', '/assets/js/forum.js', '/assets/css/nl-map.css', '/assets/css/forum.css'
+  '/assets/js/app.js?v=17', '/assets/js/nl-map.js?v=3', '/assets/js/forum.js',
+  '/assets/css/home.css?v=17', '/assets/css/site-chrome.css?v=17', '/assets/css/premium-refresh.css?v=3',
+  '/assets/css/nl-map.css', '/assets/css/forum.css'
 ];
 
 self.addEventListener('install', event => {

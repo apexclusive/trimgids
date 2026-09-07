@@ -471,12 +471,19 @@
     if (location.pathname !== '/') return;
     var key = 'trimgids_home_scroll';
     try {
+      var hasAnchor = Boolean(location.hash);
+      if ('scrollRestoration' in history) history.scrollRestoration = hasAnchor ? 'auto' : 'manual';
       var saved = Number(sessionStorage.getItem(key));
-      if (saved > 0) requestAnimationFrame(function () { window.scrollTo(0, saved); });
+      if (hasAnchor) requestAnimationFrame(function () {
+        var target = document.getElementById(location.hash.slice(1));
+        if (target) target.scrollIntoView();
+      });
+      if (!hasAnchor && saved > 0) requestAnimationFrame(function () { window.scrollTo(0, saved); });
       var remember = function () { sessionStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop || 0)); };
       window.addEventListener('pagehide', remember);
       window.addEventListener('beforeunload', remember);
       window.addEventListener('pageshow', function () {
+        if (location.hash) return;
         var current = Number(sessionStorage.getItem(key));
         if (current > 0) requestAnimationFrame(function () { window.scrollTo(0, current); });
       });
