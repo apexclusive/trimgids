@@ -2,12 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/index.js": {
-      "includeFiles": [
-        "data/**",
-        "pages/**",
-        "assets/js/**",
-        "assets/css/**"
-      ]
+      "includeFiles": "data/**"
     }
   },
   "headers": [
