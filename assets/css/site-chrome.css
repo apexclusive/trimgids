@@ -407,6 +407,8 @@ footer.site-footer::before {
 .site-footer .brand-title { color: #f5fff8; }
 .site-footer .brand-subtitle { color: #5ee6aa; }
 .site-footer .footer-col:first-child p, .site-footer .footer-col:first-child div { color: rgba(222, 240, 231, 0.68) !important; }
+.site-footer .tg-feedback-note { max-width: 300px; margin: 0 0 14px; font-size: 12px; line-height: 1.55; color: rgba(222, 240, 231, 0.72) !important; }
+.site-footer .tg-feedback-note a { color: #a7f3d0; text-decoration: underline; text-underline-offset: 2px; }
 .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(222, 240, 231, 0.6); position: relative; z-index: 1; }
 .footer-bottom a { color: rgba(222, 240, 231, 0.72); font-weight: 700; }
 .footer-bottom a:hover { color: #6ee7b7; }
