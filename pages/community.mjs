@@ -31,22 +31,22 @@ export function communityPage() {
   <h1>Hondenforum: vraag het de andere baasjes</h1>
   <p class="intro">De beste hondenkennis zit niet in een artikel — die zit tussen baasjes. Stel je vraag, deel je ervaring met een fokker, trimsalon of opvang, en help iemand anders verder. Vriendelijk, gratis en altijd met een kwispel.</p>
   <div class="grid g4">
-    <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">30 sec</strong><p>zo snel plaats je een onderwerp</p></div>
+    <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">30 sec</strong><p>zo snel maak je een account</p></div>
     <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">24/7</strong><p>online, ook 's nachts bij een nood</p></div>
-    <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">100%</strong><p>gratis — geen account nodig</p></div>
+    <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">100%</strong><p>gratis om te lezen — login om te posten</p></div>
     <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">🐾</strong><p>van baasje voor baasje</p></div>
   </div>
 </div>
 
 <nav class="pinbox">
   <span class="ic">📌</span>
-  <div><b>Welkom! Lees eerst even de huisregels</b><p>Blijf vriendelijk, deel geen privéadressen/telefoonnummers in het openbaar en vermijd medisch advies dat je dierenarts zou moeten geven. Vragen over acute nood? Bel je dierenarts of de Dierenambulance (0900-0245).</p></div>
+  <div><b>Welkom! Lees eerst even de huisregels</b><p>Je hoeft niet anoniem te posten: maak een gratis account aan om een onderwerp of reactie te plaatsen. Blijf vriendelijk, deel geen privéadressen/telefoonnummers in het openbaar en vermijd medisch advies dat je dierenarts zou moeten geven. Vragen over acute nood? Bel je dierenarts of de Dierenambulance (0900-0245).</p></div>
   <a class="btn ghost" href="#forum-ui">Direct naar het forum ↓</a>
 </nav>
 
 <section class="sec">
   <h2>💬 Het forum</h2>
-  <p class="sub">Kies een categorie, sorteer, zoek, open een topic om te lezen en te reageren — of start zelf iets nieuws. Je kunt stemmen op nuttige antwoorden 💚</p>
+  <p class="sub">Kies een categorie, sorteer, zoek, open een topic om te lezen en reageer alleen met een gratis account. Zo blijft de community veilig, vriendelijk en overzichtelijk.</p>
   <div data-forum-ui id="forum-ui"></div>
 </section>
 

@@ -12,7 +12,7 @@ const PRECACHE = [
   '/assets/img/cat-wandelen-480.webp', '/assets/img/cat-wandelen-960.webp',
   '/assets/img/cat-strand-480.webp', '/assets/img/cat-strand-960.webp',
   '/assets/img/pomeriaan-320.webp', '/assets/img/pomeriaan-640.webp', '/assets/img/pomeriaan-hondzien.webp',
-  '/assets/js/app.js?v=17', '/assets/js/nl-map.js?v=3', '/assets/js/forum.js',
+  '/assets/js/app.js?v=22', '/assets/js/nl-map.js?v=8', '/assets/js/forum.js',
   '/assets/css/home.css?v=17', '/assets/css/site-chrome.css?v=17', '/assets/css/premium-refresh.css?v=3',
   '/assets/css/nl-map.css', '/assets/css/forum.css'
 ];

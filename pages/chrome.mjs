@@ -132,6 +132,62 @@ export function siteFooter() {
         <a href="/verzekering" class="btn btn-outline">Vergelijk verzekering</a>
       </div>
     </section>
+
+    <section class="feedback-panel" aria-labelledby="feedback-title">
+      <div class="feedback-intro">
+        <span class="section-eyebrow" style="color:var(--success)">Welkom bij TrimGids</span>
+        <h3 id="feedback-title">We zijn pas net begonnen, en jij helpt ons enorm verder.</h3>
+        <p>Welkom op onze website. Wij willen jou bij alles helpen wat met jouw prachtige hond te maken heeft. We willen niet alleen jouw leven makkelijker maken, maar vooral dat van jouw trouwe viervoeter. Wat vind jij van onze site, en waar kunnen we nog beter in helpen?</p>
+      </div>
+      <form class="feedback-form" data-feedback-form>
+        <div class="feedback-grid">
+          <label>
+            <span>Algemene indruk</span>
+            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="algemene_indruck" data-feedback-field><strong>8/10</strong></div>
+          </label>
+          <label>
+            <span>Vindbaarheid voor wat ik zocht</span>
+            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="vindbaarheid" data-feedback-field><strong>8/10</strong></div>
+          </label>
+          <label>
+            <span>Gebruiksgemak & overzicht</span>
+            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="gebruiksgemak" data-feedback-field><strong>8/10</strong></div>
+          </label>
+          <label>
+            <span>Informatie- en servicewaarde</span>
+            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="servicewaarde" data-feedback-field><strong>8/10</strong></div>
+          </label>
+          <label>
+            <span>Waarschijnlijkheid om terug te komen</span>
+            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="terugkomen" data-feedback-field><strong>8/10</strong></div>
+          </label>
+        </div>
+        <label class="feedback-open" for="feedback-open-text">
+          <span>Wat kan er volgens jou echt beter? Laat het ons weten.</span>
+          <textarea id="feedback-open-text" name="feedback" rows="4" placeholder="Bijvoorbeeld: ik miste ...; ik vond ...; ik zou willen dat ..."></textarea>
+        </label>
+        <div class="feedback-actions">
+          <button type="submit" class="btn btn-primary">Verstuur feedback</button>
+          <span>Heel erg bedankt voor je bezoek. We doen ons uiterste best om TrimGids nog beter te maken voor jou en je lieve dier.</span>
+        </div>
+      </form>
+    </section>
+
+    <section class="founder-section" aria-labelledby="about-founder">
+      <div class="founder-copy">
+        <span class="section-eyebrow" style="color:var(--success)">Over TrimGids</span>
+        <h3 id="about-founder">Deze website is opgezet door hondenliefhebbers, voor hondenliefhebbers.</h3>
+        <p>TrimGids is gemaakt door mensen die zelf weten hoe belangrijk een trouwe viervoeter is in het dagelijks leven. We begrijpen hoe druk, onrustig en overweldigend het kan zijn om betrouwbare informatie te vinden over verzorging, gezondheid, veiligheid, reizen, kostprijs en geluk van jouw hond.</p>
+        <p>We wilden een plek bouwen die niet alleen handig is, maar echt voelt als een vriendelijke gids: duidelijk, eerlijk, behulpzaam en warm. Een plek waar baasje en hond samen beter kunnen leven.</p>
+      </div>
+      <div class="founder-card">
+        <div class="founder-badge">❤ Hondenliefhebbers</div>
+        <strong>Wij willen jouw hond en jouw leven makkelijker maken.</strong>
+        <p>Of je nu zoekt naar een goede trimsalon, wilt weten wat een hond kost, een veilige route wilt vinden, of gewoon meer vertrouwen wilt in de keuzes die je maakt: wij willen je hier bij helpen.</p>
+        <a href="mailto:info@mpxstudio.nl" class="btn btn-outline btn-pill">Mail ons via mpxstudio.nl</a>
+      </div>
+    </section>
+
     <div class="footer-grid">
       <div class="footer-col">
         <a href="/" class="brand-logo" style="margin-bottom:12px">
@@ -144,7 +200,7 @@ export function siteFooter() {
         <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:14px">
           De onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland.
         </p>
-        <p class="tg-feedback-note">TrimGids is net live. We werken dagelijks aan de beste ervaring voor jou. <a href="https://www.mpxstudio.nl" target="_blank" rel="noopener noreferrer">Feedback of een idee?</a> Mail naar <a href="mailto:info@mpxstudio.nl">info@mpxstudio.nl</a> of <a href="mailto:martijn@mpxstudio.nl">Martijn</a>.</p>
+        <p class="tg-feedback-note">TrimGids is net live en we werken elke dag aan de beste ervaring voor jou en jouw hond. <a href="https://www.mpxstudio.nl" target="_blank" rel="noopener noreferrer">Laat gerust je feedback of een idee weten.</a> Mail naar <a href="mailto:info@mpxstudio.nl">info@mpxstudio.nl</a> of <a href="mailto:martijn@mpxstudio.nl">martijn@mpxstudio.nl</a>.</p>
         <div style="font-size:12px;color:var(--muted-foreground)">© 2026 TrimGids B.V. · Alle rechten voorbehouden.</div>
       </div>
       <div class="footer-col">

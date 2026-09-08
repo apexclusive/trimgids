@@ -60,6 +60,7 @@ nav.site-navbar { background: rgba(251, 253, 251, .96) !important; border-bottom
 .airbnb-search-bar { max-width: 780px !important; margin-top: 10px !important; box-shadow: 0 18px 45px rgba(18, 62, 39, .12) !important; border-color: #c8ddd0 !important; }
 .btn-airbnb-search { background: var(--tg-green) !important; }
 .hero-trust-row { margin-top: 16px !important; color: var(--tg-muted) !important; text-shadow: none !important; }
+.hero-welcome { max-width: 650px; margin: 12px 0 0; color: #51665a; font-size: 13.5px; line-height: 1.55; }
 
 /* Content rhythm: wide enough to breathe, narrow enough to scan. */
 .wrap { max-width: 1180px !important; }
@@ -185,3 +186,56 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Graphite glass theme: neutral surfaces, warm dog-friendly accent, clear hierarchy. */
+[data-theme="dark"] {
+  --card: #17191e !important;
+  --border: rgba(255,255,255,.12) !important;
+  --foreground: #f4f5f7 !important;
+  --muted-foreground: #a7adb8 !important;
+  --primary: #d8dde5 !important;
+  --primary-hover: #ffffff !important;
+  --primary-light: rgba(255,255,255,.09) !important;
+  --secondary: #20232a !important;
+  --secondary-foreground: #edf0f4 !important;
+  --background: #0b0c0f !important;
+  --shadow-card: 0 18px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035) !important;
+}
+[data-theme="dark"] html, [data-theme="dark"] body { background:#0b0c0f !important; color:#f4f5f7 !important; }
+[data-theme="dark"] nav.site-navbar, [data-theme="dark"] .sticky-hub-nav {
+  background:rgba(11,12,15,.78) !important; border-color:rgba(255,255,255,.1) !important;
+  box-shadow:0 16px 40px rgba(0,0,0,.22) !important;
+}
+[data-theme="dark"] .sticky-hub-nav { backdrop-filter:blur(24px) saturate(1.35); }
+[data-theme="dark"] .hero, [data-theme="dark"] .section, [data-theme="dark"] .section.t-purple,
+[data-theme="dark"] .section.t-orange, [data-theme="dark"] .section.t-blue, [data-theme="dark"] .section.t-teal,
+[data-theme="dark"] .section.t-amber, [data-theme="dark"] .section.t-red, [data-theme="dark"] .section.t-green {
+  background:#0b0c0f !important; border-color:rgba(255,255,255,.09) !important;
+}
+[data-theme="dark"] .hero::after { background:rgba(11,12,15,.72) !important; }
+[data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#f4f5f7 !important; }
+[data-theme="dark"] .hero-subtitle, [data-theme="dark"] .section-subtitle { color:#b5bbc5 !important; }
+[data-theme="dark"] .hero-welcome { color:#b5bbc5 !important; }
+[data-theme="dark"] .card, [data-theme="dark"] .k-card, [data-theme="dark"] .world-card,
+[data-theme="dark"] .provider, [data-theme="dark"] .news-card, [data-theme="dark"] .faq-item,
+[data-theme="dark"] .home-news-card { background:rgba(23,25,30,.82) !important; border-color:rgba(255,255,255,.11) !important; }
+[data-theme="dark"] .nav-pill, [data-theme="dark"] .hub-pill { color:#b9bec8 !important; }
+[data-theme="dark"] .nav-pill:hover, [data-theme="dark"] .nav-pill.is-current,
+[data-theme="dark"] .hub-pill:hover, [data-theme="dark"] .hub-pill.active { background:rgba(255,255,255,.1) !important; color:#fff !important; }
+[data-theme="dark"] .tg-nav-btn, [data-theme="dark"] .tg-share-btn, [data-theme="dark"] .theme-toggle-btn,
+[data-theme="dark"] .menu-btn { background:#17191e !important; color:#f4f5f7 !important; border-color:rgba(255,255,255,.14) !important; }
+[data-theme="dark"] .cat-pill:not(.active), [data-theme="dark"] .hero-badge {
+  background:rgba(255,255,255,.09) !important; color:#e9edf2 !important; border-color:rgba(255,255,255,.16) !important;
+  text-shadow:none !important;
+}
+[data-theme="dark"] .cat-pill:not(.active) .ic { color:#c8ced8 !important; }
+[data-theme="dark"] .hero-badge-count { color:#c8ced8 !important; }
+[data-theme="dark"] .cat-pill.active { background:#f0f2f5 !important; border-color:#f0f2f5 !important; color:#111318 !important; box-shadow:0 8px 22px rgba(0,0,0,.24) !important; }
+[data-theme="dark"] .btn-primary, [data-theme="dark"] .btn-airbnb-search,
+[data-theme="dark"] .tg-f-new, [data-theme="dark"] .tg-f-post, [data-theme="dark"] .tg-btn {
+  background:#f0f2f5 !important; color:#111318 !important; box-shadow:0 10px 28px rgba(0,0,0,.28) !important;
+}
+[data-theme="dark"] .home-newsletter { background:linear-gradient(135deg,#121419,#252932) !important; border-color:rgba(255,255,255,.13); }
+[data-theme="dark"] .home-newsletter-form button { background:#f0b84b !important; color:#1c1508 !important; }
+[data-theme="dark"] .tg-f-body, [data-theme="dark"] .tg-f-reply { background:#101216 !important; }
+[data-theme="dark"] .nlmap-stage { background:#111318 !important; }

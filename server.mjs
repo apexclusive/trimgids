@@ -15,6 +15,7 @@ import { steunPage, supporterCreate } from './pages/steun.mjs';
 import { fokkersPage } from './pages/fokkers.mjs';
 import { aankoopgidsPage } from './pages/aankoopgids.mjs';
 import { communityPage } from './pages/community.mjs';
+import { baasjesPage } from './pages/baasjes.mjs';
 import { vacaturesPage } from './pages/vacatures.mjs';
 import { vrijwilligersPage } from './pages/vrijwilligers.mjs';
 import { adoptiePage } from './pages/adoptie.mjs';
@@ -60,6 +61,7 @@ const usersFile = join(root, 'data', 'users.json');
 const sessionsFile = join(root, 'data', 'sessions.json');
 const favoritesFile = join(root, 'data', 'favorites.json');
 const newsletterFile = join(root, 'data', 'newsletter.json');
+const feedbackFile = join(root, 'data', 'feedback.json');
 const newsFile = join(root, 'data', 'news.json');
 const newsTipsFile = join(root, 'data', 'news-tips.json');
 const missingFile = join(root, 'data', 'missing.json');
@@ -465,6 +467,29 @@ async function newsletterSubscribe(input) {
   return { subscribed: true, already: false, count: list.length };
 }
 
+async function feedbackCreate(input) {
+  const general = Number(input.algemene_indruck);
+  const findability = Number(input.vindbaarheid);
+  const usability = Number(input.gebruiksgemak);
+  const service = Number(input.servicewaarde);
+  const returnLikely = Number(input.terugkomen);
+  const feedback = clean(input.feedback, 2000);
+  const payload = {
+    id: randomUUID(),
+    algemene_indruck: Number.isFinite(general) ? Math.min(10, Math.max(0, general)) : 8,
+    vindbaarheid: Number.isFinite(findability) ? Math.min(10, Math.max(0, findability)) : 8,
+    gebruiksgemak: Number.isFinite(usability) ? Math.min(10, Math.max(0, usability)) : 8,
+    servicewaarde: Number.isFinite(service) ? Math.min(10, Math.max(0, service)) : 8,
+    terugkomen: Number.isFinite(returnLikely) ? Math.min(10, Math.max(0, returnLikely)) : 8,
+    feedback: feedback || '',
+    createdAt: new Date().toISOString()
+  };
+  const list = await readLocalJson(feedbackFile, []);
+  list.unshift(payload);
+  await writeLocalJson(feedbackFile, list.slice(0, 10000));
+  return { ok: true, saved: payload };
+}
+
 /* ---------------------------------------------------------------------------
    Optional PostgreSQL/Supabase storage adapter (write-through + remote reads).
    Active zodra SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY zijn geconfigureerd.
@@ -832,7 +857,11 @@ async function claimCreate(slug, input) {
   const email = clean(input.email, 120);
   const phone = clean(input.phone, 40);
   if (!name || !validEmail(email)) throw new Error('claim_invalid_contact');
-  return collectionAdd(claimsFile, { id: randomUUID(), providerSlug: clean(slug, 100), name, email, phone, status: 'pending', createdAt: new Date().toISOString() });
+  return collectionAdd(claimsFile, {
+    id: randomUUID(), providerSlug: clean(slug, 160), name, email, phone,
+    requestType: clean(input.requestType, 24) || 'claim',
+    verificationStatus: 'pending', status: 'pending', createdAt: new Date().toISOString()
+  });
 }
 
 async function reviewCreate(slug, input) {
@@ -1677,14 +1706,7 @@ function mapPage() {
     <span>100% zelf-gehost — geen externe kaartdiensten</span>
   </div>
 </footer>
-<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=3" defer></script>
-<script>
-  (function () {
-    var inject = document.createElement('style');
-    inject.textContent = '.nlmap-stage{min-height:0}';
-    document.head.appendChild(inject);
-  })();
-</script>
+<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=8" defer></script>
 </body></html>`;
 }
 function providerPage(pathname) {
@@ -1837,7 +1859,7 @@ function providerCardHtml(p, breedSlug, category = 'trimsalon') {
       <img src="${img.src}" srcset="${img.srcset}" sizes="(max-width:640px) 100vw, 380px" width="480" height="320" loading="lazy" decoding="async" alt="${img.alt}">
       <div class="pc-shade"></div>
       <span class="pc-cat">${categoryLabel}</span>
-      <span class="pc-verified">✓ Geverifieerd</span>
+      <span class="pc-verified">Catalogusvermelding</span>
     </div>
     <div class="pc-body">
       <div class="pc-top">
@@ -1857,7 +1879,7 @@ function providerCardHtml(p, breedSlug, category = 'trimsalon') {
         ${p.phone ? `<a href="tel:${escapeHtml(p.phone)}" class="pc-call">Bellen</a>` : ''}
         <a href="${maps}" target="_blank" rel="noopener noreferrer" class="pc-map">Route</a>
       </div>
-      <a href="/claim?slug=${encodeURIComponent(p.slug)}&name=${encodeURIComponent(p.name)}&city=${encodeURIComponent(p.city)}&addr=${encodeURIComponent(p.address)}" class="pc-claim">Bent u eigenaar? Claim dit profiel</a>
+      <a href="/claim?slug=${encodeURIComponent(p.slug)}&name=${encodeURIComponent(p.name)}&city=${encodeURIComponent(p.city)}&addr=${encodeURIComponent(p.address)}" class="pc-claim">Eigenaar? Gratis corrigeren, beheren of verwijderen</a>
     </div>
   </article>`;
 }
@@ -4607,7 +4629,9 @@ function modernizeGeneratedHtmlUncached(html) {
     if (!html.includes('<footer')) html = html.replace('</body>', siteFooter() + '</body>');
   }
   html = html
-    .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=3"')
+    .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=7"')
+    .replaceAll('Gebaseerd op de TrimGids-catalogus — geen externe kaartbron', 'OpenStreetMap-basislaag · TrimGids-catalogus')
+    .replaceAll('100% zelf-gehost — geen externe kaartdiensten', 'Kaartbasis: OpenStreetMap · bedrijfsdata: TrimGids')
     .replace('</head>', '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="manifest" href="/manifest.webmanifest">' + routeSkin + '</head>')
     .replace(/<main(?![^>]*id="main-content")/, disclosure + '<main id="main-content" tabindex="-1"')
     .replaceAll('🐾 TrimGids Pro', 'TrimGids Pro')
@@ -4641,11 +4665,11 @@ if (!html.includes('tg-theme-boot')) {
     html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||"light";document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
   }
   if (!html.includes('tg-app-js')) {
-    html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=19"></script></body>');
+    html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=22"></script></body>');
   }
   /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element. */
   if (html.includes('data-nl-map') && !html.includes('tg-nlmap-js')) {
-    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/css/nl-map.css"><script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=3" defer></script></head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/css/nl-map.css?v=7"><script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=8" defer></script></head>');
   }
   /* Ronde 9 — chat-assistent TG op elke gegenereerde pagina (float-rood = laad-lazy). */
   if (!html.includes('tg-chatbot-js')) {
@@ -4681,7 +4705,7 @@ if (!html.includes('tg-theme-boot')) {
     const tailSkin =
       (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=16" id="tg-site-chrome">') +
       (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">') +
-      (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=4" id="tg-premium-refresh">');
+      (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=7" id="tg-premium-refresh">');
     if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
   }
 
@@ -4916,6 +4940,24 @@ export async function handleRequest(req, res) {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'public, max-age=86400' }));
       if (req.method === 'HEAD') return res.end();
       return res.end(robotsTxt());
+    }
+
+    /* OpenStreetMap tiles: same-origin proxy keeps the interactive map reliable
+       in browsers with restrictive cross-origin image policies. */
+    if (url.pathname === '/api/map-tile' && req.method === 'GET') {
+      const z = Number.parseInt(url.searchParams.get('z'), 10);
+      const x = Number.parseInt(url.searchParams.get('x'), 10);
+      const y = Number.parseInt(url.searchParams.get('y'), 10);
+      const limit = 2 ** z;
+      if (!Number.isInteger(z) || z < 0 || z > 19 || !Number.isInteger(x) || !Number.isInteger(y) || x < 0 || y < 0 || x >= limit || y >= limit) {
+        return json(res, 400, { error: 'invalid_map_tile' });
+      }
+      const tileUrl = `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
+      const tile = await fetch(tileUrl, { headers: { 'User-Agent': 'TrimGids/2026 map preview; contact@trimgids.nl' } });
+      if (!tile.ok) return json(res, 502, { error: 'map_tile_unavailable' });
+      const body = Buffer.from(await tile.arrayBuffer());
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=86400', 'Cross-Origin-Resource-Policy': 'same-origin' }));
+      return res.end(body);
     }
 
     /* Core Providers API */
@@ -5341,7 +5383,8 @@ export async function handleRequest(req, res) {
       if (!rateLimit(req, rateLimits.write, 10, 60000)) return json(res, 429, { error: 'rate_limited' });
       const input = await readJson(req);
       const sessionUser = await currentUser(req);
-      if (sessionUser) input.userId = sessionUser.id;
+      if (!sessionUser) return json(res, 401, { error: 'auth_required', message: 'Log in om een onderwerp in het forum te plaatsen.' });
+      input.userId = sessionUser.id;
       return json(res, 201, { topic: await forumCreate(input) });
     }
     if (url.pathname.startsWith('/api/forum/') && url.pathname.endsWith('/replies') && req.method === 'POST') {
@@ -5349,7 +5392,8 @@ export async function handleRequest(req, res) {
       const topicId = decodeURIComponent(url.pathname.slice('/api/forum/'.length, -'/replies'.length));
       const input = await readJson(req);
       const sessionUser = await currentUser(req);
-      if (sessionUser) input.userId = sessionUser.id;
+      if (!sessionUser) return json(res, 401, { error: 'auth_required', message: 'Log in om te reageren in het forum.' });
+      input.userId = sessionUser.id;
       return json(res, 201, { reply: await forumReplyCreate(topicId, input) });
     }
     if (url.pathname.startsWith('/api/forum/') && url.pathname.endsWith('/helpful') && req.method === 'POST') {
@@ -5361,6 +5405,10 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/api/newsletter' && req.method === 'POST') {
       if (!rateLimit(req, rateLimits.newsletter, 6, 60000)) return json(res, 429, { error: 'rate_limited' });
       return json(res, 201, await newsletterSubscribe(await readJson(req)));
+    }
+    if (url.pathname === '/api/feedback' && req.method === 'POST') {
+      if (!rateLimit(req, rateLimits.write, 12, 60000)) return json(res, 429, { error: 'rate_limited' });
+      return json(res, 201, await feedbackCreate(await readJson(req)));
     }
 
     /* Accounts, sessies & favorieten */
@@ -5558,6 +5606,10 @@ export async function handleRequest(req, res) {
     if (url.pathname === '/forum' || url.pathname === '/community' || url.pathname === '/hondenforum') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(communityPage());
+    }
+    if (url.pathname === '/voor-baasjes' || url.pathname === '/baasjes' || url.pathname === '/voor-hondenbaasjes' || url.pathname === '/hond-als-kind') {
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
+      return res.end(baasjesPage());
     }
     if (url.pathname === '/hulphonden' || url.pathname === '/diensthonden' || url.pathname === '/assistentiehonden') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));

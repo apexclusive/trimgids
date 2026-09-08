@@ -251,11 +251,16 @@
 
   Forum.prototype.publish = function (form) {
     var self = this;
+    if (!this.user || !this.user.id) {
+      if (window.TGApp && window.TGApp.requireLogin) {
+        window.TGApp.requireLogin('Log in om een onderwerp in het forum te plaatsen.');
+      }
+      return;
+    }
     var data = {
       author: form.author.value.trim(), topic: form.topic.value,
-      breed: form.breed.value.trim(), title: form.title.value.trim(), body: form.body.value.trim()
+      breed: form.breed.value.trim(), title: form.title.value.trim(), body: form.body.value.trim(), userId: this.user.id
     };
-    if (this.user && this.user.id) data.userId = this.user.id;
     var msg = this.el.querySelector('.tg-f-msg');
     if (!data.author || !data.title || !data.body) {
       msg.textContent = 'Vul minimaal je naam, een onderwerp en een bericht in.';
@@ -281,10 +286,13 @@
 
   Forum.prototype.reply = function (id, form) {
     var self = this;
+    if (!this.user || !this.user.id) {
+      if (window.TGApp && window.TGApp.requireLogin) window.TGApp.requireLogin('Log in om een reactie te plaatsen in het forum.');
+      return;
+    }
     var msg = form.parentElement.querySelector('.tg-f-reply-msg') || form.querySelector('p') || null;
     form.querySelector('button').textContent = 'Bezig…';
-    var payload = { author: form.author.value.trim(), body: form.body.value.trim() };
-    if (this.user && this.user.id) payload.userId = this.user.id;
+    var payload = { author: form.author.value.trim(), body: form.body.value.trim(), userId: this.user.id };
     fetch('/api/forum/' + encodeURIComponent(id) + '/replies', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)

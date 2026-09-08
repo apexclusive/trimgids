@@ -14,6 +14,18 @@
     ['Utrecht', 5.10, 52.06], ['Noord-Holland', 4.72, 52.72], ['Zuid-Holland', 4.22, 51.93],
     ['Zeeland', 3.78, 51.55], ['Noord-Brabant', 5.32, 51.57], ['Limburg', 5.90, 51.16]
   ];
+  var NL_OUTLINE = [
+    [3.36, 51.37], [3.72, 51.31], [3.94, 51.43], [4.14, 51.46], [4.19, 51.68],
+    [4.08, 51.86], [4.24, 52.02], [4.48, 52.12], [4.52, 52.32], [4.66, 52.52],
+    [4.55, 52.70], [4.66, 52.88], [4.82, 53.04], [4.84, 53.21], [5.08, 53.36],
+    [5.29, 53.48], [5.52, 53.43], [5.67, 53.55], [5.94, 53.56], [6.12, 53.40],
+    [6.34, 53.50], [6.66, 53.49], [6.93, 53.38], [7.01, 53.19], [7.18, 53.03],
+    [7.06, 52.77], [7.15, 52.51], [7.02, 52.31], [7.04, 52.12], [6.84, 52.00],
+    [6.73, 51.80], [6.61, 51.64], [6.43, 51.42], [6.27, 51.25], [6.08, 51.12],
+    [5.96, 50.78], [5.73, 50.74], [5.52, 50.86], [5.32, 51.02], [5.11, 51.12],
+    [4.91, 51.21], [4.70, 51.27], [4.51, 51.35], [4.30, 51.39], [4.10, 51.34],
+    [3.88, 51.30]
+  ];
 
   function xP(lon) { return (lon - LON_MIN) / (LON_MAX - LON_MIN) * W; }
   function yP(lat) { return (LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * H; }
@@ -87,7 +99,8 @@
       '    <button class="nlmap-reset" type="button" title="Terug naar overzicht">⌂</button>' +
       '  </div>' +
       '</div>' +
-      '<div class="nlmap-stage"><canvas></canvas>' +
+      '<div class="nlmap-stage"><div class="nlmap-tiles" aria-hidden="true"></div><canvas></canvas>' +
+      '  <a class="nlmap-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>' +
       '  <div class="nlmap-stat" role="status">Kaart wordt geladen…</div>' +
       '  <div class="nlmap-card" hidden></div>' +
       '  <div class="nlmap-empty" hidden><strong>Geen resultaten</strong><span>Probeer een andere zoekterm of categorie.</span></div>' +
@@ -95,6 +108,8 @@
       (this.showList ? '<div class="nlmap-list" hidden></div>' : '');
 
     this.canvas = this.el.querySelector('canvas');
+    this.stage = this.el.querySelector('.nlmap-stage');
+    this.tiles = this.el.querySelector('.nlmap-tiles');
     this.ctx = this.canvas.getContext('2d');
     this.stat = this.el.querySelector('.nlmap-stat');
     this.card = this.el.querySelector('.nlmap-card');
@@ -103,12 +118,16 @@
     this.input = this.el.querySelector('.nlmap-search input');
     this.provinceSelect = this.el.querySelector('.nlmap-province select');
 
-    var widthPx = this.el.clientWidth || 900;
-    this.canvas.width = widthPx * (window.devicePixelRatio || 1);
-    this.canvas.height = this.el.clientHeight * (window.devicePixelRatio || 1);
-    this.canvas.style.width = widthPx + 'px';
-    this.canvas.style.height = this.el.clientHeight + 'px';
+    this.resizeCanvas(true);
     this.fitView();
+    this.loadTiles();
+
+    if (window.ResizeObserver) {
+      this.resizeObserver = new ResizeObserver(function () { self.resizeCanvas(false); });
+      this.resizeObserver.observe(this.stage);
+    } else {
+      window.addEventListener('resize', function () { self.resizeCanvas(false); });
+    }
 
     this.el.querySelector('.nlmap-search input').addEventListener('input', function () {
       self.query = this.value.trim().toLowerCase();
@@ -171,6 +190,65 @@
     }, { passive: true });
 
     this.load();
+  };
+
+  NLMap.prototype.resizeCanvas = function (resetView) {
+    var widthPx = this.stage.clientWidth || this.el.clientWidth || 900;
+    var heightPx = this.stage.clientHeight || 440;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var oldScale = this.scale;
+    this.canvas.width = Math.max(1, Math.round(widthPx * dpr));
+    this.canvas.height = Math.max(1, Math.round(heightPx * dpr));
+    this.canvas.style.width = widthPx + 'px';
+    this.canvas.style.height = heightPx + 'px';
+    this.fitView();
+    if (!resetView && oldScale) this.scale = Math.min(this.maxScale, Math.max(this.minScale, oldScale));
+    this.render();
+  };
+
+  NLMap.prototype.loadTiles = function () {
+    var self = this, zoom = 7, tileSize = 256, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function worldX(lon) { return (lon + 180) / 360 * Math.pow(2, zoom) * tileSize; }
+    function worldY(lat) {
+      var sin = Math.sin(lat * Math.PI / 180);
+      return (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * Math.pow(2, zoom) * tileSize;
+    }
+    var originX = worldX(LON_MIN), originY = worldY(LAT_MAX);
+    var sx = W / (worldX(LON_MAX) - originX), sy = H / (worldY(LAT_MIN) - originY);
+    var minX = Math.floor(worldX(LON_MIN) / tileSize) - 1;
+    var maxX = Math.floor(worldX(LON_MAX) / tileSize) + 1;
+    var minY = Math.floor(worldY(LAT_MAX) / tileSize) - 1;
+    var maxY = Math.floor(worldY(LAT_MIN) / tileSize) + 1;
+    var pending = 0, loaded = 0;
+    this.tiles.innerHTML = '';
+    for (var tx = minX; tx <= maxX; tx++) {
+      for (var ty = minY; ty <= maxY; ty++) {
+        pending++;
+        var img = document.createElement('img');
+        img.alt = '';
+        img.width = tileSize;
+        img.height = tileSize;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = '/api/map-tile?z=' + zoom + '&x=' + tx + '&y=' + ty;
+        img.style.left = ((tx * tileSize - originX) * sx / dpr) + 'px';
+        img.style.top = ((ty * tileSize - originY) * sy / dpr) + 'px';
+        img.style.width = (tileSize * sx / dpr) + 'px';
+        img.style.height = (tileSize * sy / dpr) + 'px';
+        img.addEventListener('load', function () {
+          loaded++;
+          if (loaded >= Math.max(1, Math.floor(pending * .35))) {
+            self.tiles.classList.add('is-ready');
+            self.render();
+          }
+        }, { once: true });
+        this.tiles.appendChild(img);
+      }
+    }
+    this.tileTransform = function () {
+      self.tiles.style.transform = 'translate(' + (self.px / dpr) + 'px,' + (self.py / dpr) + 'px) scale(' + (self.scale / dpr) + ')';
+    };
+    this.tileTransform();
   };
 
   NLMap.prototype.load = function () {
@@ -260,17 +338,34 @@
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     var dpr = window.devicePixelRatio || 1;
+    if (this.tileTransform) this.tileTransform();
 
-    /* Achtergrond */
+    /* Achtergrond en herkenbare Nederlandse landvorm, zonder externe kaartdienst. */
     var bg = ctx.createRadialGradient(this.canvas.width / 2, this.canvas.height / 2, 40, this.canvas.width / 2, this.canvas.height / 2, Math.max(this.canvas.width, this.canvas.height) * 0.75);
-    bg.addColorStop(0, dark ? 'rgba(16,185,129,.10)' : 'rgba(16,185,129,.08)');
-    bg.addColorStop(1, 'transparent');
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    bg.addColorStop(0, dark ? '#17352e' : '#e7f3f6');
+    bg.addColorStop(1, dark ? '#0c1d1c' : '#cfe6ed');
+    if (!this.tiles.classList.contains('is-ready')) {
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
 
     ctx.save();
     ctx.translate(this.px, this.py);
     ctx.scale(this.scale, this.scale);
+
+    ctx.beginPath();
+    NL_OUTLINE.forEach(function (point, index) {
+      var x = xP(point[0]), y = yP(point[1]);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.fillStyle = this.tiles.classList.contains('is-ready')
+      ? (dark ? 'rgba(20, 84, 57, .20)' : 'rgba(247, 251, 246, .12)')
+      : (dark ? 'rgba(28, 103, 72, .72)' : 'rgba(247, 251, 246, .94)');
+    ctx.fill();
+    ctx.strokeStyle = dark ? 'rgba(110, 231, 183, .58)' : 'rgba(15, 62, 40, .42)';
+    ctx.lineWidth = 3 / this.scale;
+    ctx.stroke();
 
     /* Subtiel grid */
     ctx.strokeStyle = dark ? 'rgba(255,255,255,.045)' : 'rgba(15,62,40,.05)';

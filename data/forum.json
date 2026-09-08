@@ -1,5 +1,18 @@
 [
   {
+    "id": "ab4e2ed1-ad4b-4791-8fb2-75ba5d31dccf",
+    "title": "Logged in forum post",
+    "author": "ForumCheckUser",
+    "body": "This should work",
+    "breed": "",
+    "topic": "ervaringen",
+    "createdAt": "2026-09-08T09:56:37.979Z",
+    "helpfulCount": 0,
+    "status": "approved",
+    "replies": [],
+    "userId": "099f2a30-aba5-4878-abb4-3788f35cc5d3"
+  },
+  {
     "id": "seed-01",
     "title": "Welkom bij het TrimGids forum — stel hier alles wat je wilt! ",
     "author": "TrimGids Redactie",

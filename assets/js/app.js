@@ -242,6 +242,7 @@
       '.tg-toast.out{opacity:0;transform:translateY(8px)}' +
       '.tg-nav-btn{display:inline-flex;align-items:center;gap:6px;font:800 13px "Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink,#0b1220);background:var(--card,#fff);border:1px solid var(--line,#e2e8f0);border-radius:999px;padding:8px 14px;cursor:pointer;transition:border-color .18s,transform .18s,background .18s;white-space:nowrap}' +
       '.tg-nav-btn:hover{border-color:#10b981;transform:translateY(-1px)}' +
+      '.tg-share-btn{color:var(--foreground,#0b1220)!important}.tg-share-btn .share-label{display:inline}.tg-share-btn .share-icon{font-size:16px;line-height:1}@media(max-width:600px){.tg-share-btn{width:40px;height:40px;padding:0;justify-content:center}.tg-share-btn .share-label{display:none}}' +
       '.tg-account-btn .tg-avatar{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#10b981,#0f3e28);color:#fff;font-size:12px}' +
       '.tg-account-btn.logged-in{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.4)}' +
       '.tg-save-btn{display:inline-flex;align-items:center;gap:6px;font:800 12.5px "Plus Jakarta Sans",system-ui,sans-serif;color:#64748b;background:var(--card,#fff);border:1px solid var(--line,#e2e8f0);border-radius:999px;padding:7px 12px;cursor:pointer;transition:all .18s}' +
@@ -263,7 +264,7 @@
       '.tg-search-empty{padding:14px 12px;font-size:13px;color:#64748b}' +
       '.tg-search-foot{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;font-size:11px;color:#94a3b8;border-top:1px solid var(--line,#e2e8f0);margin-top:4px}' +
       '@media(max-width:1000px){.nav-actions > a[href="/bedrijven"]{display:none}.tg-search-shell{order:0}.tg-search-input{width:min(150px,34vw)}.tg-search-input:focus{width:min(190px,46vw)}.tg-search-kbd{display:none}}' +
-      '@media(max-width:600px){.tg-search-input{width:min(120px,36vw)}.tg-search-input:focus{width:min(168px,60vw)}}' +
+      '@media(max-width:600px){.tg-search-shell{display:none}.tg-search-input{width:min(120px,36vw)}.tg-search-input:focus{width:min(168px,60vw)}}' +
       '.tg-overlay{position:fixed;inset:0;z-index:99990;background:rgba(4,20,13,.62);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;animation:tgFade .2s ease}' +
       '@keyframes tgFade{from{opacity:0}to{opacity:1}}' +
       '.tg-modal{background:var(--card,#fff);color:var(--ink,#0b1220);border:1px solid var(--line,#e2e8f0);border-radius:24px;box-shadow:0 30px 80px rgba(2,32,19,.4);width:min(460px,100%);max-height:min(88vh,760px);overflow:auto;padding:26px}' +
@@ -446,6 +447,47 @@
         } else { toast('Aanmelden mislukt — probeer het opnieuw'); }
       }).catch(function () { toast('Aanmelden mislukt — probeer het opnieuw'); })
         .finally(function () { btn.disabled = false; btn.textContent = 'Aanmelden →'; });
+    });
+  }
+
+  function initFeedbackForm() {
+    var form = document.querySelector('[data-feedback-form]');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = {};
+      var fields = form.querySelectorAll('[data-feedback-field]');
+      fields.forEach(function (field) {
+        data[field.name] = field.value;
+      });
+      data.feedback = (form.querySelector('[name="feedback"]') || {}).value || '';
+      var submit = form.querySelector('button[type="submit"]');
+      if (submit) { submit.disabled = true; submit.textContent = 'Versturen…'; }
+      fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (res.ok) {
+          form.reset();
+          fields.forEach(function (field) { field.value = 8; });
+          var scoreEls = form.querySelectorAll('[data-feedback-field] + strong');
+          scoreEls.forEach(function (el) { el.textContent = '8/10'; });
+          toast('✅ Bedankt voor je feedback — we gebruiken je input om TrimGids te verbeteren.', true);
+        } else {
+          throw new Error(res.message || 'feedback_failed');
+        }
+      }).catch(function () {
+        toast('Feedback versturen lukte niet — probeer het nog eens.', false);
+      }).finally(function () {
+        if (submit) { submit.disabled = false; submit.textContent = 'Verstuur feedback'; }
+      });
+    });
+    form.querySelectorAll('[data-feedback-field]').forEach(function (field) {
+      field.addEventListener('input', function () {
+        var label = field.parentElement && field.parentElement.querySelector('strong');
+        if (label) label.textContent = field.value + '/10';
+      });
     });
   }
 
@@ -789,11 +831,35 @@
     });
   }
 
+  function initShareButton() {
+    var container = document.querySelector('.nav-actions');
+    if (!container || document.getElementById('tg-share-btn')) return;
+    var button = document.createElement('button');
+    button.id = 'tg-share-btn';
+    button.type = 'button';
+    button.className = 'tg-nav-btn tg-share-btn';
+    button.innerHTML = '<span class="share-icon" aria-hidden="true">↗</span><span class="share-label">Delen</span>';
+    button.setAttribute('aria-label', 'Deze pagina delen');
+    button.title = 'Deze pagina delen';
+    button.addEventListener('click', function () {
+      var shareData = { title: document.title, text: 'Bekijk dit op TrimGids', url: window.location.href };
+      if (navigator.share) {
+        navigator.share(shareData).then(function () { toast('Pagina gedeeld', true); }).catch(function () {});
+        return;
+      }
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function () { toast('Link gekopieerd — klaar om te delen', true); }).catch(function () { toast('Kopieer de link uit de adresbalk'); });
+      } else toast('Kopieer de link uit de adresbalk');
+    });
+    container.insertBefore(button, container.querySelector('#theme-toggle, .theme-toggle-btn, .menu-btn') || null);
+  }
+
   /* -------------------------------- Boot -------------------------------- */
   function boot() {
     ensureStyles();
     syncThemeButtons();
     ensureNavButtons();
+    initShareButton();
     initDelegatedTheme();
     initSaveButtons();
     initScrollUI();
@@ -805,6 +871,7 @@
     initCategoryPills();
     initGeoButtons();
     initNewsletter();
+    initFeedbackForm();
     initSiteSearch();
 
     document.addEventListener('click', function (e) {
