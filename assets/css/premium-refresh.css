@@ -202,6 +202,9 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
   --shadow-card: 0 18px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035) !important;
 }
 [data-theme="dark"] html, [data-theme="dark"] body { background:#0b0c0f !important; color:#f4f5f7 !important; }
+[data-theme="dark"] main h1, [data-theme="dark"] main h2, [data-theme="dark"] main h3,
+[data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#e7e9ed !important; }
+[data-theme="dark"] main p, [data-theme="dark"] main li { color:#b8bdc6; }
 [data-theme="dark"] nav.site-navbar, [data-theme="dark"] .sticky-hub-nav {
   background:rgba(11,12,15,.78) !important; border-color:rgba(255,255,255,.1) !important;
   box-shadow:0 16px 40px rgba(0,0,0,.22) !important;

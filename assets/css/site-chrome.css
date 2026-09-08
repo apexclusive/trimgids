@@ -273,6 +273,21 @@ nav.site-navbar.scrolled {
   .nav-actions > .btn-outline { display: none; }
 }
 
+@media (max-width: 1020px) {
+  .nav-in { min-width: 0; padding-inline: 16px; }
+  .nav-actions { min-width: 0; gap: 6px; }
+  .nav-actions > .btn-outline:not(#account-btn) { display: none; }
+  .nav-actions .tg-search-shell { max-width: 190px; }
+  .brand-subtitle { display: none; }
+}
+
+@media (min-width: 701px) and (max-width: 860px) {
+  .nav-actions .tg-search-shell { display: none; }
+  #account-btn span { display: none; }
+  #account-btn { width: 40px; height: 40px; padding: 0; justify-content: center; }
+  .brand-title { font-size: 17px; }
+}
+
 /* ---------- Knoppen in de navbar ---------- */
 .nav-actions .btn {
   display: inline-flex;

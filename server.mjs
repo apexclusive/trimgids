@@ -4703,9 +4703,9 @@ if (!html.includes('tg-theme-boot')) {
      cascade van álle pagina-CSS (directoryStyles/customModuleStyles enz.). */
   {
     const tailSkin =
-      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=16" id="tg-site-chrome">') +
+      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=19" id="tg-site-chrome">') +
       (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">') +
-      (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=7" id="tg-premium-refresh">');
+      (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=8" id="tg-premium-refresh">');
     if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
   }
 
