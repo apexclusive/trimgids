@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="nl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaart — Trimsalons, Scholen, Opvang, Wellness &amp; Wandelroutes | TrimGids</title>
+<meta name="description" content="Interactieve satellietkaart van Nederland met 2.900+ geverifieerde trimsalons, hondenscholen, opvang, wellness en losloopgebieden. Filter op categorie, bekijk adres en navigeer direct.">
+<link rel="canonical" href="https://trimgids.nl/kaart">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+:root{--primary:#0f3e28;--primary-hover:#092819;--primary-light:#eaf4ee;--muted:#64748b;--background:#0b1220;--card:#161f1a;--border:rgba(255,255,255,.1);--radius-xl:24px;--max-width:1220px}
+[data-theme="dark"]{--primary:#10b981;--primary-light:rgba(16,185,129,.15);--background:#060b08;--card:#0e1813;--border:rgba(255,255,255,.08);--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--background);color:#eef5f0}
+.map-wrapper{display:flex;flex-direction:column;height:100vh}
+.map-top-bar{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:rgba(11,18,14,.75);backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.08);z-index:1000}
+.map-top-bar .logo-area{display:flex;align-items:center;gap:10px}
+.map-top-bar .logo-area svg{display:block;flex:none}
+.map-top-bar h1{font-family:'Sora',sans-serif;font-size:22px;letter-spacing:-.03em;margin:0;line-height:1.1;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.map-top-bar h1 span{font-size:14px;font-weight:500;color:#a3b3ab;display:block;margin-top:4px}
+.map-top-bar .map-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.map-top-bar a{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;transition:all .2s ease;backdrop-filter:blur(6px)}
+.map-top-bar a:hover{border-color:#10b981;background:rgba(16,185,129,.2);transform:translateY(-2px)}
+.map-top-bar .btn-primary{background:linear-gradient(135deg,#10b981,#059669);border-color:transparent;color:#fff;font-weight:800;box-shadow:0 8px 20px -8px rgba(16,185,129,.5)}
+.map-top-bar .btn-primary:hover{background:linear-gradient(135deg,#34d399,#10b981);box-shadow:0 10px 26px -8px rgba(16,185,129,.6);transform:translateY(-2px)}
+#map{flex:1;min-height:0;width:100%;z-index:1;filter:brightness(0.92) contrast(1.05)}
+.map-legend{position:absolute;bottom:20px;left:20px;z-index:999;background:rgba(11,18,14,.88);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:16px 18px;box-shadow:0 20px 40px -15px rgba(0,0,0,.6);max-width:260px;font-size:13px;line-height:1.5;color:#eef5f0;pointer-events:auto}
+.map-legend h3{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6ee7b7;text-shadow:0 1px 8px rgba(110,231,183,.3)}
+.map-legend ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.map-legend li{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13px;color:#eef5f0;cursor:pointer;transition:all .15s ease}
+.map-legend li:hover{color:#fff;transform:translateX(2px)}
+.map-legend .dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.map-legend .filter-label{font-size:11px;color:#94a3b8;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1)}
+.map-legend a{color:#6ee7b7;text-decoration:none;font-weight:700;border-bottom:1px solid rgba(110,231,183,.3);transition:all .15s ease}
+.map-legend a:hover{color:#fff;border-bottom-color:#fff}
+@media(max-width:700px){.map-top-bar{padding:10px 14px}.map-top-bar h1{font-size:17px}.map-top-bar h1 span{font-size:12px}.map-legend{max-width:220px;padding:12px 14px;bottom:14px;left:14px}.map-legend h3{font-size:11px}.map-legend li{font-size:12px;gap:7px}}
+/* Custom marker styling for Leaflet */
+.custom-marker{background:#0f3e28;border:2px solid #fff;border-radius:50%;width:14px;height:14px;box-shadow:0 2px 8px rgba(0,0,0,.5);transition:transform .15s ease}
+.custom-marker:hover{transform:scale(1.3)}
+</style>
+</head>
+<body>
+<div class="map-wrapper">
+<header class="map-top-bar">
+<div class="logo-area">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="48" height="48" rx="14" fill="#0F0F0F"/>
+  <path d="M24 13.5C24 13.5 17.5 16 17.5 22.5C17.5 25.5 19 28 21.5 29.5L20 34L24 32L28 34L26.5 29.5C29 28 30.5 25.5 30.5 22.5C30.5 16 24 13.5 24 13.5Z" fill="white"/>
+  <path d="M12 18C12 18 10 22 14 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 18C36 18 38 22 34 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+<div>
+<h1>Kaart <span>Satellietweergave · 2.900+ aanbieders</span></h1>
+</div>
+</div>
+<div class="map-actions">
+<a href="/">← Home</a>
+<a href="/trimsalon">Trimsalons</a>
+<a href="/wandelen">Wandelen</a>
+<a href="#" onclick="document.getElementById('map').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary">Kaart centreren</a>
+</div>
+</header>
+<div id="map"></div>
+<aside class="map-legend" aria-label="Kaart legenda">
+<h3>Legenda</h3>
+<ul>
+<li onclick="filterMarkers('trimsalon')"><span class="dot" style="background:#1E523A" aria-hidden="true"></span> Trimsalon</li>
+<li onclick="filterMarkers('hondenschool')"><span class="dot" style="background:#3730A3" aria-hidden="true"></span> Hondenschool</li>
+<li onclick="filterMarkers('opvang')"><span class="dot" style="background:#D97706" aria-hidden="true"></span> Opvang</li>
+<li onclick="filterMarkers('wellness')"><span class="dot" style="background:#0D9488" aria-hidden="true"></span> Wellness</li>
+<li onclick="filterMarkers('routes')"><span class="dot" style="background:#059669" aria-hidden="true"></span> Wandelroute</li>
+</ul>
+<p class="filter-label">Klik op een categorie om te filteren · Klik opnieuw voor alle</p>
+<p style="margin-top:10px;font-size:11px;color:#94a3b8;line-height:1.4">Deze satellietweergave toont Nederland vanuit Esri World Imagery. De gekleurde punten komen uit de TrimGids-catalogus (2.900+ geverifieerde aanbieders). Klik een punt voor naam, adres en telefoon.</p>
+</aside>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+let map, markersLayer, allProviders = [], currentFilter = null;
+
+function initMap() {
+  map = L.map('map', { scrollWheelZoom: false }).setView([52.2, 5.5], 8);
+
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '© Esri — World Imagery',
+    maxZoom: 18,
+  }).addTo(map);
+
+  markersLayer = L.layerGroup().addTo(map);
+
+  fetch('/api/catalog')
+    .then(r => r.json())
+    .then(data => {
+      allProviders = data.providers || [];
+      renderMarkers(allProviders);
+    })
+    .catch(err => {
+      console.error('Catalogus laden mislukt:', err);
+      document.querySelector('.map-legend').insertAdjacentHTML('beforeend', '<p style="color:#f87171;font-size:12px;margin-top:8px">Kaartdata kon niet worden geladen.</p>');
+    });
+}
+
+function getCategoryColor(category) {
+  const colors = {
+    trimsalon: '#1E523A',
+    hondenschool: '#3730A3',
+    opvang: '#D97706',
+    wellness: '#0D9488',
+    routes: '#059669',
+    'losloopgebied': '#059669'
+  };
+  return colors[category] || colors.trimsalon;
+}
+
+function renderMarkers(list) {
+  markersLayer.clearLayers();
+  const bounds = [];
+  list.forEach(p => {
+    if (!p.lat || !p.lng) return;
+    const color = getCategoryColor(p.category);
+    const marker = L.circleMarker([p.lat, p.lng], {
+      radius: 8,
+      fillColor: color,
+      color: '#fff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.9
+    }).addTo(markersLayer);
+
+    const popupContent = `<div style="font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;color:#0b1220;min-width:200px;line-height:1.5">
+      <strong style="font-size:15px;color:#0f3e28">${p.name || 'Onbekend'}</strong><br>
+      <span style="font-size:13px;color:#64748b">${p.category || 'trimsalon'}</span><br>
+      <span style="font-size:13px">📍 ${p.address || (p.city ? p.city + (p.province ? ', ' + p.province : '') : 'Geen adres') }</span><br>
+      ${p.phone ? '<span style="font-size:13px">📞 <a href="tel:' + p.phone + '" style="color:#0f3e28;font-weight:700">' + p.phone + '</a></span><br>' : ''}
+      ${p.website ? '<span style="font-size:13px">🌐 <a href="' + p.website + '" target="_blank" rel="noopener noreferrer" style="color:#0f3e28;font-weight:700">Website ↗</a></span><br>' : ''}
+    </div>`;
+
+    marker.bindPopup(popupContent, { maxWidth: 300, minWidth: 220 });
+    bounds.push([p.lat, p.lng]);
+  });
+
+  if (bounds.length > 0) {
+    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+  }
+}
+
+function filterMarkers(category) {
+  if (currentFilter === category) {
+    currentFilter = null;
+    renderMarkers(allProviders);
+  } else {
+    currentFilter = category;
+    const filtered = allProviders.filter(p => (category === 'routes' ? (p.category === 'routes' || p.category === 'losloopgebied') : p.category === category));
+    renderMarkers(filtered);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
+</body>
+</html>

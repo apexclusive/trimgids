@@ -1687,27 +1687,8 @@ function walkingPage() {
 
 /* Standalone Interactive Map Page */
 function mapPage() {
-  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ontdekkingskaart Honden Nederland: Salons, Scholen, Opvang & Wandelplekken | TrimGids</title><meta name="description" content="De TrimGids-ontdekkingskaart: 2.900+ geverifieerde trimsalons, hondenscholen, hondenhotels, wellness en officiële losloopgebieden & hondenstranden in heel Nederland — zonder externe kaartblokkades."><link rel="canonical" href="https://trimgids.nl/kaart"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta property="og:type" content="website"><meta property="og:title" content="Ontdekkingskaart Honden Nederland | TrimGids"><meta property="og:description" content="2.900+ geverifieerde aanbieders en wandelplekken op één zelf-gehoste kaart."><meta property="og:url" content="https://trimgids.nl/kaart"><meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/nl-map.css"><style>${directoryStyles()}${customModuleStyles()}.map-shell{max-width:1180px;margin:24px auto 0}#nl-map{height:740px}@media(max-width:760px){#nl-map{height:560px}.map-shell{margin-top:14px}}</style></head><body><header><nav><a class="logo" href="/">🐾 TrimGids</a><div class="nav-links"><a href="/trimsalon">Trimsalons</a><a href="/kaart" style="color:var(--green);font-weight:700">Ontdekkingskaart</a><a href="/forum">Community</a><a href="/hulphonden">Diensthonden</a><a href="/fokkers">Fokkers</a><a href="/aankoopgids">Aankoopgids</a><a href="/zintuigen">Zintuigen</a><a href="/">Home</a></div></nav></header><main><p class="crumb"><a href="/">TrimGids</a> / Ontdekkingskaart Nederland</p><span class="eyebrow">Gebaseerd op de TrimGids-catalogus — geen externe kaartbron</span><h1>Ontdekkingskaart voor Honden in Nederland</h1><p class="intro">Elke stip is een echte aanbieder of wandelplek uit onze geverifieerde catalogus. In- en uitzoomen, slepen, filteren op categorie, zoeken op plaats en klikken voor direct bellen of navigeren. Werkt overal — ook zonder kaart-CDN.</p><div class="map-shell"><div id="nl-map" data-nl-map data-show-list="true"></div></div><section class="next"><span class="eyebrow">Bekijk ook</span><h2>Verder ontdekken</h2><div class="next-links"><a href="/forum">Community & Forum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab: horen & ruiken →</a><a href="/fokkers">Erkende fokkers in Nederland →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/trimsalon/pomeriaan">Trimsalon Pomeriaan →</a></div></section></main><footer>
-  <div style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:18px">
-    <a class="logo" href="/" style="font-size:20px">🐾 TrimGids</a>
-    <div style="display:flex;gap:12px;font-size:13px;font-weight:600;flex-wrap:wrap">
-      <a href="/trimsalon">Trimsalons</a>
-      <a href="/kaart">Ontdekkingskaart</a>
-      <a href="/forum">Forum</a>
-      <a href="/hulphonden">Diensthonden</a>
-      <a href="/zintuigen">Zintuigen</a>
-      <a href="/fokkers">Fokkers</a>
-      <a href="/aankoopgids">Aankoopgids</a>
-      <a href="/hondenbelasting">Hondenbelasting</a>
-    </div>
-  </div>
-  <div style="width:100%;border-top:1px solid var(--border-color);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--text-muted)">
-    <span>© 2026 TrimGids · Kaartdata: TrimGids-catalogus (2.900+ aanbieders)</span>
-    <span>100% zelf-gehost — geen externe kaartdiensten</span>
-  </div>
-</footer>
-<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=8" defer></script>
-</body></html>`;
+  const html = require('node:fs').readFileSync(join(root, 'pages', 'kaart.html'), 'utf8');
+  return html;
 }
 function providerPage(pathname) {
   const parts = pathname.split('/').filter(Boolean);
@@ -5049,6 +5030,29 @@ export async function handleRequest(req, res) {
       await writeFile(webVitalsFile, JSON.stringify(all, null, 2) + '\n');
       collectionCache.set(webVitalsFile, { value: all, expiresAt: Date.now() + collectionCacheTtlMs });
       return json(res, 200, { ok: true });
+    }
+
+    /* Catalogus data endpoint (voor interactieve kaart) */
+    if (url.pathname === '/api/catalog' && req.method === 'GET') {
+      try {
+        const data = JSON.parse(await readFile(join(root, 'data', 'catalog.json'), 'utf8'));
+        return publicJson(res, 200, { providers: data.providers || [], places: data.places || {}, breeds: data.breeds || {} });
+      } catch {
+        return json(res, 500, { error: 'catalog_read_error' });
+      }
+    }
+
+    /* Kaartpagina — volledige interactieve kaart */
+    if (url.pathname === '/kaart' && req.method === 'GET') {
+      try {
+        const content = await readFile(join(root, 'pages', 'kaart.html'), 'utf8').catch(async () => {
+          return await readFile(join(root, 'pages', 'kaart.mjs'), 'utf8');
+        });
+        res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=120, s-maxage=600, stale-while-revalidate=86400' }));
+        return res.end(content);
+      } catch {
+        return json(res, 500, { error: 'kaart_page_error' });
+      }
     }
 
     /* Service worker: no-cache zodat updates direct doorkomen */

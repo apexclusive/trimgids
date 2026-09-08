@@ -1,9 +1,7 @@
 /* ============================================================
-   TrimGids — Universele site-chrome (Ronde 11 · 2026 editie)
+   TrimGids — Universele site-chrome (Ronde 16 · 2026 editie)
    Eén design system: top-announcement, glass-navbar, footer,
-   nieuwsbrief. Exact hetzelfde op de homepage en álle
-   server-pagina's (homepage laadt dit bestand als laatste
-   stylesheet, zodat dit de enige bron is).
+   nieuwsbrief. De enige bron voor álle pagina's.
    ============================================================ */
 
 html, body { overflow-x: clip; }
