@@ -4607,7 +4607,7 @@ function modernizeGeneratedHtmlUncached(html) {
     if (!html.includes('<footer')) html = html.replace('</body>', siteFooter() + '</body>');
   }
   html = html
-    .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=2"')
+    .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=3"')
     .replace('</head>', '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="manifest" href="/manifest.webmanifest">' + routeSkin + '</head>')
     .replace(/<main(?![^>]*id="main-content")/, disclosure + '<main id="main-content" tabindex="-1"')
     .replaceAll('🐾 TrimGids Pro', 'TrimGids Pro')
