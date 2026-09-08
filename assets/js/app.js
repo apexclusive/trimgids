@@ -540,6 +540,40 @@
 
   function initHubHighlight() {
     var pills = document.querySelectorAll('.hub-pill');
+    var path = (location.pathname || '/').replace(/\/+/g, '/').replace(/\/$/, '') || '/';
+    var pageHub = {
+      '/forum': 'forum',
+      '/kaart': 'interactieve-kaart',
+      '/dogpedia': 'kennis',
+      '/trimsalon': 'werelden',
+      '/hondenschool': 'werelden',
+      '/opvang': 'werelden',
+      '/wandelen': 'wandelen-hub',
+      '/wellness': 'zorg-verzekering',
+      '/verzekering': 'zorg-verzekering',
+      '/last-minute': 'zorg-verzekering'
+    };
+    var currentHub = pageHub[path];
+    if (!currentHub) {
+      var pathPrefixes = [
+        ['/trimsalon/', 'werelden'], ['/hondenschool/', 'werelden'], ['/opvang/', 'werelden'],
+        ['/wellness/', 'zorg-verzekering'], ['/verzekering/', 'zorg-verzekering'],
+        ['/hitteberoerte-hond', 'eerstehulp-cijfers'], ['/braken-hond', 'eerstehulp-cijfers'],
+        ['/spoed-dierenarts', 'alerts-veiligheid'], ['/hond-gevonden', 'alerts-veiligheid'],
+        ['/webshop', 'zorg-verzekering'], ['/voeding', 'zorg-verzekering'], ['/dna-test', 'zorg-verzekering'],
+        ['/offerte', 'vacht-offerte'], ['/trimmen-kosten', 'financien-belasting'],
+        ['/hondenbelasting', 'financien-belasting'], ['/kosten-hond', 'financien-belasting'],
+        ['/reizen', 'reizen-kennis'], ['/rassen', 'reizen-kennis'], ['/hondenwedstrijden', 'reizen-kennis'],
+        ['/adoptie', 'helpen'], ['/vrijwilligers', 'helpen'], ['/vacatures', 'helpen'], ['/nieuws', 'nieuws']
+      ];
+      for (var prefixIndex = 0; prefixIndex < pathPrefixes.length; prefixIndex++) {
+        if (path.indexOf(pathPrefixes[prefixIndex][0]) === 0) { currentHub = pathPrefixes[prefixIndex][1]; break; }
+      }
+    }
+    if (currentHub) {
+      pills.forEach(function (pill) { pill.classList.toggle('active', (pill.getAttribute('href') || '').endsWith('#' + currentHub)); });
+      return;
+    }
     var sections = document.querySelectorAll('main section[id]');
     if (!pills.length || !sections.length || !('IntersectionObserver' in window)) return;
     var observer = new IntersectionObserver(function (entries) {

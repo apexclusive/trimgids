@@ -267,6 +267,9 @@ nav.site-navbar.scrolled {
 }
 @media (max-width: 700px) {
   .nav-links-pills.open { grid-template-columns: 1fr; }
+  .nlmap-chips button, .nlmap-actions button, .nlmap-search input { min-height: 44px; }
+  .nlmap-actions button { width: 44px; }
+  .nlmap-actions .nlmap-geo { width: auto; padding-inline: 14px; }
   .nav-actions > .btn-outline { display: none; }
 }
 

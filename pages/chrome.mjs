@@ -2,7 +2,7 @@
    en footer als de homepage — op álle pagina's. Geen eigen header/footer meer
    in de afzonderlijke modules; dit is de enige bron. */
 
-export const chromeCssLink = '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/assets/css/site-chrome.css?v=17" id="tg-site-chrome">';
+export const chromeCssLink = '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/assets/css/site-chrome.css?v=18" id="tg-site-chrome">';
 
 export function siteHeader() {
   return `<!-- TRIMGIDS UNIVERSELE HEADER (Ronde 10) -->
@@ -59,9 +59,9 @@ export function siteHeader() {
       <a href="/trimsalon" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Trimsalons</a>
       <a href="/kaart" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart</a>
       <a href="/hondenschool" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-grad"/></svg> Hondenscholen</a>
-      <a href="/opvang" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Opvang</a>
+      <a href="/opvang" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-bed"/></svg> Opvang &amp; hotels</a>
       <a href="/wandelen" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
-      <a href="/wellness" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg> Wellness</a>
+      <a href="/wellness" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg> Wellness &amp; fysio</a>
       <a href="/verzekering" class="nav-pill highlight-gold"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Verzekering</a>
       <a href="/last-minute" class="nav-pill highlight-amber"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Deals</a>
       <a href="/dogpedia" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Dogpedia</a>
@@ -88,11 +88,11 @@ export function siteHeader() {
     <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Noodhulp &amp; vermist</a>
     <a href="/#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis &amp; gidsen</a>
     <a href="/#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Gezondheid &amp; verzekering</a>
-    <a href="/#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht & Offerte</a>
+    <a href="/#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht &amp; offerte</a>
     <a href="/#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Kosten &amp; belasting</a>
     <a href="/#reizen-kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg> Reizen &amp; sport</a>
     <a href="/#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
-    <a href="/#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart & Salons</a>
+    <a href="/#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart</a>
     <a href="/#forum" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Community</a>
     <a href="/#hondenslee-poll" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Jouw stem</a>
     <a href="/#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen &amp; meedoen</a>

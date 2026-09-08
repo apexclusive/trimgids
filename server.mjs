@@ -4607,6 +4607,7 @@ function modernizeGeneratedHtmlUncached(html) {
     if (!html.includes('<footer')) html = html.replace('</body>', siteFooter() + '</body>');
   }
   html = html
+    .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=2"')
     .replace('</head>', '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="manifest" href="/manifest.webmanifest">' + routeSkin + '</head>')
     .replace(/<main(?![^>]*id="main-content")/, disclosure + '<main id="main-content" tabindex="-1"')
     .replaceAll('🐾 TrimGids Pro', 'TrimGids Pro')
@@ -4640,7 +4641,7 @@ if (!html.includes('tg-theme-boot')) {
     html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||"light";document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
   }
   if (!html.includes('tg-app-js')) {
-    html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=17"></script></body>');
+    html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=19"></script></body>');
   }
   /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element. */
   if (html.includes('data-nl-map') && !html.includes('tg-nlmap-js')) {

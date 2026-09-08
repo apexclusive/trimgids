@@ -160,6 +160,9 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
 [data-theme="dark"] .section.t-red, [data-theme="dark"] .section.t-green { background: #0d1711 !important; border-color: #26392d !important; }
 
 @media (max-width: 760px) {
+  .nlmap .nlmap-chips button, .nlmap .nlmap-actions button, .nlmap .nlmap-search input { min-height: 44px !important; }
+  .nlmap .nlmap-actions button { width: 44px !important; }
+  .nlmap .nlmap-actions .nlmap-geo { width: auto !important; padding-inline: 14px !important; }
   html, body { overflow-x: clip !important; }
   .top-announcement { padding: 8px 12px !important; }
   .top-announce-in { display: grid !important; grid-template-columns: 1fr auto !important; gap: 5px 8px !important; }

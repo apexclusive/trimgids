@@ -23,7 +23,7 @@ export function communityPage() {
     canonical: '/forum',
     active: 'forum',
     extraCss: CSS,
-    extraHead: '<link rel="stylesheet" href="/assets/css/forum.css">',
+    extraHead: '<link rel="stylesheet" href="/assets/css/forum.css?v=2">',
     body: `
 <p class="crumb"><a href="/">TrimGids</a> / Community & Forum</p>
 <div class="hero">
