@@ -191,17 +191,17 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
 [data-theme="dark"] {
   --card: #17191e !important;
   --border: rgba(255,255,255,.12) !important;
-  --foreground: #f4f5f7 !important;
-  --muted-foreground: #a7adb8 !important;
+  --foreground: #e9e6df !important;
+  --muted-foreground: #b6b3ad !important;
   --primary: #d8dde5 !important;
   --primary-hover: #ffffff !important;
   --primary-light: rgba(255,255,255,.09) !important;
   --secondary: #20232a !important;
   --secondary-foreground: #edf0f4 !important;
-  --background: #0b0c0f !important;
+  --background: #111214 !important;
   --shadow-card: 0 18px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035) !important;
 }
-[data-theme="dark"] html, [data-theme="dark"] body { background:#0b0c0f !important; color:#f4f5f7 !important; }
+[data-theme="dark"] html, [data-theme="dark"] body { background:#111214 !important; color:#e9e6df !important; }
 [data-theme="dark"] main h1, [data-theme="dark"] main h2, [data-theme="dark"] main h3,
 [data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#e7e9ed !important; }
 [data-theme="dark"] main p, [data-theme="dark"] main li { color:#b8bdc6; }
@@ -216,7 +216,7 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
   background:#0b0c0f !important; border-color:rgba(255,255,255,.09) !important;
 }
 [data-theme="dark"] .hero::after { background:rgba(11,12,15,.72) !important; }
-[data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#f4f5f7 !important; }
+  [data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#e9e6df !important; }
 [data-theme="dark"] .hero-subtitle, [data-theme="dark"] .section-subtitle { color:#b5bbc5 !important; }
 [data-theme="dark"] .hero-welcome { color:#b5bbc5 !important; }
 [data-theme="dark"] .card, [data-theme="dark"] .k-card, [data-theme="dark"] .world-card,

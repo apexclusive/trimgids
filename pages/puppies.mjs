@@ -1,4 +1,4 @@
-/* PuppyMarktplaats — geverifieerde fokkers met pups in Nederland (Ronde 15).
+/* PuppyMarktplaats — transparante fokkers met pups in Nederland (Ronde 15).
    SSR-marktplaats: foto-kaarten met prijs-tag, filters, detail-dialoog en
    een veilig formulier waar fokkers hun nest kunnen aanbieden. */
 import { pageShell, esc } from './base.mjs';
@@ -27,7 +27,7 @@ export function puppiesPage(list = []) {
         <img src="/assets/img/gen/${esc(p.photo)}-450.webp" srcset="/assets/img/gen/${esc(p.photo)}-450.webp 450w, /assets/img/gen/${esc(p.photo)}-900.webp 900w" sizes="(max-width:640px) 100vw, 380px" width="450" height="302" loading="lazy" decoding="async" alt="${esc(p.title)}">
       </picture>
       <span class="pm-price">€ ${Number(p.price).toLocaleString('nl-NL')}</span>
-      <span class="pm-badge">${p.verified ? 'Geverifieerde fokker' : 'Fokker te bezoeken'}</span>
+      <span class="pm-badge">${p.verified ? 'Gecontroleerd profiel' : 'Fokker te bezoeken'}</span>
       <button class="pm-fav" type="button" aria-label="Bewaar deze pup">♥</button>
     </div>
     <div class="pm-body">
@@ -42,17 +42,17 @@ export function puppiesPage(list = []) {
   const itemsHtml = items.map(card).join('') || '<div class="dir-empty"><strong>Nog geen pups geplaatst</strong><p>Wees de eerste fokker die een nest aanbiedt — gratis, met gezondheidschecks zichtbaar.</p></div>';
 
   return pageShell({
-    title: 'PuppyMarktplaats: pups te koop bij geverifieerde fokkers (2026) | TrimGids',
-    description: 'Vind pups van betrouwbare, geverifieerde fokkers in Nederland: Labrador, Border Collie, Pomeriaan en Cockapoo. Met HD/ED-röntgen, DNA-tests, stamboom en chippen zichtbaar op elke advertentie. Geen broodfok.',
+    title: 'PuppyMarktplaats: pups met transparante fokkerinformatie (2026) | TrimGids',
+    description: 'Vind pups in Nederland met zichtbare gezondheidsinformatie, bezoekadres en fokkercontact. Controleer ouderdieren, papieren en leefomgeving altijd zelf vóór je beslist.',
     canonical: '/puppies',
     extraHead: CSS_LINK,
     body: `
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Pups van geverifieerde fokkers","itemListElement":${JSON.stringify(items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title + ' — ' + p.breeder + ' (' + p.city + ')', url: 'https://trimgids.nl/puppies#' + p.id })))}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Pups met transparante fokkerinformatie","itemListElement":${JSON.stringify(items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title + ' — ' + p.breeder + ' (' + p.city + ')', url: 'https://trimgids.nl/puppies#' + p.id })))}}</script>
 
 <div class="pm-hero">
   <img src="/assets/img/gen/p-labrador-900.avif" srcset="/assets/img/gen/p-labrador-450.avif 450w, /assets/img/gen/p-labrador-900.avif 900w" sizes="(max-width:640px) 100vw, 1200px" width="900" height="604" fetchpriority="high" decoding="async" alt="Labrador pups spelen op een weide">
   <div class="pm-hero-content">
-    <span class="eyebrow">PuppyMarktplaats · Geverifieerde Fokkers</span>
+    <span class="eyebrow">PuppyMarktplaats · Transparante fokkers</span>
     <h1>Pups van fokkers die je áltijd mag bezoeken</h1>
     <p>Elke advertentie toont de gezondheidschecks van de ouderdieren: HD/ED-röntgen, DNA-tests, oogonderzoek en stamboom. Geen anonieme handel — alleen nesten die je bij de fokker thuis kunt zien.</p>
     <div class="pm-hero-stats">
@@ -125,7 +125,7 @@ export function puppiesPage(list = []) {
     <button class="pm-dialog-close" type="button" data-pm-close aria-label="Sluiten">✕</button>
     <div class="pm-dialog-media"><img id="pm-dialog-img" src="" alt=""></div>
     <div class="pm-dialog-body">
-      <span class="eyebrow">Nest van geverifieerde fokker</span>
+      <span class="eyebrow">Nest met gecontroleerd profiel</span>
       <h2 id="pm-dialog-title"></h2>
       <div class="pm-meta" id="pm-dialog-meta"></div>
       <p id="pm-dialog-text"></p>
@@ -176,7 +176,7 @@ export function puppiesPage(list = []) {
     dMeta.innerHTML = '<span>' + p.breed + '</span><span class="dot"></span><span>' + p.weeks + ' weken</span><span class="dot"></span><span>' + p.sex + '</span><span class="dot"></span><span>' + p.city + ' (' + p.province + ')</span><span class="dot"></span><span>€ ' + Number(p.price).toLocaleString('nl-NL') + ' per pup</span>';
     dText.textContent = p.text;
     dChecks.innerHTML = (p.checks || []).map(function (c) { return '<span>✓ ' + c + '</span>'; }).join('');
-    dContact.href = 'mailto:fokker@trimgids.nl?subject=' + encodeURIComponent('Interesse in ' + p.title + ' (' + p.id + ')') + '&body=' + encodeURIComponent('Beste ' + p.breeder + '. Ik ben geïnteresseerd in dit nest en wil graag een kennismaking plannen. Met vriendelijke groet,');
+    dContact.href = 'mailto:' + encodeURIComponent(p.email || '') + '?subject=' + encodeURIComponent('Interesse in ' + p.title + ' (' + p.id + ')') + '&body=' + encodeURIComponent('Beste ' + p.breeder + '. Ik ben geïnteresseerd in dit nest en wil graag een kennismaking plannen. Met vriendelijke groet,');
     dialog.hidden = false;
     requestAnimationFrame(function () { dialog.classList.add('open'); document.body.style.overflow = 'hidden'; });
   }
