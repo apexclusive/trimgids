@@ -242,3 +242,20 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
 [data-theme="dark"] .home-newsletter-form button { background:#f0b84b !important; color:#1c1508 !important; }
 [data-theme="dark"] .tg-f-body, [data-theme="dark"] .tg-f-reply { background:#101216 !important; }
 [data-theme="dark"] .nlmap-stage { background:#111318 !important; }
+[data-theme="dark"] .tg-f, [data-theme="dark"] .tg-poll, [data-theme="dark"] .tg-poll-option,
+[data-theme="dark"] .tg-f-sort, [data-theme="dark"] .tg-f-search,
+[data-theme="dark"] .tg-f-form input, [data-theme="dark"] .tg-f-form select,
+[data-theme="dark"] .tg-f-form textarea, [data-theme="dark"] .tg-f-reply-form input {
+  background:#17191e !important; color:#e7e9ed !important; border-color:rgba(255,255,255,.12) !important;
+}
+[data-theme="dark"] .tg-f-chips button.active, [data-theme="dark"] .tg-f-new,
+[data-theme="dark"] .tg-f-post, [data-theme="dark"] .tg-f-reply-form button,
+[data-theme="dark"] .tg-f-empty-cta, [data-theme="dark"] .tg-poll-submit {
+  background:#f0f2f5 !important; border-color:#f0f2f5 !important; color:#111318 !important;
+}
+[data-theme="dark"] .tg-f-sort button.active { background:#f0f2f5 !important; color:#111318 !important; }
+[data-theme="dark"] .tg-f-cat, [data-theme="dark"] .nlmap-card-tag { color:#111318 !important; background:#f0b84b !important; }
+[data-theme="dark"] .nlmap-card-actions a { background:#f0f2f5 !important; color:#111318 !important; }
+[data-theme="dark"] .nlmap-card-actions a:nth-child(2) { background:rgba(240,242,245,.14) !important; color:#e7e9ed !important; }
+[data-theme="dark"] .tg-f-account-chip { background:rgba(255,255,255,.07) !important; border-color:rgba(255,255,255,.14) !important; }
+[data-theme="dark"] .tg-poll-option:hover, [data-theme="dark"] .tg-poll-option.selected { background:rgba(255,255,255,.1) !important; border-color:#d8dde5 !important; }
