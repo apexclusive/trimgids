@@ -163,12 +163,12 @@ nav.site-navbar.scrolled {
   width: 36px;
   height: 36px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #0f3e28 0%, #0b7a4f 55%, #10b981 100%);
+  background: #182028;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25), 0 8px 18px -6px rgba(16, 185, 129, 0.45);
+  color: #f0b84b;
+  box-shadow: 0 8px 20px -8px rgba(15, 23, 42, .45);
   overflow: hidden;
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
@@ -176,6 +176,8 @@ nav.site-navbar.scrolled {
 .brand-badge-icon img { width: 100%; height: 100%; display: block; }
 .brand-text { display: flex; flex-direction: column; }
 .brand-title { font-family: var(--font-display, 'Sora'), sans-serif; font-weight: 800; font-size: 18.5px; letter-spacing: -0.04em; line-height: 1.06; color: var(--foreground); }
+.brand-trim { color: var(--foreground); }
+.brand-gids { color: #c99224; }
 .brand-subtitle { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--primary); margin-top: 2px; }
 
 /* Navigatie-pills */
@@ -197,6 +199,9 @@ nav.site-navbar.scrolled {
 .nav-pill.highlight-gold { background: rgba(251, 191, 36, 0.14); color: #92400e; font-weight: 800; }
 .nav-pill.highlight-amber { background: rgba(245, 158, 11, 0.12); color: #9a3412; font-weight: 800; }
 [data-theme="dark"] .nav-pill.highlight-gold, [data-theme="dark"] .nav-pill.highlight-amber { background: rgba(251, 191, 36, 0.16); color: #fcd34d; }
+[data-theme="dark"] .brand-badge-icon { background:#242831; box-shadow:0 8px 20px -8px rgba(0,0,0,.65); }
+[data-theme="dark"] .brand-trim { color:#e9e6df; }
+[data-theme="dark"] .brand-gids { color:#f0b84b; }
 .nav-more { position: relative; }
 .nav-more summary { list-style: none; cursor: pointer; }
 .nav-more summary::-webkit-details-marker { display: none; }

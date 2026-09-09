@@ -2,7 +2,7 @@
    en footer als de homepage — op álle pagina's. Geen eigen header/footer meer
    in de afzonderlijke modules; dit is de enige bron. */
 
-export const chromeCssLink = '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/assets/css/site-chrome.css?v=19" id="tg-site-chrome">';
+export const chromeCssLink = '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="/assets/css/site-chrome.css?v=21" id="tg-site-chrome">';
 
 export function siteHeader() {
   return `<!-- TRIMGIDS UNIVERSELE HEADER (Ronde 10) -->
@@ -48,9 +48,9 @@ export function siteHeader() {
 <nav class="site-navbar" id="tg-site-nav">
   <div class="wrap nav-in">
     <a href="/" class="brand-logo" aria-label="TrimGids Homepage">
-      <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=3" alt="" loading="eager" fetchpriority="high"></div>
+      <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=4" alt="" loading="eager" fetchpriority="high"></div>
       <div class="brand-text">
-        <span class="brand-title">TrimGids</span>
+        <span class="brand-title"><span class="brand-trim">Trim</span><span class="brand-gids">Gids</span></span>
         <span class="brand-subtitle">Nederland · 2026</span>
       </div>
     </a>
