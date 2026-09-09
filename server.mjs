@@ -158,7 +158,7 @@ function secureHeaders(headers = {}) {
 
 /* Cache-control voor publieke HTML-pagina's: CDN/browser mogen kortjes cachen,
    ETag revalidatie blijft actief en stale-while-revalidate vangt hervalidatie op. */
-const HTML_CACHE = 'public, max-age=120, s-maxage=600, stale-while-revalidate=86400';
+const HTML_CACHE = 'public, max-age=0, s-maxage=60, stale-while-revalidate=300';
 
 /* ---------------------------------------------------------------------------
    Transport optimizations: Brotli/gzip compression, ETag revalidation and
