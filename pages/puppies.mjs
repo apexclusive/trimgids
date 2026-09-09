@@ -12,7 +12,10 @@ export function puppiesPage(list = []) {
   const sourceItems = (list && list.length ? list : []).filter(p => p.status !== 'rejected' && p.status !== 'pending');
   /* Publiseer geen automatisch samengestelde nesten als echte advertenties.
      Tot eigenaar en gegevens zijn gecontroleerd tonen we uitsluitend demo's. */
-  const items = sourceItems.slice(0, 2).map(p => ({ ...p, isDemo: true, verified: false }));
+  const items = BREED_ORDER
+    .map(breedSlug => sourceItems.find(p => p.breedSlug === breedSlug))
+    .filter(Boolean)
+    .map(p => ({ ...p, isDemo: true, verified: false }));
   const breedMap = new Map();
   for (const p of items) if (p.breedSlug && !breedMap.has(p.breedSlug)) breedMap.set(p.breedSlug, p.breed);
   const breedOptions = [...breedMap.entries()]
@@ -57,7 +60,7 @@ export function puppiesPage(list = []) {
   <div class="pm-hero-content">
     <span class="eyebrow">PuppyMarktplaats · Transparante fokkers</span>
     <h1>Pups van fokkers die je áltijd mag bezoeken</h1>
-    <p>Hier verschijnen straks echte, door de fokker bevestigde nesten. Tot die controle rond is, tonen we alleen twee duidelijk gelabelde demo’s. Geen nepadvertenties en geen stilzwijgende betaalde plaatsingen.</p>
+    <p>Hier verschijnen straks echte, door de fokker bevestigde nesten. Tot die controle rond is, tonen we vier duidelijk gelabelde demo’s met voorbeeldfoto’s. Geen nepadvertenties en geen stilzwijgende betaalde plaatsingen.</p>
     <div class="pm-hero-stats">
       <span>${items.length} nesten beschikbaar</span>
       <span>100% gezondheidscheck zichtbaar</span>
