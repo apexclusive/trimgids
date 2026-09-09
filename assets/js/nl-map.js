@@ -102,6 +102,7 @@
       '<div class="nlmap-stage"><div class="nlmap-tiles" aria-hidden="true"></div><canvas></canvas>' +
       '  <a class="nlmap-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>' +
       '  <div class="nlmap-stat" role="status">Kaart wordt geladen…</div>' +
+      '  <div class="nlmap-disclosure">Catalogusvermeldingen · niet betaald gerangschikt · controleer gegevens zelf</div>' +
       '  <div class="nlmap-card" hidden></div>' +
       '  <div class="nlmap-empty" hidden><strong>Geen resultaten</strong><span>Probeer een andere zoekterm of categorie.</span></div>' +
       '</div>' +
@@ -466,6 +467,7 @@
     this.card.innerHTML =
       '<button class="nlmap-card-close" type="button" aria-label="Sluiten">✕</button>' +
       '<span class="nlmap-card-tag" style="background:' + (CAT_COLORS[item.cat] || '#334155') + '">' + (CAT_LABEL[item.cat] || 'Plek') + '</span>' +
+      '<span class="nlmap-card-source">Catalogusvermelding · geen betaalde aanbeveling</span>' +
       '<h3>' + esc(item.name) + '</h3>' +
       '<p class="nlmap-card-meta">📍 ' + esc(item.city || '') + (item.province ? ' · ' + esc(item.province) : '') + (item.rating ? ' · ⭐ ' + item.rating + ' (' + item.reviewCount + ')' : '') + '</p>' +
       '<p>' + esc(spec) + '</p>' +
