@@ -276,6 +276,10 @@ nav.site-navbar.scrolled {
   .nlmap-actions button { width: 44px; }
   .nlmap-actions .nlmap-geo { width: auto; padding-inline: 14px; }
   .nav-actions > .btn-outline { display: none; }
+  .nav-actions { flex-shrink: 1; min-width: 0; }
+  #account-btn { width: 40px; height: 40px; padding: 0; justify-content: center; }
+  #account-btn span { display: none; }
+  .tg-share-btn { width: 40px; height: 40px; padding: 0; justify-content: center; }
 }
 
 @media (max-width: 1020px) {

@@ -20,7 +20,7 @@
 .nlmap-stage{position:relative;flex:1;min-height:440px;min-width:0;background:var(--background,#fff);overflow:hidden}
 .nlmap-tiles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--background,#fff);opacity:0;transform-origin:0 0;transition:opacity .35s ease}
 .nlmap-tiles.is-ready{opacity:1}
-.nlmap-tiles img{position:absolute;display:block;max-width:none}
+.nlmap-tiles img{position:absolute;display:block;max-width:none;transform-origin:0 0}
 .nlmap-stage canvas{position:relative;z-index:1;display:block;width:100%;height:100%;touch-action:none;cursor:grab;background:transparent}
 .nlmap-attribution{position:absolute;right:8px;bottom:8px;z-index:3;padding:3px 7px;border-radius:5px;background:rgba(255,255,255,.84);color:#334155;font-size:10px;text-decoration:none;line-height:1.2}
 [data-theme=dark] .nlmap-attribution{background:rgba(9,20,14,.86);color:#d1fae5}

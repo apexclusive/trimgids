@@ -1,4 +1,4 @@
-/* TrimGids Ontdekkingskaart — eigen kaartcomponent (100% same-origin, geen externe tiles/CDN's).
+/* TrimGids Ontdekkingskaart — lokale kaartcomponent met OpenStreetMap-basislaag.
    Rastert de Nederlandse aanbiedersdata als interactieve datapunten-kaart op canvas:
    projectie, pan/zoom, filters, zoeken, geolocatie, detailkaart en lijstweergave. */
 (function () {
@@ -27,8 +27,18 @@
     [3.88, 51.30]
   ];
 
-  function xP(lon) { return (lon - LON_MIN) / (LON_MAX - LON_MIN) * W; }
-  function yP(lat) { return (LAT_MAX - lat) / (LAT_MAX - LAT_MIN) * H; }
+  var MAP_ZOOM = 7, TILE_SIZE = 256;
+  function worldXAt(lon, zoom) { return (lon + 180) / 360 * Math.pow(2, zoom) * TILE_SIZE; }
+  function worldYAt(lat, zoom) {
+    var sin = Math.sin(lat * Math.PI / 180);
+    return (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * Math.pow(2, zoom) * TILE_SIZE;
+  }
+  function worldX(lon) { return worldXAt(lon, MAP_ZOOM); }
+  function worldY(lat) { return worldYAt(lat, MAP_ZOOM); }
+  var WORLD_X_MIN = worldX(LON_MIN), WORLD_X_MAX = worldX(LON_MAX);
+  var WORLD_Y_TOP = worldY(LAT_MAX), WORLD_Y_BOTTOM = worldY(LAT_MIN);
+  function xP(lon) { return (worldX(lon) - WORLD_X_MIN) / (WORLD_X_MAX - WORLD_X_MIN) * W; }
+  function yP(lat) { return (worldY(lat) - WORLD_Y_TOP) / (WORLD_Y_BOTTOM - WORLD_Y_TOP) * H; }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -73,7 +83,7 @@
     this.scale = 1; this.minScale = 0.75; this.maxScale = 8;
     this.px = 0; this.py = 0; this.drag = null;
     this.filter = 'all'; this.province = 'all'; this.query = ''; this.selected = null; this.hover = null;
-    this.items = []; this.boundsCache = null;
+    this.items = []; this.boundsCache = null; this.tileZoom = 0;
     this._build();
   }
 
@@ -99,7 +109,7 @@
       '    <button class="nlmap-reset" type="button" title="Terug naar overzicht">⌂</button>' +
       '  </div>' +
       '</div>' +
-      '<div class="nlmap-stage"><div class="nlmap-tiles" aria-hidden="true"></div><canvas></canvas>' +
+      '<div class="nlmap-stage"><div class="nlmap-tiles" aria-hidden="true"></div><canvas tabindex="0" role="img" aria-label="Interactieve kaart met TrimGids-catalogusvermeldingen en wandelroutes"></canvas>' +
       '  <a class="nlmap-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>' +
       '  <div class="nlmap-stat" role="status">Kaart wordt geladen…</div>' +
       '  <div class="nlmap-disclosure">Catalogusvermeldingen · niet betaald gerangschikt · controleer gegevens zelf</div>' +
@@ -121,7 +131,7 @@
 
     this.resizeCanvas(true);
     this.fitView();
-    this.loadTiles();
+    this.loadTiles(MAP_ZOOM);
 
     if (window.ResizeObserver) {
       this.resizeObserver = new ResizeObserver(function () { self.resizeCanvas(false); });
@@ -138,7 +148,10 @@
       self.query = ''; self.input.value = ''; self.render(); self.input.focus();
     });
     this.provinceSelect.addEventListener('change', function () {
-      self.province = this.value; self.render(); self.renderList();
+      self.province = this.value;
+      if (self.province === 'all') self.fitView();
+      else self.focusProvince(self.province);
+      self.render(); self.renderList();
     });
     this.el.querySelectorAll('.nlmap-chips button').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -151,12 +164,23 @@
     this.el.querySelector('.nlmap-zoom').addEventListener('click', function () { self.zoomBy(1.6, null, null); });
     this.el.querySelector('.nlmap-zoomout').addEventListener('click', function () { self.zoomBy(1 / 1.6, null, null); });
     this.el.querySelector('.nlmap-reset').addEventListener('click', function () { self.fitView(); self.render(); });
+    this.canvas.addEventListener('keydown', function (e) {
+      if (e.key === '+' || e.key === '=' || e.key === 'ArrowUp') { e.preventDefault(); self.zoomBy(1.35, null, null); }
+      else if (e.key === '-' || e.key === '_' || e.key === 'ArrowDown') { e.preventDefault(); self.zoomBy(1 / 1.35, null, null); }
+      else if (e.key === '0' || e.key === 'Home') { e.preventDefault(); self.fitView(); self.render(); }
+    });
 
     this.canvas.addEventListener('wheel', function (e) {
       e.preventDefault();
       var rect = self.canvas.getBoundingClientRect();
       self.zoomBy(e.deltaY < 0 ? 1.18 : 1 / 1.18, e.clientX - rect.left, e.clientY - rect.top);
     }, { passive: false });
+    this.canvas.addEventListener('dblclick', function (e) {
+      e.preventDefault();
+      var rect = self.canvas.getBoundingClientRect();
+      self.zoomBy(1.6, e.clientX - rect.left, e.clientY - rect.top);
+      self.stat.textContent = 'Ingezoomd · klik op een marker voor details';
+    });
 
     this.canvas.addEventListener('mousedown', function (e) { self.drag = { x: e.clientX, y: e.clientY, px: self.px, py: self.py, moved: false }; });
     window.addEventListener('mousemove', function (e) {
@@ -207,19 +231,16 @@
     this.render();
   };
 
-  NLMap.prototype.loadTiles = function () {
-    var self = this, zoom = 7, tileSize = 256, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    function worldX(lon) { return (lon + 180) / 360 * Math.pow(2, zoom) * tileSize; }
-    function worldY(lat) {
-      var sin = Math.sin(lat * Math.PI / 180);
-      return (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * Math.pow(2, zoom) * tileSize;
-    }
-    var originX = worldX(LON_MIN), originY = worldY(LAT_MAX);
-    var sx = W / (worldX(LON_MAX) - originX), sy = H / (worldY(LAT_MIN) - originY);
-    var minX = Math.floor(worldX(LON_MIN) / tileSize) - 1;
-    var maxX = Math.floor(worldX(LON_MAX) / tileSize) + 1;
-    var minY = Math.floor(worldY(LAT_MAX) / tileSize) - 1;
-    var maxY = Math.floor(worldY(LAT_MIN) / tileSize) + 1;
+  NLMap.prototype.loadTiles = function (zoom) {
+    if (this.tileZoom === zoom) return;
+    this.tileZoom = zoom;
+    var self = this, tileSize = TILE_SIZE, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var originX = worldXAt(LON_MIN, zoom), originY = worldYAt(LAT_MAX, zoom);
+    var sx = W / (worldXAt(LON_MAX, zoom) - originX), sy = H / (worldYAt(LAT_MIN, zoom) - originY);
+    var minX = Math.floor(originX / tileSize) - 1;
+    var maxX = Math.floor(worldXAt(LON_MAX, zoom) / tileSize) + 1;
+    var minY = Math.floor(originY / tileSize) - 1;
+    var maxY = Math.floor(worldYAt(LAT_MIN, zoom) / tileSize) + 1;
     var pending = 0, loaded = 0;
     this.tiles.innerHTML = '';
     for (var tx = minX; tx <= maxX; tx++) {
@@ -229,16 +250,18 @@
         img.alt = '';
         img.width = tileSize;
         img.height = tileSize;
-        img.loading = 'lazy';
+        img.loading = 'eager';
         img.decoding = 'async';
         img.src = '/api/map-tile?z=' + zoom + '&x=' + tx + '&y=' + ty;
-        img.style.left = ((tx * tileSize - originX) * sx / dpr) + 'px';
-        img.style.top = ((ty * tileSize - originY) * sy / dpr) + 'px';
+        img.dataset.baseLeft = ((tx * tileSize - originX) * sx / dpr).toString();
+        img.dataset.baseTop = ((ty * tileSize - originY) * sy / dpr).toString();
+        img.style.left = '0px';
+        img.style.top = '0px';
         img.style.width = (tileSize * sx / dpr) + 'px';
         img.style.height = (tileSize * sy / dpr) + 'px';
         img.addEventListener('load', function () {
           loaded++;
-          if (loaded >= Math.max(1, Math.floor(pending * .35))) {
+          if (loaded >= 1) {
             self.tiles.classList.add('is-ready');
             self.render();
           }
@@ -247,9 +270,19 @@
       }
     }
     this.tileTransform = function () {
-      self.tiles.style.transform = 'translate(' + (self.px / dpr) + 'px,' + (self.py / dpr) + 'px) scale(' + (self.scale / dpr) + ')';
+      self.tiles.style.transform = 'none';
+      Array.prototype.forEach.call(self.tiles.querySelectorAll('img'), function (image) {
+        var zoom = self.scale / dpr;
+        image.style.transformOrigin = '0 0';
+        image.style.transform = 'translate(' + ((self.px / dpr) + Number(image.dataset.baseLeft) * zoom) + 'px,' + ((self.py / dpr) + Number(image.dataset.baseTop) * zoom) + 'px) scale(' + zoom + ')';
+      });
     };
     this.tileTransform();
+  };
+
+  NLMap.prototype.syncTileZoom = function () {
+    var level = Math.max(0, Math.min(5, Math.round(Math.log(this.scale / 0.75) / Math.LN2)));
+    this.loadTiles(MAP_ZOOM + level);
   };
 
   NLMap.prototype.load = function () {
@@ -318,6 +351,17 @@
     this.render();
   };
 
+  NLMap.prototype.focusProvince = function (name) {
+    var province = PROVINCES.find(function (item) { return item[0] === name; });
+    if (!province) return;
+    this.scale = Math.max(this.scale, 2.15);
+    this.scale = Math.min(this.scale, this.maxScale);
+    this.px = this.canvas.width / 2 - xP(province[1]) * this.scale;
+    this.py = this.canvas.height / 2 - yP(province[2]) * this.scale;
+    this.selected = null;
+    this.card.hidden = true;
+  };
+
   NLMap.prototype.filtered = function () {
     var self = this;
     return this.items.filter(function (i) {
@@ -326,6 +370,32 @@
       if (!self.query) return true;
       var hay = (i.name + ' ' + (i.city || '') + ' ' + (i.province || '')).toLowerCase();
       return hay.indexOf(self.query) !== -1;
+    });
+  };
+
+  NLMap.prototype.clustered = function (items) {
+    var buckets = Object.create(null);
+    var cell = 42;
+    var self = this;
+    items.forEach(function (item) {
+      var worldX = xP(item.lng), worldY = yP(item.lat);
+      var screenX = worldX * self.scale + self.px;
+      var screenY = worldY * self.scale + self.py;
+      var key = Math.floor(screenX / cell) + ':' + Math.floor(screenY / cell);
+      var bucket = buckets[key];
+      if (!bucket) bucket = buckets[key] = { items: [], x: 0, y: 0 };
+      bucket.items.push(item);
+      bucket.x += worldX;
+      bucket.y += worldY;
+    });
+    return Object.keys(buckets).map(function (key) {
+      var bucket = buckets[key];
+      bucket.x /= bucket.items.length;
+      bucket.y /= bucket.items.length;
+      bucket.item = bucket.items[0];
+      bucket.count = bucket.items.length;
+      bucket.isCluster = bucket.count > 1;
+      return bucket;
     });
   };
 
@@ -339,6 +409,7 @@
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     var dpr = window.devicePixelRatio || 1;
+    this.syncTileZoom();
     if (this.tileTransform) this.tileTransform();
 
     /* Achtergrond en herkenbare Nederlandse landvorm, zonder externe kaartdienst. */
@@ -368,56 +439,28 @@
     ctx.lineWidth = 3 / this.scale;
     ctx.stroke();
 
-    /* Subtiel grid */
-    ctx.strokeStyle = dark ? 'rgba(255,255,255,.045)' : 'rgba(15,62,40,.05)';
-    ctx.lineWidth = 1 / this.scale;
-    ctx.beginPath();
-    for (var gx = 0; gx <= W; gx += 156) { ctx.moveTo(gx, 0); ctx.lineTo(gx, H); }
-    for (var gy = 0; gy <= H; gy += 160) { ctx.moveTo(0, gy); ctx.lineTo(W, gy); }
-    ctx.stroke();
-
-    /* Vorm van Nederland (convex hull van de echte data = kloppende contour) */
-    var pts = items.map(function (i) { return [xP(i.lng), yP(i.lat)]; });
-    if (pts.length > 4) {
-      var ptsAll = this.items.map(function (i) { return [xP(i.lng), yP(i.lat)]; });
-      var hull = convexHull(ptsAll);
-      ctx.beginPath();
-      ctx.moveTo(hull[0][0], hull[0][1]);
-      for (var h = 1; h < hull.length; h++) ctx.lineTo(hull[h][0], hull[h][1]);
-      ctx.closePath();
-      ctx.fillStyle = dark ? 'rgba(16,185,129,.07)' : 'rgba(16,185,129,.06)';
-      ctx.fill();
-      ctx.strokeStyle = dark ? 'rgba(52,211,153,.35)' : 'rgba(15,62,40,.28)';
-      ctx.lineWidth = 2 / this.scale;
-      ctx.setLineDash([10 / this.scale, 8 / this.scale]);
-      ctx.stroke();
-      ctx.setLineDash([]);
-    }
-
-    /* Provincielabels */
-    if (this.scale < 3.2) {
-      ctx.font = 600 + ' ' + (26 / this.scale) + 'px system-ui,sans-serif';
-      ctx.fillStyle = dark ? 'rgba(255,255,255,.30)' : 'rgba(15,62,40,.30)';
-      ctx.textAlign = 'center';
-      PROVINCES.forEach(function (p) {
-        ctx.fillText(p[0], xP(p[1]), yP(p[2]));
-      });
-    }
-
-    /* Datapunten */
-    var r = 5.5 / this.scale;
-    items.forEach(function (i) {
-      var x = xP(i.lng), y = yP(i.lat);
+    /* Markers are clustered in screen space so dense regions stay readable. */
+    var points = this.clustered(items);
+    this.renderedPoints = points;
+    points.forEach(function (point) {
+      var i = point.item, x = point.x, y = point.y;
+      var r = (point.isCluster ? Math.min(17, 9 + Math.log(point.count) * 2.2) : 5.5) / self.scale;
       ctx.beginPath();
       ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fillStyle = CAT_COLORS[i.cat] || '#334155';
-      ctx.globalAlpha = i.isRoute ? 0.92 : 0.88;
+      ctx.globalAlpha = point.isCluster ? 0.96 : (i.isRoute ? 0.92 : 0.88);
       ctx.fill();
       ctx.globalAlpha = 1;
       ctx.lineWidth = 1.6 / self.scale;
       ctx.strokeStyle = dark ? 'rgba(4,20,13,.9)' : 'rgba(255,255,255,.95)';
       ctx.stroke();
-      if (i.isRoute) {
+      if (point.isCluster) {
+        ctx.fillStyle = '#fff';
+        ctx.font = '800 ' + (Math.max(10, Math.min(14, 9 + Math.log(point.count))) / self.scale) + 'px system-ui,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(String(point.count), x, y);
+      } else if (i.isRoute) {
         ctx.beginPath();
         ctx.arc(x, y, r + 3.4 / self.scale, 0, Math.PI * 2);
         ctx.strokeStyle = 'rgba(5,150,105,.5)';
@@ -448,13 +491,23 @@
   };
   NLMap.prototype.pick = function (mx, my) {
     var self = this, wx = (mx - this.px) / this.scale, wy = (my - this.py) / this.scale;
-    var best = null, bestD = 22 / this.scale;
-    this.filtered().forEach(function (i) {
-      var d = Math.hypot(xP(i.lng) - wx, yP(i.lat) - wy);
-      if (d < bestD) { bestD = d; best = i; }
+    var best = null, bestD = 28 / this.scale;
+    (this.renderedPoints || this.clustered(this.filtered())).forEach(function (point) {
+      var d = Math.hypot(point.x - wx, point.y - wy);
+      if (d < bestD) { bestD = d; best = point; }
     });
-    this.selected = best;
-    if (best) { this.showCard(best); if (this.list) this.scrollList(best); }
+    if (best && best.isCluster && this.scale < this.maxScale) {
+      this.scale = Math.min(this.maxScale, this.scale * 1.8);
+      this.px = this.canvas.width / 2 - best.x * this.scale;
+      this.py = this.canvas.height / 2 - best.y * this.scale;
+      this.selected = null;
+      this.card.hidden = true;
+      this.stat.textContent = best.count + ' locaties in dit cluster · verder inzoomen voor details';
+    } else if (best) {
+      this.selected = best.item || best;
+      this.showCard(this.selected);
+      if (this.list) this.scrollList(this.selected);
+    }
     else this.card.hidden = true;
     this.render();
   };

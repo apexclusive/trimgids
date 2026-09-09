@@ -1711,7 +1711,7 @@ function mapPage() {
     <span>100% zelf-gehost — geen externe kaartdiensten</span>
   </div>
 </footer>
-<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=9" defer></script>
+<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=15" defer></script>
 </body></html>`;
 }
 function providerPage(pathname) {
@@ -4674,7 +4674,7 @@ if (!html.includes('tg-theme-boot')) {
   }
   /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element. */
   if (html.includes('data-nl-map') && !html.includes('tg-nlmap-js')) {
-    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/css/nl-map.css?v=8"><script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=9" defer></script></head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/css/nl-map.css?v=8"><script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=15" defer></script></head>');
   }
   /* Ronde 9 — chat-assistent TG op elke gegenereerde pagina (float-rood = laad-lazy). */
   if (!html.includes('tg-chatbot-js')) {
@@ -4708,7 +4708,7 @@ if (!html.includes('tg-theme-boot')) {
      cascade van álle pagina-CSS (directoryStyles/customModuleStyles enz.). */
   {
     const tailSkin =
-      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=22" id="tg-site-chrome">') +
+      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=23" id="tg-site-chrome">') +
       (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">') +
       (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=12" id="tg-premium-refresh">');
     if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
