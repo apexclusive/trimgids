@@ -37,6 +37,9 @@
 .pm-ad-cta p { margin:0; color:var(--muted); font-size:13.5px; line-height:1.6; }
 .pm-ad-cta strong { color:var(--g); font-size:14px; }
 .pm-ad-cta-badge { justify-self:start; padding:5px 10px; border-radius:999px; background:rgba(16,185,129,.14); border:1px solid rgba(16,185,129,.3); color:var(--g); font:800 10.5px 'Plus Jakarta Sans',sans-serif; text-transform:uppercase; letter-spacing:.06em; }
+.pm-upload-note { display:block; margin-top:4px; color:var(--g); font-size:12px; font-weight:800; }
+.pm-upload-help { display:block; margin-top:5px; color:var(--muted); font-size:11.5px; line-height:1.45; }
+[data-theme="dark"] .pm-upload-note { color:#f0b84b; }
 .pm-media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: linear-gradient(135deg, #0f3e28, #165b3c); }
 .pm-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.16,1,.3,1); }
 .pm-card:hover .pm-media img { transform: scale(1.06); }

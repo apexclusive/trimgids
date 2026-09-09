@@ -108,6 +108,8 @@ export function puppiesPage(list = []) {
     <label>Fokkernaam<input name="breeder" required maxlength="80" placeholder="Bijv. Kennel Amberfield"></label>
     <label>E-mail fokker<input name="email" type="email" required maxlength="100" placeholder="fokker@kennel.nl"></label>
     <label>Gezondheidschecks<textarea name="checks" required maxlength="400" placeholder="HD/ED-röntgen, DNA: EIC/PRA vrij, oogonderzoek, stamboom…"></textarea></label>
+    <label class="full">Foto’s van jouw nest <span class="pm-upload-note">2 foto’s gratis · tot 10 extra foto’s voor €4,99 (betaling wordt later geactiveerd)</span><input id="pm-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple><small class="pm-upload-help">Gebruik echte foto’s van jouw eigen fokkerij. Maximaal 1 MB per foto; alles wordt eerst gecontroleerd.</small></label>
+    <label>Fotopakket<select name="photoPlan"><option value="free">Gratis · maximaal 2 foto’s</option><option value="extra">Uitgebreid · maximaal 12 foto’s · €4,99</option></select></label>
     <label class="full">Omschrijving<textarea name="text" required maxlength="800" placeholder="Karakter, socialisatie, bijzonderheden…"></textarea></label>
     <label class="full checkbox-label"><input type="checkbox" name="agree" required> Ik bevestig dat ouderdieren op gezondheid zijn (laten) testen, de fokker bezocht kan worden en pups niet jonger dan 8 weken weg gaan.</label>
     <button class="btn-submit full" type="submit">Plaats nest op de marktplaats →</button>
@@ -220,11 +222,18 @@ export function puppiesPage(list = []) {
     e.preventDefault();
     var data = new FormData(form);
     var checks = String(data.get('checks') || '').split(/[\\n;,]+/).map(function (x) { return x.trim(); }).filter(Boolean);
+    var photoInput = document.getElementById('pm-photos');
+    var photoPlan = String(data.get('photoPlan') || 'free');
+    var files = photoInput ? Array.prototype.slice.call(photoInput.files || []) : [];
+    var maxPhotos = photoPlan === 'extra' ? 12 : 2;
+    if (files.length > maxPhotos) { status.hidden = false; status.className = 'status-msg error full'; status.textContent = 'Kies maximaal ' + maxPhotos + ' foto\'s voor dit pakket.'; return; }
+    if (files.some(function (file) { return file.size > 1048576; })) { status.hidden = false; status.className = 'status-msg error full'; status.textContent = 'Elke foto mag maximaal 1 MB zijn.'; return; }
+    var photos = await Promise.all(files.map(function (file) { return new Promise(function (resolve, reject) { var reader = new FileReader(); reader.onload = function () { resolve(String(reader.result)); }; reader.onerror = reject; reader.readAsDataURL(file); }); }));
     try {
       var res = await fetch('/api/puppies', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
         title: data.get('title'), breed: data.get('breed'), price: Number(data.get('price')), weeks: Number(data.get('weeks')),
         sex: data.get('sex'), city: data.get('city'), province: data.get('province'), breeder: data.get('breeder'),
-        email: data.get('email'), checks: checks.slice(0, 4), text: data.get('text'), agree: !!data.get('agree')
+        email: data.get('email'), checks: checks.slice(0, 4), text: data.get('text'), agree: !!data.get('agree'), photos: photos, photoPlan: photoPlan
       }) });
       if (!res.ok) throw new Error();
       status.hidden = false;

@@ -768,7 +768,9 @@ async function puppiesCreate(input) {
   const email = clean(input.email, 120);
   const price = Number(input.price);
   const weeks = Number(input.weeks);
-  if (!title || !breed || !breeder || !city || !province || !text || !validEmail(email) || !isFinite(price) || price <= 0 || !isFinite(weeks) || weeks < 7) {
+  const photoPlan = clean(input.photoPlan, 16) || 'free';
+  const photos = Array.isArray(input.photos) ? input.photos.filter(photo => typeof photo === 'string' && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(photo) && photo.length <= 1400000).slice(0, photoPlan === 'extra' ? 12 : 2) : [];
+  if (!title || !breed || !breeder || !city || !province || !text || !validEmail(email) || !isFinite(price) || price <= 0 || !isFinite(weeks) || weeks < 7 || (Array.isArray(input.photos) && photos.length !== input.photos.length)) {
     throw new Error('missing_fields');
   }
   const record = {
@@ -785,6 +787,9 @@ async function puppiesCreate(input) {
     verified: false,
     checks: Array.isArray(input.checks) ? input.checks.slice(0, 4).map(c => clean(c, 60)) : [],
     text,
+    photos,
+    photoPlan: photoPlan === 'extra' ? 'extra_pending_payment' : 'free',
+    extraPhotoPrice: photoPlan === 'extra' ? 4.99 : 0,
     status: 'pending',
     createdAt: new Date().toISOString()
   };
