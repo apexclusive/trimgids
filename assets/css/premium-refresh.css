@@ -67,6 +67,7 @@ nav.site-navbar { background: rgba(251, 253, 251, .96) !important; border-bottom
 .section { padding: 76px 0 !important; border-bottom: 1px solid var(--tg-line) !important; }
 .section-header { max-width: 720px !important; margin-bottom: 30px !important; }
 .section-eyebrow { color: var(--tg-green) !important; background: transparent !important; padding: 0 !important; border-radius: 0 !important; font-size: 11px !important; letter-spacing: .13em !important; }
+.feedback-panel .section-eyebrow, .founder-section .section-eyebrow { color: #f0b84b !important; }
 .section-title { font-size: clamp(28px, 3.5vw, 42px) !important; letter-spacing: -.04em !important; color: var(--tg-ink) !important; }
 .section-subtitle { color: var(--tg-muted) !important; font-size: 15px !important; }
 .section.t-purple, .section.t-orange, .section.t-blue, .section.t-teal, .section.t-amber, .section.t-red, .section.t-green { background: var(--tg-paper) !important; }
@@ -219,6 +220,8 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
   [data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#e9e6df !important; }
 [data-theme="dark"] .hero-subtitle, [data-theme="dark"] .section-subtitle { color:#b5bbc5 !important; }
 [data-theme="dark"] .hero-welcome { color:#b5bbc5 !important; }
+[data-theme="dark"] .section-eyebrow, [data-theme="dark"] .eyebrow { color:#f0b84b !important; }
+[data-theme="dark"] .feedback-panel .section-eyebrow, [data-theme="dark"] .founder-section .section-eyebrow { color:#f0b84b !important; }
 [data-theme="dark"] .card, [data-theme="dark"] .k-card, [data-theme="dark"] .world-card,
 [data-theme="dark"] .provider, [data-theme="dark"] .news-card, [data-theme="dark"] .faq-item,
 [data-theme="dark"] .home-news-card { background:rgba(23,25,30,.82) !important; border-color:rgba(255,255,255,.11) !important; }
