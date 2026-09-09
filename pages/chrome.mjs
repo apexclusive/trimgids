@@ -48,7 +48,7 @@ export function siteHeader() {
 <nav class="site-navbar" id="tg-site-nav">
   <div class="wrap nav-in">
     <a href="/" class="brand-logo" aria-label="TrimGids Homepage">
-      <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=4" alt="" loading="eager" fetchpriority="high"></div>
+      <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=5" alt="" loading="eager" fetchpriority="high"></div>
       <div class="brand-text">
         <span class="brand-title"><span class="brand-trim">Trim</span><span class="brand-gids">Gids</span></span>
         <span class="brand-subtitle">Nederland · 2026</span>
