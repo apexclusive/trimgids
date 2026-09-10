@@ -90,13 +90,12 @@
        attribution control staat bewust aan: de bronvermelding moet op zowel
        /kaart als de kleine homepagekaart zichtbaar zijn. */
     var OSM_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-    /* CARTO Basemaps is a client-side service: deze sleutel is daarom bewust
-       publiek en hoort in de tegel-URL. Zonder key toont CARTO op elke tegel
-       de tekst "API key required". */
-    var CARTO_BASEMAP_KEY = 'cb1_34ai_1_38282152c7e6f64ac160316e';
+    /* De CARTO-key staat bewust letterlijk in de client-URL: deze key is
+       publiek bedoeld voor basemap-tegels. Zonder deze parameter toont CARTO
+       op iedere tegel de tekst "API key required". */
     var map = L.map(this.stage, { zoomControl: false, attributionControl: true, scrollWheelZoom: true });
     map.fitBounds(NL_BOUNDS, { padding: [8, 8] });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=' + CARTO_BASEMAP_KEY, {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_34ai_1_38282152c7e6f64ac160316e', {
       maxZoom: 19,
       subdomains: 'abcd',
       attribution: OSM_ATTR + ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
