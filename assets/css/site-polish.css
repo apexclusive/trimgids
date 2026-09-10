@@ -185,3 +185,9 @@ body.menu-open { overflow: hidden; }
 .footer-grid > .footer-col:nth-child(n+5) { display: none !important; }
 @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr !important; } }
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr !important; } }
+
+/* Rustige eerste indruk: de promotiebalk stond vóór de header en duwde de
+   echte navigatie naar beneden. De belangrijkste boodschap hoort in de pagina,
+   niet boven de navigatie. */
+.top-announcement { display: none !important; }
+.site-navbar { top: 0 !important; }

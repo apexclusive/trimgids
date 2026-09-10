@@ -924,7 +924,8 @@
     ensureStyles();
     syncThemeButtons();
     ensureNavButtons();
-    initShareButton();
+    /* Delen hoort bij artikelacties, niet bij de primaire navigatie: zo blijft
+       de header op mobiel en desktop compact. */
     initDelegatedTheme();
     initSaveButtons();
     initScrollUI();
