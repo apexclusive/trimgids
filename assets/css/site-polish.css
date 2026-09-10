@@ -379,3 +379,10 @@ main > .crumb a:hover { color: var(--primary); }
 .table-wrap thead, .table-responsive thead { position: sticky; top: 0; z-index: 1; }
 main table caption { padding: 12px 15px; text-align: left; color: var(--muted-foreground); font-size: 12px; }
 @media (max-width: 760px) { main table td, main table th { padding: 11px 12px; } }
+
+/* Ronde 16/20 — formuliergroepen voelen als één begeleide taak */
+form fieldset { min-width: 0; margin: 0; padding: clamp(16px, 3vw, 24px); border: 1px solid var(--border); border-radius: var(--tg-card-radius); }
+form fieldset + fieldset { margin-top: 16px; }
+form legend { padding-inline: 6px; color: var(--foreground); font-weight: 800; font-size: 14px; }
+form .field-help, form .hint, form small { color: var(--muted-foreground); font-size: 12px; line-height: 1.5; }
+form :invalid:not(:placeholder-shown) { border-color: color-mix(in srgb, #dc2626 55%, var(--border)) !important; }
