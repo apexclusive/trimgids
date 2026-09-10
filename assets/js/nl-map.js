@@ -96,9 +96,7 @@
     var CARTO_BASEMAP_KEY = 'cb1_34ai_1_38282152c7e6f64ac160316e';
     var map = L.map(this.stage, { zoomControl: false, attributionControl: true, scrollWheelZoom: true });
     map.fitBounds(NL_BOUNDS, { padding: [8, 8] });
-    /* Extra versieparameter voorkomt dat een eerder zonder sleutel geladen
-       CARTO-tegel uit browser- of CDN-cache opnieuw wordt gebruikt. */
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=' + CARTO_BASEMAP_KEY + '&v=20260910', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=' + CARTO_BASEMAP_KEY, {
       maxZoom: 19,
       subdomains: 'abcd',
       attribution: OSM_ATTR + ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
