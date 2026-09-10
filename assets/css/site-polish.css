@@ -5,44 +5,115 @@
 body.tg-inner-page .sticky-hub-nav { display: none !important; }
 body.tg-inner-page .route-disclosure { display: none !important; }
 
-/* Houd grote pagina's snel: browser rendert secties pas wanneer ze bijna in beeld komen. */
+/* ================================================================
+   Canonical editorial system
+   Eén rustige typografie, één maatvoering en één kaarttaal voor alle
+   historische templates. Dit staat bewust als laatste stylesheet.
+   ================================================================ */
+:root {
+  --editorial-width: 1180px;
+  --reading-width: 720px;
+  --section-gap: clamp(44px, 6vw, 84px);
+  --card-gap: clamp(16px, 2vw, 24px);
+}
+
+/* De losse legacy-fonts worden nergens meer leidend. */
+html, body, button, input, select, textarea {
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif) !important;
+}
+h1, h2, h3, h4, h5, h6, .brand-title, .hero-title, .page-title {
+  font-family: var(--font-display, 'Sora', 'Plus Jakarta Sans', system-ui, sans-serif) !important;
+  text-wrap: balance;
+}
+
+body { line-height: 1.62 !important; }
+main { max-width: var(--editorial-width) !important; margin-inline: auto !important; padding-inline: clamp(16px, 3vw, 28px) !important; }
+main > .crumb { margin: 22px 0 10px !important; font-size: 12px !important; color: var(--muted-foreground) !important; }
+main > .eyebrow, main > .section-eyebrow { display: inline-flex; margin: 8px 0 10px !important; letter-spacing: .08em !important; text-transform: uppercase !important; font-size: 11px !important; font-weight: 800 !important; }
+main > h1, main > .page-title { max-width: 900px; margin: 0 0 14px !important; font-size: clamp(2rem, 4vw, 3.25rem) !important; line-height: 1.08 !important; letter-spacing: -.045em !important; }
+main > .intro { max-width: var(--reading-width); margin: 0 0 28px !important; color: var(--muted-foreground) !important; font-size: clamp(15px, 1.5vw, 17px) !important; line-height: 1.72 !important; }
+main > section { margin-block: var(--section-gap) !important; }
+main section > h2 { margin: 0 0 12px !important; font-size: clamp(1.45rem, 2.8vw, 2.15rem) !important; line-height: 1.14 !important; letter-spacing: -.035em !important; }
+main section > h3 { line-height: 1.22 !important; }
+main section > p { max-width: var(--reading-width); }
+
+/* Eén rustige systeem voor alle rasterblokken. */
+.steps-grid, .faq-grid, .stats-row, .providers, .dir-mini-grid,
+.hypo-grid, .route-grid, .routes-grid, .vac-grid, .dna-grid, .food-grid,
+.ins-grid, .buddy-grid, .home-grid, .world-grid, .news-grid {
+  gap: var(--card-gap) !important;
+}
+.stats-row { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important; }
+.steps-grid > *, .faq-grid > *, .providers > *, .route-card, .vac-card,
+.dna-card, .food-card, .ins-card, .buddy-card, .home-grid > *, .world-grid > * {
+  min-width: 0 !important;
+  border-radius: 18px !important;
+  padding: clamp(18px, 2.5vw, 26px) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+.steps-grid h3, .faq-grid h3, .route-card h2, .vac-card h2,
+.dna-card h2, .food-card h2, .ins-card h2 { margin-top: 0 !important; font-size: 1.05rem !important; line-height: 1.28 !important; }
+.steps-grid p, .faq-grid p, .route-card p, .vac-card p, .dna-card p,
+.food-card p, .ins-card p { font-size: 14px !important; line-height: 1.62 !important; color: var(--muted-foreground) !important; }
+.stats-row .stat-card { min-height: 112px; display: flex; flex-direction: column; justify-content: center; }
+.stats-row .stat-card strong { font-size: clamp(1.35rem, 2.5vw, 2rem) !important; line-height: 1.1 !important; }
+.stats-row .stat-card span { margin-top: 6px; font-size: 12px !important; color: var(--muted-foreground) !important; }
+
+/* Geen decoratieve koppen die drie regels innemen in compacte kaarten. */
+main .card h2, main .card h3, main .provider h2, main .provider h3,
+main .news-card h2, main .news-card h3 { max-width: 28ch; }
+main .card p, main .provider p, main .news-card p { max-width: 62ch; }
+
+/* Formulieren: één duidelijke kolomritme en geen exploderende labels. */
+.form-grid { gap: 16px !important; }
+.form-grid label { min-width: 0; font-size: 13px !important; font-weight: 700 !important; line-height: 1.35 !important; }
+.form-grid input, .form-grid select, .form-grid textarea { margin-top: 7px; min-height: 44px; border-radius: 12px !important; font: inherit !important; }
+.form-grid textarea { min-height: 120px; resize: vertical; }
+
+/* Rustige navigatie: geen tweede rij met tientallen categorieën op de homepage. */
+.sticky-hub-nav { display: none !important; }
+.top-announcement { font-size: 11.5px !important; }
+.nav-links-pills { gap: 4px !important; }
+.nav-pill { padding: 8px 10px !important; font-size: 12px !important; }
+.nav-more-panel { max-height: min(70vh, 620px); overflow: auto; }
+
+/* Copy safety: geen kaart of knop laat tekst uit het kader lopen. */
+main * { min-width: 0; }
+main p, main li, main h1, main h2, main h3, main h4, main a,
+main button, main label { overflow-wrap: anywhere; }
+main .btn, main .outline, main button, main a { max-width: 100%; }
+
+/* Snel en netjes op mobiel. */
+@media (max-width: 760px) {
+  main { padding-inline: 14px !important; }
+  main > section { margin-block: 42px !important; }
+  main > h1 { font-size: clamp(1.85rem, 9vw, 2.55rem) !important; }
+  .steps-grid, .faq-grid, .providers, .dir-mini-grid { grid-template-columns: 1fr !important; }
+  .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .stats-row .stat-card { min-height: 96px; padding: 15px !important; }
+  .nav-links-pills { display: none !important; }
+  .nav-in { min-height: 58px !important; }
+}
+
+/* Performance: browser rendert onderliggende secties pas wanneer nodig. */
 main > section:not(:first-of-type), main > .guide-box, main > .next,
 .home-section, .home-newsletter { content-visibility: auto; contain-intrinsic-size: 1px 420px; }
-
-/* Stabiele media voorkomen layout shift tijdens laden. */
 main img { height: auto; }
 main picture { display: block; }
 main picture img { display: block; max-width: 100%; }
 
-/* Premium, rustige hover states: duidelijke feedback zonder drukte. */
+/* Premium, rustige hover states. */
 .card, .k-card, .world-card, .provider, .news-card, .faq-card, .step-card,
 .route-card, .pm-card, .pricing-card, .tip-box {
-  transition: transform .28s var(--ease, cubic-bezier(.16,1,.3,1)),
-              box-shadow .28s var(--ease, cubic-bezier(.16,1,.3,1)),
-              border-color .2s ease;
+  transition: transform .28s var(--ease, cubic-bezier(.16,1,.3,1)), box-shadow .28s var(--ease, cubic-bezier(.16,1,.3,1)), border-color .2s ease;
 }
 .card:hover, .k-card:hover, .world-card:hover, .provider:hover, .news-card:hover,
 .faq-card:hover, .step-card:hover, .route-card:hover, .pm-card:hover,
 .pricing-card:hover, .tip-box:hover { transform: translateY(-3px); }
 
-/* Lange kaartteksten blijven netjes binnen de kaart. */
-main .card, main .k-card, main .world-card, main .provider, main .news-card,
-main .faq-card, main .step-card, main .route-card, main .pm-card, main .pricing-card,
-main .tip-box, main .guide-box { min-width: 0; overflow-wrap: anywhere; }
-main .card h1, main .card h2, main .card h3, main .card h4,
-main .provider h1, main .provider h2, main .provider h3, main .provider h4,
-main .news-card h1, main .news-card h2, main .news-card h3, main .news-card h4 { text-wrap: balance; }
-
-/* Toegankelijkheid en CPU-besparing voor bezoekers die beweging beperken. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .001ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .001ms !important;
-  }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
 }
-
 @media (max-width: 760px) {
   main > section:not(:first-of-type), main > .guide-box, main > .next,
   .home-section, .home-newsletter { contain-intrinsic-size: 1px 560px; }
