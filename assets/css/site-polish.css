@@ -331,3 +331,8 @@ main table tr:nth-child(even) td { background: color-mix(in srgb, var(--secondar
   .nav-actions { gap: 4px !important; }
   .world-card { min-height: 260px !important; }
 }
+
+/* Ronde 10/10 — focus, motion en laatste premium-afwerking */
+*:focus-visible { outline-color: var(--primary, #0f3e28) !important; outline-width: 3px !important; outline-offset: 3px !important; }
+button, a, input, select, textarea { transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
