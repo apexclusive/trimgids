@@ -102,7 +102,9 @@ const mimeTypes = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon'
+  '.ico': 'image/x-icon',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif'
 };
 
 let googleKey = '';
@@ -4395,7 +4397,7 @@ nav {
   width: 36px;
   height: 36px;
   flex: 0 0 36px;
-  background: url('/logo.svg?v=3') center / contain no-repeat;
+  background: url('/logo.svg?v=6') center / contain no-repeat;
   filter: drop-shadow(0 5px 10px rgba(16, 185, 129, .2));
 }
 
@@ -4621,7 +4623,7 @@ function customModuleStyles() {
 
 function notFoundPage() {
   /* Ronde 10: 404 gebruikt dezelfde universele shell als alle andere pagina's. */
-  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pagina niet gevonden (404) | TrimGids</title><meta name="robots" content="noindex"><meta name="description" content="Deze pagina bestaat niet of is verplaatst — ga terug naar de TrimGids-homepage of gebruik de zoekbalk."><link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="stylesheet" href="/assets/css/site-chrome.css" id="tg-site-chrome"><style>body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg,#f8fafc);color:var(--ink,#0b1220);margin:0}a{color:var(--primary,#0f3e28);font-weight:800;text-decoration:none}main{padding:60px 0 80px}.box{max-width:560px;margin:0 auto;padding:44px 40px 40px;text-align:center;background:var(--card,#fff);border:1px solid var(--border,#e2e8f0);border-radius:var(--radius-xl,24px);box-shadow:var(--shadow-floating,0 20px 45px -10px rgba(15,62,40,.12))}h1{font-size:clamp(30px,4vw,40px);margin:0 0 10px;letter-spacing:-.02em;color:var(--foreground,#09090b)}.box p{color:var(--muted-foreground,#64748b);font-size:15px;line-height:1.6;margin:0 0 22px}.box .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.box .links a{display:inline-flex;padding:11px 18px;border-radius:999px;background:var(--primary,#0f3e28);color:#fff}</style></head><body>${siteHeader()}<main><div class="box"><img src="/logo.svg?v=3" width="72" height="72" alt="TrimGids" style="margin:0 auto 18px"><h1>404 — Pagina niet gevonden</h1><p>Deze pagina bestaat (nog) niet of is verplaatst. Gebruik de zoekbalk in de header of ga terug naar de homepage.</p><div class="links"><a href="/">← Terug naar de homepage</a><a href="/opvang">Opvang &amp; hotels</a><a href="/verzekering">Hondenverzekering</a></div></div></main>${siteFooter()}</body></html>`;
+  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pagina niet gevonden (404) | TrimGids</title><meta name="robots" content="noindex"><meta name="description" content="Deze pagina bestaat niet of is verplaatst — ga terug naar de TrimGids-homepage of gebruik de zoekbalk."><link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="stylesheet" href="/assets/css/site-chrome.css" id="tg-site-chrome"><style>body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg,#f8fafc);color:var(--ink,#0b1220);margin:0}a{color:var(--primary,#0f3e28);font-weight:800;text-decoration:none}main{padding:60px 0 80px}.box{max-width:560px;margin:0 auto;padding:44px 40px 40px;text-align:center;background:var(--card,#fff);border:1px solid var(--border,#e2e8f0);border-radius:var(--radius-xl,24px);box-shadow:var(--shadow-floating,0 20px 45px -10px rgba(15,62,40,.12))}h1{font-size:clamp(30px,4vw,40px);margin:0 0 10px;letter-spacing:-.02em;color:var(--foreground,#09090b)}.box p{color:var(--muted-foreground,#64748b);font-size:15px;line-height:1.6;margin:0 0 22px}.box .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.box .links a{display:inline-flex;padding:11px 18px;border-radius:999px;background:var(--primary,#0f3e28);color:#fff}</style></head><body>${siteHeader()}<main><div class="box"><img src="/logo.svg?v=6" width="72" height="72" alt="TrimGids" style="margin:0 auto 18px"><h1>404 — Pagina niet gevonden</h1><p>Deze pagina bestaat (nog) niet of is verplaatst. Gebruik de zoekbalk in de header of ga terug naar de homepage.</p><div class="links"><a href="/">← Terug naar de homepage</a><a href="/opvang">Opvang &amp; hotels</a><a href="/verzekering">Hondenverzekering</a></div></div></main>${siteFooter()}</body></html>`;
 }
 
 const staticFileCache = new Map();
@@ -5447,6 +5449,17 @@ export async function handleRequest(req, res) {
       if (!q) return json(res, 200, { results: [], count: 0 });
       const results = searchSiteIndex(q, 8);
       return publicJson(res, 200, { results, count: results.length }, 120);
+    }
+
+    /* Algemene health-check (README belooft /api/health): status + of Google
+       Places is geconfigureerd. Zonder key draait de site in demomodus. */
+    if (url.pathname === '/api/health' && req.method === 'GET') {
+      return json(res, 200, {
+        status: 'ok',
+        googlePlaces: Boolean(googleKey),
+        mode: process.env.OPENAI_API_KEY ? 'ai' : 'knowledge',
+        uptime: Math.round(process.uptime()),
+      });
     }
 
     /* Ronde 9 — chatbot: kennisbank- of AI-antwoord (afhankelijk van OPENAI_API_KEY) */

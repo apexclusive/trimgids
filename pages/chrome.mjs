@@ -48,7 +48,7 @@ export function siteHeader() {
 <nav class="site-navbar" id="tg-site-nav">
   <div class="wrap nav-in">
     <a href="/" class="brand-logo" aria-label="TrimGids Homepage">
-      <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=5" alt="" loading="eager" fetchpriority="high"></div>
+      <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=6" alt="" loading="eager" fetchpriority="high"></div>
       <div class="brand-text">
         <span class="brand-title"><span class="brand-trim">Trim</span><span class="brand-gids">Gids</span></span>
         <span class="brand-subtitle">Nederland · 2026</span>
@@ -123,101 +123,108 @@ export function siteFooter() {
 <footer class="site-footer">
   <div class="wrap">
 
-
+    <div class="footer-cta">
+      <div>
+        <span class="footer-cta-kicker">Klaar om te vergelijken?</span>
+        <h3>Vind vandaag nog de juiste zorg voor jouw hond</h3>
+        <p>Van trimsalon tot verzekering: TrimGids brengt het aanbod in jouw regio samen — onafhankelijk en gratis voor baasjes.</p>
+      </div>
+      <div class="footer-cta-actions">
+        <a class="btn btn-primary" href="/kaart">Open de kaart</a>
+        <a class="btn btn-outline" href="/offerte">Vraag 3 offertes aan</a>
+      </div>
+    </div>
 
     <div class="footer-grid">
       <div class="footer-col">
         <a href="/" class="brand-logo" style="margin-bottom:12px">
-          <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=3" alt="" loading="lazy" decoding="async"></div>
+          <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=6" alt="" loading="lazy" decoding="async"></div>
           <div class="brand-text">
             <span class="brand-title">TrimGids</span>
             <span class="brand-subtitle">Nederland · 2026</span>
           </div>
         </a>
-        <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:14px">
-          De onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland.
+        <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:0">
+          Alle gidsen, aanbieders en tools voor hondenbaasjes op één plek.
         </p>
-        <p class="tg-footer-positioning">Onafhankelijke informatie voor hondenbaasjes in Nederland.</p>
-        <div style="font-size:12px;color:var(--muted-foreground)">© 2026 TrimGids B.V. · Alle rechten voorbehouden.</div>
       </div>
       <div class="footer-col">
-        <h4>Diensten</h4>
+        <h4>Vind in de buurt</h4>
         <ul>
           <li><a href="/trimsalon">Trimsalons</a></li>
-          <li><a href="/kaart">Interactieve Kaart</a></li>
+          <li><a href="/kaart">Interactieve kaart</a></li>
           <li><a href="/hondenschool">Hondenscholen</a></li>
-          <li><a href="/opvang">Opvang & Hotels</a></li>
-          <li><a href="/wellness">Wellness & Fysio</a></li>
-          <li><a href="/last-minute">Last-Minute Deals</a></li>
+          <li><a href="/opvang">Opvang &amp; hotels</a></li>
+          <li><a href="/wellness">Wellness &amp; fysio</a></li>
+          <li><a href="/last-minute">Last-minute deals</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Vergelijkers</h4>
+        <h4>Vergelijken &amp; besparen</h4>
         <ul>
           <li><a href="/verzekering">Hondenverzekering 2026</a></li>
-          <li><a href="/dna-test">DNA Gezondheidstesten</a></li>
-          <li><a href="/voeding">Verse Hondenvoeding</a></li>
-          <li><a href="/spoed-dierenarts">24/7 Spoeddierenartsen</a></li>
-          <li><a href="/dierenarts-tarieven">Dierenarts Tarieven</a></li>
+          <li><a href="/dna-test">DNA-gezondheidstesten</a></li>
+          <li><a href="/voeding">Verse hondenvoeding</a></li>
+          <li><a href="/spoed-dierenarts">24/7 spoeddierenartsen</a></li>
+          <li><a href="/dierenarts-tarieven">Dierenartstarieven</a></li>
           <li><a href="/hondenbelasting">Hondenbelasting</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Tools & Zorg</h4>
+        <h4>Tools &amp; zorg</h4>
         <ul>
-          <li><a href="/giftigheid-calculator">Gif &amp; Chocolade Check</a></li>
-          <li><a href="/hondenvoer-calculator">Voer & NFE Calculator</a></li>
-          <li><a href="/honden-vaccinaties">Vaccinatie Wijzer</a></li>
-          <li><a href="/leeftijd-calculator">Hondenleeftijd Calculator</a></li>
-          <li><a href="/kosten-hond">Wat Kost een Hond?</a></li>
-          <li><a href="/wandelen">Wandelroutes & Bossen</a></li>
+          <li><a href="/giftigheid-calculator">Gif &amp; chocolade check</a></li>
+          <li><a href="/hondenvoer-calculator">Voer &amp; NFE-calculator</a></li>
+          <li><a href="/honden-vaccinaties">Vaccinatiewijzer</a></li>
+          <li><a href="/leeftijd-calculator">Hondenleeftijd calculator</a></li>
+          <li><a href="/kosten-hond">Wat kost een hond?</a></li>
+          <li><a href="/wandelen">Wandelroutes &amp; bossen</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kennis & Reizen</h4>
+        <h4>Kennis &amp; gidsen</h4>
         <ul>
-          <li><a href="/reizen">Vliegen & reizen met je hond</a></li>
-          <li><a href="/rassen">Rassen & variëteiten</a></li>
-          <li><a href="/verboden-rassen">Verboden & omstreden rassen</a></li>
-          <li><a href="/poepzakjes">Poepzakjes & boetes</a></li>
-          <li><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid</a></li>
-          <li><a href="/hondenwedstrijden">Hondenwedstrijden & sport</a></li>
-          <li><a href="/chippen-ontwormen">Chip & ontwormen</a></li>
-          <li><a href="/braken-hond">Mijn hond braakt</a></li>
-          <li><a href="/hitteberoerte-hond">Hitte & hete auto</a></li>
-          <li><a href="/honden-cijfers">Honden in cijfers</a></li>
-          <li><a href="/hond-en-werk">Werk & uitlaatservice</a></li>
+          <li><a href="/rassen">Rassen &amp; variëteiten</a></li>
+          <li><a href="/verboden-rassen">Verboden rassen</a></li>
+          <li><a href="/dogpedia">Dogpedia &amp; Top 100</a></li>
+          <li><a href="/puppies">PuppyMarktplaats</a></li>
+          <li><a href="/fokkers">Erkende fokkers</a></li>
+          <li><a href="/hondengedrag">Hondengedrag</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Wereld & Webshop</h4>
+        <h4>Community &amp; bedrijven</h4>
         <ul>
-          <li><a href="/zwerfhonden">Zwerfhonden wereldwijd</a></li>
-          <li><a href="/geschiedenis-hond">Geschiedenis van de hond</a></li>
-          <li><a href="/koninklijke-honden">Honden van royals</a></li>
-          <li><a href="/webshop">Webshop: voer & reis</a></li>
-          <li><a href="/trimmen-kosten">Wat kost trimmen? (2026)</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Voor Bedrijven</h4>
-        <ul>
-          <li><a href="/bedrijven">Voor Bedrijven</a></li>
-          <li><a href="/claim">Bedrijf Claimen</a></li>
-          <li><a href="/offerte">Offertes Ontvangen</a></li>
-          <li><a href="/nieuws">Nieuws & Alerts</a></li>
-          <li><a href="/vermist">Vermiste Honden</a></li>
+          <li><a href="/forum">Hondenforum</a></li>
+          <li><a href="/nieuws">Nieuws &amp; alerts</a></li>
+          <li><a href="/vermist">Vermiste honden</a></li>
+          <li><a href="/vacatures">Vacatures</a></li>
+          <li><a href="/vrijwilligers">Vrijwilligerswerk</a></li>
+          <li><a href="/steun">Steun TrimGids</a></li>
+          <li><a href="/bedrijven">Voor bedrijven</a></li>
         </ul>
       </div>
     </div>
+
+    <div class="footer-trust" aria-label="Waarom TrimGids">
+      <span><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> 100% onafhankelijk</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Gratis voor baasjes</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Aanbieders in heel Nederland</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg> 8.000+ baasjes in de community</span>
+    </div>
+
     <div class="footer-bottom">
-      <span>Gemaakt met passie voor honden in Nederland. In samenwerking met routes.apexclusive.nl</span>
+      <span>© 2026 TrimGids B.V. · Alle rechten voorbehouden.</span>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <a href="/privacy">Privacyverklaring</a>
         <a href="/cookies">Cookies</a>
         <a href="/voorwaarden">Algemene voorwaarden</a>
-        <a href="/bedrijven">Partner Worden</a>
+        <a href="/bedrijven">Partner worden</a>
       </div>
+    </div>
+
+    <div class="footer-positioning">
+      <p><strong>TrimGids</strong> is de onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland — gemaakt met passie voor honden, in samenwerking met routes.apexclusive.nl.</p>
     </div>
   </div>
 </footer>`;

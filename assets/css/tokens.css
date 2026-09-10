@@ -305,3 +305,83 @@
   -webkit-mask-image: none;
   mask-image: none;
 }
+
+/* ==========================================================================
+   Randloos pootlogo (Ronde 17): geen kader, geen achtergrondvlak.
+   De SVG draagt de volledige look (goudverloop + eigen slagschaduw),
+   zodat het logo op elke ondergrond "zweeft". De hover-beweging blijft.
+   ========================================================================== */
+.brand-badge-icon {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+.brand-logo:hover .brand-badge-icon,
+[data-theme="dark"] .brand-badge-icon {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+/* Hover-gloed als zachte halo i.p.v. een rechthoekige ring */
+.brand-logo:hover .brand-badge-icon {
+  filter: drop-shadow(0 4px 14px rgba(16, 185, 129, .45));
+}
+.site-footer .brand-badge-icon,
+.site-footer .brand-logo:hover .brand-badge-icon {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .5));
+}
+
+/* ==========================================================================
+   Overflow-guards (Ronde 17): tekst mag nóóit uit kaders of het viewport lopen.
+   Flex-kinderen krijgen min-width:0 zodat lange labels ellipsis krijgen in
+   plaats van de hele rij uit te duwen, en de pagina clipt horizontaal.
+   ========================================================================== */
+html, body { overflow-x: clip; }
+.nav-in, .nav-in .wrap { min-width: 0; }
+.brand-logo { min-width: 0; }
+.brand-text { min-width: 0; }
+.brand-title, .brand-subtitle { max-width: 100%; overflow-wrap: anywhere; }
+.nav-actions { min-width: 0; }
+.footer-col { min-width: 0; }
+.footer-col a { overflow-wrap: anywhere; }
+
+/* ==========================================================================
+   Footer 2026 (Ronde 17): rustig informatie-eindpunt met vertrouwensband en
+   de onafhankelijkheids-positionering als állerlaatste regel.
+   ========================================================================== */
+.footer-trust {
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center;
+  margin: 0 0 30px; padding: 16px 4px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.footer-trust span {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+  color: rgba(222, 240, 231, .78);
+}
+.footer-trust svg.ic { width: 15px; height: 15px; stroke: #5ee6aa; fill: none; stroke-width: 2.2; flex: none; }
+.footer-positioning {
+  position: relative; z-index: 1;
+  margin-top: 26px; padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  text-align: center;
+}
+.footer-positioning p {
+  margin: 0 auto; max-width: 640px;
+  font-size: 13px; line-height: 1.65;
+  color: rgba(222, 240, 231, .62);
+}
+.footer-positioning strong { color: #d7f2e4; font-weight: 800; }
+@media (max-width: 760px) {
+  .footer-trust { justify-content: center; text-align: center; }
+}
+
+/* Footer-grid: vloeiend i.p.v. vaste 7 kolommen die op smalle desktops knept */
+.footer-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+@media (min-width: 1200px) { .footer-grid { grid-template-columns: 1.6fr repeat(5, 1fr); } }
