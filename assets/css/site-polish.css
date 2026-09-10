@@ -295,3 +295,10 @@ body.tg-home .world-card .world-cta { margin-top: auto; padding-top: 20px; }
 .nav-pill { border: 1px solid transparent; }
 .nav-pill:hover, .nav-pill:focus-visible { border-color: var(--border); }
 @media (min-width: 1161px) { .nav-links-pills { max-width: 690px; overflow: hidden; } }
+
+/* Ronde 5/10 — footer als rustige afronding */
+.site-footer { padding-top: clamp(36px, 5vw, 64px) !important; }
+.site-footer .footer-cta { margin-bottom: clamp(28px, 4vw, 52px) !important; }
+.site-footer .footer-cta h3 { max-width: 20ch; text-wrap: balance; }
+.site-footer .footer-col h4 { margin-bottom: 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.site-footer .footer-col a { line-height: 1.45; }
