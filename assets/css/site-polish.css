@@ -269,3 +269,8 @@ body.tg-home .world-card.world-news { display: none !important; }
 body.tg-home .worlds-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
 @media (max-width: 1080px) { body.tg-home .worlds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
 @media (max-width: 620px) { body.tg-home .worlds-grid { grid-template-columns: 1fr !important; } }
+
+/* Ronde 1/10 — één rustige canvas en leesritme */
+body { background: var(--background, #fff) !important; color: var(--foreground, #131a16) !important; }
+main { width: min(100% - 32px, var(--editorial-width, 1180px)) !important; }
+main > section, main > .guide-box { scroll-margin-top: 92px; }
