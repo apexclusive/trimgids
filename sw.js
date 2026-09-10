@@ -1,5 +1,5 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v16';
+const VERSION = 'trimgids-v17';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [

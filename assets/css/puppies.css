@@ -14,10 +14,10 @@
 .pm-hero-stats { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
 .pm-hero-stats span { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.24); backdrop-filter: blur(8px); padding: 6px 13px; border-radius: 999px; font: 700 12.5px 'Plus Jakarta Sans', sans-serif; }
 
-/* Filterbalk — blijft onder de sticky navbar zichtbaar bij lange lijsten */
+/* Filterbalk — Ronde 29: niet meer sticky; scrollt gewoon mee met de pagina */
 .pm-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 4px 0 22px; }
 @media (min-width: 900px) {
-  .pm-bar { position: sticky; top: 78px; z-index: 60; margin: 4px 0 22px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 14px 34px -14px rgba(2,32,19,.22); }
+  .pm-bar { position: relative; margin: 4px 0 22px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.86); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 14px 34px -14px rgba(2,32,19,.22); }
   .pm-bar .pm-result { margin-left: auto; }
 }
 .pm-bar:focus-within { border-color: rgba(16,185,129,.55); }
@@ -92,9 +92,9 @@
 .pm-plan-free .pm-plan-tag { color: #065f46; background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.35); }
 .pm-plans-note { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
 
-/* Ronde 16 — sticky filterbalk & verfijning */
+/* Ronde 16 — filterbalk & verfijning (Ronde 29: niet meer sticky) */
 .pm-bar {
-  position: sticky; top: 122px; z-index: 90;
+  position: relative;
   background: color-mix(in srgb, var(--card) 86%, transparent);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--line);
@@ -105,6 +105,6 @@
 .pm-search { flex: 1 1 220px; }
 .pm-result { flex: none; font: 700 12.5px 'Plus Jakarta Sans', sans-serif; color: var(--muted); }
 @media (max-width: 760px) {
-  .pm-bar { top: 116px; border-radius: 20px; flex-wrap: wrap; }
+  .pm-bar { border-radius: 20px; flex-wrap: wrap; }
   .pm-search { flex-basis: 100%; }
 }

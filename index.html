@@ -364,16 +364,23 @@
           <span class="world-cta">Bekijk verzekering &amp; shop →</span>
         </div>
       </a>
-      <a class="world-card world-news" href="/nieuws">
+      <!-- Ronde 29 — kaart 6 is 'Voor baasjes' geworden (actueel nieuws +
+           verhalen door baasjes). Het oude nieuwskaartje was al die tijd
+           verstopt door een display:none-regel, waardoor het grid er als
+           5 kaarten uitzag — die regel is verwijderd. -->
+      <div class="world-card world-baasjes">
         <picture><img src="/assets/img/gen/k-zwerfhonden-960.webp" srcset="/assets/img/gen/k-zwerfhonden-480.webp 480w, /assets/img/gen/k-zwerfhonden-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Vrijwilliger helpt een hond zonder vaste verblijfplaats"></picture>
         <div class="world-body">
-          <span class="world-kicker">6 · Actueel</span>
-          <h3>Nieuws &amp; vermiste honden</h3>
-          <p>Landelijk hondennieuws, gevaarswaarschuwingen en de landelijke radar voor vermiste honden.</p>
-          <div class="world-chips"><span>Inspectie &amp; misstand</span><span>Wet &amp; recht</span><span><b data-live="nieuws" data-count="news">…</b> berichten</span><span>Vermist-meldpunt</span></div>
-          <span class="world-cta">Naar nieuws &amp; vermist →</span>
+          <span class="world-kicker">6 · Door baasjes, voor baasjes</span>
+          <h3>Actueel &amp; verhalen voor baasjes</h3>
+          <p>Landelijk hondennieuws en gevaarswaarschuwingen, én eerlijke verhalen van baasjes — over de liefde, de zorgen en alles daartussen.</p>
+          <div class="world-chips"><span>Nieuws &amp; alerts</span><span>Vermist-meldpunt</span><span><b data-live="nieuws" data-count="news">…</b> berichten</span><span>Verhalen &amp; blog</span></div>
+          <div class="world-links">
+            <a href="/nieuws">Nieuws &amp; alerts →</a>
+            <a class="world-cta" href="/voor-baasjes">Lees de verhalen →</a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -943,15 +950,6 @@
           <a href="mailto:info@mpxstudio.nl" class="btn btn-outline btn-pill">Mail ons via mpxstudio.nl</a>
         </div>
       </div>
-      <!-- Ronde 28 — 'Voor baasjes'-teaser: vult de rechterkolom van het
-           merkverhaal en linkt door naar de volledige pagina /voor-baasjes. -->
-      <aside class="founder-baasjes" aria-label="Voor baasjes">
-        <span class="section-eyebrow">Voor baasjes</span>
-        <h3>Jouw hond is meer dan een dier.</h3>
-        <p>Voor veel baasjes voelt hij als familie. Op deze pagina vind je eerlijke verhalen over de liefde voor je hond — én over de zorgen, de twijfels en het verdriet die er soms bij horen.</p>
-        <p>Over een tweede hond nemen, over pups die het niet halen en over waar je terecht kunt als het even zwaar is... <a class="baasjes-verder" href="/voor-baasjes">lees verder →</a></p>
-        <div class="baasjes-chips"><span>💛 Liefde zonder voorwaardes</span><span>🫶 Ongerustheid, hoop en verlies</span><span>🐾 Geen eenzame zorgen</span></div>
-      </aside>
     </div>
   </div>
 </section>

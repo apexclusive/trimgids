@@ -870,6 +870,11 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 .world-chips span { font: 600 11px var(--font-body); color: var(--ink-soft); background: var(--secondary); border: 1px solid var(--border-subtle); padding: 4px 9px; border-radius: 999px; }
 .world-chips b { font-weight: 800; color: var(--primary); }
 .world-cta { margin-top: 10px; font: 700 13.5px var(--font-body); color: var(--primary); display: inline-flex; align-items: center; gap: 6px; }
+/* Ronde 29 — kaart 6 heeft twee doorkliklinks (nieuws + verhalen) */
+.world-links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.world-links a { font: 700 13.5px var(--font-body); color: var(--primary); }
+.world-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.world-links .world-cta { margin-top: 0; }
 .world-cta { flex-wrap: wrap; }
 .world-cta b { color: var(--foreground); font-weight: 800; }
 .world-card:hover .world-cta { gap: 10px; }

@@ -283,8 +283,8 @@ const TARGETS = [
   ['.announce-link', 'aankondigingsbalk · link', 4.5],
   ['.mobile-action-bar a', 'mobiel · actiebalk', 4.5],
   ['.founder-copy .section-subtitle', 'over-trimgids · tekst', 4.5],
-  ['.founder-baasjes p', 'over-trimgids · voor-baasjes tekst', 4.5],
-  ['.baasjes-verder', 'over-trimgids · lees-verder link', 4.5]
+  ['.world-baasjes .world-links a', 'wereldkaart 6 · nieuws-link', 4.5],
+  ['.world-baasjes .world-cta', 'wereldkaart 6 · verhalen-link', 4.5]
 ];
 
 let failed = 0;
