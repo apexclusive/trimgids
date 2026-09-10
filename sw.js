@@ -1,5 +1,5 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v6';
+const VERSION = 'trimgids-v7';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [
@@ -12,7 +12,7 @@ const PRECACHE = [
   '/assets/img/cat-wandelen-480.webp', '/assets/img/cat-wandelen-960.webp',
   '/assets/img/cat-strand-480.webp', '/assets/img/cat-strand-960.webp',
   '/assets/img/pomeriaan-320.webp', '/assets/img/pomeriaan-640.webp', '/assets/img/pomeriaan-hondzien.webp',
-  '/assets/js/app.js?v=22', '/assets/js/nl-map.js?v=17', '/assets/js/forum.js',
+  '/assets/js/app.js?v=22', '/assets/js/nl-map.js?v=17', '/assets/js/forum.js', '/assets/css/site-polish.css?v=1',
   '/assets/css/home.css?v=17', '/assets/css/site-chrome.css?v=23', '/assets/css/premium-refresh.css?v=12',
   '/assets/css/nl-map.css', '/assets/css/forum.css'
 ];
@@ -34,6 +34,18 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+  if (url.pathname === '/assets/js/nl-map.js' || url.pathname === '/assets/js/app.js' || url.pathname === '/assets/css/site-polish.css') {
+    /* Kritieke interface-assets altijd netwerk-eerst: een oude service-worker
+       mag geen oude kaart, header of layout terugserveren. */
+    event.respondWith(
+      fetch(request).then(response => {
+        const copy = response.clone();
+        caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
+        return response;
+      }).catch(() => caches.match(request))
+    );
+    return;
+  }
   if (url.pathname.startsWith('/api/')) {
     /* API's: netwerk eerst, cache als fallback + stale-while-revalidate */
     event.respondWith(
