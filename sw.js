@@ -1,5 +1,5 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v9';
+const VERSION = 'trimgids-v10';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [
@@ -12,8 +12,8 @@ const PRECACHE = [
   '/assets/img/cat-wandelen-480.webp', '/assets/img/cat-wandelen-960.webp',
   '/assets/img/cat-strand-480.webp', '/assets/img/cat-strand-960.webp',
   '/assets/img/pomeriaan-320.webp', '/assets/img/pomeriaan-640.webp', '/assets/img/pomeriaan-hondzien.webp',
-  '/assets/js/app.js?v=22', '/assets/js/nl-map.js?v=17', '/assets/js/forum.js', '/assets/css/site-polish.css?v=1',
-  '/assets/css/home.css?v=17', '/assets/css/site-chrome.css?v=23', '/assets/css/premium-refresh.css?v=12',
+  '/assets/js/app.js', '/assets/js/nl-map.js', '/assets/js/forum.js', '/assets/css/site-polish.css',
+  '/assets/css/home.css', '/assets/css/site-chrome.css', '/assets/css/premium-refresh.css', '/assets/css/fonts.css',
   '/assets/css/nl-map.css', '/assets/css/forum.css'
 ];
 

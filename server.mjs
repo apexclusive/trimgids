@@ -120,6 +120,8 @@ const mimeTypes = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
   '.ico': 'image/x-icon',
   '.webp': 'image/webp',
   '.avif': 'image/avif'

@@ -804,7 +804,7 @@ tbody tr:hover { background: rgba(16, 185, 129, 0.05); }
 tbody td { border-bottom: 1px solid var(--border, #e2e8f0); }
 
 /* Sectiekopjes: premium eyebrow-chip */
-.eyebrow, .section-eyebrow, .footer-cta-kicker {
+.eyebrow, .section-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   color: var(--primary, #0f3e28) !important;
   font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
