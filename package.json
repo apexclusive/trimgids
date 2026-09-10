@@ -8,6 +8,7 @@
     "smoke": "node smoke.mjs",
     "audit": "node audit-site.mjs",
     "report:analytics": "node analytics-report.mjs",
+    "audit:experiments": "node experiment-audit.mjs",
     "check:js": "node check-inline-js.mjs",
     "check:contrast": "node check-contrast.mjs",
     "check:skin": "node check-content-skin.mjs",

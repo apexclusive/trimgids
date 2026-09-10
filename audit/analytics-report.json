@@ -7,7 +7,7 @@
   },
   "sample": {
     "events": 0,
-    "webVitals": 46
+    "webVitals": 49
   },
   "events": {},
   "funnel": {
@@ -18,8 +18,8 @@
     "providerViewToContact": null
   },
   "webVitals": {
-    "sample": 46,
-    "medianLcpMs": 1238.5,
+    "sample": 49,
+    "medianLcpMs": 1168,
     "medianInpMs": 40,
     "medianCls": 0,
     "medianTtfbMs": null,
