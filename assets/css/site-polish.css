@@ -315,3 +315,9 @@ form input:focus-visible, form select:focus-visible, form textarea:focus-visible
 [role="tab"][aria-selected="true"], .dir-tab.active, .f-btn.active { box-shadow: var(--shadow-subtle) !important; }
 main table th { background: var(--secondary, #f1f5f9) !important; color: var(--foreground) !important; }
 main table tr:nth-child(even) td { background: color-mix(in srgb, var(--secondary, #f1f5f9) 38%, transparent); }
+
+/* Ronde 8/10 — gedeelde feedbackstaten */
+[data-state="loading"], .is-loading { border-radius: 14px; min-height: 56px; }
+[data-state="error"], .error-state { display: grid; gap: 8px; }
+[data-state="success"], .success-state { display: grid; gap: 6px; }
+[data-state="empty"], .empty-state { min-height: 120px; display: grid; place-content: center; }
