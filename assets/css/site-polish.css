@@ -35,6 +35,17 @@ nav.site-navbar .nav-links-pills > a[href="/last-minute"] { display: none !impor
    overschaduwen. */
 .site-footer .feedback-panel, .site-footer .founder-section { display: none !important; }
 
+/* Werkende, compacte resultaten in de gemeentebelasting-checker. */
+.home-tax-result { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border:1px solid var(--border); border-radius:12px; background:var(--card); }
+.home-tax-result strong, .home-tax-result span { display:block; }
+.home-tax-result strong { font-size:14px; }
+.home-tax-result span { color:var(--muted-foreground); font-size:11px; margin-top:2px; }
+.home-tax-price { color:var(--warning); font-size:14px; white-space:nowrap; }
+.home-tax-price.is-free { color:var(--success); }
+.home-tax-price small { font-size:10px; font-weight:600; }
+.home-tax-more { display:block; padding:4px 2px; color:var(--primary); font-size:12px; font-weight:800; text-decoration:none; }
+.home-tax-empty { margin:0; color:var(--muted-foreground); font-size:13px; }
+
 /* ================================================================
    Canonical editorial system
    Eén rustige typografie, één maatvoering en één kaarttaal voor alle

@@ -878,6 +878,35 @@
     container.insertBefore(button, container.querySelector('#theme-toggle, .theme-toggle-btn, .menu-btn') || null);
   }
 
+  function initHomeTaxChecker() {
+    var input = document.getElementById('h-tax-input');
+    var grid = document.getElementById('home-tax-grid');
+    if (!input || !grid || input.dataset.ready) return;
+    input.dataset.ready = 'true';
+    var timer;
+    var money = function (value) { return Number(value || 0).toLocaleString('nl-NL', { style: 'currency', currency: 'EUR' }); };
+    var render = function (items, query) {
+      if (!items.length) {
+        grid.innerHTML = '<p class="home-tax-empty">Geen gemeente gevonden. Controleer de spelling of probeer alleen de eerste letters.</p>';
+        return;
+      }
+      var shown = items.slice(0, 6);
+      grid.innerHTML = shown.map(function (item) {
+        var free = item.status === 'afgeschaft' || Number(item.tarief1eHond) === 0;
+        return '<article class="home-tax-result"><div><strong>' + esc(item.gemeente) + '</strong><span>' + esc(item.provincie || '') + '</span></div><b class="home-tax-price ' + (free ? 'is-free' : '') + '">' + (free ? '€ 0' : money(item.tarief1eHond)) + '<small> per jaar</small></b></article>';
+      }).join('') + (items.length > shown.length ? '<a class="home-tax-more" href="/hondenbelasting">Bekijk alle gemeenten →</a>' : '');
+    };
+    var load = function () {
+      var query = input.value.trim();
+      fetch('/api/dog-tax?query=' + encodeURIComponent(query), { headers: { Accept: 'application/json' } })
+        .then(function (response) { if (!response.ok) throw new Error('tax_' + response.status); return response.json(); })
+        .then(function (data) { render(data.items || [], query); })
+        .catch(function () { grid.innerHTML = '<p class="home-tax-empty">De tarieven zijn tijdelijk niet beschikbaar. <a href="/hondenbelasting">Open de volledige gemeentegids →</a></p>'; });
+    };
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(load, 180); });
+    load();
+  }
+
   /* -------------------------------- Boot -------------------------------- */
   function boot() {
     ensureStyles();
@@ -898,6 +927,7 @@
     initNewsletter();
     initFeedbackForm();
     initSiteSearch();
+    initHomeTaxChecker();
 
     document.addEventListener('click', function (e) {
       var acc = e.target.closest('#account-btn');
