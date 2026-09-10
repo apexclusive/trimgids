@@ -386,3 +386,9 @@ form fieldset + fieldset { margin-top: 16px; }
 form legend { padding-inline: 6px; color: var(--foreground); font-weight: 800; font-size: 14px; }
 form .field-help, form .hint, form small { color: var(--muted-foreground); font-size: 12px; line-height: 1.5; }
 form :invalid:not(:placeholder-shown) { border-color: color-mix(in srgb, #dc2626 55%, var(--border)) !important; }
+
+/* Ronde 17/20 — routekeuze krijgt voldoende ademruimte en een duidelijke hover */
+.route-grid, .routes-grid, .home-grid { align-items: stretch; }
+.route-grid > a, .routes-grid > a, .home-grid > a { position: relative; overflow: hidden; }
+.route-grid > a::after, .routes-grid > a::after, .home-grid > a::after { content: '→'; position: absolute; right: 18px; bottom: 16px; color: var(--primary); font-weight: 800; opacity: .7; transition: transform .18s ease, opacity .18s ease; }
+.route-grid > a:hover::after, .routes-grid > a:hover::after, .home-grid > a:hover::after { transform: translateX(4px); opacity: 1; }
