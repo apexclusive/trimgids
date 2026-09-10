@@ -25,7 +25,23 @@ async function loadPage(path) {
     errors.push(s);
   });
   const html = await (await pageFetch(path)).text();
-  const stub = new Proxy({}, { get(t, p) { if (p === 'canvas') return null; if (typeof p === 'symbol') return undefined; return (...a) => 0; }, set() { return true; } });
+  /* Canvas-stub. Let op: gradient-methoden moeten een object mét addColorStop
+   teruggeven, zoals een echte 2d-context doet. Eerder gaf deze stub voor
+   elke property `(...a) => 0` terug, dus createRadialGradient() leverde 0
+   op en gooide nl-map.js "bg.addColorStop is not a function". Dat was een
+   fout in de stub, niet in de productcode — de kaart faalde alleen in deze
+   test, niet in een echte browser. */
+  const gradientStub = { addColorStop() {} };
+  const GRADIENT_METHODS = new Set(['createLinearGradient', 'createRadialGradient', 'createConicGradient', 'createPattern']);
+  const stub = new Proxy({}, {
+    get(t, p) {
+      if (p === 'canvas') return null;
+      if (typeof p === 'symbol') return undefined;
+      if (GRADIENT_METHODS.has(p)) return () => gradientStub;
+      return (...a) => 0;
+    },
+    set() { return true; }
+  });
   const dom = new JSDOM(html, {
     url: BASE + path, runScripts: 'dangerously', resources: 'usable', pretendToBeVisual: true, virtualConsole: vc,
     beforeParse(win) {
@@ -142,10 +158,21 @@ console.log('\n[6] Trimkosten-calculator + 2026-data');
 
 console.log('\n[7] Hero-leesbaarheid (text-shadow + scrim aanwezig)');
 {
+  /* Deze drie asserts lazen de CSS uit de HTML, maar de hero-regels staan in
+     assets/css/home.css (al zo sinds ae1e532) en worden als aparte stylesheet
+     gelinkt. Ze faalden dus al vóór deze ronde; ze testten de verkeerde plek.
+     Nu halen we de stylesheets op die de pagina werkelijk linkt, in
+     cascade-volgorde, en controleren we daar de regels. */
   const html = await (await pageFetch('/')).text();
-  assert(/text-shadow: 0 1px 2px rgba\(255,255,255,\.94\)/.test(html), 'lichte text-shadow op hero-tekst');
-  assert(/rgba\(4,20,13,\.68\)/.test(html), 'donkere scrim .68 in dark-thema');
-  assert(/\.hero-subtitle \{ color: #334155/.test(html), 'subtitel donkerder (betere contrast) in licht thema');
+  const cssHrefs = [...html.matchAll(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)].map(m => m[1]);
+  const css = (await Promise.all(cssHrefs.map(async href => {
+    const res = await pageFetch(href);
+    return res.ok ? res.text() : '';
+  }))).join('\n');
+  assert(css.length > 0, 'homepage linkt minstens één stylesheet (' + cssHrefs.length + ' gevonden)');
+  assert(/text-shadow: 0 1px 2px rgba\(255,255,255,\.94\)/.test(css), 'lichte text-shadow op hero-tekst');
+  assert(/rgba\(4,20,13,\.68\)/.test(css), 'donkere scrim .68 in dark-thema');
+  assert(/\.hero-subtitle \{ color: #334155/.test(css), 'subtitel donkerder (betere contrast) in licht thema');
 }
 
 console.log('\nEINDE Ronde 9' + (process.exitCode ? ' — FOUTEN AANGETROFFEN' : ' — ALLES GROEN'));

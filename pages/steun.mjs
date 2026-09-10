@@ -40,7 +40,7 @@ export function steunPage() {
       <label>Wil je maandelijks of eenmalig?<select name="kind"><option value="eenmalig">Eenmalig</option><option value="maandelijks">Maandelijks (kan altijd stoppen)</option></select></label>
       <label>Fijne tekst (optioneel)<textarea name="message" maxlength="300" placeholder="Bijv. bedankt voor de hittegids!"></textarea></label>
       <button class="btn-primary" type="submit">Gift-intentie versturen →</button>
-      <p id="su-status" class="status-msg" hidden></p>
+      <p id="su-status" class="status-msg" role="status" aria-live="polite" hidden></p>
       <p class="su-note">We versturen geen betaalpagina's per e-mail: na je intentie zie je direct de betaalgegevens. Geen automatische incasso's — je houdt zelf de controle.</p>
     </form>
   </div>

@@ -1,0 +1,36 @@
+{
+  "generatedBy": "analytics-report.mjs",
+  "privacy": {
+    "identifiersStored": false,
+    "freeTextStored": false,
+    "cookieRequired": false
+  },
+  "sample": {
+    "events": 0,
+    "webVitals": 49
+  },
+  "events": {},
+  "funnel": {
+    "searchToResult": null,
+    "resultToClick": null,
+    "quoteStartToComplete": null,
+    "newsletterStartToComplete": null,
+    "providerViewToContact": null
+  },
+  "webVitals": {
+    "sample": 49,
+    "medianLcpMs": 1168,
+    "medianInpMs": 40,
+    "medianCls": 0,
+    "medianTtfbMs": null,
+    "budgets": {
+      "lcpMs": 2500,
+      "inpMs": 200,
+      "cls": 0.1,
+      "ttfbMs": 800
+    }
+  },
+  "nextActions": [
+    "Verzamel minimaal 100 events per funnel voordat conversies worden geïnterpreteerd."
+  ]
+}

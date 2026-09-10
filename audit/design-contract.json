@@ -1,0 +1,169 @@
+{
+  "breakpoints": [
+    320,
+    375,
+    430,
+    768,
+    1024,
+    1280,
+    1440
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 147,
+      "cardVariants": 4,
+      "primaryActions": 12,
+      "emojiPresent": false,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/trimsalon",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 53,
+      "cardVariants": 5,
+      "primaryActions": 3,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/kaart",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 12,
+      "cardVariants": 1,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/verzekering",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 123,
+      "cardVariants": 5,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/wandelen",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 15,
+      "cardVariants": 2,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/opvang",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 53,
+      "cardVariants": 5,
+      "primaryActions": 3,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/forum",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 26,
+      "cardVariants": 2,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/puppies",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 15,
+      "cardVariants": 3,
+      "primaryActions": 3,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/hondenbelasting",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 16,
+      "cardVariants": 3,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/trimkosten",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 14,
+      "cardVariants": 1,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/nieuws",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 18,
+      "cardVariants": 3,
+      "primaryActions": 3,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/webshop",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 24,
+      "cardVariants": 3,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/bedrijven",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 31,
+      "cardVariants": 5,
+      "primaryActions": 3,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    },
+    {
+      "route": "/zoek",
+      "sharedShell": true,
+      "h1": 1,
+      "inlineStyles": 12,
+      "cardVariants": 1,
+      "primaryActions": 2,
+      "emojiPresent": true,
+      "liveStatusMessages": true
+    }
+  ],
+  "rules": {
+    "maxPrimaryActionsPerViewport": 1,
+    "maxCardVariants": 3,
+    "sharedShellRequired": true,
+    "statusMessagesMustBeLive": true
+  },
+  "summary": {
+    "routesChecked": 14,
+    "shellFailures": 0,
+    "multipleH1": 0,
+    "statusFailures": 0,
+    "routesWithInlineStyles": 14,
+    "routesWithEmoji": 13,
+    "cardVariantWarnings": 5,
+    "primaryActionWarnings": 14
+  }
+}

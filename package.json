@@ -6,11 +6,34 @@
   "scripts": {
     "start": "node server.mjs",
     "smoke": "node smoke.mjs",
+    "audit": "node audit-site.mjs",
+    "report:analytics": "node analytics-report.mjs",
+    "audit:experiments": "node experiment-audit.mjs",
+    "audit:links": "node link-audit.mjs",
+    "audit:design": "node design-contract.mjs",
+    "audit:ultimate": "node ultimate-checklist.mjs",
+    "check:js": "node check-inline-js.mjs",
+    "check:contrast": "node check-contrast.mjs",
+    "check:skin": "node check-content-skin.mjs",
+    "check:assets": "node check-asset-versions.mjs",
+    "check:picture": "node check-picture.mjs",
+    "check:errors": "node check-error-status.mjs",
+    "check:nav": "node check-nav-consistency.mjs",
+    "crawl": "node crawl.mjs",
+    "test": "node check-error-status.mjs && node smoke.mjs && node check-inline-js.mjs && node check-contrast.mjs && node check-content-skin.mjs && node check-asset-versions.mjs && node check-picture.mjs && node check-nav-consistency.mjs && node check-1to1.mjs && node design.test.mjs && node hub-nav.test.mjs && node puppies.test.mjs && node puppies-api.test.mjs && node anatomy.test.mjs && node gedrag.test.mjs && node dir-tabs.test.mjs && node browser-r8.test.mjs && node browser-r9.test.mjs && node browser-r10.test.mjs && node map-tiles.test.mjs",
     "loadtest": "node loadtest.mjs",
     "sync:places": "node sync-places.mjs",
-    "sync:db": "node sync-supabase.mjs"
+    "sync:db": "node sync-supabase.mjs",
+    "fonts:selfhost": "node scripts/selfhost-fonts.mjs",
+    "check:map": "node map-tiles.test.mjs"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
   }
 }

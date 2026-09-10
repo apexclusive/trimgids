@@ -68,12 +68,16 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
-<script>try{var tgTheme=localStorage.getItem('trimgids_theme')||'light';document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
+<script>try{var tgTheme=localStorage.getItem('trimgids_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
 <link rel="stylesheet" href="/assets/css/home.css?v=17" id="tg-home-css">
 <link rel="stylesheet" href="/assets/css/site-chrome.css?v=23" id="tg-site-chrome">
 <link rel="stylesheet" href="/assets/css/premium-refresh.css?v=12" id="tg-premium-refresh">
+<!-- Centrale design-tokens: LAATST geladen, wint de cascade zonder !important.
+     Enige bron van waarheid voor light én dark op de hele site. -->
+<link rel="stylesheet" href="/assets/css/tokens.css?v=1" id="tg-tokens">
+<link rel="stylesheet" href="/assets/css/site-polish.css?v=1" id="tg-site-polish">
 </head>
-<body id="top">
+<body id="top" class="tg-home">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.47" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></symbol>
   <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 6L3 9v12l6-3 6 3 6-3V6l-6 3-6-3z"/><path d="M9 6v12"/><path d="M15 9v12"/></symbol>
@@ -178,7 +182,6 @@
 
 <!-- HERO SECTION -->
 <header class="hero">
-  <div class="hero-photo" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="hero-badge-wrap">
       <div class="hero-badge">
@@ -189,12 +192,12 @@
     </div>
 
     <h1 class="hero-title">
-      De juiste zorg & mooiste plekken <span class="gradient-text">voor jouw hond</span>.
+      Goede zorg en mooie plekken <span class="gradient-text">voor jouw hond</span>.
     </h1>
     <p class="hero-subtitle">
-      Vind trimsalons per ras, hondenscholen, hondenhotels en officiële losloopgebieden in alle 12 Nederlandse provincies. Controleer de actuele gegevens altijd bij de aanbieder.
+      Vind trimsalons, hondenscholen, opvang en officiële losloopgebieden in heel Nederland. Zoek op type, plaats of ras en controleer actuele gegevens altijd bij de aanbieder.
     </p>
-    <p class="hero-welcome">Welkom, toekomstige hondenbaasje en echte hondenliefhebber. Fijn dat je er bent: goed voor je hond zorgen begint met nieuwsgierig blijven.</p>
+    <p class="hero-welcome">Van de eerste trimbeurt tot een fijne wandelplek: hier vind je overzichtelijke informatie om goede keuzes te maken voor jou en je hond.</p>
 
     <!-- CATEGORY PILLS -->
     <div class="hero-category-pills" aria-label="Kies categorie">
@@ -232,8 +235,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
         </div>
         <div class="segment-content">
-          <label for="search-location" class="segment-label">Waar in Nederland?</label>
-          <input type="text" id="search-location" class="segment-input" list="dutch-cities" placeholder="Stad of provincie (bijv. Maastricht)" autocomplete="off">
+          <label for="search-location" class="segment-label">Waar?</label>
+          <input type="text" id="search-location" class="segment-input" list="dutch-cities" placeholder="Plaats of provincie" autocomplete="off">
           <datalist id="dutch-cities">
             <option>Maastricht</option><option>Heerlen</option><option>Sittard</option><option>Geleen</option>
             <option>Venlo</option><option>Roermond</option><option>Weert</option><option>Kerkrade</option>
@@ -314,9 +317,9 @@
 <section class="section worlds-sec" id="werelden">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-eyebrow">De basis · zes delen, één site</span>
-      <h2 class="section-title">Waar wil je vandaag naartoe?</h2>
-      <p class="section-subtitle">Elk deel van TrimGids is één duidelijke wereld. Kies je startpunt — alles wat erbij hoort staat daar geordend, met cijfers en data uit de hele site.</p>
+      <span class="section-eyebrow">Kies je startpunt</span>
+      <h2 class="section-title">Wat wil je vandaag regelen?</h2>
+      <p class="section-subtitle">Kies een onderwerp. Je vindt er de relevante gidsen, aanbieders en tools bij elkaar.</p>
     </div>
     <div class="worlds-grid">
       <a class="world-card world-map" href="/kaart">
@@ -332,7 +335,7 @@
         </div>
       </a>
       <a class="world-card world-forum" href="/forum">
-        <picture><source type="image/avif" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-honden-onderling-960.webp" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee honden ontmoeten elkaar vrolijk tijdens een wandeling"></picture>
+        <picture><img src="/assets/img/gen/k-honden-onderling-960.webp" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee honden ontmoeten elkaar vrolijk tijdens een wandeling"></picture>
         <div class="world-body">
           <span class="world-kicker">2 · Community</span>
           <h3>Hondenforum</h3>
@@ -342,7 +345,7 @@
         </div>
       </a>
       <a class="world-card world-pedia" href="/dogpedia">
-        <picture><source type="image/avif" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-anatomie-960.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Interactief anatomiemodel van een hond"></picture>
+        <picture><img src="/assets/img/gen/k-anatomie-960.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Interactief anatomiemodel van een hond"></picture>
         <div class="world-body">
           <span class="world-kicker">3 · Kennis</span>
           <h3>Dogpedia &amp; Top 100</h3>
@@ -362,7 +365,7 @@
         </div>
       </a>
       <a class="world-card world-shop" href="/verzekering">
-        <picture><source type="image/avif" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-webshop-960.webp" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Hondenvoer, reisbenodigdheden en verzorgingsproducten"></picture>
+        <picture><img src="/assets/img/gen/k-webshop-960.webp" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Hondenvoer, reisbenodigdheden en verzorgingsproducten"></picture>
         <div class="world-body">
           <span class="world-kicker">5 · Zorg &amp; shopping</span>
           <h3>Verzekering &amp; hondenproducten</h3>
@@ -704,7 +707,7 @@
   <div class="wrap">
     <div class="section-header">
       <span class="section-eyebrow">Vachtzorg &amp; offertes</span>
-      <h2 class="section-title">Bereken je Trinterval & Vraag Direct Offertes Aan</h2>
+      <h2 class="section-title">Bereken je Triminterval & Vraag Direct Offertes Aan</h2>
       <p class="section-subtitle">Voorkom vervilting met een persoonlijk verzorgingsschema en ontvang gratis reacties van specialisten in jouw woonplaats.</p>
     </div>
 
@@ -745,7 +748,7 @@
     <div class="quote-lead-box" id="offerte">
       <div>
         <span class="pulse-badge" style="background:rgba(254,240,138,0.2);color:#fef08a;border-color:rgba(254,240,138,0.4)">Snel & Vrijblijvend</span>
-        <h2 style="margin-top:10px">Trimbeurt of Cursus Aanvragen in 1 Minuut</h2>
+        <h2 style="margin-top:10px">Vraag in één minuut een trimbeurt of cursus aan</h2>
         <p>Ontvang snel reactie en transparante prijsopgaven van geverifieerde trimsalons of hondenscholen in jouw buurt.</p>
         <div style="margin-top:16px;font-size:13.5px;opacity:.95;display:flex;flex-direction:column;gap:5px">
           <div>✓ 100% Gratis & Vrijblijvend</div>
@@ -761,7 +764,7 @@
         <label>Ras van je hond<input name="breed" required placeholder="Bijv. Pomeriaan / Labradoodle"></label>
         <label>Gewenste dienst<select name="service"><option>Volledige trimbeurt</option><option>Alleen wassen & ontwollen</option><option>Puppy wenbezoek</option><option>Puppycursus / Gehoorzaamheid</option><option>Hondenopvang / Pension</option></select></label>
         <button class="btn btn-primary btn-full" style="grid-column:span 2;margin-top:6px" type="submit">Vrijblijvende Aanvraag Versturen →</button>
-        <p class="status-msg" id="quote-status" style="grid-column:span 2;display:none;font-size:13px;font-weight:700;color:var(--brand-emerald);text-align:center"></p>
+        <p class="status-msg" id="quote-status" role="status" aria-live="polite" style="grid-column:span 2;display:none;font-size:13px;font-weight:700;color:var(--brand-emerald);text-align:center"></p>
       </form>
     </div>
   </div>
@@ -1130,72 +1133,8 @@
 <!-- ULTRA-LUXURY 5-COLUMN FOOTER -->
 <footer class="site-footer">
   <div class="wrap">
-    <section class="footer-cta" aria-label="Aan de slag">
-      <div>
-        <span class="footer-cta-kicker">Klaar om te starten?</span>
-        <h3>De beste hondenzorg, vlak bij jou</h3>
-        <p>2.900+ geverifieerde aanbieders, actuele prijzen en onafhankelijke gidsen — alles in één overzicht.</p>
-      </div>
-      <div class="footer-cta-actions">
-        <a href="/trimsalon" class="btn btn-primary">Vind een trimsalon</a>
-        <a href="/verzekering" class="btn btn-outline">Vergelijk verzekering</a>
-      </div>
-    </section>
 
-    <section class="feedback-panel" aria-labelledby="feedback-title">
-      <div class="feedback-intro">
-        <span class="section-eyebrow" style="color:var(--success)">Welkom bij TrimGids</span>
-        <h3 id="feedback-title">We zijn pas net begonnen, en jij helpt ons enorm verder.</h3>
-        <p>Welkom op onze website. Wij willen jou bij alles helpen wat met jouw prachtige hond te maken heeft. We willen niet alleen jouw leven makkelijker maken, maar vooral dat van jouw trouwe viervoeter. Wat vind jij van onze site, en waar kunnen we nog beter in helpen?</p>
-      </div>
-      <form class="feedback-form" data-feedback-form>
-        <div class="feedback-grid">
-          <label>
-            <span>Algemene indruk</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="algemene_indruck" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Vindbaarheid voor wat ik zocht</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="vindbaarheid" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Gebruiksgemak & overzicht</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="gebruiksgemak" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Informatie- en servicewaarde</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="servicewaarde" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Waarschijnlijkheid om terug te komen</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="terugkomen" data-feedback-field><strong>8/10</strong></div>
-          </label>
-        </div>
-        <label class="feedback-open" for="feedback-open-text">
-          <span>Wat kan er volgens jou echt beter? Laat het ons weten.</span>
-          <textarea id="feedback-open-text" name="feedback" rows="4" placeholder="Bijvoorbeeld: ik miste ...; ik vond ...; ik zou willen dat ..."></textarea>
-        </label>
-        <div class="feedback-actions">
-          <button type="submit" class="btn btn-primary">Verstuur feedback</button>
-          <span>Heel erg bedankt voor je bezoek. We doen ons uiterste best om TrimGids nog beter te maken voor jou en je lieve dier.</span>
-        </div>
-      </form>
-    </section>
 
-    <section class="founder-section" aria-labelledby="about-founder">
-      <div class="founder-copy">
-        <span class="section-eyebrow" style="color:var(--success)">Over TrimGids</span>
-        <h3 id="about-founder">Deze website is opgezet door hondenliefhebbers, voor hondenliefhebbers.</h3>
-        <p>TrimGids is gemaakt door mensen die zelf weten hoe belangrijk een trouwe viervoeter is in het dagelijks leven. We begrijpen hoe druk, onrustig en overweldigend het kan zijn om betrouwbare informatie te vinden over verzorging, gezondheid, veiligheid, reizen, kostprijs en geluk van jouw hond.</p>
-        <p>We wilden een plek bouwen die niet alleen handig is, maar echt voelt als een vriendelijke gids: duidelijk, eerlijk, behulpzaam en warm. Een plek waar baasje en hond samen beter kunnen leven.</p>
-      </div>
-      <div class="founder-card">
-        <div class="founder-badge">❤ Hondenliefhebbers</div>
-        <strong>Wij willen jouw hond en jouw leven makkelijker maken.</strong>
-        <p>Of je nu zoekt naar een goede trimsalon, wilt weten wat een hond kost, een veilige route wilt vinden, of gewoon meer vertrouwen wilt in de keuzes die je maakt: wij willen je hier bij helpen.</p>
-        <a href="mailto:info@mpxstudio.nl" class="btn btn-outline btn-pill">Mail ons via mpxstudio.nl</a>
-      </div>
-    </section>
 
     <div class="footer-grid">
       <div class="footer-col">
@@ -1209,7 +1148,7 @@
         <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:14px">
           De onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland.
         </p>
-        <p class="tg-feedback-note">TrimGids is net live en we werken elke dag aan de beste ervaring voor jou en jouw hond. <a href="https://www.mpxstudio.nl" target="_blank" rel="noopener noreferrer">Laat gerust je feedback of een idee weten.</a> Mail naar <a href="mailto:info@mpxstudio.nl">info@mpxstudio.nl</a> of <a href="mailto:martijn@mpxstudio.nl">martijn@mpxstudio.nl</a>.</p>
+        <p class="tg-footer-positioning">Onafhankelijke informatie voor hondenbaasjes in Nederland.</p>
         <div style="font-size:12px;color:var(--muted-foreground)">© 2026 TrimGids B.V. · Alle rechten voorbehouden.</div>
       </div>
       <div class="footer-col">
@@ -1283,9 +1222,10 @@
     </div>
     <div class="footer-bottom">
       <span>Gemaakt met passie voor honden in Nederland. In samenwerking met routes.apexclusive.nl</span>
-      <div style="display:flex;gap:16px">
-        <a href="/sitemap.xml">Sitemap</a>
-        <a href="/robots.txt">Robots</a>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/privacy">Privacyverklaring</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/voorwaarden">Algemene voorwaarden</a>
         <a href="/bedrijven">Partner Worden</a>
       </div>
     </div>

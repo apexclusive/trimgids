@@ -67,7 +67,7 @@ const GROUPS = [
 export function rassenPage() {
   return pageShell({
     title: 'Rassen & variëteiten: Pomeriaan bear face, toy face, kleine neus en meer | TrimGids',
-    description: 'Wat is het verschil tussen een Pomeriaan bear face, fox face, baby doll en toy face? Wat betekent een "kleine neus" (brachycefaal) en welke kortsnuitige rassen hebben extra risico?',
+    description: 'Bear face, fox face, baby doll of toy face: wat betekent dat bij een Pomeriaan? Plus uitleg over brachcefale rassen, hun gezondheidsrisico\'s en welke kortsnuitige honden extra zorg nodig hebben.',
     canonical: '/rassen',
     active: 'rassen',
     extraCss: CSS,

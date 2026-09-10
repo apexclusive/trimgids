@@ -1,0 +1,402 @@
+[
+  {
+    "route": "/",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/nieuws",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/verzekering",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/voeding",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/kaart",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/wandelen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/last-minute",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/offerte",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hondenbelasting",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/producten",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/puppy-kiezen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/bedrijven",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/ehbo-hond",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/forum",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hulphonden",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/zintuigen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hondenanatomie",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hondengedrag",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/puppies",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/fokkers",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/aankoopgids",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/vacatures",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/vrijwilligers",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/adoptie",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hond-gevonden",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/reizen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/vliegen-hond",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/rassen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/verboden-rassen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/poepzakjes",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hondenweetjes",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/braken-hond",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/zwerfhonden",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/honden-cijfers",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/koninklijke-honden",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/hond-en-werk",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/webshop",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/trimmen-kosten",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/trimkosten",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  },
+  {
+    "route": "/zoek",
+    "score": 2,
+    "checks": {
+      "universalShell": true,
+      "missingAlt": 0
+    }
+  }
+]

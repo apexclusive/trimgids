@@ -99,7 +99,7 @@ export function trimKostenPage() {
         <label>Vachtconditie<select id="tc-cond"><option value="1" selected>Goed (klitvrij)</option><option value="1.35">Licht vervilt (klitten)</option></select></label>
         <label>Trimbeurten per jaar<select id="tc-freq"><option value="2">2× per jaar (kortharig)</option><option value="4" selected>4× per jaar (standaard)</option><option value="6">6× per jaar (8-weeks schema)</option><option value="8">8× per jaar (langharig)</option></select></label>
       </div>
-      <div class="out">
+      <div class="out" aria-live="polite">
         <div><b id="tc-per">€ 75</b><span>Gemiddeld per trimbeurt</span></div>
         <div><b id="tc-year">€ 300</b><span>Verwacht per jaar</span></div>
         <div><b id="tc-tip">Voorkom klitten!</b><span>Persoonlijke tip</span></div>
@@ -142,6 +142,7 @@ export function trimKostenPage() {
         per = document.getElementById('tc-per'), year = document.getElementById('tc-year'), tip = document.getElementById('tc-tip');
     function euro(v) { return '€ ' + Math.round(v).toLocaleString('nl-NL'); }
     function calc() {
+      if (window.__tgTrack) window.__tgTrack('calculator_started', 'trimkosten');
       var base = +size.value * +coat.value * +cond.value;
       var n = +freq.value;
       per.textContent = euro(base);
@@ -154,7 +155,7 @@ export function trimKostenPage() {
   </script>`;
 
   return pageShell({
-    title: 'Wat kost hondentrimmen in 2026? Tarieven & calculator | TrimGids',
+    title: 'Trimkosten 2026: tarieven en calculator | TrimGids',
     description: 'Actuele trimprijzen 2026: landelijk gemiddeld €65–75 per beurt, tarieven per ras (Labradoodle €130–200, Maltezer €70–95) en een gratis trimkosten-calculator.',
     canonical: '/trimmen-kosten',
     body,

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "homepage-primary-action",
+    "status": "planned",
+    "hypothesis": "Een primaire lokale zoekactie boven de vouw leidt tot meer voltooide zoekopdrachten dan een generieke kennismakings-CTA.",
+    "audience": "nieuwe bezoekers zonder account",
+    "variantA": "Zoek een dienst in de buurt",
+    "variantB": "Ontdek wat TrimGids voor je hond kan doen",
+    "primaryMetric": "search_completed",
+    "secondaryMetrics": ["search_zero_results", "returning_session"],
+    "minimumSampleSize": 500,
+    "durationDays": 14,
+    "stopRule": "stop alleen bij technische fout, ernstige toegankelijkheidsregressie of privacy-incident"
+  },
+  {
+    "id": "calculator-follow-up",
+    "status": "planned",
+    "hypothesis": "Een concrete vervolgstap na de trimkostenberekening verhoogt het aantal relevante offerte-aanvragen zonder de calculatorcompletion te verlagen.",
+    "audience": "bezoekers van /trimkosten en /trimmen-kosten",
+    "variantA": "Resultaat met informatieve tip",
+    "variantB": "Resultaat met duidelijk gelabelde offerte-optie",
+    "primaryMetric": "quote_completed",
+    "secondaryMetrics": ["calculator_completed", "provider_contacted"],
+    "minimumSampleSize": 300,
+    "durationDays": 21,
+    "stopRule": "stop bij stijging van foutmeldingen, klachten of calculator-uitval van meer dan 10%"
+  },
+  {
+    "id": "provider-profile-contact",
+    "status": "planned",
+    "hypothesis": "Een profiel met beschikbaarheid en responstijd helpt baasjes sneller contact opnemen dan een profiel met alleen basisgegevens.",
+    "audience": "bezoekers van lokale providerprofielen",
+    "variantA": "Basisprofiel",
+    "variantB": "Profiel met beschikbaarheid en responstijd",
+    "primaryMetric": "provider_contacted",
+    "secondaryMetrics": ["provider_viewed", "quote_started", "lead_accepted"],
+    "minimumSampleSize": 400,
+    "durationDays": 28,
+    "stopRule": "stop bij misleidende beschikbaarheidsdata, providerklachten of kwaliteitsverlies van leads"
+  }
+]

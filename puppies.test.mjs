@@ -55,14 +55,29 @@ const d = dom.window.document;
 
 const cards = () => Array.from(d.querySelectorAll('.pm-card')).filter(c => !c.hidden);
 const allCards = d.querySelectorAll('.pm-card').length;
-ok(allCards >= 12, `SSR rendert ${allCards} nesten`);
+/* puppiesPage toont bewust één demo-nest per ras uit BREED_ORDER (4 rassen) en
+   niet alle 12 nesten uit de data: automatisch samengestelde nesten worden niet
+   als echte advertenties gepubliceerd zolang eigenaar en gegevens ongecontroleerd
+   zijn. De oude assert (>= 12) is van vóór die beslissing. Nu bewaken we wat de
+   code werkelijk belooft: één kaart per ras, in de vaste rasvolgorde. */
+const BREED_ORDER = ['labrador-retriever', 'bordercollie', 'pomeriaan', 'cockapoo'];
+{
+  const rendered = Array.from(d.querySelectorAll('.pm-card'));
+  const breeds = rendered.map(c => c.getAttribute('data-breed'));
+  ok(allCards === BREED_ORDER.length, `SSR rendert één demo-nest per ras (${allCards} van ${BREED_ORDER.length})`);
+  ok(JSON.stringify(breeds) === JSON.stringify(BREED_ORDER), 'SSR volgt de vaste rasvolgorde');
+  ok(new Set(breeds).size === breeds.length, 'Geen dubbel ras in de SSR-lijst');
+}
 
 const breedSel = d.getElementById('pm-breed');
 ok(breedSel && breedSel.options.length === 5, 'Ras-filter heeft opties (Alle rassen + 4 rassen)');
 if (breedSel) {
   breedSel.value = 'labrador-retriever';
   breedSel.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
-  ok(cards().length === 4, `Filter labrador-retriever -> ${cards().length} zichtbaar (verwacht 4)`);
+  /* Eén demo-nest per ras, dus filteren op één ras laat precies 1 kaart zien.
+     De oude assert (4) ging uit van alle 12 nesten uit de data. */
+  ok(cards().length === 1, `Filter labrador-retriever -> ${cards().length} zichtbaar (verwacht 1 demo-nest)`);
+  ok(cards().every(c => c.getAttribute('data-breed') === 'labrador-retriever'), 'Filter toont uitsluitend het gekozen ras');
 }
 
 const provSel = d.getElementById('pm-prov');

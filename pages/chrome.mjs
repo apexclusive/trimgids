@@ -65,7 +65,7 @@ export function siteHeader() {
       <a href="/verzekering" class="nav-pill highlight-gold"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Verzekering</a>
       <a href="/last-minute" class="nav-pill highlight-amber"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Deals</a>
       <a href="/dogpedia" class="nav-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Dogpedia</a>
-      <details class="nav-more"><summary class="nav-pill">Meer voor baasjes</summary><div class="nav-more-panel"><div><h3>Zorg & veiligheid</h3><a href="/ehbo-hond">EHBO-noodgids →</a><a href="/braken-hond">Mijn hond braakt →</a><a href="/hitteberoerte-hond">Hitteberoerte & hete auto →</a><a href="/giftigheid-calculator">Gif- & chocoladecheck →</a><a href="/spoed-dierenarts">Spoeddierenartsen →</a><a href="/chippen-ontwormen">Chip & ontwormen →</a><a href="/poepzakjes">Poepzakjes & boetes →</a></div><div><h3>Ontdek & plan</h3><a href="/puppy-kiezen">Puppymatcher →</a><a href="/leeftijd-calculator">Hondenleeftijd →</a><a href="/kosten-hond">Wat kost een hond? →</a><a href="/trimmen-kosten">Wat kost trimmen? (2026) →</a><a href="/nieuws">Landelijk hondennieuws →</a><a href="/reizen">Vliegen & reizen met je hond →</a><a href="/hond-en-werk">Hond & fulltime werken →</a></div><div><h3>Kennis & community</h3><a href="/forum">Hondenforum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab →</a><a href="/puppies">PuppyMarktplaats →</a><a href="/hondenanatomie">Hondenanatomie →</a><a href="/hondengedrag">Hondengedrag →</a><a href="/fokkers">Erkende fokkers →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/adoptie">Pup of asielhond? →</a><a href="/rassen">Rassen & variëteiten →</a><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid →</a><a href="/hondenwedstrijden">Hondenwedstrijden & sport →</a><a href="/verboden-rassen">Verboden rassen: NL & wereld →</a><a href="/honden-cijfers">Honden in cijfers →</a><a href="/geschiedenis-hond">Geschiedenis van de hond →</a><a href="/koninklijke-honden">Honden van royals →</a><a href="/zwerfhonden">Zwerfhonden wereldwijd →</a></div><div><h3>Helpen & meedoen</h3><a href="/vacatures">Vacatures & hulpkrachten →</a><a href="/vrijwilligers">Vrijwilligerswerk bij asiel & opvang →</a><a href="/adoptie">Een opvanghond een thuis geven →</a><a href="/hond-gevonden">Hond gevonden? Wat nu? →</a><a href="/webshop">Webshop: voer, reis & tools →</a><a href="/steun">Steun TrimGids →</a></div></div></details>
+      <details class="nav-more"><summary class="nav-pill" aria-label="Open meer navigatie" aria-expanded="false">Meer voor baasjes</summary><div class="nav-more-panel"><div><h3>Zorg & veiligheid</h3><a href="/ehbo-hond">EHBO-noodgids →</a><a href="/braken-hond">Mijn hond braakt →</a><a href="/hitteberoerte-hond">Hitteberoerte & hete auto →</a><a href="/giftigheid-calculator">Gif- & chocoladecheck →</a><a href="/spoed-dierenarts">Spoeddierenartsen →</a><a href="/chippen-ontwormen">Chip & ontwormen →</a><a href="/poepzakjes">Poepzakjes & boetes →</a></div><div><h3>Ontdek & plan</h3><a href="/hondenschool">Hondenscholen →</a><a href="/opvang">Opvang &amp; hotels →</a><a href="/wellness">Wellness &amp; fysio →</a><a href="/last-minute">Last-Minute deals →</a><a href="/puppy-kiezen">Puppymatcher →</a><a href="/leeftijd-calculator">Hondenleeftijd →</a><a href="/kosten-hond">Wat kost een hond? →</a><a href="/trimmen-kosten">Wat kost trimmen? (2026) →</a><a href="/nieuws">Landelijk hondennieuws →</a><a href="/reizen">Vliegen & reizen met je hond →</a><a href="/hond-en-werk">Hond & fulltime werken →</a></div><div><h3>Kennis & community</h3><a href="/forum">Hondenforum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab →</a><a href="/puppies">PuppyMarktplaats →</a><a href="/hondenanatomie">Hondenanatomie →</a><a href="/hondengedrag">Hondengedrag →</a><a href="/fokkers">Erkende fokkers →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/adoptie">Pup of asielhond? →</a><a href="/rassen">Rassen & variëteiten →</a><a href="/hondenweetjes">Hypoallergeen, leeftijd & slimheid →</a><a href="/hondenwedstrijden">Hondenwedstrijden & sport →</a><a href="/verboden-rassen">Verboden rassen: NL & wereld →</a><a href="/honden-cijfers">Honden in cijfers →</a><a href="/geschiedenis-hond">Geschiedenis van de hond →</a><a href="/koninklijke-honden">Honden van royals →</a><a href="/zwerfhonden">Zwerfhonden wereldwijd →</a></div><div><h3>Helpen & meedoen</h3><a href="/vacatures">Vacatures & hulpkrachten →</a><a href="/vrijwilligers">Vrijwilligerswerk bij asiel & opvang →</a><a href="/adoptie">Een opvanghond een thuis geven →</a><a href="/hond-gevonden">Hond gevonden? Wat nu? →</a><a href="/webshop">Webshop: voer, reis & tools →</a><a href="/steun">Steun TrimGids →</a></div></div></details>
     </div>
 
     <div class="nav-actions">
@@ -84,9 +84,9 @@ export function siteHeader() {
   <div class="wrap hub-nav-in">
     <a href="/#werelden" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Ontdek TrimGids</a>
     <a href="/#records" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Top 100 records</a>
-    <a href="/#eerstehulp-cijfers" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp &amp; feiten</a>
-    <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Noodhulp &amp; vermist</a>
+    <a href="/#eerstehulp-cijfers" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp &amp; cijfers</a>
     <a href="/#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis &amp; gidsen</a>
+    <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Nood &amp; vermist</a>
     <a href="/#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Gezondheid &amp; verzekering</a>
     <a href="/#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht &amp; offerte</a>
     <a href="/#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Kosten &amp; belasting</a>
@@ -94,9 +94,10 @@ export function siteHeader() {
     <a href="/#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
     <a href="/#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart</a>
     <a href="/#forum" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Community</a>
+    <a href="/voor-baasjes" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Voor baasjes</a>
     <a href="/#hondenslee-poll" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Jouw stem</a>
     <a href="/#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen &amp; meedoen</a>
-    <a href="/#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Nieuws</a>
+    <a href="/#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Actueel</a>
     <a href="/#steun-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Steun TrimGids</a>
     <a href="/#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> Veelgestelde vragen</a>
   </div>
@@ -121,72 +122,8 @@ export function siteFooter() {
 </div>
 <footer class="site-footer">
   <div class="wrap">
-    <section class="footer-cta" aria-label="Aan de slag">
-      <div>
-        <span class="footer-cta-kicker">Klaar om te starten?</span>
-        <h3>De beste hondenzorg, vlak bij jou</h3>
-        <p>2.900+ geverifieerde aanbieders, actuele prijzen en onafhankelijke gidsen — alles in één overzicht.</p>
-      </div>
-      <div class="footer-cta-actions">
-        <a href="/trimsalon" class="btn btn-primary">Vind een trimsalon</a>
-        <a href="/verzekering" class="btn btn-outline">Vergelijk verzekering</a>
-      </div>
-    </section>
 
-    <section class="feedback-panel" aria-labelledby="feedback-title">
-      <div class="feedback-intro">
-        <span class="section-eyebrow" style="color:var(--success)">Welkom bij TrimGids</span>
-        <h3 id="feedback-title">We zijn pas net begonnen, en jij helpt ons enorm verder.</h3>
-        <p>Welkom op onze website. Wij willen jou bij alles helpen wat met jouw prachtige hond te maken heeft. We willen niet alleen jouw leven makkelijker maken, maar vooral dat van jouw trouwe viervoeter. Wat vind jij van onze site, en waar kunnen we nog beter in helpen?</p>
-      </div>
-      <form class="feedback-form" data-feedback-form>
-        <div class="feedback-grid">
-          <label>
-            <span>Algemene indruk</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="algemene_indruck" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Vindbaarheid voor wat ik zocht</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="vindbaarheid" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Gebruiksgemak & overzicht</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="gebruiksgemak" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Informatie- en servicewaarde</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="servicewaarde" data-feedback-field><strong>8/10</strong></div>
-          </label>
-          <label>
-            <span>Waarschijnlijkheid om terug te komen</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="terugkomen" data-feedback-field><strong>8/10</strong></div>
-          </label>
-        </div>
-        <label class="feedback-open" for="feedback-open-text">
-          <span>Wat kan er volgens jou echt beter? Laat het ons weten.</span>
-          <textarea id="feedback-open-text" name="feedback" rows="4" placeholder="Bijvoorbeeld: ik miste ...; ik vond ...; ik zou willen dat ..."></textarea>
-        </label>
-        <div class="feedback-actions">
-          <button type="submit" class="btn btn-primary">Verstuur feedback</button>
-          <span>Heel erg bedankt voor je bezoek. We doen ons uiterste best om TrimGids nog beter te maken voor jou en je lieve dier.</span>
-        </div>
-      </form>
-    </section>
 
-    <section class="founder-section" aria-labelledby="about-founder">
-      <div class="founder-copy">
-        <span class="section-eyebrow" style="color:var(--success)">Over TrimGids</span>
-        <h3 id="about-founder">Deze website is opgezet door hondenliefhebbers, voor hondenliefhebbers.</h3>
-        <p>TrimGids is gemaakt door mensen die zelf weten hoe belangrijk een trouwe viervoeter is in het dagelijks leven. We begrijpen hoe druk, onrustig en overweldigend het kan zijn om betrouwbare informatie te vinden over verzorging, gezondheid, veiligheid, reizen, kostprijs en geluk van jouw hond.</p>
-        <p>We wilden een plek bouwen die niet alleen handig is, maar echt voelt als een vriendelijke gids: duidelijk, eerlijk, behulpzaam en warm. Een plek waar baasje en hond samen beter kunnen leven.</p>
-      </div>
-      <div class="founder-card">
-        <div class="founder-badge">❤ Hondenliefhebbers</div>
-        <strong>Wij willen jouw hond en jouw leven makkelijker maken.</strong>
-        <p>Of je nu zoekt naar een goede trimsalon, wilt weten wat een hond kost, een veilige route wilt vinden, of gewoon meer vertrouwen wilt in de keuzes die je maakt: wij willen je hier bij helpen.</p>
-        <a href="mailto:info@mpxstudio.nl" class="btn btn-outline btn-pill">Mail ons via mpxstudio.nl</a>
-      </div>
-    </section>
 
     <div class="footer-grid">
       <div class="footer-col">
@@ -200,7 +137,7 @@ export function siteFooter() {
         <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:14px">
           De onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland.
         </p>
-        <p class="tg-feedback-note">TrimGids is net live en we werken elke dag aan de beste ervaring voor jou en jouw hond. <a href="https://www.mpxstudio.nl" target="_blank" rel="noopener noreferrer">Laat gerust je feedback of een idee weten.</a> Mail naar <a href="mailto:info@mpxstudio.nl">info@mpxstudio.nl</a> of <a href="mailto:martijn@mpxstudio.nl">martijn@mpxstudio.nl</a>.</p>
+        <p class="tg-footer-positioning">Onafhankelijke informatie voor hondenbaasjes in Nederland.</p>
         <div style="font-size:12px;color:var(--muted-foreground)">© 2026 TrimGids B.V. · Alle rechten voorbehouden.</div>
       </div>
       <div class="footer-col">
@@ -275,9 +212,10 @@ export function siteFooter() {
     </div>
     <div class="footer-bottom">
       <span>Gemaakt met passie voor honden in Nederland. In samenwerking met routes.apexclusive.nl</span>
-      <div style="display:flex;gap:16px">
-        <a href="/sitemap.xml">Sitemap</a>
-        <a href="/robots.txt">Robots</a>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/privacy">Privacyverklaring</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/voorwaarden">Algemene voorwaarden</a>
         <a href="/bedrijven">Partner Worden</a>
       </div>
     </div>

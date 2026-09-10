@@ -1,0 +1,307 @@
+/* ==========================================================================
+   TrimGids — centrale design-tokens (enige bron van waarheid)
+   ==========================================================================
+   Dit bestand wordt ALS LAATSTE stylesheet geladen, zodat het de cascade wint
+   zonder !important nodig te hebben. Het verenigt de drie vocabulaires die
+   historisch gegroeid waren:
+
+     1. shadcn-achtig   --primary / --background / --muted-foreground   (home.css, site-chrome.css)
+     2. "TG"-vocabulair --tg-ink / --tg-green / --tg-paper              (premium-refresh.css)
+     3. legacy-templates --g / --ink / --line / --bg / --r / --shadow   (server.mjs + pages/base.mjs)
+
+   Alles wijst nu naar één canonieke set. Eén merk-groen, één accent, één
+   grijstint voor secundaire tekst, één donker thema.
+
+   BELANGRIJK — --muted:
+   Op de site wordt var(--muted) uitsluitend als TEKSTKLEUR gebruikt (geverifieerd:
+   0× als background/border/fill in CSS, server.mjs en pages/). In home.css stond
+   echter een achtergrondwaarde (#f8fafc), waardoor 96 tekstfragmenten op 11 pagina's
+   onzichtbaar werden (1.05:1 contrast). --muted is hier daarom gedefinieerd als
+   tekstkleur; --muted-surface is de achtergrondvariant.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* --- Merk ---------------------------------------------------------- */
+  --brand-900: #062719;
+  --brand-800: #092819;
+  --brand-700: #0f3e28;   /* canoniek merk-groen */
+  --brand-600: #165b3c;
+  --brand-500: #0d6b45;
+  --accent-600: #059669;
+  --accent-500: #10b981;  /* canoniek accent-emerald */
+  --accent-300: #6ee7b7;
+  --accent-200: #a7f3d0;
+  --gold-600:   #d97706;
+  --gold-500:   #f59e0b;
+  --gold-400:   #fbbf24;
+  --gold-300:   #fef3c7;
+  --danger-700: #b91c1c;
+  --danger-600: #dc2626;
+  --danger-500: #ef4444;
+  --danger-200: #fecaca;
+
+  /* --- Oppervlakken (light) ------------------------------------------ */
+  --background: #ffffff;
+  --background-subtle: #f8fafc;
+  --foreground: #131a16;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --card-subtle: #f8fafc;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --input: #e2e8f0;
+
+  /* --- Semantisch (light) -------------------------------------------- */
+  --primary: var(--brand-700);
+  --primary-hover: var(--brand-800);
+  --primary-light: #eaf4ee;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+
+  /* TEKST-grijs. Niet verwarren met --muted-surface (achtergrond). */
+  --muted-foreground: #64748b;   /* 4.76:1 op #fff — AA ✓ */
+  --muted: var(--muted-foreground);
+  --muted-surface: #f8fafc;
+
+  --success: var(--accent-600);
+  --success-light: #dcfce7;
+  --warning: var(--gold-600);
+  --warning-light: var(--gold-300);
+  --destructive: var(--danger-500);
+  --destructive-light: #fee2e2;
+  --destructive-foreground: #ffffff;
+  --ring: var(--accent-500);
+  --ring-glow: 0 0 0 4px rgba(16, 185, 129, .16);
+
+  /* --- Typografie ----------------------------------------------------- */
+  --font-display: 'Sora', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* 8-staps type-scale (was: 29 losse waarden) */
+  --text-xs:   0.75rem;    /* 12px — minimum voor UI-tekst */
+  --text-sm:   0.8125rem;  /* 13px */
+  --text-base: 0.875rem;   /* 14px */
+  --text-md:   0.9375rem;  /* 15px */
+  --text-lg:   1.0625rem;  /* 17px */
+  --text-xl:   1.3125rem;  /* 21px */
+  --text-2xl:  1.625rem;   /* 26px */
+  --text-3xl:  clamp(1.875rem, 3.4vw, 2.5rem);
+
+  /* --- Ruimte & vorm --------------------------------------------------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, .05), 0 2px 6px -1px rgba(15, 23, 42, .03);
+  --shadow-hover: 0 14px 34px -4px rgba(15, 23, 42, .08), 0 4px 12px -2px rgba(15, 23, 42, .04);
+  --shadow-floating: 0 20px 45px -10px rgba(15, 62, 40, .12), 0 8px 20px -4px rgba(0, 0, 0, .04);
+
+  --max-width: 1220px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+
+  /* 4 breakpoints i.p.v. 16 — gebruik deze, geen losse px-waarden:
+       --bp-sm  600px   (grote telefoon)
+       --bp-md  760px   (tablet portret)
+       --bp-lg  1024px  (tablet landscape / kleine laptop)
+       --bp-xl  1220px  (desktop)  */
+}
+
+/* ==========================================================================
+   Compat-aliases: legacy-templates (server.mjs, pages/base.mjs) wijzen nu
+   naar de canonieke tokens i.p.v. eigen waarden te verzinnen.
+   ========================================================================== */
+:root {
+  /* groen */
+  --g: var(--primary);
+  --g2: var(--brand-600);
+  --green: var(--primary);
+  --green-d: var(--primary-hover);
+  --green-dark: var(--primary-hover);
+  --green-light: var(--primary-light);
+  --brand-primary: var(--primary);
+  --brand-primary-hover: var(--primary-hover);
+  --brand-light: var(--primary-light);
+  --tg-green: var(--primary);
+  --tg-green-dark: var(--primary-hover);
+  --tg-mint: var(--primary-light);
+
+  /* emerald accent */
+  --em: var(--accent-500);
+  --em-l: var(--accent-200);
+  --brand-emerald: var(--accent-500);
+  --brand-emerald-light: rgba(16, 185, 129, .12);
+  --brand-accent: var(--accent-500);
+  --brand-accent-light: rgba(16, 185, 129, .12);
+
+  /* amber / goud */
+  --amber: var(--gold-600);
+  --brand-amber: var(--gold-600);
+  --brand-amber-light: var(--gold-300);
+  --tg-gold: var(--gold-600);
+
+  /* danger */
+  --brand-danger: var(--destructive);
+  --brand-danger-light: var(--destructive-light);
+
+  /* tekst */
+  --ink: var(--foreground);
+  --ink-2: var(--muted-foreground);
+  --tg-ink: var(--foreground);
+  --tg-muted: var(--muted-foreground);
+  --text-heading: var(--foreground);
+  --text-body: var(--foreground);
+  --text-muted: var(--muted-foreground);
+
+  /* oppervlak */
+  --bg: var(--background);
+  --bg-page: var(--background);
+  --bg-nav: rgba(255, 255, 255, .88);
+  --bg-card: var(--card);
+  --bg-card-alt: var(--card-subtle);
+  --card-bg: var(--card);
+  --tg-paper: var(--background-subtle);
+  --tg-panel: var(--card);
+  --cream: #fdfcf9;
+
+  /* lijnen */
+  --line: var(--border);
+  --tg-line: var(--border);
+  --border-color: var(--border);
+
+  /* vorm */
+  --r: var(--radius-lg);
+  --r-lg: var(--radius-xl);
+  --tg-radius: var(--radius-lg);
+
+  /* schaduw */
+  --shadow: var(--shadow-card);
+  --shadow-lg: var(--shadow-hover);
+  --tg-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Eén donker thema (was: twee concurrerende — "dark emerald" in home.css en
+   "graphite glass" in premium-refresh.css, beslecht via 168 !important's).
+   Graphite glass wint visueel; dat is nu de enige dark theme.
+   ========================================================================== */
+[data-theme="dark"], .dark {
+  color-scheme: dark;
+
+  --background: #111214;
+  --background-subtle: #0d0e10;
+  --foreground: #e9e6df;
+  --card: #17191e;
+  --card-foreground: #e9e6df;
+  --card-subtle: #20232a;
+  --popover: #17191e;
+  --popover-foreground: #e9e6df;
+  --border: rgba(255, 255, 255, .12);
+  --border-subtle: rgba(255, 255, 255, .07);
+  --input: rgba(255, 255, 255, .14);
+
+  --primary: #d8dde5;
+  --primary-hover: #ffffff;
+  --primary-light: rgba(255, 255, 255, .09);
+  --primary-foreground: #111214;
+  --secondary: #20232a;
+  --secondary-foreground: #edf0f4;
+  --accent: #20232a;
+  --accent-foreground: #edf0f4;
+
+  /* 9.68:1 op #17191e — AA ✓ (was #16221c = 1.07:1, onleesbaar) */
+  --muted-foreground: #b6b3ad;
+  --muted: var(--muted-foreground);
+  --muted-surface: #20232a;
+
+  --success: #6ee7b7;
+  --success-light: rgba(16, 185, 129, .16);
+  --warning: #fbbf24;
+  --warning-light: rgba(251, 191, 36, .16);
+  --destructive: #f87171;
+  --destructive-light: rgba(239, 68, 68, .16);
+  --ring: #6ee7b7;
+  --ring-glow: 0 0 0 4px rgba(110, 231, 183, .18);
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, .4);
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .035);
+  --shadow-hover: 0 24px 60px rgba(0, 0, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .04);
+  --shadow-floating: 0 28px 70px rgba(0, 0, 0, .45);
+
+  --bg-nav: rgba(11, 12, 15, .78);
+  --cream: #1a1c1f;
+}
+
+/* ==========================================================================
+   Toegankelijkheid
+   ========================================================================== */
+
+/* Minimaal 44×44px aanraakvlak voor alle interactieve controls (WCAG 2.5.8).
+   Was o.a. 34px (.pm-fav), 36px (.nlmap-card-close), 38px (.pm-dialog-close). */
+.pm-fav,
+.pm-dialog-close,
+.nlmap-card-close,
+.brand-badge-icon {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Minimum leesgrootte. Op de site stonden 8px, 9px, 9.5px, 10px en 10.5px. */
+.brand-subtitle { font-size: var(--text-xs) !important; letter-spacing: .06em; }
+.pulse-badge,
+.hero-badge-count,
+.segment-label,
+.home-news-meta,
+.section-eyebrow { font-size: var(--text-xs) !important; }
+
+/* Duidelijke focus-ring overal — niet alleen waar :focus toevallig gestyled was. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Hoog-contrast-voorkeur van het besturingssysteem respecteren. */
+@media (prefers-contrast: more) {
+  :root {
+    --muted-foreground: #334155;
+    --border: #94a3b8;
+    --primary-light: #d1e7db;
+  }
+  [data-theme="dark"], .dark {
+    --muted-foreground: #e2e8f0;
+    --border: rgba(255, 255, 255, .35);
+  }
+}
+
+/* Minder data laden wanneer de bezoeker daarom vraagt. */
+@media (prefers-reduced-data: reduce) {
+  *, *::before, *::after {
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ==========================================================================
+   Navigatie: de 18-item hub-nav scrolde horizontaal met verborgen scrollbar en
+   zonder enige aanwijzing dat er meer was. Nu een uitdovende rand + hint.
+   ========================================================================== */
+.hub-nav-in {
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 44px), transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 44px), transparent 100%);
+}
+.hub-nav-in[data-at-end="true"] {
+  -webkit-mask-image: none;
+  mask-image: none;
+}

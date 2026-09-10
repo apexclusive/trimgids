@@ -10,6 +10,16 @@
 
   var STATE = { user: null, favs: [], favKeys: {}, modalOpen: false };
 
+  /* Privacyvriendelijke productmeting: alleen vaste events, route en optionele categorie. */
+  function trackEvent(event, value) {
+    var payload = JSON.stringify({ event: event, path: location.pathname, value: value || '' });
+    try {
+      if (navigator.sendBeacon) { navigator.sendBeacon('/api/analytics', new Blob([payload], { type: 'application/json' })); return; }
+      fetch('/api/analytics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(function () {});
+    } catch (_) {}
+  }
+  window.__tgTrack = trackEvent;
+
   /* ------------------------------- Toasts ------------------------------- */
   function toast(message, ok) {
     var wrap = document.getElementById('tg-toast-stack');
@@ -509,6 +519,30 @@
     if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
 
+  /* De hub-nav scrolt horizontaal met verborgen scrollbar. CSS (tokens.css)
+     geeft daarom een uitdovende rechterrand als aanwijzing dat er meer is, en
+     haalt die rand weg via [data-at-end="true"]. Zonder deze functie werd dat
+     attribuut nooit gezet en bleef de rand permanent staan, ook wanneer de
+     gebruiker al volledig naar rechts was gescrold — de laatste pill leek dan
+     weg te vallen terwijl hij volledig zichtbaar was. */
+  function initHubNavScroll() {
+    var strip = document.querySelector('.hub-nav-in');
+    if (!strip) return;
+
+    var update = function () {
+      /* 2 px speling: door afronding op hi-dpi-schermen is scrollLeft +
+         clientWidth zelden exact gelijk aan scrollWidth. */
+      var atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+      /* Als er helemaal niet gescrolld kan worden is er ook niets verborgen. */
+      var scrollable = strip.scrollWidth > strip.clientWidth + 2;
+      strip.setAttribute('data-at-end', String(!scrollable || atEnd));
+    };
+
+    strip.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
   function initHomepageReturn() {
     if (location.pathname !== '/') return;
     var key = 'trimgids_home_scroll';
@@ -538,7 +572,10 @@
     document.querySelectorAll('#main-nav > a.nav-pill, #main-nav > .nav-more').forEach(function () {});
     document.querySelectorAll('#main-nav > a.nav-pill').forEach(function (a) {
       var href = (a.getAttribute('href') || '').split('?')[0].replace(/\/+$/, '') || '/';
-      if (href === path || (href !== '/' && path.indexOf(href) === 0)) a.classList.add('is-current');
+      if (href === path || (href !== '/' && path.indexOf(href) === 0)) {
+        a.classList.add('is-current');
+        a.setAttribute('aria-current', 'page');
+      }
     });
   }
 
@@ -633,16 +670,39 @@
     sections.forEach(function (s) { observer.observe(s); });
   }
 
+  function initMoreNav() {
+    document.querySelectorAll('.nav-more').forEach(function (details) {
+      var summary = details.querySelector('summary');
+      if (!summary || summary.dataset.bound) return;
+      summary.dataset.bound = 'true';
+      var sync = function () { summary.setAttribute('aria-expanded', details.open ? 'true' : 'false'); };
+      details.addEventListener('toggle', sync);
+      sync();
+    });
+  }
+
   function initMobileMenu() {
     var menuBtn = document.querySelector('.menu-btn');
     var mainNav = document.getElementById('main-nav');
     if (!menuBtn || !mainNav) return;
+    var close = function () {
+      mainNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    };
     menuBtn.addEventListener('click', function () {
-      var open = mainNav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
+      var open = !mainNav.classList.contains('open');
+      if (open) {
+        mainNav.classList.add('open');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      } else close();
     });
-    mainNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () { mainNav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); });
+    mainNav.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', close); });
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
+    document.addEventListener('click', function (event) {
+      if (!mainNav.classList.contains('open')) return;
+      if (!mainNav.contains(event.target) && event.target !== menuBtn) close();
     });
   }
 
@@ -794,10 +854,11 @@
     }
     input.addEventListener('input', function () {
       var v = input.value.trim();
+      if (v) trackEvent('search_started');
       clearTimeout(timer);
       if (!v) return close();
       timer = setTimeout(function () {
-        fetch('/api/sitesearch?q=' + encodeURIComponent(v)).then(function (r) { return r.json(); }).then(function (d) { render(d.results || []); }).catch(function () {});
+        fetch('/api/sitesearch?q=' + encodeURIComponent(v)).then(function (r) { return r.json(); }).then(function (d) { trackEvent(d.results && d.results.length ? 'search_completed' : 'search_zero_results'); render(d.results || []); }).catch(function () {});
       }, 200);
     });
     input.addEventListener('keydown', function (e) {
@@ -821,7 +882,7 @@
     });
     document.addEventListener('click', function (e) {
       var item = e.target.closest('.tg-search-item');
-      if (item) return; /* navigatie via href */
+      if (item) { trackEvent('search_result_clicked'); return; } /* navigatie via href */
       if (!e.target.closest('.tg-search-shell')) close();
     });
     document.addEventListener('keydown', function (e) {
@@ -854,25 +915,58 @@
     container.insertBefore(button, container.querySelector('#theme-toggle, .theme-toggle-btn, .menu-btn') || null);
   }
 
+  function initHomeTaxChecker() {
+    var input = document.getElementById('h-tax-input');
+    var grid = document.getElementById('home-tax-grid');
+    if (!input || !grid || input.dataset.ready) return;
+    input.dataset.ready = 'true';
+    var timer;
+    var money = function (value) { return Number(value || 0).toLocaleString('nl-NL', { style: 'currency', currency: 'EUR' }); };
+    var render = function (items, query) {
+      if (!items.length) {
+        grid.innerHTML = '<p class="home-tax-empty">Geen gemeente gevonden. Controleer de spelling of probeer alleen de eerste letters.</p>';
+        return;
+      }
+      var shown = items.slice(0, 6);
+      grid.innerHTML = shown.map(function (item) {
+        var free = item.status === 'afgeschaft' || Number(item.tarief1eHond) === 0;
+        return '<article class="home-tax-result"><div><strong>' + esc(item.gemeente) + '</strong><span>' + esc(item.provincie || '') + '</span></div><b class="home-tax-price ' + (free ? 'is-free' : '') + '">' + (free ? '€ 0' : money(item.tarief1eHond)) + '<small> per jaar</small></b></article>';
+      }).join('') + (items.length > shown.length ? '<a class="home-tax-more" href="/hondenbelasting">Bekijk alle gemeenten →</a>' : '');
+    };
+    var load = function () {
+      var query = input.value.trim();
+      fetch('/api/dog-tax?query=' + encodeURIComponent(query), { headers: { Accept: 'application/json' } })
+        .then(function (response) { if (!response.ok) throw new Error('tax_' + response.status); return response.json(); })
+        .then(function (data) { render(data.items || [], query); })
+        .catch(function () { grid.innerHTML = '<p class="home-tax-empty">De tarieven zijn tijdelijk niet beschikbaar. <a href="/hondenbelasting">Open de volledige gemeentegids →</a></p>'; });
+    };
+    input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(load, 180); });
+    load();
+  }
+
   /* -------------------------------- Boot -------------------------------- */
   function boot() {
     ensureStyles();
     syncThemeButtons();
     ensureNavButtons();
-    initShareButton();
+    /* Delen hoort bij artikelacties, niet bij de primaire navigatie: zo blijft
+       de header op mobiel en desktop compact. */
     initDelegatedTheme();
     initSaveButtons();
     initScrollUI();
+    initHubNavScroll();
     initHomepageReturn();
     initStatCounters();
     initHubHighlight();
     initCurrentNav();
     initMobileMenu();
+    initMoreNav();
     initCategoryPills();
     initGeoButtons();
     initNewsletter();
     initFeedbackForm();
     initSiteSearch();
+    initHomeTaxChecker();
 
     document.addEventListener('click', function (e) {
       var acc = e.target.closest('#account-btn');

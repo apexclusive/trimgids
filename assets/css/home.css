@@ -529,8 +529,6 @@ nav.site-navbar {
   overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
-.hero-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .92; filter: saturate(1.02) contrast(1.04); }
 .hero::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
     radial-gradient(46rem 22rem at 82% 8%, rgba(16,185,129,.16), transparent 62%),
@@ -540,7 +538,6 @@ nav.site-navbar {
 .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248,250,252,.88) 0%, rgba(248,250,252,.55) 45%, rgba(248,250,252,.9) 100%); pointer-events: none; }
 .hero-in { z-index: 1; }
 [data-theme="dark"] .hero::after { background: linear-gradient(180deg, rgba(4,20,13,.94) 0%, rgba(4,20,13,.68) 42%, rgba(4,20,13,.94) 100%); }
-[data-theme="dark"] .hero-photo img { opacity: .72; }
 .hero-title, .hero-subtitle, .hero-trust-row, .hero-badge-wrap { text-shadow: 0 1px 2px rgba(255,255,255,.94), 0 10px 34px rgba(248,250,252,.9); }
 .hero-subtitle { color: #334155; }
 [data-theme="dark"] .hero-subtitle { color: #e2f0e8; }
