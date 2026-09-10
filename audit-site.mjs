@@ -25,7 +25,7 @@ for (const route of routes) {
   const canonical = clean((body.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']*)/i) || [])[1]);
   const shell = body.includes('id="tg-site-nav"');
   const record = {
-    route, status: response.status, ms: Math.round(performance.now() - started),
+    route, status: response.status, loadTimeBudget: performance.now() - started < 800 ? 'under-800ms' : 'over-800ms',
     title: Boolean(title), titleText: title, description: Boolean(attr(body, 'description')),
     canonical: Boolean(canonical), canonicalUrl: canonical, h1Count: h1,
     shell, openGraph: /property=["']og:title["']/i.test(body), twitter: /name=["']twitter:card["']/i.test(body),
