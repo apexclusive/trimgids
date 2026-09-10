@@ -10,6 +10,16 @@
 
   var STATE = { user: null, favs: [], favKeys: {}, modalOpen: false };
 
+  /* Privacyvriendelijke productmeting: alleen vaste events, route en optionele categorie. */
+  function trackEvent(event, value) {
+    var payload = JSON.stringify({ event: event, path: location.pathname, value: value || '' });
+    try {
+      if (navigator.sendBeacon) { navigator.sendBeacon('/api/analytics', new Blob([payload], { type: 'application/json' })); return; }
+      fetch('/api/analytics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(function () {});
+    } catch (_) {}
+  }
+  window.__tgTrack = trackEvent;
+
   /* ------------------------------- Toasts ------------------------------- */
   function toast(message, ok) {
     var wrap = document.getElementById('tg-toast-stack');
@@ -844,10 +854,11 @@
     }
     input.addEventListener('input', function () {
       var v = input.value.trim();
+      if (v) trackEvent('search_started');
       clearTimeout(timer);
       if (!v) return close();
       timer = setTimeout(function () {
-        fetch('/api/sitesearch?q=' + encodeURIComponent(v)).then(function (r) { return r.json(); }).then(function (d) { render(d.results || []); }).catch(function () {});
+        fetch('/api/sitesearch?q=' + encodeURIComponent(v)).then(function (r) { return r.json(); }).then(function (d) { trackEvent(d.results && d.results.length ? 'search_completed' : 'search_zero_results'); render(d.results || []); }).catch(function () {});
       }, 200);
     });
     input.addEventListener('keydown', function (e) {
@@ -871,7 +882,7 @@
     });
     document.addEventListener('click', function (e) {
       var item = e.target.closest('.tg-search-item');
-      if (item) return; /* navigatie via href */
+      if (item) { trackEvent('search_result_clicked'); return; } /* navigatie via href */
       if (!e.target.closest('.tg-search-shell')) close();
     });
     document.addEventListener('keydown', function (e) {

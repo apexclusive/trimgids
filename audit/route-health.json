@@ -2,7 +2,7 @@
   {
     "route": "/",
     "status": 200,
-    "ms": 51,
+    "ms": 50,
     "title": true,
     "titleText": "TrimGids: hondenzorg, trimsalons & kaart (2026) | TrimGids",
     "description": true,
@@ -21,7 +21,7 @@
   {
     "route": "/nieuws",
     "status": 200,
-    "ms": 5,
+    "ms": 4,
     "title": true,
     "titleText": "Landelijke Hondennieuws Feed, Gif-Alerts &amp; | TrimGids",
     "description": true,
@@ -78,7 +78,7 @@
   {
     "route": "/trimsalon/maastricht",
     "status": 200,
-    "ms": 5,
+    "ms": 6,
     "title": true,
     "titleText": "Trimsalons in Maastricht: aanbieders &amp; tarieven | TrimGids",
     "description": true,
@@ -135,7 +135,7 @@
   {
     "route": "/wandelen",
     "status": 200,
-    "ms": 6,
+    "ms": 2,
     "title": true,
     "titleText": "Wandelroutes, Omheinde Losloopbossen &amp; | TrimGids",
     "description": true,
@@ -154,7 +154,7 @@
   {
     "route": "/last-minute",
     "status": 200,
-    "ms": 6,
+    "ms": 5,
     "title": true,
     "titleText": "Last-Minute Trimsalon Deals &amp; Vrije Plekken | TrimGids",
     "description": true,
@@ -173,7 +173,7 @@
   {
     "route": "/offerte",
     "status": 200,
-    "ms": 5,
+    "ms": 4,
     "title": true,
     "titleText": "Vergelijk Gratis Offertes: Trimsalons &amp; | TrimGids",
     "description": true,
@@ -249,7 +249,7 @@
   {
     "route": "/puppy-kiezen",
     "status": 200,
-    "ms": 4,
+    "ms": 3,
     "title": true,
     "titleText": "Welk Hondenras Past Bij Mij? 2026 Puppy Matcher | TrimGids",
     "description": true,
@@ -306,7 +306,7 @@
   {
     "route": "/bedrijven",
     "status": 200,
-    "ms": 3,
+    "ms": 2,
     "title": true,
     "titleText": "TrimGids Pro: Voor Trimsalons, Hondenscholen &amp; | TrimGids",
     "description": true,
@@ -363,7 +363,7 @@
   {
     "route": "/hulphonden",
     "status": 200,
-    "ms": 3,
+    "ms": 2,
     "title": true,
     "titleText": "Diensthonden: blindegeleidehonden, politiehonden | TrimGids",
     "description": true,
@@ -401,7 +401,7 @@
   {
     "route": "/hondenanatomie",
     "status": 200,
-    "ms": 4,
+    "ms": 3,
     "title": true,
     "titleText": "Hondenanatomie uitgelegd: interactief model van | TrimGids",
     "description": true,
@@ -420,7 +420,7 @@
   {
     "route": "/hondengedrag",
     "status": 200,
-    "ms": 5,
+    "ms": 2,
     "title": true,
     "titleText": "Waarom aaien we het kopje? Hondengedrag | TrimGids",
     "description": true,
@@ -439,7 +439,7 @@
   {
     "route": "/puppies",
     "status": 200,
-    "ms": 4,
+    "ms": 3,
     "title": true,
     "titleText": "PuppyMarktplaats: pups met transparante | TrimGids",
     "description": true,
@@ -477,7 +477,7 @@
   {
     "route": "/aankoopgids",
     "status": 200,
-    "ms": 43,
+    "ms": 22,
     "title": true,
     "titleText": "Aankoopgids hond: per ras + complete | TrimGids",
     "description": true,
@@ -496,7 +496,7 @@
   {
     "route": "/vacatures",
     "status": 200,
-    "ms": 7,
+    "ms": 3,
     "title": true,
     "titleText": "Vacatures in de hondenbranche: werk én hulp | TrimGids",
     "description": true,
@@ -667,7 +667,7 @@
   {
     "route": "/hondenweetjes",
     "status": 200,
-    "ms": 3,
+    "ms": 2,
     "title": true,
     "titleText": "Hondenweetjes: voeding, hypoallergeen, ouderdom | TrimGids",
     "description": true,
@@ -724,7 +724,7 @@
   {
     "route": "/braken-hond",
     "status": 200,
-    "ms": 3,
+    "ms": 2,
     "title": true,
     "titleText": "Braken bij honden: normaal of niet, wanneer naar | TrimGids",
     "description": true,
@@ -857,7 +857,7 @@
   {
     "route": "/webshop",
     "status": 200,
-    "ms": 6,
+    "ms": 4,
     "title": true,
     "titleText": "Webshop: hypoallergeen voer, reisveiligheid &amp; | TrimGids",
     "description": true,

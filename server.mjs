@@ -68,6 +68,7 @@ const newsTipsFile = join(root, 'data', 'news-tips.json');
 const missingFile = join(root, 'data', 'missing.json');
 const dogTaxFile = join(root, 'data', 'dog-tax.json');
 const webVitalsFile = join(root, 'data', 'web-vitals.json');
+const analyticsEventsFile = join(root, 'data', 'analytics-events.json');
 const vacaturesFile = join(root, 'data', 'vacatures.json');
 const vrijwilligersFile = join(root, 'data', 'vrijwilligers.json');
 const routesFile = join(root, 'data', 'routes.json');
@@ -131,7 +132,7 @@ async function loadDotEnv() {
   } catch {}
 }
 
-const rateLimits = { search: new Map(), write: new Map(), sitemap: new Map(), beacon: new Map(), home: new Map(), auth: new Map(), newsletter: new Map(), siteSearch: new Map(), chat: new Map() };
+const rateLimits = { search: new Map(), write: new Map(), sitemap: new Map(), beacon: new Map(), analytics: new Map(), home: new Map(), auth: new Map(), newsletter: new Map(), siteSearch: new Map(), chat: new Map() };
 
 function json(res, status, body, cacheControl = 'no-store', extraHeaders = {}) {
   res.writeHead(status, secureHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': cacheControl, ...extraHeaders }));
@@ -5369,6 +5370,22 @@ export async function handleRequest(req, res) {
         .sort((a, b) => b.count - a.count)
         .slice(0, 500);
       return publicJson(res, 200, { cities: items }, 3600);
+    }
+
+    /* Privacybewuste product-events: geen cookies, identifiers of vrije tekst. */
+    if (url.pathname === '/api/analytics' && req.method === 'POST') {
+      if (!rateLimit(req, rateLimits.analytics, 120, 3600000)) return json(res, 429, { error: 'rate_limited' });
+      const input = await readJson(req);
+      const allowed = new Set(['search_started', 'search_completed', 'search_zero_results', 'search_result_clicked', 'calculator_started', 'calculator_completed', 'provider_viewed', 'provider_contacted', 'quote_started', 'quote_completed', 'newsletter_started', 'newsletter_completed', 'favorite_added', 'review_started', 'review_submitted', 'affiliate_clicked', 'subscription_started', 'subscription_cancelled']);
+      const event = clean(input.event, 40);
+      if (!allowed.has(event)) return json(res, 400, { error: 'invalid_event' });
+      const payload = { event, path: clean(input.path, 120) || '/', value: clean(input.value, 80), createdAt: new Date().toISOString() };
+      const all = await collectionReadFresh(analyticsEventsFile);
+      all.unshift(payload);
+      if (all.length > 1000) all.length = 1000;
+      await writeFile(analyticsEventsFile, JSON.stringify(all, null, 2) + '\n');
+      collectionCache.set(analyticsEventsFile, { value: all, expiresAt: Date.now() + collectionCacheTtlMs });
+      return json(res, 204, null);
     }
 
     /* Core Web Vitals beacon (LCP, INP, CLS) — klein, rate limited, no-store */

@@ -35,6 +35,7 @@
     "check-nav-consistency.mjs",
     "check-picture.mjs",
     "crawl.mjs",
+    "data/analytics-events.json",
     "data/catalog.json",
     "data/claims.json",
     "data/community-buddies.json",
