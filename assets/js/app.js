@@ -660,6 +660,17 @@
     sections.forEach(function (s) { observer.observe(s); });
   }
 
+  function initMoreNav() {
+    document.querySelectorAll('.nav-more').forEach(function (details) {
+      var summary = details.querySelector('summary');
+      if (!summary || summary.dataset.bound) return;
+      summary.dataset.bound = 'true';
+      var sync = function () { summary.setAttribute('aria-expanded', details.open ? 'true' : 'false'); };
+      details.addEventListener('toggle', sync);
+      sync();
+    });
+  }
+
   function initMobileMenu() {
     var menuBtn = document.querySelector('.menu-btn');
     var mainNav = document.getElementById('main-nav');
@@ -938,6 +949,7 @@
     initHubHighlight();
     initCurrentNav();
     initMobileMenu();
+    initMoreNav();
     initCategoryPills();
     initGeoButtons();
     initNewsletter();
