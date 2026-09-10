@@ -5928,7 +5928,7 @@ export async function handleRequest(req, res) {
       return res.end(mapPage());
     }
     /* Ronde 9 — trimkosten 2026 (data + calculator) */
-    if (url.pathname === '/trimmen-kosten' || url.pathname === '/wat-kost-trimmen') {
+    if (url.pathname === '/trimmen-kosten' || url.pathname === '/wat-kost-trimmen' || url.pathname === '/trimkosten') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(trimKostenPage());
     }

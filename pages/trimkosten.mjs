@@ -154,7 +154,7 @@ export function trimKostenPage() {
   </script>`;
 
   return pageShell({
-    title: 'Wat kost hondentrimmen in 2026? Tarieven & calculator | TrimGids',
+    title: 'Trimkosten 2026: tarieven en calculator | TrimGids',
     description: 'Actuele trimprijzen 2026: landelijk gemiddeld €65–75 per beurt, tarieven per ras (Labradoodle €130–200, Maltezer €70–95) en een gratis trimkosten-calculator.',
     canonical: '/trimmen-kosten',
     body,
