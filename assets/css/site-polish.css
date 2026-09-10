@@ -302,3 +302,9 @@ body.tg-home .world-card .world-cta { margin-top: auto; padding-top: 20px; }
 .site-footer .footer-cta h3 { max-width: 20ch; text-wrap: balance; }
 .site-footer .footer-col h4 { margin-bottom: 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
 .site-footer .footer-col a { line-height: 1.45; }
+
+/* Ronde 6/10 — één formuliermodel */
+form label { color: var(--foreground, #131a16); }
+form input, form select, form textarea { border: 1px solid var(--border, #e2e8f0) !important; background: var(--card, #fff) !important; color: var(--foreground, #131a16) !important; }
+form input::placeholder, form textarea::placeholder { color: var(--muted-foreground, #64748b); opacity: .82; }
+form input:focus-visible, form select:focus-visible, form textarea:focus-visible { border-color: var(--primary) !important; box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent); }
