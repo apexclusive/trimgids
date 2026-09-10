@@ -113,7 +113,7 @@ export function puppiesPage(list = []) {
     <label class="full">Omschrijving<textarea name="text" required maxlength="800" placeholder="Karakter, socialisatie, bijzonderheden…"></textarea></label>
     <label class="full checkbox-label"><input type="checkbox" name="agree" required> Ik bevestig dat ouderdieren op gezondheid zijn (laten) testen, de fokker bezocht kan worden en pups niet jonger dan 8 weken weg gaan.</label>
     <button class="btn-submit full" type="submit">Plaats nest op de marktplaats →</button>
-    <p id="pm-status" class="status-msg full" hidden></p>
+    <p id="pm-status" class="status-msg full" role="status" aria-live="polite" hidden></p>
   </form>
 </section>
 
