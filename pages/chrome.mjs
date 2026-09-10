@@ -113,7 +113,7 @@ export function siteFooter() {
       <p style="margin-top:4px">Eén keer per week: beste hondendeals, verzekeringstips en nieuwe wandelroutes. Altijd gratis, nooit spam.</p>
     </div>
     <form class="home-newsletter-form" data-tg-newsletter-form>
-      <input type="email" name="email" maxlength="120" placeholder="jouw@email.nl" aria-label="E-mailadres voor de nieuwsbrief" required>
+      <input type="email" name="email" maxlength="120" autocomplete="email" placeholder="jouw@email.nl" aria-label="E-mailadres voor de nieuwsbrief" required>
       <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" hidden>
       <button type="submit">Aanmelden →</button>
     </form>
@@ -132,9 +132,6 @@ export function siteFooter() {
             <span class="brand-subtitle">Nederland · 2026</span>
           </div>
         </a>
-        <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:0">
-          Alle gidsen, aanbieders en tools voor hondenbaasjes op één plek.
-        </p>
       </div>
       <div class="footer-col">
         <h4>Vind in de buurt</h4>
@@ -193,6 +190,8 @@ export function siteFooter() {
         </ul>
       </div>
     </div>
+
+    <p class="footer-tagline">Alle gidsen, aanbieders en tools voor hondenbaasjes op één plek.</p>
 
     <div class="footer-trust" aria-label="Waarom TrimGids">
       <span><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> 100% onafhankelijk</span>

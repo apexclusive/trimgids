@@ -4868,7 +4868,7 @@ function modernizeGeneratedHtmlUncached(html) {
      thema-bootstrap vóór de eerste paint + account/favorieten/thema-ui. */
     /* Ronde 14 — platform-gevoel: thema-kleur + kleurenschema voor scrollbars */
   if (!html.includes('theme-color')) {
-    html = html.replace('<meta charset="UTF-8">', '<meta charset="UTF-8"><meta name="theme-color" content="#0F3E28">');
+    html = html.replace('<meta charset="UTF-8">', '<meta charset="UTF-8"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#090d0b" media="(prefers-color-scheme: dark)">');
   }
   if (!html.includes('color-scheme')) {
     html = html.replace('</head>', '<style id="tg-color-scheme">:root{color-scheme:light dark}</style></head>');

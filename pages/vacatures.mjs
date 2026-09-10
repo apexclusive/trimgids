@@ -132,7 +132,7 @@ export async function vacaturesPage() {
     <label>Uren / beschikbaarheid *<input name="hours" required maxlength="60" placeholder="Bijv. 2–4 dagen per week"></label>
     <label>Salaris of vergoeding<input name="pay" maxlength="80" placeholder="Bijv. €2.400–€2.800 p/m of 'vrijwillig + onkosten'"></label>
     <label class="full">Korte omschrijving *<textarea name="description" required maxlength="1200" placeholder="Wat ga je doen, wat zoek je, wat bied je? Max. 1.200 tekens."></textarea></label>
-    <label class="full">Contact-e-mail (wordt openbaar getoond) *<input name="contact" type="email" required maxlength="90" placeholder="naam@organisatie.nl"></label>
+    <label class="full">Contact-e-mail (wordt openbaar getoond) *<input name="contact" type="email" required autocomplete="email" maxlength="90" placeholder="naam@organisatie.nl"></label>
     <div class="full"><button class="btn" type="submit" id="vac-submit">📤 Vacature publiceren</button> <span id="vac-msg" role="status" style="font-weight:800;margin-left:8px"></span></div>
   </form>
 </section>

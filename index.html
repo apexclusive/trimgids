@@ -22,7 +22,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Gelukkige hond tijdens een professionele trimbeurt bij TrimGids">
-<meta name="theme-color" content="#0F3E28">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#090d0b" media="(prefers-color-scheme: dark)">
 
 <script type="application/ld+json">
 {
@@ -759,7 +760,7 @@
       <form class="quote-lead-form" id="quote-lead-form">
         <label>Jouw naam<input name="name" required placeholder="Bijv. Sam"></label>
         <label>Telefoonnummer<input name="phone" type="tel" required placeholder="06-12345678"></label>
-        <label>E-mailadres<input name="email" type="email" required placeholder="jouw@email.nl"></label>
+        <label>E-mailadres<input name="email" type="email" required autocomplete="email" placeholder="jouw@email.nl"></label>
         <label>Woonplaats<input name="city" required placeholder="Bijv. Maastricht"></label>
         <label>Ras van je hond<input name="breed" required placeholder="Bijv. Pomeriaan / Labradoodle"></label>
         <label>Gewenste dienst<select name="service"><option>Volledige trimbeurt</option><option>Alleen wassen & ontwollen</option><option>Puppy wenbezoek</option><option>Puppycursus / Gehoorzaamheid</option><option>Hondenopvang / Pension</option></select></label>
@@ -1112,7 +1113,7 @@
           <p>Eén keer per week: scherpe hondendeals, verzekeringstips en nieuwe losloopgebieden. Geen spam, uitschrijven kan altijd.</p>
         </div>
         <form class="home-newsletter-form" data-tg-newsletter-form>
-          <input type="email" name="email" maxlength="120" placeholder="jouw@email.nl" aria-label="E-mailadres voor de nieuwsbrief" required>
+          <input type="email" name="email" maxlength="120" autocomplete="email" placeholder="jouw@email.nl" aria-label="E-mailadres voor de nieuwsbrief" required>
           <button type="submit">Aanmelden →</button>
         </form>
         <p class="home-newsletter-ok" hidden>Bedankt! Je staat op de lijst — check je inbox.</p>
@@ -1136,9 +1137,6 @@
             <span class="brand-subtitle">Nederland · 2026</span>
           </div>
         </a>
-        <p style="font-size:13.5px;color:var(--muted-foreground);line-height:1.6;margin-bottom:0">
-          Alle gidsen, aanbieders en tools voor hondenbaasjes op één plek.
-        </p>
       </div>
       <div class="footer-col">
         <h4>Vind in de buurt</h4>
@@ -1197,6 +1195,8 @@
         </ul>
       </div>
     </div>
+
+    <p class="footer-tagline">Alle gidsen, aanbieders en tools voor hondenbaasjes op één plek.</p>
 
     <div class="footer-trust" aria-label="Waarom TrimGids">
       <span><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> 100% onafhankelijk</span>

@@ -35,7 +35,7 @@ export function steunPage() {
     <p>Eenmalig of maandelijks — hoe klein ook (koffie voor de redactie!). Met je gift houden we de gidsen onafhankelijk en advertentievrij.</p>
     <form id="su-form" class="su-form">
       <label>Je naam<input name="name" required maxlength="60" placeholder="Bijv. Sanne"></label>
-      <label>E-mail<input name="email" type="email" required maxlength="120" placeholder="jij@voorbeeld.nl"></label>
+      <label>E-mail<input name="email" type="email" required autocomplete="email" maxlength="120" placeholder="jij@voorbeeld.nl"></label>
       <label>Bedrag<select name="amount"><option value="3">€ 3 — één koffie</option><option value="5">€ 5 — twee koffie</option><option value="10" selected>€ 10 — doos koekjes</option><option value="25">€ 25 — servermaand</option><option value="50">€ 50 — grote steun</option><option value="custom">Ander bedrag</option></select></label>
       <label>Wil je maandelijks of eenmalig?<select name="kind"><option value="eenmalig">Eenmalig</option><option value="maandelijks">Maandelijks (kan altijd stoppen)</option></select></label>
       <label>Fijne tekst (optioneel)<textarea name="message" maxlength="300" placeholder="Bijv. bedankt voor de hittegids!"></textarea></label>

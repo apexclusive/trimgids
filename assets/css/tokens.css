@@ -42,6 +42,9 @@
   --danger-500: #ef4444;
   --danger-200: #fecaca;
 
+  /* --- Moderne browser-features ---------------------------------------- */
+  accent-color: var(--primary);       /* native checkboxes/radio's/RangeS in merk-kleur */
+
   /* --- Oppervlakken (light) ------------------------------------------ */
   --background: #ffffff;
   --background-subtle: #f8fafc;
@@ -117,6 +120,12 @@
        --bp-lg  1024px  (tablet landscape / kleine laptop)
        --bp-xl  1220px  (desktop)  */
 }
+
+/* --- Moderne basis: smooth scroll + tekstselectie in merkkleur -----------
+   (prefers-reduced-motion zet scroll-behavior terug naar auto, zie site-polish) */
+html { scroll-behavior: smooth; }
+::selection { background: var(--primary); color: #f5fff8; }
+[data-theme="dark"] ::selection, .dark ::selection { background: #10b981; color: #06271a; }
 
 /* ==========================================================================
    Compat-aliases: legacy-templates (server.mjs, pages/base.mjs) wijzen nu
@@ -198,6 +207,7 @@
    ========================================================================== */
 [data-theme="dark"], .dark {
   color-scheme: dark;
+  accent-color: #10b981;             /* emerald-accent ook op native formulierelementen */
 
   /* Ronde 22 — één warm donkerpalet: groen-zwart + emerald. Eerder stonden hier
      leigrijze/blauwe waarden (#111214, #17191e, #20232a) die het palet uit
@@ -363,6 +373,15 @@ html, body { overflow-x: clip; }
    Footer 2026 (Ronde 17): rustig informatie-eindpunt met vertrouwensband en
    de onafhankelijkheids-positionering als állerlaatste regel.
    ========================================================================== */
+/* Ronde 23 — de merk-slogan staat níét meer in de eerste kolom maar als
+   afsluitende regel ónder álle kolomkopjes, boven de vertrouwensband. */
+.footer-tagline {
+  position: relative; z-index: 1;
+  margin: -12px auto 26px; max-width: 560px;
+  text-align: center;
+  font-size: 14px; line-height: 1.6; letter-spacing: .01em;
+  color: rgba(222, 240, 231, .68);
+}
 .footer-trust {
   position: relative; z-index: 1;
   display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center;
