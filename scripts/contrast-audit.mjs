@@ -263,8 +263,6 @@ const TARGETS = [
   ['.btn-geo-quick', 'hero · GPS-knop', 3.0],
   ['.segment-label', 'hero · zoekveld-label', 4.5],
   ['.hero-subtitle', 'hero · subtitel', 4.5],
-  ['.cat-pill', 'hero · categorie-chip', 4.5],
-  ['.cat-pill.active', 'hero · actieve chip', 4.5],
   ['.nav-pill', 'header · nav-pill', 4.5],
   ['.hub-pill', 'hub-navigatie · pill', 4.5],
   ['#back-to-top', 'floating · naar boven', 3.0],

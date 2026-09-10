@@ -271,11 +271,15 @@ nav.site-navbar.scrolled {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    position: fixed;
+    /* Ronde 26 — absolute i.p.v. fixed: de navbar heeft backdrop-filter en
+       wordt daardoor het containing block voor fixed children, waardoor het
+       paneel op navbar-hoogte werd afgeknipt (alleen 'Trimsalons' zichtbaar).
+       position:absolute t.o.v. de sticky navbar ontsnapt daar niet aan. */
+    position: absolute;
     left: 0;
     right: 0;
-    top: 64px;
-    bottom: 0;
+    top: 100%;
+    max-height: calc(100vh - 90px);
     padding: 18px 16px 28px;
     background: var(--card);
     border-top: 1px solid var(--border);

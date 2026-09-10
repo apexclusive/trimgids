@@ -125,15 +125,6 @@ export function siteFooter() {
 
     <div class="footer-grid">
       <div class="footer-col">
-        <a href="/" class="brand-logo" style="margin-bottom:12px">
-          <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=6" alt="" loading="lazy" decoding="async"></div>
-          <div class="brand-text">
-            <span class="brand-title">TrimGids</span>
-            <span class="brand-subtitle">Nederland · 2026</span>
-          </div>
-        </a>
-      </div>
-      <div class="footer-col">
         <h4>Vind in de buurt</h4>
         <ul>
           <li><a href="/trimsalon">Trimsalons</a></li>
@@ -208,6 +199,16 @@ export function siteFooter() {
         <a href="/voorwaarden">Algemene voorwaarden</a>
         <a href="/bedrijven">Partner worden</a>
       </div>
+    </div>
+
+    <div class="footer-brand">
+      <a href="/" class="brand-logo" aria-label="TrimGids — naar de homepage">
+        <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=6" alt="" loading="lazy" decoding="async"></div>
+        <div class="brand-text">
+          <span class="brand-title">TrimGids</span>
+          <span class="brand-subtitle">Nederland · 2026</span>
+        </div>
+      </a>
     </div>
 
     <div class="footer-positioning">

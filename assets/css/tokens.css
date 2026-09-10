@@ -394,6 +394,10 @@ html, body { overflow-x: clip; }
   font-size: 14px; line-height: 1.6; letter-spacing: .01em;
   color: rgba(222, 240, 231, .68);
 }
+/* Ronde 26 — het merk staat onderaan de footer als afsluiting, de kolommen
+   beginnen links bovenaan met 'Vind in de buurt'. */
+.footer-brand { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: 26px; }
+.footer-brand .brand-logo { margin: 0; }
 .footer-trust {
   position: relative; z-index: 1;
   display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center;
@@ -425,7 +429,7 @@ html, body { overflow-x: clip; }
 
 /* Footer-grid: vloeiend i.p.v. vaste 7 kolommen die op smalle desktops knept */
 .footer-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-@media (min-width: 1200px) { .footer-grid { grid-template-columns: 1.6fr repeat(5, 1fr); } }
+@media (min-width: 1200px) { .footer-grid { grid-template-columns: repeat(5, 1fr); } }
 
 /* ============================================================
    Ronde 18 — hero-categoriepillen als rustige "Populair:"-lijst
@@ -483,16 +487,17 @@ html, body { overflow-x: clip; }
    bijna-witte knoppen. Alles met !important omdat premium-refresh
    de omgekeerde (lichte) stijl met !important afdwingt.
    ============================================================ */
-/* Primaire knoppen: glanzend emerald met donkergroene tekst (≥ 6,9:1 op
-   beide uiteinden van het verloop — WCAG AA, geverifieerd met de audit) */
+/* Primaire knoppen: diep emerald-verloop met WITTE tekst (Ronde 26 op verzoek:
+   wit leest beter op groen dan de eerdere donkere tekst; contrast ≥ 5,3:1 op
+   beide uiteinden — WCAG AA, geverifieerd met de audit) */
 [data-theme="dark"] .btn-primary,
 [data-theme="dark"] .btn-airbnb-search,
 [data-theme="dark"] .tg-btn,
 [data-theme="dark"] .tg-f-new,
 [data-theme="dark"] .tg-f-post {
-  background: linear-gradient(135deg, #34d399, #10b981) !important;
-  color: #052e1d !important;
-  box-shadow: 0 10px 26px -8px rgba(16, 185, 129, .45) !important;
+  background: linear-gradient(135deg, #047857, #065f46) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 26px -8px rgba(4, 120, 87, .5) !important;
 }
 
 /* Header-knoppen: warme kaartkleur i.p.v. leigrijs #17191e */

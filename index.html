@@ -199,17 +199,6 @@
       Vind trimsalons, hondenscholen, opvang en officiële losloopgebieden in heel Nederland — zoek op type, plaats of ras.
     </p>
 
-    <!-- CATEGORY PILLS: rustige 'Populair'-lijst, klikbaar -->
-    <div class="hero-category-pills" aria-label="Kies categorie">
-      <span class="cat-pills-label" aria-hidden="true">Populair:</span>
-      <button class="cat-pill active" data-cat="trimsalon" type="button" aria-pressed="true">Trimsalons</button>
-      <button class="cat-pill" data-cat="hondenschool" type="button" aria-pressed="false">Hondenscholen</button>
-      <button class="cat-pill" data-cat="opvang" type="button" aria-pressed="false">Opvang &amp; hotels</button>
-      <button class="cat-pill" data-cat="wellness" type="button" aria-pressed="false">Wellness &amp; fysio</button>
-      <button class="cat-pill" data-cat="wandelen" type="button" aria-pressed="false">Losloopgebieden</button>
-      <button class="cat-pill" data-cat="verzekering" type="button" aria-pressed="false">Verzekering</button>
-    </div>
-
     <!-- ONE-LINE AIRBNB SEARCH CAPSULE -->
     <form class="airbnb-search-bar" id="hero-search-form" onsubmit="return handleModernSearch(event)">
       <div class="search-segment segment-what" onclick="document.getElementById('search-service').focus()">
@@ -336,7 +325,7 @@
         </div>
       </a>
       <a class="world-card world-forum" href="/forum">
-        <picture><img src="/assets/img/gen/k-honden-onderling-960.webp" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee honden ontmoeten elkaar vrolijk tijdens een wandeling"></picture>
+        <picture><img src="/assets/img/gen/k-baasjes-in-gesprek-960.webp" srcset="/assets/img/gen/k-baasjes-in-gesprek-480.webp 480w, /assets/img/gen/k-baasjes-in-gesprek-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee hondenbaasjes staan lachend in gesprek in een groen park, hun honden zitten belangstellend naast hen"></picture>
         <div class="world-body">
           <span class="world-kicker">2 · Community</span>
           <h3>Hondenforum</h3>
@@ -1100,6 +1089,30 @@
 </section>
 
 
+<!-- Ronde 26 — korte poll: eerlijk vragen wat wij beter kunnen doen -->
+<section class="section" id="jouw-mening" aria-label="Korte poll">
+  <div class="wrap">
+    <div class="home-poll">
+      <div class="home-poll-in">
+        <span class="section-eyebrow">Jouw mening</span>
+        <h2 class="section-title">Hoe maken wij TrimGids nóg beter voor jou?</h2>
+        <p class="home-poll-intro">Wat fijn dat je als baasje komt kijken! Wij zijn je dankbaar en willen graag van jou weten hoe we jouw ervaring nog beter kunnen maken. Welke verbetering vind jij het belangrijkst?</p>
+        <div class="home-poll-options" id="tg-poll-options">
+          <button type="button" class="poll-opt" data-choice="prachtig"><strong>a</strong><span>Ik vind de site prachtig en mis &#8217;niets&#8217;</span></button>
+          <button type="button" class="poll-opt" data-choice="okemist"><strong>b</strong><span>Ik vind de site wel oké, maar er mist van alles</span></button>
+          <button type="button" class="poll-opt" data-choice="open"><strong>c</strong><span>Open feedback geven (waarderen wij enorm en pakken wij zo snel mogelijk op)</span></button>
+        </div>
+        <form class="home-poll-form" id="tg-poll-form" hidden>
+          <label for="tg-poll-feedback">Super dat je mee wilt denken! Vertel kort wat jij zou verbeteren:</label>
+          <textarea id="tg-poll-feedback" maxlength="1000" placeholder="Bijvoorbeeld: meer aanbieders in mijn regio, duidelijkere prijzen, sneller vinden wat ik zoek&#8230;"></textarea>
+          <button type="submit" class="btn btn-primary">Feedback versturen</button>
+        </form>
+        <p class="home-poll-result" id="tg-poll-result" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt" id="nieuwsbrief" aria-label="Nieuwsbrief">
   <div class="wrap">
     <!-- Nieuwsbrief / deal-alerts: lead-capture vlak voor de footer.
@@ -1129,15 +1142,6 @@
   <div class="wrap">
 
     <div class="footer-grid">
-      <div class="footer-col">
-        <a href="/" class="brand-logo" style="margin-bottom:12px">
-          <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=6" alt="" loading="lazy" decoding="async"></div>
-          <div class="brand-text">
-            <span class="brand-title">TrimGids</span>
-            <span class="brand-subtitle">Nederland · 2026</span>
-          </div>
-        </a>
-      </div>
       <div class="footer-col">
         <h4>Vind in de buurt</h4>
         <ul>
@@ -1213,6 +1217,16 @@
         <a href="/voorwaarden">Algemene voorwaarden</a>
         <a href="/bedrijven">Partner worden</a>
       </div>
+    </div>
+
+    <div class="footer-brand">
+      <a href="/" class="brand-logo" aria-label="TrimGids — naar de homepage">
+        <div class="brand-badge-icon" aria-hidden="true"><img src="/logo.svg?v=6" alt="" loading="lazy" decoding="async"></div>
+        <div class="brand-text">
+          <span class="brand-title">TrimGids</span>
+          <span class="brand-subtitle">Nederland · 2026</span>
+        </div>
+      </a>
     </div>
 
     <div class="footer-positioning">

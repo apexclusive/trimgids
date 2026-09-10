@@ -15,7 +15,9 @@
 
   var CAT_COLORS = { trimsalon: '#1E523A', hondenschool: '#3730A3', opvang: '#D97706', wellness: '#0D9488', routes: '#059669' };
   var CAT_LABEL = { trimsalon: 'Trimsalon', hondenschool: 'Hondenschool', opvang: 'Opvang', wellness: 'Wellness', routes: 'Wandelen' };
-  var NL_BOUNDS = [[50.65, 3.15], [53.70, 7.40]];
+  /* Ronde 26 — landelijk overzicht met context: in het westen valt net Londen
+   in beeld, in het oosten Duitsland en in het zuiden net Noord-Frankrijk. */
+  var NL_BOUNDS = [[50.15, -0.9], [54.4, 9.3]];
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {

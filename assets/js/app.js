@@ -978,6 +978,68 @@
     load();
   }
 
+  /* ------------------------------- Poll (r26) --------------------------- */
+  function initPoll() {
+    var options = document.getElementById('tg-poll-options');
+    if (!options) return;
+    var form = document.getElementById('tg-poll-form');
+    var result = document.getElementById('tg-poll-result');
+    var choice = null;
+
+    function pct(n, total) { return total ? Math.round(n / total * 100) : 0; }
+    function showVotes(votes) {
+      votes = votes || {};
+      var a = votes.prachtig || 0, b = votes.okemist || 0, c = votes.open || 0;
+      var total = a + b + c;
+      if (!total) {
+        result.textContent = 'Bedankt voor je stem! Jij denkt als eerste mee — andere baasjes kunnen nog stemmen.';
+        return;
+      }
+      result.textContent = 'Bedankt voor je stem! 🐾 ' + pct(a, total) + '% vindt de site prachtig, ' +
+        pct(b, total) + '% mist nog wat en ' + c + ' baasje' + (c === 1 ? ' gaf' : 's gaven') + ' open feedback.';
+    }
+    var done = false;
+    function vote(payload) {
+      if (done) return;
+      done = true;
+      result.textContent = 'Bezig met versturen…';
+      fetch('/api/poll', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+        .then(function (r) { if (!r.ok) throw new Error('poll_' + r.status); return r.json(); })
+        .then(function (d) {
+          try { localStorage.setItem('trimgids_poll', 'done'); } catch (e) {}
+          options.hidden = true;
+          form.hidden = true;
+          showVotes(d.votes);
+        })
+        .catch(function () { result.textContent = 'Hmm, het versturen lukte niet — probeer het zo nog even.'; });
+    }
+    function alreadyVoted() {
+      options.hidden = true;
+      form.hidden = true;
+      result.textContent = 'Je hebt al gestemd — bedankt voor je mee-denken! 🐾';
+      fetch('/api/poll').then(function (r) { return r.json(); }).then(function (d) { showVotes(d.votes); }).catch(function () {});
+    }
+
+    try { if (localStorage.getItem('trimgids_poll') === 'done') return alreadyVoted(); } catch (e) {}
+
+    options.querySelectorAll('.poll-opt').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (done) return;
+        choice = btn.getAttribute('data-choice');
+        options.querySelectorAll('.poll-opt').forEach(function (b) { b.classList.toggle('selected', b === btn); });
+        if (choice === 'open') { form.hidden = false; form.querySelector('textarea').focus(); }
+        else { vote({ choice: choice }); }
+      });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (done) return;
+      var text = form.querySelector('textarea').value.trim();
+      if (text.length < 3) { result.textContent = 'Vul eerst kort in wat jij zou verbeteren.'; return; }
+      vote({ choice: 'open', feedback: text });
+    });
+  }
+
   /* -------------------------------- Boot -------------------------------- */
   function boot() {
     ensureStyles();
@@ -998,6 +1060,7 @@
     initCategoryPills();
     initGeoButtons();
     initNewsletter();
+    initPoll();
     initFeedbackForm();
     initSiteSearch();
     initHomeTaxChecker();

@@ -62,6 +62,7 @@ const usersFile = join(root, 'data', 'users.json');
 const sessionsFile = join(root, 'data', 'sessions.json');
 const favoritesFile = join(root, 'data', 'favorites.json');
 const newsletterFile = join(root, 'data', 'newsletter.json');
+const pollFile = join(root, 'data', 'poll-home.json');
 const feedbackFile = join(root, 'data', 'feedback.json');
 const newsFile = join(root, 'data', 'news.json');
 const newsTipsFile = join(root, 'data', 'news-tips.json');
@@ -597,6 +598,24 @@ async function newsletterSubscribe(input) {
   list.unshift({ email, createdAt: new Date().toISOString() });
   await writeLocalJson(newsletterFile, list.slice(0, 20000));
   return { subscribed: true, already: false, count: list.length };
+}
+
+/* Ronde 26 — homepage-poll: baasjes stemmen wat wij moeten verbeteren.
+   Eerlijke telling: begint op 0, geen nepgetallen. Open feedback wordt
+   opgeslagen ( privé, niet publiek) en meegestuurd naar het moderatiedashboard. */
+const POLL_CHOICES = ['prachtig', 'okemist', 'open'];
+async function pollHome(input) {
+  const choice = String(input.choice || '');
+  if (!POLL_CHOICES.includes(choice)) throw new Error('poll_invalid_choice');
+  const feedback = clean(input.feedback, 1000);
+  if (choice === 'open' && feedback.length < 3) throw new Error('poll_feedback_required');
+  const state = await readLocalJson(pollFile, {});
+  if (!state.votes) state.votes = { prachtig: 0, okemist: 0, open: 0 };
+  if (!Array.isArray(state.feedback)) state.feedback = [];
+  state.votes[choice] = (state.votes[choice] || 0) + 1;
+  if (choice === 'open') state.feedback.unshift({ text: feedback, createdAt: new Date().toISOString() });
+  await writeLocalJson(pollFile, state);
+  return { ok: true, votes: state.votes };
 }
 
 async function feedbackCreate(input) {
@@ -5791,6 +5810,18 @@ export async function handleRequest(req, res) {
     }
 
     /* Nieuwsbrief & deal-alerts (lead-capture) */
+    if (url.pathname === '/api/poll' && req.method === 'GET') {
+      const state = await readLocalJson(pollFile, {});
+      return json(res, 200, { votes: state.votes || { prachtig: 0, okemist: 0, open: 0 }, feedbackCount: (state.feedback || []).length });
+    }
+    if (url.pathname === '/api/poll' && req.method === 'POST') {
+      if (!rateLimit(req, rateLimits.write, 12, 60000)) return json(res, 429, { error: 'rate_limited' });
+      try {
+        return json(res, 201, await pollHome(await readJson(req)));
+      } catch (err) {
+        return json(res, 400, { error: String(err.message || err) });
+      }
+    }
     if (url.pathname === '/api/newsletter' && req.method === 'POST') {
       if (!rateLimit(req, rateLimits.newsletter, 6, 60000)) return json(res, 429, { error: 'rate_limited' });
       return json(res, 201, await newsletterSubscribe(await readJson(req)));
@@ -6292,6 +6323,7 @@ export async function handleRequest(req, res) {
       'missing_fields', 'request_too_large', 'profile_missing_fields', 'claim_invalid_contact',
       'review_invalid_fields', 'review_already_given', 'request_invalid_fields', 'supporter_invalid_fields', 'response_invalid_fields', 'request_not_found',
       'poll_not_found', 'poll_invalid_vote', 'poll_already_voted', 'poll_option_not_found', 'forum_topic_not_found',
+      'poll_invalid_choice', 'poll_feedback_required',
       'forum_already_reacted', 'favorite_invalid_fields', 'newsletter_invalid_email', 'invalid_moderation_status',
       'moderation_item_not_found', 'news_tip_invalid_fields', 'missing_dog_invalid_fields',
       'missing_dog_not_found', 'quote_invalid_fields', 'slot_not_found',

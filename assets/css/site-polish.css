@@ -133,7 +133,7 @@ main .btn, main .outline, main button, main a { max-width: 100%; }
   .steps-grid, .faq-grid, .providers, .dir-mini-grid { grid-template-columns: 1fr !important; }
   .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .stats-row .stat-card { min-height: 96px; padding: 15px !important; }
-  .nav-links-pills { display: none !important; }
+  .nav-links-pills:not(.open) { display: none !important; }
   .nav-in { min-height: 58px !important; }
 }
 
@@ -181,9 +181,7 @@ body.menu-open { overflow: hidden; }
 
 /* Footer als duidelijke afsluiting: vier inhoudsgroepen zijn genoeg; de
    volledige kennisbank blijft via Meer voor baasjes en zoek bereikbaar. */
-.footer-grid { grid-template-columns: minmax(220px, 1.8fr) repeat(3, minmax(150px, 1fr)) !important; }
-.footer-grid > .footer-col:nth-child(n+5) { display: none !important; }
-@media (max-width: 1024px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr !important; } }
+.footer-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; }
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr !important; } }
 
 /* Rustige eerste indruk: de promotiebalk stond vóór de header en duwde de
@@ -829,3 +827,21 @@ main a:not(.btn):hover { text-decoration: underline; }
 
 /* Pass 100/100 */
 main .btn:hover, main button:hover { filter: saturate(1.08); }
+
+/* ============================================================
+   Ronde 26 — homepage-poll: kaart met drie duidelijke keuzes.
+   ============================================================ */
+.home-poll { max-width: 760px; margin: 0 auto; }
+.home-poll-in { text-align: center; padding: 36px 30px; border: 1px solid var(--border); border-radius: 24px; background: var(--card); box-shadow: var(--shadow-card); }
+.home-poll-intro { max-width: 560px; margin: 10px auto 0; color: var(--muted-foreground); line-height: 1.65; }
+.home-poll-options { display: grid; gap: 10px; margin: 24px 0 4px; text-align: left; }
+.poll-opt { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: 16px; background: var(--background); font: 600 15px 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--foreground); cursor: pointer; transition: border-color .18s ease, transform .18s ease; }
+.poll-opt strong { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: #ffffff; font-size: 14px; flex: none; }
+.poll-opt:hover, .poll-opt:focus-visible, .poll-opt.selected { border-color: var(--primary); transform: translateY(-1px); }
+.poll-opt.selected { background: var(--primary-light); }
+.home-poll-form { display: grid; gap: 10px; text-align: left; margin-top: 18px; }
+.home-poll-form label { font-size: 13.5px; font-weight: 700; color: var(--muted-foreground); }
+.home-poll-form textarea { border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; font: inherit; min-height: 100px; resize: vertical; background: var(--background); color: var(--foreground); }
+.home-poll-form textarea:focus-visible { border-color: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent); outline: none; }
+.home-poll-result { margin: 16px 0 0; font-size: 14.5px; font-weight: 700; line-height: 1.6; color: var(--foreground); }
+@media (max-width: 600px) { .home-poll-in { padding: 26px 18px; } .poll-opt { font-size: 14px; } }
