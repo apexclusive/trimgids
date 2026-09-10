@@ -387,6 +387,33 @@ html, body { overflow-x: clip; }
    ========================================================================== */
 /* Ronde 23 — de merk-slogan staat níét meer in de eerste kolom maar als
    afsluitende regel ónder álle kolomkopjes, boven de vertrouwensband. */
+/* Ronde 27 — header schuift weg bij naar-beneden scrollen en komt terug
+   bij omhoog scrollen (class gezet door app.js). */
+nav.site-navbar { transition: transform .3s cubic-bezier(.16, 1, .3, 1), background-color .2s ease; }
+nav.site-navbar.nav-hidden { transform: translateY(-110%); }
+body.menu-open nav.site-navbar { transform: none; }
+
+/* Ronde 27 — nieuwsbrief-band: tekst en invoer in beide thema's leesbaar.
+   site-polish gaf het veld een witte !important-achtergrond terwijl de
+   placeholder-tekst licht bleef (wit-op-wit), en de alinea's vielen terug
+   op de donkere --muted-foreground op het donkergroene vlak. */
+.home-newsletter .section-eyebrow { color: #a7f3d0 !important; }
+.home-newsletter h3 { color: #f5fff8 !important; }
+.home-newsletter-in strong { color: #f5fff8 !important; }
+.home-newsletter-in p, .home-newsletter p { color: rgba(215, 242, 228, .85) !important; }
+.home-newsletter-form input {
+  background: #ffffff !important;
+  color: #131a16 !important;
+  border: 1px solid rgba(5, 35, 22, .18) !important;
+}
+.home-newsletter-form input::placeholder { color: #5b6b61 !important; opacity: 1; }
+[data-theme="dark"] .home-newsletter-form input {
+  background: rgba(255, 255, 255, .1) !important;
+  color: #edf5f0 !important;
+  border-color: rgba(255, 255, 255, .16) !important;
+}
+[data-theme="dark"] .home-newsletter-form input::placeholder { color: rgba(215, 242, 228, .68) !important; }
+
 .footer-tagline {
   position: relative; z-index: 1;
   margin: -12px auto 26px; max-width: 560px;
@@ -559,4 +586,7 @@ html, body { overflow-x: clip; }
 
 /* Kaartkaart ("Bij jou in de buurt"): hoger kader zodat heel Nederland —
    van Wadden tot Maastricht — rustig in beeld past (beeld 960×696, 4:2.9) */
-.world-card.world-map picture { aspect-ratio: 4 / 2.9; }
+/* Ronde 27 — alle drie de wereld-kaartjes even hoog (5/2.9); de foto van
+   het forum wordt op de gezichten gehouden i.p.v. onderaf bij te snijden. */
+.world-card picture { aspect-ratio: 5 / 2.9; }
+.world-card.world-forum picture img { object-position: center 30%; }

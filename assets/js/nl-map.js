@@ -112,6 +112,17 @@
 
     this.layer = L.layerGroup().addTo(map);
     this.map = map;
+
+    /* Ronde 27 — kaart correct renderen ook als het kader pas later zijn
+       definitieve maat krijgt (content-visibility, tab-wissel, rotatie).
+       Zonder dit tekende Leaflet alleen de hoek linksboven en leek de
+       kaart 'naar links geschoven'. */
+    if (window.ResizeObserver) {
+      var stage = this.stage;
+      var ro = new ResizeObserver(function () { map.invalidateSize({ animate: false }); });
+      ro.observe(stage);
+      this._ro = ro;
+    }
   };
 
   NLMap.prototype.bind = function () {
@@ -242,6 +253,7 @@
     if (key === this.lastFitKey) return;
     this.lastFitKey = key;
     this.fittedOnce = true;
+    this.map.invalidateSize({ animate: false });
     var bounds = L.latLngBounds(items.map(function (i) { return [i.lat, i.lng]; }));
     this.map.fitBounds(bounds, { padding: [30, 30], maxZoom: 13 });
   };

@@ -1024,3 +1024,25 @@ main .sec h2::before {
   background: linear-gradient(180deg, #ffffff 30%, #a7f3d0 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+
+/* ============================================================
+   Ronde 27 — omgevingsresultaten: één hero-foto + compacte rijen
+   i.p.v. grote fotokaarten met dezelfde afbeelding per resultaat.
+   ============================================================ */
+.dir-hero { position: relative; border-radius: 18px; overflow: hidden; margin-bottom: 16px; display: flex; align-items: flex-end; min-height: 150px; background: linear-gradient(135deg, #0f3e28, #17694a); }
+.dir-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dir-hero-txt { position: relative; z-index: 1; width: 100%; padding: 16px 20px; display: grid; gap: 3px; background: linear-gradient(180deg, transparent, rgba(4, 19, 12, .85)); color: #fff; }
+.dir-hero-txt strong { font: 800 17px 'Sora', 'Plus Jakarta Sans', sans-serif; letter-spacing: -.01em; }
+.dir-hero-txt span { font-size: 12.5px; line-height: 1.5; color: rgba(231, 245, 236, .88); }
+.dir-rows { display: grid; gap: 8px; margin-top: 12px; }
+.dir-row { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 13px 16px; border: 1px solid var(--border, #e2e8f0); border-radius: 14px; background: var(--card, #fff); text-decoration: none; transition: border-color .16s ease, transform .16s ease; }
+.dir-row:hover, .dir-row:focus-visible { border-color: var(--primary); transform: translateY(-1px); }
+.dir-row-main { min-width: 0; display: grid; gap: 3px; }
+.dir-row-main strong { font-size: 14.5px; color: var(--foreground, #131a16); overflow-wrap: anywhere; }
+.dir-row-addr { font-size: 12.5px; color: var(--muted-foreground, #64748b); overflow-wrap: anywhere; }
+.dir-row-side { display: flex; align-items: center; gap: 12px; flex: none; font-size: 12.5px; color: var(--muted-foreground, #64748b); }
+.dir-row-phone { white-space: nowrap; }
+.dir-row-rating { font-weight: 800; color: #b45309; }
+[dir-data-theme="dark"] .dir-row-rating, [data-theme="dark"] .dir-row-rating { color: #fbbf24; }
+.dir-row-cta { font-weight: 800; color: var(--primary); white-space: nowrap; }
+@media (max-width: 640px) { .dir-row { flex-direction: column; align-items: flex-start; gap: 8px; } .dir-row-side { flex-wrap: wrap; } }

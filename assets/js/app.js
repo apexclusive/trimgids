@@ -524,12 +524,25 @@
       document.body.appendChild(backTop);
     }
     if (!progress && !nav) return;
+    /* Ronde 27 — de navbar schuift weg bij naar-beneden-scrollen en komt
+       terug zodra je omhoog scrollt. Nooit verbergen als het burgermenu of
+       een uitgeklapte categorie open is. */
+    var navBar = document.querySelector('nav.site-navbar');
+    var navHidden = false;
+    var lastY = window.pageYOffset || 0;
     var onScroll = function () {
       var top = document.documentElement.scrollTop || document.body.scrollTop;
       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (progress) progress.style.width = (height > 0 ? (top / height) * 100 : 0) + '%';
       if (backTop) backTop.classList.toggle('visible', top > 350);
       if (nav) nav.classList.toggle('scrolled', top > 8);
+      if (navBar) {
+        var busy = document.body.classList.contains('menu-open') || document.querySelector('details.nav-more[open]');
+        var dy = top - lastY;
+        if (!busy && dy > 4 && top > 160 && !navHidden) { navBar.classList.add('nav-hidden'); navHidden = true; }
+        else if ((dy < -4 && navHidden) || busy || top < 120) { navBar.classList.remove('nav-hidden'); navHidden = false; }
+        lastY = top;
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

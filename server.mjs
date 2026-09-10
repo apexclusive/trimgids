@@ -2038,6 +2038,27 @@ function ratingStars(rating) {
     Array.from({ length: 5 }, (_, i) => `<i class="${i < full ? 'on' : ''}">★</i>`).join('') +
     '</span>';
 }
+/* Ronde 27 — compacte resultatenrij voor de omgevingslijst: geen grote
+   fotokaarten meer (zelfde foto boven élk resultaat), maar één hero-foto
+   bovenaan + een overzichtelijke opsomming per salon. */
+function providerRowHtml(p, breedSlug, category = 'trimsalon') {
+  const realBreeds = (p.breeds || []).filter(b => b !== 'alle-rassen' && catalog.breeds[b]);
+  const fallbackBreed = [...realBreeds, ...(Object.keys(catalog.breeds || {})).slice(0, 1)][0] || 'labradoodle';
+  const providerUrl = `/trimsalon/${p.city}/${catalog.breeds[breedSlug] ? breedSlug : fallbackBreed}/${p.slug}`;
+  const rating = Number(p.rating) || 0;
+  return `<a class="dir-row" href="${providerUrl}">
+    <div class="dir-row-main">
+      <strong>${escapeHtml(p.name)}</strong>
+      <span class="dir-row-addr">${escapeHtml(p.address || '')}</span>
+    </div>
+    <div class="dir-row-side">
+      ${p.phone ? `<span class="dir-row-phone">📞 ${escapeHtml(p.phone)}</span>` : ''}
+      <span class="dir-row-rating">★ ${rating.toFixed(1).replace('.', ',')}</span>
+      <span class="dir-row-cta">Bekijk →</span>
+    </div>
+  </a>`;
+}
+
 function providerCardHtml(p, breedSlug, category = 'trimsalon') {
   const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.name}, ${p.address}`)}`;
   /* Echt ras kiezen: `alle-rassen` is géén catalogus-ras en geeft anders een 404. */
@@ -2538,9 +2559,16 @@ ${page < totalPages ? `<link rel="next" href="https://trimgids.nl${canonical}?pa
         <div class="dir-map-box" data-nl-map data-category="${category}"${place ? ` data-province="${escapeHtml(place.province || place.region || '')}"` : ''} aria-busy="true"></div>
         <span class="dir-map-hint">Klik een stip voor adres & navigatie — of bekijk ze onder elkaar in de lijst.</span>
       </div>
-      <div class="dir-mini-list" aria-label="Eerste aanbieders">
-        <div class="dir-mini-head"><strong>Uitgelicht vandaag</strong><span>Top 6 van ${providers.length.toLocaleString('nl-NL')}</span></div>
-        <div class="dir-mini-grid">${pageProviders.slice(0, 6).map(p => providerCardHtml(p, breedSlug, category)).join('')}</div>
+      <div class="dir-mini-list" aria-label="Aanbieders in de omgeving">
+        <div class="dir-hero">
+          <img src="${(PROVIDER_IMG[category] || PROVIDER_IMG.trimsalon).src}" srcset="${(PROVIDER_IMG[category] || PROVIDER_IMG.trimsalon).srcset}" sizes="100vw" width="960" height="420" loading="lazy" decoding="async" alt="${(PROVIDER_IMG[category] || PROVIDER_IMG.trimsalon).alt}">
+          <div class="dir-hero-txt">
+            <strong>${catLabel}${place ? ` in de buurt van ${escapeHtml(place.name)}` : ' verspreid over Nederland'}</strong>
+            <span>Alle ${providers.length.toLocaleString('nl-NL')} ${catLabel.toLowerCase()} uit onze geverifieerde catalogus, netjes op één rij.</span>
+          </div>
+        </div>
+        <div class="dir-mini-head"><strong>Resultaten</strong><span>${pageProviders.length} van ${providers.length.toLocaleString('nl-NL')} in de omgeving</span></div>
+        <div class="dir-rows">${pageProviders.map(p => providerRowHtml(p, breedSlug, category)).join('')}</div>
         <button class="btn dir-show-all" id="dir-show-all" type="button">Bekijk alle ${providers.length.toLocaleString('nl-NL')} aanbieders →</button>
       </div>
     </div>
@@ -5099,7 +5127,7 @@ const SITE_INDEX = [
   { icon: '📰', t: 'Landelijk hondennieuws', u: '/nieuws', k: 'nieuws hond alerts wetgeving gemeente landelijk' },
   { icon: '🔎', t: 'Vermiste honden', u: '/vermist', k: 'vermist vermist hond gevonden zoeken' },
   { icon: '💶', t: 'Hondenbelasting per gemeente 2026', u: '/hondenbelasting', k: 'hondenbelasting belasting gemeente tarief 2026 afgeschaft' },
-  { icon: '💬', t: 'Hondenforum & community', u: '/forum', k: 'forum community vragen chat hondenbaasjes' },
+  { icon: '💬', t: 'Forum voor baasjes & community', u: '/forum', k: 'forum community vragen chat hondenbaasjes' },
   { icon: '🦮', t: 'Dienst- & hulphonden', u: '/hulphonden', k: 'hulphonden diensthond geleidehond politiehond assistentie' },
   { icon: '🔬', t: 'Zintuigen & taal van de hond', u: '/zintuigen', k: 'zintuigen snuffelen gehoor reuk hondentaal communicatie' },
   { icon: '🐕', t: 'Erkende fokkers vinden', u: '/fokkers', k: 'fokker fokkers erkend puppy stamboom rassen' },
@@ -5218,7 +5246,7 @@ const KB = [
   { rx: /apport|slaan|bijten|agressie|puppy|pup|opvoed|training|cursus/i, a: 'Puppy’s leren het snelst in de periode 8–16 weken: socialiseren, een puppycursus en korte, positieve sessies werken het best. Bij bijtgedrag of angst adviseren we een gecertificeerde hondenschool of gedragstherapeut — vermijd straffen en schreeuwen.', links: [{ label: '🎓 Hondenscholen & cursussen', url: '/hondenschool' }, { label: '🐶 Puppymatcher', url: '/puppy-kiezen' }, { label: '💬 Vraag het forum', url: '/forum' }] },
   { rx: /ziek|ziekte|dierenarts|arts|dokter|nood|nacht|avond|spoed/i, a: 'Bij twijfel: bel je eigen dierenarts. Regulier consult kost ±€33–86 overdag; avond/weekend €105–160; spoed ’s nachts kan tot €500 extra kosten. Zie je een van de alarmsymptomen (niet eten >24u, sufheid, bloeding, ademnood, braken met bloed), ga dan direct.', links: [{ label: '🚨 Spoeddierenarts bij jou', url: '/spoed-dierenarts' }, { label: '🩺 Tarieven 2026', url: '/dierenarts-tarieven' }] },
   { rx: /webshop|kopen|bestel|product|aanbevolen.*product|borstel|kauwstick|snack/i, a: 'Onze webshop bevat 22 onafhankelijk geselecteerde producten met echte bol.com-reviews — van hypoallergeen voer tot crashgeteste autotuigen. Via partnerlinks betaal jij niets extra; de score-proof producten staan bovenaan.', links: [{ label: '🛒 Naar de webshop', url: '/webshop' }] },
-  { rx: /forum|community|ervaring|vragen|sociale/i, a: 'Het Hondenforum is dé plek om ervaringen te delen: tips over voeding, gedrag, trimmers en meer. Maak (gratis) een account aan om te reageren en je favoriete topic te bewaren.', links: [{ label: '💬 Naar het forum', url: '/forum' }] },
+  { rx: /forum|community|ervaring|vragen|sociale/i, a: 'Het forum voor baasjes is dé plek om ervaringen te delen: tips over voeding, gedrag, trimmers en meer. Maak (gratis) een account aan om te reageren en je favoriete topic te bewaren.', links: [{ label: '💬 Naar het forum', url: '/forum' }] },
   { rx: /vakantie|reizen|vliegen|auto.*hond|reis/i, a: 'Reizen met je hond: binnen de EU is een chip + EU-paspoort (met rabiësvaccinatie) verplicht. Neem voor autoritten een crashgetest autotuig; in landen zoals Duitsland en Frankrijk is dit verplicht. Bekijk onze volledige reisgids.', links: [{ label: '✈️ Vliegen & reizen', url: '/reizen' }, { label: '🚗 Reisveilige accessoires', url: '/webshop' }] },
   { rx: /ras|labradoodle|pomeriaan|maltezer|shih|poedel|goldendoodle|cockapoo|welk ras|hond kiezen/i, a: 'Het beste ras hangt af van je levensstijl: een Pomeriaan past bij appartementen (maar wil wel beweging), Labradoodles zijn gezinsvriendelijk en hypoallergeen-ish, en een Shih Tzu is een rustige stadsgenoot. Bekijk per ras de trimbehoefte, karakter en kosten.', links: [{ label: '🧾 Alle rassen & variëteiten', url: '/rassen' }, { label: '🐶 Puppymatcher', url: '/puppy-kiezen' }] },
   { rx: /offerte|aanvraag|salon.*vinden|prijs.*salon|3 offertes/i, a: 'Vraag gratis 3 offertes aan bij geverifieerde trimsalons, hondenscholen of pensions bij jou in de buurt — reactie meestal binnen 2 uur, volledig vrijblijvend.', links: [{ label: '📝 Offerte aanvragen', url: '/offerte' }] },
