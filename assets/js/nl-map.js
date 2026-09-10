@@ -95,9 +95,8 @@
        op iedere tegel de tekst "API key required". */
     var map = L.map(this.stage, { zoomControl: false, attributionControl: true, scrollWheelZoom: true });
     map.fitBounds(NL_BOUNDS, { padding: [8, 8] });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_34ai_1_38282152c7e6f64ac160316e', {
+    L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_34ai_1_38282152c7e6f64ac160316e', {
       maxZoom: 19,
-      subdomains: 'abcd',
       attribution: OSM_ATTR + ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>'
     }).addTo(map);
 
