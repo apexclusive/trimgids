@@ -8,7 +8,9 @@ const t = (ok, name) => { if (ok) { pass++; console.log('PASS', name); } else { 
 t(d.querySelectorAll('.dir-tab').length === 2, '2 dir-tabs');
 t(d.querySelector('#pane-explore').classList.contains('is-on'), 'explore pane actief default');
 t(d.querySelector('#pane-list').hasAttribute('hidden'), 'list pane verborgen (js init)');
-t(d.querySelectorAll('.dir-mini-grid .pc-card').length === 6, '6 mini-cards');
+t(d.querySelectorAll('.dir-rows .dir-row').length >= 12, 'compacte resultatenrijen (Ronde 27)');
+t(!!d.querySelector('.dir-hero'), '1 hero-foto bovenaan de resultaten');
+t(!d.querySelector('.dir-mini-grid'), 'geen mini-fotokaarten meer');
 const all = d.querySelectorAll('#dir-grid .pc-card').length;
 t(all === 36, `36 kaarten in volledige lijst (${all})`);
 t(html.indexOf('data-nl-map') < html.indexOf('id="dir-grid"'), 'map vóór de lijst in HTML');

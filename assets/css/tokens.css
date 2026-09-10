@@ -42,6 +42,9 @@
   --danger-500: #ef4444;
   --danger-200: #fecaca;
 
+  /* --- Moderne browser-features ---------------------------------------- */
+  accent-color: var(--primary);       /* native checkboxes/radio's/RangeS in merk-kleur */
+
   /* --- Oppervlakken (light) ------------------------------------------ */
   --background: #ffffff;
   --background-subtle: #f8fafc;
@@ -117,6 +120,24 @@
        --bp-lg  1024px  (tablet landscape / kleine laptop)
        --bp-xl  1220px  (desktop)  */
 }
+
+/* --- Moderne basis: smooth scroll + tekstselectie in merkkleur -----------
+   (prefers-reduced-motion zet scroll-behavior terug naar auto, zie site-polish) */
+html { scroll-behavior: smooth; }
+::selection { background: var(--primary); color: #f5fff8; }
+[data-theme="dark"] ::selection, .dark ::selection { background: #10b981; color: #06271a; }
+
+/* Ronde 24 — vloeiende pagina-overgangen via de View Transitions API
+   (Chromium 126+; Safari/Firefox negeren dit netjes). Alleen actief bij
+   gebruikers zónder prefers-reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+/* Ronde 24 — footer buiten beeld niet renderen: snellere first paint.
+   contain-intrinsic-size houdt de scrollbar-stabiel; zodra de footer in
+   beeld komt rendert hij gewoon (ook alle links blijven klikbaar). */
+.site-footer { content-visibility: auto; contain-intrinsic-size: auto 520px; }
 
 /* ==========================================================================
    Compat-aliases: legacy-templates (server.mjs, pages/base.mjs) wijzen nu
@@ -198,32 +219,37 @@
    ========================================================================== */
 [data-theme="dark"], .dark {
   color-scheme: dark;
+  accent-color: #10b981;             /* emerald-accent ook op native formulierelementen */
 
-  --background: #111214;
-  --background-subtle: #0d0e10;
-  --foreground: #e9e6df;
-  --card: #17191e;
-  --card-foreground: #e9e6df;
-  --card-subtle: #20232a;
-  --popover: #17191e;
-  --popover-foreground: #e9e6df;
-  --border: rgba(255, 255, 255, .12);
+  /* Ronde 22 — één warm donkerpalet: groen-zwart + emerald. Eerder stonden hier
+     leigrijze/blauwe waarden (#111214, #17191e, #20232a) die het palet uit
+     home.css overstemden (tokens laadt als laatste) — daardoor was o.a. de
+     hero-zoekbalk "donkerblauw" en voelden de witte knoppen uit de toon. */
+  --background: #0e1512;
+  --background-subtle: #121a16;
+  --foreground: #edf5f0;
+  --card: #15211a;
+  --card-foreground: #edf5f0;
+  --card-subtle: #1a2822;
+  --popover: #15211a;
+  --popover-foreground: #edf5f0;
+  --border: rgba(255, 255, 255, .11);
   --border-subtle: rgba(255, 255, 255, .07);
-  --input: rgba(255, 255, 255, .14);
+  --input: rgba(255, 255, 255, .15);
 
-  --primary: #d8dde5;
-  --primary-hover: #ffffff;
-  --primary-light: rgba(255, 255, 255, .09);
-  --primary-foreground: #111214;
-  --secondary: #20232a;
-  --secondary-foreground: #edf0f4;
-  --accent: #20232a;
-  --accent-foreground: #edf0f4;
+  --primary: #10b981;
+  --primary-hover: #34d399;
+  --primary-light: rgba(16, 185, 129, .14);
+  --primary-foreground: #06271a;
+  --secondary: #1f2e26;
+  --secondary-foreground: #eaf5ef;
+  --accent: #1f2e26;
+  --accent-foreground: #eaf5ef;
 
-  /* 9.68:1 op #17191e — AA ✓ (was #16221c = 1.07:1, onleesbaar) */
-  --muted-foreground: #b6b3ad;
+  /* ≥ 8:1 op --card #111814 — AA ✓ */
+  --muted-foreground: #b4c3ba;
   --muted: var(--muted-foreground);
-  --muted-surface: #20232a;
+  --muted-surface: #1a2822;
 
   --success: #6ee7b7;
   --success-light: rgba(16, 185, 129, .16);
@@ -239,8 +265,14 @@
   --shadow-hover: 0 24px 60px rgba(0, 0, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .04);
   --shadow-floating: 0 28px 70px rgba(0, 0, 0, .45);
 
-  --bg-nav: rgba(11, 12, 15, .78);
-  --cream: #1a1c1f;
+  --bg-nav: rgba(14, 21, 18, .85);
+  --cream: #17221c;
+
+  /* premium-refresh heeft eigen donkere tokens (was leigrijs) — die lopen
+     mee naar het warme palet omdat dit blok als laatste laadt. */
+  --tg-paper: #0e1512;
+  --tg-panel: #15211a;
+  --tg-line: rgba(255, 255, 255, .12);
 }
 
 /* ==========================================================================
@@ -305,3 +337,278 @@
   -webkit-mask-image: none;
   mask-image: none;
 }
+
+/* ==========================================================================
+   Randloos pootlogo (Ronde 17): geen kader, geen achtergrondvlak.
+   De SVG draagt de volledige look (goudverloop + eigen slagschaduw),
+   zodat het logo op elke ondergrond "zweeft". De hover-beweging blijft.
+   ========================================================================== */
+.brand-badge-icon {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+.brand-logo:hover .brand-badge-icon,
+[data-theme="dark"] .brand-badge-icon {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+/* Hover-gloed als zachte halo i.p.v. een rechthoekige ring */
+.brand-logo:hover .brand-badge-icon {
+  filter: drop-shadow(0 4px 14px rgba(16, 185, 129, .45));
+}
+.site-footer .brand-badge-icon,
+.site-footer .brand-logo:hover .brand-badge-icon {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .5));
+}
+
+/* ==========================================================================
+   Overflow-guards (Ronde 17): tekst mag nóóit uit kaders of het viewport lopen.
+   Flex-kinderen krijgen min-width:0 zodat lange labels ellipsis krijgen in
+   plaats van de hele rij uit te duwen, en de pagina clipt horizontaal.
+   ========================================================================== */
+html, body { overflow-x: clip; }
+.nav-in, .nav-in .wrap { min-width: 0; }
+.brand-logo { min-width: 0; }
+.brand-text { min-width: 0; }
+.brand-title, .brand-subtitle { max-width: 100%; overflow-wrap: anywhere; }
+.nav-actions { min-width: 0; }
+.footer-col { min-width: 0; }
+.footer-col a { overflow-wrap: anywhere; }
+
+/* ==========================================================================
+   Footer 2026 (Ronde 17): rustig informatie-eindpunt met vertrouwensband en
+   de onafhankelijkheids-positionering als állerlaatste regel.
+   ========================================================================== */
+/* Ronde 23 — de merk-slogan staat níét meer in de eerste kolom maar als
+   afsluitende regel ónder álle kolomkopjes, boven de vertrouwensband. */
+/* Ronde 27 — header schuift weg bij naar-beneden scrollen en komt terug
+   bij omhoog scrollen (class gezet door app.js). */
+nav.site-navbar { transition: transform .3s cubic-bezier(.16, 1, .3, 1), background-color .2s ease; }
+nav.site-navbar.nav-hidden { transform: translateY(-110%); }
+body.menu-open nav.site-navbar { transform: none; }
+
+/* Ronde 30 — laatste leigrijze vlakken uit premium-refresh mee naar het warme
+   palet: kaarten (world-card, k-card, provider...), forumpanelen, de
+   kaartwerkbalk en de near-white actieve forumknoppen. */
+[data-theme="dark"] .card, [data-theme="dark"] .k-card, [data-theme="dark"] .world-card,
+[data-theme="dark"] .provider, [data-theme="dark"] .news-card, [data-theme="dark"] .faq-item,
+[data-theme="dark"] .home-news-card {
+  background: rgba(21, 33, 26, .82) !important;
+  border-color: rgba(255, 255, 255, .11) !important;
+}
+[data-theme="dark"] .nlmap-top { background: rgba(18, 27, 22, .9) !important; }
+[data-theme="dark"] .tg-f, [data-theme="dark"] .tg-poll, [data-theme="dark"] .tg-poll-option,
+[data-theme="dark"] .tg-f-sort, [data-theme="dark"] .tg-f-search,
+[data-theme="dark"] .tg-f-form input, [data-theme="dark"] .tg-f-form select,
+[data-theme="dark"] .tg-f-form textarea, [data-theme="dark"] .tg-f-reply-form input {
+  background: #15211a !important; color: #eaf5ef !important; border-color: rgba(255, 255, 255, .12) !important;
+}
+[data-theme="dark"] .tg-f-chips button.active, [data-theme="dark"] .tg-poll-submit,
+[data-theme="dark"] .tg-f-reply-form button, [data-theme="dark"] .tg-f-empty-cta {
+  background: linear-gradient(135deg, #047857, #065f46) !important;
+  border-color: #047857 !important; color: #ffffff !important;
+}
+
+/* Ronde 27 — nieuwsbrief-band: tekst en invoer in beide thema's leesbaar.
+   site-polish gaf het veld een witte !important-achtergrond terwijl de
+   placeholder-tekst licht bleef (wit-op-wit), en de alinea's vielen terug
+   op de donkere --muted-foreground op het donkergroene vlak. */
+.home-newsletter .section-eyebrow { color: #a7f3d0 !important; }
+.home-newsletter h3 { color: #f5fff8 !important; }
+.home-newsletter-in strong { color: #f5fff8 !important; }
+.home-newsletter-in p, .home-newsletter p { color: rgba(215, 242, 228, .85) !important; }
+.home-newsletter-form input {
+  background: #ffffff !important;
+  color: #131a16 !important;
+  border: 1px solid rgba(5, 35, 22, .18) !important;
+}
+.home-newsletter-form input::placeholder { color: #5b6b61 !important; opacity: 1; }
+[data-theme="dark"] .home-newsletter-form input {
+  background: rgba(255, 255, 255, .1) !important;
+  color: #edf5f0 !important;
+  border-color: rgba(255, 255, 255, .16) !important;
+}
+[data-theme="dark"] .home-newsletter-form input::placeholder { color: rgba(215, 242, 228, .68) !important; }
+
+.footer-tagline {
+  position: relative; z-index: 1;
+  margin: -12px auto 26px; max-width: 560px;
+  text-align: center;
+  font-size: 14px; line-height: 1.6; letter-spacing: .01em;
+  color: rgba(222, 240, 231, .68);
+}
+/* Ronde 26 — het merk staat onderaan de footer als afsluiting, de kolommen
+   beginnen links bovenaan met 'Vind in de buurt'. */
+.footer-brand { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: 26px; }
+.footer-brand .brand-logo { margin: 0; }
+.footer-trust {
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center;
+  margin: 0 0 30px; padding: 16px 4px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.footer-trust span {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+  color: rgba(222, 240, 231, .78);
+}
+.footer-trust svg.ic { width: 15px; height: 15px; stroke: #5ee6aa; fill: none; stroke-width: 2.2; flex: none; }
+.footer-positioning {
+  position: relative; z-index: 1;
+  margin-top: 26px; padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  text-align: center;
+}
+.footer-positioning p {
+  margin: 0 auto; max-width: 640px;
+  font-size: 13px; line-height: 1.65;
+  color: rgba(222, 240, 231, .62);
+}
+.footer-positioning strong { color: #d7f2e4; font-weight: 800; }
+@media (max-width: 760px) {
+  .footer-trust { justify-content: center; text-align: center; }
+}
+
+/* Footer-grid: vloeiend i.p.v. vaste 7 kolommen die op smalle desktops knept */
+.footer-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+@media (min-width: 1200px) { .footer-grid { grid-template-columns: repeat(5, 1fr); } }
+
+/* ============================================================
+   Ronde 18 — hero-categoriepillen als rustige "Populair:"-lijst
+   (volle knoppen met iconen dupliceerden de zoekbalk; nu een
+   compacte, opgesomde regel chips erboven)
+   ============================================================ */
+.hero-category-pills { gap: 7px; margin-bottom: 14px; }
+.cat-pills-label {
+  font-size: 11.5px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted-foreground); margin-right: 3px;
+}
+.cat-pill {
+  padding: 5px 12px; font-size: 12.5px; font-weight: 700;
+  background: color-mix(in srgb, var(--card) 55%, transparent);
+  border: 1px solid var(--hairline);
+  color: var(--muted-foreground); box-shadow: none;
+}
+.cat-pill:hover { background: color-mix(in srgb, var(--primary) 8%, transparent); border-color: color-mix(in srgb, var(--primary) 30%, transparent); color: var(--primary); transform: none; }
+.cat-pill.active { background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); border-color: color-mix(in srgb, var(--primary) 32%, transparent); box-shadow: none; }
+[data-theme="dark"] .cat-pill.active { background: rgba(16, 185, 129, .16); color: #34d399; border-color: rgba(16, 185, 129, .35); }
+
+/* ============================================================
+   Ronde 19 — contrastcorrecties (WCAG AA), geverifieerd met
+   scripts/contrast-audit.mjs in licht én donker thema
+   ============================================================ */
+
+/* Wereldkaart-kicker: #05966a gaf 3.77:1 op wit — donkerder groen */
+.world-kicker { color: #047857; }
+[data-theme="dark"] .world-kicker { color: #34d399; }
+
+/* Amber badge: #d97706 op #fef3c7 gaf 2.86:1 — donkerder bruintext;
+   in donker thema blijft gouden tekst op de donkere kaart (var) correct */
+.badge-amber { color: #92400e; }
+[data-theme="dark"] .badge-amber { color: #fbbf24; }
+
+/* Stat-box label: muted-foreground was grensgeval (3.60:1) op de
+   geblurde stat-kaart — slate-600 houdt > 6:1 over */
+.stat-box span { color: #475569; }
+[data-theme="dark"] .stat-box span { color: #b6b3ad; }
+
+/* Footer-CTA primair: crèmekleurige tekst op het felle emerald-verloop
+   gaf 2.26:1 — de knop is expliciet donker-tekst-op-emerald */
+.footer-cta .btn-primary { color: #04140c !important; }
+
+/* Inloggen-knop: iconen en tekst in beide thema's waterdicht */
+#account-btn { background: #ffffff !important; color: #131a16 !important; border-color: rgba(15, 62, 40, .18) !important; }
+#account-btn:hover { color: #0f3e28 !important; }
+
+/* Hero-zoekknop: gegarandeerd witte tekst op het donkergroene vlak */
+.btn-airbnb-search { color: #ffffff !important; }
+
+/* ============================================================
+   Ronde 22 — donkere modus in één warm palet: emerald CTA's op
+   groen-zwart, geen leigrijze/#0f172a-blauwe vlakken meer en geen
+   bijna-witte knoppen. Alles met !important omdat premium-refresh
+   de omgekeerde (lichte) stijl met !important afdwingt.
+   ============================================================ */
+/* Primaire knoppen: diep emerald-verloop met WITTE tekst (Ronde 26 op verzoek:
+   wit leest beter op groen dan de eerdere donkere tekst; contrast ≥ 5,3:1 op
+   beide uiteinden — WCAG AA, geverifieerd met de audit) */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-airbnb-search,
+[data-theme="dark"] .tg-btn,
+[data-theme="dark"] .tg-f-new,
+[data-theme="dark"] .tg-f-post {
+  background: linear-gradient(135deg, #047857, #065f46) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 26px -8px rgba(4, 120, 87, .5) !important;
+}
+
+/* Header-knoppen: warme kaartkleur i.p.v. leigrijs #17191e */
+[data-theme="dark"] .menu-btn,
+[data-theme="dark"] .theme-toggle-btn,
+[data-theme="dark"] #account-btn {
+  background: #15211a !important;
+  color: #e9f2ec !important;
+  border-color: rgba(255, 255, 255, .14) !important;
+}
+[data-theme="dark"] .menu-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover,
+[data-theme="dark"] #account-btn:hover { color: #34d399 !important; }
+
+/* Actieve hub-pill: emerald met donkere tekst (i.p.v. wit-op-wit-glas) */
+[data-theme="dark"] .hub-pill.active {
+  background: #10b981 !important;
+  color: #06271a !important;
+  border-color: #10b981 !important;
+}
+
+/* Zoekbalk in de hero: warm groen-zwart i.p.v. donkerblauw #0f172a */
+[data-theme="dark"] body.tg-home .airbnb-search-bar {
+  background: rgba(15, 23, 19, .9) !important;
+  border-color: rgba(110, 231, 183, .26) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .45), 0 0 0 7px rgba(16, 185, 129, .05) !important;
+}
+[data-theme="dark"] body.tg-home .airbnb-search-bar .segment-label { color: #a7f3d0 !important; }
+[data-theme="dark"] body.tg-home .airbnb-search-bar .segment-input,
+[data-theme="dark"] body.tg-home .airbnb-search-bar .segment-input option { color: #edf5f0 !important; }
+[data-theme="dark"] .search-divider { background: rgba(255, 255, 255, .14) !important; }
+
+/* Nieuwsbrief-band, forum-body's en kaartvlak: warme tinten */
+[data-theme="dark"] .home-newsletter { background: linear-gradient(135deg, #121c16, #20302a) !important; border-color: rgba(110, 231, 183, .18) !important; }
+[data-theme="dark"] .tg-f-body, [data-theme="dark"] .tg-f-reply { background: #121b16 !important; }
+[data-theme="dark"] .nlmap-stage { background: #111915 !important; }
+
+/* Sectie-achtergronden in donker: warm groen-zwart i.p.v. blauwig #0b0c0f
+   (premium-refresh vlakt alle secties af met een koel zwart — dit trekt
+   het hele donkere thema naar het merkpalet) */
+[data-theme="dark"] .hero,
+[data-theme="dark"] .section,
+[data-theme="dark"] .section.t-purple,
+[data-theme="dark"] .section.t-orange,
+[data-theme="dark"] .section.t-blue,
+[data-theme="dark"] .section.t-teal,
+[data-theme="dark"] .section.t-amber,
+[data-theme="dark"] .section.t-red,
+[data-theme="dark"] .section.t-green {
+  background: #101815 !important;
+  border-color: rgba(255, 255, 255, .08) !important;
+}
+[data-theme="dark"] .hero::after { background: rgba(16, 24, 21, .72) !important; }
+
+/* Wereldkaart-kicker en badges volgen het nieuwe palet */
+[data-theme="dark"] .world-cta { color: #6ee7b7 !important; }
+[data-theme="dark"] .world-kicker { color: #34d399; }
+[data-theme="dark"] .badge-amber { color: #fbbf24; }
+
+/* Kaartkaart ("Bij jou in de buurt"): hoger kader zodat heel Nederland —
+   van Wadden tot Maastricht — rustig in beeld past (beeld 960×696, 4:2.9) */
+/* Ronde 27 — alle drie de wereld-kaartjes even hoog (5/2.9); de foto van
+   het forum wordt op de gezichten gehouden i.p.v. onderaf bij te snijden. */
+.world-card picture { aspect-ratio: 5 / 2.9; }
+.world-card.world-forum picture img { object-position: center 30%; }

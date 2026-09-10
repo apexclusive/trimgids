@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title"><title>TrimGids</title><defs><linearGradient id="g" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse"><stop stop-color="#34d399"/><stop offset="1" stop-color="#059669"/></linearGradient></defs><rect width="64" height="64" rx="18" fill="#062719"/><rect x="5" y="5" width="54" height="54" rx="16" fill="url(#g)"/><text x="32" y="43" text-anchor="middle" fill="#062719" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="800" letter-spacing="-3">TG</text><circle cx="52" cy="13" r="3" fill="#fbbf24"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="tgFaviconTitle">
+  <title id="tgFaviconTitle">TrimGids pootlogo</title>
+  <defs>
+    <linearGradient id="favGold" x1="18" y1="12" x2="80" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe9b8"/>
+      <stop offset=".45" stop-color="#f2bb52"/>
+      <stop offset="1" stop-color="#c08322"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Randloos pootje, met een dun donkergroen randje zodat het ook op
+       lichte én donkere browsertabbladen leesbaar blijft (paint-order). -->
+  <g fill="url(#favGold)" stroke="#062719" stroke-width="2.4" stroke-linejoin="round" paint-order="stroke fill" aria-hidden="true">
+    <ellipse cx="20"  cy="46" rx="8"   ry="11"  transform="rotate(-38 20 46)"/>
+    <ellipse cx="36"  cy="30" rx="9"   ry="12.5" transform="rotate(-15 36 30)"/>
+    <ellipse cx="60"  cy="29" rx="9"   ry="12.5" transform="rotate(15 60 29)"/>
+    <ellipse cx="76"  cy="45" rx="8"   ry="11"  transform="rotate(38 76 45)"/>
+    <path d="M48 44c-8.6 0-15.6 4.4-18.9 11.2-2.4 4.9-6.4 8-10.6 10.2-4.2 2.2-6 7.2-3.3 10.7 2.8 3.6 8.6 4 12.6 1.9 3.4-1.8 7.5-1.9 11-.4 3 1.3 6.2 2 9.2 2s6.2-.7 9.2-2c3.5-1.5 7.6-1.4 11 .4 4 2.1 9.8 1.7 12.6-1.9 2.7-3.5.9-8.5-3.3-10.7-4.2-2.2-8.2-5.3-10.6-10.2C63.6 48.4 56.6 44 48 44Z"/>
+  </g>
+</svg>

@@ -18,7 +18,7 @@ const CSS = `
 
 export function communityPage() {
   return pageShell({
-    title: 'Hondenforum & Community: vraag het andere baasjes | TrimGids',
+    title: 'Forum voor Baasjes & Community: vraag het andere baasjes | TrimGids',
     description: 'Het TrimGids hondenforum: stel vragen, deel ervaringen, tips en uitjes met duizenden hondenbaasjes in Nederland. Gratis, vriendelijk en snel antwoord van de community.',
     canonical: '/forum',
     active: 'forum',
@@ -28,7 +28,7 @@ export function communityPage() {
 <p class="crumb"><a href="/">TrimGids</a> / Community & Forum</p>
 <div class="hero">
   <span class="eyebrow">De community van TrimGids</span>
-  <h1>Hondenforum: vraag het de andere baasjes</h1>
+  <h1>Forum voor baasjes: vraag het de andere baasjes</h1>
   <p class="intro">De beste hondenkennis zit niet in een artikel — die zit tussen baasjes. Stel je vraag, deel je ervaring met een fokker, trimsalon of opvang, en help iemand anders verder. Vriendelijk, gratis en altijd met een kwispel.</p>
   <div class="grid g4">
     <div class="card" style="text-align:center"><strong style="font-size:26px;color:var(--g)">30 sec</strong><p>zo snel maak je een account</p></div>

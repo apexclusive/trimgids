@@ -95,7 +95,7 @@ export function pageShell({ title, description, canonical, body, extraCss = '', 
 <meta property="og:title" content="${title}"><meta property="og:description" content="${description}">
 <meta property="og:url" content="https://trimgids.nl${canonical}"><meta property="og:locale" content="nl_NL">
 <meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/fonts.css?v=1" id="tg-local-fonts">
 ${chromeCssLink}
 ${extraHead}
 <style>${BASE_CSS}${extraCss}</style></head>

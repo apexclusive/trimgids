@@ -89,7 +89,7 @@ export function vrijwilligersPage() {
   <p class="sub">Vul dit formulier in en wij sturen je (per e-mail) een kort overzicht van organisaties en vacatures die bij jouw keuze en regio passen. Vrijblijvend, geen account nodig.</p>
   <form class="vol" id="vol-form" novalidate>
     <label>Voornaam *<input name="firstName" required maxlength="60" placeholder="Bijv. Sanne"></label>
-    <label>E-mailadres *<input name="email" type="email" required maxlength="90" placeholder="jij@voorbeeld.nl"></label>
+    <label>E-mailadres *<input name="email" type="email" required autocomplete="email" maxlength="90" placeholder="jij@voorbeeld.nl"></label>
     <label>Woonplaats *<input name="city" required maxlength="60" placeholder="Bijv. Eindhoven"></label>
     <label>Provincie *
       <select name="province" required>

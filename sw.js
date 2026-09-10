@@ -1,10 +1,10 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v8';
+const VERSION = 'trimgids-v18';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [
-  '/', '/manifest.webmanifest', '/logo.svg', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-180.png',
-  '/assets/img/hero-640.webp', '/assets/img/hero-1200.webp', '/assets/img/hero-1600.webp', '/assets/img/og.jpg',
+  '/', '/offline', '/manifest.webmanifest', '/logo.svg', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-180.png',
+  '/assets/img/og.jpg',
   '/assets/img/cat-trimsalon-480.webp', '/assets/img/cat-trimsalon-960.webp',
   '/assets/img/cat-school-480.webp', '/assets/img/cat-school-960.webp',
   '/assets/img/cat-opvang-480.webp', '/assets/img/cat-opvang-960.webp',
@@ -12,8 +12,8 @@ const PRECACHE = [
   '/assets/img/cat-wandelen-480.webp', '/assets/img/cat-wandelen-960.webp',
   '/assets/img/cat-strand-480.webp', '/assets/img/cat-strand-960.webp',
   '/assets/img/pomeriaan-320.webp', '/assets/img/pomeriaan-640.webp', '/assets/img/pomeriaan-hondzien.webp',
-  '/assets/js/app.js?v=22', '/assets/js/nl-map.js?v=17', '/assets/js/forum.js', '/assets/css/site-polish.css?v=1',
-  '/assets/css/home.css?v=17', '/assets/css/site-chrome.css?v=23', '/assets/css/premium-refresh.css?v=12',
+  '/assets/js/app.js', '/assets/js/nl-map.js', '/assets/js/forum.js', '/assets/css/site-polish.css',
+  '/assets/css/home.css', '/assets/css/site-chrome.css', '/assets/css/premium-refresh.css', '/assets/css/fonts.css',
   '/assets/css/nl-map.css', '/assets/css/forum.css'
 ];
 
@@ -68,7 +68,7 @@ self.addEventListener('fetch', event => {
           caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(request).then(hit => hit || caches.match('/')))
+        .catch(() => caches.match(request).then(hit => hit || caches.match('/offline').then(off => off || caches.match('/'))))
     );
     return;
   }

@@ -689,7 +689,7 @@ nav.site-navbar {
 .map-f-btn { padding: 7px 14px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--background); color: var(--foreground); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.18s ease; }
 .map-f-btn:hover { border-color: var(--primary); color: var(--primary); }
 .map-f-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
-#home-map { height: 500px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+#home-map { height: 580px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); }
 .custom-pin { width: 32px; height: 32px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,.25); border: 2px solid #fff; }
 .custom-pin>span { transform: rotate(45deg); font-size: 14px; line-height: 1; }
 .cluster, .cluster-lg, .cluster-xl {
@@ -710,7 +710,7 @@ nav.site-navbar {
 /* Mobiel: compactere secties en kaart */
 @media (max-width: 768px) {
   .section { padding: 48px 0; }
-  #home-map, .map-placeholder { height: 380px; }
+  #home-map, .map-placeholder { height: 430px; }
 }
 
 /* Lead Quote Banner */
@@ -783,11 +783,12 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { footer.site-footer { padding: 42px 0 24px; } .footer-grid { gap: 28px; margin-bottom: 28px; } .footer-bottom { font-size: 12px; } }
 
-/* Floating Back-to-Top Button */
+/* Floating Back-to-Top Button — staat links van de chat-bel (right:18/bottom:18, 60px),
+   dus op right:88 met de middenlijn op gelijke hoogte (bottom:26). */
 .back-to-top-btn {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 26px;
+  right: 88px;
   z-index: 990;
   background: var(--card);
   border: 1px solid var(--border);
@@ -869,6 +870,11 @@ footer.site-footer::before { content: ''; position: absolute; inset: 0 0 auto; h
 .world-chips span { font: 600 11px var(--font-body); color: var(--ink-soft); background: var(--secondary); border: 1px solid var(--border-subtle); padding: 4px 9px; border-radius: 999px; }
 .world-chips b { font-weight: 800; color: var(--primary); }
 .world-cta { margin-top: 10px; font: 700 13.5px var(--font-body); color: var(--primary); display: inline-flex; align-items: center; gap: 6px; }
+/* Ronde 29 — kaart 6 heeft twee doorkliklinks (nieuws + verhalen) */
+.world-links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.world-links a { font: 700 13.5px var(--font-body); color: var(--primary); }
+.world-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.world-links .world-cta { margin-top: 0; }
 .world-cta { flex-wrap: wrap; }
 .world-cta b { color: var(--foreground); font-weight: 800; }
 .world-card:hover .world-cta { gap: 10px; }

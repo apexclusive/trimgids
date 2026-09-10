@@ -72,7 +72,7 @@ export function puppiesPage(list = []) {
 <div class="pm-bar" role="search" aria-label="Pups filteren">
   <div class="pm-search">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
-    <input id="pm-q" type="search" placeholder="Zoek op ras, fokker of plaats…" aria-label="Zoek pups">
+    <input id="pm-q" type="search" enterkeyhint="search" placeholder="Zoek op ras, fokker of plaats…" aria-label="Zoek pups">
   </div>
   <select class="pm-select" id="pm-breed" aria-label="Filter op ras"><option value="">Alle rassen</option>${breedOptions}</select>
   <select class="pm-select" id="pm-prov" aria-label="Filter op provincie">${PROVINCES.map(p => `<option value="${p === 'Alle provincies' ? '' : p}">${p}</option>`).join('')}</select>
@@ -106,7 +106,7 @@ export function puppiesPage(list = []) {
     <label>Plaats<input name="city" required maxlength="60" placeholder="Bijv. Epe"></label>
     <label>Provincie<select name="province" required>${PROVINCES.filter(p => p !== 'Alle provincies').map(p => `<option>${p}</option>`).join('')}</select></label>
     <label>Fokkernaam<input name="breeder" required maxlength="80" placeholder="Bijv. Kennel Amberfield"></label>
-    <label>E-mail fokker<input name="email" type="email" required maxlength="100" placeholder="fokker@kennel.nl"></label>
+    <label>E-mail fokker<input name="email" type="email" required autocomplete="email" maxlength="100" placeholder="fokker@kennel.nl"></label>
     <label>Gezondheidschecks<textarea name="checks" required maxlength="400" placeholder="HD/ED-röntgen, DNA: EIC/PRA vrij, oogonderzoek, stamboom…"></textarea></label>
     <label class="full">Foto’s van jouw nest <span class="pm-upload-note">2 foto’s gratis · tot 10 extra foto’s voor €4,99 (betaling wordt later geactiveerd)</span><input id="pm-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple><small class="pm-upload-help">Gebruik echte foto’s van jouw eigen fokkerij. Maximaal 1 MB per foto; alles wordt eerst gecontroleerd.</small></label>
     <label>Fotopakket<select name="photoPlan"><option value="free">Gratis · maximaal 2 foto’s</option><option value="extra">Uitgebreid · maximaal 12 foto’s · €4,99</option></select></label>

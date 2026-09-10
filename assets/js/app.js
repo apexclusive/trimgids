@@ -51,6 +51,10 @@
 
   function applyTheme(theme, silent) {
     document.documentElement.setAttribute('data-theme', theme);
+    /* Ronde 23 — mobiele browserbalk (theme-color) volgt het actieve thema */
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+      meta.setAttribute('content', theme === 'dark' ? '#0e1512' : '#ffffff');
+    });
     try { localStorage.setItem('trimgids_theme', theme); } catch (e) {}
     if (!silent) syncThemeButtons();
   }
@@ -261,18 +265,18 @@
       '.tg-search-shell{position:relative;display:flex;align-items:center;min-width:0}' +
       '.tg-search-input{font:700 13.5px "Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink,#0b1220);background:var(--card,#fff);border:1px solid var(--line,#e2e8f0);border-radius:999px;padding:9px 13px 9px 36px;width:min(230px,26vw);outline:none;transition:border-color .18s,box-shadow .18s,width .25s}' +
       '.tg-search-input:focus{border-color:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.15);width:min(300px,34vw)}' +
-      '.tg-search-input::placeholder{color:#94a3b8}' +
-      '.tg-search-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#64748b;pointer-events:none;display:grid;place-items:center}' +
-      '.tg-search-kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:800 10px "Plus Jakarta Sans",sans-serif;color:#94a3b8;border:1px solid var(--line,#e2e8f0);border-radius:6px;padding:2px 5px;background:var(--bg,#f8fafc);pointer-events:none}' +
+      '.tg-search-input::placeholder{color:var(--muted-foreground,#94a3b8)}' +
+      '.tg-search-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-2,#64748b);pointer-events:none;display:grid;place-items:center}' +
+      '.tg-search-kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:800 10px "Plus Jakarta Sans",sans-serif;color:var(--ink-2,#94a3b8);border:1px solid var(--line,#e2e8f0);border-radius:6px;padding:2px 5px;background:var(--bg,#f8fafc);pointer-events:none}' +
       '.tg-search-drop{position:absolute;top:calc(100% + 8px);left:0;right:0;min-width:min(380px,86vw);background:var(--card,#fff);border:1px solid var(--line,#e2e8f0);border-radius:16px;box-shadow:0 24px 60px -18px rgba(2,32,19,.3);padding:8px;z-index:99995;display:none;max-height:min(430px,62vh);overflow:auto}' +
       '.tg-search-drop.open{display:grid;gap:2px}' +
       '.tg-search-item{display:flex;gap:11px;align-items:center;padding:10px 12px;border-radius:12px;text-decoration:none;color:var(--ink,#0b1220);cursor:pointer}' +
       '.tg-search-item:hover,.tg-search-item.act{background:rgba(16,185,129,.09)}' +
       '.tg-search-item .i{width:34px;height:34px;flex:none;border-radius:10px;background:rgba(16,185,129,.1);display:grid;place-items:center;font-size:16px}' +
       '.tg-search-item b{font-size:13.5px;display:block;line-height:1.3}' +
-      '.tg-search-item small{font-size:11.5px;color:#64748b;display:block}' +
-      '.tg-search-empty{padding:14px 12px;font-size:13px;color:#64748b}' +
-      '.tg-search-foot{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;font-size:11px;color:#94a3b8;border-top:1px solid var(--line,#e2e8f0);margin-top:4px}' +
+      '.tg-search-item small{font-size:11.5px;color:var(--ink-2,#64748b);display:block}' +
+      '.tg-search-empty{padding:14px 12px;font-size:13px;color:var(--ink-2,#64748b)}' +
+      '.tg-search-foot{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;font-size:11px;color:var(--ink-2,#94a3b8);border-top:1px solid var(--line,#e2e8f0);margin-top:4px}' +
       '@media(max-width:1000px){.nav-actions > a[href="/bedrijven"]{display:none}.tg-search-shell{order:0}.tg-search-input{width:min(150px,34vw)}.tg-search-input:focus{width:min(190px,46vw)}.tg-search-kbd{display:none}}' +
       '@media(max-width:600px){.tg-search-shell{display:none}.tg-search-input{width:min(120px,36vw)}.tg-search-input:focus{width:min(168px,60vw)}}' +
       '.tg-overlay{position:fixed;inset:0;z-index:99990;background:rgba(4,20,13,.62);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;animation:tgFade .2s ease}' +
@@ -504,15 +508,41 @@
   /* ------------------------ Homepage-interacties ------------------------ */
   function initScrollUI() {
     var progress = document.getElementById('scroll-progress');
-    var backTop = document.getElementById('back-to-top');
     var nav = document.getElementById('tg-site-nav');
-    if (!progress && !backTop && !nav) return;
+    /* Ronde 19 — de terug-naar-boven-knop bestaat op elke pagina: aanmaken als
+       de template hem niet meelevert. Alleen een pijl-icoontje (44px cirkel),
+       gepositioneerd links van de chat-bel via CSS. */
+    var backTop = document.getElementById('back-to-top');
+    if (!backTop) {
+      backTop = document.createElement('button');
+      backTop.id = 'back-to-top';
+      backTop.type = 'button';
+      backTop.className = 'back-to-top-btn';
+      backTop.setAttribute('aria-label', 'Naar boven');
+      backTop.title = 'Naar boven';
+      backTop.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>';
+      document.body.appendChild(backTop);
+    }
+    if (!progress && !nav) return;
+    /* Ronde 27 — de navbar schuift weg bij naar-beneden-scrollen en komt
+       terug zodra je omhoog scrollt. Nooit verbergen als het burgermenu of
+       een uitgeklapte categorie open is. */
+    var navBar = document.querySelector('nav.site-navbar');
+    var navHidden = false;
+    var lastY = window.pageYOffset || 0;
     var onScroll = function () {
       var top = document.documentElement.scrollTop || document.body.scrollTop;
       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (progress) progress.style.width = (height > 0 ? (top / height) * 100 : 0) + '%';
       if (backTop) backTop.classList.toggle('visible', top > 350);
       if (nav) nav.classList.toggle('scrolled', top > 8);
+      if (navBar) {
+        var busy = document.body.classList.contains('menu-open') || document.querySelector('details.nav-more[open]');
+        var dy = top - lastY;
+        if (!busy && dy > 4 && top > 160 && !navHidden) { navBar.classList.add('nav-hidden'); navHidden = true; }
+        else if ((dy < -4 && navHidden) || busy || top < 120) { navBar.classList.remove('nav-hidden'); navHidden = false; }
+        lastY = top;
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -685,24 +715,41 @@
     var menuBtn = document.querySelector('.menu-btn');
     var mainNav = document.getElementById('main-nav');
     if (!menuBtn || !mainNav) return;
+    var navMore = mainNav.querySelector('details.nav-more');
+    var menuIcon = '<svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>';
+    var closeIcon = '<svg class="ic" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>';
     var close = function () {
       mainNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.innerHTML = menuIcon;
       menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open navigatiemenu');
       document.body.classList.remove('menu-open');
+      /* De uitgeklapte categorieën blijven niet open staan zodra het menu dicht is. */
+      if (navMore) navMore.open = false;
+    };
+    var openMenu = function () {
+      mainNav.classList.add('open');
+      menuBtn.classList.add('open');
+      menuBtn.innerHTML = closeIcon;
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Navigatiemenu sluiten');
+      document.body.classList.add('menu-open');
+      /* Alle kopjes in één keer zichtbaar: "Meer voor baasjes" klapt automatisch uit. */
+      if (navMore) navMore.open = true;
     };
     menuBtn.addEventListener('click', function () {
-      var open = !mainNav.classList.contains('open');
-      if (open) {
-        mainNav.classList.add('open');
-        menuBtn.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('menu-open');
-      } else close();
+      if (mainNav.classList.contains('open')) close(); else openMenu();
     });
     mainNav.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', close); });
     document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
     document.addEventListener('click', function (event) {
       if (!mainNav.classList.contains('open')) return;
-      if (!mainNav.contains(event.target) && event.target !== menuBtn) close();
+      if (!mainNav.contains(event.target) && !menuBtn.contains(event.target)) close();
+    });
+    /* Bij draaien van portrait/landscape of opschalen naar desktop: menu netjes sluiten. */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1280 && mainNav.classList.contains('open')) close();
     });
   }
 
@@ -821,7 +868,7 @@
     shell.id = 'tg-search-shell';
     shell.innerHTML =
       '<span class="tg-search-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="20.4" y1="20.4" x2="16.6" y2="16.6"></line></svg></span>' +
-      '<input class="tg-search-input" id="tg-search-input" type="search" placeholder="Zoek in TrimGids…" aria-label="Zoek in TrimGids" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="tg-search-drop">' +
+      '<input class="tg-search-input" id="tg-search-input" type="search" enterkeyhint="search" placeholder="Zoek in TrimGids…" aria-label="Zoek in TrimGids" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="tg-search-drop">' +
       '<span class="tg-search-kbd" aria-hidden="true">Ctrl K</span>' +
       '<div class="tg-search-drop" id="tg-search-drop" role="listbox"></div>';
     host.appendChild(shell);
@@ -944,6 +991,68 @@
     load();
   }
 
+  /* ------------------------------- Poll (r26) --------------------------- */
+  function initPoll() {
+    var options = document.getElementById('tg-poll-options');
+    if (!options) return;
+    var form = document.getElementById('tg-poll-form');
+    var result = document.getElementById('tg-poll-result');
+    var choice = null;
+
+    function pct(n, total) { return total ? Math.round(n / total * 100) : 0; }
+    function showVotes(votes) {
+      votes = votes || {};
+      var a = votes.prachtig || 0, b = votes.okemist || 0, c = votes.open || 0;
+      var total = a + b + c;
+      if (!total) {
+        result.textContent = 'Bedankt voor je stem! Jij denkt als eerste mee — andere baasjes kunnen nog stemmen.';
+        return;
+      }
+      result.textContent = 'Bedankt voor je stem! 🐾 ' + pct(a, total) + '% vindt de site prachtig, ' +
+        pct(b, total) + '% mist nog wat en ' + c + ' baasje' + (c === 1 ? ' gaf' : 's gaven') + ' open feedback.';
+    }
+    var done = false;
+    function vote(payload) {
+      if (done) return;
+      done = true;
+      result.textContent = 'Bezig met versturen…';
+      fetch('/api/poll', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+        .then(function (r) { if (!r.ok) throw new Error('poll_' + r.status); return r.json(); })
+        .then(function (d) {
+          try { localStorage.setItem('trimgids_poll', 'done'); } catch (e) {}
+          options.hidden = true;
+          form.hidden = true;
+          showVotes(d.votes);
+        })
+        .catch(function () { result.textContent = 'Hmm, het versturen lukte niet — probeer het zo nog even.'; });
+    }
+    function alreadyVoted() {
+      options.hidden = true;
+      form.hidden = true;
+      result.textContent = 'Je hebt al gestemd — bedankt voor je mee-denken! 🐾';
+      fetch('/api/poll').then(function (r) { return r.json(); }).then(function (d) { showVotes(d.votes); }).catch(function () {});
+    }
+
+    try { if (localStorage.getItem('trimgids_poll') === 'done') return alreadyVoted(); } catch (e) {}
+
+    options.querySelectorAll('.poll-opt').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (done) return;
+        choice = btn.getAttribute('data-choice');
+        options.querySelectorAll('.poll-opt').forEach(function (b) { b.classList.toggle('selected', b === btn); });
+        if (choice === 'open') { form.hidden = false; form.querySelector('textarea').focus(); }
+        else { vote({ choice: choice }); }
+      });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (done) return;
+      var text = form.querySelector('textarea').value.trim();
+      if (text.length < 3) { result.textContent = 'Vul eerst kort in wat jij zou verbeteren.'; return; }
+      vote({ choice: 'open', feedback: text });
+    });
+  }
+
   /* -------------------------------- Boot -------------------------------- */
   function boot() {
     ensureStyles();
@@ -964,6 +1073,7 @@
     initCategoryPills();
     initGeoButtons();
     initNewsletter();
+    initPoll();
     initFeedbackForm();
     initSiteSearch();
     initHomeTaxChecker();

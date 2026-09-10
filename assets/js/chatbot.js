@@ -51,7 +51,7 @@
     '[data-theme="dark"] #tg-chat-form{background:#101d16;border-color:rgba(255,255,255,.1)}' +
     '[data-theme="dark"] #tg-chat-form input{background:#182a20;border-color:rgba(255,255,255,.15);color:#eef5f0}' +
     '[data-theme="dark"] .tg-chat-note{background:#0a1410;color:#64748b}' +
-    '@media(max-width:600px){#tg-chat-bubble{right:14px;bottom:14px}#tg-chat-panel{right:14px;bottom:86px}}';
+    '@media(max-width:720px){#tg-chat-bubble{right:14px;bottom:78px}#tg-chat-panel{right:14px;bottom:148px;height:min(560px,calc(100dvh - 180px))}}';
 
   var SUGGESTIONS = [
     'Welke verzekering is het beste?',

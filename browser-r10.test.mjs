@@ -24,7 +24,7 @@ for (const path of pages) {
   expect(d.querySelectorAll('.nav-links-pills .nav-pill').length >= 8, '8+ nav-pills');
   expect(d.querySelectorAll('.nav-more-panel h3').length === 4, 'nav-more heeft 4 kolommen');
   expect(d.querySelectorAll('.nav-actions .btn-outline').length >= 2, 'nav-actions knoppen (bedrijven + account)');
-  expect(d.querySelectorAll('.footer-grid .footer-col').length >= 6, 'footer-grid met 6+ kolommen');
+  expect(d.querySelectorAll('.footer-grid .footer-col').length >= 5, 'footer-grid met 5+ kolommen (merk staat onderin, Ronde 26)');
   expect(d.querySelectorAll('#tg-newsletter').length === 1, 'nieuwsbrief-kaart in footer');
   expect(d.querySelectorAll('link[id="tg-site-chrome"]').length === 1, 'site-chrome.css exact 1× geladen');
   expect(d.querySelectorAll('link[id="tg-content-skin"]').length === 1, 'content-skin.css exact 1× geladen');
@@ -33,8 +33,17 @@ for (const path of pages) {
   expect(d.querySelectorAll('.route-skip, .skip-link').length >= 1, 'skip-link aanwezig');
   expect(d.querySelectorAll('header, header.site-navbar').length === 0 || d.querySelector('nav.site-navbar') != null, 'geen legacy-header meer');
 
-  /* Runtime: app.js boot moet de zoekbalk in de navbar injecteren */
-  await new Promise(r => setTimeout(r, 600));
+  /* Runtime: app.js boot moet de zoekbalk in de navbar injecteren.
+     We pollen tot het element er is (max 3s) — een vaste 600ms-sleep
+     flopte op script-rijke pagina's wanneer jsdom's resource-queue traag
+     was (intermitterende r10-flake, Ronde 26). */
+  await new Promise(resolve => {
+    const deadline = Date.now() + 3000;
+    (function check() {
+      if (d.querySelector('#tg-search-input') || Date.now() > deadline) return resolve();
+      setTimeout(check, 100);
+    })();
+  });
   expect(!!d.querySelector('#tg-search-input'), 'zoekbalk geïnjecteerd door app.js');
   expect(!!d.querySelector('#theme-toggle'), 'theme-toggle aanwezig');
 
