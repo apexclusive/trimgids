@@ -108,6 +108,9 @@ function parseCss(text, rules = [], media = null) {
 }
 function mediaApplies(cond, width) {
   if (!cond) return true;
+  /* Print-stijlen gelden nooit op een scherm-weergave (r28: de blanket
+     a{color:inherit!important} uit @media print verduisterde link-kleuren). */
+  if (/\bprint\b/.test(cond)) return false;
   let ok = true;
   for (const m of cond.match(/\(([^)]+)\)/g) || []) {
     const mm = m.slice(1, -1).replace(/:/g, ' ').trim().split(/\s+/);
@@ -279,7 +282,9 @@ const TARGETS = [
   ['.announce-text', 'aankondigingsbalk', 4.5],
   ['.announce-link', 'aankondigingsbalk · link', 4.5],
   ['.mobile-action-bar a', 'mobiel · actiebalk', 4.5],
-  ['.founder-copy .section-subtitle', 'over-trimgids · tekst', 4.5]
+  ['.founder-copy .section-subtitle', 'over-trimgids · tekst', 4.5],
+  ['.founder-baasjes p', 'over-trimgids · voor-baasjes tekst', 4.5],
+  ['.baasjes-verder', 'over-trimgids · lees-verder link', 4.5]
 ];
 
 let failed = 0;
