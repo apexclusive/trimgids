@@ -2,7 +2,7 @@
   {
     "route": "/",
     "status": 200,
-    "ms": 158,
+    "ms": 51,
     "title": true,
     "titleText": "TrimGids: hondenzorg, trimsalons & kaart (2026) | TrimGids",
     "description": true,
@@ -21,7 +21,7 @@
   {
     "route": "/nieuws",
     "status": 200,
-    "ms": 27,
+    "ms": 5,
     "title": true,
     "titleText": "Landelijke Hondennieuws Feed, Gif-Alerts &amp; | TrimGids",
     "description": true,
@@ -40,7 +40,7 @@
   {
     "route": "/verzekering",
     "status": 200,
-    "ms": 12,
+    "ms": 4,
     "title": true,
     "titleText": "Beste Hondenverzekering Vergelijken 2026 | TrimGids",
     "description": true,
@@ -59,7 +59,7 @@
   {
     "route": "/voeding",
     "status": 200,
-    "ms": 5,
+    "ms": 3,
     "title": true,
     "titleText": "Beste Hondenvoer &amp; Verse Maaltijden 2026 | TrimGids",
     "description": true,
@@ -78,7 +78,7 @@
   {
     "route": "/trimsalon/maastricht",
     "status": 200,
-    "ms": 23,
+    "ms": 5,
     "title": true,
     "titleText": "Trimsalons in Maastricht: aanbieders &amp; tarieven | TrimGids",
     "description": true,
@@ -97,7 +97,7 @@
   {
     "route": "/rassen/labradoodle",
     "status": 200,
-    "ms": 11,
+    "ms": 5,
     "title": true,
     "titleText": "Labradoodle: ras, kenmerken &amp; verzorging | TrimGids",
     "description": true,
@@ -116,7 +116,7 @@
   {
     "route": "/kaart",
     "status": 200,
-    "ms": 7,
+    "ms": 3,
     "title": true,
     "titleText": "Ontdekkingskaart Honden Nederland: Salons | TrimGids",
     "description": true,
@@ -154,7 +154,7 @@
   {
     "route": "/last-minute",
     "status": 200,
-    "ms": 17,
+    "ms": 6,
     "title": true,
     "titleText": "Last-Minute Trimsalon Deals &amp; Vrije Plekken | TrimGids",
     "description": true,
@@ -173,7 +173,7 @@
   {
     "route": "/offerte",
     "status": 200,
-    "ms": 21,
+    "ms": 5,
     "title": true,
     "titleText": "Vergelijk Gratis Offertes: Trimsalons &amp; | TrimGids",
     "description": true,
@@ -192,7 +192,7 @@
   {
     "route": "/hondenbelasting",
     "status": 200,
-    "ms": 7,
+    "ms": 2,
     "title": true,
     "titleText": "Hondenbelasting per Gemeente 2026: Waar en | TrimGids",
     "description": true,
@@ -211,7 +211,7 @@
   {
     "route": "/producten",
     "status": 200,
-    "ms": 15,
+    "ms": 2,
     "title": true,
     "titleText": "Beste Vachtverzorging & Hondenbenodigdheden 2026 | TrimGids",
     "description": true,
@@ -230,7 +230,7 @@
   {
     "route": "/giftigheid-calculator",
     "status": 200,
-    "ms": 14,
+    "ms": 2,
     "title": true,
     "titleText": "Chocolade & Gif Calculator voor Honden | TrimGids",
     "description": true,
@@ -249,7 +249,7 @@
   {
     "route": "/puppy-kiezen",
     "status": 200,
-    "ms": 12,
+    "ms": 4,
     "title": true,
     "titleText": "Welk Hondenras Past Bij Mij? 2026 Puppy Matcher | TrimGids",
     "description": true,
@@ -268,7 +268,7 @@
   {
     "route": "/leeftijd-calculator",
     "status": 200,
-    "ms": 3,
+    "ms": 2,
     "title": true,
     "titleText": "Hondenleeftijd Berekenen in Mensenjaren 2026 | TrimGids",
     "description": true,
@@ -287,7 +287,7 @@
   {
     "route": "/trimsalon-inkomsten-calculator",
     "status": 200,
-    "ms": 5,
+    "ms": 2,
     "title": true,
     "titleText": "Trimsalon Omzet & Inkomsten Calculator 2026 | TrimGids B2B",
     "description": true,
@@ -306,7 +306,7 @@
   {
     "route": "/bedrijven",
     "status": 200,
-    "ms": 9,
+    "ms": 3,
     "title": true,
     "titleText": "TrimGids Pro: Voor Trimsalons, Hondenscholen &amp; | TrimGids",
     "description": true,
@@ -325,7 +325,7 @@
   {
     "route": "/ehbo-hond",
     "status": 200,
-    "ms": 6,
+    "ms": 2,
     "title": true,
     "titleText": "EHBO voor Honden: Eerste Hulp bij Noodgevallen | TrimGids",
     "description": true,
@@ -344,7 +344,7 @@
   {
     "route": "/forum",
     "status": 200,
-    "ms": 9,
+    "ms": 2,
     "title": true,
     "titleText": "Hondenforum & Community: vraag het andere baasjes | TrimGids",
     "description": true,
@@ -382,7 +382,7 @@
   {
     "route": "/zintuigen",
     "status": 200,
-    "ms": 14,
+    "ms": 2,
     "title": true,
     "titleText": "Zintuigenlab: hoe ziet, hoort en ruikt een hond? | TrimGids",
     "description": true,
@@ -401,7 +401,7 @@
   {
     "route": "/hondenanatomie",
     "status": 200,
-    "ms": 6,
+    "ms": 4,
     "title": true,
     "titleText": "Hondenanatomie uitgelegd: interactief model van | TrimGids",
     "description": true,
@@ -439,7 +439,7 @@
   {
     "route": "/puppies",
     "status": 200,
-    "ms": 9,
+    "ms": 4,
     "title": true,
     "titleText": "PuppyMarktplaats: pups met transparante | TrimGids",
     "description": true,
@@ -458,7 +458,7 @@
   {
     "route": "/fokkers",
     "status": 200,
-    "ms": 17,
+    "ms": 2,
     "title": true,
     "titleText": "Fokkers in Nederland: erkend of niet? Waar je op | TrimGids",
     "description": true,
@@ -477,7 +477,7 @@
   {
     "route": "/aankoopgids",
     "status": 200,
-    "ms": 44,
+    "ms": 43,
     "title": true,
     "titleText": "Aankoopgids hond: per ras + complete | TrimGids",
     "description": true,
@@ -496,7 +496,7 @@
   {
     "route": "/vacatures",
     "status": 200,
-    "ms": 25,
+    "ms": 7,
     "title": true,
     "titleText": "Vacatures in de hondenbranche: werk én hulp | TrimGids",
     "description": true,
@@ -515,7 +515,7 @@
   {
     "route": "/vrijwilligers",
     "status": 200,
-    "ms": 19,
+    "ms": 2,
     "title": true,
     "titleText": "Vrijwilligerswerk met honden: asiel, opvang &amp; | TrimGids",
     "description": true,
@@ -534,7 +534,7 @@
   {
     "route": "/adoptie",
     "status": 200,
-    "ms": 22,
+    "ms": 2,
     "title": true,
     "titleText": "Pup van de fokker of hond uit het asiel? Alles | TrimGids",
     "description": true,
@@ -553,7 +553,7 @@
   {
     "route": "/hond-gevonden",
     "status": 200,
-    "ms": 38,
+    "ms": 3,
     "title": true,
     "titleText": "Hond gevonden? Wat moet ik doen en wie moet ik | TrimGids",
     "description": true,
@@ -572,7 +572,7 @@
   {
     "route": "/reizen",
     "status": 200,
-    "ms": 22,
+    "ms": 2,
     "title": true,
     "titleText": "Vliegen &amp; reizen met je hond: regels, kosten en | TrimGids",
     "description": true,
@@ -591,7 +591,7 @@
   {
     "route": "/vliegen-hond",
     "status": 200,
-    "ms": 14,
+    "ms": 2,
     "title": true,
     "titleText": "Vliegen &amp; reizen met je hond: regels, kosten en | TrimGids",
     "description": true,
@@ -610,7 +610,7 @@
   {
     "route": "/rassen",
     "status": 200,
-    "ms": 7,
+    "ms": 2,
     "title": true,
     "titleText": "Rassen &amp; variëteiten: Pomeriaan bear face, toy | TrimGids",
     "description": true,
@@ -667,7 +667,7 @@
   {
     "route": "/hondenweetjes",
     "status": 200,
-    "ms": 12,
+    "ms": 3,
     "title": true,
     "titleText": "Hondenweetjes: voeding, hypoallergeen, ouderdom | TrimGids",
     "description": true,
@@ -686,7 +686,7 @@
   {
     "route": "/hondenwedstrijden",
     "status": 200,
-    "ms": 5,
+    "ms": 2,
     "title": true,
     "titleText": "Hondenwedstrijden &amp; sport: welke honden zijn het | TrimGids",
     "description": true,
@@ -705,7 +705,7 @@
   {
     "route": "/chippen-ontwormen",
     "status": 200,
-    "ms": 56,
+    "ms": 10,
     "title": true,
     "titleText": "Chippen &amp; ontwormen: verplicht of niet, waar | TrimGids",
     "description": true,
@@ -724,7 +724,7 @@
   {
     "route": "/braken-hond",
     "status": 200,
-    "ms": 38,
+    "ms": 3,
     "title": true,
     "titleText": "Braken bij honden: normaal of niet, wanneer naar | TrimGids",
     "description": true,
@@ -762,7 +762,7 @@
   {
     "route": "/zwerfhonden",
     "status": 200,
-    "ms": 4,
+    "ms": 2,
     "title": true,
     "titleText": "Zwerfhonden wereldwijd: aantallen en wat wij | TrimGids",
     "description": true,
@@ -781,7 +781,7 @@
   {
     "route": "/honden-cijfers",
     "status": 200,
-    "ms": 5,
+    "ms": 2,
     "title": true,
     "titleText": "Honden in cijfers: populatie, geboorte en | TrimGids",
     "description": true,
@@ -800,7 +800,7 @@
   {
     "route": "/geschiedenis-hond",
     "status": 200,
-    "ms": 6,
+    "ms": 2,
     "title": true,
     "titleText": "Geschiedenis van de hond: van wolf tot Pomeriaan | TrimGids",
     "description": true,
@@ -838,7 +838,7 @@
   {
     "route": "/hond-en-werk",
     "status": 200,
-    "ms": 6,
+    "ms": 2,
     "title": true,
     "titleText": "Is een hond een roedeldier en kan hij alleen | TrimGids",
     "description": true,
@@ -857,7 +857,7 @@
   {
     "route": "/webshop",
     "status": 200,
-    "ms": 3,
+    "ms": 6,
     "title": true,
     "titleText": "Webshop: hypoallergeen voer, reisveiligheid &amp; | TrimGids",
     "description": true,
@@ -876,7 +876,7 @@
   {
     "route": "/trimmen-kosten",
     "status": 200,
-    "ms": 16,
+    "ms": 2,
     "title": true,
     "titleText": "Trimkosten 2026: tarieven en calculator | TrimGids",
     "description": true,
@@ -895,7 +895,7 @@
   {
     "route": "/wat-kost-trimmen",
     "status": 200,
-    "ms": 6,
+    "ms": 2,
     "title": true,
     "titleText": "Trimkosten 2026: tarieven en calculator | TrimGids",
     "description": true,
@@ -914,7 +914,7 @@
   {
     "route": "/trimkosten",
     "status": 200,
-    "ms": 11,
+    "ms": 2,
     "title": true,
     "titleText": "Trimkosten 2026: tarieven en calculator | TrimGids",
     "description": true,
@@ -933,7 +933,7 @@
   {
     "route": "/zoek",
     "status": 200,
-    "ms": 6,
+    "ms": 2,
     "title": true,
     "titleText": "Zoeken op TrimGids: salons, rassen, kosten &amp; | TrimGids",
     "description": true,

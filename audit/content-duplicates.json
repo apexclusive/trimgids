@@ -1,0 +1,14 @@
+{
+  "method": "normalized page titles and shared shell checks",
+  "duplicateTitles": [
+    {
+      "title": "vliegen &amp; reizen met je hond: regels, kosten en | trimgids",
+      "count": 2
+    },
+    {
+      "title": "trimkosten 2026: tarieven en calculator | trimgids",
+      "count": 3
+    }
+  ],
+  "note": "Near-duplicate body copy requires editorial review; this report flags exact title collisions first."
+}

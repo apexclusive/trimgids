@@ -1,0 +1,302 @@
+[
+  {
+    "route": "/",
+    "shell": true,
+    "links": 184,
+    "status": "green"
+  },
+  {
+    "route": "/nieuws",
+    "shell": true,
+    "links": 125,
+    "status": "green"
+  },
+  {
+    "route": "/verzekering",
+    "shell": true,
+    "links": 142,
+    "status": "green"
+  },
+  {
+    "route": "/voeding",
+    "shell": true,
+    "links": 138,
+    "status": "green"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "shell": true,
+    "links": 259,
+    "status": "green"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "shell": true,
+    "links": 164,
+    "status": "green"
+  },
+  {
+    "route": "/kaart",
+    "shell": true,
+    "links": 130,
+    "status": "green"
+  },
+  {
+    "route": "/wandelen",
+    "shell": true,
+    "links": 130,
+    "status": "green"
+  },
+  {
+    "route": "/last-minute",
+    "shell": true,
+    "links": 125,
+    "status": "green"
+  },
+  {
+    "route": "/offerte",
+    "shell": true,
+    "links": 125,
+    "status": "green"
+  },
+  {
+    "route": "/hondenbelasting",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/producten",
+    "shell": true,
+    "links": 133,
+    "status": "green"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "shell": true,
+    "links": 124,
+    "status": "green"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/bedrijven",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/ehbo-hond",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/forum",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/hulphonden",
+    "shell": true,
+    "links": 133,
+    "status": "green"
+  },
+  {
+    "route": "/zintuigen",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/hondenanatomie",
+    "shell": true,
+    "links": 123,
+    "status": "green"
+  },
+  {
+    "route": "/hondengedrag",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/puppies",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/fokkers",
+    "shell": true,
+    "links": 148,
+    "status": "green"
+  },
+  {
+    "route": "/aankoopgids",
+    "shell": true,
+    "links": 130,
+    "status": "green"
+  },
+  {
+    "route": "/vacatures",
+    "shell": true,
+    "links": 134,
+    "status": "green"
+  },
+  {
+    "route": "/vrijwilligers",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/adoptie",
+    "shell": true,
+    "links": 131,
+    "status": "green"
+  },
+  {
+    "route": "/hond-gevonden",
+    "shell": true,
+    "links": 139,
+    "status": "green"
+  },
+  {
+    "route": "/reizen",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/vliegen-hond",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/rassen",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/verboden-rassen",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/poepzakjes",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/hondenweetjes",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/braken-hond",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/zwerfhonden",
+    "shell": true,
+    "links": 134,
+    "status": "green"
+  },
+  {
+    "route": "/honden-cijfers",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "shell": true,
+    "links": 128,
+    "status": "green"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/hond-en-werk",
+    "shell": true,
+    "links": 127,
+    "status": "green"
+  },
+  {
+    "route": "/webshop",
+    "shell": true,
+    "links": 151,
+    "status": "green"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/trimkosten",
+    "shell": true,
+    "links": 126,
+    "status": "green"
+  },
+  {
+    "route": "/zoek",
+    "shell": true,
+    "links": 124,
+    "status": "green"
+  }
+]

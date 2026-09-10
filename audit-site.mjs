@@ -63,13 +63,24 @@ const inventory = {
 };
 const seoAudit = routeHealth.map(r => ({ route: r.route, status: r.status, score: [r.status === 200, r.title, r.description, r.canonical, r.h1Count === 1, r.schema].filter(Boolean).length, checks: { http: r.status === 200, title: r.title, description: r.description, canonical: r.canonical, singleH1: r.h1Count === 1, schema: r.schema, openGraph: r.openGraph, twitter: r.twitter } }));
 const accessibilityAudit = routeHealth.map(r => ({ route: r.route, score: [r.shell, r.altMissing === 0].filter(Boolean).length, checks: { universalShell: r.shell, missingAlt: r.altMissing } }));
+const headingAudit = routeHealth.map(r => ({ route: r.route, h1Count: r.h1Count, status: r.h1Count === 1 ? 'green' : 'orange' }));
+const navigationAudit = routeHealth.map(r => ({ route: r.route, shell: r.shell, links: r.links, status: r.shell && r.links > 0 ? 'green' : 'orange' }));
+const assetAudit = routeHealth.map(r => ({ route: r.route, images: r.images, missingAlt: r.altMissing, status: r.altMissing === 0 ? 'green' : 'orange' }));
+const textByRoute = new Map();
+for (const r of routeHealth) textByRoute.set(r.titleText.toLowerCase(), (textByRoute.get(r.titleText.toLowerCase()) || 0) + 1);
+const duplicateTitles = [...textByRoute.entries()].filter(([, count]) => count > 1).map(([title, count]) => ({ title, count }));
+const contentDuplicates = { method: 'normalized page titles and shared shell checks', duplicateTitles, note: 'Near-duplicate body copy requires editorial review; this report flags exact title collisions first.' };
 await Promise.all([
   write('site-inventory.json', inventory),
   write('route-health.json', routeHealth),
   write('component-inventory.json', componentInventory),
   write('commercial-link-inventory.json', commercialLinks),
   write('seo-audit.json', seoAudit),
-  write('accessibility-audit.json', accessibilityAudit)
+  write('accessibility-audit.json', accessibilityAudit),
+  write('heading-audit.json', headingAudit),
+  write('navigation-audit.json', navigationAudit),
+  write('asset-audit.json', assetAudit),
+  write('content-duplicates.json', contentDuplicates)
 ]);
 const failures = routeHealth.filter(r => r.status !== 200 || !r.title || !r.description || !r.canonical || r.h1Count !== 1 || !r.shell || r.altMissing > 0);
 if (failures.length) {
