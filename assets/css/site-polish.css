@@ -280,3 +280,10 @@ main > section, main > .guide-box { scroll-margin-top: 92px; }
 .hero-subtitle, main > .intro { max-width: 58ch !important; }
 .hero-welcome { max-width: 52ch !important; color: var(--muted-foreground, #64748b) !important; }
 .section-title { text-wrap: balance; }
+
+/* Ronde 3/10 — homepage als rustige route naar vijf startpunten */
+body.tg-home .worlds-sec { padding-top: clamp(28px, 5vw, 64px) !important; }
+body.tg-home .worlds-grid { align-items: stretch; }
+body.tg-home .world-card { min-height: 300px; display: flex; flex-direction: column; }
+body.tg-home .world-card .world-body { flex: 1; display: flex; flex-direction: column; }
+body.tg-home .world-card .world-cta { margin-top: auto; padding-top: 20px; }
