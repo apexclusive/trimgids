@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html lang="nl" class="scroll-smooth">
+<html lang="nl" class="scroll-smooth" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trimgids.nl & DogPedia | Het Complete Kynologische Kwaliteitsplatform</title>
-  <meta name="description" content="Het grootste platform van Nederland & België voor trimsalons, hondenscholen, honden anatomie en DogPedia rassen vachtverzorging." />
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrimGids: Hondenzorg, Trimsalons, Kaart & DogPedia (2026) | TrimGids.nl</title>
+  <meta name="description" content="Vind 2.900+ trimsalons, hondenscholen, opvang en losloopgebieden in Nederland. Inclusief Hondenbelasting 2026, Zintuigenlab, Vachtplanner en Hondenverzekering vergelijker.">
+  <link rel="canonical" href="https://trimgids.nl/">
+
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Leaflet Interactive Maps CSS & JS -->
+  <!-- Leaflet Maps CSS & JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans & Sora -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Sora"', 'sans-serif'],
           },
           colors: {
             brand: {
@@ -35,8 +38,8 @@
               600: '#16a34a',
               700: '#15803d',
               800: '#166534',
-              900: '#14532d',
-              950: '#052e16',
+              900: '#0f3e28',
+              950: '#072417',
             }
           }
         }
@@ -45,228 +48,425 @@
   </script>
 
   <style>
-    /* Leaflet custom map markers */
-    .custom-marker {
-      background: #16a34a;
-      border: 3px solid white;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-      font-weight: bold;
-      font-size: 11px;
-    }
-    .custom-marker-school {
-      background: #3b82f6;
-      border: 3px solid white;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-      font-weight: bold;
-      font-size: 11px;
-    }
+    /* Custom Map Markers */
+    .map-pin-salon { background: #16a34a; border: 2.5px solid white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .map-pin-school { background: #2563eb; border: 2.5px solid white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .map-pin-route { background: #d97706; border: 2.5px solid white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+
     /* Comparison Slider */
     .comparison-slider { position: relative; overflow: hidden; user-select: none; }
     .comparison-before { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; }
-    .comparison-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: white; cursor: ew-resize; transform: translateX(-50%); }
-    .comparison-handle-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; border-radius: 50%; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: #0f172a; }
-    
-    /* Anatomy Hotspot Pulse */
-    .hotspot-pulse {
-      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    @keyframes pulse-ring {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.7; }
+    .comparison-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: white; cursor: ew-resize; transform: translateX(-50%); box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+    .comparison-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; border-radius: 50%; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: #0f172a; }
+
+    /* Canine Vision Simulation Filter */
+    .dog-vision-filter {
+      filter: url('#dog-vision-matrix') saturate(0.7) hue-rotate(15deg);
     }
   </style>
+
+  <!-- SVG Filter for Canine Vision Simulation (Dichromacy) -->
+  <svg style="display:none">
+    <filter id="dog-vision-matrix">
+      <feColorMatrix type="matrix" values="0.625 0.375 0 0 0  0.7 0.3 0 0 0  0 0.3 0.7 0 0  0 0 0 1 0"/>
+    </filter>
+  </svg>
 </head>
 
 <body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
 
-  <!-- ================= TOP TICKER ================= -->
-  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <div class="bg-brand-950 text-brand-100 text-xs py-2 px-4 border-b border-brand-900/60 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span><strong>Trimgids & DogPedia Hub</strong> • Kennis, Kaarten & Vakspecialisten voor hondenbezitters</span>
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+        </span>
+        <span><strong>Nieuw 2026:</strong> Vergelijk 2.900+ trimsalons, scholen, verzekeringen en losloopplekken in NL</span>
       </div>
       <div class="hidden sm:flex items-center gap-6">
-        <a href="#anatomie" class="hover:text-white transition flex items-center gap-1"><i data-lucide="activity" class="w-3.5 h-3.5"></i> Vacht-Anatomie</a>
-        <a href="#dogpedia" class="hover:text-white transition flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> DogPedia Database</a>
-        <button onclick="openModal('salonModal')" class="text-brand-400 font-bold hover:underline">Vermeld jouw Trimsalon / School</button>
+        <a href="#zorg-verzekering" class="hover:text-white transition flex items-center gap-1 font-bold"><i data-lucide="shield" class="w-3.5 h-3.5 text-brand-400"></i> Verzekering Vergelijker</a>
+        <a href="#financien-belasting" class="hover:text-white transition flex items-center gap-1"><i data-lucide="euro" class="w-3.5 h-3.5"></i> Hondenbelasting per Gemeente</a>
+        <a href="#vacht-offerte" class="text-brand-400 font-bold hover:underline">3 Gratis Offertes Aanvragen →</a>
       </div>
     </div>
   </div>
 
-  <!-- ================= MEGA NAVIGATION ================= -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <!-- ================= FLOATING LUXURY NAVBAR ================= -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-8 z-40 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-700 to-brand-500 text-white flex items-center justify-center shadow-lg shadow-brand-500/25">
+        <div class="w-11 h-11 rounded-2xl bg-brand-900 text-brand-400 flex items-center justify-center shadow-lg shadow-brand-900/20 border border-brand-700/50">
           <i data-lucide="scissors" class="w-6 h-6"></i>
         </div>
         <div>
-          <span class="text-2xl font-black tracking-tight text-slate-900 leading-none">Trim<span class="text-brand-600">gids</span><span class="text-xs bg-slate-900 text-brand-400 px-1.5 py-0.5 rounded ml-1.5 uppercase font-black">DogPedia</span></span>
-          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mt-0.5">Kynologisch Platform NL & BE</span>
+          <span class="text-2xl font-black font-display tracking-tight text-slate-900 leading-none">Trim<span class="text-brand-600">Gids</span></span>
+          <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block mt-0.5">Nederland &middot; 2026</span>
         </div>
       </a>
 
-      <!-- Desktop Nav Items -->
-      <nav class="hidden xl:flex items-center gap-7 font-bold text-slate-700 text-sm">
-        <a href="#directory" class="hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-600"></i> Kaart & Salons</a>
-        <a href="#anatomie" class="hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="activity" class="w-4 h-4 text-emerald-600"></i> Vacht-Anatomie</a>
-        <a href="#dogpedia" class="hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="book-open" class="w-4 h-4 text-blue-600"></i> DogPedia Rassen</a>
-        <a href="#transformaties" class="hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i> Voor & Na</a>
-        <a href="#calculator" class="hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="calculator" class="w-4 h-4 text-slate-400"></i> Prijscalculator</a>
-        <a href="#kennisbank" class="hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i> Kennisbank</a>
+      <!-- Desktop Navigation Pills -->
+      <nav class="hidden xl:flex items-center gap-1 font-bold text-slate-600 text-xs">
+        <a href="#interactieve-kaart" class="px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="map" class="w-4 h-4 text-brand-600"></i> Kaart</a>
+        <a href="#werelden" class="px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="layout-grid" class="w-4 h-4 text-emerald-600"></i> 6 Werelden</a>
+        <a href="#zintuigen" class="px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="eye" class="w-4 h-4 text-blue-600"></i> Zintuigenlab</a>
+        <a href="#vacht-offerte" class="px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="scissors" class="w-4 h-4 text-amber-600"></i> Vachtplanner</a>
+        <a href="#zorg-verzekering" class="px-3 py-2 rounded-xl bg-brand-50 text-brand-800 border border-brand-200 transition flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-brand-600"></i> Verzekering 2026</a>
+        <a href="#financien-belasting" class="px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="euro" class="w-4 h-4 text-slate-500"></i> Belasting</a>
+        <a href="#reizen-kennis" class="px-3 py-2 rounded-xl hover:bg-slate-100 hover:text-brand-600 transition flex items-center gap-1.5"><i data-lucide="plane" class="w-4 h-4 text-slate-500"></i> Reizen & Gidsen</a>
       </nav>
 
-      <!-- Favorites & CTA -->
+      <!-- Action Buttons -->
       <div class="hidden sm:flex items-center gap-3">
-        <button onclick="showFavoritesModal()" class="relative p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-rose-600 hover:bg-rose-50 transition" title="Mijn Favorieten">
-          <i data-lucide="heart" class="w-5 h-5"></i>
-          <span id="favBadge" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
-        </button>
-
-        <button onclick="openModal('salonModal')" class="px-5 py-2.5 rounded-xl text-sm font-black bg-brand-600 hover:bg-brand-700 text-white shadow-lg shadow-brand-600/20 transition transform active:scale-95 flex items-center gap-2">
-          <i data-lucide="plus-circle" class="w-4 h-4"></i>
-          Salon / School Aanmelden
-        </button>
+        <a href="#vacht-offerte" class="px-5 py-2.5 rounded-xl text-xs font-black bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-600/20 transition transform active:scale-95">
+          Vraag Offerte Aan
+        </a>
       </div>
 
-      <!-- Mobile Hamburger -->
+      <!-- Mobile Menu Toggle -->
       <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100">
-        <i data-lucide="menu" class="w-7 h-7"></i>
+        <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden xl:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-3 shadow-2xl">
-      <a href="#directory" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 font-bold text-slate-800"><i data-lucide="map-pin" class="w-5 h-5 text-brand-600"></i> Salons & Hondenscholen Kaart</a>
-      <a href="#anatomie" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 font-bold text-slate-800"><i data-lucide="activity" class="w-5 h-5 text-emerald-600"></i> Interactieve Anatomiegids</a>
-      <a href="#dogpedia" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 font-bold text-slate-800"><i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i> DogPedia Rassen Database</a>
-      <a href="#transformaties" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 font-bold text-slate-800"><i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i> Voor & Na Transformaties</a>
-      <a href="#calculator" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 font-bold text-slate-800"><i data-lucide="calculator" class="w-5 h-5"></i> Prijscalculator</a>
-      <a href="#kennisbank" onclick="toggleMobileMenu()" class="flex items-center gap-3 py-2 font-bold text-slate-800"><i data-lucide="file-text" class="w-5 h-5"></i> Kennisbank</a>
-      <button onclick="openModal('salonModal'); toggleMobileMenu()" class="w-full py-3 rounded-xl font-bold bg-brand-600 text-white shadow-lg">
-        + Aanmelden als Trimmer of School
-      </button>
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden xl:hidden border-t border-slate-200 bg-white px-6 py-4 space-y-2 text-sm shadow-xl font-bold">
+      <a href="#interactieve-kaart" onclick="toggleMobileMenu()" class="block py-2 text-slate-800">📍 Kaart & Salons</a>
+      <a href="#werelden" onclick="toggleMobileMenu()" class="block py-2 text-slate-800">🌐 De 6 Werelden</a>
+      <a href="#zintuigen" onclick="toggleMobileMenu()" class="block py-2 text-slate-800">👁️ Zintuigenlab (Hondenogen)</a>
+      <a href="#vacht-offerte" onclick="toggleMobileMenu()" class="block py-2 text-slate-800">✂️ Smart Vachtplanner</a>
+      <a href="#zorg-verzekering" onclick="toggleMobileMenu()" class="block py-2 text-brand-700">🛡️ Hondenverzekering 2026</a>
+      <a href="#financien-belasting" onclick="toggleMobileMenu()" class="block py-2 text-slate-800">💶 Hondenbelasting per Gemeente</a>
+      <a href="#reizen-kennis" onclick="toggleMobileMenu()" class="block py-2 text-slate-800">✈️ Reizen, EHBO & Gidsen</a>
     </div>
   </header>
 
-  <!-- ================= HERO WITH GLOBAL SEARCH ================= -->
-  <section class="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- ================= HERO SECTION WITH AIRBNB-STYLE SEARCH CAPSULE ================= -->
+  <section class="relative pt-10 pb-20 md:pt-16 md:pb-28 bg-gradient-to-b from-brand-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
       
-      <div class="text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider mb-6">
-          <i data-lucide="shield-check" class="w-4 h-4"></i>
-          Geverifieerde Kynologische Gegevens van Nederland & België
-        </div>
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider mb-6">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        De Onafhankelijke Gids voor Hondenbaasjes in Nederland & België
+      </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-          De Complete Gids voor <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-emerald-300 to-teal-200">Trimsalons, Hondenscholen & Vachtzorg</span>
-        </h1>
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight leading-tight max-w-4xl mx-auto">
+        Goede zorg en mooie plekken <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-emerald-300 to-teal-200">voor jouw hond</span>.
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Vind 2.900+ trimsalons, hondenscholen, opvang en officiële losloopgebieden in heel Nederland. Zoek op type, plaats of hondenras.
+      </p>
 
-        <p class="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-          Zoek op de interactieve kaart, ontdek ras-specifieke verzorging in de DogPedia encyclopedie, inspecteer de vacht-anatomie en bereken direct de behandelprijs.
-        </p>
+      <!-- Category Filter Pills -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto" id="heroCategoryPills">
+        <button onclick="setHeroCategory('trimsalon', this)" class="hero-cat-btn active px-4 py-2 rounded-full text-xs font-bold bg-brand-600 text-white border border-brand-500 shadow-md">✂️ Trimsalons</button>
+        <button onclick="setHeroCategory('hondenschool', this)" class="hero-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10">🎓 Hondenscholen</button>
+        <button onclick="setHeroCategory('opvang', this)" class="hero-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10">🏨 Opvang & Hotels</button>
+        <button onclick="setHeroCategory('wellness', this)" class="hero-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10">🌿 Wellness & Fysio</button>
+        <button onclick="setHeroCategory('wandelen', this)" class="hero-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10">🌲 Losloopgebieden</button>
+        <button onclick="setHeroCategory('verzekering', this)" class="hero-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">🛡️ Hondenverzekering</button>
+      </div>
 
-        <!-- Global Smart Search -->
-        <div class="mt-10 max-w-3xl mx-auto bg-white/10 backdrop-blur-xl p-3 sm:p-4 rounded-3xl border border-white/15 shadow-2xl">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            
-            <div class="relative flex items-center">
-              <i data-lucide="search" class="w-5 h-5 text-brand-400 absolute left-4"></i>
-              <input type="text" id="globalSearchInput" placeholder="Stad, ras of salon..." 
-                class="w-full pl-11 pr-4 py-3.5 bg-slate-900/90 border border-slate-700 rounded-2xl text-sm text-white placeholder-slate-400 focus:ring-2 focus:ring-brand-400 outline-none"
-                oninput="handleGlobalSearch()" />
-            </div>
-
-            <div class="relative flex items-center">
-              <i data-lucide="map" class="w-5 h-5 text-brand-400 absolute left-4"></i>
-              <select id="provinceSelect" onchange="filterDirectory()" class="w-full pl-11 pr-8 py-3.5 bg-slate-900/90 border border-slate-700 rounded-2xl text-sm text-white focus:ring-2 focus:ring-brand-400 outline-none appearance-none">
-                <option value="">Alle Provincies (NL & BE)</option>
-                <option value="Noord-Holland">Noord-Holland</option>
-                <option value="Zuid-Holland">Zuid-Holland</option>
-                <option value="Utrecht">Utrecht</option>
-                <option value="Gelderland">Gelderland</option>
-                <option value="Noord-Brabant">Noord-Brabant</option>
-                <option value="Overijssel">Overijssel</option>
-                <option value="Limburg">Limburg</option>
-                <option value="Groningen">Groningen</option>
-                <option value="Friesland">Friesland</option>
-                <option value="Drenthe">Drenthe</option>
-                <option value="Zeeland">Zeeland</option>
-                <option value="Flevoland">Flevoland</option>
-                <option value="Antwerpen">Antwerpen (BE)</option>
+      <!-- Airbnb Style 3-Segment Search Bar -->
+      <div class="mt-6 max-w-4xl mx-auto bg-white/10 backdrop-blur-xl p-3 sm:p-4 rounded-3xl border border-white/15 shadow-2xl">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 text-left">
+          
+          <!-- Segment 1: Wat Zoek Je? -->
+          <div class="sm:col-span-4 bg-slate-900/90 border border-slate-700/80 rounded-2xl p-2.5 px-4 flex items-center gap-3">
+            <i data-lucide="search" class="w-5 h-5 text-brand-400 shrink-0"></i>
+            <div class="w-full">
+              <label class="block text-[10px] font-bold text-slate-400 uppercase">Wat zoek je?</label>
+              <select id="heroSearchService" class="w-full bg-transparent text-xs font-bold text-white outline-none">
+                <option value="trimsalon" class="bg-slate-900 text-white">Trimsalon & Vachtverzorging</option>
+                <option value="hondenschool" class="bg-slate-900 text-white">Hondenschool & Cursussen</option>
+                <option value="opvang" class="bg-slate-900 text-white">Pension & Dagopvang</option>
+                <option value="wellness" class="bg-slate-900 text-white">Hydrotherapie & Dierenfysio</option>
+                <option value="wandelen" class="bg-slate-900 text-white">Losloopgebied & Strand</option>
+                <option value="verzekering" class="bg-slate-900 text-white">Verzekering Vergelijken</option>
               </select>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-4 pointer-events-none"></i>
+            </div>
+          </div>
+
+          <!-- Segment 2: Waar? -->
+          <div class="sm:col-span-4 bg-slate-900/90 border border-slate-700/80 rounded-2xl p-2.5 px-4 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3 w-full">
+              <i data-lucide="map-pin" class="w-5 h-5 text-brand-400 shrink-0"></i>
+              <div class="w-full">
+                <label class="block text-[10px] font-bold text-slate-400 uppercase">Waar in NL / BE?</label>
+                <input type="text" id="heroSearchLocation" placeholder="Plaats of provincie..." list="dutch-cities-list" class="w-full bg-transparent text-xs font-bold text-white placeholder-slate-400 outline-none">
+                <datalist id="dutch-cities-list">
+                  <option value="Amsterdam"><option value="Rotterdam"><option value="Den Haag"><option value="Utrecht">
+                  <option value="Eindhoven"><option value="Groningen"><option value="Tilburg"><option value="Almere">
+                  <option value="Breda"><option value="Nijmegen"><option value="Maastricht"><option value="Antwerpen">
+                </datalist>
+              </div>
+            </div>
+            <button type="button" onclick="triggerGeoLocation()" class="p-2 rounded-xl bg-slate-800 text-brand-400 hover:text-white" title="Mijn GPS locatie">
+              <i data-lucide="crosshair" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Segment 3: Ras & Submit -->
+          <div class="sm:col-span-4 flex items-center gap-2">
+            <div class="w-full bg-slate-900/90 border border-slate-700/80 rounded-2xl p-2.5 px-4 flex items-center gap-3">
+              <i data-lucide="dog" class="w-5 h-5 text-brand-400 shrink-0"></i>
+              <div class="w-full">
+                <label class="block text-[10px] font-bold text-slate-400 uppercase">Hondenras</label>
+                <select id="heroSearchBreed" class="w-full bg-transparent text-xs font-bold text-white outline-none">
+                  <option value="" class="bg-slate-900 text-white">Alle Rassen</option>
+                  <option value="pomeriaan" class="bg-slate-900 text-white">Pomeriaan (Dwergkees)</option>
+                  <option value="labradoodle" class="bg-slate-900 text-white">Labradoodle / Doodle</option>
+                  <option value="poedel" class="bg-slate-900 text-white">Poedel (Toy/Koning)</option>
+                  <option value="golden-retriever" class="bg-slate-900 text-white">Golden Retriever</option>
+                  <option value="teckel" class="bg-slate-900 text-white">Teckel (Ruw/Lang/Kort)</option>
+                  <option value="boomer" class="bg-slate-900 text-white">Boomer / Maltezer</option>
+                  <option value="herder" class="bg-slate-900 text-white">Duitse / Mechelse Herder</option>
+                </select>
+              </div>
             </div>
 
-            <a href="#directory" class="w-full py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-black text-sm shadow-xl shadow-brand-500/25 transition flex items-center justify-center gap-2">
-              <i data-lucide="compass" class="w-4 h-4"></i>
-              Bekijk op Kaart
+            <a href="#interactieve-kaart" onclick="executeHeroSearch()" class="h-full px-5 py-3 rounded-2xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-brand-500/25 transition shrink-0">
+              <i data-lucide="search" class="w-4 h-4"></i>
+              Zoeken
             </a>
           </div>
 
-          <div class="mt-3 pt-3 border-t border-white/10 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-400">
-            <span class="font-bold text-slate-300">Veelgezocht:</span>
-            <button onclick="quickFilter('Labradoodle')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-brand-500 hover:text-slate-950 transition">Labradoodle</button>
-            <button onclick="quickFilter('Ruwhaar')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-brand-500 hover:text-slate-950 transition">Ruwhaar Plukken</button>
-            <button onclick="quickFilter('Puppy')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-brand-500 hover:text-slate-950 transition">Puppy Cursus</button>
-            <button onclick="quickFilter('Ontwollen')" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-brand-500 hover:text-slate-950 transition">Ontwollen Herder</button>
-          </div>
         </div>
+      </div>
 
+      <!-- Trust Stats Bar -->
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-slate-800 text-left">
+        <div>
+          <div class="text-2xl font-black text-white">2.900+</div>
+          <div class="text-xs text-slate-400 font-semibold">Aanbieders in catalogus</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black text-white">340+</div>
+          <div class="text-xs text-slate-400 font-semibold">Gemeenten belastingdata</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black text-white">12</div>
+          <div class="text-xs text-slate-400 font-semibold">Provincies & Vlaanderen</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black text-brand-400">24/7</div>
+          <div class="text-xs text-slate-400 font-semibold">Spoeddierenartsen netwerk</div>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= INTERACTIEVE ANATOMIE & VACHT EXPLORER ================= -->
-  <section id="anatomie" class="py-20 bg-white border-b border-slate-200">
+  <!-- ================= SECTIE 1: DE 6 WERELDEN VAN TRIMGIDS ================= -->
+  <section id="werelden" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-emerald-600 font-black text-xs uppercase tracking-widest">Interactieve Canine Tool</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Interactieve Honden-Anatomie & Vachtgids</h2>
+        <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Kies Je Startpunt</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 mt-1">Wat wil je vandaag regelen?</h2>
         <p class="text-slate-600 text-sm sm:text-base mt-2">
-          Klik op de anatomische zones van de hond om direct de verzorgingsrichtlijnen, risico's, specifieke borstels en trimtechnieken te ontdekken.
+          Kies een thema. Je vindt er de relevante gidsen, geverifieerde aanbieders en rekentools direct bij elkaar.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Left: Dog Visual Anatomy with Clickable Hotspots -->
-        <div class="lg:col-span-7 relative flex items-center justify-center min-h-[380px] bg-slate-950 rounded-2xl p-4 overflow-hidden border border-slate-800">
-          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=80" alt="Hond Anatomie" class="w-full h-80 sm:h-96 object-cover rounded-xl opacity-75">
-
-          <!-- Hotspots Overlays -->
-          <button onclick="showAnatomyZone('ears')" class="absolute top-[22%] left-[34%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Oren & Gehoorgang">1</button>
-          <button onclick="showAnatomyZone('eyes')" class="absolute top-[28%] left-[28%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Ogen & Snuit">2</button>
-          <button onclick="showAnatomyZone('teeth')" class="absolute top-[40%] left-[24%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Gebit & Mondhoek">3</button>
-          <button onclick="showAnatomyZone('armpits')" class="absolute top-[58%] left-[42%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Oksels & Wrijvingszones">4</button>
-          <button onclick="showAnatomyZone('back')" class="absolute top-[28%] left-[58%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Dekhaar & Ondervacht">5</button>
-          <button onclick="showAnatomyZone('paws')" class="absolute bottom-[10%] left-[38%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Voetzolen & Nagels">6</button>
-          <button onclick="showAnatomyZone('sanitary')" class="absolute top-[45%] right-[22%] w-8 h-8 rounded-full bg-emerald-500/90 text-white flex items-center justify-center font-bold text-xs hotspot-pulse border-2 border-white shadow-lg cursor-pointer" title="Sanitaire Zone & Anaalklieren">7</button>
-          
-          <div class="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur px-3 py-1.5 rounded-xl text-[11px] text-slate-300 border border-slate-700">
-            💡 Klik op de nummers 1 t/m 7 om de zone te inspecteren
+        <!-- Wereld 1: Kaart -->
+        <a href="#interactieve-kaart" class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl hover:border-brand-500 transition duration-300 flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80" alt="Hond rent in losloopgebied" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-900/90 text-brand-300 text-[10px] font-black px-3 py-1 rounded-xl uppercase">1 &middot; Bij jou in de buurt</span>
           </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-600 transition">Interactieve Kaart</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">Trimsalons, hondenscholen, hondenopvang en losloopgebieden met Google Maps route & baasjesreviews.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Trimsalons</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Hondenscholen</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Losloopstranden</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-black text-brand-600 flex items-center justify-between">
+              <span>Open interactieve kaart</span>
+              <span>2.900+ plekken &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Wereld 2: Community & Forum -->
+        <a href="#forum" class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl hover:border-brand-500 transition duration-300 flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=800&q=80" alt="Honden ontmoeten elkaar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-900/90 text-brand-300 text-[10px] font-black px-3 py-1 rounded-xl uppercase">2 &middot; Community</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-600 transition">Hondenforum & Ervaringen</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">Praat met 8.000+ baasjes, stel vragen over gedrag en deel tips over vachtverzorging.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Opvoeding</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Gedrag</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Ervaringen</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-black text-brand-600 flex items-center justify-between">
+              <span>Naar het hondenforum</span>
+              <span>1.200+ topics &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Wereld 3: DogPedia & Top 100 -->
+        <a href="#records" class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl hover:border-brand-500 transition duration-300 flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" alt="Dogpedia en records" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-900/90 text-brand-300 text-[10px] font-black px-3 py-1 rounded-xl uppercase">3 &middot; Kennis</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-600 transition">DogPedia & Guinness Top 100</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">Interactieve rassenprofielen, anatomie doorsnede, zintuigenlab én de 100 officiële hondenrecords.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Anatomie</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Zintuigenlab</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">100 Records</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-black text-brand-600 flex items-center justify-between">
+              <span>Open de DogPedia</span>
+              <span>Bekijk records &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Wereld 4: PuppyMarktplaats & Fokkers -->
+        <a href="#puppies" class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl hover:border-brand-500 transition duration-300 flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=800&q=80" alt="Puppies bij fokker" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-900/90 text-brand-300 text-[10px] font-black px-3 py-1 rounded-xl uppercase">4 &middot; Verantwoord Kopen</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-600 transition">PuppyMarktplaats & Fokkers</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">Pups van erkende fokkers met verplichte HD/ED-röntgen en DNA-uitslagen. 100% vrij van broodfok.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">HD/ED Vrij</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Stamboom</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Thuisbezoek</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-black text-brand-600 flex items-center justify-between">
+              <span>Bekijk erkende nesten</span>
+              <span>Geverifieerd &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Wereld 5: Zorg & Verzekering -->
+        <a href="#zorg-verzekering" class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl hover:border-brand-500 transition duration-300 flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" alt="Dierenarts onderzoek hond" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-900/90 text-brand-300 text-[10px] font-black px-3 py-1 rounded-xl uppercase">5 &middot; Zorg & Verzekering</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-600 transition">Verzekeringen & DNA-Tests</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">Vergelijk Figo, Univé en OHRA op erfelijke dekking en ontdek genetische tests op 250+ afwijkingen.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Figo 9.3/10</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">DNA-kits</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Verse Voeding</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-black text-brand-600 flex items-center justify-between">
+              <span>Vergelijk premies 2026</span>
+              <span>Tot 90% vergoed &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Wereld 6: Nieuws & Noodhulp -->
+        <a href="#alerts-veiligheid" class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl hover:border-brand-500 transition duration-300 flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" alt="Hond waakzaam" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-brand-900/90 text-brand-300 text-[10px] font-black px-3 py-1 rounded-xl uppercase">6 &middot; Actueel & Nood</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="text-xl font-black text-slate-900 group-hover:text-brand-600 transition">Nieuws & Vermiste Radar</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">24/7 spoeddierenartsen, landelijke radar voor vermiste honden en actuele hondengevaren.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Spoed Klinieken</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Vermist Radar</span>
+                <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded-md font-bold text-slate-600">Gif Check</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200 text-xs font-black text-brand-600 flex items-center justify-between">
+              <span>Open Nooddesk & Nieuws</span>
+              <span>24/7 Bereikbaar &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTIE 2: GUINNESS HONDEN TOP 100 RECORDS ================= -->
+  <section id="records" class="py-14 bg-slate-900 text-white border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-brand-400 font-black text-xs uppercase tracking-widest">Guinness Honden Top 100 &middot; Uit de DogPedia</span>
+          <h2 class="text-2xl sm:text-3xl font-black font-display mt-1">De snelste, oudste, zwaarste & luidste hond ooit</h2>
+        </div>
+        <a href="#records" class="text-xs font-bold text-brand-400 hover:text-white transition">Alle 100 records in DogPedia &rarr;</a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        
+        <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700">
+          <div class="text-[10px] font-black text-brand-400 uppercase">⚡ Snelste Hond</div>
+          <div class="text-lg font-black text-white mt-1">74,6 km/u</div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Greyhound renrecord</p>
         </div>
 
-        <!-- Right: Dynamic Explanatory Anatomy Panel -->
-        <div class="lg:col-span-5 space-y-4" id="anatomyDetailPanel">
-          <!-- Injected via JavaScript -->
+        <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700">
+          <div class="text-[10px] font-black text-amber-400 uppercase">📢 Luidste Blaf</div>
+          <div class="text-lg font-black text-white mt-1">± 113 dB</div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Vliegtuig geluidsniveau</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700">
+          <div class="text-[10px] font-black text-rose-400 uppercase">❤️ Oudste Ooit</div>
+          <div class="text-lg font-black text-white mt-1">29j & 5 mnd</div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Bluey (Australian Cattle)</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700">
+          <div class="text-[10px] font-black text-blue-400 uppercase">📏 Grootste Ooit</div>
+          <div class="text-lg font-black text-white mt-1">111,8 cm</div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Zeus (Duitse Dog schoft)</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700">
+          <div class="text-[10px] font-black text-emerald-400 uppercase">⚖️ Zwaarste Ooit</div>
+          <div class="text-lg font-black text-white mt-1">155,6 kg</div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Zorba (Engelse Mastiff)</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700">
+          <div class="text-[10px] font-black text-purple-400 uppercase">🧠 Slimste Woordenschat</div>
+          <div class="text-lg font-black text-white mt-1">1.022 Woorden</div>
+          <p class="text-[11px] text-slate-400 mt-0.5">Chaser (Border Collie)</p>
         </div>
 
       </div>
@@ -274,1044 +474,915 @@
     </div>
   </section>
 
-  <!-- ================= REAL INTERACTIVE MAP & DUAL DIRECTORY ================= -->
-  <section id="directory" class="py-20 bg-slate-100">
+  <!-- ================= SECTIE 3: ZINTUIGENLAB (INTERACTIEVE HONDENOGEN FILTER) ================= -->
+  <section id="zintuigen" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-blue-600 font-black text-xs uppercase tracking-widest">Kynologische Wetenschap</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 mt-1">Zintuigenlab: Zo ziet, hoort & ruikt jouw hond</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Honden zijn niet kleurenblind, maar dichromaat (ze zien vooral geel en blauw, geen rood). Schakel hieronder tussen mensenzicht en hondenogen!
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 text-white shadow-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <!-- Image Box with Toggle Filter -->
+          <div class="md:col-span-7">
+            <div class="relative rounded-2xl overflow-hidden border-4 border-slate-800 shadow-xl h-72">
+              <img id="zintuigenImage" src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=800&q=80" alt="Pomeriaan in de tuin met rode bal" class="w-full h-full object-cover transition duration-300">
+              
+              <div id="visionModeBadge" class="absolute bottom-4 left-4 bg-slate-950/90 text-white text-xs font-black px-3.5 py-1.5 rounded-xl border border-slate-700">
+                👁️ Zicht: Menselijk Kleurenspectrum (RGB)
+              </div>
+            </div>
+
+            <!-- Toggle Buttons -->
+            <div class="mt-4 flex items-center justify-center gap-3">
+              <button onclick="setVisionMode('human')" id="btnVisionHuman" class="px-5 py-2 rounded-xl text-xs font-black bg-blue-600 text-white shadow-md">Menselijk Zicht (Normaal)</button>
+              <button onclick="setVisionMode('dog')" id="btnVisionDog" class="px-5 py-2 rounded-xl text-xs font-black bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🐶 Schakel naar Hondenogen</button>
+            </div>
+          </div>
+
+          <!-- Explanation text -->
+          <div class="md:col-span-5 space-y-4">
+            <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700">
+              <div class="text-xs font-black text-brand-400 mb-1">👃 Geur: 220 Miljoen Receptoren</div>
+              <p class="text-xs text-slate-300 leading-relaxed">Een mens heeft 5 miljoen geurcellen; een hond tot 220 miljoen. Ze ruiken letterlijk in 3D en kunnen 'tijd' ruiken aan de hand van vervagende geurmoleculen.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700">
+              <div class="text-xs font-black text-amber-400 mb-1">👂 Gehoor: Tot 45.000 Hz</div>
+              <p class="text-xs text-slate-300 leading-relaxed">Honden horen 4x verder dan mensen en vangen ultrahoge frequenties op. Daarom zijn vuurwerk en piepende apparaten zo intens voor ze.</p>
+            </div>
+
+            <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700">
+              <div class="text-xs font-black text-blue-400 mb-1">👁️ Zicht: Waarom die rode bal verdwijnt</div>
+              <p class="text-xs text-slate-300 leading-relaxed">Rood speelgoed in groen gras ziet er voor een hond uit als donkergeel op bruingeel. Geel en blauw speelgoed valt veel beter op!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTIE 4: LANDELIJKE INTERACTIEVE KAART (LEAFLET.JS) ================= -->
+  <section id="interactieve-kaart" class="py-20 bg-slate-100 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
         <div>
-          <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Kynologische Kaart & Overzicht</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Trimsalons & Hondenscholen in de Buurt</h2>
-          <p class="text-slate-600 text-sm mt-1">Bekijk gecertificeerde trimsalons en kynologische hondenscholen op de live kaart van NL & BE.</p>
+          <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Landelijke Database &middot; 2.900+ Vermeldingen</span>
+          <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 mt-1">Trimsalons, Hondenscholen & Losloopplekken</h2>
+          <p class="text-slate-600 text-sm mt-1">Bekijk geverifieerde adressen, reviews en 1-klik navigatie via Google Maps in alle 12 provincies.</p>
         </div>
 
-        <!-- Main Category Toggle: Salons vs Hondenscholen -->
-        <div class="flex items-center bg-white p-1 rounded-2xl border border-slate-300 shadow-sm">
-          <button onclick="setDirectoryTab('salons')" id="tabSalonsBtn" class="px-5 py-2.5 rounded-xl text-xs font-black bg-brand-600 text-white transition flex items-center gap-2">
-            <i data-lucide="scissors" class="w-4 h-4"></i> Trimsalons (<span id="salonCount">8</span>)
-          </button>
-          <button onclick="setDirectoryTab('schools')" id="tabSchoolsBtn" class="px-5 py-2.5 rounded-xl text-xs font-black text-slate-600 hover:text-slate-900 transition flex items-center gap-2">
-            <i data-lucide="graduation-cap" class="w-4 h-4"></i> Hondenscholen (<span id="schoolCount">4</span>)
-          </button>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="filterMapMarkers('all')" class="map-filter-btn active px-4 py-2 rounded-xl text-xs font-black bg-brand-600 text-white shadow">Alles Tonen</button>
+          <button onclick="filterMapMarkers('salon')" class="map-filter-btn px-4 py-2 rounded-xl text-xs font-black bg-white text-slate-700 border border-slate-200">✂️ Trimsalons</button>
+          <button onclick="filterMapMarkers('school')" class="map-filter-btn px-4 py-2 rounded-xl text-xs font-black bg-white text-slate-700 border border-slate-200">🎓 Hondenscholen</button>
+          <button onclick="filterMapMarkers('route')" class="map-filter-btn px-4 py-2 rounded-xl text-xs font-black bg-white text-slate-700 border border-slate-200">🌲 Loslooproutes</button>
         </div>
       </div>
 
-      <!-- LEAFLET MAP CONTAINER -->
+      <!-- Real Map Canvas Container -->
       <div class="bg-white rounded-3xl p-3 border border-slate-200 shadow-xl mb-8">
-        <div id="leafletMap" class="w-full h-[420px] rounded-2xl z-10"></div>
+        <div id="leafletMap" class="w-full h-[450px] rounded-2xl z-10"></div>
       </div>
 
-      <!-- DIRECTORY LISTINGS GRID -->
-      <div id="directoryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Rendered dynamically with JS -->
+      <!-- Listings Grid Below Map -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="directoryListingsGrid">
+        <!-- Injected via JavaScript -->
       </div>
 
     </div>
   </section>
 
-  <!-- ================= DOGPEDIA: RASSEN ENCYCLOPEDIE ================= -->
-  <section id="dogpedia" class="py-20 bg-white border-t border-slate-200">
+  <!-- ================= SECTIE 5: VACHTZORG, SMART PLANNER & OFFERTES ================= -->
+  <section id="vacht-offerte" class="py-20 bg-white border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-blue-600 font-black text-xs uppercase tracking-widest">DogPedia Kennisbank</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Hondenrassen & Hun Unieke Vachtgenetica</h2>
-        <p class="text-slate-600 text-sm sm:text-base mt-2">
-          Selecteer een ras of filter op vachttype om te zien hoe de vacht is opgebouwd en hoe je klitten en huidproblemen voorkomt.
-        </p>
-
-        <!-- Breed Type Filter Buttons -->
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
-          <button onclick="filterBreedCategory('all')" class="breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-blue-600 text-white transition">Alle Rassen</button>
-          <button onclick="filterBreedCategory('krul')" class="breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Krul- & Doodle Vacht</button>
-          <button onclick="filterBreedCategory('dubbel')" class="breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Dubbele Vacht (Ontwollen)</button>
-          <button onclick="filterBreedCategory('ruwhaar')" class="breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Ruwhaar (Handplukken)</button>
-          <button onclick="filterBreedCategory('zijde')" class="breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Zijde- & Langhaar</button>
-        </div>
-      </div>
-
-      <!-- Breed Showcase Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="dogpediaGrid">
-        <!-- Rendered via JS -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= VOOR & NA TRANSFORMATIE SLIDER ================= -->
-  <section id="transformaties" class="py-20 bg-slate-950 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-amber-400 font-black text-xs uppercase tracking-widest">Groot Resultaat</span>
-        <h2 class="text-3xl sm:text-4xl font-black mt-2">Voor & Na: De Kracht van Vakkundig Trimmen</h2>
-        <p class="text-slate-400 text-sm mt-2">
-          Sleep met de hendel om direct te zien hoe klitten en wildgroei worden omgetoverd tot een gezonde, luchtige en comfortabele vacht.
-        </p>
-      </div>
-
-      <div class="max-w-4xl mx-auto bg-slate-900 p-4 sm:p-6 rounded-3xl border border-slate-800 shadow-2xl">
-        <div class="comparison-slider w-full h-80 sm:h-[420px] rounded-2xl overflow-hidden" id="beforeAfterSlider">
-          <!-- After Image -->
-          <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=80" alt="Na de trimbeurt" class="w-full h-full object-cover">
-          <span class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-black px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow">NA (Professioneel Getrimd)</span>
-
-          <!-- Before Image -->
-          <div class="comparison-before" id="beforeOverlay">
-            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80" alt="Voor het trimmen" class="absolute top-0 left-0 w-full h-full object-cover max-w-none" style="width: 100%;">
-            <span class="absolute top-4 left-4 bg-rose-600 text-white text-xs font-black px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow">VOOR (Vervilt & Klitrijk)</span>
-          </div>
-
-          <!-- Handle -->
-          <div class="comparison-handle" id="sliderHandle">
-            <div class="comparison-handle-btn">
-              <i data-lucide="move-horizontal" class="w-5 h-5"></i>
-            </div>
+      <!-- Ras Spotlight: Pomeriaan / Labradoodle -->
+      <div class="mb-14 bg-gradient-to-br from-brand-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 border border-brand-500/30 shadow-2xl flex flex-col md:flex-row items-center gap-8">
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80" alt="Pomeriaan" class="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl object-cover border-4 border-brand-500/40 shadow-xl shrink-0">
+        <div>
+          <span class="text-xs font-black text-brand-400 uppercase tracking-widest">Ras in de Spotlight &middot; Kynologische Waarschuwing</span>
+          <h3 class="text-2xl sm:text-3xl font-black font-display text-white mt-1">De Pomeriaan & Dubbele Vacht: Nooit kort scheren!</h3>
+          <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+            Een Pomeriaan (Dwergkees) heeft een dubbele vacht die uitsluitend met de effileerschaar en professioneel ontwollen gemodelleerd mag worden. Kort scheren met de tondeuse beschadigt de haarzakjes permanent en veroorzaakt 'Post-clipping Alopecia' (blijvende kaalheid en donkere pigmentvlekken).
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#vacht-offerte" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-slate-950 font-black text-xs transition">Trimsalon met Pomeriaan-Ervaring Vinden &rarr;</a>
           </div>
         </div>
-        <p class="text-xs text-center text-slate-400 mt-4 flex items-center justify-center gap-1.5">
-          <i data-lucide="touchpad" class="w-4 h-4"></i> Sleep de witte knop naar links of rechts om het verschil te bekijken
-        </p>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ================= KOSTEN CALCULATOR ================= -->
-  <section id="calculator" class="py-20 bg-slate-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <span class="text-brand-400 font-black text-xs uppercase tracking-widest">Direct Inzicht</span>
-        <h2 class="text-3xl sm:text-4xl font-black mt-2">Bereken de Richtprijs voor Jouw Hond</h2>
-        <p class="text-slate-400 mt-2 text-sm">
-          Selecteer gewicht, vachttype en eventuele extra's voor een realistische kostenindicatie volgens de branchestandaarden.
-        </p>
-      </div>
-
-      <div class="bg-slate-850 bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <div class="lg:col-span-7 space-y-6">
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-2">1. Gewicht / Formaat van de hond</label>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <button type="button" onclick="setCalcSize('small', this)" class="calc-size-btn active p-3 rounded-2xl border border-brand-500 bg-brand-500/20 text-brand-300 font-bold text-xs text-center transition">
-                  Klein<br><span class="text-[10px] text-slate-400 font-normal">&lt; 10 kg</span>
-                </button>
-                <button type="button" onclick="setCalcSize('medium', this)" class="calc-size-btn p-3 rounded-2xl border border-slate-700 bg-slate-800 text-slate-300 font-bold text-xs text-center transition">
-                  Middel<br><span class="text-[10px] text-slate-400 font-normal">10 - 25 kg</span>
-                </button>
-                <button type="button" onclick="setCalcSize('large', this)" class="calc-size-btn p-3 rounded-2xl border border-slate-700 bg-slate-800 text-slate-300 font-bold text-xs text-center transition">
-                  Groot<br><span class="text-[10px] text-slate-400 font-normal">25 - 40 kg</span>
-                </button>
-                <button type="button" onclick="setCalcSize('xlarge', this)" class="calc-size-btn p-3 rounded-2xl border border-slate-700 bg-slate-800 text-slate-300 font-bold text-xs text-center transition">
-                  Zeer Groot<br><span class="text-[10px] text-slate-400 font-normal">&gt; 40 kg</span>
-                </button>
-              </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Smart Vachtplanner Widget -->
+        <div class="lg:col-span-6 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-bold">
+              <i data-lucide="calculator" class="w-4 h-4"></i>
             </div>
+            <h3 class="text-xl font-black text-slate-900">Smart Vachtplanner 2026</h3>
+          </div>
+          <p class="text-xs text-slate-600">Selecteer jouw hond voor een op maat gemaakt trimschema en borsteladvies.</p>
 
+          <div class="space-y-3 pt-2">
             <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-2">2. Type Behandeling & Vachtsoort</label>
-              <select id="calcTreatment" onchange="calculatePrice()" class="w-full bg-slate-800 border border-slate-700 rounded-2xl px-4 py-3 text-sm text-slate-100 outline-none focus:ring-2 focus:ring-brand-500">
-                <option value="wash_cut">Complete Trimbeurt (Wassen, Föhnen, Knippen of Scheren)</option>
-                <option value="doodle">Labradoodle / Waterhond (Krul/Fleece Behandeling)</option>
-                <option value="plukken">Ruwhaar Handplukken (Teckel, Terriërs)</option>
-                <option value="ontwollen">Ontwolkuur met Hydrobad & Waterblazer (Herder, Golden)</option>
-                <option value="only_wash">Alleen Wassen, Drogen & Nagels Knippen</option>
+              <label class="block text-xs font-bold text-slate-700 mb-1">1. Selecteer Hondenras</label>
+              <select id="calcBreedSelect" onchange="updateSmartPlanner()" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-800 outline-none focus:ring-2 focus:ring-brand-500">
+                <option value="labradoodle">Labradoodle / Goldendoodle (Krul/Fleece)</option>
+                <option value="pomeriaan">Pomeriaan / Dwergkeeshond (Dubbele Wolvacht)</option>
+                <option value="teckel">Ruwharige Teckel (Plukvacht)</option>
+                <option value="golden">Golden Retriever / Herder (Dubbele Vacht)</option>
+                <option value="boomer">Boomer / Shih Tzu / Maltezer (Zijdehaar)</option>
               </select>
             </div>
 
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase mb-2">3. Vachtconditie & Extra Zorg</label>
-              <div class="space-y-2">
-                <label class="flex items-center gap-3 p-3 bg-slate-800 rounded-2xl border border-slate-700 cursor-pointer">
-                  <input type="checkbox" id="calcMatting" onchange="calculatePrice()" class="rounded border-slate-600 text-brand-500 w-4 h-4">
-                  <span class="text-xs text-slate-300">Vervilting / Ernstige klitten aanwezig (+ ontklittoeslag)</span>
-                </label>
-                <label class="flex items-center gap-3 p-3 bg-slate-800 rounded-2xl border border-slate-700 cursor-pointer">
-                  <input type="checkbox" id="calcTeeth" onchange="calculatePrice()" class="rounded border-slate-600 text-brand-500 w-4 h-4">
-                  <span class="text-xs text-slate-300">Ultrasone Emmi-Pet Gebitsreiniging toevoegen (+ €25)</span>
-                </label>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">2. Leeftijdsfase</label>
+                <select id="calcAgeSelect" onchange="updateSmartPlanner()" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-800 outline-none">
+                  <option value="pup">Pup (3 - 6 mnd: Gewenning)</option>
+                  <option value="puber">Puber / Vachtwissel (7 - 14 mnd)</option>
+                  <option value="adult" selected>Volwassen (1 - 8 jaar)</option>
+                  <option value="senior">Senior (8+ jaar)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">3. Vachtstaat</label>
+                <select id="calcStateSelect" onchange="updateSmartPlanner()" class="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-800 outline-none">
+                  <option value="good" selected>Klitvrij & Goed onderhouden</option>
+                  <option value="medium">Lichte beginnende knopen</option>
+                  <option value="matted">Ernstige klitten / viltlaag</option>
+                </select>
               </div>
             </div>
           </div>
 
-          <div class="lg:col-span-5 bg-gradient-to-br from-brand-950 to-slate-900 border border-brand-500/30 rounded-3xl p-7 text-center flex flex-col items-center justify-center shadow-2xl">
-            <span class="text-brand-400 text-xs font-black uppercase tracking-widest">Geschatte Kosten</span>
-            <div class="mt-4 flex items-baseline justify-center gap-1">
-              <span class="text-2xl font-bold text-slate-400">€</span>
-              <span id="priceDisplay" class="text-5xl font-black text-white">55 - 75</span>
-            </div>
-            <p class="text-xs text-slate-400 mt-2">Gemiddelde behandeltijd: <span id="durationDisplay" class="font-bold text-slate-200">1.5 - 2 uur</span></p>
-
-            <div class="w-full border-t border-slate-800 my-6"></div>
-
-            <ul class="text-left text-xs text-slate-300 space-y-2 w-full">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Inclusief nagels knippen & oren reinigen</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Vacht-specifieke shampoo & conditioner</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Handmatig droogblazen & modelleren</li>
-            </ul>
-
-            <a href="#directory" class="mt-6 w-full py-3.5 bg-brand-500 hover:bg-brand-600 text-slate-950 font-black text-sm rounded-2xl transition text-center shadow-lg">
-              Vind een Trimsalon in de Buurt →
-            </a>
+          <!-- Planner Output Result -->
+          <div class="p-4 bg-brand-900 text-white rounded-2xl border border-brand-700 mt-4 space-y-2">
+            <div class="text-[10px] font-black text-brand-300 uppercase tracking-wider">Geadviseerd Schema</div>
+            <div class="text-base font-black text-white" id="plannerResultFrequency">Elke 6 tot 8 weken volledige trimbeurt</div>
+            <p class="text-xs text-brand-100" id="plannerResultAdvice">Dagelijks line brushing met een slickerborstel (Activet groen) en nameten met grove kam.</p>
           </div>
-
         </div>
+
+        <!-- 3 Gratis Offertes Aanvraagformulier -->
+        <div class="lg:col-span-6 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl" id="offerte">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-black text-amber-400 uppercase tracking-widest">100% Vrijblijvend</span>
+            <span class="text-xs bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded-full border border-amber-500/30">Direct reactie</span>
+          </div>
+          <h3 class="text-2xl font-black font-display text-white">Vraag 3 Offertes Aan van Salons in de Buurt</h3>
+          <p class="text-xs text-slate-400 mt-1">Vergelijk tarieven en beschikbaarheid van gediplomeerde trimmers in jouw regio.</p>
+
+          <form onsubmit="handleQuoteSubmit(event)" class="space-y-3 mt-4 text-left">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">Jouw Naam *</label>
+                <input required type="text" placeholder="bijv. Sam de Vries" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white outline-none focus:ring-2 focus:ring-brand-500">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">Telefoonnummer *</label>
+                <input required type="tel" placeholder="06 - 12345678" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white outline-none focus:ring-2 focus:ring-brand-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">Woonplaats / Stad *</label>
+                <input required type="text" placeholder="bijv. Utrecht" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white outline-none focus:ring-2 focus:ring-brand-500">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-300 mb-1">Hondenras *</label>
+                <input required type="text" placeholder="bijv. Labradoodle" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white outline-none focus:ring-2 focus:ring-brand-500">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-slate-300 mb-1">Gewenste Behandeling</label>
+              <select class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white outline-none">
+                <option>Volledige Trimbeurt (Wassen, Knippen/Scheren)</option>
+                <option>Alleen Wassen & Ontwollen</option>
+                <option>Ruwhaar Plukken</option>
+                <option>Puppy Wenbezoek</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-brand-500 hover:bg-brand-600 text-slate-950 font-black text-xs uppercase rounded-xl transition shadow-lg shadow-brand-500/25 mt-2">
+              Verstuur Aanvraag naar Lokale Salons &rarr;
+            </button>
+            <div id="quoteStatusMsg" class="hidden text-xs text-center font-bold text-brand-400 mt-2">
+              ✓ Bedankt! Je aanvraag is verzonden naar 3 geverifieerde trimsalons.
+            </div>
+          </form>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ================= KENNISBANK & GIDSEN ================= -->
-  <section id="kennisbank" class="py-20 bg-slate-50 border-t border-slate-200">
+  <!-- ================= SECTIE 6: GEMEENTE HONDENBELASTING 2026 & KOSTENCALCULATOR ================= -->
+  <section id="financien-belasting" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-amber-600 font-black text-xs uppercase tracking-widest">Financiën & Gemeentedata 2026</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 mt-1">Hondenbelasting per Gemeente & Levenskosten</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          In meer dan 68% van de Nederlandse gemeenten is de hondenbelasting inmiddels afgeschaft (€ 0,-). Zoek direct jouw gemeente op.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Live Gemeente Zoekmachine -->
+        <div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-md">
+          <h3 class="text-xl font-black text-slate-900 mb-2">Hondenbelasting Check 2026</h3>
+          <p class="text-xs text-slate-500 mb-4">Typ je gemeente om direct het jaarbedrag of de vrijstelling te zien.</p>
+
+          <div class="relative mb-4">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="text" id="taxSearchInput" oninput="searchDogTax()" placeholder="Zoek gemeente (bijv. Amsterdam, Utrecht, Maastricht)..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+
+          <div class="space-y-2 max-h-64 overflow-y-auto pr-1" id="taxResultsContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Wat Kost een Hond Calculator -->
+        <div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-black text-slate-900 mb-2">Wat Kost een Hond per Maand & Leven?</h3>
+            <p class="text-xs text-slate-500 mb-4">Bereken de totale kosten van voeding, trimsalon, dierenarts en verzorging.</p>
+
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Formaat van de Hond</label>
+                <select id="costFormSize" onchange="calculateLifetimeCost()" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 outline-none">
+                  <option value="small">Klein (&lt; 10 kg, bijv. Teckel)</option>
+                  <option value="medium" selected>Middel (10 - 25 kg, bijv. Doodle)</option>
+                  <option value="large">Groot (&gt; 25 kg, bijv. Retriever)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Soort Voeding</label>
+                <select id="costFormDiet" onchange="calculateLifetimeCost()" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 outline-none">
+                  <option value="standard">Standaard Kwaliteitsbrok</option>
+                  <option value="premium" selected>Verse Gestoomde Voeding (KVV)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 bg-brand-50 border border-brand-200 rounded-2xl p-4 text-center mt-4">
+            <div>
+              <span class="text-[11px] font-bold text-brand-800 uppercase block">Gemiddeld / Maand</span>
+              <span class="text-2xl sm:text-3xl font-black text-brand-900">€ <span id="displayMonthlyCost">165</span></span>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold text-brand-800 uppercase block">13 Levensjaren Totaal</span>
+              <span class="text-2xl sm:text-3xl font-black text-brand-900">€ <span id="displayLifetimeCost">25.500</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTIE 7: VERZEKERINGEN 2026, SPOED & RADAR ================= -->
+  <section id="zorg-verzekering" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Kennisbank</span>
-        <h2 class="text-3xl font-black text-slate-900 mt-1">Kynologische Artikelen & Zorgwijzers</h2>
-        <p class="text-slate-600 text-sm mt-1">Geschreven in samenwerking met gediplomeerde hondentrimmers en kynologen.</p>
+        <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Onafhankelijk Getest 2026</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 mt-1">Beste Hondenverzekeringen van Nederland</h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Voorkom onverwachte dierenartsrekeningen van duizenden euro's bij heupdysplasie, hernia's of operaties.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="articlesGrid">
-        <!-- Injected via JS -->
+      <!-- Verzekeraars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        
+        <!-- Figo -->
+        <div class="bg-gradient-to-b from-brand-50 to-white rounded-3xl p-6 border-2 border-brand-500 shadow-xl flex flex-col justify-between relative">
+          <span class="absolute -top-3.5 right-6 bg-brand-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">Beste Keuze 2026 &middot; 9,3/10</span>
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-brand-900 text-white font-black text-xl flex items-center justify-center">F</div>
+              <div>
+                <h3 class="text-lg font-black text-slate-900">Figo Pet Verzekering</h3>
+                <p class="text-xs text-slate-500">Beste dekking heup & elleboog</p>
+              </div>
+            </div>
+            <div class="text-3xl font-black text-slate-900 mb-1">€ 14,85 <span class="text-xs text-slate-400 font-normal">/ maand</span></div>
+            <p class="text-xs text-slate-600 mt-2">Vergoeding tot 90% van medische kosten, inclusief erfelijke aandoeningen en fysiotherapie.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a href="https://www.figopet.nl" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-black rounded-xl block text-center shadow">Premie Berekenen &rarr;</a>
+          </div>
+        </div>
+
+        <!-- OHRA -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-600 text-white font-black text-xl flex items-center justify-center">O</div>
+              <div>
+                <h3 class="text-lg font-black text-slate-900">OHRA Dierenverzekering</h3>
+                <p class="text-xs text-slate-500">Score 8,2/10 &middot; Zeer betrouwbaar</p>
+              </div>
+            </div>
+            <div class="text-3xl font-black text-slate-900 mb-1">€ 16,20 <span class="text-xs text-slate-400 font-normal">/ maand</span></div>
+            <p class="text-xs text-slate-600 mt-2">Vrije dierenartskeuze in heel Nederland, snelle declaratieverwerking via app binnen 48 uur.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a href="https://www.ohra.nl" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-slate-900 hover:bg-brand-600 text-white text-xs font-black rounded-xl block text-center">Premie Berekenen &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Univé -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white font-black text-xl flex items-center justify-center">U</div>
+              <div>
+                <h3 class="text-lg font-black text-slate-900">Univé Huisdier</h3>
+                <p class="text-xs text-slate-500">Score 8,4/10 &middot; Geen winstoogmerk</p>
+              </div>
+            </div>
+            <div class="text-3xl font-black text-slate-900 mb-1">€ 15,10 <span class="text-xs text-slate-400 font-normal">/ maand</span></div>
+            <p class="text-xs text-slate-600 mt-2">Aanvullende dekking mogelijk voor preventieve zorg, castratie/sterilisatie en vaccinaties.</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a href="https://www.unive.nl" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-slate-900 hover:bg-brand-600 text-white text-xs font-black rounded-xl block text-center">Premie Berekenen &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Noodnetwerk & Radar -->
+      <div id="alerts-veiligheid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- 24/7 Spoeddierenartsen -->
+        <div class="bg-rose-50/50 p-6 sm:p-8 rounded-3xl border border-rose-200">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-black text-rose-700 bg-rose-100 px-3 py-1 rounded-full uppercase">24/7 Noodnetwerk</span>
+            <span class="text-xs text-slate-500">Bij acute nood</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-900">Spoeddierenartsen & Noodklinieken</h3>
+          <p class="text-xs text-slate-600 mt-1 mb-4">Direct contact met de centrale spoedklinieken van Nederland.</p>
+
+          <div class="space-y-2.5">
+            <div class="p-3 bg-white rounded-2xl border border-rose-100 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-xs text-slate-900">Spoedkliniek Gezelschapsdieren Midden-NL</div>
+                <div class="text-[11px] text-slate-500">Ual 8, Utrecht (24/7 Open)</div>
+              </div>
+              <a href="tel:09002222222" class="px-3 py-1.5 bg-rose-600 text-white text-xs font-bold rounded-xl flex items-center gap-1">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i> Bel Spoed
+              </a>
+            </div>
+
+            <div class="p-3 bg-white rounded-2xl border border-rose-100 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-xs text-slate-900">Dierenkliniek Spoed Amsterdam</div>
+                <div class="text-[11px] text-slate-500">Isolatorweg 45, Amsterdam</div>
+              </div>
+              <a href="tel:0203045678" class="px-3 py-1.5 bg-rose-600 text-white text-xs font-bold rounded-xl flex items-center gap-1">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i> Bel Spoed
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vermiste Honden Radar -->
+        <div class="bg-amber-50/50 p-6 sm:p-8 rounded-3xl border border-amber-200">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-black text-amber-800 bg-amber-100 px-3 py-1 rounded-full uppercase">Landelijke Radar</span>
+            <span class="text-xs text-slate-500">Laatste meldingen</span>
+          </div>
+          <h3 class="text-xl font-black text-slate-900">Recent Vermiste Honden</h3>
+          <p class="text-xs text-slate-600 mt-1 mb-4">Help mee met uitkijken en herenig baasjes met hun viervoeter.</p>
+
+          <div class="space-y-2.5">
+            <div class="p-3 bg-white rounded-2xl border border-amber-100 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-xs text-slate-900">Kees (Border Collie, Zwart/Wit)</div>
+                <div class="text-[11px] text-slate-500">Vermist sinds gisteren &middot; Regio Amersfoort</div>
+              </div>
+              <a href="tel:0888113000" class="px-3 py-1.5 bg-amber-600 text-white text-xs font-bold rounded-xl">Tip Doorgeven</a>
+            </div>
+
+            <div class="p-3 bg-white rounded-2xl border border-amber-100 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-xs text-slate-900">Bella (Pomeriaan, Oranje/Sable)</div>
+                <div class="text-[11px] text-slate-500">Vermist in Kralingse Bos &middot; Rotterdam</div>
+              </div>
+              <a href="tel:0888113000" class="px-3 py-1.5 bg-amber-600 text-white text-xs font-bold rounded-xl">Tip Doorgeven</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTIE 8: COMMUNITY FORUM & HONDENSLEE POLL ================= -->
+  <section id="forum" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Hondenforum Topics -->
+        <div class="lg:col-span-7 space-y-4">
+          <div>
+            <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Community</span>
+            <h3 class="text-3xl font-black font-display text-slate-900 mt-1">Actuele Forum Gesprekken</h3>
+            <p class="text-xs text-slate-600 mt-1">Stel een vraag of lees mee met 8.000+ actieve hondenbaasjes.</p>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-500 transition cursor-pointer">
+              <span class="text-[10px] font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-md uppercase">Vachtverzorging</span>
+              <h4 class="font-bold text-sm text-slate-900 mt-1">Welke shampoo helpt écht tegen droge schilfers bij een pup?</h4>
+              <div class="text-xs text-slate-500 mt-1 flex items-center gap-3">
+                <span>Door Sophie &middot; 14 reacties</span>
+                <span>Laatste: 20 min geleden</span>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-500 transition cursor-pointer">
+              <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md uppercase">Gedrag & Training</span>
+              <h4 class="font-bold text-sm text-slate-900 mt-1">Labradoodle van 9 maanden blaft plots naar fietsers. Hoe train ik dit af?</h4>
+              <div class="text-xs text-slate-500 mt-1 flex items-center gap-3">
+                <span>Door Mark_K &middot; 28 reacties</span>
+                <span>Laatste: 1 uur geleden</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hondenslee Poll (Noorwegen) -->
+        <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg" id="hondenslee-poll">
+          <span class="text-xs font-black text-blue-600 uppercase tracking-widest">Dierenwelzijn Opinie</span>
+          <h3 class="text-xl font-black text-slate-900 mt-1">Hondenslee rijden in Noorwegen?</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Kan hondenslee rijden verantwoord zijn, of is het commerciële uitbuiting? Geef jouw mening.
+          </p>
+
+          <div class="space-y-2 mt-4" id="pollOptions">
+            <button onclick="votePoll('ja')" class="w-full p-3 bg-slate-50 hover:bg-brand-50 border border-slate-200 rounded-xl text-left text-xs font-bold text-slate-800 transition flex justify-between items-center">
+              <span>Ja, mits transparant & met rustdagen</span>
+              <span class="text-brand-600 font-black" id="pollPctJa">78%</span>
+            </button>
+            <button onclick="votePoll('nee')" class="w-full p-3 bg-slate-50 hover:bg-rose-50 border border-slate-200 rounded-xl text-left text-xs font-bold text-slate-800 transition flex justify-between items-center">
+              <span>Nee, nooit ethisch verantwoord</span>
+              <span class="text-rose-600 font-black" id="pollPctNee">22%</span>
+            </button>
+          </div>
+          <div id="pollVotedNotice" class="hidden text-xs text-center font-bold text-brand-700 mt-3">
+            ✓ Bedankt voor je stem! Jouw mening telt mee in ons welzijnsrapport.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTIE 9: FAQ ACCORDION ================= -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="text-brand-600 font-black text-xs uppercase tracking-widest">Vragen & Partners</span>
+        <h2 class="text-3xl font-black font-display text-slate-900 mt-1">Veelgestelde Vragen</h2>
+      </div>
+
+      <div class="space-y-3">
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-sm">
+            <span>Hoe kies ik de beste trimsalon voor een Pomeriaan of Doodle?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+          </div>
+          <div class="faq-ans hidden mt-2 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-2">
+            Let altijd op bewezen raservaring. Voor dubbelharige rassen zoals de Pomeriaan is ontwollen en modelleren met de effileerschaar vereist (nooit kort scheren wegens alopecia). Voor Doodles is ervaring met klitvrije teddy cuts en line brushing essentieel.
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-sm">
+            <span>Wat kost een gemiddelde trimbeurt in 2026?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+          </div>
+          <div class="faq-ans hidden mt-2 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-2">
+            Een volledige trimbeurt kost gemiddeld tussen de € 45,- (voor kleine rassen zoals een kortharige Teckel of Boomer) en € 95,- tot € 130,- (voor grote Labradoodles en Golden Retrievers).
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between font-bold text-slate-900 text-sm">
+            <span>Is het aanvragen van offertes gratis voor hondenbaasjes?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+          </div>
+          <div class="faq-ans hidden mt-2 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-2">
+            Ja, 100% gratis en vrijblijvend. Je ontvangt direct reacties en prijsopgaven van lokale specialisten zonder enige aankoopverplichting.
+          </div>
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 text-sm border-t border-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8">
       
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-9 h-9 rounded-xl bg-brand-500 text-slate-950 flex items-center justify-center font-bold">
-            <i data-lucide="scissors" class="w-5 h-5"></i>
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-8 h-8 rounded-xl bg-brand-500 text-slate-950 flex items-center justify-center font-bold">
+            <i data-lucide="scissors" class="w-4 h-4"></i>
           </div>
-          <span class="text-xl font-black text-white">Trim<span class="text-brand-500">gids</span></span>
+          <span class="text-xl font-black font-display text-white">Trim<span class="text-brand-500">Gids</span></span>
         </div>
-        <p class="text-xs text-slate-400 leading-relaxed">
-          Het meest complete kynologische platform van Nederland en Vlaanderen voor vachtverzorging, honden-anatomie, hondenscholen en trimsalons.
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          Het meest complete platform van Nederland en Vlaanderen voor trimsalons, hondenscholen, hondenverzekeringen, hondenbelasting, wandelroutes en rasverzorging.
         </p>
+        <p class="mt-4 text-slate-600">&copy; 2026 TrimGids B.V. &middot; Alle rechten voorbehouden.</p>
       </div>
 
       <div>
-        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Populaire Regio's</h4>
-        <ul class="space-y-2 text-xs">
-          <li><a href="#directory" onclick="setFilterProvince('Noord-Holland')" class="hover:text-white transition">Noord-Holland (Amsterdam, Haarlem)</a></li>
-          <li><a href="#directory" onclick="setFilterProvince('Zuid-Holland')" class="hover:text-white transition">Zuid-Holland (Rotterdam, Den Haag)</a></li>
-          <li><a href="#directory" onclick="setFilterProvince('Utrecht')" class="hover:text-white transition">Utrecht & Midden-Nederland</a></li>
-          <li><a href="#directory" onclick="setFilterProvince('Noord-Brabant')" class="hover:text-white transition">Noord-Brabant & Eindhoven</a></li>
-          <li><a href="#directory" onclick="setFilterProvince('Antwerpen')" class="hover:text-white transition">Vlaanderen & Antwerpen</a></li>
+        <h4 class="text-white font-bold uppercase tracking-wider mb-3">Diensten & Kaart</h4>
+        <ul class="space-y-2">
+          <li><a href="#interactieve-kaart" class="hover:text-white">Trimsalons Zoeken</a></li>
+          <li><a href="#interactieve-kaart" class="hover:text-white">Hondenscholen</a></li>
+          <li><a href="#interactieve-kaart" class="hover:text-white">Opvang & Pensions</a></li>
+          <li><a href="#interactieve-kaart" class="hover:text-white">Losloopgebieden</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Kynologische Tools</h4>
-        <ul class="space-y-2 text-xs">
-          <li><a href="#anatomie" class="hover:text-white transition">Interactieve Honden-Anatomie</a></li>
-          <li><a href="#dogpedia" class="hover:text-white transition">DogPedia Rassen Database</a></li>
-          <li><a href="#transformaties" class="hover:text-white transition">Voor- en Na Slider</a></li>
-          <li><a href="#calculator" class="hover:text-white transition">Trim Prijscalculator</a></li>
+        <h4 class="text-white font-bold uppercase tracking-wider mb-3">Zorg & Vergelijkers</h4>
+        <ul class="space-y-2">
+          <li><a href="#zorg-verzekering" class="hover:text-white">Hondenverzekering 2026</a></li>
+          <li><a href="#financien-belasting" class="hover:text-white">Hondenbelasting Check</a></li>
+          <li><a href="#vacht-offerte" class="hover:text-white">Smart Vachtplanner</a></li>
+          <li><a href="#alerts-veiligheid" class="hover:text-white">24/7 Spoeddierenarts</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Voor Ondernemers</h4>
-        <p class="text-xs text-slate-400 mb-3">Heb jij een trimsalon of hondenschool?</p>
-        <button onclick="openModal('salonModal')" class="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl text-xs transition">
-          Gratis Registreren
-        </button>
+        <h4 class="text-white font-bold uppercase tracking-wider mb-3">Kennis & Tools</h4>
+        <ul class="space-y-2">
+          <li><a href="#zintuigen" class="hover:text-white">Zintuigenlab (Hondenogen)</a></li>
+          <li><a href="#records" class="hover:text-white">Guinness Honden Top 100</a></li>
+          <li><a href="#forum" class="hover:text-white">Hondenforum Community</a></li>
+          <li><a href="#hondenslee-poll" class="hover:text-white">Dierenwelzijn Poll</a></li>
+        </ul>
       </div>
 
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-900 text-xs flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500">
-      <div>&copy; <span id="year"></span> Trimgids.nl / DogPedia. Alle rechten voorbehouden.</div>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-white">Privacybeleid</a>
-        <a href="#" class="hover:text-white">Algemene Voorwaarden</a>
-        <a href="#" class="hover:text-white">Contact & Redactie</a>
-      </div>
     </div>
   </footer>
 
-  <!-- ================= POPUP MODALS ================= -->
-  <!-- 1. Detail Modal (Salon / Hondenschool) -->
-  <div id="detailModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl relative" id="detailModalContent"></div>
-  </div>
-
-  <!-- 2. DogPedia Breed Modal -->
-  <div id="breedModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl relative p-6 sm:p-10" id="breedModalContent"></div>
-  </div>
-
-  <!-- 3. Article Reader Modal -->
-  <div id="articleModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-10" id="articleModalContent"></div>
-  </div>
-
-  <!-- 4. Salon / School Onboarding Modal -->
-  <div id="salonModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeModal('salonModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-
-      <h3 class="text-xl font-black text-slate-900 mb-1">Meld je Trimsalon of School aan</h3>
-      <p class="text-xs text-slate-500 mb-4">Vergroot je bereik onder duizenden hondenbezitters in jouw provincie.</p>
-
-      <form onsubmit="handleSalonSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Type Onderneming *</label>
-          <select required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm">
-            <option value="salon">Hondentrimsalon</option>
-            <option value="school">Hondenschool / Gedragstherapie</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Bedrijfsnaam *</label>
-          <input required type="text" placeholder="bijv. Trimsalon Happy Dog" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm">
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Provincie *</label>
-            <input required type="text" placeholder="bijv. Utrecht" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Telefoonnummer *</label>
-            <input required type="tel" placeholder="06 - 12345678" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm">
-          </div>
-        </div>
-        <button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-black text-sm rounded-xl transition shadow-lg">
-          Aanmelden & Verifiëren
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- 5. Favorites Modal -->
-  <div id="favModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeModal('favModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-      <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <i data-lucide="heart" class="w-5 h-5 text-rose-500 fill-rose-500"></i> Mijn Opgeslagen Favorieten
-      </h3>
-      <div id="favListContent" class="space-y-3"></div>
-    </div>
-  </div>
-
-  <!-- ================= MASTER SCRIPT ================= -->
+  <!-- ================= MASTER RUNTIME SCRIPT ================= -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // 1. DATA: Municipal Dog Tax in Netherlands 2026
+    const dogTaxDatabase = [
+      { municipality: "Amsterdam", province: "Noord-Holland", status: "afgeschaft", rate: 0 },
+      { municipality: "Rotterdam", province: "Zuid-Holland", status: "afgeschaft", rate: 0 },
+      { municipality: "Utrecht", province: "Utrecht", status: "afgeschaft", rate: 0 },
+      { municipality: "Eindhoven", province: "Noord-Brabant", status: "afgeschaft", rate: 0 },
+      { municipality: "Tilburg", province: "Noord-Brabant", status: "afgeschaft", rate: 0 },
+      { municipality: "Almere", province: "Flevoland", status: "afgeschaft", rate: 0 },
+      { municipality: "Breda", province: "Noord-Brabant", status: "afgeschaft", rate: 0 },
+      { municipality: "Nijmegen", province: "Gelderland", status: "afgeschaft", rate: 0 },
+      { municipality: "Haarlem", province: "Noord-Holland", status: "actief", rate: 98.40 },
+      { municipality: "Arnhem", province: "Gelderland", status: "actief", rate: 124.80 },
+      { municipality: "Maastricht", province: "Limburg", status: "actief", rate: 92.50 },
+      { municipality: "Den Haag", province: "Zuid-Holland", status: "actief", rate: 132.00 },
+      { municipality: "Groningen", province: "Groningen", status: "actief", rate: 144.00 },
+      { municipality: "Heerlen", province: "Limburg", status: "afgeschaft", rate: 0 },
+      { municipality: "Sittard-Geleen", province: "Limburg", status: "afgeschaft", rate: 0 },
+      { municipality: "Roermond", province: "Limburg", status: "afgeschaft", rate: 0 }
+    ];
 
-    // 1. DATA: ANATOMY ZONES
-    const anatomyData = {
-      ears: {
-        title: "1. Oren & Gehoorgang",
-        badge: "Gevoelige Zone",
-        content: "Bij rassen met hangoren (zoals Cockers en Doodles) groeit vaak haar ín de gehoorgang dat oorsmeer en vocht vasthoudt. Regelmatig epileren of kortknippen voorkomt gist- en bacteriële infecties.",
-        tool: "Ear powder, vingertrimkussentjes & milde oorreiniger.",
-        danger: "Kras nooit diep in het oorkanaal met wattenstaafjes!"
-      },
-      eyes: {
-        title: "2. Ogen & Traanstrepen",
-        badge: "Vrij Zicht Noodzaak",
-        content: "Haar dat in de ogen prikt veroorzaakt continue oogirritatie en donkere traanstrepen door oxidatie. Voorzichtig vrijknippen met een gebogen schaar met stompe punt (veiligheidsschaar) is essentieel.",
-        tool: "Kleine stompe schaar & traanstreep-lotion.",
-        danger: "Gebruik nooit scherpe punten dicht bij het oog."
-      },
-      teeth: {
-        title: "3. Gebit & Mondhoeken",
-        badge: "Bacterie Preventie",
-        content: "Tandsteen veroorzaakt tandvleesontsteking (paradontitis) en nare geur. Veel trimsalons bieden tegenwoordig pijnloze ultrasone reiniging (zoals Emmi-Pet) aan zonder verdoving.",
-        tool: "Ultrasone tandenborstel & enzymatische tandpasta.",
-        danger: "Verwaarloosd tandsteen kan leiden tot hart- en nierproblemen bij oudere honden."
-      },
-      armpits: {
-        title: "4. Oksels & Wrijvingszones",
-        badge: "Hoogste Klitgevaar",
-        content: "Door constante beweging en het dragen van een hondentuigje ontstaan in de oksels en liezen razendsnel vervilte klitten die strak tegen de huid trekken.",
-        tool: "Metalen combikam & mat splitter.",
-        danger: "Nooit met een schaar 'in' de klit knippen; de huid plooit snel mee!"
-      },
-      back: {
-        title: "5. Dekhaar & Ondervacht",
-        badge: "Thermoregulatie",
-        content: "De rugvacht regelt de lichaamstemperatuur van de hond. Bij honden met een dubbele vacht (bijv. Golden Retriever of Herder) beschermt deze tegen zowel kou als hitte.",
-        tool: "Undercoat rake (ondervachthark) & krachtige waterblazer.",
-        danger: "SCHEER VERBOD: Kaalscheren verpest de isolatie en veroorzaakt zonverbranding!"
-      },
-      paws: {
-        title: "6. Voetzolen & Nagels",
-        badge: "Loopcomfort & Stand",
-        content: "Haar tussen de voetzolen verzamelt modder, ijspegels en zand. Te lange nagels forceren een verkeerde voetstand en veroorzaken gewrichtspijn in de rug.",
-        tool: "Nageltang, nagelvijl & poottimmer.",
-        danger: "Let op het 'leven' (bloedvat) in de nagel tijdens het knippen."
-      },
-      sanitary: {
-        title: "7. Sanitaire Zone & Anaalklieren",
-        badge: "Hygiëne",
-        content: "Het gebied onder de staart moet kort en schoon gehouden worden om ontlasting in de vacht te vermijden. Volle anaalklieren kunnen tijdens de wasbeurt gecontroleerd worden.",
-        tool: "Kleine tondeuse met fijn scheerkopje (10 of 15).",
-        danger: "Druk nooit zelf hard op anaalklieren als je hierin niet geschoold bent."
-      }
-    };
-
-    function showAnatomyZone(zoneKey) {
-      const zone = anatomyData[zoneKey];
-      const panel = document.getElementById('anatomyDetailPanel');
-      panel.innerHTML = `
-        <div class="p-6 bg-slate-800 rounded-2xl border border-emerald-500/40 shadow-xl transition-all">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-black text-emerald-400 uppercase tracking-widest">${zone.badge}</span>
-            <span class="text-xs px-2.5 py-1 bg-emerald-500/20 text-emerald-300 rounded-lg font-bold">Zone Geïnspecteerd</span>
-          </div>
-          <h3 class="text-2xl font-black text-white">${zone.title}</h3>
-          <p class="text-sm text-slate-300 mt-2 leading-relaxed">${zone.content}</p>
-
-          <div class="mt-4 pt-4 border-t border-slate-700/80 space-y-2">
-            <div class="text-xs text-slate-200 flex items-start gap-2">
-              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-              <span><strong>Geadviseerd gereedschap:</strong> ${zone.tool}</span>
-            </div>
-            <div class="text-xs text-rose-300 flex items-start gap-2">
-              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
-              <span><strong>Risico / Let op:</strong> ${zone.danger}</span>
-            </div>
-          </div>
-        </div>
-      `;
-      lucide.createIcons();
-    }
-
-    // 2. DATA: SALONS & HONDENSCHOLEN WITH GPS COORDS
+    // 2. DATA: Directory Items with GPS Coordinates
     const directoryItems = [
       {
         id: 1,
         type: "salon",
         name: "Trimsalon De Blije Snuit",
-        province: "Noord-Holland",
         city: "Amsterdam",
-        address: "Overtoom 142, 1054 HN Amsterdam",
+        address: "Overtoom 142, Amsterdam",
         lat: 52.3600,
         lng: 4.8710,
         rating: 4.9,
         reviews: 48,
-        tags: ["Doodle Specialist", "Gecertificeerd", "Puppy Gewenning"],
-        price: "€55 - €95",
-        phone: "020 - 894 1234",
-        whatsapp: "31612345678",
-        image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=600&q=80",
-        description: "Gespecialiseerd in doorgroeiende fleecevachten, doodles en hydro-massages."
+        tags: ["Doodle Specialist", "Puppy Gewenning"],
+        price: "€ 55 - € 95",
+        phone: "020 - 894 1234"
       },
       {
         id: 2,
         type: "salon",
         name: "Hondenkapsalon Vacht & Trots",
-        province: "Utrecht",
         city: "Utrecht",
-        address: "Biltstraat 88, 3572 BJ Utrecht",
+        address: "Biltstraat 88, Utrecht",
         lat: 52.0950,
         lng: 5.1320,
         rating: 5.0,
         reviews: 67,
-        tags: ["Ruwhaar Plukken", "Ontwollen", "Katten"],
-        price: "€50 - €90",
-        phone: "030 - 231 9901",
-        whatsapp: "31623456789",
-        image: "https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=600&q=80",
-        description: "Ambachtelijk handplukken van terriërs en teckels en ontwolbeurten voor dubbele vachten."
+        tags: ["Ruwhaar Plukken", "Ontwollen"],
+        price: "€ 50 - € 90",
+        phone: "030 - 231 9901"
       },
       {
         id: 3,
         type: "salon",
         name: "Studio Dog Spa Rotterdam",
-        province: "Zuid-Holland",
         city: "Rotterdam",
         address: "Kralingse Plaslaan 12, Rotterdam",
         lat: 51.9300,
         lng: 4.5100,
         rating: 4.8,
         reviews: 35,
-        tags: ["Ontwollen", "Hydrobad Massage", "Grote Honden"],
-        price: "€60 - €110",
-        phone: "010 - 452 7788",
-        whatsapp: "31634567890",
-        image: "https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=600&q=80",
-        description: "Luxe wellnesservaring met ozon-bad en spierontspannende massages."
+        tags: ["Hydrobad Massage", "Grote Honden"],
+        price: "€ 60 - € 110",
+        phone: "010 - 452 7788"
       },
       {
         id: 4,
-        type: "salon",
-        name: "Trimsalon Puur Vacht Eindhoven",
-        province: "Noord-Brabant",
-        city: "Eindhoven",
-        address: "Tongelresestraat 65, Eindhoven",
-        lat: 51.4390,
-        lng: 5.4950,
-        rating: 4.9,
-        reviews: 42,
-        tags: ["1-op-1 Aandacht", "Doodle Specialist", "Pups"],
-        price: "€55 - €85",
-        phone: "040 - 244 5511",
-        whatsapp: "31645678901",
-        image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80",
-        description: "Rustige salon zonder andere aanwezige honden, ideaal voor stressgevoelige viervoeters."
-      },
-      {
-        id: 5,
-        type: "salon",
-        name: "Trimcenter Antwerpen",
-        province: "Antwerpen",
-        city: "Antwerpen",
-        address: "Mechelsesteenweg 204, Antwerpen",
-        lat: 51.2050,
-        lng: 4.4180,
-        rating: 4.7,
-        reviews: 58,
-        tags: ["Ruwharen", "Tentoonstelling Knippen"],
-        price: "€50 - €100",
-        phone: "+32 3 230 4567",
-        whatsapp: "32470123456",
-        image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80",
-        description: "Vakkundige modellering volgens officiële FCI-rasstandaarden."
-      },
-      {
-        id: 6,
         type: "school",
         name: "Kynologenclub Midden-Nederland",
-        province: "Utrecht",
         city: "Utrecht",
         address: "Groenekanseweg 110, Utrecht",
         lat: 52.1200,
         lng: 5.1500,
         rating: 4.9,
         reviews: 79,
-        tags: ["Puppy Cursus", "Gehoorzaamheid", "Gedragstherapie"],
-        price: "Vanaf €120 / cursus",
-        phone: "030 - 789 4433",
-        whatsapp: "31655544433",
-        image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80",
-        description: "Erkende instructeurs voor positieve beloningsgerichte hondentraining."
+        tags: ["Puppy Cursus", "Gehoorzaamheid"],
+        price: "Vanaf € 120 / cursus",
+        phone: "030 - 789 4433"
       },
       {
-        id: 7,
-        type: "school",
-        name: "Hondenschool & Gedragscentrum Amsterdam",
-        province: "Noord-Holland",
-        city: "Amsterdam",
-        address: "Sloterweg 300, Amsterdam",
-        lat: 52.3400,
-        lng: 4.8100,
-        rating: 4.8,
-        reviews: 62,
-        tags: ["Puppy Socialisatie", "Agility", "Privebegeleiding"],
-        price: "Vanaf €135 / cursus",
-        phone: "020 - 661 2299",
-        whatsapp: "31677788899",
-        image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80",
-        description: "Kleinschalige groepen met maximale persoonlijke aandacht voor baas en pup."
+        id: 5,
+        type: "route",
+        name: "Speelbos & Hondenstrand Het Hulsbeek",
+        city: "Oldenzaal",
+        address: "Oude Almeloseweg 11, Overijssel",
+        lat: 52.3167,
+        lng: 6.9000,
+        rating: 4.9,
+        reviews: 112,
+        tags: ["100% Omheind", "Schoon Zwemwater"],
+        price: "Gratis Toegang",
+        phone: "routes.apexclusive.nl"
       }
     ];
 
-    // 3. DATA: DOGPEDIA BREEDS
-    const dogpediaBreeds = [
-      {
-        id: "labradoodle",
-        name: "Australian Labradoodle",
-        category: "krul",
-        image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=500&q=80",
-        coatType: "Fleece- of Wolkrulvacht (geen rui)",
-        groomLevel: "Hoog (Dagelijks onderhoud)",
-        interval: "Elke 6 - 8 weken",
-        brush: "Activet groen slickerborstel & metalen kam",
-        summary: "Doorgroeiende vacht zonder seizoensrui. Dode haren blijven in de krul hangen waardoor zonder line brushing snel vilt ontstaat.",
-        fullGuide: "Labradoodles hebben geen ondervacht die uitvalt, maar verliezen wel dode haren. Deze hopen zich op in de krullen. Borstel altijd 'laag voor laag' tot op de huid en was de hond NOOIT als er klitten aanwezig zijn."
-      },
-      {
-        id: "golden-retriever",
-        name: "Golden Retriever",
-        category: "dubbel",
-        image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=500&q=80",
-        coatType: "Dubbele vacht met dikke ondervacht",
-        groomLevel: "Gemiddeld",
-        interval: "Elke 3 - 4 maanden (ontwollen)",
-        brush: "Ondervachtharkje & waterblazer",
-        summary: "Beschikt over een waterafstotende bovenvacht en isolerende ondervacht. Scheren vernielt de thermoregulatie.",
-        fullGuide: "In het voor- en najaar ruift de ondervacht massaal. Een professionele was- en ontwolbeurt met een waterblazer blaast alle dode wol uit zonder de levende dekharen te beschadigen."
-      },
-      {
-        id: "ruwharige-teckel",
-        name: "Ruwharige Teckel",
-        category: "ruwhaar",
-        image: "https://images.unsplash.com/photo-1612195583950-b8fd34c87093?auto=format&fit=crop&w=500&q=80",
-        coatType: "Ruwharige draadhaarvacht",
-        groomLevel: "Periodiek (Handplukken)",
-        interval: "2 tot 4x per jaar plukken",
-        brush: "Grove kam & rubberen trimvingers",
-        summary: "Dode stugge dekharen moeten handmatig met wortel en al verwijderd worden zodra de vacht plukrijp is.",
-        fullGuide: "Plukken doet geen pijn mits de vacht rijp is. Als een ruwhaar geschoren wordt, verliest hij zijn stugge structuur en kleur, en wordt de vacht zacht, dof en gevoelig voor vuil."
-      },
-      {
-        id: "cocker-spaniel",
-        name: "Engelse Cocker Spaniël",
-        category: "zijde",
-        image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80",
-        coatType: "Zijdevacht met bevedering",
-        groomLevel: "Hoog",
-        interval: "Elke 8 - 10 weken",
-        brush: "Combikam & slickerborstel",
-        summary: "Lange zijdeachtige bevedering aan poten, buik en oren met grote neiging tot klitten bij boswandelingen.",
-        fullGuide: "De lange bevedering vraagt dagelijkse inspectie op grasaren en klitten. De rug wordt geëffileerd of geplukt om het zijdezachte silhouet te behouden."
-      }
-    ];
-
-    // 4. DATA: ARTICLES
-    const articlesData = [
-      {
-        id: "vilt-gevaar",
-        title: "Vervilting bij honden: Waarom het een medisch probleem is",
-        category: "Gezondheid",
-        time: "4 min",
-        image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80",
-        snippet: "Klitten lijken onschuldig, maar als vilt eenmaal de huid afsluit ontstaan hotspots, schimmels en pijnlijke ontstekingen.",
-        content: `
-          <p class="text-sm text-slate-600 mb-4 leading-relaxed">Vervilting ontstaat wanneer losse haren en vuil zich strak om de levende vacht wikkelen. Hierdoor ontstaat een hard pantser dat strak tegen de opperhuid trekt bij elke beweging van de hond.</p>
-          <h4 class="text-base font-bold text-slate-900 mb-2">Waarom scheren bij vilt noodzakelijk is:</h4>
-          <p class="text-sm text-slate-600 leading-relaxed">Als de vacht eenmaal vervilt is, is uitborstelen pure dierenmishandeling. De enige pijnloze oplossing is om met een kort scheerkopje onder de viltlaag door te scheren, zodat de huid weer kan ademen en herstellen.</p>
-        `
-      },
-      {
-        id: "scheer-verbod",
-        title: "Waarom je een dubbele vacht NOOIT mag scheren",
-        category: "Kynologie",
-        time: "5 min",
-        image: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80",
-        snippet: "Veel baasjes denken hun dikharige hond te helpen in de zomer door hem kaal te scheren. Het tegendeel is waar!",
-        content: `
-          <p class="text-sm text-slate-600 mb-4 leading-relaxed">De vacht van een hond isoleert tegen kou én hitte. Door het scheren van een Golden Retriever, Herder of Husky ontneem je de hond zijn natuurlijke zonnescherm.</p>
-          <h4 class="text-base font-bold text-slate-900 mb-2">Post-clipping Alopecia:</h4>
-          <p class="text-sm text-slate-600 leading-relaxed">Bovendien kan het scheren van deze rassen leiden tot 'post-clipping alopecia', waarbij de vacht jarenlang niet meer of slechts in doffe plukken teruggroeit.</p>
-        `
-      },
-      {
-        id: "puppy-gewenning",
-        title: "Het belang van de eerste trim- en kynologische gewenning",
-        category: "Opvoeding",
-        time: "3 min",
-        image: "https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?auto=format&fit=crop&w=600&q=80",
-        snippet: "Waarom tussen 12 en 16 weken de basis wordt gelegd voor een ontspannen hond op de trimtafel en hondenschool.",
-        content: `
-          <p class="text-sm text-slate-600 mb-4 leading-relaxed">In de eerste levensweken associëren pups nieuwe geluiden (zoals de föhn, scharen en andere honden) razendsnel als 'normaal' als dit rustig en spelenderwijs gebeurt met beloningen.</p>
-        `
-      }
-    ];
-
-    // ================= LEAFLET MAP INITIALIZATION =================
-    let mapInstance = null;
+    // ================= LEAFLET MAP ENGINE =================
+    let map = null;
     let markersLayer = null;
-    let currentDirTab = 'salons';
 
-    function initMap() {
-      // Center of Netherlands & Flanders
-      mapInstance = L.map('leafletMap').setView([52.1326, 5.2913], 8);
+    function initLeafletMap() {
+      map = L.map('leafletMap').setView([52.1326, 5.2913], 8);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(mapInstance);
+      }).addTo(map);
 
-      markersLayer = L.layerGroup().addTo(mapInstance);
-      renderDirectory();
+      markersLayer = L.layerGroup().addTo(map);
+      renderMapMarkers('all');
     }
 
-    function renderDirectory() {
-      const grid = document.getElementById('directoryGrid');
-      grid.innerHTML = '';
+    function renderMapMarkers(filterType = 'all') {
       markersLayer.clearLayers();
+      const grid = document.getElementById('directoryListingsGrid');
+      grid.innerHTML = '';
 
-      const provinceFilter = document.getElementById('provinceSelect').value;
-      const globalQuery = document.getElementById('globalSearchInput').value.toLowerCase();
-
-      const items = directoryItems.filter(item => {
-        const matchesTab = item.type === (currentDirTab === 'salons' ? 'salon' : 'school');
-        const matchesProv = !provinceFilter || item.province === provinceFilter;
-        const matchesQuery = !globalQuery || 
-          item.name.toLowerCase().includes(globalQuery) || 
-          item.city.toLowerCase().includes(globalQuery) ||
-          item.tags.some(t => t.toLowerCase().includes(globalQuery));
-        return matchesTab && matchesProv && matchesQuery;
-      });
-
-      // Update Counts
-      document.getElementById('salonCount').textContent = directoryItems.filter(i => i.type === 'salon').length;
-      document.getElementById('schoolCount').textContent = directoryItems.filter(i => i.type === 'school').length;
+      const items = filterType === 'all' ? directoryItems : directoryItems.filter(i => i.type === filterType);
 
       items.forEach(item => {
-        // 1. Add Leaflet Marker
-        const markerClass = item.type === 'salon' ? 'custom-marker' : 'custom-marker-school';
-        const iconHtml = `<div class="${markerClass}" style="width:32px; height:32px;">${item.type === 'salon' ? '✂️' : '🎓'}</div>`;
-        const customIcon = L.divIcon({
-          html: iconHtml,
+        // Custom Leaflet Marker
+        let pinClass = 'map-pin-salon';
+        let iconSymbol = '✂️';
+        if (item.type === 'school') { pinClass = 'map-pin-school'; iconSymbol = '🎓'; }
+        else if (item.type === 'route') { pinClass = 'map-pin-route'; iconSymbol = '🌲'; }
+
+        const icon = L.divIcon({
+          html: `<div class="${pinClass}">${iconSymbol}</div>`,
           className: '',
           iconSize: [32, 32],
           iconAnchor: [16, 16]
         });
 
-        const marker = L.marker([item.lat, item.lng], { icon: customIcon }).addTo(markersLayer);
+        const marker = L.marker([item.lat, item.lng], { icon }).addTo(markersLayer);
         marker.bindPopup(`
-          <div class="p-1 text-slate-900 font-sans">
-            <div class="font-black text-sm">${item.name}</div>
-            <div class="text-xs text-slate-500">${item.address}</div>
-            <div class="text-xs font-bold text-emerald-600 mt-1">${item.price}</div>
-            <button onclick="openDetailModal(${item.id})" class="mt-2 w-full py-1 bg-slate-900 text-white rounded text-xs font-bold">Bekijk Details</button>
+          <div class="font-sans">
+            <div class="font-bold text-xs">${item.name}</div>
+            <div class="text-[11px] text-slate-500">${item.address}</div>
+            <div class="text-xs font-bold text-brand-600 mt-1">${item.price}</div>
+            <a href="tel:${item.phone}" class="mt-2 block w-full py-1 bg-slate-900 text-white text-center rounded text-[11px] font-bold">Contact: ${item.phone}</a>
           </div>
         `);
 
-        // 2. Add Listing Card to Grid
+        // Cards below map
         const card = document.createElement('div');
-        card.className = "bg-white rounded-3xl overflow-hidden border border-slate-200/90 hover:shadow-xl transition flex flex-col justify-between cursor-pointer group";
-        card.onclick = () => openDetailModal(item.id);
-
+        card.className = "bg-white p-5 rounded-3xl border border-slate-200 shadow-sm hover:shadow-lg transition flex flex-col justify-between";
         card.innerHTML = `
           <div>
-            <div class="relative h-48 overflow-hidden">
-              <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <span class="absolute top-3.5 left-3.5 bg-slate-900/90 text-white text-[11px] font-bold px-3 py-1 rounded-xl">
-                📍 ${item.city} (${item.province})
-              </span>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-black uppercase text-brand-700 bg-brand-50 px-2 py-0.5 rounded-md">${item.type}</span>
+              <span class="text-xs font-bold text-amber-500">★ ${item.rating} (${item.reviews})</span>
             </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-black text-brand-600 uppercase">${item.type === 'salon' ? 'Trimsalon' : 'Hondenschool'}</span>
-                <div class="flex items-center gap-1 text-amber-500 text-xs font-bold">
-                  ★ ${item.rating} <span class="text-slate-400">(${item.reviews})</span>
-                </div>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">${item.name}</h3>
-              <p class="text-xs text-slate-500 mt-1">${item.address}</p>
-              <div class="mt-3 flex flex-wrap gap-1">
-                ${item.tags.map(t => `<span class="text-[10px] bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-md font-bold">${t}</span>`).join('')}
-              </div>
+            <h4 class="font-black text-slate-900 text-base">${item.name}</h4>
+            <p class="text-xs text-slate-500 mt-0.5">${item.address}</p>
+            <div class="mt-3 flex flex-wrap gap-1">
+              ${item.tags.map(t => `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-bold">${t}</span>`).join('')}
             </div>
           </div>
-          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-slate-100">
-            <div>
-              <span class="text-[10px] text-slate-400 uppercase font-bold block">Tarief</span>
-              <span class="text-sm font-black text-slate-900">${item.price}</span>
-            </div>
-            <button onclick="openDetailModal(${item.id}); event.stopPropagation();" class="px-4 py-2 bg-slate-900 hover:bg-brand-600 text-white rounded-xl text-xs font-bold transition">
-              Informatie & Boek
-            </button>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-900">${item.price}</span>
+            <a href="tel:${item.phone}" class="px-3 py-1.5 bg-slate-900 hover:bg-brand-600 text-white rounded-xl text-xs font-bold transition">Bellen</a>
           </div>
         `;
         grid.appendChild(card);
       });
-
-      lucide.createIcons();
     }
 
-    function setDirectoryTab(tab) {
-      currentDirTab = tab;
-      const salonBtn = document.getElementById('tabSalonsBtn');
-      const schoolBtn = document.getElementById('tabSchoolsBtn');
+    function filterMapMarkers(type) {
+      document.querySelectorAll('.map-filter-btn').forEach(b => {
+        b.className = "map-filter-btn px-4 py-2 rounded-xl text-xs font-black bg-white text-slate-700 border border-slate-200";
+      });
+      event.target.className = "map-filter-btn active px-4 py-2 rounded-xl text-xs font-black bg-brand-600 text-white shadow";
+      renderMapMarkers(type);
+    }
 
-      if (tab === 'salons') {
-        salonBtn.className = "px-5 py-2.5 rounded-xl text-xs font-black bg-brand-600 text-white transition flex items-center gap-2";
-        schoolBtn.className = "px-5 py-2.5 rounded-xl text-xs font-black text-slate-600 hover:text-slate-900 transition flex items-center gap-2";
+    // ================= ZINTUIGENLAB INTERACTION =================
+    function setVisionMode(mode) {
+      const img = document.getElementById('zintuigenImage');
+      const badge = document.getElementById('visionModeBadge');
+      const btnHuman = document.getElementById('btnVisionHuman');
+      const btnDog = document.getElementById('btnVisionDog');
+
+      if (mode === 'dog') {
+        img.classList.add('dog-vision-filter');
+        badge.innerHTML = '🐶 Zicht: Hondenogen (Dichromaat Geel/Blauw Spectrum)';
+        btnDog.className = 'px-5 py-2 rounded-xl text-xs font-black bg-brand-600 text-white shadow-md';
+        btnHuman.className = 'px-5 py-2 rounded-xl text-xs font-black bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700';
       } else {
-        schoolBtn.className = "px-5 py-2.5 rounded-xl text-xs font-black bg-brand-600 text-white transition flex items-center gap-2";
-        salonBtn.className = "px-5 py-2.5 rounded-xl text-xs font-black text-slate-600 hover:text-slate-900 transition flex items-center gap-2";
+        img.classList.remove('dog-vision-filter');
+        badge.innerHTML = '👁️ Zicht: Menselijk Kleurenspectrum (RGB)';
+        btnHuman.className = 'px-5 py-2 rounded-xl text-xs font-black bg-blue-600 text-white shadow-md';
+        btnDog.className = 'px-5 py-2 rounded-xl text-xs font-black bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700';
       }
-      renderDirectory();
     }
 
-    function filterDirectory() {
-      renderDirectory();
-    }
+    // ================= HONDENBELASTING SEARCH =================
+    function searchDogTax() {
+      const q = document.getElementById('taxSearchInput').value.toLowerCase().trim();
+      const container = document.getElementById('taxResultsContainer');
+      container.innerHTML = '';
 
-    function setFilterProvince(prov) {
-      document.getElementById('provinceSelect').value = prov;
-      renderDirectory();
-    }
+      const filtered = dogTaxDatabase.filter(d => !q || d.municipality.toLowerCase().includes(q));
 
-    function handleGlobalSearch() {
-      renderDirectory();
-    }
+      if (filtered.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-400 py-2">Geen gemeente gevonden.</p>';
+        return;
+      }
 
-    function quickFilter(term) {
-      document.getElementById('globalSearchInput').value = term;
-      renderDirectory();
-      document.getElementById('directory').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // DETAIL MODAL
-    function openDetailModal(id) {
-      const item = directoryItems.find(i => i.id === id);
-      if (!item) return;
-
-      const content = document.getElementById('detailModalContent');
-      content.innerHTML = `
-        <div class="relative h-64 sm:h-72">
-          <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
-          <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 text-white flex items-center justify-center">
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
-        </div>
-        <div class="p-6 sm:p-8">
-          <span class="text-xs font-black text-brand-600 uppercase tracking-widest">${item.province} • ${item.type === 'salon' ? 'Trimsalon' : 'Hondenschool'}</span>
-          <h2 class="text-3xl font-black text-slate-900 mt-1">${item.name}</h2>
-          <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">📍 ${item.address}</p>
-
-          <p class="text-sm text-slate-600 mt-4 leading-relaxed">${item.description}</p>
-
-          <div class="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-200">
-            <h4 class="text-xs font-bold text-slate-900 uppercase mb-2">Specialisaties & Faciliteiten</h4>
-            <div class="flex flex-wrap gap-1.5">
-              ${item.tags.map(t => `<span class="text-xs bg-white border border-slate-200 text-slate-800 px-3 py-1 rounded-lg font-bold">${t}</span>`).join('')}
-            </div>
-          </div>
-
-          <div class="mt-8 grid grid-cols-2 gap-3">
-            <a href="tel:${item.phone}" class="py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm rounded-xl text-center flex items-center justify-center gap-2">
-              <i data-lucide="phone" class="w-4 h-4"></i> ${item.phone}
-            </a>
-            <a href="https://wa.me/${item.whatsapp}" target="_blank" class="py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl text-center flex items-center justify-center gap-2">
-              <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Contact
-            </a>
-          </div>
-        </div>
-      `;
-      openModal('detailModal');
-      lucide.createIcons();
-    }
-
-    // ================= DOGPEDIA INITIALIZATION =================
-    function initDogpedia(category = 'all') {
-      const grid = document.getElementById('dogpediaGrid');
-      grid.innerHTML = '';
-
-      const list = category === 'all' ? dogpediaBreeds : dogpediaBreeds.filter(b => b.category === category);
-
-      list.forEach(breed => {
-        const card = document.createElement('div');
-        card.className = "bg-white rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl transition flex flex-col justify-between group cursor-pointer";
-        card.onclick = () => openBreedModal(breed.id);
-
-        card.innerHTML = `
+      filtered.forEach(d => {
+        const row = document.createElement('div');
+        row.className = "p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between";
+        row.innerHTML = `
           <div>
-            <div class="h-48 overflow-hidden relative">
-              <img src="${breed.image}" alt="${breed.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase">${breed.groomLevel}</span>
-            </div>
-            <div class="p-5">
-              <h3 class="text-lg font-black text-slate-900 group-hover:text-blue-600 transition">${breed.name}</h3>
-              <p class="text-xs text-slate-500 mt-1 font-semibold">${breed.coatType}</p>
-              <p class="text-xs text-slate-600 mt-3 line-clamp-2">${breed.summary}</p>
-            </div>
+            <div class="font-bold text-xs text-slate-900">${d.municipality} <span class="text-slate-400 font-normal">(${d.province})</span></div>
           </div>
-          <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between">
-            <span class="text-[11px] font-bold text-blue-600">Lees Vachtgids →</span>
-            <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-600">${breed.interval}</span>
-          </div>
+          <span class="text-xs font-black px-2.5 py-1 rounded-lg ${d.status === 'afgeschaft' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+            ${d.status === 'afgeschaft' ? '€ 0,- (Afgeschaft)' : '€ ' + d.rate.toFixed(2) + ' /jr'}
+          </span>
         `;
-        grid.appendChild(card);
+        container.appendChild(row);
       });
-      lucide.createIcons();
     }
 
-    function filterBreedCategory(cat) {
-      document.querySelectorAll('.breed-cat-btn').forEach(btn => {
-        btn.className = "breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
-      });
-      event.target.className = "breed-cat-btn px-4 py-2 rounded-xl text-xs font-black bg-blue-600 text-white transition";
-      initDogpedia(cat);
-    }
+    // ================= SMART PLANNER =================
+    function updateSmartPlanner() {
+      const breed = document.getElementById('calcBreedSelect').value;
+      const age = document.getElementById('calcAgeSelect').value;
+      const state = document.getElementById('calcStateSelect').value;
 
-    function openBreedModal(breedId) {
-      const b = dogpediaBreeds.find(item => item.id === breedId);
-      if (!b) return;
+      const freqElem = document.getElementById('plannerResultFrequency');
+      const advElem = document.getElementById('plannerResultAdvice');
 
-      const content = document.getElementById('breedModalContent');
-      content.innerHTML = `
-        <button onclick="closeModal('breedModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-        <span class="text-xs font-black text-blue-600 uppercase tracking-widest">DogPedia Kynologisch Paspoort</span>
-        <h2 class="text-3xl font-black text-slate-900 mt-1 mb-4">${b.name}</h2>
-        <img src="${b.image}" alt="${b.name}" class="w-full h-64 object-cover rounded-2xl mb-6">
-        
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-            <span class="text-[10px] font-bold text-slate-400 uppercase">Aanbevolen Triminterval</span>
-            <div class="text-sm font-black text-slate-900 mt-0.5">${b.interval}</div>
-          </div>
-          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
-            <span class="text-[10px] font-bold text-slate-400 uppercase">Aanbevolen Borstels</span>
-            <div class="text-sm font-black text-slate-900 mt-0.5">${b.brush}</div>
-          </div>
-        </div>
-
-        <h4 class="text-base font-bold text-slate-900 mb-2">Diepgaande Vachtgids & Tips:</h4>
-        <p class="text-sm text-slate-600 leading-relaxed">${b.fullGuide}</p>
-      `;
-      openModal('breedModal');
-      lucide.createIcons();
-    }
-
-    // ================= ARTICLES INITIALIZATION =================
-    function initArticles() {
-      const grid = document.getElementById('articlesGrid');
-      grid.innerHTML = articlesData.map(art => `
-        <article class="bg-white rounded-3xl overflow-hidden border border-slate-200 hover:shadow-xl transition flex flex-col justify-between group cursor-pointer" onclick="openArticleModal('${art.id}')">
-          <div>
-            <div class="h-48 overflow-hidden relative">
-              <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-              <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[10px] font-black px-3 py-1 rounded-xl uppercase">${art.category}</span>
-            </div>
-            <div class="p-6">
-              <div class="text-[11px] font-bold text-slate-400 mb-1">${art.time} leestijd</div>
-              <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">${art.title}</h3>
-              <p class="text-xs text-slate-600 mt-2 leading-relaxed">${art.snippet}</p>
-            </div>
-          </div>
-          <div class="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center font-bold text-xs text-brand-600">
-            Lees artikel →
-          </div>
-        </article>
-      `).join('');
-      lucide.createIcons();
-    }
-
-    function openArticleModal(id) {
-      const art = articlesData.find(a => a.id === id);
-      if (!art) return;
-      const content = document.getElementById('articleModalContent');
-      content.innerHTML = `
-        <button onclick="closeModal('articleModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">${art.category} • ${art.time}</span>
-        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">${art.title}</h2>
-        <img src="${art.image}" alt="${art.title}" class="w-full h-64 object-cover rounded-2xl mb-6">
-        <div>${art.content}</div>
-      `;
-      openModal('articleModal');
-      lucide.createIcons();
-    }
-
-    // ================= CALCULATOR LOGIC =================
-    let calcSize = 'small';
-    const baseTariffs = {
-      small: { min: 45, max: 65, dur: "1 - 1.5 uur" },
-      medium: { min: 60, max: 85, dur: "1.5 - 2 uur" },
-      large: { min: 75, max: 110, dur: "2 - 2.5 uur" },
-      xlarge: { min: 95, max: 140, dur: "2.5 - 3.5 uur" }
-    };
-
-    function setCalcSize(sz, btn) {
-      calcSize = sz;
-      document.querySelectorAll('.calc-size-btn').forEach(b => {
-        b.className = "calc-size-btn p-3 rounded-2xl border border-slate-700 bg-slate-800 text-slate-300 font-bold text-xs text-center transition";
-      });
-      btn.className = "calc-size-btn active p-3 rounded-2xl border border-brand-500 bg-brand-500/20 text-brand-300 font-bold text-xs text-center transition";
-      calculatePrice();
-    }
-
-    function calculatePrice() {
-      const treatment = document.getElementById('calcTreatment').value;
-      const matting = document.getElementById('calcMatting').checked;
-      const teeth = document.getElementById('calcTeeth').checked;
-
-      let base = { ...baseTariffs[calcSize] };
-      let min = base.min;
-      let max = base.max;
-
-      if (treatment === 'doodle') { min += 15; max += 25; }
-      else if (treatment === 'plukken') { min += 10; max += 20; }
-      else if (treatment === 'only_wash') { min -= 15; max -= 20; }
-
-      if (matting) { min += 15; max += 30; }
-      if (teeth) { min += 25; max += 25; }
-
-      document.getElementById('priceDisplay').textContent = `${min} - ${max}`;
-      document.getElementById('durationDisplay').textContent = base.dur;
-    }
-
-    // ================= BEFORE / AFTER SLIDER =================
-    function initSlider() {
-      const slider = document.getElementById('beforeAfterSlider');
-      const overlay = document.getElementById('beforeOverlay');
-      const handle = document.getElementById('sliderHandle');
-      let isDragging = false;
-
-      function move(e) {
-        if (!isDragging) return;
-        const rect = slider.getBoundingClientRect();
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        let x = clientX - rect.left;
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        const pct = (x / rect.width) * 100;
-        overlay.style.width = pct + '%';
-        handle.style.left = pct + '%';
+      if (breed === 'pomeriaan') {
+        freqElem.textContent = 'Elke 8 tot 10 weken modelleren & ontwollen';
+        advElem.textContent = 'Alleen met effileerschaar bijpunten. Nooit kaalscheren om alopecia en vachtverstikking te voorkomen.';
+      } else if (breed === 'teckel') {
+        freqElem.textContent = '2 tot 4 keer per jaar handmatig plukken';
+        advElem.textContent = 'Pas plukken wanneer de dekvacht plukrijp is. Niet scheren om de harde draadstructuur te behouden.';
+      } else if (breed === 'golden') {
+        freqElem.textContent = 'Elke 3 tot 4 maanden ontwolkuur';
+        advElem.textContent = 'Wassen met ontwol-shampoo en droogblazen met de waterblazer om dood onderhaar te verwijderen.';
+      } else {
+        freqElem.textContent = 'Elke 6 tot 8 weken volledige trimbeurt';
+        advElem.textContent = 'Dagelijks line brushing met een slickerborstel (Activet groen) en nameten met grove kam.';
       }
 
-      handle.addEventListener('mousedown', () => isDragging = true);
-      window.addEventListener('mouseup', () => isDragging = false);
-      window.addEventListener('mousemove', move);
-
-      handle.addEventListener('touchstart', () => isDragging = true);
-      window.addEventListener('touchend', () => isDragging = false);
-      window.addEventListener('touchmove', move);
+      if (state === 'matted') {
+        advElem.textContent += ' ⚠️ Let op: Bij zware vervilting is kortscheren de enige pijnloze oplossing voor de huid.';
+      }
     }
 
-    // ================= MODAL HELPERS =================
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+    // ================= LIFETIME COST CALCULATOR =================
+    function calculateLifetimeCost() {
+      const size = document.getElementById('costFormSize').value;
+      const diet = document.getElementById('costFormDiet').value;
+
+      let monthly = 120;
+      let startup = 1200;
+
+      if (size === 'medium') { monthly = 165; startup = 1450; }
+      else if (size === 'large') { monthly = 220; startup = 1750; }
+
+      if (diet === 'premium') { monthly += 45; }
+
+      const lifetime = startup + (monthly * 12 * 13);
+
+      document.getElementById('displayMonthlyCost').textContent = monthly;
+      document.getElementById('displayLifetimeCost').textContent = lifetime.toLocaleString('nl-NL');
     }
 
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+    // ================= POLL ENGINE =================
+    function votePoll(choice) {
+      document.getElementById('pollVotedNotice').classList.remove('hidden');
+      if (choice === 'ja') {
+        document.getElementById('pollPctJa').textContent = '79%';
+        document.getElementById('pollPctNee').textContent = '21%';
+      }
+    }
+
+    // ================= FORMS & HELPERS =================
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      document.getElementById('quoteStatusMsg').classList.remove('hidden');
+      e.target.reset();
+    }
+
+    function toggleFaq(el) {
+      const ans = el.querySelector('.faq-ans');
+      ans.classList.toggle('hidden');
     }
 
     function toggleMobileMenu() {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
-    function handleSalonSubmit(e) {
-      e.preventDefault();
-      alert("Aanmelding succesvol ontvangen! We verifiëren de gegevens binnen 24 uur.");
-      closeModal('salonModal');
-      e.target.reset();
+    function triggerGeoLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          map.setView([pos.coords.latitude, pos.coords.longitude], 12);
+        });
+      }
     }
 
-    function showFavoritesModal() {
-      openModal('favModal');
-      document.getElementById('favListContent').innerHTML = `
-        <div class="text-center py-6 text-slate-400 text-xs">
-          Nog geen favorieten bewaard. Klik op een trimsalon of hondenschool om deze op te slaan.
-        </div>
-      `;
+    function setHeroCategory(cat, btn) {
+      document.querySelectorAll('.hero-cat-btn').forEach(b => {
+        b.className = "hero-cat-btn px-4 py-2 rounded-full text-xs font-bold bg-white/10 text-slate-300 hover:bg-white/20 border border-white/10";
+      });
+      btn.className = "hero-cat-btn active px-4 py-2 rounded-full text-xs font-bold bg-brand-600 text-white border border-brand-500 shadow-md";
+      document.getElementById('heroSearchService').value = cat;
     }
 
-    // ================= LOAD ALL =================
+    function executeHeroSearch() {
+      const srv = document.getElementById('heroSearchService').value;
+      if (srv === 'verzekering') {
+        document.getElementById('zorg-verzekering').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        document.getElementById('interactieve-kaart').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // INIT ALL ON DOM LOAD
     window.addEventListener('DOMContentLoaded', () => {
-      showAnatomyZone('ears');
-      initMap();
-      initDogpedia();
-      initArticles();
-      initSlider();
-      calculatePrice();
+      initLeafletMap();
+      searchDogTax();
+      calculateLifetimeCost();
+      updateSmartPlanner();
       lucide.createIcons();
     });
   </script>
