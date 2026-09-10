@@ -336,3 +336,12 @@ main table tr:nth-child(even) td { background: color-mix(in srgb, var(--secondar
 *:focus-visible { outline-color: var(--primary, #0f3e28) !important; outline-width: 3px !important; outline-offset: 3px !important; }
 button, a, input, select, textarea { transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
+
+/* Ronde 11/20 — compacte, leesbare header op middelgrote schermen */
+@media (min-width: 761px) and (max-width: 1160px) {
+  .site-navbar .nav-in { min-height: 62px; padding-inline: 18px; }
+  .nav-brand { flex: 0 0 auto; }
+  .nav-actions { margin-left: auto; }
+  .nav-actions .btn-outline { padding-inline: 12px; }
+  .tg-search-input { width: min(210px, 24vw) !important; }
+}
