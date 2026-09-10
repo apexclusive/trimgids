@@ -5,6 +5,31 @@
 body.tg-inner-page .sticky-hub-nav { display: none !important; }
 body.tg-inner-page .route-disclosure { display: none !important; }
 
+/* De homepage is een ingang, geen tweede encyclopedie. Details leven op de
+   eigen gids-/directorypagina; de homepage houdt overzicht, keuze en kaart. */
+body.tg-home #records,
+body.tg-home #eerstehulp-cijfers,
+body.tg-home #alerts-veiligheid,
+body.tg-home #kennis,
+body.tg-home #zorg-verzekering,
+body.tg-home #vacht-offerte,
+body.tg-home #offerte,
+body.tg-home #financien-belasting,
+body.tg-home #reizen-kennis,
+body.tg-home #wandelen-hub,
+body.tg-home #forum,
+body.tg-home #hondenslee-poll,
+body.tg-home #helpen,
+body.tg-home #steun-hub,
+body.tg-home #faq { display: none !important; }
+
+/* Maximaal vijf primaire keuzes in de hoofdnav; de overige diensten blijven
+   volledig bereikbaar via Meer voor baasjes en de footer. */
+nav.site-navbar .nav-links-pills > a[href="/hondenschool"],
+nav.site-navbar .nav-links-pills > a[href="/opvang"],
+nav.site-navbar .nav-links-pills > a[href="/wellness"],
+nav.site-navbar .nav-links-pills > a[href="/last-minute"] { display: none !important; }
+
 /* De feedback- en founderblokken waren op elke pagina een tweede homepage.
    De kern blijft bereikbaar via de footerlinks, zonder de hoofdinhoud te
    overschaduwen. */
