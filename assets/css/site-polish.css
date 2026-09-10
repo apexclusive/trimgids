@@ -191,3 +191,13 @@ body.menu-open { overflow: hidden; }
    niet boven de navigatie. */
 .top-announcement { display: none !important; }
 .site-navbar { top: 0 !important; }
+
+/* Zoekveld: alleen de duidelijke invoer blijft over. Het losse ronde icoon en
+   de kleine sneltoetsbadge oogden als een laad-indicator en maakten het veld
+   onrustig, vooral op kleine schermen. */
+.tg-search-ic, .tg-search-kbd { display: none !important; }
+.tg-search-input { padding-left: 14px !important; width: min(230px, 26vw) !important; }
+.tg-search-input:focus { width: min(300px, 34vw) !important; }
+@media (max-width: 1000px) {
+  .tg-search-input, .tg-search-input:focus { width: min(180px, 38vw) !important; }
+}
