@@ -92,6 +92,7 @@ main section > p { max-width: var(--reading-width); }
 /* Geen decoratieve koppen die drie regels innemen in compacte kaarten. */
 main .card h2, main .card h3, main .provider h2, main .provider h3,
 main .news-card h2, main .news-card h3 { max-width: 28ch; }
+main .provider .pc-name { margin: 10px 0 4px !important; font-size: 1.12rem !important; line-height: 1.25 !important; }
 main .card p, main .provider p, main .news-card p { max-width: 62ch; }
 
 /* Formulieren: één duidelijke kolomritme en geen exploderende labels. */

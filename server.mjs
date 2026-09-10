@@ -2022,7 +2022,7 @@ function providerCardHtml(p, breedSlug, category = 'trimsalon') {
         <span class="pc-price">${p.startingPrice ? `€${p.startingPrice}` : 'op aanvraag'}</span>
       </div>
       <div class="pc-baasjes-row">${baasjesBadge(p.slug)}</div>
-      <h2><a href="${providerUrl}">${escapeHtml(p.name)}</a></h2>
+      <h3 class="pc-name"><a href="${providerUrl}">${escapeHtml(p.name)}</a></h3>
       <p class="address">${escapeHtml(p.address)}</p>
       ${desc ? `<p class="pc-desc">${escapeHtml(desc)}</p>` : ''}
       <div class="chips">
