@@ -205,10 +205,15 @@ body.menu-open { overflow: hidden; }
 /* Laatste interactielaag: duidelijke status, zonder extra visuele drukte. */
 nav.site-navbar.scrolled { box-shadow: 0 8px 28px rgba(15, 23, 42, .08); }
 .nav-pill[aria-current="page"] { background: var(--primary-light) !important; color: var(--primary) !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 22%, transparent); }
-#back-to-top { position: fixed; right: 18px; bottom: 18px; z-index: 900; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; background: var(--card); color: var(--primary); box-shadow: var(--shadow-floating); opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .2s ease, transform .2s ease, background .2s ease; }
+/* Ronde 18 — de terug-naar-boven-knop staat LINKS van de chat-bel (die zit
+   rechtsonder op right:18/bottom:18, 60px groot) in plaats van er pal achter.
+   Verticaal gecentreerd op de bel: 18+30-22 = 26px. */
+#back-to-top { position: fixed; right: 88px; bottom: 26px; z-index: 900; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%; background: var(--card); color: var(--primary); box-shadow: var(--shadow-floating); opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .2s ease, transform .2s ease, background .2s ease; }
 #back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 #back-to-top:hover { background: var(--primary); color: var(--primary-foreground); }
-@media (max-width: 600px) { #back-to-top { right: 12px; bottom: 12px; } }
+/* Mobiel: chat-bel zweeft boven de mobiele actiebalk (bottom:78) — deze knop
+   links ernaast, zelfde hoogte. */
+@media (max-width: 720px) { #back-to-top { right: 84px; bottom: 86px; } }
 
 /* Visual reduction pass — content leads, cards support it. */
 :root {

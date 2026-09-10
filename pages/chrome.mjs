@@ -97,7 +97,7 @@ export function siteHeader() {
     <a href="/voor-baasjes" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Voor baasjes</a>
     <a href="/#hondenslee-poll" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Jouw stem</a>
     <a href="/#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen &amp; meedoen</a>
-    <a href="/#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Actueel</a>
+    <a href="/nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Actueel</a>
     <a href="/#steun-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Steun TrimGids</a>
     <a href="/#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> Veelgestelde vragen</a>
   </div>
@@ -224,7 +224,7 @@ export function siteFooter() {
     </div>
 
     <div class="footer-positioning">
-      <p><strong>TrimGids</strong> is de onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland — gemaakt met passie voor honden, in samenwerking met routes.apexclusive.nl.</p>
+      <p><strong>TrimGids</strong> is de onafhankelijke gids voor verzorging, gezondheid, veiligheid en hondvriendelijke plekken in Nederland — gemaakt met passie voor honden, in samenwerking met MPX Studio webdesign.</p>
     </div>
   </div>
 </footer>`;

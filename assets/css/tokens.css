@@ -385,3 +385,23 @@ html, body { overflow-x: clip; }
 /* Footer-grid: vloeiend i.p.v. vaste 7 kolommen die op smalle desktops knept */
 .footer-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 @media (min-width: 1200px) { .footer-grid { grid-template-columns: 1.6fr repeat(5, 1fr); } }
+
+/* ============================================================
+   Ronde 18 — hero-categoriepillen als rustige "Populair:"-lijst
+   (volle knoppen met iconen dupliceerden de zoekbalk; nu een
+   compacte, opgesomde regel chips erboven)
+   ============================================================ */
+.hero-category-pills { gap: 7px; margin-bottom: 14px; }
+.cat-pills-label {
+  font-size: 11.5px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted-foreground); margin-right: 3px;
+}
+.cat-pill {
+  padding: 5px 12px; font-size: 12.5px; font-weight: 700;
+  background: color-mix(in srgb, var(--card) 55%, transparent);
+  border: 1px solid var(--hairline);
+  color: var(--muted-foreground); box-shadow: none;
+}
+.cat-pill:hover { background: color-mix(in srgb, var(--primary) 8%, transparent); border-color: color-mix(in srgb, var(--primary) 30%, transparent); color: var(--primary); transform: none; }
+.cat-pill.active { background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); border-color: color-mix(in srgb, var(--primary) 32%, transparent); box-shadow: none; }
+[data-theme="dark"] .cat-pill.active { background: rgba(16, 185, 129, .16); color: #34d399; border-color: rgba(16, 185, 129, .35); }
