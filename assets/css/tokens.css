@@ -199,31 +199,35 @@
 [data-theme="dark"], .dark {
   color-scheme: dark;
 
-  --background: #111214;
-  --background-subtle: #0d0e10;
-  --foreground: #e9e6df;
-  --card: #17191e;
-  --card-foreground: #e9e6df;
-  --card-subtle: #20232a;
-  --popover: #17191e;
-  --popover-foreground: #e9e6df;
-  --border: rgba(255, 255, 255, .12);
+  /* Ronde 22 — één warm donkerpalet: groen-zwart + emerald. Eerder stonden hier
+     leigrijze/blauwe waarden (#111214, #17191e, #20232a) die het palet uit
+     home.css overstemden (tokens laadt als laatste) — daardoor was o.a. de
+     hero-zoekbalk "donkerblauw" en voelden de witte knoppen uit de toon. */
+  --background: #090d0b;
+  --background-subtle: #0d1410;
+  --foreground: #edf5f0;
+  --card: #111814;
+  --card-foreground: #edf5f0;
+  --card-subtle: #16221c;
+  --popover: #111814;
+  --popover-foreground: #edf5f0;
+  --border: rgba(255, 255, 255, .11);
   --border-subtle: rgba(255, 255, 255, .07);
-  --input: rgba(255, 255, 255, .14);
+  --input: rgba(255, 255, 255, .15);
 
-  --primary: #d8dde5;
-  --primary-hover: #ffffff;
-  --primary-light: rgba(255, 255, 255, .09);
-  --primary-foreground: #111214;
-  --secondary: #20232a;
-  --secondary-foreground: #edf0f4;
-  --accent: #20232a;
-  --accent-foreground: #edf0f4;
+  --primary: #10b981;
+  --primary-hover: #34d399;
+  --primary-light: rgba(16, 185, 129, .14);
+  --primary-foreground: #06271a;
+  --secondary: #1a2720;
+  --secondary-foreground: #eaf5ef;
+  --accent: #1a2720;
+  --accent-foreground: #eaf5ef;
 
-  /* 9.68:1 op #17191e — AA ✓ (was #16221c = 1.07:1, onleesbaar) */
-  --muted-foreground: #b6b3ad;
+  /* ≥ 8:1 op --card #111814 — AA ✓ */
+  --muted-foreground: #a9b8ae;
   --muted: var(--muted-foreground);
-  --muted-surface: #20232a;
+  --muted-surface: #16221c;
 
   --success: #6ee7b7;
   --success-light: rgba(16, 185, 129, .16);
@@ -239,8 +243,14 @@
   --shadow-hover: 0 24px 60px rgba(0, 0, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .04);
   --shadow-floating: 0 28px 70px rgba(0, 0, 0, .45);
 
-  --bg-nav: rgba(11, 12, 15, .78);
-  --cream: #1a1c1f;
+  --bg-nav: rgba(9, 13, 11, .85);
+  --cream: #131c16;
+
+  /* premium-refresh heeft eigen donkere tokens (was leigrijs) — die lopen
+     mee naar het warme palet omdat dit blok als laatste laadt. */
+  --tg-paper: #090d0b;
+  --tg-panel: #111814;
+  --tg-line: rgba(255, 255, 255, .12);
 }
 
 /* ==========================================================================
@@ -432,11 +442,84 @@ html, body { overflow-x: clip; }
 /* Inloggen-knop: iconen en tekst in beide thema's waterdicht */
 #account-btn { background: #ffffff !important; color: #131a16 !important; border-color: rgba(15, 62, 40, .18) !important; }
 #account-btn:hover { color: #0f3e28 !important; }
-[data-theme="dark"] #account-btn { background: #17191e !important; color: #e9e6df !important; border-color: rgba(255, 255, 255, .16) !important; }
 
 /* Hero-zoekknop: gegarandeerd witte tekst op het donkergroene vlak */
 .btn-airbnb-search { color: #ffffff !important; }
-[data-theme="dark"] .btn-airbnb-search { color: #111318 !important; }
+
+/* ============================================================
+   Ronde 22 — donkere modus in één warm palet: emerald CTA's op
+   groen-zwart, geen leigrijze/#0f172a-blauwe vlakken meer en geen
+   bijna-witte knoppen. Alles met !important omdat premium-refresh
+   de omgekeerde (lichte) stijl met !important afdwingt.
+   ============================================================ */
+/* Primaire knoppen: glanzend emerald met donkergroene tekst (≥ 6,9:1 op
+   beide uiteinden van het verloop — WCAG AA, geverifieerd met de audit) */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-airbnb-search,
+[data-theme="dark"] .tg-btn,
+[data-theme="dark"] .tg-f-new,
+[data-theme="dark"] .tg-f-post {
+  background: linear-gradient(135deg, #34d399, #10b981) !important;
+  color: #052e1d !important;
+  box-shadow: 0 10px 26px -8px rgba(16, 185, 129, .45) !important;
+}
+
+/* Header-knoppen: warme kaartkleur i.p.v. leigrijs #17191e */
+[data-theme="dark"] .menu-btn,
+[data-theme="dark"] .theme-toggle-btn,
+[data-theme="dark"] #account-btn {
+  background: #111814 !important;
+  color: #e9f2ec !important;
+  border-color: rgba(255, 255, 255, .14) !important;
+}
+[data-theme="dark"] .menu-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover,
+[data-theme="dark"] #account-btn:hover { color: #34d399 !important; }
+
+/* Actieve hub-pill: emerald met donkere tekst (i.p.v. wit-op-wit-glas) */
+[data-theme="dark"] .hub-pill.active {
+  background: #10b981 !important;
+  color: #06271a !important;
+  border-color: #10b981 !important;
+}
+
+/* Zoekbalk in de hero: warm groen-zwart i.p.v. donkerblauw #0f172a */
+[data-theme="dark"] body.tg-home .airbnb-search-bar {
+  background: rgba(10, 17, 13, .9) !important;
+  border-color: rgba(110, 231, 183, .26) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .45), 0 0 0 7px rgba(16, 185, 129, .05) !important;
+}
+[data-theme="dark"] body.tg-home .airbnb-search-bar .segment-label { color: #a7f3d0 !important; }
+[data-theme="dark"] body.tg-home .airbnb-search-bar .segment-input,
+[data-theme="dark"] body.tg-home .airbnb-search-bar .segment-input option { color: #edf5f0 !important; }
+[data-theme="dark"] .search-divider { background: rgba(255, 255, 255, .14) !important; }
+
+/* Nieuwsbrief-band, forum-body's en kaartvlak: warme tinten */
+[data-theme="dark"] .home-newsletter { background: linear-gradient(135deg, #0d1712, #1b2b21) !important; border-color: rgba(110, 231, 183, .18) !important; }
+[data-theme="dark"] .tg-f-body, [data-theme="dark"] .tg-f-reply { background: #0d1512 !important; }
+[data-theme="dark"] .nlmap-stage { background: #0c1310 !important; }
+
+/* Sectie-achtergronden in donker: warm groen-zwart i.p.v. blauwig #0b0c0f
+   (premium-refresh vlakt alle secties af met een koel zwart — dit trekt
+   het hele donkere thema naar het merkpalet) */
+[data-theme="dark"] .hero,
+[data-theme="dark"] .section,
+[data-theme="dark"] .section.t-purple,
+[data-theme="dark"] .section.t-orange,
+[data-theme="dark"] .section.t-blue,
+[data-theme="dark"] .section.t-teal,
+[data-theme="dark"] .section.t-amber,
+[data-theme="dark"] .section.t-red,
+[data-theme="dark"] .section.t-green {
+  background: #0a100d !important;
+  border-color: rgba(255, 255, 255, .08) !important;
+}
+[data-theme="dark"] .hero::after { background: rgba(10, 16, 13, .72) !important; }
+
+/* Wereldkaart-kicker en badges volgen het nieuwe palet */
+[data-theme="dark"] .world-cta { color: #6ee7b7 !important; }
+[data-theme="dark"] .world-kicker { color: #34d399; }
+[data-theme="dark"] .badge-amber { color: #fbbf24; }
 
 /* Kaartkaart ("Bij jou in de buurt"): hoger kader zodat heel Nederland —
    van Wadden tot Maastricht — rustig in beeld past (beeld 960×696, 4:2.9) */

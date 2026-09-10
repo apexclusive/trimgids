@@ -261,18 +261,18 @@
       '.tg-search-shell{position:relative;display:flex;align-items:center;min-width:0}' +
       '.tg-search-input{font:700 13.5px "Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink,#0b1220);background:var(--card,#fff);border:1px solid var(--line,#e2e8f0);border-radius:999px;padding:9px 13px 9px 36px;width:min(230px,26vw);outline:none;transition:border-color .18s,box-shadow .18s,width .25s}' +
       '.tg-search-input:focus{border-color:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.15);width:min(300px,34vw)}' +
-      '.tg-search-input::placeholder{color:#94a3b8}' +
-      '.tg-search-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#64748b;pointer-events:none;display:grid;place-items:center}' +
-      '.tg-search-kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:800 10px "Plus Jakarta Sans",sans-serif;color:#94a3b8;border:1px solid var(--line,#e2e8f0);border-radius:6px;padding:2px 5px;background:var(--bg,#f8fafc);pointer-events:none}' +
+      '.tg-search-input::placeholder{color:var(--muted-foreground,#94a3b8)}' +
+      '.tg-search-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-2,#64748b);pointer-events:none;display:grid;place-items:center}' +
+      '.tg-search-kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:800 10px "Plus Jakarta Sans",sans-serif;color:var(--ink-2,#94a3b8);border:1px solid var(--line,#e2e8f0);border-radius:6px;padding:2px 5px;background:var(--bg,#f8fafc);pointer-events:none}' +
       '.tg-search-drop{position:absolute;top:calc(100% + 8px);left:0;right:0;min-width:min(380px,86vw);background:var(--card,#fff);border:1px solid var(--line,#e2e8f0);border-radius:16px;box-shadow:0 24px 60px -18px rgba(2,32,19,.3);padding:8px;z-index:99995;display:none;max-height:min(430px,62vh);overflow:auto}' +
       '.tg-search-drop.open{display:grid;gap:2px}' +
       '.tg-search-item{display:flex;gap:11px;align-items:center;padding:10px 12px;border-radius:12px;text-decoration:none;color:var(--ink,#0b1220);cursor:pointer}' +
       '.tg-search-item:hover,.tg-search-item.act{background:rgba(16,185,129,.09)}' +
       '.tg-search-item .i{width:34px;height:34px;flex:none;border-radius:10px;background:rgba(16,185,129,.1);display:grid;place-items:center;font-size:16px}' +
       '.tg-search-item b{font-size:13.5px;display:block;line-height:1.3}' +
-      '.tg-search-item small{font-size:11.5px;color:#64748b;display:block}' +
-      '.tg-search-empty{padding:14px 12px;font-size:13px;color:#64748b}' +
-      '.tg-search-foot{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;font-size:11px;color:#94a3b8;border-top:1px solid var(--line,#e2e8f0);margin-top:4px}' +
+      '.tg-search-item small{font-size:11.5px;color:var(--ink-2,#64748b);display:block}' +
+      '.tg-search-empty{padding:14px 12px;font-size:13px;color:var(--ink-2,#64748b)}' +
+      '.tg-search-foot{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;font-size:11px;color:var(--ink-2,#94a3b8);border-top:1px solid var(--line,#e2e8f0);margin-top:4px}' +
       '@media(max-width:1000px){.nav-actions > a[href="/bedrijven"]{display:none}.tg-search-shell{order:0}.tg-search-input{width:min(150px,34vw)}.tg-search-input:focus{width:min(190px,46vw)}.tg-search-kbd{display:none}}' +
       '@media(max-width:600px){.tg-search-shell{display:none}.tg-search-input{width:min(120px,36vw)}.tg-search-input:focus{width:min(168px,60vw)}}' +
       '.tg-overlay{position:fixed;inset:0;z-index:99990;background:rgba(4,20,13,.62);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;animation:tgFade .2s ease}' +
