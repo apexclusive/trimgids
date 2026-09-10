@@ -345,3 +345,13 @@ button, a, input, select, textarea { transition: border-color .18s ease, box-sha
   .nav-actions .btn-outline { padding-inline: 12px; }
   .tg-search-input { width: min(210px, 24vw) !important; }
 }
+
+/* Ronde 12/20 — hero legt sneller uit wat de bezoeker hier kan doen */
+.hero-welcome, .hero-subtitle { text-wrap: pretty; }
+.hero-actions { align-items: center; margin-top: 22px; }
+.hero-actions .btn-primary, .hero-actions .btn:first-child { box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 18%, transparent); }
+.hero-actions .btn-primary:hover, .hero-actions .btn:first-child:hover { transform: translateY(-1px); }
+@media (max-width: 760px) {
+  .hero-actions { margin-top: 18px; }
+  .hero-actions .btn-primary, .hero-actions .btn:first-child { box-shadow: none; }
+}
