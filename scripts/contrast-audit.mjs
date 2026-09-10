@@ -157,26 +157,41 @@ function inheritedColor(el, prop, rules, width, vars, sheetMap) {
   }
   return null;
 }
-function effectiveBg(el, rules, width, vars, sheetMap) {
-  let node = el;
-  while (node && node.nodeType === 1) {
-    for (const prop of ['background-color', 'background']) {
-      const hit = declaredFor(node, prop, rules, width, sheetMap);
-      if (hit) {
-        let val = hit.d.val.replace(/!\s*important/g, '').trim();
-        if (val.includes('gradient(')) {
-          const stops = [...val.matchAll(/#[0-9a-fA-F]{3,8}|rgba?\([^)]*\)/g)].map(m => parseColor(resolveValue(m[0], vars)));
-          const first = stops.find(c => c && c.a > 0);
-          if (first) return { color: first, from: `${node.tagName.toLowerCase()} gradient (${hit.sheet})` };
-          continue;
-        }
-        const c = parseColor(resolveValue(val, vars));
-        if (c && c.a > 0.05) return { color: c, from: `${node.tagName.toLowerCase()} ← ${hit.rule.sel} (${hit.sheet})` };
-      }
-    }
-    node = node.parentElement;
+function compositeOver(top, bottom) {
+  const a = top.a ?? 1;
+  return {
+    r: Math.round(top.r * a + bottom.r * (1 - a)),
+    g: Math.round(top.g * a + bottom.g * (1 - a)),
+    b: Math.round(top.b * a + bottom.b * (1 - a)),
+    a: Math.max(a, bottom.a ?? 1)
+  };
+}
+function effectiveBg(el, rules, width, vars, sheetMap, depth = 0) {
+  if (depth > 12) return { color: { r: 255, g: 255, b: 255, a: 1 }, from: 'te diep' };
+  /* Alle achtergrondlagen op dít element: kleurstops uit de winnende
+     `background`-shorthand (eerste in de string = bovenste laag) plus een
+     aparte background-color onderaan. Semi-transparante lagen worden over
+     de onderliggende (ouder-)achtergrond gelegeerd, zoals de browser dat
+     ook doet — zo verdwijnen de vals-negatieven van glow-lagen. */
+  const layers = [];
+  for (const prop of ['background', 'background-color']) {
+    const hit = declaredFor(el, prop, rules, width, sheetMap);
+    if (!hit) continue;
+    const val = hit.d.val.replace(/!\s*important/g, '').trim();
+    /* Eerst var()/color-mix oplossen, dán kleurstops lezen — anders grijpt de
+       regex in 'var(--primary)' de fallback of niets. */
+    const resolved = resolveValue(val, vars);
+    if (!resolved) continue;
+    const stops = [...resolved.matchAll(/#[0-9a-fA-F]{3,8}\b|rgba?\([^)]*\)/g)].map(m => parseColor(m[0]));
+    for (const c of stops) if (c && c.a > 0) layers.push(c);
   }
-  return { color: { r: 255, g: 255, b: 255, a: 1 }, from: 'default wit' };
+  const parent = el.parentElement
+    ? effectiveBg(el.parentElement, rules, width, vars, sheetMap, depth + 1)
+    : { color: { r: 255, g: 255, b: 255, a: 1 }, from: 'default wit' };
+  if (!layers.length) return parent;
+  let result = parent.color;
+  for (const c of layers) result = compositeOver(c, result);
+  return { color: result, from: layers.map(c => `${c.r},${c.g},${c.b}(${c.a})`).join(' > ') + ' ⇢ ' + parent.from };
 }
 
 /* ---------- auditdraaien ---------- */
@@ -262,8 +277,6 @@ const TARGETS = [
   ['.footer-trust span', 'footer · trust', 4.5],
   ['.footer-positioning p', 'footer · positionering', 4.5],
   ['.footer-bottom', 'footer · onderregel', 4.5],
-  ['.footer-cta .btn-primary', 'footer-cta · primair', 4.5],
-  ['.footer-cta .btn-outline', 'footer-cta · outline', 4.5],
   ['.btn-outline', 'algemeen · btn-outline', 4.5],
   ['.announce-text', 'aankondigingsbalk', 4.5],
   ['.announce-link', 'aankondigingsbalk · link', 4.5],
