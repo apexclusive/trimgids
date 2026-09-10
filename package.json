@@ -11,6 +11,7 @@
     "audit:experiments": "node experiment-audit.mjs",
     "audit:links": "node link-audit.mjs",
     "audit:design": "node design-contract.mjs",
+    "audit:ultimate": "node ultimate-checklist.mjs",
     "check:js": "node check-inline-js.mjs",
     "check:contrast": "node check-contrast.mjs",
     "check:skin": "node check-content-skin.mjs",
