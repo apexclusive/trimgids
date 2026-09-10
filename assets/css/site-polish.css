@@ -471,7 +471,7 @@ body.tg-home .world-card .world-cta { font-weight: 800; }
 /* Product refresh 04 — inner routes get a deliberate editorial canvas.
    The old templates all started as undifferentiated white content; this
    creates a visible reading surface without wrapping every server template. */
-body.tg-inner-page { background: #eef3f0 !important; }
+body.tg-inner-page { background: transparent !important; }
 body.tg-inner-page main {
   position: relative; isolation: isolate; width: min(100% - 32px, 1160px) !important;
   margin-block: 34px 72px !important; padding: clamp(28px, 5vw, 64px) clamp(18px, 5vw, 72px) !important;
