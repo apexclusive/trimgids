@@ -321,3 +321,13 @@ main table tr:nth-child(even) td { background: color-mix(in srgb, var(--secondar
 [data-state="error"], .error-state { display: grid; gap: 8px; }
 [data-state="success"], .success-state { display: grid; gap: 6px; }
 [data-state="empty"], .empty-state { min-height: 120px; display: grid; place-content: center; }
+
+/* Ronde 9/10 — mobiel: rust, ritme en aanraken */
+@media (max-width: 760px) {
+  body { line-height: 1.58 !important; }
+  main { width: min(100% - 28px, var(--editorial-width, 1180px)) !important; }
+  .hero-actions, .footer-cta-actions { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .hero-actions .btn, .footer-cta-actions .btn { width: 100%; justify-content: center; }
+  .nav-actions { gap: 4px !important; }
+  .world-card { min-height: 260px !important; }
+}
