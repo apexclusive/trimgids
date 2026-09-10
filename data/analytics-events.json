@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "event": "calculator_started",
+    "path": "/trimmen-kosten",
+    "value": "trimkosten",
+    "createdAt": "2026-09-10T05:06:55.010Z"
+  },
+  {
+    "event": "search_completed",
+    "path": "/braken-hond",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:45.440Z"
+  },
+  {
+    "event": "search_started",
+    "path": "/braken-hond",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:45.236Z"
+  },
+  {
+    "event": "search_completed",
+    "path": "/",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:42.834Z"
+  },
+  {
+    "event": "search_started",
+    "path": "/",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:42.630Z"
+  },
+  {
+    "event": "calculator_started",
+    "path": "/trimmen-kosten",
+    "value": "trimkosten",
+    "createdAt": "2026-09-10T05:06:25.754Z"
+  },
+  {
+    "event": "search_completed",
+    "path": "/braken-hond",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:16.093Z"
+  },
+  {
+    "event": "search_started",
+    "path": "/braken-hond",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:15.889Z"
+  },
+  {
+    "event": "search_completed",
+    "path": "/",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:13.511Z"
+  },
+  {
+    "event": "search_started",
+    "path": "/",
+    "value": "",
+    "createdAt": "2026-09-10T05:06:13.308Z"
+  },
+  {
+    "event": "calculator_started",
+    "path": "/trimmen-kosten",
+    "value": "trimkosten",
+    "createdAt": "2026-09-10T05:02:21.483Z"
+  },
+  {
+    "event": "search_completed",
+    "path": "/braken-hond",
+    "value": "",
+    "createdAt": "2026-09-10T05:02:11.998Z"
+  },
+  {
+    "event": "search_started",
+    "path": "/braken-hond",
+    "value": "",
+    "createdAt": "2026-09-10T05:02:11.795Z"
+  },
+  {
+    "event": "search_completed",
+    "path": "/",
+    "value": "",
+    "createdAt": "2026-09-10T05:02:09.448Z"
+  },
+  {
+    "event": "search_started",
+    "path": "/",
+    "value": "",
+    "createdAt": "2026-09-10T05:02:09.245Z"
+  }
+]
