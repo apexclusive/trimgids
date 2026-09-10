@@ -4,7 +4,7 @@
 .tg-f-toolbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}
 .tg-f-chips{display:flex;gap:6px;flex-wrap:wrap}
 .tg-f-chips button{display:inline-flex;gap:6px;align-items:center;padding:8px 13px;border-radius:999px;border:1px solid var(--border,rgba(15,62,40,.14));background:var(--background,#fff);color:var(--muted-foreground,#64748b);font-size:13px;font-weight:800;cursor:pointer;transition:all .18s}
-.tg-f-chips button.active{background:var(--primary,#0f3e28);border-color:#0f3e28;color:#fff}
+.tg-f-chips button.active{background:var(--primary,#0f3e28);border-color:var(--primary,#0f3e28);color:var(--primary-foreground,#fff)}
 .tg-f-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .tg-f-sort{display:flex;gap:2px;background:var(--background,#f1f5f1);border-radius:999px;padding:3px}
 .tg-f-sort button{border:0;background:none;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800;color:var(--muted-foreground,#64748b);cursor:pointer}

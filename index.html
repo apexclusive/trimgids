@@ -68,10 +68,13 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
-<script>try{var tgTheme=localStorage.getItem('trimgids_theme')||'light';document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
+<script>try{var tgTheme=localStorage.getItem('trimgids_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',tgTheme);}catch(e){}</script>
 <link rel="stylesheet" href="/assets/css/home.css?v=17" id="tg-home-css">
 <link rel="stylesheet" href="/assets/css/site-chrome.css?v=23" id="tg-site-chrome">
 <link rel="stylesheet" href="/assets/css/premium-refresh.css?v=12" id="tg-premium-refresh">
+<!-- Centrale design-tokens: LAATST geladen, wint de cascade zonder !important.
+     Enige bron van waarheid voor light én dark op de hele site. -->
+<link rel="stylesheet" href="/assets/css/tokens.css?v=1" id="tg-tokens">
 </head>
 <body id="top">
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -178,7 +181,6 @@
 
 <!-- HERO SECTION -->
 <header class="hero">
-  <div class="hero-photo" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="hero-badge-wrap">
       <div class="hero-badge">
@@ -332,7 +334,7 @@
         </div>
       </a>
       <a class="world-card world-forum" href="/forum">
-        <picture><source type="image/avif" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-honden-onderling-960.webp" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee honden ontmoeten elkaar vrolijk tijdens een wandeling"></picture>
+        <picture><img src="/assets/img/gen/k-honden-onderling-960.webp" srcset="/assets/img/gen/k-honden-onderling-480.webp 480w, /assets/img/gen/k-honden-onderling-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Twee honden ontmoeten elkaar vrolijk tijdens een wandeling"></picture>
         <div class="world-body">
           <span class="world-kicker">2 · Community</span>
           <h3>Hondenforum</h3>
@@ -342,7 +344,7 @@
         </div>
       </a>
       <a class="world-card world-pedia" href="/dogpedia">
-        <picture><source type="image/avif" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-anatomie-960.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Interactief anatomiemodel van een hond"></picture>
+        <picture><img src="/assets/img/gen/k-anatomie-960.webp" srcset="/assets/img/gen/k-anatomie-480.webp 480w, /assets/img/gen/k-anatomie-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Interactief anatomiemodel van een hond"></picture>
         <div class="world-body">
           <span class="world-kicker">3 · Kennis</span>
           <h3>Dogpedia &amp; Top 100</h3>
@@ -362,7 +364,7 @@
         </div>
       </a>
       <a class="world-card world-shop" href="/verzekering">
-        <picture><source type="image/avif" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw"><img src="/assets/img/gen/k-webshop-960.webp" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Hondenvoer, reisbenodigdheden en verzorgingsproducten"></picture>
+        <picture><img src="/assets/img/gen/k-webshop-960.webp" srcset="/assets/img/gen/k-webshop-480.webp 480w, /assets/img/gen/k-webshop-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Hondenvoer, reisbenodigdheden en verzorgingsproducten"></picture>
         <div class="world-body">
           <span class="world-kicker">5 · Zorg &amp; shopping</span>
           <h3>Verzekering &amp; hondenproducten</h3>
@@ -1283,9 +1285,10 @@
     </div>
     <div class="footer-bottom">
       <span>Gemaakt met passie voor honden in Nederland. In samenwerking met routes.apexclusive.nl</span>
-      <div style="display:flex;gap:16px">
-        <a href="/sitemap.xml">Sitemap</a>
-        <a href="/robots.txt">Robots</a>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/privacy">Privacyverklaring</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/voorwaarden">Algemene voorwaarden</a>
         <a href="/bedrijven">Partner Worden</a>
       </div>
     </div>

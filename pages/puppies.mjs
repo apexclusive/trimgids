@@ -226,7 +226,7 @@ export function puppiesPage(list = []) {
     var photoPlan = String(data.get('photoPlan') || 'free');
     var files = photoInput ? Array.prototype.slice.call(photoInput.files || []) : [];
     var maxPhotos = photoPlan === 'extra' ? 12 : 2;
-    if (files.length > maxPhotos) { status.hidden = false; status.className = 'status-msg error full'; status.textContent = 'Kies maximaal ' + maxPhotos + ' foto\'s voor dit pakket.'; return; }
+    if (files.length > maxPhotos) { status.hidden = false; status.className = 'status-msg error full'; status.textContent = 'Kies maximaal ' + maxPhotos + ' foto\\u2019s voor dit pakket.'; return; }
     if (files.some(function (file) { return file.size > 1048576; })) { status.hidden = false; status.className = 'status-msg error full'; status.textContent = 'Elke foto mag maximaal 1 MB zijn.'; return; }
     var photos = await Promise.all(files.map(function (file) { return new Promise(function (resolve, reject) { var reader = new FileReader(); reader.onload = function () { resolve(String(reader.result)); }; reader.onerror = reject; reader.readAsDataURL(file); }); }));
     try {

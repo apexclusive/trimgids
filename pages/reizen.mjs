@@ -3,6 +3,7 @@
 import { pageShell, esc } from './base.mjs';
 
 const CSS = `
+.sec-img{display:block;width:100%;max-width:760px;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--shadow);margin:6px 0 18px}
 .vlg{display:grid;grid-template-columns:420px 1fr;gap:20px;margin-top:16px}
 .vlg .box{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow)}
 .vlg .box input[type=range]{width:100%;accent-color:var(--em);margin:8px 0 4px}
@@ -69,7 +70,8 @@ export function reizenPage() {
 </div>
 
 <section class="sec">
-  <h2>✈️ Mag een hond mee in het vliegtuig? (en hoe?</h2>
+  <h2>✈️ Mag een hond mee in het vliegtuig? (en hoe?)</h2>
+  <img class="sec-img" src="/assets/img/gen/k-vliegen-cabine-768.webp" srcset="/assets/img/gen/k-vliegen-cabine-480.webp 480w, /assets/img/gen/k-vliegen-cabine-768.webp 768w" sizes="(max-width:980px) 100vw, 720px" width="768" height="419" loading="lazy" decoding="async" alt="Klein hondje kijkt uit een geopende zachte reisbench die onder de stoel voorin in de vliegtuigcabine staat">
   <p class="sub">Kort antwoord: bij de meeste maatschappijen wel — in de cabine tot ongeveer 8 kg inclusief reistas, anders in het ruim. Ryanair en easyJet vervoeren alleen erkende assistentiehonden.</p>
   <div class="airline">
     <table class="table">

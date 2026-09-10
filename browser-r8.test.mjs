@@ -44,7 +44,23 @@ async function loadPage(path) {
       win.scrollTo = () => {};
       win.HTMLElement.prototype.scrollIntoView = function () {};
       if (!win.requestIdleCallback) win.requestIdleCallback = fn => setTimeout(fn, 0);
-      const stub = new Proxy({}, { get(t, p) { if (p === 'canvas') return null; if (typeof p === 'symbol') return undefined; return (...a) => 0; }, set() { return true; } });
+      /* Canvas-stub. Let op: gradient-methoden moeten een object mét addColorStop
+       teruggeven, zoals een echte 2d-context doet. Eerder gaf deze stub voor
+       elke property `(...a) => 0` terug, dus createRadialGradient() leverde 0
+       op en gooide nl-map.js "bg.addColorStop is not a function". Dat was een
+       fout in de stub, niet in de productcode — de kaart faalde alleen in deze
+       test, niet in een echte browser. */
+      const gradientStub = { addColorStop() {} };
+      const GRADIENT_METHODS = new Set(['createLinearGradient', 'createRadialGradient', 'createConicGradient', 'createPattern']);
+      const stub = new Proxy({}, {
+        get(t, p) {
+          if (p === 'canvas') return null;
+          if (typeof p === 'symbol') return undefined;
+          if (GRADIENT_METHODS.has(p)) return () => gradientStub;
+          return (...a) => 0;
+        },
+        set() { return true; }
+      });
       win.HTMLCanvasElement.prototype.getContext = () => stub;
     }
   });
@@ -65,10 +81,23 @@ console.log('\n[1] Verzekeringspagina: adviseur + tabel + schema');
   assert(!d.getElementById('adv-result').hidden || !before, 'adviseur geeft een aanbeveling');
   const advText = d.getElementById('adv-result').textContent;
   assert(/Figo|Univé|OHRA/.test(advText), 'advies benoemt een topverzekeraar', advText.slice(0, 80));
-  assert(d.querySelectorAll('.ins-table tbody tr').length >= 4, 'vergelijkingstabel met 6 verzekeraars');
+  /* De vergelijkingstabel heet .cmp-table. De oude assert zocht .ins-table,
+     maar die klasse staat alleen nog in een media-query in de CSS van
+     insurancePage() en komt nergens in de markup voor — hij kon dus nooit
+     slagen. De tabel telt 6 verzekeraars. */
+  assert(d.querySelectorAll('.cmp-table tbody tr').length >= 4, 'vergelijkingstabel met 6 verzekeraars');
   assert(!!d.querySelector('script[type="application/ld+json"]'), 'rich-schema aanwezig');
-  assert(d.querySelectorAll('.tg-save-btn[data-save]').length >= 1, 'bewaar-knop aanwezig');
   assert(errors.length === 0, 'geen JS-fouten op /verzekering', errors.slice(0, 2).join(' | '));
+  dom.window.close();
+}
+
+console.log('\n[1b] Bewaar-knop op /wandelen');
+{
+  /* .tg-save-btn hoort bij walkingPage(), niet bij insurancePage(); de oude
+     assert zocht hem op /verzekering waar hij niet bestaat. */
+  const dom = await loadPage('/wandelen');
+  const d = dom.window.document;
+  assert(d.querySelectorAll('.tg-save-btn[data-save]').length >= 1, 'bewaar-knop aanwezig');
   dom.window.close();
 }
 
@@ -135,6 +164,36 @@ console.log('\n[5] Regressie: thema + account + forum');
   await sleep(700);
   assert(!!d.getElementById('tg-fav-list'), 'registratie werkt na Ronde-8-wijzigingen');
   dom.window.close();
+}
+
+/* Opruimen: deze test registreert echte accounts en meldt echte adressen aan
+   via de API's, dus zonder deze stap groeien data/users.json, data/sessions.json
+   en data/newsletter.json bij elke run. Dat is dezelfde vervuiling die
+   puppies-api.test.mjs eerder vertoonde. Deze drie bestanden lopen via
+   readLocalJson/writeLocalJson (altijd vers van schijf, geen server-cache),
+   dus direct herschrijven is hier veilig. */
+{
+  const { readFileSync, writeFileSync } = await import('node:fs');
+  const isTestEmail = value => /@test\.nl$/.test(String(value || ''));
+  const clean = (file, keep) => {
+    const path = new URL(`./data/${file}.json`, import.meta.url);
+    try {
+      const list = JSON.parse(readFileSync(path, 'utf8'));
+      if (!Array.isArray(list)) return;
+      const rest = list.filter(keep);
+      if (rest.length !== list.length) writeFileSync(path, JSON.stringify(rest, null, 2) + '\n');
+    } catch { /* bestand bestaat niet of is leeg; niets te doen */ }
+  };
+
+  let testUserIds = new Set();
+  try {
+    testUserIds = new Set(JSON.parse(readFileSync(new URL('./data/users.json', import.meta.url), 'utf8'))
+      .filter(u => isTestEmail(u.email)).map(u => u.id));
+  } catch { /* geen users-bestand */ }
+
+  clean('users', u => !isTestEmail(u.email));
+  clean('sessions', s => !testUserIds.has(s.userId));
+  clean('newsletter', n => !isTestEmail(n.email));
 }
 
 console.log('\nEINDE Ronde 8' + (process.exitCode ? ' — FOUTEN AANGETROFFEN' : ' — ALLES GROEN'));

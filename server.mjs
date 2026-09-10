@@ -3,7 +3,7 @@ import { readFile, writeFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID, createHash, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, statSync, readdirSync } from 'node:fs';
 import { brotliCompress, gzip, constants as zlibConstants } from 'node:zlib';
 import { hulphondenPage } from './pages/hulphonden.mjs';
 import { zintuigenPage } from './pages/zintuigen.mjs';
@@ -37,6 +37,7 @@ import { werkenMetHondPage } from './pages/werken-met-hond.mjs';
 import { webshopPage } from './pages/webshop.mjs';
 import { trimKostenPage } from './pages/trimkosten.mjs';
 import { siteHeader, siteFooter } from './pages/chrome.mjs';
+import { privacyPage, cookiesPage, termsPage } from './pages/juridisch.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const moduleDir = dirname(__filename);
@@ -150,7 +151,7 @@ function secureHeaders(headers = {}) {
     'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self), payment=()',
     'Cross-Origin-Opener-Policy': 'same-origin',
     'Cross-Origin-Resource-Policy': 'same-origin',
-    'Content-Security-Policy': "default-src 'self'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://places.googleapis.com; connect-src 'self' https://places.googleapis.com; worker-src 'self'",
+    'Content-Security-Policy': "default-src 'self'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://places.googleapis.com https://tile.openstreetmap.org https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org https://basemaps.cartocdn.com https://a.basemaps.cartocdn.com https://b.basemaps.cartocdn.com https://c.basemaps.cartocdn.com https://d.basemaps.cartocdn.com; connect-src 'self' https://places.googleapis.com; worker-src 'self'",
     'Content-Language': 'nl',
     ...headers
   };
@@ -168,6 +169,114 @@ const COMPRESSIBLE_TYPE = /^(text\/|application\/(json|xml|javascript|x-javascri
 const MIN_COMPRESS_BYTES = 1024;
 const ETAG_MIN_BYTES = 512;
 const compressedResponseCache = new Map();
+
+/* Cache-busting-versies werden per hand als ?v=N in templates gezet en dreven
+   uit elkaar: nl-map.css stond als ?v=8 in server.mjs en ?v=16 in index.html,
+   forum.css als ?v=2 in community.mjs en ?v=16 elders. Gevolg: dezelfde CSS
+   werd door de browser als twee aparte resources gecachet, en na een wijziging
+   hield één van de twee versies de oude styling vast.
+   Nu wordt de versie uit de bestandsinhoud afgeleid, één keer bij opstart.
+   Drift is daarmee structureel onmogelijk: twee verwijzingen naar hetzelfde
+   bestand krijgen per definitie dezelfde versie, en elke inhoudswijziging
+   invalideert de cache op élke pagina tegelijk. */
+const assetVersionCache = new Map();
+
+/* Geeft de inhoudsgebaseerde versie van een asset, of null als het bestand
+   niet bestaat. Het bestaan wordt expliciet onthouden: een verbroken pad moet
+   herkenbaar blijven en mag niet stil in een ?v=1-URL veranderen.
+
+   De versie wordt opnieuw berekend zodra mtime of grootte verandert. Zonder
+   die controle zou de versie vast blijven staan op de waarde van het moment
+   van opstarten, en zou een gewijzigd asset pas na een herstart van het proces
+   een nieuwe cache-buster krijgen. De stat-kosten zijn verwaarloosbaar omdat
+   het resultaat van dit hele choke point zelf al in modernizeHtmlCache zit:
+   de herschrijving draait alleen bij een cache-miss. */
+export function assetVersion(relativePath) {
+  let metadata;
+  try {
+    metadata = statSync(join(rootPath, relativePath));
+  } catch {
+    assetVersionCache.set(relativePath, null);
+    return null;
+  }
+  const cached = assetVersionCache.get(relativePath);
+  if (cached && cached.mtimeMs === metadata.mtimeMs && cached.size === metadata.size) return cached.version;
+  let version = null;
+  try {
+    version = createHash('sha1').update(readFileSync(join(rootPath, relativePath))).digest('base64url').slice(0, 8);
+  } catch {
+    version = null;
+  }
+  assetVersionCache.set(relativePath, { version, mtimeMs: metadata.mtimeMs, size: metadata.size });
+  return version;
+}
+export function assetUrl(relativePath) {
+  const version = assetVersion(relativePath);
+  return version ? `${relativePath}?v=${version}` : relativePath;
+}
+
+/* De HTML-caches hieronder (modernizeHtmlCache, htmlPageCache) zijn in-memory
+   Maps zonder vervaltijd. Daarmee zou een gewijzigd asset pas na een herstart
+   van het proces een nieuwe cache-buster krijgen: de gemoderniseerde HTML met
+   de oude ?v= blijft namelijk oneindig in de cache liggen.
+   Deze stamp vat de mtime+grootte van heel assets/ samen in één tekenreeks en
+   gaat als onderdeel van de cache-key mee, zodat één gewijzigd asset de
+   relevante cache-inval triggert. Een volledige sweep over 112 bestanden kost
+   gemeten 0,41 ms; met de throttle van 2 s is dat verwaarloosbaar. */
+let assetGenerationStamp = '';
+let assetGenerationCheckedAt = 0;
+export function assetGeneration() {
+  const now = Date.now();
+  if (now - assetGenerationCheckedAt < 2000) return assetGenerationStamp;
+  assetGenerationCheckedAt = now;
+  const hash = createHash('sha1');
+  const pending = [join(rootPath, 'assets')];
+  while (pending.length) {
+    const dir = pending.pop();
+    let entries;
+    try { entries = readdirSync(dir, { withFileTypes: true }); } catch { continue; }
+    for (const entry of entries) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) { pending.push(full); continue; }
+      try {
+        const s = statSync(full);
+        hash.update(`${full}:${s.mtimeMs}:${s.size};`);
+      } catch { /* bestand verdween tussendoor; volgende sweep vangt het op */ }
+    }
+  }
+  assetGenerationStamp = hash.digest('base64url').slice(0, 8);
+  return assetGenerationStamp;
+}
+
+/* Kaarttegel-cache. Een viewport vraagt tientallen tiles tegelijk op; zonder
+   cache en zonder negative caching levert elke OSM-storing een vloed 502's. */
+const mapTileCache = new Map();
+let mapTileOutageUntil = 0;
+let placeholderTilePng = null;
+
+/* 1x1 transparante PNG, bij de eerste aanroep opgebouwd. Wordt als fallback
+   geserveerd zodat de kaart netjes degradeert in plaats van 502's te stapelen. */
+function getPlaceholderTile() {
+  if (!placeholderTilePng) {
+    placeholderTilePng = Buffer.from(
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+      'base64'
+    );
+  }
+  return placeholderTilePng;
+}
+
+function sendPlaceholderTile(res) {
+  res.writeHead(200, secureHeaders({
+    'Content-Type': 'image/png',
+    /* Kort: zodra OSM weer bereikbaar is moeten echte tegels direct terugkomen. */
+    'Cache-Control': 'public, max-age=30',
+    'Cross-Origin-Resource-Policy': 'same-origin',
+    'X-Tile-Fallback': 'placeholder'
+  }));
+  res.end(getPlaceholderTile());
+}
+
 const COMPRESSED_CACHE_MAX = 96;
 
 function mergeVary(existing) {
@@ -605,12 +714,37 @@ async function collectionList(file) {
   return promise;
 }
 
+/* Leest een collectie VERS van schijf, voorbij collectionList().
+
+   collectionList() mag tot 15 s oude cache teruggeven (collectionCacheTtlMs).
+   Dat is prima voor lezen, maar elk pad dat daarna de volledige lijst
+   terugschrijft — read-modify-write — draait daarmee elke wijziging stil terug
+   die binnen dat venster elders plaatsvond: een gelijktijdige create, een
+   moderatieactie, een handmatige edit van het JSON-bestand. Verwijderde
+   records herrezen gewoon.
+
+   Gemeten in de eigen testuite: data/puppies.json groeide met 4 nesten per run
+   (16 -> 16 -> 20 -> 24 over drie opeenvolgende runs), omdat
+   puppies-api.test.mjs zijn testnesten opruimde door het bestand direct te
+   herschrijven terwijl de server de oude lijst nog in geheugen hield en de
+   volgende POST die lijst mét de testnesten terugschreef.
+
+   Elk read-modify-write-pad moet deze helper gebruiken, niet collectionList(). */
+async function collectionReadFresh(file) {
+  try {
+    const parsed = JSON.parse(await readFile(file, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
 async function collectionAdd(file, item, limit = 1000) {
   const table = tableForFile(file);
   if (dbEnabled() && table) {
     try { await dbCreate(table, item); } catch (error) { console.error(`Supabase write fallback voor ${table}:`, error.message); }
   }
-  const items = await collectionList(file);
+  const items = await collectionReadFresh(file);
   items.unshift(item);
   if (items.length > limit) items.length = limit;
   await writeFile(file, JSON.stringify(items, null, 2) + '\n');
@@ -725,7 +859,7 @@ async function forumReplyCreate(topicId, input) {
   const body = clean(input.body, 1000);
   const linked = await forumLinkedAuthor(input, author);
   if (!linked.author || !body) throw new Error('missing_fields');
-  const topics = await collectionList(forumFile);
+  const topics = await collectionReadFresh(forumFile);
   const index = topics.findIndex(item => item.id === topicId);
   if (index < 0) throw new Error('forum_topic_not_found');
   const reply = { id: randomUUID(), author: linked.author, body, createdAt: new Date().toISOString() };
@@ -738,7 +872,7 @@ async function forumReplyCreate(topicId, input) {
 async function forumHelpful(topicId, input) {
   const token = clean(input.voterToken, 100);
   if (!token) throw new Error('missing_fields');
-  const topics = await collectionList(forumFile);
+  const topics = await collectionReadFresh(forumFile);
   const index = topics.findIndex(item => item.id === topicId);
   if (index < 0) throw new Error('forum_topic_not_found');
   topics[index].helpfulVoters = topics[index].helpfulVoters || [];
@@ -997,14 +1131,29 @@ async function pollVote(pollId, input) {
   const optionId = clean(input.optionId, 40);
   const voterToken = clean(input.voterToken, 100);
   if (!optionId || !voterToken) throw new Error('poll_invalid_vote');
-  const polls = await collectionList(pollsFile);
+  const polls = await collectionReadFresh(pollsFile);
   const index = polls.findIndex(item => item.id === pollId);
   if (index < 0) throw new Error('poll_not_found');
   polls[index].voters = polls[index].voters || [];
   if (polls[index].voters.includes(voterToken)) throw new Error('poll_already_voted');
+  /* Opties mogen in data/polls.json als gewone string staan, en 3 van de 4
+     polls doen dat. Daarop `opt.votes = ...` zetten gooit
+     "Cannot create property 'votes' on string", dus ELKE stem op die polls
+     eindigde in een 502 en ging verloren. De client (assets/js/poll.js,
+     optionData) normaliseert een string naar { id, label, votes }; de server
+     doet hier exact hetzelfde zodat de id's aan beide kanten overeenkomen en
+     de stem bewaard blijft. */
+  polls[index].options = (polls[index].options || []).map((option, i) => (
+    typeof option === 'string'
+      ? { id: option, label: option, votes: 0 }
+      : { id: option.id || 'option-' + i, label: option.label || option.title || option.id, votes: Number(option.votes) || 0 }
+  ));
+  const opt = polls[index].options.find(item => item.id === optionId);
+  /* Valideer vóór het registreren van de stemmer: anders zou een onjuiste
+     optionId de stemmer al op de lijst zetten zonder stem. */
+  if (!opt) throw new Error('poll_option_not_found');
   polls[index].voters.push(voterToken);
-  const opt = polls[index].options?.find(item => (typeof item === 'string' ? item === optionId : item.id === optionId));
-  if (opt) opt.votes = (opt.votes || 0) + 1;
+  opt.votes += 1;
   await writeFile(pollsFile, JSON.stringify(polls, null, 2) + '\n');
   return polls[index];
 }
@@ -1058,7 +1207,7 @@ async function missingCreate(input) {
 }
 
 async function missingResolve(id) {
-  const items = await collectionList(missingFile);
+  const items = await collectionReadFresh(missingFile);
   const index = items.findIndex(item => item.id === id);
   if (index < 0) throw new Error('missing_dog_not_found');
   items[index].status = 'found';
@@ -1097,7 +1246,8 @@ async function moderate(file, id, status) {
   if (dbEnabled() && table) {
     try { await dbUpdate(table, id, { status }); } catch (error) { console.error(`Supabase update fallback voor ${table}:`, error.message); }
   }
-  const items = await collectionList(file);
+  /* Read-modify-write: vers van schijf lezen, zie collectionReadFresh(). */
+  const items = await collectionReadFresh(file);
   const index = items.findIndex(item => item.id === id);
   if (index < 0) throw new Error('moderation_item_not_found');
   items[index] = { ...items[index], status, moderatedAt: new Date().toISOString() };
@@ -1322,7 +1472,7 @@ ${(() => { const ii = loadJsonLocal(insuranceFile) || []; return ii.map((item, i
     nav.appendChild(btn);
   }
 })();
-</script><script>const loadIns=async()=>{try{const res=await fetch('/api/insurance');const data=await res.json();window.__insData=data.insurance||[];const box=document.getElementById('ins-container');if(box.children.length) return;(data.insurance||[]).forEach((item,idx)=>{const card=document.createElement('article');card.className='ins-card'+(idx===0?' featured':'');card.innerHTML=(idx===0?'<span class="ins-badge-top">Beste Keuze 2026</span>':'')+'<div style="display:flex;align-items:center;gap:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px \'Plus Jakarta Sans\',sans-serif;flex:none">'+item.logo+'</span><div><h2 style="font-size:22px;margin:0">'+item.name+'</h2><span style="font-size:13px;color:var(--muted)">⭐ '+item.score+'/10 · '+(item.rating||'')+' ('+item.reviewCount+' reviews)</span></div></div><div class="ins-price-box"><div><span style="font-size:12px;color:var(--muted);display:block">Vanaf premie</span><strong>€ '+item.startingPrice.toFixed(2)+'</strong><span style="font-size:12px;color:var(--muted)">/mnd</span></div><div style="text-align:right"><span style="font-weight:700;color:var(--green)">'+item.reimbursementPercent+' vergoeding</span><br><small style="font-size:11.5px;color:var(--muted)">Gem. ± € '+(item.avgYearPremium||0).toLocaleString('nl-NL')+' per jaar</small></div></div><p style="font-size:14px;color:var(--muted);margin:0">'+item.description+'</p><ul class="ins-list">'+item.highlights.map(h=>'<li>'+h+'</li>').join('')+'</ul><a class="btn-ins" href="'+item.affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Bereken premie voor jouw hond ↗</a>';box.appendChild(card);});}catch(e){}}loadIns();const advBreed=document.getElementById('adv-breed'),advAge=document.getElementById('adv-age');const advBtn=document.getElementById('adv-btn');const advRes=document.getElementById('adv-result');const advRun=()=>{const breed=advBreed.value,age=advAge.value;let scores={};let picks=[];try{picks=(window.__insData||[]);}catch(e){}if(!picks.length)return;const REC={small:{young:['figo-pet-insurance','petsecur-dierenverzekering'],adult:['figo-pet-insurance','ohra-huisdierenverzekering'],senior:['figo-pet-insurance','unive-zorg-voor-dieren']},medium:{young:['figo-pet-insurance','ohra-huisdierenverzekering'],adult:['figo-pet-insurance','unive-zorg-voor-dieren'],senior:['figo-pet-insurance','unive-zorg-voor-dieren']},large:{young:['figo-pet-insurance','ohra-huisdierenverzekering'],adult:['figo-pet-insurance','unive-zorg-voor-dieren'],senior:['figo-pet-insurance','unive-zorg-voor-dieren']}};const ids=REC[breed]?REC[breed][age]:[];const top=ids.map(id=>picks.find(p=>p.id===id)).filter(Boolean);if(!top.length){const topPick=picks.filter(p=>p.covers.hereditary)[0]||picks[0];if(topPick)top.push(topPick);}advRes.hidden=false;advRes.innerHTML='<strong>Voor jouw '+breed+' hond ('+age+') adviseren wij:</strong><br>'+top.map(p=>'• <b>'+p.name+'</b> — '+p.badge+' · vanaf <b>€ '+p.startingPrice.toFixed(2)+'/mnd</b> · '+(p.covers&&p.covers.hereditary?'erfelijke aandoeningen gedekt':'basisdekking')).join('<br>')+'<br><a href="'+top[0].affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Premie berekenen bij '+top[0].provider+' ↗</a>';};advBtn.addEventListener('click',advRun);advRun();</script></body></html>`;
+</script><script>const loadIns=async()=>{try{const res=await fetch('/api/insurance');const data=await res.json();window.__insData=data.insurance||[];const box=document.getElementById('ins-container');if(box.children.length) return;(data.insurance||[]).forEach((item,idx)=>{const card=document.createElement('article');card.className='ins-card'+(idx===0?' featured':'');card.innerHTML=(idx===0?'<span class="ins-badge-top">Beste Keuze 2026</span>':'')+'<div style="display:flex;align-items:center;gap:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px &quot;Plus Jakarta Sans&quot;,sans-serif;flex:none">'+item.logo+'</span><div><h2 style="font-size:22px;margin:0">'+item.name+'</h2><span style="font-size:13px;color:var(--muted)">⭐ '+item.score+'/10 · '+(item.rating||'')+' ('+item.reviewCount+' reviews)</span></div></div><div class="ins-price-box"><div><span style="font-size:12px;color:var(--muted);display:block">Vanaf premie</span><strong>€ '+item.startingPrice.toFixed(2)+'</strong><span style="font-size:12px;color:var(--muted)">/mnd</span></div><div style="text-align:right"><span style="font-weight:700;color:var(--green)">'+item.reimbursementPercent+' vergoeding</span><br><small style="font-size:11.5px;color:var(--muted)">Gem. ± € '+(item.avgYearPremium||0).toLocaleString('nl-NL')+' per jaar</small></div></div><p style="font-size:14px;color:var(--muted);margin:0">'+item.description+'</p><ul class="ins-list">'+item.highlights.map(h=>'<li>'+h+'</li>').join('')+'</ul><a class="btn-ins" href="'+item.affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Bereken premie voor jouw hond ↗</a>';box.appendChild(card);});}catch(e){}}loadIns();const advBreed=document.getElementById('adv-breed'),advAge=document.getElementById('adv-age');const advBtn=document.getElementById('adv-btn');const advRes=document.getElementById('adv-result');const advRun=()=>{const breed=advBreed.value,age=advAge.value;let scores={};let picks=[];try{picks=(window.__insData||[]);}catch(e){}if(!picks.length)return;const REC={small:{young:['figo-pet-insurance','petsecur-dierenverzekering'],adult:['figo-pet-insurance','ohra-huisdierenverzekering'],senior:['figo-pet-insurance','unive-zorg-voor-dieren']},medium:{young:['figo-pet-insurance','ohra-huisdierenverzekering'],adult:['figo-pet-insurance','unive-zorg-voor-dieren'],senior:['figo-pet-insurance','unive-zorg-voor-dieren']},large:{young:['figo-pet-insurance','ohra-huisdierenverzekering'],adult:['figo-pet-insurance','unive-zorg-voor-dieren'],senior:['figo-pet-insurance','unive-zorg-voor-dieren']}};const ids=REC[breed]?REC[breed][age]:[];const top=ids.map(id=>picks.find(p=>p.id===id)).filter(Boolean);if(!top.length){const topPick=picks.filter(p=>p.covers.hereditary)[0]||picks[0];if(topPick)top.push(topPick);}advRes.hidden=false;advRes.innerHTML='<strong>Voor jouw '+breed+' hond ('+age+') adviseren wij:</strong><br>'+top.map(p=>'• <b>'+p.name+'</b> — '+p.badge+' · vanaf <b>€ '+p.startingPrice.toFixed(2)+'/mnd</b> · '+(p.covers&&p.covers.hereditary?'erfelijke aandoeningen gedekt':'basisdekking')).join('<br>')+'<br><a href="'+top[0].affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Premie berekenen bij '+top[0].provider+' ↗</a>';};advBtn.addEventListener('click',advRun);advRun();</script></body></html>`;
 }
 
 /* Standalone DNA Test Comparison Page (High-Ticket Affiliate) */
@@ -1370,7 +1520,7 @@ ${(() => { const dt = loadJsonLocal(dnaTestsFile); const tests = (dt && (Array.i
     nav.appendChild(btn);
   }
 })();
-</script><script>const loadDna=async()=>{try{const res=await fetch('/api/dna-tests');const data=await res.json();const box=document.getElementById('dna-container');if(box.children.length) return;(data.tests||[]).forEach((t,idx)=>{const card=document.createElement('article');card.className='dna-card'+(idx===0?' featured':'');card.innerHTML=(idx===0?'<span class="label" style="position:absolute;top:-12px;right:20px;background:var(--amber);color:#fff">'+t.badge+'</span>':'')+'<div style="display:flex;align-items:center;gap:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px \'Plus Jakarta Sans\',sans-serif;flex:none">'+t.logo+'</span><div><h2 style="font-size:22px;margin:0">'+t.title+'</h2><span style="font-size:13px;color:var(--muted)">⭐ '+t.rating+' ('+t.reviewCount+' reviews) · '+t.provider+'</span></div></div><div class="dna-price-box"><div><small style="color:var(--muted);text-decoration:line-through">€ '+t.price.toFixed(2)+'</small><br><strong>€ '+t.salePrice.toFixed(2)+'</strong></div><div style="text-align:right;font-size:13px;color:var(--muted)">Uitslag in<br><strong>'+t.turnaroundWeeks+'</strong></div></div><p style="font-size:14px;color:var(--muted);margin:0">'+t.description+'</p><div style="font-size:13px;background:var(--green-light);padding:10px;border-radius:10px;color:var(--green)"><strong>Rassendetectie:</strong> '+t.breedCount+'<br><strong>Gezondheidsscreening:</strong> '+t.healthScreening+'</div><ul class="tg-list">'+t.highlights.map(h=>'<li>'+h+'</li>').join('')+'</ul><a class="btn-aff" href="'+t.affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Bekijk test & bestel met korting ↗</a>';box.appendChild(card);});}catch(e){}}loadDna();</script></body></html>`;
+</script><script>const loadDna=async()=>{try{const res=await fetch('/api/dna-tests');const data=await res.json();const box=document.getElementById('dna-container');if(box.children.length) return;(data.tests||[]).forEach((t,idx)=>{const card=document.createElement('article');card.className='dna-card'+(idx===0?' featured':'');card.innerHTML=(idx===0?'<span class="label" style="position:absolute;top:-12px;right:20px;background:var(--amber);color:#fff">'+t.badge+'</span>':'')+'<div style="display:flex;align-items:center;gap:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px &quot;Plus Jakarta Sans&quot;,sans-serif;flex:none">'+t.logo+'</span><div><h2 style="font-size:22px;margin:0">'+t.title+'</h2><span style="font-size:13px;color:var(--muted)">⭐ '+t.rating+' ('+t.reviewCount+' reviews) · '+t.provider+'</span></div></div><div class="dna-price-box"><div><small style="color:var(--muted);text-decoration:line-through">€ '+t.price.toFixed(2)+'</small><br><strong>€ '+t.salePrice.toFixed(2)+'</strong></div><div style="text-align:right;font-size:13px;color:var(--muted)">Uitslag in<br><strong>'+t.turnaroundWeeks+'</strong></div></div><p style="font-size:14px;color:var(--muted);margin:0">'+t.description+'</p><div style="font-size:13px;background:var(--green-light);padding:10px;border-radius:10px;color:var(--green)"><strong>Rassendetectie:</strong> '+t.breedCount+'<br><strong>Gezondheidsscreening:</strong> '+t.healthScreening+'</div><ul class="tg-list">'+t.highlights.map(h=>'<li>'+h+'</li>').join('')+'</ul><a class="btn-aff" href="'+t.affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Bekijk test & bestel met korting ↗</a>';box.appendChild(card);});}catch(e){}}loadDna();</script></body></html>`;
 }
 
 /* Standalone Voeding & Verse Maaltijden Page (High Recurring Affiliate) */
@@ -1418,7 +1568,7 @@ ${(() => { const fd = loadJsonLocal(foodFile); const foods = (fd && (Array.isArr
     nav.appendChild(btn);
   }
 })();
-</script><script>const loadFood=async()=>{try{const res=await fetch('/api/foods');const data=await res.json();const box=document.getElementById('food-container');if(box.children.length) return;(data.foods||[]).forEach((f,idx)=>{const card=document.createElement('article');card.className='food-card'+(idx===0?' featured':'');card.innerHTML=(idx===0?'<span class="label" style="position:absolute;top:-12px;right:20px;background:var(--amber);color:#fff">'+f.badge+'</span>':'')+'<div style="display:flex;align-items:center;gap:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px \'Plus Jakarta Sans\',sans-serif;flex:none">'+f.logo+'</span><div><h2 style="font-size:22px;margin:0">'+f.brand+'</h2><span style="font-size:13px;color:var(--muted)">⭐ '+f.rating+' ('+f.reviewCount+' reviews) · '+f.foodType+'</span></div></div><div class="food-promo">🎁 '+f.discountOffer+'</div><p style="font-size:14px;color:var(--muted);margin:0">'+f.description+'</p><ul class="tg-list">'+f.benefits.map(b=>'<li>'+b+'</li>').join('')+'</ul><div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span style="font-size:14px;color:var(--muted)">Vanaf <strong>€ '+f.startingPricePerDay.toFixed(2)+'</strong> / dag</span></div><a class="btn-food" href="'+f.affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Claim deal & bestel proefbox ↗</a>';box.appendChild(card);});}catch(e){}}loadFood();const calcWeight=document.getElementById('calc-weight');const calcActivity=document.getElementById('calc-activity');const resFresh=document.getElementById('res-fresh-grams');const resKibble=document.getElementById('res-kibble-grams');const resCal=document.getElementById('res-calories');const updatePortions=()=>{const w=parseFloat(calcWeight.value)||15;const act=parseFloat(calcActivity.value)||1.5;const rer=70*Math.pow(w,0.75);const mer=Math.round(rer*act);const freshGrams=Math.round((mer/150)*100);const kibbleGrams=Math.round((mer/360)*100);resCal.textContent=mer+' kcal';resFresh.textContent=freshGrams+' g / dag';resKibble.textContent=kibbleGrams+' g / dag';};calcWeight.addEventListener('input',updatePortions);calcActivity.addEventListener('change',updatePortions);updatePortions();</script></body></html>`;
+</script><script>const loadFood=async()=>{try{const res=await fetch('/api/foods');const data=await res.json();const box=document.getElementById('food-container');if(box.children.length) return;(data.foods||[]).forEach((f,idx)=>{const card=document.createElement('article');card.className='food-card'+(idx===0?' featured':'');card.innerHTML=(idx===0?'<span class="label" style="position:absolute;top:-12px;right:20px;background:var(--amber);color:#fff">'+f.badge+'</span>':'')+'<div style="display:flex;align-items:center;gap:12px"><span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#0f3e28,#17694a);color:#fff;font:800 18px &quot;Plus Jakarta Sans&quot;,sans-serif;flex:none">'+f.logo+'</span><div><h2 style="font-size:22px;margin:0">'+f.brand+'</h2><span style="font-size:13px;color:var(--muted)">⭐ '+f.rating+' ('+f.reviewCount+' reviews) · '+f.foodType+'</span></div></div><div class="food-promo">🎁 '+f.discountOffer+'</div><p style="font-size:14px;color:var(--muted);margin:0">'+f.description+'</p><ul class="tg-list">'+f.benefits.map(b=>'<li>'+b+'</li>').join('')+'</ul><div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span style="font-size:14px;color:var(--muted)">Vanaf <strong>€ '+f.startingPricePerDay.toFixed(2)+'</strong> / dag</span></div><a class="btn-food" href="'+f.affiliateUrl+'" target="_blank" rel="sponsored noopener noreferrer">Claim deal & bestel proefbox ↗</a>';box.appendChild(card);});}catch(e){}}loadFood();const calcWeight=document.getElementById('calc-weight');const calcActivity=document.getElementById('calc-activity');const resFresh=document.getElementById('res-fresh-grams');const resKibble=document.getElementById('res-kibble-grams');const resCal=document.getElementById('res-calories');const updatePortions=()=>{const w=parseFloat(calcWeight.value)||15;const act=parseFloat(calcActivity.value)||1.5;const rer=70*Math.pow(w,0.75);const mer=Math.round(rer*act);const freshGrams=Math.round((mer/150)*100);const kibbleGrams=Math.round((mer/360)*100);resCal.textContent=mer+' kcal';resFresh.textContent=freshGrams+' g / dag';resKibble.textContent=kibbleGrams+' g / dag';};calcWeight.addEventListener('input',updatePortions);calcActivity.addEventListener('change',updatePortions);updatePortions();</script></body></html>`;
 }
 
 /* Standalone Spoed Dierenarts & Weekenddienst Finder */
@@ -1692,7 +1842,7 @@ function walkingPage() {
 
 /* Standalone Interactive Map Page */
 function mapPage() {
-  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ontdekkingskaart Honden Nederland: Salons, Scholen, Opvang & Wandelplekken | TrimGids</title><meta name="description" content="De TrimGids-ontdekkingskaart: 2.900+ geverifieerde trimsalons, hondenscholen, hondenhotels, wellness en officiële losloopgebieden & hondenstranden in heel Nederland — zonder externe kaartblokkades."><link rel="canonical" href="https://trimgids.nl/kaart"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta property="og:type" content="website"><meta property="og:title" content="Ontdekkingskaart Honden Nederland | TrimGids"><meta property="og:description" content="2.900+ geverifieerde aanbieders en wandelplekken op één zelf-gehoste kaart."><meta property="og:url" content="https://trimgids.nl/kaart"><meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/nl-map.css"><style>${directoryStyles()}${customModuleStyles()}.map-shell{max-width:1180px;margin:24px auto 0}#nl-map{height:740px}@media(max-width:760px){#nl-map{height:560px}.map-shell{margin-top:14px}}</style></head><body><header><nav><a class="logo" href="/">🐾 TrimGids</a><div class="nav-links"><a href="/trimsalon">Trimsalons</a><a href="/kaart" style="color:var(--green);font-weight:700">Ontdekkingskaart</a><a href="/forum">Community</a><a href="/hulphonden">Diensthonden</a><a href="/fokkers">Fokkers</a><a href="/aankoopgids">Aankoopgids</a><a href="/zintuigen">Zintuigen</a><a href="/">Home</a></div></nav></header><main><p class="crumb"><a href="/">TrimGids</a> / Ontdekkingskaart Nederland</p><span class="eyebrow">Gebaseerd op de TrimGids-catalogus — geen externe kaartbron</span><h1>Ontdekkingskaart voor Honden in Nederland</h1><p class="intro">Elke stip is een echte aanbieder of wandelplek uit onze geverifieerde catalogus. In- en uitzoomen, slepen, filteren op categorie, zoeken op plaats en klikken voor direct bellen of navigeren. Werkt overal — ook zonder kaart-CDN.</p><div class="map-shell"><div id="nl-map" data-nl-map data-show-list="true"></div></div><section class="next"><span class="eyebrow">Bekijk ook</span><h2>Verder ontdekken</h2><div class="next-links"><a href="/forum">Community & Forum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab: horen & ruiken →</a><a href="/fokkers">Erkende fokkers in Nederland →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/trimsalon/pomeriaan">Trimsalon Pomeriaan →</a></div></section></main><footer>
+  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ontdekkingskaart Honden Nederland: Salons, Scholen, Opvang & Wandelplekken | TrimGids</title><meta name="description" content="De TrimGids-ontdekkingskaart: 2.900+ geverifieerde trimsalons, hondenscholen, hondenhotels, wellness en officiële losloopgebieden & hondenstranden in heel Nederland — zonder externe kaartblokkades."><link rel="canonical" href="https://trimgids.nl/kaart"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta property="og:type" content="website"><meta property="og:title" content="Ontdekkingskaart Honden Nederland | TrimGids"><meta property="og:description" content="2.900+ geverifieerde aanbieders en wandelplekken op één zelf-gehoste kaart."><meta property="og:url" content="https://trimgids.nl/kaart"><meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css"><link rel="stylesheet" href="/assets/css/nl-map.css"><script id="tg-leaflet-js" src="/assets/vendor/leaflet/leaflet.js" defer></script><style>${directoryStyles()}${customModuleStyles()}.map-shell{max-width:1180px;margin:24px auto 0}#nl-map{height:740px}@media(max-width:760px){#nl-map{height:560px}.map-shell{margin-top:14px}}</style></head><body><header><nav><a class="logo" href="/">🐾 TrimGids</a><div class="nav-links"><a href="/trimsalon">Trimsalons</a><a href="/kaart" style="color:var(--green);font-weight:700">Ontdekkingskaart</a><a href="/forum">Community</a><a href="/hulphonden">Diensthonden</a><a href="/fokkers">Fokkers</a><a href="/aankoopgids">Aankoopgids</a><a href="/zintuigen">Zintuigen</a><a href="/">Home</a></div></nav></header><main><p class="crumb"><a href="/">TrimGids</a> / Ontdekkingskaart Nederland</p><span class="eyebrow">Gebaseerd op de TrimGids-catalogus — geen externe kaartbron</span><h1>Ontdekkingskaart voor Honden in Nederland</h1><p class="intro">Elke stip is een echte aanbieder of wandelplek uit onze geverifieerde catalogus. In- en uitzoomen, slepen, filteren op categorie, zoeken op plaats en klikken voor direct bellen of navigeren. Werkt overal — ook zonder kaart-CDN.</p><div class="map-shell"><div id="nl-map" data-nl-map data-show-list="true"></div></div><section class="next"><span class="eyebrow">Bekijk ook</span><h2>Verder ontdekken</h2><div class="next-links"><a href="/forum">Community & Forum →</a><a href="/hulphonden">Blindegeleide- & politiehonden →</a><a href="/zintuigen">Zintuigenlab: horen & ruiken →</a><a href="/fokkers">Erkende fokkers in Nederland →</a><a href="/aankoopgids">Aankoopgids per ras →</a><a href="/trimsalon/pomeriaan">Trimsalon Pomeriaan →</a></div></section></main><footer>
   <div style="width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:18px">
     <a class="logo" href="/" style="font-size:20px">🐾 TrimGids</a>
     <div style="display:flex;gap:12px;font-size:13px;font-weight:600;flex-wrap:wrap">
@@ -1711,7 +1861,7 @@ function mapPage() {
     <span>100% zelf-gehost — geen externe kaartdiensten</span>
   </div>
 </footer>
-<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=15" defer></script>
+<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=17" defer></script>
 </body></html>`;
 }
 function providerPage(pathname) {
@@ -1980,13 +2130,13 @@ function directoryPage(pathname, pageParam = 1) {
     const isRas = parts[0] === 'rassen';
     if (isRas) {
       title = `${b}: ras, kenmerken & verzorging | TrimGids`;
-      if (title.length > 70) title = `${b}: rasgids & verzorging | TrimGids`;
+      if (title.length > 60) title = `${b}: rasgids & verzorging | TrimGids`;
       metaDesc = clampDesc(`Alles over de ${breed.name}: karakter, vacht en verzorging (${breed.avgCostRange}, ${breed.brushingFrequency}), plus veelgestelde vragen en gecertificeerde trimsalons.`);
       h1 = `${breed.name}: ras, kenmerken & verzorging`;
       canonical = `/rassen/${breedSlug}`;
     } else {
       title = `Trimsalon ${b}: prijzen, ontwollen & salons | TrimGids`;
-      if (title.length > 70) title = `Trimsalon ${b} (2026) | TrimGids`;
+      if (title.length > 60) title = `Trimsalon ${b} (2026) | TrimGids`;
       metaDesc = clampDesc(`Zoek je de beste trimsalon voor een ${breed.name}? Bekijk advies over ontwollen, efileren, kosten (${breed.avgCostRange}), verzorging en gecertificeerde salons in Nederland.`);
       h1 = `Trimsalon voor ${breed.name}`;
       canonical = `/trimsalon/${breedSlug}`;
@@ -1994,23 +2144,23 @@ function directoryPage(pathname, pageParam = 1) {
   } else if (breed && place) {
     const b = shortName(breed.name), p = shortName(place.name);
     title = `Trimsalon ${b} in ${p} | TrimGids`;
-    if (title.length > 70) title = `Trimsalon ${b} ${p} | TrimGids`;
-    if (title.length > 70) title = `${b}-trimsalon ${p} | TrimGids`;
+    if (title.length > 60) title = `Trimsalon ${b} ${p} | TrimGids`;
+    if (title.length > 60) title = `${b}-trimsalon ${p} | TrimGids`;
     metaDesc = clampDesc(`Vind gecertificeerde trimsalons voor een ${breed.name} in ${place.name}. Vergelijk ${providers.length}+ salons op raservaring, ontwollen, teddy beer cuts, vanaf-prijzen en reviews.`);
     h1 = `Trimsalon voor ${breed.name} in ${place.name}`;
     canonical = `/${category}/${placeSlug}/${breedSlug}`;
   } else if (place) {
     const p = shortName(place.name), c = shortName(catLabel);
     title = `${c} in ${p}: aanbieders & tarieven | TrimGids`;
-    if (title.length > 70) title = `${c} in ${p} (2026) | TrimGids`;
+    if (title.length > 60) title = `${c} in ${p} (2026) | TrimGids`;
     metaDesc = clampDesc(`Vind de beste ${catLabel.toLowerCase()} in ${place.name} (${place.region || place.province}). Vergelijk betrouwbare professionals op raservaring, tarieven, klantervaringen en navigatie.`);
     h1 = `${catLabel} in ${place.name}`;
     canonical = `/${category}/${placeSlug}`;
   } else {
     const c = shortName(catLabel);
     title = `${c} in Nederland: overzicht & vergelijking 2026 | TrimGids`;
-    if (title.length > 70) title = `${c} in Nederland (2026) | TrimGids`;
-    metaDesc = clampDesc(`Het complete en onafhankelijke overzicht van ${catLabel.toLowerCase()} in Nederland. Zoek per provincie, stad en specifiek hondenras.`);
+    if (title.length > 60) title = `${c} in Nederland (2026) | TrimGids`;
+    metaDesc = clampDesc(`Het complete, onafhankelijke overzicht van ${catLabel.toLowerCase()} in Nederland. Zoek per provincie, plaats en hondenras, vergelijk tarieven en vraag vrijblijvend offertes aan.`);
     h1 = `${catLabel} in Nederland`;
     canonical = `/${category}`;
   }
@@ -2585,7 +2735,7 @@ function lastMinutePage() {
     nav.appendChild(btn);
   }
 })();
-</script><script>const allSlots=${JSON.stringify(allSlots)};const loadDeals=()=>{const box=document.getElementById('deals-container');box.replaceChildren();const slots=allSlots.filter(s=>!s.claimed);if(!slots.length){box.innerHTML='<div class="empty full"><h3>Geen open last-minute plekken op dit moment.</h3><p>Kom later terug of meld je aan voor meldingen.</p></div>';return;}slots.forEach(s=>{const card=document.createElement('article');card.className='deal-card';card.innerHTML='<span class="deal-badge">'+s.discount+'</span><h2 style="font-size:20px;margin:0">'+s.providerName+'</h2><span style="font-size:13px;color:var(--muted)">'+s.city+' ('+(s.province||'NL')+')</span><div style="font-size:14px;background:#f9fafb;padding:10px 14px;border-radius:10px;border:1px solid var(--line)"><strong>'+s.date+'</strong> om <strong>'+s.time+'</strong><br>'+s.service+'</div><div class="deal-price-box"><div><span style="font-size:11px;color:var(--muted);text-decoration:line-through;display:block">'+(s.originalPrice?'Oorspronkelijk €'+s.originalPrice:'')+'</span><strong style="font-size:24px;color:var(--green)">'+(s.dealPrice?'€ '+s.dealPrice.toFixed(2):'Korting')+'</strong></div><button class="btn-claim-deal" data-id="'+s.id+'">Claim deze plek →</button></div>';box.appendChild(card);});document.querySelectorAll('.btn-claim-deal').forEach(b=>b.addEventListener('click',async()=>{const id=b.dataset.id;try{const r=await fetch('/api/last-minute/'+encodeURIComponent(id)+'/claim',{method:'POST'});if(r.ok){alert('Gefeliciteerd! Je hebt deze plek geclaimd. De salon neemt z.s.m. contact met je op.');loadDeals();}else{alert('Deze plek is zojuist al geclaimd door een ander baasje.');loadDeals();}}catch(e){}}));};}else{alert('Deze plek is zojuist al geclaimd door een ander baasje.');loadDeals();}}catch(e){}}));}catch(e){}}loadDeals();const slotForm=document.getElementById('slot-form');const slotStatus=document.getElementById('slot-status');slotForm.addEventListener('submit',async e=>{e.preventDefault();const data=new FormData(slotForm);try{const res=await fetch('/api/last-minute',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(data.entries()))});if(res.ok){slotStatus.textContent='Je open plek is succesvol live geplaatst!';slotStatus.className='status-msg success full';slotForm.reset();loadDeals();}else{throw new Error();}}catch(err){slotStatus.textContent='Plaatsen mislukt. Controleer je invoer.';slotStatus.className='status-msg error full';}});</script></body></html>`;
+</script><script>const allSlots=${JSON.stringify(allSlots)};const loadDeals=()=>{const box=document.getElementById('deals-container');box.replaceChildren();const slots=allSlots.filter(s=>!s.claimed);if(!slots.length){box.innerHTML='<div class="empty full"><h3>Geen open last-minute plekken op dit moment.</h3><p>Kom later terug of meld je aan voor meldingen.</p></div>';return;}slots.forEach(s=>{const card=document.createElement('article');card.className='deal-card';card.innerHTML='<span class="deal-badge">'+s.discount+'</span><h2 style="font-size:20px;margin:0">'+s.providerName+'</h2><span style="font-size:13px;color:var(--muted)">'+s.city+' ('+(s.province||'NL')+')</span><div style="font-size:14px;background:#f9fafb;padding:10px 14px;border-radius:10px;border:1px solid var(--line)"><strong>'+s.date+'</strong> om <strong>'+s.time+'</strong><br>'+s.service+'</div><div class="deal-price-box"><div><span style="font-size:11px;color:var(--muted);text-decoration:line-through;display:block">'+(s.originalPrice?'Oorspronkelijk €'+s.originalPrice:'')+'</span><strong style="font-size:24px;color:var(--green)">'+(s.dealPrice?'€ '+s.dealPrice.toFixed(2):'Korting')+'</strong></div><button class="btn-claim-deal" data-id="'+s.id+'">Claim deze plek →</button></div>';box.appendChild(card);});document.querySelectorAll('.btn-claim-deal').forEach(b=>b.addEventListener('click',async()=>{const id=b.dataset.id;try{const r=await fetch('/api/last-minute/'+encodeURIComponent(id)+'/claim',{method:'POST'});if(r.ok){alert('Gefeliciteerd! Je hebt deze plek geclaimd. De salon neemt z.s.m. contact met je op.');loadDeals();}else{alert('Deze plek is zojuist al geclaimd door een ander baasje.');loadDeals();}}catch(e){}}));};loadDeals();const slotForm=document.getElementById('slot-form');const slotStatus=document.getElementById('slot-status');slotForm.addEventListener('submit',async e=>{e.preventDefault();const data=new FormData(slotForm);try{const res=await fetch('/api/last-minute',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(data.entries()))});if(res.ok){slotStatus.textContent='Je open plek is succesvol live geplaatst!';slotStatus.className='status-msg success full';slotForm.reset();loadDeals();}else{throw new Error();}}catch(err){slotStatus.textContent='Plaatsen mislukt. Controleer je invoer.';slotStatus.className='status-msg error full';}});</script></body></html>`;
 }
 
 /* Standalone 3-Step Instant Multi-Quote Lead Engine */
@@ -4493,6 +4643,15 @@ async function serveStatic(req, res, pathname) {
     }
     const extension = extname(file).toLowerCase();
     res.writeHead(200, secureHeaders({ 'Content-Type': mimeTypes[extension] || 'application/octet-stream', 'Cache-Control': extension === '.html' ? HTML_CACHE : 'public, max-age=31536000, immutable', 'Vary': 'Accept-Encoding' }));
+    /* HTML-bestanden (met name index.html) lopen door dezelfde modernize-pijplijn
+       als alle gegenereerde pagina's: centrale tokens, AVG-privacyvermelding bij
+       formulieren, lazy images, beacon. Voorheen werd index.html als ruwe Buffer
+       geserveerd en miste daardoor al die lagen. */
+    if (extension === '.html') {
+      const text = content.toString('utf8');
+      const html = text.includes('id="tg-theme-boot"') ? text : modernizeGeneratedHtml(text);
+      return res.end(html);
+    }
     res.end(content);
   } catch {
     const requestedExt = extname(requested).toLowerCase();
@@ -4551,13 +4710,16 @@ function buildSiteSchema({ title, canonical = '/', description = '' }) {
 }
 
 function modernizeGeneratedHtml(html) {
-  const cached = modernizeHtmlCache.get(html);
+  /* De asset-generation-stamp gaat mee in de key: zonder deze zou een
+     gewijzigde CSS/JS voor altijd de oude ?v= uit de cache blijven serveren. */
+  const cacheKey = assetGeneration() + html;
+  const cached = modernizeHtmlCache.get(cacheKey);
   if (cached !== undefined) return cached;
   const transformed = modernizeGeneratedHtmlUncached(html);
   if (modernizeHtmlCache.size >= 64) {
     modernizeHtmlCache.delete(modernizeHtmlCache.keys().next().value);
   }
-  modernizeHtmlCache.set(html, transformed);
+  modernizeHtmlCache.set(cacheKey, transformed);
   return transformed;
 }
 
@@ -4579,23 +4741,37 @@ function modernizeGeneratedHtmlUncached(html) {
   const decodeEntities = value => String(value)
     .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&#x27;/g, "'")
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-  /* Ronde 10 — SEO-waarborg: geen geknipte SERP-titels (Google toont ~70 tekens)
-     en geen afgekapte meta-descriptions op álle gegenereerde pagina's. */
+  /* SEO-waarborg: geen geknipte SERP-titels. Google toont circa 580px, wat in de
+     praktijk neerkomt op ~60 tekens. De vorige clamp mikte op 70 en kapte woorden
+     halverwege af met een ellipsis ("...toy face, klein… | TrimGids"), wat er in de
+     zoekresultaten kapot uitzag. Nu: maximaal 60 tekens totaal, afbreken op een
+     woordgrens, en alleen een ellipsis als er echt geen heel woord meer past. */
   if (!html.includes('tg-seo-clamp')) {
+    const TITLE_MAX = 60;
+    const SUFFIX = ' | TrimGids';
     html = html
       .replace(/<title>([^<]*)<\/title>/, (m, t) => {
         const esc = v => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         const visible = decodeEntities(String(t)).trim();
-        if (visible.length <= 70) return m;
-        const base = visible.replace(/\s*[|·]\s*TrimGids.*$/i, '').trim();
-        const out = (base.length + 11 <= 70) ? base + ' | TrimGids'
-          : base.slice(0, 58).replace(/[\s,:;–-]+$/, '') + '… | TrimGids';
-        return `<title>${esc(out)}</title>`;
+        if (visible.length <= TITLE_MAX) return m;
+        let base = visible.replace(/\s*[|·]\s*TrimGids.*$/i, '').trim();
+        const budget = TITLE_MAX - SUFFIX.length;
+        if (base.length > budget) {
+          // afbreken op de laatste woordgrens binnen het budget
+          const cut = base.slice(0, budget);
+          const lastSpace = cut.lastIndexOf(' ');
+          base = (lastSpace > budget * 0.55 ? cut.slice(0, lastSpace) : cut)
+            .replace(/[\s,:;–—-]+$/, '').replace(/\s*[…]+$/, '').trim();
+        }
+        return `<title>${esc(base + SUFFIX)}</title>`;
       })
       .replace(/<meta name="description" content="([^"]*)">/, (m, d) => {
         const visible = decodeEntities(String(d)).trim();
         if (visible.length <= 160) return m;
-        return `<meta name="description" content="${decodeEntities(visible.slice(0, 157).replace(/[\s,:;.]+$/, '') + '…')}">`;
+        const cut = visible.slice(0, 157);
+        const lastSpace = cut.lastIndexOf(' ');
+        const clean = (lastSpace > 110 ? cut.slice(0, lastSpace) : cut).replace(/[\s,:;.]+$/, '');
+        return `<meta name="description" content="${decodeEntities(clean + '…')}">`;
       })
       .replace('</head>', '<!-- tg-seo-clamp --></head>');
   }
@@ -4666,15 +4842,30 @@ function modernizeGeneratedHtmlUncached(html) {
     html = html.replace('</head>', '<style id="tg-color-scheme">:root{color-scheme:light dark}</style></head>');
   }
 
-if (!html.includes('tg-theme-boot')) {
-    html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||"light";document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
+/* Theme vóór de eerste paint. De fallback is bewust dezelfde als in de
+     pagina-scripts verderop (prefers-color-scheme), niet 'light'. Eerder stond
+     hier ||"light", terwijl de scripts in de body wél naar de systeemvoorkeur
+     keken. Gevolg voor een bezoeker met dark mode en geen opgeslagen keuze:
+     dit script zette light, de browser schilderde light, en zodra het
+     body-script draaide klapte de pagina alsnog naar dark — een zichtbare
+     flits op elke gegenereerde pagina. Nu is de eerste paint meteen goed. */
+  if (!html.includes('tg-theme-boot')) {
+    html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
   }
   if (!html.includes('tg-app-js')) {
     html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=22"></script></body>');
   }
-  /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element. */
+  /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element.
+     De CSS en het script apart guarden: index.html linkt nl-map.css zelf al, dus
+     de oude check (alleen op het script-id) injecteerde de stylesheet een tweede
+     keer. Gemeten op de homepage: nl-map.css stond op positie 1 én 7. */
   if (html.includes('data-nl-map') && !html.includes('tg-nlmap-js')) {
-    html = html.replace('</head>', '<link rel="stylesheet" href="/assets/css/nl-map.css?v=8"><script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=15" defer></script></head>');
+    const needsCss = !html.includes('/assets/css/nl-map.css');
+    const needsLeaflet = !html.includes('tg-leaflet-js');
+    const mapTags = (needsCss ? '<link rel="stylesheet" href="/assets/css/nl-map.css?v=8">' : '')
+      + (needsLeaflet ? '<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css"><script id="tg-leaflet-js" src="/assets/vendor/leaflet/leaflet.js" defer></script>' : '')
+      + '<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=17" defer></script>';
+    html = html.replace('</head>', mapTags + '</head>');
   }
   /* Ronde 9 — chat-assistent TG op elke gegenereerde pagina (float-rood = laad-lazy). */
   if (!html.includes('tg-chatbot-js')) {
@@ -4705,14 +4896,113 @@ if (!html.includes('tg-theme-boot')) {
   }
 
   /* Shell + content-skin als LAATSTE elementen van <head>: zo winnen ze de
-     cascade van álle pagina-CSS (directoryStyles/customModuleStyles enz.). */
+     cascade van álle pagina-CSS (directoryStyles/customModuleStyles enz.).
+
+     De volgorde is hier vastgelegd én afgedwongen, niet meer overgelaten aan
+     wat een pagina toevallig al zelf linkt. site-chrome, premium-refresh en
+     content-skin zetten alle drie met !important een html/body-achtergrond;
+     bij gelijke specificiteit beslist dus puur de laadvolgorde wie wint.
+     Doordat index.html site-chrome en premium-refresh zelf al linkte, werden
+     die op de homepage overgeslagen en kwam content-skin achteraan te staan —
+     terwijl gegenereerde pagina's alle drie geïnjecteerd kregen in de volgorde
+     hieronder, dus met premium-refresh achteraan. Gevolg: op de homepage won
+     content-skin (html = var(--background), #ffffff) en op elke andere pagina
+     premium-refresh (html = var(--tg-paper), #f8fafc), plus op de homepage de
+     body-radials uit content-skin:890 die elders werden overschreven.
+
+     Gemeten over 8 routes: alleen / had content-skin ná premium-refresh.
+     Nu worden de drie links eerst verwijderd en daarna in één vaste volgorde
+     opnieuw achteraan geplaatst, zodat elke pagina dezelfde winnaar krijgt.
+     De homepage is de referentie (content-skin: "1-op-1 huisstijl met de
+     homepage"), dus die volgorde is canoniem. */
   {
-    const tailSkin =
-      (html.includes('id="tg-site-chrome"') ? '' : '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=23" id="tg-site-chrome">') +
-      (html.includes('id="tg-content-skin"') ? '' : '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">') +
-      (html.includes('id="tg-premium-refresh"') ? '' : '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=12" id="tg-premium-refresh">');
-    if (tailSkin) html = html.replace('</head>', tailSkin + '</head>');
+    const tailOrder = [
+      ['site-chrome', '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=23" id="tg-site-chrome">'],
+      ['premium-refresh', '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=12" id="tg-premium-refresh">'],
+      ['content-skin', '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">'],
+    ];
+    for (const [name] of tailOrder) {
+      html = html.replace(new RegExp('[ \\t]*<link[^>]*href="[^"]*\\/assets\\/css\\/' + name + '\\.css[^"]*"[^>]*>\\r?\\n?', 'g'), '');
+    }
+    html = html.replace('</head>', tailOrder.map(([, tag]) => tag).join('') + '</head>');
   }
+
+  /* Zelf-gehoste lettertypes zodra scripts/selfhost-fonts.mjs is gedraaid.
+     Bestaat assets/css/fonts.css, dan vervangen we de render-blocking Google
+     Fonts-aanvraag door het lokale bestand: geen IP-doorgifte aan Google meer
+     (AVG) en één netwerkronde minder vóór de eerste paint. Zolang het bestand
+     er niet is, blijft Google Fonts werken — er breekt niets. */
+  if (!html.includes('id="tg-local-fonts"') && existsSync(join(root, 'assets', 'css', 'fonts.css'))) {
+    html = html
+      .replace(/<link[^>]*href="https:\/\/fonts\.googleapis\.com\/css2[^"]*"[^>]*>/g, '<link rel="stylesheet" href="/assets/css/fonts.css?v=1" id="tg-local-fonts">')
+      .replace(/<link rel="preconnect" href="https:\/\/fonts\.(googleapis|gstatic)\.com"[^>]*>/g, '');
+  }
+
+  /* Centrale design-tokens als allerlaatste stylesheet: hierdoor wint de
+     canoniem gedefinieerde tokenlaag de cascade zónder !important, en bestaat
+     er nog maar één dark theme (was: twee concurrerende).
+
+     Een bestaande link wordt eerst verwijderd en daarna opnieuw achteraan
+     geplaatst, in plaats van alleen te injecteren wanneer hij ontbreekt.
+     index.html linkt tokens.css namelijk zelf al, waardoor de oude guard de
+     injectie oversloeg en content-skin.css — dat dit choke point vóór deze stap
+     achter </head> plakt — ná tokens.css kwam te staan. Daarmee won op de
+     homepage juist de laag die de tokenlaag had moeten overschrijven.
+     Gemeten: homepage had tokens.css op positie 6 en content-skin.css op 8,
+     terwijl /trimsalon tokens.css correct als laatste had. */
+  html = html.replace(/[ \t]*<link[^>]*href="[^"]*\/assets\/css\/tokens\.css[^"]*"[^>]*>\r?\n?/g, '');
+  html = html.replace('</head>', '<link rel="stylesheet" href="/assets/css/tokens.css?v=1" id="tg-tokens"></head>');
+
+  /* AVG: elk formulier dat persoonsgegevens vraagt (e-mail of telefoon) krijgt
+     een zichtbare verwerkingsvermelding met link naar de privacyverklaring.
+     Eén centrale injectie i.p.v. per template — dekt de hele site, ook formulieren
+     die later worden toegevoegd. */
+  if (!html.includes('tg-form-privacy')) {
+    html = html.replace(/<form\b([^>]*)>([\s\S]*?)<\/form>/g, (formMatch, attrs, inner) => {
+      const collectsPersonal = /type=["'](email|tel)["']/i.test(inner);
+      if (!collectsPersonal || inner.includes('tg-form-privacy')) return formMatch;
+      const notice = '<p class="tg-form-privacy" style="grid-column:1/-1;font-size:12.5px;line-height:1.5;color:var(--muted-foreground,#64748b);margin:2px 0 0">Wij gebruiken je gegevens alleen om je aanvraag te verwerken, zoals beschreven in onze <a href="/privacy" style="color:var(--primary,#0f3e28);text-decoration:underline">privacyverklaring</a>. Je mag ze altijd laten verwijderen.</p>';
+      // vóór de submit-knop plaatsen; anders vooraan in het formulier
+      const btnIdx = inner.search(/<button\b[^>]*type=["']submit["']/i);
+      if (btnIdx > -1) return `<form${attrs}>${inner.slice(0, btnIdx)}${notice}${inner.slice(btnIdx)}</form>`;
+      return `<form${attrs}>${notice}${inner}</form>`;
+    });
+  }
+
+  /* Cache-busting normaliseren. Handmatige ?v=N-waarden dreven uiteen
+     (nl-map.css ?v=8 hier vs ?v=16 in index.html; forum.css ?v=2 in
+     community.mjs vs ?v=16 elders), waardoor de browser dezelfde CSS als twee
+     losse resources cachete en na een wijziging één versie de oude styling
+     bleef vasthouden. Dit choke point ziet álle HTML, dus hier éénmaal
+     herschrijven dekt elke huidige en toekomstige verwijzing: de versie wordt
+     uit de bestandsinhoud afgeleid, identiek per bestand, site-breed. */
+  html = html.replace(/(["'`])(\/assets\/[^"'`?#]+)(?:\?v=[A-Za-z0-9_-]+)?\1/g, (match, quote, path) => {
+    /* Bestaat het bestand niet, dan laten we de oorspronkelijke verwijzing
+       intact: een verbroken pad moet zichtbaar blijven in plaats van stil te
+       veranderen in een net zo verbroken maar anders ogende URL. */
+    if (!assetVersion(path)) return match;
+    return quote + assetUrl(path) + quote;
+  });
+
+  /* srcset apart: de waarde is een kommagescheiden kandidatenlijst
+     ("/pad 480w, /pad 960w"), dus daar staat na het pad een spatie en geen
+     sluithaakje. Zonder deze stap kregen dezelfde afbeeldingen een ?v= in
+     src/href maar niet in srcset — gemeten 34 assets die daardoor onder twee
+     URL's door de browser gecachet werden, met dezelfde drift tot gevolg. */
+  html = html.replace(/\bsrcset=(["'])([^"']+)\1/g, (match, quote, value) => {
+    const rewritten = value.split(',').map(candidate => {
+      const trimmed = candidate.trim();
+      if (!trimmed) return candidate;
+      const parts = trimmed.split(/\s+/);
+      const rawUrl = parts[0];
+      if (!rawUrl.startsWith('/assets/')) return candidate;
+      const path = rawUrl.split('?')[0];
+      if (!assetVersion(path)) return candidate;
+      parts[0] = assetUrl(path);
+      return parts.join(' ');
+    }).join(', ');
+    return `srcset=${quote}${rewritten}${quote}`;
+  });
 
   /* Core Web Vitals beacon op elke gegenereerde pagina (anoniem, compact) */
   if (!html.includes('tg-cwv-js')) {
@@ -4832,7 +5122,7 @@ function searchSiteIndex(q, limit = 8) {
 function searchPage(q = '') {
   const query = clean(q, 80);
   const initial = searchSiteIndex(query, 8);
-  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zoeken: ${escapeHtml(query || 'alles')} | TrimGids</title><meta name="description" content="Zoek direct in de complete TrimGids: trimsalons, rassen, verzekeringen, kosten, regels en meer."><link rel="canonical" href="https://trimgids.nl/zoek"><meta name="robots" content="noindex, follow"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><style>
+  return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${query ? escapeHtml(query) + ' zoeken op TrimGids' : 'Zoeken op TrimGids: salons, rassen, kosten & regels'} | TrimGids</title><meta name="description" content="Zoek in de complete TrimGids-gids: vind trimsalons per ras en plaats, vergelijk verzekeringen en trimprijzen, en lees over kosten, regels en gezondheid."><link rel="canonical" href="https://trimgids.nl/zoek"><meta name="robots" content="noindex, follow"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"><style>
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f8fafc;color:#0b1220;margin:0;line-height:1.6}
 header{background:#07150e;color:#fff;padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 header a{color:#fff;text-decoration:none;font-weight:800;font-size:17px}
@@ -4957,12 +5247,45 @@ export async function handleRequest(req, res) {
       if (!Number.isInteger(z) || z < 0 || z > 19 || !Number.isInteger(x) || !Number.isInteger(y) || x < 0 || y < 0 || x >= limit || y >= limit) {
         return json(res, 400, { error: 'invalid_map_tile' });
       }
-      const tileUrl = `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
-      const tile = await fetch(tileUrl, { headers: { 'User-Agent': 'TrimGids/2026 map preview; contact@trimgids.nl' } });
-      if (!tile.ok) return json(res, 502, { error: 'map_tile_unavailable' });
-      const body = Buffer.from(await tile.arrayBuffer());
-      res.writeHead(200, secureHeaders({ 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=86400', 'Cross-Origin-Resource-Policy': 'same-origin' }));
-      return res.end(body);
+
+      /* Een kaartviewport vuurt tientallen tile-verzoeken tegelijk af. Zonder
+         cache, timeout en negative caching leverde elke OSM-storing een vloed
+         van 502's op (in de praktijk honderden per minuut, zichtbaar in de logs)
+         en bleef de kaart oneindig opnieuw proberen. Nu:
+           1. geslaagde tiles 24 uur in het geheugen
+           2. time-out van 6 s per aanvraag
+           3. na een mislukking 60 s niet opnieuw naar OSM (negative cache)
+           4. bij uitval een lichte placeholder-tile i.p.v. 502, zodat de kaart
+              netjes degradeert en de markers gewoon zichtbaar blijven. */
+      const key = `${z}/${x}/${y}`;
+      const cachedTile = mapTileCache.get(key);
+      if (cachedTile) {
+        res.writeHead(200, secureHeaders({ 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=86400', 'Cross-Origin-Resource-Policy': 'same-origin', 'X-Tile-Cache': 'hit' }));
+        return res.end(cachedTile);
+      }
+      if (mapTileOutageUntil > Date.now()) return sendPlaceholderTile(res);
+
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 6000);
+        const tile = await fetch(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`, {
+          headers: { 'User-Agent': 'TrimGids/2026 map preview; contact@trimgids.nl' },
+          signal: controller.signal
+        });
+        clearTimeout(timer);
+        if (!tile.ok) {
+          mapTileOutageUntil = Date.now() + 60000;
+          return sendPlaceholderTile(res);
+        }
+        const body = Buffer.from(await tile.arrayBuffer());
+        if (mapTileCache.size > 800) mapTileCache.delete(mapTileCache.keys().next().value);
+        mapTileCache.set(key, body);
+        res.writeHead(200, secureHeaders({ 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=86400', 'Cross-Origin-Resource-Policy': 'same-origin' }));
+        return res.end(body);
+      } catch {
+        mapTileOutageUntil = Date.now() + 60000;
+        return sendPlaceholderTile(res);
+      }
     }
 
     /* Core Providers API */
@@ -5048,7 +5371,7 @@ export async function handleRequest(req, res) {
       const metrics = { lcp: input.lcp, inp: input.inp, cls: input.cls, ttfb: input.ttfb, url: clean(input.url, 120), device: clean(input.device, 30) };
       if (!Number.isFinite(metrics.lcp) && !Number.isFinite(metrics.inp) && !Number.isFinite(metrics.cls)) return json(res, 400, { error: 'missing_metrics' });
       const entry = { ...metrics, measuredAt: new Date().toISOString() };
-      const all = await collectionList(webVitalsFile);
+      const all = await collectionReadFresh(webVitalsFile);
       all.unshift(entry);
       if (all.length > 200) all.length = 200;
       await writeFile(webVitalsFile, JSON.stringify(all, null, 2) + '\n');
@@ -5193,7 +5516,7 @@ export async function handleRequest(req, res) {
 
     if (url.pathname.startsWith('/api/last-minute/') && url.pathname.endsWith('/claim') && req.method === 'POST') {
       const id = decodeURIComponent(url.pathname.slice('/api/last-minute/'.length, -'/claim'.length));
-      const slots = await collectionList(lastMinuteFile);
+      const slots = await collectionReadFresh(lastMinuteFile);
       const index = slots.findIndex(s => s.id === id);
       if (index < 0) throw new Error('slot_not_found');
       slots[index].claimed = true;
@@ -5633,6 +5956,20 @@ export async function handleRequest(req, res) {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(steunPage());
     }
+    /* Juridisch (AVG): privacyverklaring, cookieverklaring en algemene voorwaarden.
+       Deze routes gaven voorheen 404 terwijl de site naam, telefoon en e-mail verwerkt. */
+    if (url.pathname === '/privacy' || url.pathname === '/privacyverklaring' || url.pathname === '/privacy-policy' || url.pathname === '/avg') {
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
+      return res.end(privacyPage());
+    }
+    if (url.pathname === '/cookies' || url.pathname === '/cookieverklaring' || url.pathname === '/cookie-beleid' || url.pathname === '/cookie-policy') {
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
+      return res.end(cookiesPage());
+    }
+    if (url.pathname === '/voorwaarden' || url.pathname === '/algemene-voorwaarden' || url.pathname === '/terms' || url.pathname === '/disclaimer') {
+      res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
+      return res.end(termsPage());
+    }
     if (url.pathname === '/hondengedrag' || url.pathname === '/gedrag-hond' || url.pathname === '/hondencommunicatie') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(hondengedragPage());
@@ -5861,7 +6198,7 @@ export async function handleRequest(req, res) {
     const generatedPage = providerPage(url.pathname) || directoryPage(url.pathname, dirPage);
     if (generatedPage) {
       /* LRU-cache: gegenereerde directory/profielpagina's worden per URL hergebruikt */
-      const pageKey = 'gen:' + url.pathname + '?page=' + dirPage;
+      const pageKey = 'gen:' + url.pathname + '?page=' + dirPage + ':' + assetGeneration();
       let pageHtml = htmlPageCache.get(pageKey);
       if (pageHtml === undefined) {
         pageHtml = modernizeGeneratedHtml(generatedPage);
@@ -5879,13 +6216,26 @@ export async function handleRequest(req, res) {
       try { res.end(); } catch (_) {}
       return;
     }
+    /* Fouten die de aanroeper zelf kan herstellen krijgen 400; al het andere
+       valt op 502, zodat een onverwachte crash zichtbaar blijft als serverfout
+       (zo hoort het: de pollVote-bug "Cannot create property 'votes' on string"
+       meldde zich terecht als 502).
+       Deze lijst was verouderd: zeven validatiefouten stonden er niet in en
+       werden daardoor als 502 gerapporteerd — een formulier dat een verkeerde
+       provincie of een te korte omschrijving stuurt, kreeg "bad gateway" i.p.v.
+       een bruikbare validatiefout. Gemeten: POST /api/vacatures met een
+       onbekende branch gaf 502 met {"error":"invalid_branch"}.
+       check-error-statusses.mjs bewaakt dat elke gegooide error hier staat,
+       zodat deze lijst niet opnieuw stilletjes kan verouderen. */
     const clientErrors = [
       'missing_fields', 'request_too_large', 'profile_missing_fields', 'claim_invalid_contact',
       'review_invalid_fields', 'review_already_given', 'request_invalid_fields', 'supporter_invalid_fields', 'response_invalid_fields', 'request_not_found',
-      'poll_not_found', 'poll_invalid_vote', 'poll_already_voted', 'forum_topic_not_found',
-      'forum_reaction_invalid', 'forum_already_reacted', 'favorite_invalid_fields', 'newsletter_invalid_email', 'invalid_moderation_status',
+      'poll_not_found', 'poll_invalid_vote', 'poll_already_voted', 'poll_option_not_found', 'forum_topic_not_found',
+      'forum_already_reacted', 'favorite_invalid_fields', 'newsletter_invalid_email', 'invalid_moderation_status',
       'moderation_item_not_found', 'news_tip_invalid_fields', 'missing_dog_invalid_fields',
-      'missing_dog_not_found', 'quote_invalid_fields', 'slot_not_found'
+      'missing_dog_not_found', 'quote_invalid_fields', 'slot_not_found',
+      'invalid_branch', 'invalid_type', 'invalid_province', 'invalid_email',
+      'title_too_short', 'description_too_short'
     ];
     const status = clientErrors.includes(error.message) ? 400 : 502;
     json(res, status, { error: error.message || 'server_error' });

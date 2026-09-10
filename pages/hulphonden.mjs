@@ -2,6 +2,7 @@
 import { pageShell, esc } from './base.mjs';
 
 const CSS = `
+.sec-img{display:block;width:100%;max-width:760px;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--shadow);margin:6px 0 18px}
 .hund{display:grid;gap:0;margin-top:26px}
 .role{display:grid;grid-template-columns:190px 1fr;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow)}
 .role+.role{margin-top:16px}
@@ -42,6 +43,7 @@ export function hulphondenPage() {
 
 <section class="sec">
   <h2>🐕‍🦺 Blindengeleidehonden (KNGF)</h2>
+  <img class="sec-img" src="/assets/img/gen/k-geleidehond-768.webp" srcset="/assets/img/gen/k-geleidehond-480.webp 480w, /assets/img/gen/k-geleidehond-768.webp 768w" sizes="(max-width:980px) 100vw, 720px" width="768" height="419" loading="lazy" decoding="async" alt="Gele labrador met wit geleidehondentuig loopt rustig aan het hefboomtuig naast zijn gebruiker over een Nederlandse straat">
   <p class="sub">Een geleidehond is geen gewone hond die een trucje leert. Het is een partner die de veiligheid van een slechtziende of blinde gebruiker letterlijk in zijn poten heeft.</p>
   <div class="card">
     <div class="timeline">
@@ -57,6 +59,7 @@ export function hulphondenPage() {
 
 <section class="sec">
   <h2>🚓 Politiehonden</h2>
+  <img class="sec-img" src="/assets/img/gen/k-politiehond-768.webp" srcset="/assets/img/gen/k-politiehond-480.webp 480w, /assets/img/gen/k-politiehond-768.webp 768w" sizes="(max-width:980px) 100vw, 720px" width="768" height="419" loading="lazy" decoding="async" alt="Mechelse herder met politie-K9-tuig speurt op een klinkerstraat, naast zijn geleider in politie-uniform">
   <p class="sub">De Nederlandse politiehond is wereldwijd beroemd. Waarom? Omdat de selectie en training hier extreem streng zijn — met alle voor- én nadelen van dien.</p>
   <div class="role pol">
     <div class="ic">🚓</div>

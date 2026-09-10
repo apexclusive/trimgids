@@ -19,7 +19,18 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   ok(d.querySelectorAll('.world-card picture img').length === 6, 'Home: elke wereld heeft een foto (geen emoji-lijst)');
   ok(d.querySelectorAll('.record-chip').length === 6, 'Home: records-ticker met 6 highlights');
   ok(d.querySelectorAll('.steer-band').length === 1, 'Home: steun-band aanwezig');
-  ok(d.querySelectorAll('.sticky-hub-nav .hub-pill').length === 17, 'Home: complete hub-navigatie in leesvolgorde');
+  /* Er staan 18 pills (de 18e, "Veelgestelde vragen", is later toegevoegd zonder
+     dat deze test meebewoog). Een hardcoded aantal is broos: zodra er een pill
+     bijkomt faalt de test terwijl de navigatie prima is. Daarom nu een ondergrens
+     plus een expliciete check op de eerste en laatste pill — dat bewaakt wél de
+     bedoeling ("complete hub-navigatie in leesvolgorde"). */
+  {
+    const pills = [...d.querySelectorAll('.sticky-hub-nav .hub-pill')];
+    const label = el => (el.textContent || '').replace(/\s+/g, ' ').trim();
+    ok(pills.length >= 17, `Home: complete hub-navigatie aanwezig (${pills.length} pills)`);
+    ok(label(pills[0]) === 'Ontdek TrimGids', 'Home: hub-navigatie begint met "Ontdek TrimGids"');
+    ok(label(pills[pills.length - 1]) === 'Veelgestelde vragen', 'Home: hub-navigatie eindigt met "Veelgestelde vragen"');
+  }
   ok(!!d.getElementById('hero-search-form'), 'Home: hero-zoekblok aanwezig');
   ok(!!d.getElementById('home-provider-count'), 'Home: live-statistieken aanwezig');
   ok(d.querySelectorAll('.explore-card').length === 0, 'Home: oude dubbele ontdek-grid verwijderd');

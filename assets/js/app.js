@@ -509,6 +509,30 @@
     if (backTop) backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
 
+  /* De hub-nav scrolt horizontaal met verborgen scrollbar. CSS (tokens.css)
+     geeft daarom een uitdovende rechterrand als aanwijzing dat er meer is, en
+     haalt die rand weg via [data-at-end="true"]. Zonder deze functie werd dat
+     attribuut nooit gezet en bleef de rand permanent staan, ook wanneer de
+     gebruiker al volledig naar rechts was gescrold — de laatste pill leek dan
+     weg te vallen terwijl hij volledig zichtbaar was. */
+  function initHubNavScroll() {
+    var strip = document.querySelector('.hub-nav-in');
+    if (!strip) return;
+
+    var update = function () {
+      /* 2 px speling: door afronding op hi-dpi-schermen is scrollLeft +
+         clientWidth zelden exact gelijk aan scrollWidth. */
+      var atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+      /* Als er helemaal niet gescrolld kan worden is er ook niets verborgen. */
+      var scrollable = strip.scrollWidth > strip.clientWidth + 2;
+      strip.setAttribute('data-at-end', String(!scrollable || atEnd));
+    };
+
+    strip.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
   function initHomepageReturn() {
     if (location.pathname !== '/') return;
     var key = 'trimgids_home_scroll';
@@ -863,6 +887,7 @@
     initDelegatedTheme();
     initSaveButtons();
     initScrollUI();
+    initHubNavScroll();
     initHomepageReturn();
     initStatCounters();
     initHubHighlight();

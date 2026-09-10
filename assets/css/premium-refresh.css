@@ -47,7 +47,6 @@ nav.site-navbar { background: rgba(251, 253, 251, .96) !important; border-bottom
 }
 .hero::before { display: none !important; }
 .hero::after { background: rgba(241, 248, 243, .78) !important; }
-.hero-photo { display: none !important; }
 .hero-in { max-width: 980px !important; }
 .hero-badge-wrap { margin-bottom: 18px !important; }
 .hero-badge { background: rgba(255,255,255,.88) !important; border-color: #b9d8c4 !important; box-shadow: none !important; }
@@ -188,20 +187,12 @@ button, .btn, a.btn, .outline { transition: transform .18s ease, background-colo
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
-/* Graphite glass theme: neutral surfaces, warm dog-friendly accent, clear hierarchy. */
-[data-theme="dark"] {
-  --card: #17191e !important;
-  --border: rgba(255,255,255,.12) !important;
-  --foreground: #e9e6df !important;
-  --muted-foreground: #b6b3ad !important;
-  --primary: #d8dde5 !important;
-  --primary-hover: #ffffff !important;
-  --primary-light: rgba(255,255,255,.09) !important;
-  --secondary: #20232a !important;
-  --secondary-foreground: #edf0f4 !important;
-  --background: #111214 !important;
-  --shadow-card: 0 18px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035) !important;
-}
+/* Graphite glass theme: neutral surfaces, warm dog-friendly accent, clear hierarchy.
+   De TOKENS voor het donkere thema staan niet langer hier maar in
+   /assets/css/tokens.css — dat bestand is de enige bron van waarheid voor
+   light én dark. Voorheen stonden hier twee concurrerende dark themes
+   (dit "graphite glass"-blok en "dark emerald" in home.css), die alleen via
+   !important beslecht konden worden. De waarden zijn ongewijzigd overgeheveld. */
 [data-theme="dark"] html, [data-theme="dark"] body { background:#111214 !important; color:#e9e6df !important; }
 [data-theme="dark"] main h1, [data-theme="dark"] main h2, [data-theme="dark"] main h3,
 [data-theme="dark"] .hero-title, [data-theme="dark"] .section-title { color:#e7e9ed !important; }

@@ -84,9 +84,9 @@ export function siteHeader() {
   <div class="wrap hub-nav-in">
     <a href="/#werelden" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Ontdek TrimGids</a>
     <a href="/#records" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Top 100 records</a>
-    <a href="/#eerstehulp-cijfers" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp &amp; feiten</a>
-    <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Noodhulp &amp; vermist</a>
+    <a href="/#eerstehulp-cijfers" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Eerste hulp &amp; cijfers</a>
     <a href="/#kennis" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Kennis &amp; gidsen</a>
+    <a href="/#alerts-veiligheid" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg> Nood &amp; vermist</a>
     <a href="/#zorg-verzekering" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Gezondheid &amp; verzekering</a>
     <a href="/#vacht-offerte" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Vacht &amp; offerte</a>
     <a href="/#financien-belasting" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-euro"/></svg> Kosten &amp; belasting</a>
@@ -94,9 +94,10 @@ export function siteHeader() {
     <a href="/#wandelen-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg> Wandelen</a>
     <a href="/#interactieve-kaart" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg> Kaart</a>
     <a href="/#forum" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg> Community</a>
+    <a href="/voor-baasjes" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Voor baasjes</a>
     <a href="/#hondenslee-poll" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg> Jouw stem</a>
     <a href="/#helpen" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Helpen &amp; meedoen</a>
-    <a href="/#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Nieuws</a>
+    <a href="/#nieuws" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg> Actueel</a>
     <a href="/#steun-hub" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Steun TrimGids</a>
     <a href="/#faq" class="hub-pill"><svg class="ic" aria-hidden="true"><use href="#i-faq"/></svg> Veelgestelde vragen</a>
   </div>
@@ -275,9 +276,10 @@ export function siteFooter() {
     </div>
     <div class="footer-bottom">
       <span>Gemaakt met passie voor honden in Nederland. In samenwerking met routes.apexclusive.nl</span>
-      <div style="display:flex;gap:16px">
-        <a href="/sitemap.xml">Sitemap</a>
-        <a href="/robots.txt">Robots</a>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <a href="/privacy">Privacyverklaring</a>
+        <a href="/cookies">Cookies</a>
+        <a href="/voorwaarden">Algemene voorwaarden</a>
         <a href="/bedrijven">Partner Worden</a>
       </div>
     </div>
