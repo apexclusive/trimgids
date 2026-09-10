@@ -689,7 +689,7 @@ nav.site-navbar {
 .map-f-btn { padding: 7px 14px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--background); color: var(--foreground); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.18s ease; }
 .map-f-btn:hover { border-color: var(--primary); color: var(--primary); }
 .map-f-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
-#home-map { height: 500px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+#home-map { height: 580px; width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border); }
 .custom-pin { width: 32px; height: 32px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,.25); border: 2px solid #fff; }
 .custom-pin>span { transform: rotate(45deg); font-size: 14px; line-height: 1; }
 .cluster, .cluster-lg, .cluster-xl {
@@ -710,7 +710,7 @@ nav.site-navbar {
 /* Mobiel: compactere secties en kaart */
 @media (max-width: 768px) {
   .section { padding: 48px 0; }
-  #home-map, .map-placeholder { height: 380px; }
+  #home-map, .map-placeholder { height: 430px; }
 }
 
 /* Lead Quote Banner */

@@ -172,10 +172,10 @@ body.menu-open { overflow: hidden; }
   .nav-links-pills.open > a[href="/opvang"],
   .nav-links-pills.open > a[href="/wellness"],
   .nav-links-pills.open > a[href="/last-minute"] { display: inline-flex !important; }
-  .nav-links-pills.open { max-height: calc(100vh - 82px); overflow-y: auto; overscroll-behavior: contain; }
+  .nav-links-pills.open { max-height: calc(100vh - 64px); overflow-y: auto; overscroll-behavior: contain; }
 }
 @media (max-width: 700px) {
-  .nav-links-pills.open { left: 10px; right: 10px; top: 60px; padding: 12px; border-radius: 18px; }
+  .nav-links-pills.open { padding: 14px 12px 26px; }
   .nav-links-pills.open a { min-height: 44px; align-items: center; }
 }
 

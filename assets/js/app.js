@@ -504,9 +504,22 @@
   /* ------------------------ Homepage-interacties ------------------------ */
   function initScrollUI() {
     var progress = document.getElementById('scroll-progress');
-    var backTop = document.getElementById('back-to-top');
     var nav = document.getElementById('tg-site-nav');
-    if (!progress && !backTop && !nav) return;
+    /* Ronde 19 — de terug-naar-boven-knop bestaat op elke pagina: aanmaken als
+       de template hem niet meelevert. Alleen een pijl-icoontje (44px cirkel),
+       gepositioneerd links van de chat-bel via CSS. */
+    var backTop = document.getElementById('back-to-top');
+    if (!backTop) {
+      backTop = document.createElement('button');
+      backTop.id = 'back-to-top';
+      backTop.type = 'button';
+      backTop.className = 'back-to-top-btn';
+      backTop.setAttribute('aria-label', 'Naar boven');
+      backTop.title = 'Naar boven';
+      backTop.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>';
+      document.body.appendChild(backTop);
+    }
+    if (!progress && !nav) return;
     var onScroll = function () {
       var top = document.documentElement.scrollTop || document.body.scrollTop;
       var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -685,24 +698,41 @@
     var menuBtn = document.querySelector('.menu-btn');
     var mainNav = document.getElementById('main-nav');
     if (!menuBtn || !mainNav) return;
+    var navMore = mainNav.querySelector('details.nav-more');
+    var menuIcon = '<svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>';
+    var closeIcon = '<svg class="ic" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>';
     var close = function () {
       mainNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.innerHTML = menuIcon;
       menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open navigatiemenu');
       document.body.classList.remove('menu-open');
+      /* De uitgeklapte categorieën blijven niet open staan zodra het menu dicht is. */
+      if (navMore) navMore.open = false;
+    };
+    var openMenu = function () {
+      mainNav.classList.add('open');
+      menuBtn.classList.add('open');
+      menuBtn.innerHTML = closeIcon;
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Navigatiemenu sluiten');
+      document.body.classList.add('menu-open');
+      /* Alle kopjes in één keer zichtbaar: "Meer voor baasjes" klapt automatisch uit. */
+      if (navMore) navMore.open = true;
     };
     menuBtn.addEventListener('click', function () {
-      var open = !mainNav.classList.contains('open');
-      if (open) {
-        mainNav.classList.add('open');
-        menuBtn.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('menu-open');
-      } else close();
+      if (mainNav.classList.contains('open')) close(); else openMenu();
     });
     mainNav.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', close); });
     document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
     document.addEventListener('click', function (event) {
       if (!mainNav.classList.contains('open')) return;
-      if (!mainNav.contains(event.target) && event.target !== menuBtn) close();
+      if (!mainNav.contains(event.target) && !menuBtn.contains(event.target)) close();
+    });
+    /* Bij draaien van portrait/landscape of opschalen naar desktop: menu netjes sluiten. */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 1280 && mainNav.classList.contains('open')) close();
     });
   }
 

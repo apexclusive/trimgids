@@ -263,29 +263,64 @@ nav.site-navbar.scrolled {
 }
 @media (max-width: 1279px) {
   .nav-links-pills { display: none; }
+  /* Ronde 19 — het burgermenu is een volledig overlay-paneel onder de navbar:
+     alle kopjes in één overzicht (inclusief automatisch uitgeklapte
+     "Meer voor baasjes"-categorieën), sluiten via het kruisje (de burger
+     verandert in een ✕), Esc, of een tik buiten het paneel. */
   .nav-links-pills.open {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    position: absolute;
-    top: 62px;
-    left: 16px;
-    right: 16px;
-    padding: 16px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    box-shadow: 0 30px 80px -20px rgba(2, 32, 19, 0.3);
     gap: 8px;
-    z-index: 200;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 64px;
+    bottom: 0;
+    padding: 18px 16px 28px;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 30px 80px -20px rgba(2, 32, 19, 0.3);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    z-index: 1150;
     animation: navPanelIn 0.25s var(--ease);
   }
-  .nav-links-pills.open a { padding: 10px 14px; border-radius: var(--radius-md); background: var(--secondary); }
+  .nav-links-pills.open > a.nav-pill {
+    grid-column: 1 / -1;
+    min-height: 46px;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    background: var(--secondary);
+    font-size: 14.5px;
+  }
   .nav-links-pills.open .nav-more { grid-column: 1 / -1; }
-  .nav-links-pills.open .nav-more-panel { position: static; width: auto; grid-template-columns: 1fr; margin-top: 6px; box-shadow: none; animation: none; }
+  .nav-links-pills.open .nav-more > summary { display: none; }
+  .nav-links-pills.open .nav-more-panel {
+    position: static;
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 4px;
+    box-shadow: none;
+    animation: none;
+  }
+  .nav-links-pills.open .nav-more-panel > div {
+    grid-column: 1 / -1;
+  }
+  .nav-links-pills.open .nav-more-panel h3 {
+    margin: 14px 0 4px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  .nav-links-pills.open .nav-more-panel a { padding: 11px 14px; border-radius: var(--radius-md); font-size: 14px; }
   .menu-btn { display: inline-flex !important; }
+  .menu-btn.open { border-color: var(--primary); color: var(--primary); }
 }
 @media (max-width: 700px) {
-  .nav-links-pills.open { grid-template-columns: 1fr; }
+  .nav-links-pills.open { top: 58px; }
   .nlmap-chips button, .nlmap-actions button, .nlmap-search input { min-height: 44px; }
   .nlmap-actions button { width: 44px; }
   .nlmap-actions .nlmap-geo { width: auto; padding-inline: 14px; }
