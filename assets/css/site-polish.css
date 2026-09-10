@@ -467,3 +467,57 @@ body.tg-home .world-card:hover { transform: translateY(-6px) !important; box-sha
 body.tg-home .world-card .world-title { font-size: 1.25rem !important; letter-spacing: -.025em; }
 body.tg-home .world-card .world-cta { font-weight: 800; }
 @media (prefers-reduced-motion: reduce) { body.tg-home .world-card:hover { transform: none !important; } }
+
+/* Product refresh 04 — inner routes get a deliberate editorial canvas.
+   The old templates all started as undifferentiated white content; this
+   creates a visible reading surface without wrapping every server template. */
+body.tg-inner-page { background: #eef3f0 !important; }
+body.tg-inner-page main {
+  position: relative; isolation: isolate; width: min(100% - 32px, 1160px) !important;
+  margin-block: 34px 72px !important; padding: clamp(28px, 5vw, 64px) clamp(18px, 5vw, 72px) !important;
+  border: 1px solid rgba(15,62,40,.10); border-radius: 30px;
+  background: var(--card, #fff);
+  box-shadow: 0 24px 70px rgba(15,62,40,.08);
+}
+body.tg-inner-page main::before { content: ''; position: absolute; inset: 0 0 auto; height: 5px; border-radius: 30px 30px 0 0; background: linear-gradient(90deg, var(--primary), #34d399 58%, #f0b84b); }
+body.tg-inner-page main > .crumb { margin-top: 0 !important; }
+body.tg-inner-page main > h1, body.tg-inner-page main > .page-title { max-width: 15ch !important; font-size: clamp(2.3rem, 5vw, 4.4rem) !important; }
+body.tg-inner-page main > .intro { max-width: 62ch !important; font-size: 17px !important; }
+body.tg-inner-page main > section { position: relative; }
+body.tg-inner-page main > section + section { padding-top: clamp(24px, 3vw, 42px); border-top: 1px solid rgba(15,62,40,.08); }
+body.tg-inner-page main .card, body.tg-inner-page main .provider,
+body.tg-inner-page main .tip-box, body.tg-inner-page main .route-card,
+body.tg-inner-page main .faq-card { border: 1px solid rgba(15,62,40,.10) !important; box-shadow: 0 10px 26px rgba(15,23,42,.055) !important; }
+[data-theme="dark"] body.tg-inner-page { background: #07130d !important; }
+[data-theme="dark"] body.tg-inner-page main { border-color: rgba(148,163,184,.16); box-shadow: 0 24px 70px rgba(0,0,0,.25); }
+[data-theme="dark"] body.tg-inner-page main > section + section { border-color: rgba(148,163,184,.13); }
+@media (max-width: 760px) {
+  body.tg-inner-page main { width: min(100% - 20px, 1160px) !important; margin-block: 18px 48px !important; border-radius: 22px; padding: 28px 16px 44px !important; }
+  body.tg-inner-page main::before { border-radius: 22px 22px 0 0; }
+  body.tg-inner-page main > h1, body.tg-inner-page main > .page-title { font-size: clamp(2rem, 11vw, 3.1rem) !important; }
+}
+
+/* Product refresh 05 — header reads as a product shell, not a collection of pills. */
+.site-navbar { height: 70px !important; border-bottom-color: rgba(15,62,40,.10) !important; background: rgba(255,255,255,.82) !important; }
+.site-navbar .nav-in { height: 70px !important; max-width: 1280px; }
+.site-navbar .brand-logo { gap: 10px; }
+.site-navbar .brand-badge-icon { width: 36px; height: 36px; }
+.site-navbar .brand-title { font-size: 18px !important; letter-spacing: -.045em; }
+.site-navbar .brand-subtitle { font-size: 9px !important; letter-spacing: .09em; }
+.site-navbar .nav-pill { background: transparent; border-radius: 9px !important; font-weight: 700; }
+.site-navbar .nav-pill:hover, .site-navbar .nav-pill:focus-visible { background: rgba(16,185,129,.08); border-color: transparent; }
+.site-navbar .nav-actions .btn-outline { border-color: rgba(15,62,40,.18); background: rgba(255,255,255,.7); }
+[data-theme="dark"] .site-navbar { background: rgba(7,19,13,.88) !important; border-bottom-color: rgba(148,163,184,.16) !important; }
+[data-theme="dark"] .site-navbar .nav-actions .btn-outline { background: rgba(15,23,42,.55); border-color: rgba(148,163,184,.23); }
+@media (max-width: 760px) {
+  .site-navbar, .site-navbar .nav-in { height: 62px !important; }
+  .site-navbar .nav-actions .btn-outline { display: none; }
+}
+
+/* Product refresh 06 — footer becomes a quiet information endpoint. */
+.site-footer { background: #06110b !important; border-top: 0 !important; }
+.site-footer::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, #10b981, #34d399 55%, #f0b84b); }
+.site-footer .footer-grid { padding-top: 6px; }
+.site-footer .footer-col ul { gap: 6px; }
+.site-footer .footer-col a { font-size: 13px; }
+.site-footer .footer-bottom { color: rgba(222,240,231,.52); }
