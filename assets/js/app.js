@@ -562,7 +562,10 @@
     document.querySelectorAll('#main-nav > a.nav-pill, #main-nav > .nav-more').forEach(function () {});
     document.querySelectorAll('#main-nav > a.nav-pill').forEach(function (a) {
       var href = (a.getAttribute('href') || '').split('?')[0].replace(/\/+$/, '') || '/';
-      if (href === path || (href !== '/' && path.indexOf(href) === 0)) a.classList.add('is-current');
+      if (href === path || (href !== '/' && path.indexOf(href) === 0)) {
+        a.classList.add('is-current');
+        a.setAttribute('aria-current', 'page');
+      }
     });
   }
 
