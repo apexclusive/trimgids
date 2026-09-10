@@ -577,7 +577,7 @@ async function newsletterSubscribe(input) {
 }
 
 async function feedbackCreate(input) {
-  const general = Number(input.algemene_indruck);
+  const general = Number(input.algemene_indruk ?? input.algemene_indruck);
   const findability = Number(input.vindbaarheid);
   const usability = Number(input.gebruiksgemak);
   const service = Number(input.servicewaarde);
@@ -585,7 +585,7 @@ async function feedbackCreate(input) {
   const feedback = clean(input.feedback, 2000);
   const payload = {
     id: randomUUID(),
-    algemene_indruck: Number.isFinite(general) ? Math.min(10, Math.max(0, general)) : 8,
+    algemene_indruk: Number.isFinite(general) ? Math.min(10, Math.max(0, general)) : 8,
     vindbaarheid: Number.isFinite(findability) ? Math.min(10, Math.max(0, findability)) : 8,
     gebruiksgemak: Number.isFinite(usability) ? Math.min(10, Math.max(0, usability)) : 8,
     servicewaarde: Number.isFinite(service) ? Math.min(10, Math.max(0, service)) : 8,

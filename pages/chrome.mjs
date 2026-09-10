@@ -144,7 +144,7 @@ export function siteFooter() {
         <div class="feedback-grid">
           <label>
             <span>Algemene indruk</span>
-            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="algemene_indruck" data-feedback-field><strong>8/10</strong></div>
+            <div class="feedback-score"><input type="range" min="0" max="10" step="1" value="8" name="algemene_indruk" data-feedback-field><strong>8/10</strong></div>
           </label>
           <label>
             <span>Vindbaarheid voor wat ik zocht</span>
