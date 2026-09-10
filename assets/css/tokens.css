@@ -225,13 +225,13 @@ html { scroll-behavior: smooth; }
      leigrijze/blauwe waarden (#111214, #17191e, #20232a) die het palet uit
      home.css overstemden (tokens laadt als laatste) — daardoor was o.a. de
      hero-zoekbalk "donkerblauw" en voelden de witte knoppen uit de toon. */
-  --background: #090d0b;
-  --background-subtle: #0d1410;
+  --background: #0e1512;
+  --background-subtle: #121a16;
   --foreground: #edf5f0;
-  --card: #111814;
+  --card: #15211a;
   --card-foreground: #edf5f0;
-  --card-subtle: #16221c;
-  --popover: #111814;
+  --card-subtle: #1a2822;
+  --popover: #15211a;
   --popover-foreground: #edf5f0;
   --border: rgba(255, 255, 255, .11);
   --border-subtle: rgba(255, 255, 255, .07);
@@ -241,15 +241,15 @@ html { scroll-behavior: smooth; }
   --primary-hover: #34d399;
   --primary-light: rgba(16, 185, 129, .14);
   --primary-foreground: #06271a;
-  --secondary: #1a2720;
+  --secondary: #1f2e26;
   --secondary-foreground: #eaf5ef;
-  --accent: #1a2720;
+  --accent: #1f2e26;
   --accent-foreground: #eaf5ef;
 
   /* ≥ 8:1 op --card #111814 — AA ✓ */
-  --muted-foreground: #a9b8ae;
+  --muted-foreground: #b4c3ba;
   --muted: var(--muted-foreground);
-  --muted-surface: #16221c;
+  --muted-surface: #1a2822;
 
   --success: #6ee7b7;
   --success-light: rgba(16, 185, 129, .16);
@@ -265,13 +265,13 @@ html { scroll-behavior: smooth; }
   --shadow-hover: 0 24px 60px rgba(0, 0, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .04);
   --shadow-floating: 0 28px 70px rgba(0, 0, 0, .45);
 
-  --bg-nav: rgba(9, 13, 11, .85);
-  --cream: #131c16;
+  --bg-nav: rgba(14, 21, 18, .85);
+  --cream: #17221c;
 
   /* premium-refresh heeft eigen donkere tokens (was leigrijs) — die lopen
      mee naar het warme palet omdat dit blok als laatste laadt. */
-  --tg-paper: #090d0b;
-  --tg-panel: #111814;
+  --tg-paper: #0e1512;
+  --tg-panel: #15211a;
   --tg-line: rgba(255, 255, 255, .12);
 }
 
@@ -499,7 +499,7 @@ html, body { overflow-x: clip; }
 [data-theme="dark"] .menu-btn,
 [data-theme="dark"] .theme-toggle-btn,
 [data-theme="dark"] #account-btn {
-  background: #111814 !important;
+  background: #15211a !important;
   color: #e9f2ec !important;
   border-color: rgba(255, 255, 255, .14) !important;
 }
@@ -516,7 +516,7 @@ html, body { overflow-x: clip; }
 
 /* Zoekbalk in de hero: warm groen-zwart i.p.v. donkerblauw #0f172a */
 [data-theme="dark"] body.tg-home .airbnb-search-bar {
-  background: rgba(10, 17, 13, .9) !important;
+  background: rgba(15, 23, 19, .9) !important;
   border-color: rgba(110, 231, 183, .26) !important;
   box-shadow: 0 18px 50px rgba(0, 0, 0, .45), 0 0 0 7px rgba(16, 185, 129, .05) !important;
 }
@@ -526,9 +526,9 @@ html, body { overflow-x: clip; }
 [data-theme="dark"] .search-divider { background: rgba(255, 255, 255, .14) !important; }
 
 /* Nieuwsbrief-band, forum-body's en kaartvlak: warme tinten */
-[data-theme="dark"] .home-newsletter { background: linear-gradient(135deg, #0d1712, #1b2b21) !important; border-color: rgba(110, 231, 183, .18) !important; }
-[data-theme="dark"] .tg-f-body, [data-theme="dark"] .tg-f-reply { background: #0d1512 !important; }
-[data-theme="dark"] .nlmap-stage { background: #0c1310 !important; }
+[data-theme="dark"] .home-newsletter { background: linear-gradient(135deg, #121c16, #20302a) !important; border-color: rgba(110, 231, 183, .18) !important; }
+[data-theme="dark"] .tg-f-body, [data-theme="dark"] .tg-f-reply { background: #121b16 !important; }
+[data-theme="dark"] .nlmap-stage { background: #111915 !important; }
 
 /* Sectie-achtergronden in donker: warm groen-zwart i.p.v. blauwig #0b0c0f
    (premium-refresh vlakt alle secties af met een koel zwart — dit trekt
@@ -542,10 +542,10 @@ html, body { overflow-x: clip; }
 [data-theme="dark"] .section.t-amber,
 [data-theme="dark"] .section.t-red,
 [data-theme="dark"] .section.t-green {
-  background: #0a100d !important;
+  background: #101815 !important;
   border-color: rgba(255, 255, 255, .08) !important;
 }
-[data-theme="dark"] .hero::after { background: rgba(10, 16, 13, .72) !important; }
+[data-theme="dark"] .hero::after { background: rgba(16, 24, 21, .72) !important; }
 
 /* Wereldkaart-kicker en badges volgen het nieuwe palet */
 [data-theme="dark"] .world-cta { color: #6ee7b7 !important; }

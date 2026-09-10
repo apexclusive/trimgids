@@ -53,7 +53,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     /* Ronde 23 — mobiele browserbalk (theme-color) volgt het actieve thema */
     document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
-      meta.setAttribute('content', theme === 'dark' ? '#090d0b' : '#ffffff');
+      meta.setAttribute('content', theme === 'dark' ? '#0e1512' : '#ffffff');
     });
     try { localStorage.setItem('trimgids_theme', theme); } catch (e) {}
     if (!silent) syncThemeButtons();

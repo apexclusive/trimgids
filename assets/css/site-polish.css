@@ -461,8 +461,8 @@ body.tg-home .segment-input { font-size: 14px; font-weight: 700; }
   body.tg-home .search-divider { display: none; }
   body.tg-home .search-segment { min-height: 58px; }
 }
-[data-theme="dark"] body.tg-home .hero-category-pills .cat-pill { background: rgba(13, 20, 16, .72); border-color: rgba(110, 231, 183, .22); color: var(--foreground); }
-[data-theme="dark"] body.tg-home .airbnb-search-bar { background: rgba(10, 17, 13, .88); border-color: rgba(110, 231, 183, .26); }
+[data-theme="dark"] body.tg-home .hero-category-pills .cat-pill { background: rgba(18, 27, 22, .72); border-color: rgba(110, 231, 183, .22); color: var(--foreground); }
+[data-theme="dark"] body.tg-home .airbnb-search-bar { background: rgba(15, 23, 19, .88); border-color: rgba(110, 231, 183, .26); }
 
 /* Product refresh 03 — real section rhythm instead of a continuous card wall. */
 body.tg-home .worlds-sec, body.tg-home .home-section { position: relative; }

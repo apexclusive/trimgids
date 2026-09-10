@@ -34,6 +34,14 @@
     el.classList.add('nlmap');
     this.showList = el.getAttribute('data-show-list') === 'true';
     this.fixedCategory = el.getAttribute('data-category');
+    /* Ronde 25 — kaartuitsnede:
+       - 'results' (vaste categorie, bijv. plaatspagina's): zoomt automatisch
+         op álle zichtbare aanbieders in plaats van heel Nederland te tonen.
+       - 'filter' (de grote /kaart): start nationaal, zoomt zodra er gezocht
+         of gefilterd wordt en zoomt terug bij wissen.
+       - 'none' (homepage-minikaart): beeld blijft altijd heel Nederland. */
+    this.fitMode = el.getAttribute('data-fit') || (this.fixedCategory ? 'results' : 'filter');
+    this.lastFitKey = null;
     this.activeCats = {};
     this.province = 'all';
     this.query = '';
@@ -122,7 +130,15 @@
     this.el.querySelector('.nlmap-geo').addEventListener('click', function () { self.geolocate(); });
     this.el.querySelector('.nlmap-zoom').addEventListener('click', function () { if (self.map) self.map.zoomIn(); });
     this.el.querySelector('.nlmap-zoomout').addEventListener('click', function () { if (self.map) self.map.zoomOut(); });
-    this.el.querySelector('.nlmap-reset').addEventListener('click', function () { if (self.map) self.map.fitBounds(NL_BOUNDS, { padding: [8, 8] }); self.card.hidden = true; });
+    this.el.querySelector('.nlmap-reset').addEventListener('click', function () {
+      if (self.map) {
+        /* Overzicht-knop: op plaatspagina's terug naar alle zichtbare
+           aanbieders; op de landelijke kaart terug naar heel Nederland. */
+        if (self.fixedCategory) { self.lastFitKey = null; self.maybeFit(self.filtered()); }
+        else self.map.fitBounds(NL_BOUNDS, { padding: [8, 8] });
+      }
+      self.card.hidden = true;
+    });
   };
 
   NLMap.prototype.filtered = function () {
@@ -155,7 +171,7 @@
     Promise.all([getJson(providerUrl), getJson('/api/routes')])
       .then(function (res) {
         var providers = (res[0] && Array.isArray(res[0].providers) ? res[0].providers : []).map(function (p) {
-          return { id: p.id || p.slug, name: p.name, city: p.city, province: p.province, cat: p.category, lat: +p.lat, lng: +p.lng, phone: p.phone, slug: p.slug, isRoute: false };
+          return { id: p.id || p.slug, name: p.name, city: p.city, province: p.province, cat: p.category, lat: +p.lat, lng: +p.lng, phone: p.phone, address: p.address, slug: p.slug, isRoute: false };
         });
         var routes = (res[1] && Array.isArray(res[1].routes) ? res[1].routes : []).map(function (r) {
           return { id: 'route-' + r.slug, name: r.title || r.name, city: r.city || '', province: r.province || '', cat: 'routes', lat: +r.lat, lng: +r.lng, isRoute: true };
@@ -185,13 +201,47 @@
           color: '#ffffff', weight: 1.6,
           fillColor: CAT_COLORS[i.cat] || '#334155', fillOpacity: 0.92
         });
-        m.bindTooltip(esc(i.name), { direction: 'top' });
+        /* Ronde 25 — de tooltip toont naam + volledige bekende adres, zodat
+           elke stip direct leesbaar is wat hij is (geen "cluster-blob"). */
+        m.bindTooltip(
+          '<strong>' + esc(i.name) + '</strong>' + (i.address ? '<br>' + esc(i.address) : ''),
+          { direction: 'top' }
+        );
         m.on('click', function () { self.showCard(i); });
         i.__marker = m;
         self.layer.addLayer(m);
       });
     }
+    this.maybeFit(items);
     if (this.list) this.renderList(items);
+  };
+
+  /* Ronde 25 — zorg dat de kaart het béld van de resultaten laat zien:
+     na zoeken/filteren inzoomen op de zichtbare markers (met marge en een
+     maxZoom zodat één resultaat niet tot straatniveau knalt), en bij het
+     wissen van alle filters terug naar het landelijke overzicht. */
+  NLMap.prototype.maybeFit = function (items) {
+    if (!this.map || !items.length) return;
+    if (this.fitMode === 'none') return;
+    var self = this;
+    var anyCat = Object.keys(this.activeCats).some(function (k) { return self.activeCats[k]; });
+    var active = !!(this.query || this.province !== 'all' || anyCat);
+    if (this.fitMode === 'filter' && !active) {
+      if (this.fittedOnce) {
+        this.map.fitBounds(NL_BOUNDS, { padding: [8, 8] });
+        this.fittedOnce = false;
+        this.lastFitKey = null;
+      }
+      return;
+    }
+    var key = this.query + '|' + this.province + '|' +
+      Object.keys(this.activeCats).filter(function (k) { return self.activeCats[k]; }).join(',') +
+      '|' + items.length;
+    if (key === this.lastFitKey) return;
+    this.lastFitKey = key;
+    this.fittedOnce = true;
+    var bounds = L.latLngBounds(items.map(function (i) { return [i.lat, i.lng]; }));
+    this.map.fitBounds(bounds, { padding: [30, 30], maxZoom: 13 });
   };
 
   NLMap.prototype.showCard = function (i) {
@@ -201,6 +251,7 @@
       '<button class="nlmap-card-close" type="button" aria-label="Sluiten">✕</button>' +
       '<h3>' + esc(i.name) + '</h3>' +
       '<p>' + esc(CAT_LABEL[i.cat] || i.cat) + ' · ' + esc(i.city || '') + (i.province ? ', ' + esc(i.province) : '') + '</p>' +
+      (i.address ? '<p class="nlmap-card-addr">📍 ' + esc(i.address) + '</p>' : '') +
       (i.dist != null ? '<p>📍 ' + i.dist.toFixed(1) + ' km bij jou vandaan</p>' : '') +
       '<div class="nlmap-card-actions">' +
       (i.phone ? '<a href="tel:' + esc(i.phone) + '">📞 Bellen</a>' : '') +
@@ -216,7 +267,7 @@
     var rows = items.slice(0, 200);
     this.list.hidden = false;
     this.list.innerHTML = rows.map(function (i) {
-      return '<button type="button" data-id="' + esc(i.id) + '"><i style="background:' + (CAT_COLORS[i.cat] || '#334155') + '"></i><span>' + esc(i.name) + '</span><em>' + esc(i.city || i.province || '') + (i.dist != null ? ' · ' + i.dist.toFixed(1) + ' km' : '') + '</em></button>';
+      return '<button type="button" data-id="' + esc(i.id) + '"><i style="background:' + (CAT_COLORS[i.cat] || '#334155') + '"></i><span>' + esc(i.name) + '</span><em>' + esc(i.address || i.city || i.province || '') + (i.dist != null ? ' · ' + i.dist.toFixed(1) + ' km' : '') + '</em></button>';
     }).join('');
     this.list.querySelectorAll('button').forEach(function (b) {
       b.addEventListener('click', function () {
