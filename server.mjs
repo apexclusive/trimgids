@@ -4813,7 +4813,7 @@ function modernizeGeneratedHtmlUncached(html) {
     .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=7"')
     .replaceAll('Gebaseerd op de TrimGids-catalogus — geen externe kaartbron', 'OpenStreetMap-basislaag · TrimGids-catalogus')
     .replaceAll('100% zelf-gehost — geen externe kaartdiensten', 'Kaartbasis: OpenStreetMap · bedrijfsdata: TrimGids')
-    .replace('</head>', '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="manifest" href="/manifest.webmanifest">' + routeSkin + '</head>')
+    .replace('</head>', '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/assets/css/site-polish.css?v=1" id="tg-site-polish">' + routeSkin + '</head>')
     .replace(/<main(?![^>]*id="main-content")/, disclosure + '<main id="main-content" tabindex="-1"')
     .replaceAll('🐾 TrimGids Pro', 'TrimGids Pro')
     .replaceAll('🐾 TrimGids', 'TrimGids')
@@ -4920,6 +4920,7 @@ function modernizeGeneratedHtmlUncached(html) {
       ['site-chrome', '<link rel="stylesheet" href="/assets/css/site-chrome.css?v=23" id="tg-site-chrome">'],
       ['premium-refresh', '<link rel="stylesheet" href="/assets/css/premium-refresh.css?v=12" id="tg-premium-refresh">'],
       ['content-skin', '<link rel="stylesheet" href="/assets/css/content-skin.css?v=16" id="tg-content-skin">'],
+      ['site-polish', '<link rel="stylesheet" href="/assets/css/site-polish.css?v=1" id="tg-site-polish">'],
     ];
     for (const [name] of tailOrder) {
       html = html.replace(new RegExp('[ \\t]*<link[^>]*href="[^"]*\\/assets\\/css\\/' + name + '\\.css[^"]*"[^>]*>\\r?\\n?', 'g'), '');

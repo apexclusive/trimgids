@@ -1,0 +1,47 @@
+/* TrimGids — laatste polish- en performance-laag */
+
+/* Houd grote pagina's snel: browser rendert secties pas wanneer ze bijna in beeld komen. */
+main > section:not(:first-of-type), main > .guide-box, main > .next,
+.home-section, .home-newsletter { content-visibility: auto; contain-intrinsic-size: 1px 420px; }
+
+/* Stabiele media voorkomen layout shift tijdens laden. */
+main img { height: auto; }
+main picture { display: block; }
+main picture img { display: block; max-width: 100%; }
+
+/* Premium, rustige hover states: duidelijke feedback zonder drukte. */
+.card, .k-card, .world-card, .provider, .news-card, .faq-card, .step-card,
+.route-card, .pm-card, .pricing-card, .tip-box {
+  transition: transform .28s var(--ease, cubic-bezier(.16,1,.3,1)),
+              box-shadow .28s var(--ease, cubic-bezier(.16,1,.3,1)),
+              border-color .2s ease;
+}
+.card:hover, .k-card:hover, .world-card:hover, .provider:hover, .news-card:hover,
+.faq-card:hover, .step-card:hover, .route-card:hover, .pm-card:hover,
+.pricing-card:hover, .tip-box:hover { transform: translateY(-3px); }
+
+/* Lange kaartteksten blijven netjes binnen de kaart. */
+main .card, main .k-card, main .world-card, main .provider, main .news-card,
+main .faq-card, main .step-card, main .route-card, main .pm-card, main .pricing-card,
+main .tip-box, main .guide-box { min-width: 0; overflow-wrap: anywhere; }
+main .card h1, main .card h2, main .card h3, main .card h4,
+main .provider h1, main .provider h2, main .provider h3, main .provider h4,
+main .news-card h1, main .news-card h2, main .news-card h3, main .news-card h4 { text-wrap: balance; }
+
+/* Toegankelijkheid en CPU-besparing voor bezoekers die beweging beperken. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+@media (max-width: 760px) {
+  main > section:not(:first-of-type), main > .guide-box, main > .next,
+  .home-section, .home-newsletter { contain-intrinsic-size: 1px 560px; }
+  .card:hover, .k-card:hover, .world-card:hover, .provider:hover, .news-card:hover,
+  .faq-card:hover, .step-card:hover, .route-card:hover, .pm-card:hover,
+  .pricing-card:hover, .tip-box:hover { transform: none; }
+}
