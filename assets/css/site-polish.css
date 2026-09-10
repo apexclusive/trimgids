@@ -392,3 +392,9 @@ form :invalid:not(:placeholder-shown) { border-color: color-mix(in srgb, #dc2626
 .route-grid > a, .routes-grid > a, .home-grid > a { position: relative; overflow: hidden; }
 .route-grid > a::after, .routes-grid > a::after, .home-grid > a::after { content: '→'; position: absolute; right: 18px; bottom: 16px; color: var(--primary); font-weight: 800; opacity: .7; transition: transform .18s ease, opacity .18s ease; }
 .route-grid > a:hover::after, .routes-grid > a:hover::after, .home-grid > a:hover::after { transform: translateX(4px); opacity: 1; }
+
+/* Ronde 18/20 — footerlinks blijven rustig maar herkenbaar */
+.site-footer .footer-col a { display: inline-flex; align-items: baseline; gap: 5px; padding-block: 3px; text-decoration-color: transparent; text-underline-offset: 3px; }
+.site-footer .footer-col a:hover { color: var(--primary-foreground, #fff); text-decoration-color: currentColor; }
+.site-footer .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 22px; margin-top: 28px; border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
+@media (max-width: 600px) { .site-footer .footer-bottom { align-items: start; flex-direction: column; } }
