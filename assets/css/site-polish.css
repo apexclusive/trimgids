@@ -521,3 +521,306 @@ body.tg-inner-page main .faq-card { border: 1px solid rgba(15,62,40,.10) !import
 .site-footer .footer-col ul { gap: 6px; }
 .site-footer .footer-col a { font-size: 13px; }
 .site-footer .footer-bottom { color: rgba(222,240,231,.52); }
+
+
+/* 100-pass visual review: successive concrete refinements */
+
+/* Pass 001/100 */
+.site-navbar .nav-in { padding-inline: clamp(14px, 3vw, 28px); }
+
+/* Pass 002/100 */
+.site-navbar .brand-logo { min-width: 148px; }
+
+/* Pass 003/100 */
+.site-navbar .nav-actions { flex-shrink: 0; }
+
+/* Pass 004/100 */
+.site-navbar .theme-toggle-btn { border-radius: 10px; }
+
+/* Pass 005/100 */
+.site-navbar .menu-btn { border-radius: 10px; }
+
+/* Pass 006/100 */
+.site-navbar .nav-pill { line-height: 1.2; }
+
+/* Pass 007/100 */
+.site-navbar .nav-more-panel { border: 1px solid var(--border); box-shadow: 0 24px 70px rgba(15,23,42,.16); }
+
+/* Pass 008/100 */
+.site-navbar .nav-more-panel h3 { margin-top: 0; }
+
+/* Pass 009/100 */
+.site-navbar .nav-actions .btn { min-height: 40px; }
+
+/* Pass 010/100 */
+.site-navbar.scrolled { border-bottom-color: rgba(15,62,40,.16) !important; }
+
+/* Pass 011/100 */
+main > .crumb { letter-spacing: .01em; }
+
+/* Pass 012/100 */
+main > .eyebrow { color: var(--primary); }
+
+/* Pass 013/100 */
+main > h1, main > .page-title { text-wrap: balance; }
+
+/* Pass 014/100 */
+main > .intro { text-wrap: pretty; }
+
+/* Pass 015/100 */
+main section > h2 { text-wrap: balance; }
+
+/* Pass 016/100 */
+main section > h3 { text-wrap: balance; }
+
+/* Pass 017/100 */
+main p { hanging-punctuation: first last; }
+
+/* Pass 018/100 */
+main li + li { margin-top: 4px; }
+
+/* Pass 019/100 */
+main .section-head p { margin-bottom: 0; }
+
+/* Pass 020/100 */
+main .next { border-top: 1px solid var(--border); padding-top: 28px; }
+
+/* Pass 021/100 */
+body.tg-home .hero-badge { box-shadow: 0 6px 18px rgba(15,62,40,.08); }
+
+/* Pass 022/100 */
+body.tg-home .hero-title .gradient-text { background-size: 180% 180%; }
+
+/* Pass 023/100 */
+body.tg-home .hero-subtitle { text-wrap: pretty; }
+
+/* Pass 024/100 */
+body.tg-home .hero-category-pills { scrollbar-width: none; }
+
+/* Pass 025/100 */
+body.tg-home .hero-category-pills .cat-pill { white-space: nowrap; }
+
+/* Pass 026/100 */
+body.tg-home .search-segment { transition: background .18s ease, transform .18s ease; }
+
+/* Pass 027/100 */
+body.tg-home .search-segment:focus-within { background: rgba(16,185,129,.08); }
+
+/* Pass 028/100 */
+body.tg-home .segment-icon { color: var(--primary); }
+
+/* Pass 029/100 */
+body.tg-home .airbnb-search-bar button { min-height: 48px; }
+
+/* Pass 030/100 */
+body.tg-home .hero-trust-row { opacity: .88; }
+
+/* Pass 031/100 */
+body.tg-home .worlds-sec .section-title { max-width: 20ch; }
+
+/* Pass 032/100 */
+body.tg-home .worlds-sec .section-subtitle { max-width: 58ch; }
+
+/* Pass 033/100 */
+body.tg-home .world-card picture { background: var(--primary); }
+
+/* Pass 034/100 */
+body.tg-home .world-card .world-body { padding: 22px !important; }
+
+/* Pass 035/100 */
+body.tg-home .world-card p { max-width: 34ch; }
+
+/* Pass 036/100 */
+body.tg-home .world-card .world-cta { color: var(--primary); }
+
+/* Pass 037/100 */
+body.tg-home .world-card:focus-visible { transform: translateY(-4px); }
+
+/* Pass 038/100 */
+body.tg-home .home-section > .wrap { position: relative; z-index: 1; }
+
+/* Pass 039/100 */
+body.tg-home .home-section .section-head { margin-bottom: 20px; }
+
+/* Pass 040/100 */
+body.tg-home .home-section .card-grid { align-items: stretch; }
+
+/* Pass 041/100 */
+body.tg-home .home-section .card-grid > * { min-height: 100%; }
+
+/* Pass 042/100 */
+body.tg-home .home-newsletter { border-radius: 24px; overflow: hidden; }
+
+/* Pass 043/100 */
+main .card, main .provider, main .tip-box { background: var(--card) !important; }
+
+/* Pass 044/100 */
+main .card h2, main .card h3, main .provider h2, main .provider h3 { text-wrap: balance; }
+
+/* Pass 045/100 */
+main .card .card-meta, main .provider .pc-meta { letter-spacing: .015em; }
+
+/* Pass 046/100 */
+main .card .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+/* Pass 047/100 */
+main .card .card-actions .btn { flex: 0 1 auto; }
+
+/* Pass 048/100 */
+main .k-card, main .pc-card { overflow: clip; }
+
+/* Pass 049/100 */
+main .k-card img, main .pc-card img { border-radius: 12px; }
+
+/* Pass 050/100 */
+main .stats-row .stat-card { border-top: 3px solid color-mix(in srgb, var(--primary) 60%, transparent); }
+
+/* Pass 051/100 */
+main .stats-row .stat-card strong { font-variant-numeric: tabular-nums; }
+
+/* Pass 052/100 */
+main .provider .pc-location { display: flex; gap: 5px; align-items: baseline; }
+
+/* Pass 053/100 */
+main .provider .pc-actions .btn { min-width: 0; }
+
+/* Pass 054/100 */
+main .empty-state h2, main .empty-state h3 { margin-top: 0; }
+
+/* Pass 055/100 */
+main form { accent-color: var(--primary); }
+
+/* Pass 056/100 */
+main form label { display: grid; gap: 6px; }
+
+/* Pass 057/100 */
+main form input, main form select, main form textarea { box-shadow: 0 1px 2px rgba(15,23,42,.03); }
+
+/* Pass 058/100 */
+main form input:hover, main form select:hover, main form textarea:hover { border-color: color-mix(in srgb, var(--primary) 38%, var(--border)) !important; }
+
+/* Pass 059/100 */
+main form button[type=submit] { box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 16%, transparent); }
+
+/* Pass 060/100 */
+main form .form-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+/* Pass 061/100 */
+main form .form-actions .btn-primary { order: -1; }
+
+/* Pass 062/100 */
+main fieldset p { margin-bottom: 0; }
+
+/* Pass 063/100 */
+main .form-message { border-radius: 12px; }
+
+/* Pass 064/100 */
+main .form-error { color: #b91c1c; font-size: 12px; font-weight: 700; }
+
+/* Pass 065/100 */
+main input[type=checkbox], main input[type=radio] { accent-color: var(--primary); }
+
+/* Pass 066/100 */
+main .filter-bar { position: sticky; top: 78px; z-index: 5; backdrop-filter: blur(14px); }
+
+/* Pass 067/100 */
+main .filter-bar input, main .filter-bar select { min-height: 42px; }
+
+/* Pass 068/100 */
+main [role=tablist] { overflow-x: auto; scrollbar-width: none; }
+
+/* Pass 069/100 */
+main [role=tab] { white-space: nowrap; font-weight: 750; }
+
+/* Pass 070/100 */
+main .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Pass 071/100 */
+main .chips > * { min-height: 34px; display: inline-flex; align-items: center; }
+
+/* Pass 072/100 */
+main .table-wrap, main .table-responsive { box-shadow: 0 8px 24px rgba(15,23,42,.04); }
+
+/* Pass 073/100 */
+main table { width: 100%; }
+
+/* Pass 074/100 */
+main table th { white-space: nowrap; letter-spacing: .02em; font-size: 12px; }
+
+/* Pass 075/100 */
+main table td { vertical-align: top; }
+
+/* Pass 076/100 */
+main table tbody tr:hover td { background: color-mix(in srgb, var(--primary-light) 55%, transparent); }
+
+/* Pass 077/100 */
+main .pagination { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+/* Pass 078/100 */
+main .pagination a, main .pagination button { min-width: 40px; min-height: 40px; }
+
+/* Pass 079/100 */
+main .loading, main [aria-busy=true] { border-radius: 14px; }
+
+/* Pass 080/100 */
+main [role=alert] { line-height: 1.5; }
+
+/* Pass 081/100 */
+main [role=status] { color: var(--muted-foreground); }
+
+/* Pass 082/100 */
+main .offline-state strong, main .success-state strong { color: inherit; }
+
+/* Pass 083/100 */
+main .error-state a { color: #991b1b; font-weight: 800; text-decoration: underline; }
+
+/* Pass 084/100 */
+main .guide-box { border-left: 4px solid var(--primary); }
+
+/* Pass 085/100 */
+main .callout, main .notice { border-radius: 16px; }
+
+/* Pass 086/100 */
+main .faq-card summary { cursor: pointer; list-style-position: outside; }
+
+/* Pass 087/100 */
+main .faq-card summary::marker { color: var(--primary); }
+
+/* Pass 088/100 */
+main .faq-card[open] { border-color: color-mix(in srgb, var(--primary) 30%, var(--border)) !important; }
+
+/* Pass 089/100 */
+main .route-grid > *, main .routes-grid > * { transition: transform .2s ease, box-shadow .2s ease; }
+
+/* Pass 090/100 */
+main .route-grid > a:hover, main .routes-grid > a:hover { box-shadow: 0 16px 32px rgba(15,23,42,.1); }
+
+/* Pass 091/100 */
+main .next a { font-weight: 800; }
+
+/* Pass 092/100 */
+main img[loading=lazy] { background: var(--secondary); }
+
+/* Pass 093/100 */
+main picture { overflow: hidden; }
+
+/* Pass 094/100 */
+main picture img { transition: transform .35s ease; }
+
+/* Pass 095/100 */
+main picture:hover img { transform: scale(1.025); }
+
+/* Pass 096/100 */
+main .icon, main .ic { flex: 0 0 auto; }
+
+/* Pass 097/100 */
+main .btn, main button { touch-action: manipulation; }
+
+/* Pass 098/100 */
+main a { text-underline-offset: 3px; }
+
+/* Pass 099/100 */
+main a:not(.btn):hover { text-decoration: underline; }
+
+/* Pass 100/100 */
+main .btn:hover, main button:hover { filter: saturate(1.08); }
