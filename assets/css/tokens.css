@@ -393,6 +393,28 @@ nav.site-navbar { transition: transform .3s cubic-bezier(.16, 1, .3, 1), backgro
 nav.site-navbar.nav-hidden { transform: translateY(-110%); }
 body.menu-open nav.site-navbar { transform: none; }
 
+/* Ronde 30 — laatste leigrijze vlakken uit premium-refresh mee naar het warme
+   palet: kaarten (world-card, k-card, provider...), forumpanelen, de
+   kaartwerkbalk en de near-white actieve forumknoppen. */
+[data-theme="dark"] .card, [data-theme="dark"] .k-card, [data-theme="dark"] .world-card,
+[data-theme="dark"] .provider, [data-theme="dark"] .news-card, [data-theme="dark"] .faq-item,
+[data-theme="dark"] .home-news-card {
+  background: rgba(21, 33, 26, .82) !important;
+  border-color: rgba(255, 255, 255, .11) !important;
+}
+[data-theme="dark"] .nlmap-top { background: rgba(18, 27, 22, .9) !important; }
+[data-theme="dark"] .tg-f, [data-theme="dark"] .tg-poll, [data-theme="dark"] .tg-poll-option,
+[data-theme="dark"] .tg-f-sort, [data-theme="dark"] .tg-f-search,
+[data-theme="dark"] .tg-f-form input, [data-theme="dark"] .tg-f-form select,
+[data-theme="dark"] .tg-f-form textarea, [data-theme="dark"] .tg-f-reply-form input {
+  background: #15211a !important; color: #eaf5ef !important; border-color: rgba(255, 255, 255, .12) !important;
+}
+[data-theme="dark"] .tg-f-chips button.active, [data-theme="dark"] .tg-poll-submit,
+[data-theme="dark"] .tg-f-reply-form button, [data-theme="dark"] .tg-f-empty-cta {
+  background: linear-gradient(135deg, #047857, #065f46) !important;
+  border-color: #047857 !important; color: #ffffff !important;
+}
+
 /* Ronde 27 — nieuwsbrief-band: tekst en invoer in beide thema's leesbaar.
    site-polish gaf het veld een witte !important-achtergrond terwijl de
    placeholder-tekst licht bleef (wit-op-wit), en de alinea's vielen terug

@@ -1,9 +1,9 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v17';
+const VERSION = 'trimgids-v18';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [
-  '/', '/manifest.webmanifest', '/logo.svg', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-180.png',
+  '/', '/offline', '/manifest.webmanifest', '/logo.svg', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-180.png',
   '/assets/img/og.jpg',
   '/assets/img/cat-trimsalon-480.webp', '/assets/img/cat-trimsalon-960.webp',
   '/assets/img/cat-school-480.webp', '/assets/img/cat-school-960.webp',
@@ -68,7 +68,7 @@ self.addEventListener('fetch', event => {
           caches.open(RUNTIME_CACHE).then(cache => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(request).then(hit => hit || caches.match('/')))
+        .catch(() => caches.match(request).then(hit => hit || caches.match('/offline').then(off => off || caches.match('/'))))
     );
     return;
   }
