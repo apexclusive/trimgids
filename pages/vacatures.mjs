@@ -92,7 +92,7 @@ export async function vacaturesPage() {
   <h2>🔎 Vind een baan of help mee</h2>
   <p class="sub">Filter op branche en/of soort, of typ een plaats of functie. Klik op de vacature om te reageren per e-mail.</p>
   <div class="vactool">
-    <input id="vac-q" type="search" placeholder="Zoek op plaats, functie of organisatie…" aria-label="Zoek vacatures">
+    <input id="vac-q" type="search" enterkeyhint="search" placeholder="Zoek op plaats, functie of organisatie…" aria-label="Zoek vacatures">
     <select id="vac-branch" aria-label="Filter op branche">
       <option value="">Alle branches</option>
       ${BRANCHES.map(b => `<option value="${b}">${BRANCH_LABEL[b]}</option>`).join('')}

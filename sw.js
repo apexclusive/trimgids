@@ -1,10 +1,10 @@
 /* TrimGids Service Worker — offline-first voor static assets, netwerk-first voor HTML/API's */
-const VERSION = 'trimgids-v11';
+const VERSION = 'trimgids-v12';
 const STATIC_CACHE = `${VERSION}-static`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 const PRECACHE = [
   '/', '/manifest.webmanifest', '/logo.svg', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-180.png',
-  '/assets/img/hero-640.webp', '/assets/img/hero-1200.webp', '/assets/img/hero-1600.webp', '/assets/img/og.jpg',
+  '/assets/img/og.jpg',
   '/assets/img/cat-trimsalon-480.webp', '/assets/img/cat-trimsalon-960.webp',
   '/assets/img/cat-school-480.webp', '/assets/img/cat-school-960.webp',
   '/assets/img/cat-opvang-480.webp', '/assets/img/cat-opvang-960.webp',

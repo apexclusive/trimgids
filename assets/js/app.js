@@ -855,7 +855,7 @@
     shell.id = 'tg-search-shell';
     shell.innerHTML =
       '<span class="tg-search-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="20.4" y1="20.4" x2="16.6" y2="16.6"></line></svg></span>' +
-      '<input class="tg-search-input" id="tg-search-input" type="search" placeholder="Zoek in TrimGids…" aria-label="Zoek in TrimGids" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="tg-search-drop">' +
+      '<input class="tg-search-input" id="tg-search-input" type="search" enterkeyhint="search" placeholder="Zoek in TrimGids…" aria-label="Zoek in TrimGids" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="tg-search-drop">' +
       '<span class="tg-search-kbd" aria-hidden="true">Ctrl K</span>' +
       '<div class="tg-search-drop" id="tg-search-drop" role="listbox"></div>';
     host.appendChild(shell);

@@ -127,6 +127,18 @@ html { scroll-behavior: smooth; }
 ::selection { background: var(--primary); color: #f5fff8; }
 [data-theme="dark"] ::selection, .dark ::selection { background: #10b981; color: #06271a; }
 
+/* Ronde 24 — vloeiende pagina-overgangen via de View Transitions API
+   (Chromium 126+; Safari/Firefox negeren dit netjes). Alleen actief bij
+   gebruikers zónder prefers-reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+/* Ronde 24 — footer buiten beeld niet renderen: snellere first paint.
+   contain-intrinsic-size houdt de scrollbar-stabiel; zodra de footer in
+   beeld komt rendert hij gewoon (ook alle links blijven klikbaar). */
+.site-footer { content-visibility: auto; contain-intrinsic-size: auto 520px; }
+
 /* ==========================================================================
    Compat-aliases: legacy-templates (server.mjs, pages/base.mjs) wijzen nu
    naar de canonieke tokens i.p.v. eigen waarden te verzinnen.

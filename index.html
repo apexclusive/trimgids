@@ -237,7 +237,7 @@
         </div>
         <div class="segment-content">
           <label for="search-location" class="segment-label">Waar?</label>
-          <input type="text" id="search-location" class="segment-input" list="dutch-cities" placeholder="Plaats of provincie" autocomplete="off">
+          <input type="text" id="search-location" class="segment-input" list="dutch-cities" placeholder="Plaats of provincie" autocomplete="off" enterkeyhint="search">
           <datalist id="dutch-cities">
             <option>Maastricht</option><option>Heerlen</option><option>Sittard</option><option>Geleen</option>
             <option>Venlo</option><option>Roermond</option><option>Weert</option><option>Kerkrade</option>
@@ -783,7 +783,7 @@
       <div class="card">
         <h3 style="font-size:20px;margin-bottom:8px">Hondenbelasting Check 2026</h3>
         <p style="font-size:13.5px;color:var(--muted-foreground);margin-bottom:14px">Typ jouw gemeente in om te zien of je belasting betaalt of € 0,-.</p>
-        <input type="search" id="h-tax-input" placeholder="Zoek gemeente (bijv. Maastricht, Amsterdam, Sittard...)" class="input" style="margin-bottom:16px">
+        <input type="search" enterkeyhint="search" id="h-tax-input" placeholder="Zoek gemeente (bijv. Maastricht, Amsterdam, Sittard...)" class="input" style="margin-bottom:16px">
         <div id="home-tax-grid" style="display:grid;gap:10px">
           <p style="font-size:13px;color:var(--muted-foreground)">Tarieven laden...</p>
         </div>

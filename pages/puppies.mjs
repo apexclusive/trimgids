@@ -72,7 +72,7 @@ export function puppiesPage(list = []) {
 <div class="pm-bar" role="search" aria-label="Pups filteren">
   <div class="pm-search">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
-    <input id="pm-q" type="search" placeholder="Zoek op ras, fokker of plaats…" aria-label="Zoek pups">
+    <input id="pm-q" type="search" enterkeyhint="search" placeholder="Zoek op ras, fokker of plaats…" aria-label="Zoek pups">
   </div>
   <select class="pm-select" id="pm-breed" aria-label="Filter op ras"><option value="">Alle rassen</option>${breedOptions}</select>
   <select class="pm-select" id="pm-prov" aria-label="Filter op provincie">${PROVINCES.map(p => `<option value="${p === 'Alle provincies' ? '' : p}">${p}</option>`).join('')}</select>
