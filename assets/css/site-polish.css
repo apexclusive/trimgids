@@ -398,3 +398,10 @@ form :invalid:not(:placeholder-shown) { border-color: color-mix(in srgb, #dc2626
 .site-footer .footer-col a:hover { color: var(--primary-foreground, #fff); text-decoration-color: currentColor; }
 .site-footer .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 22px; margin-top: 28px; border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent); }
 @media (max-width: 600px) { .site-footer .footer-bottom { align-items: start; flex-direction: column; } }
+
+/* Ronde 19/20 — donkere modus behoudt dezelfde informatierangorde */
+[data-theme="dark"] .site-navbar, [data-theme="dark"] .site-footer { border-color: rgba(148,163,184,.18); }
+[data-theme="dark"] .card, [data-theme="dark"] .provider, [data-theme="dark"] .news-card,
+[data-theme="dark"] .tip-box, [data-theme="dark"] .route-card { box-shadow: 0 8px 28px rgba(0,0,0,.18) !important; }
+[data-theme="dark"] main table tr:nth-child(even) td { background: rgba(148,163,184,.07); }
+[data-theme="dark"] .hero-actions .btn-primary, [data-theme="dark"] .hero-actions .btn:first-child { box-shadow: 0 8px 22px rgba(0,0,0,.24); }
