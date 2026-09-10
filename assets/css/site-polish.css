@@ -363,3 +363,12 @@ main > .crumb a:hover { color: var(--primary); }
 .section-head, .section-header { gap: 12px !important; align-items: end !important; }
 .section-head > h2, .section-header > h2 { margin-bottom: 0 !important; }
 @media (max-width: 600px) { .section-head, .section-header { align-items: start !important; flex-direction: column; } }
+
+/* Ronde 14/20 — directory-resultaten worden sneller scanbaar */
+.providers, .directory-grid, .results-grid { align-items: stretch; }
+.providers > *, .directory-grid > *, .results-grid > * { display: flex; flex-direction: column; }
+.providers > * .btn:last-child, .directory-grid > * .btn:last-child,
+.results-grid > * .btn:last-child { margin-top: auto; }
+.provider .pc-meta, .provider .pc-location, .result-meta { color: var(--muted-foreground); font-size: 12px; }
+.provider .pc-actions, .result-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+@media (max-width: 600px) { .provider .pc-actions, .result-actions { display: grid; grid-template-columns: 1fr; } }
