@@ -209,3 +209,38 @@ nav.site-navbar.scrolled { box-shadow: 0 8px 28px rgba(15, 23, 42, .08); }
 #back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 #back-to-top:hover { background: var(--primary); color: var(--primary-foreground); }
 @media (max-width: 600px) { #back-to-top { right: 12px; bottom: 12px; } }
+
+/* Visual reduction pass — content leads, cards support it. */
+:root {
+  --tg-content-measure: 68ch;
+  --tg-ui-height: 44px;
+  --tg-card-radius: 16px;
+}
+main .tip-box, main .stat-card, main .faq-card, main .news-card,
+main .step-card, main .provider, main .route-card, main .pm-card {
+  border-radius: var(--tg-card-radius) !important;
+}
+main .tip-box:hover, main .stat-card:hover, main .faq-card:hover,
+main .news-card:hover, main .step-card:hover, main .provider:hover,
+main .route-card:hover, main .pm-card:hover { transform: none !important; }
+main .tip-box, main .stat-card, main .faq-card, main .news-card,
+main .step-card, main .provider, main .route-card, main .pm-card {
+  box-shadow: var(--shadow-card, 0 4px 20px rgba(15,23,42,.05)) !important;
+}
+main .btn, main button, main .outline, main input[type="submit"] {
+  min-height: var(--tg-ui-height);
+}
+main .btn-primary, main .btn-submit, main button[type="submit"] {
+  font-weight: 800 !important;
+  letter-spacing: -.01em;
+}
+main > section > p.sub, main > section > p.intro,
+main .section-head p, main .tip-box-head p { max-width: var(--tg-content-measure); }
+main table { border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: var(--tg-card-radius); }
+main table th { font-weight: 800; }
+main table td, main table th { padding: 13px 15px; }
+main .status-msg[role="status"] { min-height: 1.4em; }
+@media (max-width: 760px) {
+  main .btn, main button, main .outline, main input[type="submit"] { min-height: 46px; }
+  main .ctas { display: grid; grid-template-columns: 1fr; gap: 10px; }
+}
