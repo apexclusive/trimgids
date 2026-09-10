@@ -274,3 +274,9 @@ body.tg-home .worlds-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !im
 body { background: var(--background, #fff) !important; color: var(--foreground, #131a16) !important; }
 main { width: min(100% - 32px, var(--editorial-width, 1180px)) !important; }
 main > section, main > .guide-box { scroll-margin-top: 92px; }
+
+/* Ronde 2/10 — editorial hero-hiërarchie */
+.hero-title, main > h1 { text-wrap: balance; max-width: 18ch !important; }
+.hero-subtitle, main > .intro { max-width: 58ch !important; }
+.hero-welcome { max-width: 52ch !important; color: var(--muted-foreground, #64748b) !important; }
+.section-title { text-wrap: balance; }
