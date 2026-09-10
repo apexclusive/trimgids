@@ -405,3 +405,18 @@ form :invalid:not(:placeholder-shown) { border-color: color-mix(in srgb, #dc2626
 [data-theme="dark"] .tip-box, [data-theme="dark"] .route-card { box-shadow: 0 8px 28px rgba(0,0,0,.18) !important; }
 [data-theme="dark"] main table tr:nth-child(even) td { background: rgba(148,163,184,.07); }
 [data-theme="dark"] .hero-actions .btn-primary, [data-theme="dark"] .hero-actions .btn:first-child { box-shadow: 0 8px 22px rgba(0,0,0,.24); }
+
+/* Ronde 20/20 — print en kleine schermen krijgen een eindcontrole in de UI */
+@media print {
+  .site-navbar, .site-footer, .nav-actions, .hero-actions, #back-to-top,
+  .sticky-hub-nav, .top-announcement { display: none !important; }
+  main { width: 100% !important; max-width: none !important; padding: 0 !important; }
+  main > section { margin-block: 24px !important; break-inside: avoid; }
+  a { color: inherit !important; text-decoration: underline; }
+  .card, .provider, .tip-box { box-shadow: none !important; border: 1px solid #bbb !important; }
+}
+@media (max-width: 420px) {
+  main > h1, .hero-title { letter-spacing: -.035em !important; }
+  main .card, main .provider, main .tip-box { padding: 16px !important; }
+  .nav-brand .brand-title { font-size: 15px; }
+}
