@@ -261,3 +261,11 @@ main .status-msg[role="status"] { min-height: 1.4em; }
 button:disabled, .btn[aria-disabled="true"] { cursor: not-allowed; opacity: .58; transform: none !important; }
 @keyframes tg-skeleton { to { background-position: 220% 0; transform: translateX(100%); } }
 @media (prefers-reduced-motion: reduce) { .skeleton, [data-state="loading"]::after, .is-loading::after { animation: none; } }
+
+/* Homepage journey: vijf startpunten zijn zichtbaar; nieuws blijft altijd
+   bereikbaar via hoofdmenu, zoeken en de footer zonder de eerste keuze te
+   laten concurreren met zorg, kennis en community. */
+body.tg-home .world-card.world-news { display: none !important; }
+body.tg-home .worlds-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+@media (max-width: 1080px) { body.tg-home .worlds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 620px) { body.tg-home .worlds-grid { grid-template-columns: 1fr !important; } }
