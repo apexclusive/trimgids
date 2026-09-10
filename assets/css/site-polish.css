@@ -244,3 +244,20 @@ main .status-msg[role="status"] { min-height: 1.4em; }
   main .btn, main button, main .outline, main input[type="submit"] { min-height: 46px; }
   main .ctas { display: grid; grid-template-columns: 1fr; gap: 10px; }
 }
+
+/* Shared component states — one visual language for every route. */
+[data-state="loading"], .is-loading { position: relative; color: transparent !important; pointer-events: none; overflow: hidden; }
+[data-state="loading"]::after, .is-loading::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(148,163,184,.18) 45%, transparent 70%);
+  transform: translateX(-100%); animation: tg-skeleton 1.2s ease-in-out infinite;
+}
+.skeleton { display: block; min-height: 1em; border-radius: 8px; background: linear-gradient(100deg, rgba(148,163,184,.12) 20%, rgba(148,163,184,.24) 45%, rgba(148,163,184,.12) 70%); background-size: 220% 100%; animation: tg-skeleton 1.2s ease-in-out infinite; }
+.empty-state, [data-state="empty"] { padding: clamp(24px, 5vw, 48px); border: 1px dashed var(--border, #cbd5e1); border-radius: 16px; text-align: center; color: var(--muted-foreground, #64748b); background: color-mix(in srgb, var(--card, #fff) 86%, var(--primary-light, #eaf4ee)); }
+.error-state, [data-state="error"] { padding: 16px 18px; border: 1px solid color-mix(in srgb, #ef4444 30%, var(--border, #cbd5e1)); border-radius: 14px; color: #991b1b; background: #fff7f7; }
+[data-theme="dark"] .error-state, [data-theme="dark"] [data-state="error"] { color: #fecaca; background: rgba(127,29,29,.22); }
+.success-state, [data-state="success"] { padding: 16px 18px; border: 1px solid color-mix(in srgb, #10b981 30%, var(--border, #cbd5e1)); border-radius: 14px; color: #065f46; background: #ecfdf5; }
+.offline-state, [data-state="offline"] { padding: 14px 16px; border-radius: 12px; color: var(--secondary-foreground); background: var(--secondary); }
+button:disabled, .btn[aria-disabled="true"] { cursor: not-allowed; opacity: .58; transform: none !important; }
+@keyframes tg-skeleton { to { background-position: 220% 0; transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .skeleton, [data-state="loading"]::after, .is-loading::after { animation: none; } }
