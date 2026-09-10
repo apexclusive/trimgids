@@ -99,9 +99,9 @@ export function pageShell({ title, description, canonical, body, extraCss = '', 
 ${chromeCssLink}
 ${extraHead}
 <style>${BASE_CSS}${extraCss}</style></head>
-<body>
+<body class="tg-inner-page" data-route="${canonical}">
 ${siteHeader()}
-<main><div class="wrap">${body}</div></main>
+<main id="main-content"><div class="wrap tg-page-shell">${body}</div></main>
 ${siteFooter()}
 </body></html>`;
 }
