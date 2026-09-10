@@ -71,6 +71,18 @@ const request = async path => {
   return { response, body };
 };
 
+/* CI-start: de server draait in de achtergrond en is op tragere runners
+   nog niet klaar als de test begint — wacht dus kort op het eerste antwoord
+   i.p.v. meteen op connection refused te falen. */
+const start = Date.now();
+for (;;) {
+  try { await request('/'); break; }
+  catch (e) {
+    if (Date.now() - start > 30000) { console.error('server niet bereikbaar binnen 30s op ' + baseUrl); process.exit(1); }
+    await new Promise(r => setTimeout(r, 1000));
+  }
+}
+
 for (const path of routes) {
   try {
     const { response, body } = await request(path);
