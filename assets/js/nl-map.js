@@ -89,11 +89,45 @@
 
   NLMap.prototype.initMap = function () {
     if (typeof window.L === 'undefined') {
-      // Leaflet niet geladen: geen basiskaart, maar data en lijst blijven bruikbaar.
-      this.stage.innerHTML = '<div class="nlmap-fallback" style="display:grid;place-items:center;height:100%;color:var(--muted);font-size:14px">De basiskaart kon niet laden — de resultaten en lijst hieronder werken wel.</div>';
+      /* Ronde 31 — Leaflet ontbreekt? Dan laden we de lokaal ge-vendorde
+         bibliotheek zélf alsnog in (self-healing op elke deploy). Pas als
+         dát ook faalt komt de oude melding terug. */
       this.map = null;
+      this.stage.innerHTML = '<div class="nlmap-fallback" style="display:grid;place-items:center;height:100%;color:var(--muted);font-size:14px">Kaart laden…</div>';
+      this.loadLeaflet();
       return;
     }
+    this.initMapNow();
+  };
+
+  /* Laadt /assets/vendor/leaflet op het moment dat de hostpagina de
+     <script>-tag niet meegaf. Eén gedeelde poging per pagina: meerdere
+     kaart-instanties wachten op dezelfde promise. */
+  NLMap.prototype.loadLeaflet = function () {
+    var self = this;
+    if (!window.__tgLeafletPromise) {
+      window.__tgLeafletPromise = new Promise(function (resolve, reject) {
+        var css = document.createElement('link');
+        css.rel = 'stylesheet'; css.href = '/assets/vendor/leaflet/leaflet.css';
+        document.head.appendChild(css);
+        var js = document.createElement('script');
+        js.src = '/assets/vendor/leaflet/leaflet.js';
+        js.onload = function () { typeof window.L !== 'undefined' ? resolve() : reject(new Error('leaflet_loaded_but_missing')); };
+        js.onerror = function () { reject(new Error('leaflet_script_failed')); };
+        document.head.appendChild(js);
+      });
+    }
+    window.__tgLeafletPromise.then(function () {
+      self.stage.innerHTML = '';
+      self.initMapNow();
+      self.lastFitKey = null;   /* forceer opnieuw inzoomen op de resultaten */
+      self.render();
+    }).catch(function () {
+      self.stage.innerHTML = '<div class="nlmap-fallback" style="display:grid;place-items:center;height:100%;color:var(--muted);font-size:14px">De basiskaart kon niet laden — de resultaten en lijst hieronder werken wel.</div>';
+    });
+  };
+
+  NLMap.prototype.initMapNow = function () {
     /* Gebruik de Voyager-tegels van CARTO als primaire basislaag. Die gebruikt
        OpenStreetMap-data, maar vermijdt de bekende 403 "Referer is required"
        van tile.openstreetmap.org in embeds en preview-proxy's. De Leaflet-
