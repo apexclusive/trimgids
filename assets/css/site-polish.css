@@ -5,6 +5,11 @@
 body.tg-inner-page .sticky-hub-nav { display: none !important; }
 body.tg-inner-page .route-disclosure { display: none !important; }
 
+/* De feedback- en founderblokken waren op elke pagina een tweede homepage.
+   De kern blijft bereikbaar via de footerlinks, zonder de hoofdinhoud te
+   overschaduwen. */
+.site-footer .feedback-panel, .site-footer .founder-section { display: none !important; }
+
 /* ================================================================
    Canonical editorial system
    Eén rustige typografie, één maatvoering en één kaarttaal voor alle
