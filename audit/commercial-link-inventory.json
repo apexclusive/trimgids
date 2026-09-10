@@ -1,0 +1,3187 @@
+[
+  {
+    "route": "/",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/",
+    "href": "#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/",
+    "href": "#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/",
+    "href": "/kaart",
+    "text": "1 · Bij jou in de buurt Interactieve kaart De beste trimsalons, hondenopvang, scholen en losloopgebieden — met het Baasjescijfer van echte baasjes. TrimsalonsHondenscholenOpvang &amp; pensionWellnessLosloopgebiedenHondenstranden Naar de kaart —aanbieders →"
+  },
+  {
+    "route": "/",
+    "href": "/verzekering",
+    "text": "5 · Zorg &amp; shopping Verzekering &amp; hondenproducten Verzekeringen, verse voeding, DNA-tests, buggy's en lijnen via onze partnerwinkel — jij betaalt niets extra. HondenverzekeringVerse voedingDNA-testsReis &amp; outdoor Bekijk verzekering &amp; shop →"
+  },
+  {
+    "route": "/",
+    "href": "/webshop",
+    "text": "Webshop: hypoallergeen voer, reis & zorg Onze eigen partnerwinkel: geselecteerd op basis van de gidsen — hypoallergeen voer, probiotica, koelmatten, autotuigen, GPS-trackers, EHBO-kits en trimtools. Jij betaalt niets extra. 2 hypoallergene voedingen + darmondersteuning Cabine-reistas (46×28×24), koelmat, crashgetest autotuig Anti-verlatingsangst & denkspeelgoed voor werkende baasjes Open de webshop →"
+  },
+  {
+    "route": "/",
+    "href": "/zintuigen",
+    "text": "Zintuigenlab: zo ziet, hoort en ruikt je hond Ziet je hond kleur zoals jij? Waarom schrikt hij van vuurwerk? En hoe werkt dat snuffelen — blazen, inademen, 220 miljoen receptoren? Mens Hond Probeer het zélf: schakel naar de hondenogen en kijk wat er met rood gebeurt. Open het Zintuigenlab →"
+  },
+  {
+    "route": "/",
+    "href": "/puppies",
+    "text": "PuppyMarktplaats · Nieuw Pups van fokkers die je mag bezoeken De verantwoorde hondenmarktplaats van Nederland: elke advertentie toont HD/ED-röntgen, DNA-tests en stamboom vóór je een pup koopt. Geen broodfok, geen anonieme handel — wel nesten van geverifieerde fokkers bij jou in de buurt. Gezondheidschecks zichtbaar op elke advertentie Filter op ras, provincie en beschikbaarheid Fokkers mogen hun nest gratis aanbieden Bekijk de PuppyMarktplaats →"
+  },
+  {
+    "route": "/",
+    "href": "#offerte",
+    "text": "Offerte voor dit schema →"
+  },
+  {
+    "route": "/",
+    "href": "/vacatures",
+    "text": "Vacatures & hulpkrachten in de hondenbranche Trimsalon vol, hondenschool zonder trainer, asiel dat extra handen zoekt? Plaats hier gratis een vacature of oproep — en vind als baasje een baan met honden. Trimsalons, hondenscholen, pensions, asielen & ambulances Betaald werk · Vrijwillig · Stage/BBL Tips: zo schrijf je een vacature die reacties oplevert Vacature bekijken of plaatsen →"
+  },
+  {
+    "route": "/",
+    "href": "/webshop",
+    "text": "Shop via partners (gratis voor jou) →"
+  },
+  {
+    "route": "/",
+    "href": "/bedrijven",
+    "text": "Bedrijfsprofiel Claimen →"
+  },
+  {
+    "route": "/",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/",
+    "href": "/webshop",
+    "text": "Webshop: voer &amp; reis"
+  },
+  {
+    "route": "/",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/",
+    "href": "#offerte",
+    "text": "Vraag offerte aan"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/nieuws",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://figopet.nl/?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.unive.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.ohra.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.petsecur.nl/?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.inshared.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.asr.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://figopet.nl/?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie voor jouw hond ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.unive.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie voor jouw hond ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.ohra.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie voor jouw hond ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.petsecur.nl/?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie voor jouw hond ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.inshared.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie voor jouw hond ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "https://www.asr.nl/huisdierenverzekering?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bereken premie voor jouw hond ↗"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/verzekering",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/voeding",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/voeding",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/voeding",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/voeding",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/voeding",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/voeding",
+    "href": "https://butternutbox.com/nl?utm_source=trimgids&utm_campaign=voeding_50korting",
+    "text": "Claim deal & bestel proefbox ↗"
+  },
+  {
+    "route": "/voeding",
+    "href": "https://www.farmfood.nl/?utm_source=trimgids",
+    "text": "Claim deal & bestel proefbox ↗"
+  },
+  {
+    "route": "/voeding",
+    "href": "https://www.edgardcooper.com/nl/?utm_source=trimgids",
+    "text": "Claim deal & bestel proefbox ↗"
+  },
+  {
+    "route": "/voeding",
+    "href": "https://tails.com/nl/?utm_source=trimgids",
+    "text": "Claim deal & bestel proefbox ↗"
+  },
+  {
+    "route": "/voeding",
+    "href": "/verzekering",
+    "text": "Hondenverzekering Vergelijken →"
+  },
+  {
+    "route": "/voeding",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/voeding",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/voeding",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/voeding",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/voeding",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/voeding",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1026",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1027",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1028",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1029",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1030",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1031",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1026",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1027",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1028",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1029",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1030",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1031",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1032",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1033",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1034",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1035",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1036",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1037",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/trimsalon/maastricht/pomeriaan/trimsalon-maastricht-1038",
+    "text": "Bekijk profiel →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/verzekering",
+    "text": "Hondenverzekering Vergelijken 2026 →"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/trimsalon/maastricht",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/verzekering",
+    "text": "Hondenverzekering Vergelijken 2026 →"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/rassen/labradoodle",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/kaart",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/kaart",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/kaart",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/kaart",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/kaart",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/kaart",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/kaart",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/kaart",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/kaart",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/kaart",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/kaart",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering Vergelijken →"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/wandelen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/last-minute",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/offerte",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/offerte",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/offerte",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/offerte",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/offerte",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/offerte",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/offerte",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/offerte",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/offerte",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/offerte",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/offerte",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/verzekering",
+    "text": "Hondenverzekering Vergelijken →"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hondenbelasting",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/producten",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/producten",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/producten",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/producten",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/producten",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/producten",
+    "href": "https://www.bol.com/nl/nl/p/professionele-waterblazer/?ref=trimgids",
+    "text": "Bekijk & bestel direct ↗"
+  },
+  {
+    "route": "/producten",
+    "href": "https://ruffwear.nl/products/web-master-harness?ref=trimgids",
+    "text": "Bekijk & bestel direct ↗"
+  },
+  {
+    "route": "/producten",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/producten",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/producten",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/producten",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/producten",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/producten",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/giftigheid-calculator",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/verzekering",
+    "text": "hondenverzekering"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/puppy-kiezen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/leeftijd-calculator",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/bedrijven",
+    "text": "Bekijk Partner Pakketten →"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/trimsalon-inkomsten-calculator",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "#claim-form",
+    "text": "Claim Gratis Profiel →"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "#claim-form",
+    "text": "Start met Partner Pro →"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/bedrijven",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/producten",
+    "text": "Bekijk EHBO Wondverzorgingskit →"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/ehbo-hond",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/forum",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/forum",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/forum",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/forum",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/forum",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/forum",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/forum",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/forum",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/forum",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/forum",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/forum",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hulphonden",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/zintuigen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hondenanatomie",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hondengedrag",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/puppies",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/puppies",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/puppies",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/puppies",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/puppies",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/puppies",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/puppies",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/puppies",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/puppies",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/puppies",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/puppies",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/fokkers",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/aankoopgids",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/vacatures",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/vrijwilligers",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/adoptie",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hond-gevonden",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/reizen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/reizen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/reizen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/reizen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/reizen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/reizen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/reizen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/reizen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/reizen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/reizen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/reizen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/vliegen-hond",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/rassen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/rassen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/rassen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/rassen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/rassen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/rassen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/rassen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/rassen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/rassen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/rassen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/rassen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/verboden-rassen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/poepzakjes",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hondenweetjes",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hondenwedstrijden",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/chippen-ontwormen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/webshop",
+    "text": "Maag- & darmondersteuning in de webshop →"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/braken-hond",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hitteberoerte-hond",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/zwerfhonden",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/honden-cijfers",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/geschiedenis-hond",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/koninklijke-honden",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/hond-en-werk",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/webshop",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/webshop",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/webshop",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/webshop",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/webshop",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=hypoallergeen+hondenvoer+zalm&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=veterinaire+hypoallergene+hondenvoeding&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=barbf+verse+hondenvoeding&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+probiotica&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=hond+darmondersteuning+psyllium&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+koelmat&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+drinkfles+uitklapbaar&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+autotuig+crashgetest&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=hond+verlatingsangst+puzzelvoer&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=hond+denkspeelgoed+snuffelmat&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=slickerborstel+hond+professioneel&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+shampoo+hypoallergeen&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://tractive.com/nl/pd/gps-tracker-dog?ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=hond+wurmkuur+gewichtsafhankelijk&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+ehbo+set&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=honden+reistas+cabine+46x28x24&ref=trimgids&utm_source=trimgids&utm_medium=affiliate",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=Royal%20Canin%20Anallergenic%203%20kg&utm_source=trimgids&utm_medium=affiliate&ref=trimgids",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=Edgard%20Cooper%20hondenvoer%20verse%20zalm%207kg&utm_source=trimgids&utm_medium=affiliate&ref=trimgids",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=Purina%20Pro%20Plan%20Sensitive%20Skin%20Medium%20zalm%2014%20kg&utm_source=trimgids&utm_medium=affiliate&ref=trimgids",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=Pedigree%20Dentastix%20groot%20hond%20105&utm_source=trimgids&utm_medium=affiliate&ref=trimgids",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=Petstyle%20Living%20gedraaide%20sticks%20kip%20100&utm_source=trimgids&utm_medium=affiliate&ref=trimgids",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "https://www.bol.com/nl/nl/s/?searchtext=Curver%20hondenvoerton%2023%20liter&utm_source=trimgids&utm_medium=affiliate&ref=trimgids",
+    "text": "Bekijk & bestel ↗"
+  },
+  {
+    "route": "/webshop",
+    "href": "/producten",
+    "text": "Vachtverzorging & trimtools (overzicht) →"
+  },
+  {
+    "route": "/webshop",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/webshop",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/webshop",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/webshop",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/webshop",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/webshop",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/offerte",
+    "text": "Vraag 3 gratis offertes aan"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/webshop",
+    "text": "Slickerborstel bekijken (bestseller)"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/trimmen-kosten",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/offerte",
+    "text": "Vraag 3 gratis offertes aan"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/webshop",
+    "text": "Slickerborstel bekijken (bestseller)"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/wat-kost-trimmen",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/offerte",
+    "text": "Vraag 3 gratis offertes aan"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/webshop",
+    "text": "Slickerborstel bekijken (bestseller)"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/trimkosten",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  },
+  {
+    "route": "/zoek",
+    "href": "/verzekering",
+    "text": "Vergelijk premies →"
+  },
+  {
+    "route": "/zoek",
+    "href": "/verzekering",
+    "text": "Verzekering"
+  },
+  {
+    "route": "/zoek",
+    "href": "/webshop",
+    "text": "Webshop: voer, reis & tools →"
+  },
+  {
+    "route": "/zoek",
+    "href": "/#zorg-verzekering",
+    "text": "Gezondheid &amp; verzekering"
+  },
+  {
+    "route": "/zoek",
+    "href": "/#vacht-offerte",
+    "text": "Vacht &amp; offerte"
+  },
+  {
+    "route": "/zoek",
+    "href": "/verzekering",
+    "text": "Vergelijk verzekering"
+  },
+  {
+    "route": "/zoek",
+    "href": "/verzekering",
+    "text": "Hondenverzekering 2026"
+  },
+  {
+    "route": "/zoek",
+    "href": "/webshop",
+    "text": "Webshop: voer & reis"
+  },
+  {
+    "route": "/zoek",
+    "href": "/claim",
+    "text": "Bedrijf Claimen"
+  },
+  {
+    "route": "/zoek",
+    "href": "/offerte",
+    "text": "Offertes Ontvangen"
+  },
+  {
+    "route": "/zoek",
+    "href": "/bedrijven",
+    "text": "Partner Worden"
+  }
+]
