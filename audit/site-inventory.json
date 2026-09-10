@@ -4,6 +4,7 @@
   "routeCount": 50,
   "apiCount": 12,
   "sourceFiles": [
+    "analytics-report.mjs",
     "anatomy.test.mjs",
     "api/index.js",
     "assets/css/content-skin.css",
