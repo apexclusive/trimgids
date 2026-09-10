@@ -163,3 +163,25 @@ main picture img { display: block; max-width: 100%; }
   .faq-card:hover, .step-card:hover, .route-card:hover, .pm-card:hover,
   .pricing-card:hover, .tip-box:hover { transform: none; }
 }
+
+/* Final chrome pass: mobile menu is a real, contained panel rather than a
+   jumpy list; the page stays still while it is open. */
+body.menu-open { overflow: hidden; }
+@media (max-width: 1160px) {
+  .nav-links-pills.open > a[href="/hondenschool"],
+  .nav-links-pills.open > a[href="/opvang"],
+  .nav-links-pills.open > a[href="/wellness"],
+  .nav-links-pills.open > a[href="/last-minute"] { display: inline-flex !important; }
+  .nav-links-pills.open { max-height: calc(100vh - 82px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@media (max-width: 700px) {
+  .nav-links-pills.open { left: 10px; right: 10px; top: 60px; padding: 12px; border-radius: 18px; }
+  .nav-links-pills.open a { min-height: 44px; align-items: center; }
+}
+
+/* Footer als duidelijke afsluiting: vier inhoudsgroepen zijn genoeg; de
+   volledige kennisbank blijft via Meer voor baasjes en zoek bereikbaar. */
+.footer-grid { grid-template-columns: minmax(220px, 1.8fr) repeat(3, minmax(150px, 1fr)) !important; }
+.footer-grid > .footer-col:nth-child(n+5) { display: none !important; }
+@media (max-width: 1024px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr !important; } }
+@media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr !important; } }

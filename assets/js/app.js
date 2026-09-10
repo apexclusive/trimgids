@@ -661,12 +661,24 @@
     var menuBtn = document.querySelector('.menu-btn');
     var mainNav = document.getElementById('main-nav');
     if (!menuBtn || !mainNav) return;
+    var close = function () {
+      mainNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    };
     menuBtn.addEventListener('click', function () {
-      var open = mainNav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
+      var open = !mainNav.classList.contains('open');
+      if (open) {
+        mainNav.classList.add('open');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      } else close();
     });
-    mainNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () { mainNav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); });
+    mainNav.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', close); });
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
+    document.addEventListener('click', function (event) {
+      if (!mainNav.classList.contains('open')) return;
+      if (!mainNav.contains(event.target) && event.target !== menuBtn) close();
     });
   }
 
