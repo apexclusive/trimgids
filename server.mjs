@@ -4809,6 +4809,12 @@ function modernizeGeneratedHtmlUncached(html) {
     html = html.replace(/<footer>[\s\S]*?<\/footer>/, siteFooter());
     if (!html.includes('<footer')) html = html.replace('</body>', siteFooter() + '</body>');
   }
+  /* Binnenpagina's hebben geen tweede, homepage-brede jumpbar nodig. De
+     links blijven in de DOM voor toegankelijkheid/tests, maar zijn visueel
+     verborgen zodat bezoekers niet twee concurrerende navigaties krijgen. */
+  if (canonical !== '/') {
+    html = html.replace(/<body(?![^>]*\btg-inner-page\b)([^>]*)>/i, '<body class="tg-inner-page"$1>');
+  }
   html = html
     .replaceAll('/assets/css/nl-map.css"', '/assets/css/nl-map.css?v=7"')
     .replaceAll('Gebaseerd op de TrimGids-catalogus — geen externe kaartbron', 'OpenStreetMap-basislaag · TrimGids-catalogus')

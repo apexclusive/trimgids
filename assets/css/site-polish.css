@@ -1,5 +1,10 @@
 /* TrimGids — laatste polish- en performance-laag */
 
+/* Op binnenpagina's volstaat één compacte hoofdnav; de homepage-jumpbar is
+   daar dubbele navigatie en duwt de inhoud onnodig naar beneden. */
+body.tg-inner-page .sticky-hub-nav { display: none !important; }
+body.tg-inner-page .route-disclosure { display: none !important; }
+
 /* Houd grote pagina's snel: browser rendert secties pas wanneer ze bijna in beeld komen. */
 main > section:not(:first-of-type), main > .guide-box, main > .next,
 .home-section, .home-newsletter { content-visibility: auto; contain-intrinsic-size: 1px 420px; }
