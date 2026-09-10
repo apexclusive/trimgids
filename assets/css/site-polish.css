@@ -355,3 +355,11 @@ button, a, input, select, textarea { transition: border-color .18s ease, box-sha
   .hero-actions { margin-top: 18px; }
   .hero-actions .btn-primary, .hero-actions .btn:first-child { box-shadow: none; }
 }
+
+/* Ronde 13/20 — breadcrumbs en section heads geven elke route een vast anker */
+main > .crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+main > .crumb a { color: var(--muted-foreground); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+main > .crumb a:hover { color: var(--primary); }
+.section-head, .section-header { gap: 12px !important; align-items: end !important; }
+.section-head > h2, .section-header > h2 { margin-bottom: 0 !important; }
+@media (max-width: 600px) { .section-head, .section-header { align-items: start !important; flex-direction: column; } }
