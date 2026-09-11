@@ -102,7 +102,7 @@ export function dogpediaPage() {
     <strong>Hondengedrag & de aai-kaart</strong>
     <p>Waarom aaien we het kopje? En hoe lees je je hond als een pro?</p>
   </a>
-  <a class="dp-hero-card dp-feature accent" href="/hondenrecords">
+  <a class="dp-hero-card dp-feature accent" href="/dogpedia">
     <span class="dp-badge">Recordhouder</span>
     <strong>Guinness Honden Top 100</strong>
     <p>De snelste (74,6 km/u), oudste (29+ jaar), grootste, kleinste en hardste hond ooit.</p>

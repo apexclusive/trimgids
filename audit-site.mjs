@@ -67,7 +67,17 @@ const headingAudit = routeHealth.map(r => ({ route: r.route, h1Count: r.h1Count,
 const navigationAudit = routeHealth.map(r => ({ route: r.route, shell: r.shell, links: r.links, status: r.shell && r.links > 0 ? 'green' : 'orange' }));
 const assetAudit = routeHealth.map(r => ({ route: r.route, images: r.images, missingAlt: r.altMissing, status: r.altMissing === 0 ? 'green' : 'orange' }));
 const textByRoute = new Map();
-for (const r of routeHealth) textByRoute.set(r.titleText.toLowerCase(), (textByRoute.get(r.titleText.toLowerCase()) || 0) + 1);
+for (const r of routeHealth) {
+  /* Alias-routes (bijv. /vliegen-hond) 301'en nu naar hun canonieke pad en
+     vertonen na het volgen van de redirect de titel van die canonieke pagina.
+     Die alias hóórt niet in de duplicate-check: het is géén eigen indexeerbare
+     URL meer. Alleen routes die zelf canoniek zijn (requested path === eigen
+     canonical-path) tellen mee. */
+  let canonicalPath = '';
+  try { canonicalPath = new URL(r.canonicalUrl || '').pathname; } catch { canonicalPath = ''; }
+  if (canonicalPath && canonicalPath !== r.route) continue;
+  textByRoute.set(r.titleText.toLowerCase(), (textByRoute.get(r.titleText.toLowerCase()) || 0) + 1);
+}
 const duplicateTitles = [...textByRoute.entries()].filter(([, count]) => count > 1).map(([title, count]) => ({ title, count }));
 const contentDuplicates = { method: 'normalized page titles and shared shell checks', duplicateTitles, note: 'Near-duplicate body copy requires editorial review; this report flags exact title collisions first.' };
 await Promise.all([

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
+    "build:assets": "node scripts/minify-assets.mjs && node scripts/version-fonts.mjs",
     "smoke": "node smoke.mjs",
     "audit": "node audit-site.mjs",
     "report:analytics": "node analytics-report.mjs",
@@ -31,6 +32,7 @@
     "node": ">=18"
   },
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "jsdom": "^30.0.1"
   },
   "dependencies": {

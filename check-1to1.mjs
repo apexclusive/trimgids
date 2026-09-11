@@ -2,7 +2,8 @@
    Vergelijkt SEMANTISCH gelijke elementen (zelfde rol als op de homepage)
    op geparste stijl: kopniveau's, intro-tekst, kaarttitels, kaartparagrafen,
    lijsten, pill-knoppen, footer en dark-mode-achtergrond.
-   Plus structurele shell-checks: skip-link, scroll-progress, sticky hub-nav. */
+   Plus structurele shell-checks: skip-link, sticky hub-nav. (scroll-progress
+   is verwijderd — dat zwevende element bestaat bewust niet meer.) */
 import { JSDOM } from 'jsdom';
 
 const BASE = process.env.BASE_URL || 'http://localhost:3000';
@@ -169,7 +170,6 @@ for (const p of targets) {
 /* Structurele shell-checks (homepage vs route) */
   const shell = {
     'skip-link #main-content': [d.querySelector('a.skip-link[href="#main-content"]'), home.window.document.querySelector('a.skip-link[href="#main-content"]')],
-    'scroll-progress-bar': [d.querySelector('.scroll-progress-bar'), home.window.document.querySelector('.scroll-progress-bar')],
     'sticky-hub-nav': [d.querySelector('.sticky-hub-nav'), home.window.document.querySelector('.sticky-hub-nav')],
     '13 hub-pills': [d.querySelectorAll('.hub-pill').length, home.window.document.querySelectorAll('.hub-pill').length],
     'site-navbar': [d.querySelector('.site-navbar#tg-site-nav'), home.window.document.querySelector('.site-navbar')],

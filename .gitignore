@@ -1,6 +1,11 @@
 .DS_Store
 .env
 .vercel
+# Sitemap wordt bij elke request dynamisch gegenereerd (server.mjs → generateSitemap)
+# en groeit tot ~5 MB; een vast exemplaar in Git raakt alleen maar uit de pas.
+sitemap.xml
+audit/
+.arena/
 data/web-vitals.json
 data/quote-requests.json
 data/requests.json

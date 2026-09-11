@@ -32,7 +32,6 @@ export function siteHeader() {
   <symbol id="i-faq" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
 </svg>
 <a href="#main-content" class="skip-link">Direct naar inhoud</a>
-<div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
 <div class="top-announcement">
   <div class="wrap top-announce-in">
     <span class="pulse-badge">

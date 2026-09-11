@@ -185,6 +185,174 @@ function secureHeaders(headers = {}) {
    ETag revalidatie blijft actief en stale-while-revalidate vangt hervalidatie op. */
 const HTML_CACHE = 'public, max-age=0, s-maxage=60, stale-while-revalidate=300';
 
+/* Ronde 31 — alias-routes: één canonieke URL per pagina.
+   Vroeger serveerden tientallen alias-paden (bijv. /trimkosten, /community,
+   /vliegen-hond, /hondenforum) exact dezelfde pagina als hun canonieke pad.
+   Dat leverde dubbele <title>s en versplinterde linkwaarde voor zoekmachines.
+   Elke alias krijgt nu één 301 naar de canonieke route (query-string behouden).
+   Let op: /community hoort bij /forum (niet bij /wandelmaatje) — de eerste
+   route-handler die hem claimt wint. */
+const ALIAS_REDIRECTS = new Map(Object.entries({
+  '/dna-testen': '/dna-test',
+  '/hondenvoer': '/voeding',
+  '/verse-maaltijden': '/voeding',
+  '/spoeddierenarts': '/spoed-dierenarts',
+  '/wat-kost-een-hond': '/kosten-hond',
+  '/losloopgebieden': '/wandelen',
+  '/hondenstranden': '/wandelen',
+  '/wat-kost-trimmen': '/trimmen-kosten',
+  '/trimkosten': '/trimmen-kosten',
+  '/search': '/zoek',
+  '/zoeken': '/zoek',
+  '/community': '/forum',
+  '/hondenforum': '/forum',
+  '/baasjes': '/voor-baasjes',
+  '/voor-hondenbaasjes': '/voor-baasjes',
+  '/hond-als-kind': '/voor-baasjes',
+  '/diensthonden': '/hulphonden',
+  '/assistentiehonden': '/hulphonden',
+  '/puppy-marktplaats': '/puppies',
+  '/puppies-te-koop': '/puppies',
+  '/hondenpedia': '/dogpedia',
+  '/hondengids': '/dogpedia',
+  '/hondenrecords': '/dogpedia',
+  '/doneer': '/steun',
+  '/steun-trimgids': '/steun',
+  '/privacyverklaring': '/privacy',
+  '/privacy-policy': '/privacy',
+  '/avg': '/privacy',
+  '/cookieverklaring': '/cookies',
+  '/cookie-beleid': '/cookies',
+  '/cookie-policy': '/cookies',
+  '/algemene-voorwaarden': '/voorwaarden',
+  '/terms': '/voorwaarden',
+  '/disclaimer': '/voorwaarden',
+  '/gedrag-hond': '/hondengedrag',
+  '/hondencommunicatie': '/hondengedrag',
+  '/anatomie-hond': '/hondenanatomie',
+  '/hond-anatomie': '/hondenanatomie',
+  '/zintuigen-hond': '/zintuigen',
+  '/honden-zintuigen': '/zintuigen',
+  '/erkende-fokkers': '/fokkers',
+  '/fokker-gids': '/fokkers',
+  '/pup-kopen': '/aankoopgids',
+  '/hond-kopen': '/aankoopgids',
+  '/aanschaf-hond': '/aankoopgids',
+  '/vacature': '/vacatures',
+  '/honden-vacatures': '/vacatures',
+  '/werk-bij-honden': '/vacatures',
+  '/vrijwilliger-worden': '/vrijwilligers',
+  '/vrijwilligerswerk-honden': '/vrijwilligers',
+  '/asielhond': '/adoptie',
+  '/hond-adopteren': '/adoptie',
+  '/pup-of-asielhond': '/adoptie',
+  '/gevonden-hond': '/hond-gevonden',
+  '/hond-vermist': '/hond-gevonden',
+  '/hond-vinden': '/hond-gevonden',
+  '/vliegen-hond': '/reizen',
+  '/hond-mee-vliegtuig': '/reizen',
+  '/vliegen-met-hond': '/reizen',
+  '/hondenrassen': '/rassen',
+  '/honden-rassen': '/rassen',
+  '/rassen-overzicht': '/rassen',
+  '/verboden-hondenrassen': '/verboden-rassen',
+  '/gevaarlijke-hondenrassen': '/verboden-rassen',
+  '/hondenrassen-verbod': '/verboden-rassen',
+  '/hondenpoepzakjes': '/poepzakjes',
+  '/hondenpoep-regels': '/poepzakjes',
+  '/poep-oprapen': '/poepzakjes',
+  '/hondenweetjes-overzicht': '/hondenweetjes',
+  '/weetjes-hond': '/hondenweetjes',
+  '/honden-feiten': '/hondenweetjes',
+  '/hondensport': '/hondenwedstrijden',
+  '/honden-sport': '/hondenwedstrijden',
+  '/hondenwedstrijd': '/hondenwedstrijden',
+  '/hond-chippen': '/chippen-ontwormen',
+  '/ontwormen-hond': '/chippen-ontwormen',
+  '/chip-ontwormen': '/chippen-ontwormen',
+  '/hond-braakt': '/braken-hond',
+  '/braken-hondje': '/braken-hond',
+  '/hond-braken': '/braken-hond',
+  '/hitteberoerte': '/hitteberoerte-hond',
+  '/hond-oververhit': '/hitteberoerte-hond',
+  '/hond-in-hete-auto': '/hitteberoerte-hond',
+  '/zwerfhond': '/zwerfhonden',
+  '/zwerfhonden-wereldwijd': '/zwerfhonden',
+  '/straathonden': '/zwerfhonden',
+  '/aantal-honden': '/honden-cijfers',
+  '/honden-statistieken': '/honden-cijfers',
+  '/hoeveel-honden': '/honden-cijfers',
+  '/geschiedenis-van-de-hond': '/geschiedenis-hond',
+  '/honden-geschiedenis': '/geschiedenis-hond',
+  '/waar-komt-de-pomeriaan-vandaan': '/geschiedenis-hond',
+  '/honden-royals': '/koninklijke-honden',
+  '/koningshuis-honden': '/koninklijke-honden',
+  '/royal-honden': '/koninklijke-honden',
+  '/hond-fulltime-werken': '/hond-en-werk',
+  '/uitlaatservice': '/hond-en-werk',
+  '/hond-roedeldier': '/hond-en-werk',
+  '/honden-webshop': '/webshop',
+  '/shop-hond': '/webshop',
+  '/affiliate-shop': '/webshop',
+  '/last-minute-deals': '/last-minute',
+  '/offerte-aanvragen': '/offerte',
+  '/offertes': '/offerte',
+  '/claim-profiel': '/claim',
+  '/bedrijf-claimen': '/claim',
+  '/voor-bedrijven': '/bedrijven',
+  '/partner': '/bedrijven',
+  '/claimen': '/bedrijven',
+  '/vachtverzorging-producten': '/producten',
+  '/shop': '/producten',
+  '/chocolade-calculator': '/giftigheid-calculator',
+  '/gif-check': '/giftigheid-calculator',
+  '/hondenras-test': '/puppy-kiezen',
+  '/welke-hond-past-bij-mij': '/puppy-kiezen',
+  '/hondenleeftijd': '/leeftijd-calculator',
+  '/hondenjaren': '/leeftijd-calculator',
+  '/puppy-gewicht': '/gewicht-calculator',
+  '/reisgids': '/hond-mee-op-vakantie',
+  '/namen-hond': '/hondennamen',
+  '/hondennaam': '/hondennamen',
+  '/hondvriendelijke-cafes': '/hondvriendelijke-horeca',
+  '/hond-mee-naar-terras': '/hondvriendelijke-horeca',
+  '/dierenarts-kosten': '/dierenarts-tarieven',
+  '/tarieven-dierenarts': '/dierenarts-tarieven',
+  '/koolhydraten-hondenvoer': '/hondenvoer-calculator',
+  '/voer-check': '/hondenvoer-calculator',
+  '/inentingen-hond': '/honden-vaccinaties',
+  '/vaccinatieschema-hond': '/honden-vaccinaties',
+  '/hondenallergie': '/hypoallergene-honden',
+  '/allergievrije-hond': '/hypoallergene-honden',
+  '/uitlaattijd-hond': '/beweging-hond-calculator',
+  '/beweging-hond': '/beweging-hond-calculator',
+  '/rui-periode-hond': '/vachtverzorging-seizoenen',
+  '/seizoensverzorging-hond': '/vachtverzorging-seizoenen',
+  '/dagopvang-hond-tips': '/hondenpension-checklist',
+  '/pension-hond-checklist': '/hondenpension-checklist',
+  '/omheinde-tuin-hond': '/vakantie-met-hond',
+  '/hondenvakantie': '/vakantie-met-hond',
+  '/slimste-hondenrassen': '/hondenras-intelligentie',
+  '/intelligentie-hond': '/hondenras-intelligentie',
+  '/verhuischecklist-hond': '/verhuizen-met-hond',
+  '/besparen-op-hond': '/honden-bespaartips',
+  '/hondenmaatjes': '/wandelmaatje',
+  '/puppy-groei': '/puppy-gewicht-calculator',
+  '/gewicht-hond-berekenen': '/puppy-gewicht-calculator',
+  '/trimsalon-omzet-berekenen': '/trimsalon-inkomsten-calculator',
+  '/tarieven-trimsalon': '/trimsalon-inkomsten-calculator',
+  '/spoed-ehbo': '/ehbo-hond',
+  '/eerste-hulp-hond': '/ehbo-hond',
+  '/tandsteen-hond': '/gebitsverzorging-hond',
+  '/hondengebit': '/gebitsverzorging-hond',
+  '/dieet-hond': '/afvallen-hond',
+  '/overgewicht-hond': '/afvallen-hond',
+  '/trim-herinnering': '/vacht-herinnering',
+  '/trimplanner': '/vacht-herinnering',
+  '/tekenradar': '/teken-en-vlooien',
+  '/teken-hond': '/teken-en-vlooien'
+}));
+
 /* ---------------------------------------------------------------------------
    Transport optimizations: Brotli/gzip compression, ETag revalidation and
    Vary handling for all text responses (HTML, JSON, XML, CSS, JS, SVG).
@@ -340,8 +508,16 @@ function upgradeResponse(req, res) {
 
   res.end = (chunk, encoding, callback) => {
     /* modernize alleen als dat nog niet is gebeurd (directory/profielpagina's
-       worden al gemoderniseerd + gecachet in de route-handler). */
-    if (typeof chunk === 'string' && chunk.includes('<html') && !chunk.includes('id="tg-theme-boot"')) chunk = modernizeGeneratedHtml(chunk);
+       worden al gemoderniseerd + gecachet in de route-handler).
+       Marker: tg-seo-clamp wordt in élke modernize-pass onvoorwaardelijk in
+       <head> gezet, en komt in geen enkel raw-template voor — dus dit is een
+       betrouwbare "al gedaan"-test. De oude check op id="tg-theme-boot" was
+       onbetrouwbaar: index.html heeft zélf al een inline theme-bootstrap
+       (zonder id), waardoor modernize géén tg-theme-boot injecteert en deze
+       fallback de homepage een tweede keer door de hele pijplijn joeg. Die
+       dubbele pass herversioneerde onder meer de font-preloads (?v= erbij) en
+       kostte onnodig CPU op de meest aangevraagde pagina. */
+    if (typeof chunk === 'string' && chunk.includes('<html') && !chunk.includes('tg-seo-clamp')) chunk = modernizeGeneratedHtml(chunk);
     const raw = chunk == null ? null
       : typeof chunk === 'string' ? Buffer.from(chunk, encoding || 'utf8')
       : Buffer.isBuffer(chunk) ? chunk
@@ -4721,7 +4897,7 @@ async function serveStatic(req, res, pathname) {
        geserveerd en miste daardoor al die lagen. */
     if (extension === '.html') {
       const text = content.toString('utf8');
-      const html = text.includes('id="tg-theme-boot"') ? text : modernizeGeneratedHtml(text);
+      const html = text.includes('tg-seo-clamp') ? text : modernizeGeneratedHtml(text);
       return res.end(html);
     }
     res.end(content);
@@ -4927,12 +5103,23 @@ function modernizeGeneratedHtmlUncached(html) {
      dit script zette light, de browser schilderde light, en zodra het
      body-script draaide klapte de pagina alsnog naar dark — een zichtbare
      flits op elke gegenereerde pagina. Nu is de eerste paint meteen goed. */
-  if (!html.includes('tg-theme-boot')) {
+  /* Guard ook op de variabelenaam: index.html heeft zijn eigen vroege
+     theme-bootstrap (vóór de stylesheets, dus zonder FOUC) maar zonder het
+     tg-theme-boot-id, waardoor de id-only check hem een tweede (en te late)
+     scriptkopie bezorgde. De variabelenaam-trimgids_theme-verwijzing zit in
+     beide varianten, dus daarmee detecteren we elk reeds aanwezig bootstrap. */
+  if (!html.includes('tg-theme-boot') && !html.includes('trimgids_theme')) {
     html = html.replace('</head>', '<script id="tg-theme-boot">try{var tgT=localStorage.getItem("trimgids_theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",tgT);}catch(e){}</script></head>');
   }
   if (!html.includes('tg-app-js')) {
     html = html.replace('</body>', '<script id="tg-app-js" src="/assets/js/app.js?v=22"></script></body>');
   }
+  /* Deduplicatie van kaart-scripts: index.html linkt nl-map.js zelf al
+     (zonder marker-id), waardoor de id-only guard hieronder hem een tweede
+     keer injecteerde. Eerst álle exemplaren verwijderen, daarna precies één
+     gemarkeerde versie toevoegen — hetzelfde remove-then-add-patroon als de
+     CSS-staart hierboven. */
+  html = html.replace(/[ \t]*<script\b[^>]*src=["'][^"']*\/assets\/js\/(?:nl-map)\.js(?:[?#][^"']*)?["'][^>]*>(?:<\/script>)?\r?\n?/g, '');
   /* Ronde 11 — interactieve (mini)kaart op elke pagina met een data-nl-map-element.
      De CSS en het script apart guarden: index.html linkt nl-map.css zelf al, dus
      de oude check (alleen op het script-id) injecteerde de stylesheet een tweede
@@ -4945,10 +5132,10 @@ function modernizeGeneratedHtmlUncached(html) {
       + '<script id="tg-nlmap-js" src="/assets/js/nl-map.js?v=17" defer></script>';
     html = html.replace('</head>', mapTags + '</head>');
   }
-  /* Ronde 9 — chat-assistent TG op elke gegenereerde pagina (float-rood = laad-lazy). */
-  if (!html.includes('tg-chatbot-js')) {
-    html = html.replace('</body>', '<script id="tg-chatbot-js" src="/assets/js/chatbot.js" defer></script></body>');
-  }
+  /* Ronde 9 — de chat-assistent TG (zwevende chat-bel) is per productbeslissing
+     uitgeschakeld; het zwevende UI-element en het bijbehorende panel zijn
+     verwijderd. chatbot.js blijft in assets/ staan zodat de assistent later
+     eenvoudig opnieuw geactiveerd kan worden. */
   /* OpenGraph-fallback: elke pagina zonder eigen og-tags krijgt de standaardbeeldset
      (net zo belangrijk voor click-through op social/WhatsApp als voor SEO). */
   if (!html.includes('property="og:image"')) {
@@ -4970,7 +5157,12 @@ function modernizeGeneratedHtmlUncached(html) {
   /* Prestaties: niet-critische afbeeldingen lazy laden (+ async decoding). */
   if (!html.includes('tg-lazy-css')) {
     html = html.replace(/<img (?![^>]*loading=)(?![^>]*fetchpriority="high")/g, '<img loading="lazy" decoding="async" ');
-    html = html.replace('</head>', '<style id="tg-lazy-css">.section,.card{content-visibility:auto;contain-intrinsic-size:auto 720px}</style></head>');
+    /* content-visibility alleen op grote secties, niet op losse kaarten:
+       een kaart is ~250-350px hoog, terwijl contain-intrinsic-size 720px
+       aannam — dat gaf een te lange scrollbar en sprongen tijdens scrollen.
+       .section zit ook in content-skin.css (@supports, 900px); zelfde waarde
+       hier houdt de cascade conflictvrij en de schatting reëel. */
+    html = html.replace('</head>', '<style id="tg-lazy-css">.section{content-visibility:auto;contain-intrinsic-size:auto 900px}</style></head>');
   }
 
   /* Shell + content-skin als LAATSTE elementen van <head>: zo winnen ze de
@@ -5082,6 +5274,26 @@ function modernizeGeneratedHtmlUncached(html) {
     }).join(', ');
     return `srcset=${quote}${rewritten}${quote}`;
   });
+
+  /* Fase 3 — kritieke font-preloads: de LCP is tekst (hero-titel in Sora 800,
+     body/UI in Plus Jakarta Sans), dus het lettertype bepaalt de LCP-tijd.
+     Preload haalt de woff2-fetch naar voren en parallel aan fonts.css, i.p.v.
+     dat de browser de font-URL's pas ontdekt ná het parsen van die stylesheet.
+     De URL's gaan door assetUrl(): dezelfde content-hash ?v= als in de
+     @font-face src van fonts.css (scripts/version-fonts.mjs). Preload en
+     stylesheet matchen zo byte-voor-byte — een andere URL zou door de browser
+     als aparte resource worden geteld en het bestand dubbel downloaden.
+     Alleen de latin-subsets (dekken het Nederlands volledig, U+0000-00FF):
+     de latin-ext- en inter-subset hoeft de Nederlandse tekst niet. */
+  if (!html.includes('tg-font-preload')) {
+    const fontPreloads = '<!-- tg-font-preload -->' + [
+      '/assets/fonts/sora-latin-800-normal.woff2',
+      '/assets/fonts/plus-jakarta-sans-latin-400-normal.woff2',
+      '/assets/fonts/plus-jakarta-sans-latin-700-normal.woff2',
+      '/assets/fonts/plus-jakarta-sans-latin-800-normal.woff2'
+    ].map(f => `<link rel="preload" as="font" type="font/woff2" crossorigin href="${assetUrl(f)}">`).join('');
+    html = html.replace('</head>', fontPreloads + '</head>');
+  }
 
   /* Core Web Vitals beacon op elke gegenereerde pagina (anoniem, compact) */
   if (!html.includes('tg-cwv-js')) {
@@ -5999,6 +6211,15 @@ export async function handleRequest(req, res) {
       return json(res, 200, { quote: await moderate(quotesFile, decodeURIComponent(url.pathname.slice('/api/admin/quotes/'.length)), (await readJson(req)).status) });
     }
 
+    /* Ronde 31 — alias-routes 301-redirecten naar hun canonieke URL (zie
+       ALIAS_REDIRECTS hierboven). Query-string blijft behouden zodat o.a.
+       /search?q=… en /zoeken?q=… netjes op /zoek?q=… uitkomen. */
+    if (ALIAS_REDIRECTS.has(url.pathname)) {
+      const target = ALIAS_REDIRECTS.get(url.pathname) + (url.search || '');
+      res.writeHead(301, secureHeaders({ Location: target, 'Cache-Control': 'public, max-age=86400, s-maxage=604800' }));
+      return res.end();
+    }
+
     /* SSR Dedicated Content Hubs */
     if (url.pathname === '/nieuws') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
@@ -6289,7 +6510,7 @@ export async function handleRequest(req, res) {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(moneySavingPage());
     }
-    if (url.pathname === '/wandelmaatje' || url.pathname === '/community' || url.pathname === '/hondenmaatjes') {
+    if (url.pathname === '/wandelmaatje' || url.pathname === '/hondenmaatjes') {
       res.writeHead(200, secureHeaders({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE }));
       return res.end(communityBuddiesPage());
     }

@@ -105,8 +105,6 @@
 <a href="#main-content" class="skip-link">Direct naar inhoud</a>
 
 <!-- SCROLL PROGRESS BAR -->
-<div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
-
 <!-- TOP ANNOUNCEMENT BAR -->
 <div class="top-announcement">
   <div class="wrap top-announce-in">
@@ -365,8 +363,11 @@
       <!-- Ronde 29 — kaart 6 is 'Voor baasjes' geworden (actueel nieuws +
            verhalen door baasjes). Het oude nieuwskaartje was al die tijd
            verstopt door een display:none-regel, waardoor het grid er als
-           5 kaarten uitzag — die regel is verwijderd. -->
-      <div class="world-card world-baasjes">
+           5 kaarten uitzag — die regel is verwijderd.
+           Kaart 6 is een div met data-world-link; een kleine handler maakt
+           de héle kaart klikbaar naar /voor-baasjes (net als kaart 1–5),
+           terwijl de binnenste links (/nieuws) zelfstandig blijven werken. -->
+      <div class="world-card world-baasjes" data-world-link="/voor-baasjes">
         <picture><img src="/assets/img/gen/k-zwerfhonden-960.webp" srcset="/assets/img/gen/k-zwerfhonden-480.webp 480w, /assets/img/gen/k-zwerfhonden-960.webp 960w" sizes="(max-width:700px) 100vw, 33vw" width="960" height="720" loading="lazy" decoding="async" alt="Vrijwilliger helpt een hond zonder vaste verblijfplaats"></picture>
         <div class="world-body">
           <span class="world-kicker">6 · Door baasjes, voor baasjes</span>
@@ -391,30 +392,30 @@
         <h2 class="section-title">De snelste, oudste, zwaarste &amp; luidste hond ooit</h2>
         <p class="section-subtitle">Honderd records, geverifieerde feiten en eerlijke twijfel — van 74,6 km/u tot een blaf van ±113 dB. Kies een categorie en ontdek ze allemaal.</p>
       </div>
-      <a class="btn btn-primary btn-pill" href="/hondenrecords">Alle 100 records →</a>
+      <a class="btn btn-primary btn-pill" href="/dogpedia">Alle 100 records →</a>
     </div>
     <div class="records-ticker" id="home-records" role="list" aria-label="Record-highlights">
-      <a class="record-chip" href="/hondenrecords" role="listitem">
+      <a class="record-chip" href="/dogpedia" role="listitem">
         <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
         <span class="record-txt"><strong>Snelste hond</strong><em>74,6 km/u · Greyhound</em></span>
       </a>
-      <a class="record-chip" href="/hondenrecords" role="listitem">
+      <a class="record-chip" href="/dogpedia" role="listitem">
         <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg></span>
         <span class="record-txt"><strong>Luidste blaf</strong><em>±113 dB — vliegtuig-niveau</em></span>
       </a>
-      <a class="record-chip" href="/hondenrecords" role="listitem">
+      <a class="record-chip" href="/dogpedia" role="listitem">
         <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></span>
         <span class="record-txt"><strong>Oudste ooit</strong><em>Bluey · 29 jaar &amp; 5 mnd</em></span>
       </a>
-      <a class="record-chip" href="/hondenrecords" role="listitem">
+      <a class="record-chip" href="/dogpedia" role="listitem">
         <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg></span>
         <span class="record-txt"><strong>Grootste ooit</strong><em>Zeus · 111,8 cm schoft</em></span>
       </a>
-      <a class="record-chip" href="/hondenrecords" role="listitem">
+      <a class="record-chip" href="/dogpedia" role="listitem">
         <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg></span>
         <span class="record-txt"><strong>Zwaarste ooit</strong><em>Zorba · 155,6 kg</em></span>
       </a>
-      <a class="record-chip" href="/hondenrecords" role="listitem">
+      <a class="record-chip" href="/dogpedia" role="listitem">
         <span class="record-ico"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span>
         <span class="record-txt"><strong>Slimste woordenschat</strong><em>Chaser · ±1.022 woorden</em></span>
       </a>
@@ -1239,10 +1240,6 @@
   </div>
 </footer>
 
-<!-- BACK TO TOP FLOATING BUTTON — pijl-icoon, staat links van de chat-bel -->
-<button id="back-to-top" class="back-to-top-btn" aria-label="Naar boven" title="Naar boven" type="button">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
 <nav class="mobile-action-bar" aria-label="Snelle acties">
   <a href="#interactieve-kaart">Vind specialist</a>
   <a href="#offerte">Vraag offerte aan</a>
@@ -1593,13 +1590,37 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || ['localho
   dog.addEventListener('click',function(e){e.preventDefault();img.src='/assets/img/pomeriaan-hondzien.webp';dog.classList.add('on');human.classList.remove('on');});
 })();
 </script>
-<!-- Kaart + forum componenten (self-contained, same-origin) -->
-<script src="/assets/js/nl-map.js"></script>
-<script src="/assets/js/forum.js"></script>
+<!-- Kaart + forum componenten (self-contained, same-origin).
+     forum.js krijgt defer zodat het ná app.js (sync, hieronder) draait:
+     app.js definieert window.TGApp, en forum.js leest daarmee de
+     ingelogde gebruiker — synchroon vóór app.js zou dat missen.
+     nl-map.js wordt door de server al defer geïnjecteerd. -->
+<script src="/assets/js/nl-map.js" defer></script>
+<script src="/assets/js/forum.js" defer></script>
 <script src="/assets/js/poll.js" defer></script>
 <!-- Gedeelde runtime: thema, account, favorieten en algemene interacties -->
 <script id="tg-app-js" src="/assets/js/app.js?v=22"></script>
-<!-- Assistent TG (Ronde 9): chatbot met kennisbank + optionele AI -->
-<script src="/assets/js/chatbot.js" defer></script>
+<script>
+/* Werelden-kaart 6 ('Voor baasjes') gedraagt zich als kaart 1–5:
+   de héle kaart linkt naar /voor-baasjes (stretched-link-patroon),
+   de binnenste links (/nieuws, /voor-baasjes) blijven zelfstandig werken. */
+(function () {
+  var card = document.querySelector('.world-card.world-baasjes[data-world-link]');
+  if (!card) return;
+  var href = card.getAttribute('data-world-link');
+  card.setAttribute('role', 'link');
+  card.setAttribute('tabindex', '0');
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    window.location.href = href;
+  });
+  card.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) {
+      e.preventDefault();
+      window.location.href = href;
+    }
+  });
+})();
+</script>
 </body>
 </html>

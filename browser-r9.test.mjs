@@ -104,37 +104,25 @@ console.log('\n[3] /zoek-pagina: resultaten + live herzoek');
   dom.window.close();
 }
 
-console.log('\n[4] Chatbot TG: openen, suggestie, antwoord, links');
+console.log('\n[4] Chatbot TG bewust uitgeschakeld (zwevende chat-bel verwijderd)');
 {
+  /* Productbeslissing: de zwevende chat-bel (tg-chat-bubble) is verwijderd
+     omdat het een storend zwevend element was. De chatbot-functionaliteit
+     (chatbot.js) blijft in assets/ bewaard voor een eventuele herintroductie.
+     Deze test bewaakt dat er géén zwevende chat-UI meer gerenderd wordt. */
   const dom = await loadPage('/');
   const d = dom.window.document;
-  assert(!!d.getElementById('tg-chat-bubble'), 'chat-bubble aanwezig');
-  d.getElementById('tg-chat-bubble').click();
-  await sleep(300);
-  const panel = d.getElementById('tg-chat-panel');
-  assert(panel.classList.contains('open'), 'chatpaneel opent');
-  assert(d.querySelectorAll('#tg-chat-chips button').length >= 4, 'suggestie-chips getoond');
-  const chip = [...d.querySelectorAll('#tg-chat-chips button')].find(b => /verzekering/i.test(b.textContent));
-  chip.click();
-  await sleep(900);
-  const msgs = [...d.querySelectorAll('.tg-msg')];
-  assert(msgs.some(m => m.classList.contains('me')), 'gebruikersbericht getoond');
-  assert(msgs.some(m => m.classList.contains('bot') && /Figo|9,3/.test(m.textContent)), 'TG-antwoord met 2026-data');
-  assert(d.querySelectorAll('.tg-chat-links a').length >= 1, 'aanbevolen link(s) getoond');
-  assert(errors.length === 0, 'geen JS-fouten', errors.slice(0, 2).join(' | '));
+  assert(!d.getElementById('tg-chat-bubble'), 'geen chat-bubble op homepage');
+  assert(!d.getElementById('tg-chat-panel'), 'geen chatpaneel op homepage');
   dom.window.close();
 }
 
-console.log('\n[5] Chatbot op legacy-pagina + Escape sluit');
+console.log('\n[5] Geen chat-bel op legacy-pagina');
 {
   const dom = await loadPage('/verzekering');
   const d = dom.window.document;
-  assert(!!d.getElementById('tg-chat-bubble'), 'chat aanwezig op /verzekering');
-  d.getElementById('tg-chat-bubble').click();
-  await sleep(250);
-  d.dispatchEvent(new dom.window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-  await sleep(150);
-  assert(!d.getElementById('tg-chat-panel').classList.contains('open'), 'Escape sluit chat');
+  assert(!d.getElementById('tg-chat-bubble'), 'geen chat-bel op /verzekering');
+  assert(!d.getElementById('tg-chat-panel'), 'geen chatpaneel op /verzekering');
   dom.window.close();
 }
 
@@ -170,9 +158,9 @@ console.log('\n[7] Hero-leesbaarheid (text-shadow + scrim aanwezig)');
     return res.ok ? res.text() : '';
   }))).join('\n');
   assert(css.length > 0, 'homepage linkt minstens één stylesheet (' + cssHrefs.length + ' gevonden)');
-  assert(/text-shadow: 0 1px 2px rgba\(255,255,255,\.94\)/.test(css), 'lichte text-shadow op hero-tekst');
-  assert(/rgba\(4,20,13,\.68\)/.test(css), 'donkere scrim .68 in dark-thema');
-  assert(/\.hero-subtitle \{ color: #334155/.test(css), 'subtitel donkerder (betere contrast) in licht thema');
+  assert(/text-shadow:\s*0 1px 2px rgba\(255,255,255,\.94\)/.test(css), 'lichte text-shadow op hero-tekst');
+  assert(/(rgba\(4,20,13,\.68\)|#04140dad)/i.test(css), 'donkere scrim .68 in dark-thema');
+  assert(/\.hero-subtitle\s*\{\s*color:\s*#334155/.test(css), 'subtitel donkerder (betere contrast) in licht thema');
 }
 
 console.log('\nEINDE Ronde 9' + (process.exitCode ? ' — FOUTEN AANGETROFFEN' : ' — ALLES GROEN'));
