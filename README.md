@@ -11,6 +11,16 @@
 
 Zonder Google-key blijft de demo beschikbaar en geeft `/api/health` aan dat Google Places niet is geconfigureerd.
 
+## Assets minificeren (build-stap)
+
+De eigen CSS en JS in `assets/css/` en `assets/js/` staan geminificeerd in Git (Fase 2 van het optimalisatieplan). Wil je ze opnieuw genereren na een wijziging:
+
+```bash
+npm run build:assets
+```
+
+`scripts/minify-assets.mjs` draait esbuild over beide mappen en schrijft de geminificeerde output in-place terug. De vendorde Leaflet-bestanden (`assets/vendor/leaflet`) worden bewust niet aangeraakt: die zijn al byte-identiek aan de officiële `leaflet/dist`-build. De `?v=`-cache-busting wordt afgeleid uit de bestandsinhoud (SHA-1), dus na het minificeren verandert de versie op élke pagina automatisch mee.
+
 ## Google Places-catalogus vullen
 
 Na het instellen van `GOOGLE_PLACES_API_KEY` kun je een gecontroleerde import starten met `npm run sync:places`. De tool haalt alleen basisgegevens van trimsalons per catalogusplaats op. Google-reviews en foto’s worden niet gekopieerd. Nieuwe imports krijgen `verified: false` en blijven daardoor buiten de index totdat ze handmatig zijn gecontroleerd.

@@ -31,7 +31,6 @@ const routes = [
   '/adoptie',
   '/hond-gevonden',
   '/reizen',
-  '/vliegen-hond',
   '/rassen',
   '/verboden-rassen',
   '/poepzakjes',
@@ -110,4 +109,30 @@ if (failures.length) {
   process.exitCode = 1;
 } else {
   console.log(`Smoke test passed: ${routes.length} pages and ${apiRoutes.length} APIs at ${baseUrl}`);
+}
+
+/* Ronde 31 — alias-routes moeten 301-redirecten naar hun canonieke URL.
+   (redirect:'manual' zodat we de 301 zelf zien, niet de doorgestuurde 200.) */
+const aliasChecks = [
+  ['/vliegen-hond', '/reizen'],
+  ['/trimkosten', '/trimmen-kosten'],
+  ['/wat-kost-trimmen', '/trimmen-kosten'],
+  ['/community', '/forum'],
+  ['/hondenforum', '/forum'],
+  ['/search?q=verzekering', '/zoek?q=verzekering']
+];
+for (const [alias, canonical] of aliasChecks) {
+  try {
+    const response = await fetch(baseUrl + alias, { redirect: 'manual' });
+    if (response.status !== 301) failures.push(`${alias}: verwacht 301, kreeg ${response.status}`);
+    else if (response.headers.get('location') !== canonical) failures.push(`${alias}: location=${response.headers.get('location')}, verwacht ${canonical}`);
+  } catch (error) {
+    failures.push(`${alias}: ${error.message}`);
+  }
+}
+if (failures.length) {
+  console.error('Alias-redirect checks failed:\n- ' + failures.join('\n- '));
+  process.exitCode = 1;
+} else {
+  console.log('Alias-redirects correct (301 → canoniek)');
 }

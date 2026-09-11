@@ -19,6 +19,7 @@
    400 slechts 8×, tegenover 800 (71×) en 700 (32×). Minder bestanden = sneller. */
 
 import { mkdir, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -67,12 +68,18 @@ for (const family of FAMILIES) {
     total += buf.length;
     n++;
 
+    /* Content-hash-versie (?v=) direct in de src, zelfde algoritme als de
+       server-runtime (assetUrl: SHA-1 → base64url → 8 tekens). Zo blijft de
+       gegenereerde stylesheet consistent met scripts/version-fonts.mjs en de
+       font-preloads die de server injecteert. */
+    const version = createHash('sha1').update(buf).digest('base64url').slice(0, 8);
+
     blocks.push(`@font-face {
   font-family: '${family.name}';
   font-style: ${style};
   font-weight: ${weight};
   font-display: swap;
-  src: url('/assets/fonts/${file}') format('woff2');${range ? `\n  unicode-range: ${range};` : ''}
+  src: url('/assets/fonts/${file}?v=${version}') format('woff2');${range ? `\n  unicode-range: ${range};` : ''}
 }`);
   }
   console.log(`  ${family.name}: ${n} bestanden`);

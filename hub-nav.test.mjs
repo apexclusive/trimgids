@@ -25,12 +25,12 @@ const strip = window.document.querySelector('.hub-nav-in');
 ok(Boolean(strip), 'Homepage bevat .hub-nav-in');
 
 /* app.js is een IIFE die bij DOMContentLoaded boot() draait; hier roepen we de
-   module handmatig aan omdat jsdom geen externe scripts laadt. */
+   module handmatig aan omdat jsdom geen externe scripts laadt.
+   De wiring (initHubNavScroll bestaat én wordt door boot() aangeroepen) wordt
+   hieronder behavior-geverifieerd via window.eval + de data-at-end-attributen,
+   zodat de test ook groen blijft op de geminificeerde build (waarin interne
+   functienamen zoals initHubNavScroll worden hernoemd). */
 const appSource = await (await fetch(BASE + '/assets/js/app.js')).text();
-
-ok(/function initHubNavScroll\s*\(/.test(appSource), 'app.js definieert initHubNavScroll');
-ok(/\n\s*initHubNavScroll\(\);/.test(appSource), 'boot() roept initHubNavScroll aan');
-ok(/data-at-end/.test(appSource), 'initHubNavScroll zet het data-at-end-attribuut dat de CSS gebruikt');
 
 /* Scrollbare situatie naspelen: strip is smaller dan de inhoud en staat links. */
 let scrollLeft = 0;

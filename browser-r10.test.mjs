@@ -29,7 +29,7 @@ for (const path of pages) {
   expect(d.querySelectorAll('link[id="tg-site-chrome"]').length === 1, 'site-chrome.css exact 1× geladen');
   expect(d.querySelectorAll('link[id="tg-content-skin"]').length === 1, 'content-skin.css exact 1× geladen');
   expect(d.querySelectorAll('script[src="/assets/js/app.js"], script[id="tg-app-js"]').length === 1, 'app.js 1× geladen');
-  expect(d.querySelectorAll('script[src="/assets/js/chatbot.js"], script[id="tg-chatbot-js"]').length === 1, 'chatbot.js 1× geladen');
+  expect(d.querySelectorAll('script[src="/assets/js/chatbot.js"], script[id="tg-chatbot-js"]').length === 0, 'chatbot.js 0× geladen (zwevende chat-bel bewust verwijderd)');
   expect(d.querySelectorAll('.route-skip, .skip-link').length >= 1, 'skip-link aanwezig');
   expect(d.querySelectorAll('header, header.site-navbar').length === 0 || d.querySelector('nav.site-navbar') != null, 'geen legacy-header meer');
 
