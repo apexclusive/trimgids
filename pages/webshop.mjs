@@ -37,7 +37,7 @@ const CATS = [
 
 function productSchema(items) {
   return { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'ItemList', name: 'TrimGids webshop — aanbevolen producten', itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: 'https://trimgids.nl/webshop#p-' + p.id })) },
+    { '@type': 'ItemList', name: 'TrimGids webshop — aanbevolen producten', itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: 'https://www.trimgids.nl/webshop#p-' + p.id })) },
     ...items.map(p => ({
       '@type': 'Product',
       name: p.title,
@@ -45,7 +45,7 @@ function productSchema(items) {
       brand: { '@type': 'Brand', name: (p.brand || 'TrimGids keuze') },
       aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating, reviewCount: p.reviewCount },
       offers: { '@type': 'Offer', priceCurrency: 'EUR', price: p.price, availability: 'https://schema.org/InStock', url: p.affiliateUrl, priceValidUntil: '2026-12-31' },
-      url: 'https://trimgids.nl/webshop#p-' + p.id,
+      url: 'https://www.trimgids.nl/webshop#p-' + p.id,
       image: p.image || undefined
     }))
   ] };

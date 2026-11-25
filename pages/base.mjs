@@ -89,12 +89,12 @@ export function pageShell({ title, description, canonical, body, extraCss = '', 
   return `<!doctype html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${description}">
-<link rel="canonical" href="https://trimgids.nl${canonical}">
+<link rel="canonical" href="https://www.trimgids.nl${canonical}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:type" content="website"><meta property="og:site_name" content="TrimGids">
 <meta property="og:title" content="${title}"><meta property="og:description" content="${description}">
-<meta property="og:url" content="https://trimgids.nl${canonical}"><meta property="og:locale" content="nl_NL">
-<meta property="og:image" content="https://trimgids.nl/assets/img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.trimgids.nl${canonical}"><meta property="og:locale" content="nl_NL">
+<meta property="og:image" content="https://www.trimgids.nl/assets/img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="stylesheet" href="/assets/css/fonts.css?v=1" id="tg-local-fonts">
 ${chromeCssLink}
 ${extraHead}

@@ -104,6 +104,54 @@ for (const path of apiRoutes) {
   }
 }
 
+try {
+  const { response, body } = await request('/sitemap.xml');
+  if (response.status !== 200) failures.push(`/sitemap.xml: HTTP ${response.status}`);
+  if (!body.includes('<urlset') || !body.includes('https://www.trimgids.nl/')) failures.push('/sitemap.xml: missing XML urlset or canonical URLs');
+} catch (error) {
+  failures.push(`/sitemap.xml: ${error.message}`);
+}
+
+try {
+  const { response, body } = await request('/api/index.js?__sitemap=1');
+  if (response.status !== 200 || !body.includes('<urlset')) failures.push('/api/index.js?__sitemap=1: sitemap rewrite target failed');
+} catch (error) {
+  failures.push(`/api/index.js?__sitemap=1: ${error.message}`);
+}
+
+try {
+  const { response, body } = await request('/assets/css/mobile-search.css');
+  if (response.status !== 200) failures.push(`/assets/css/mobile-search.css: HTTP ${response.status}`);
+  if (!body.includes('#home-hero .hero-title')) failures.push('/assets/css/mobile-search.css: missing compact mobile search styles');
+} catch (error) {
+  failures.push(`/assets/css/mobile-search.css: ${error.message}`);
+}
+
+try {
+  const { body } = await request('/');
+  if (!body.includes('href="https://www.trimgids.nl/"') || !body.includes('id="home-hero"')) {
+    failures.push('/: canonical domain or homepage hero marker is missing');
+  }
+} catch (error) {
+  failures.push(`/: ${error.message}`);
+}
+
+try {
+  const { response, body } = await request('/robots.txt');
+  if (response.status !== 200) failures.push(`/robots.txt: HTTP ${response.status}`);
+  if (!body.includes('Sitemap: https://www.trimgids.nl/sitemap.xml')) failures.push('/robots.txt: sitemap host does not match canonical domain');
+} catch (error) {
+  failures.push(`/robots.txt: ${error.message}`);
+}
+
+try {
+  const { body } = await request('/api/forum');
+  const { topics } = JSON.parse(body);
+  if (topics.some(topic => topic.author === 'ForumCheckUser')) failures.push('/api/forum: test account content is publicly visible');
+} catch (error) {
+  failures.push(`/api/forum test data: ${error.message}`);
+}
+
 if (failures.length) {
   console.error('Smoke test failed:\n- ' + failures.join('\n- '));
   process.exitCode = 1;

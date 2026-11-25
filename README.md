@@ -73,6 +73,8 @@ Wanneer beide zijn geconfigureerd schakelt de **optionele storage adapter** auto
 npm run sync:db
 ```
 
+Zonder deze Vercel-omgevingsvariabelen meldt `/api/health` `storage: "local-json"` en `persistentStorage: false`. Lokale JSON-bestanden zijn op Vercel geen betrouwbare permanente opslag; configureer eerst een database voordat je inzendingen als duurzaam opgeslagen beschouwt.
+
 Voor notificaties zijn optioneel `RESEND_API_KEY`, `NOTIFICATION_FROM_EMAIL` en `NOTIFICATION_TO_EMAIL` beschikbaar.
 
 Bij iedere push naar `main` en bij pull requests draait GitHub Actions automatisch `smoke.mjs` via `.github/workflows/smoke.yml`.

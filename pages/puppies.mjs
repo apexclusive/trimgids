@@ -53,7 +53,7 @@ export function puppiesPage(list = []) {
     canonical: '/puppies',
     extraHead: CSS_LINK,
     body: `
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Pups met transparante fokkerinformatie","itemListElement":${JSON.stringify(items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title + ' — ' + p.breeder + ' (' + p.city + ')', url: 'https://trimgids.nl/puppies#' + p.id })))}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Pups met transparante fokkerinformatie","itemListElement":${JSON.stringify(items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title + ' — ' + p.breeder + ' (' + p.city + ')', url: 'https://www.trimgids.nl/puppies#' + p.id })))}}</script>
 
 <div class="pm-hero">
   <img src="/assets/img/gen/p-labrador-900.avif" srcset="/assets/img/gen/p-labrador-450.avif 450w, /assets/img/gen/p-labrador-900.avif 900w" sizes="(max-width:640px) 100vw, 1200px" width="900" height="604" fetchpriority="high" decoding="async" alt="Labrador pups spelen op een weide">

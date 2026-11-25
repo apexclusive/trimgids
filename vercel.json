@@ -49,11 +49,11 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
+      "destination": "/api/index.js?__sitemap=1"
     },
     {
       "source": "/sitemaps.xml",
-      "destination": "/sitemap.xml"
+      "destination": "/api/index.js?__sitemap=1"
     },
     {
       "source": "/robots.txt",
