@@ -98,7 +98,12 @@ for (const path of apiRoutes) {
   try {
     const { response, body } = await request(path);
     if (response.status !== 200) failures.push(`${path}: HTTP ${response.status}`);
-    JSON.parse(body);
+    const data = JSON.parse(body);
+    if (path === '/api/health') {
+      if (typeof data.persistentStorage !== 'boolean' || !Array.isArray(data.persistentCollections)) {
+        failures.push('/api/health: missing persistence status');
+      }
+    }
   } catch (error) {
     failures.push(`${path}: ${error.message}`);
   }

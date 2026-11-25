@@ -5734,13 +5734,15 @@ export async function handleRequest(req, res) {
       return publicJson(res, 200, { results, count: results.length }, 120);
     }
 
-    /* Algemene health-check (README belooft /api/health): status + of Google
-       Places is geconfigureerd. Zonder key draait de site in demomodus. */
+    /* Algemene health-check: status van optionele diensten en persistente opslag. */
     if (url.pathname === '/api/health' && req.method === 'GET') {
       return json(res, 200, {
         status: 'ok',
         googlePlaces: Boolean(googleKey),
         mode: process.env.OPENAI_API_KEY ? 'ai' : 'knowledge',
+        storage: dbEnabled() ? 'supabase' : 'local-json',
+        persistentStorage: dbEnabled(),
+        persistentCollections: dbEnabled() ? ['quote_requests', 'provider_claims', 'provider_reviews'] : [],
         uptime: Math.round(process.uptime()),
       });
     }
