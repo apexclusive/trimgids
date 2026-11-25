@@ -6119,7 +6119,7 @@ export async function handleRequest(req, res) {
     }
     if (url.pathname === '/api/auth/me' && req.method === 'GET') {
       const user = await currentUser(req);
-      if (!user) return json(res, 401, { error: 'not_authenticated' });
+      if (!user) return json(res, 200, { user: null, favorites: [] }, 'no-store');
       return json(res, 200, { user: publicUser(user), favorites: await favoritesFor(user.id) });
     }
     if (url.pathname === '/api/me/favorites' && req.method === 'GET') {
